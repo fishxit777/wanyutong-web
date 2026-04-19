@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>萬語通 — LINE 即時翻譯機器人</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:        #080b10;
+  --bg2:       #0e1218;
+  --bg3:       #141a24;
+  --border:    rgba(255,255,255,0.07);
+  --border2:   rgba(255,255,255,0.12);
+  --text:      #e8edf5;
+  --muted:     #6b7a99;
+  --line:      #06c755;
+  --cyan:      #00d4ff;
+  --white:     #ffffff;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ── 格線背景（雙層格線＋漸層遮罩） ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(6,199,85,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(6,199,85,0.04) 1px, transparent 1px),
+    linear-gradient(rgba(0,212,255,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,212,255,0.015) 1px, transparent 1px);
+  background-size: 96px 96px, 96px 96px, 24px 24px, 24px 24px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 角落暈暗遮罩 */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 0% 0%,   rgba(4,6,10,0.7) 0%, transparent 50%),
+    radial-gradient(ellipse at 100% 0%,  rgba(4,6,10,0.6) 0%, transparent 45%),
+    radial-gradient(ellipse at 0% 100%,  rgba(4,6,10,0.6) 0%, transparent 45%),
+    radial-gradient(ellipse at 100% 100%,rgba(4,6,10,0.7) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── 粒子 canvas ── */
+#particle-canvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.7;
+}
+
+/* ── 矩陣雨 canvas ── */
+#matrix-canvas {
+  position: absolute;
+  top: 0; right: 0;
+  width: 52%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.16;
+  mask-image: linear-gradient(to left, rgba(0,0,0,0.9) 0%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,0.9) 0%, transparent 100%);
+}
+
+/* ── 電路板 SVG 背景 ── */
+.circuit-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.09;
+  overflow: hidden;
+}
+
+/* ── 掃描線：兩條，不同速度 ── */
+@keyframes scanline  { 0% { transform:translateY(-4px); } 100% { transform:translateY(100vh); } }
+@keyframes scanline2 { 0% { transform:translateY(-4px); } 100% { transform:translateY(100vh); } }
+.scanline {
+  position: fixed; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent 0%, rgba(6,199,85,0.18) 40%, rgba(0,212,255,0.12) 60%, transparent 100%);
+  pointer-events: none; z-index: 1;
+  animation: scanline 9s linear infinite;
+}
+.scanline2 {
+  position: fixed; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(0,212,255,0.1) 50%, transparent 100%);
+  pointer-events: none; z-index: 1;
+  animation: scanline2 14s linear infinite;
+  animation-delay: -6s;
+}
+
+/* ── 電路節點脈衝 ── */
+@keyframes nodepulse {
+  0%,100% { opacity:0.4; r:2.5; }
+  50%     { opacity:1;   r:4; }
+}
+
+/* ── 發光邊框強化 ── */
+.feature-card:hover {
+  box-shadow: 0 0 30px rgba(6,199,85,0.08), inset 0 0 30px rgba(6,199,85,0.03);
+}
+.price-card.featured {
+  box-shadow: 0 0 60px rgba(6,199,85,0.12), 0 0 120px rgba(6,199,85,0.05);
+}
+.stats-strip {
+  box-shadow: 0 0 40px rgba(6,199,85,0.06);
+}
+
+/* ── 數據流線條 ── */
+@keyframes dataflow {
+  0%   { transform: scaleX(0); opacity: 0; }
+  20%  { opacity: 1; }
+  100% { transform: scaleX(1); opacity: 0; }
+}
+.data-line {
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--line), transparent);
+  pointer-events: none;
+  transform-origin: left;
+  animation: dataflow 3s ease-in-out infinite;
+}
+
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5vw;
+  background: rgba(8,11,16,0.88);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-brand {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: var(--white);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.nav-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--line);
+  box-shadow: 0 0 10px var(--line);
+  animation: blink 2.4s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%,100% { opacity:1; box-shadow:0 0 10px var(--line); }
+  50%      { opacity:0.4; box-shadow:0 0 4px var(--line); }
+}
+
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+
+.nav-links a {
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--text); }
+
+.nav-cta {
+  background: var(--line) !important;
+  color: #000 !important;
+  padding: 0.38em 1.1em !important;
+  border-radius: 4px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.06em !important;
+  transition: box-shadow 0.2s !important;
+}
+
+.nav-cta:hover { box-shadow: 0 0 24px rgba(6,199,85,0.4) !important; color: #000 !important; }
+
+.hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px; }
+.hamburger span { display:block; width:22px; height:2px; background:var(--text); }
+
+#hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 5vw 60px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.orb1 {
+  position:absolute; width:600px; height:600px; border-radius:50%;
+  background:radial-gradient(circle,rgba(6,199,85,0.1) 0%,transparent 70%);
+  top:-120px; right:-80px; pointer-events:none;
+}
+
+.orb2 {
+  position:absolute; width:500px; height:500px; border-radius:50%;
+  background:radial-gradient(circle,rgba(0,212,255,0.07) 0%,transparent 70%);
+  bottom:-80px; left:-80px; pointer-events:none;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  max-width: 1100px;
+  width: 100%;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid rgba(6,199,85,0.3);
+  border-radius: 2px;
+  padding: 0.28em 0.85em;
+  font-size: 0.7rem;
+  color: var(--line);
+  margin-bottom: 1.5rem;
+  font-family: 'DM Mono', monospace;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: rgba(6,199,85,0.06);
+}
+
+h1 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.4rem, 5.5vw, 4rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.4rem;
+  color: var(--white);
+}
+
+.hl {
+  background: linear-gradient(135deg, var(--line) 0%, var(--cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-desc {
+  font-size: 1rem;
+  color: var(--muted);
+  max-width: 460px;
+  margin-bottom: 2.2rem;
+  line-height: 1.85;
+  font-weight: 300;
+}
+
+.hero-actions { display:flex; gap:1rem; flex-wrap:wrap; align-items:center; }
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--line);
+  color: #000;
+  padding: 0.8em 1.8em;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: box-shadow 0.2s, transform 0.15s;
+  box-shadow: 0 0 24px rgba(6,199,85,0.3);
+}
+
+.btn-primary:hover { box-shadow: 0 0 40px rgba(6,199,85,0.5); transform:translateY(-2px); }
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: var(--muted);
+  padding: 0.8em 1.8em;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-decoration: none;
+  border: 1px solid var(--border2);
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.btn-secondary:hover { border-color:rgba(255,255,255,0.3); color:var(--text); }
+
+.hero-mockup { display:flex; justify-content:center; align-items:center; position:relative; }
+
+.phone-glow {
+  position:absolute; inset:-40px;
+  background:radial-gradient(ellipse at center, rgba(6,199,85,0.12) 0%, transparent 70%);
+  pointer-events:none;
+}
+
+.phone-frame {
+  width: 258px;
+  background: #0c0c0c;
+  border-radius: 28px;
+  border: 1px solid rgba(255,255,255,0.09);
+  overflow: hidden;
+  box-shadow: 0 0 0 1px rgba(6,199,85,0.12), 0 32px 80px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.05);
+  position: relative;
+  z-index: 1;
+}
+
+.phone-top { background:#06c755; padding:12px 16px 10px; display:flex; align-items:center; gap:10px; }
+.phone-top-icon { width:32px; height:32px; background:rgba(255,255,255,0.15); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1rem; }
+.phone-top-name { font-size:0.85rem; font-weight:600; color:#fff; }
+.phone-top-sub  { font-size:0.68rem; color:rgba(255,255,255,0.75); }
+
+.chat-body { padding:12px; background:#181818; min-height:320px; display:flex; flex-direction:column; gap:8px; }
+
+.chat-msg { max-width:82%; padding:8px 12px; border-radius:12px; font-size:0.75rem; line-height:1.5; }
+.chat-msg.user { background:#06c755; color:#fff; align-self:flex-end; border-bottom-right-radius:3px; }
+.chat-msg.bot  { background:#252525; color:#ddd; align-self:flex-start; border-bottom-left-radius:3px; border:1px solid rgba(255,255,255,0.06); }
+
+.chat-label { font-size:0.61rem; color:#555; text-align:center; margin:2px 0; font-family:'DM Mono',monospace; }
+
+#stats { padding: 0 5vw 80px; position:relative; z-index:1; }
+
+.stats-strip {
+  max-width:1100px; margin:0 auto;
+  background:var(--bg2); border:1px solid var(--border); border-radius:12px;
+  display:grid; grid-template-columns:repeat(4,1fr); overflow:hidden;
+}
+
+.stat-item { padding:2rem 1.5rem; text-align:center; border-right:1px solid var(--border); }
+.stat-item:last-child { border-right:none; }
+
+.stat-num {
+  font-family:'Syne',sans-serif; font-weight:800;
+  font-size:clamp(1.8rem,3vw,2.6rem); line-height:1; margin-bottom:0.4rem;
+  background:linear-gradient(135deg,var(--line),var(--cyan));
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+}
+
+.stat-label { font-size:0.76rem; color:var(--muted); letter-spacing:0.06em; font-family:'DM Mono',monospace; }
+
+section { padding:90px 5vw; position:relative; z-index:1; }
+
+.eyebrow {
+  display:inline-block; font-family:'DM Mono',monospace; font-size:0.7rem;
+  color:var(--cyan); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:0.9rem;
+}
+
+h2 {
+  font-family:'Syne',sans-serif; font-weight:800;
+  font-size:clamp(1.7rem,3.5vw,2.6rem); line-height:1.15;
+  color:var(--white); margin-bottom:1rem; letter-spacing:-0.01em;
+}
+
+.lead {
+  font-size:0.98rem; color:var(--muted); max-width:560px;
+  margin-bottom:3.5rem; line-height:1.85; font-weight:300;
+}
+
+#features { background:var(--bg); }
+
+.features-grid {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:1px; max-width:1100px; margin:0 auto;
+  background:var(--border); border:1px solid var(--border);
+  border-radius:12px; overflow:hidden;
+}
+
+.feature-card {
+  background:var(--bg2); padding:2rem; transition:background 0.25s; position:relative; overflow:hidden;
+}
+
+.feature-card::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg,transparent,var(--cyan),transparent);
+  opacity:0; transition:opacity 0.3s;
+}
+
+.feature-card:hover { background:var(--bg3); }
+.feature-card:hover::before { opacity:1; }
+
+.feature-icon { font-size:1.6rem; margin-bottom:1rem; display:block; }
+.feature-title { font-family:'Syne',sans-serif; font-weight:700; font-size:0.93rem; color:var(--white); margin-bottom:0.5rem; }
+.feature-desc  { font-size:0.83rem; color:var(--muted); line-height:1.75; font-weight:300; }
+
+#compare { background:var(--bg2); }
+.compare-wrap { max-width:860px; margin:0 auto; }
+
+.compare-table {
+  width:100%; border-collapse:collapse;
+  background:var(--bg3); border:1px solid var(--border); border-radius:12px; overflow:hidden; font-size:0.87rem;
+}
+
+.compare-table th { padding:1rem 1.4rem; text-align:center; font-family:'Syne',sans-serif; font-weight:700; font-size:0.83rem; letter-spacing:0.03em; }
+.compare-table th:first-child { text-align:left; background:var(--bg2); color:var(--muted); }
+.compare-table th.hl  { background:rgba(6,199,85,0.1); color:var(--line); border-bottom:2px solid rgba(6,199,85,0.35); -webkit-text-fill-color:var(--line); }
+.compare-table th.dim { background:var(--bg2); color:var(--muted); }
+
+.compare-table td { padding:0.9rem 1.4rem; border-top:1px solid var(--border); text-align:center; font-size:0.83rem; color:var(--muted); }
+.compare-table td:first-child { text-align:left; font-size:0.8rem; }
+.compare-table tr:hover td { background:rgba(255,255,255,0.02); }
+
+.chk  { color:var(--line); font-weight:700; }
+.crs  { color:#2a2a3a; }
+.prt  { color:#6b7a99; font-size:0.78rem; }
+
+.example-box { margin-top:2rem; background:var(--bg3); border:1px solid var(--border); border-radius:12px; padding:1.6rem; }
+.example-title { font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--muted); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:1rem; }
+.example-row { display:grid; grid-template-columns:1fr 1fr 1fr; gap:1rem; }
+.ex-label { font-size:0.7rem; font-weight:600; color:var(--muted); margin-bottom:0.4rem; letter-spacing:0.06em; text-transform:uppercase; font-family:'DM Mono',monospace; }
+.hl-col .ex-label { color:var(--line); }
+.ex-text { font-size:0.83rem; line-height:1.65; color:var(--text); background:var(--bg2); padding:0.7rem 0.9rem; border-radius:6px; border:1px solid var(--border); }
+.hl-col .ex-text { border-color:rgba(6,199,85,0.22); background:rgba(6,199,85,0.05); }
+
+#pricing { background:var(--bg); }
+
+.pricing-tabs { display:flex; margin-bottom:2.5rem; border:1px solid var(--border); border-radius:6px; padding:3px; width:fit-content; background:var(--bg2); }
+
+.pricing-tab {
+  padding:0.48em 1.5em; border-radius:4px; font-size:0.8rem; cursor:pointer;
+  border:none; background:transparent; color:var(--muted);
+  font-family:'DM Mono',monospace; letter-spacing:0.06em; transition:all 0.2s;
+}
+
+.pricing-tab.active { background:var(--bg3); color:var(--text); border:1px solid var(--border2); }
+
+.pricing-panel { display:none; }
+.pricing-panel.active { display:block; }
+
+.pricing-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1.5rem; max-width:960px; }
+
+.price-card {
+  background:var(--bg2); border:1px solid var(--border); border-radius:12px;
+  padding:2rem; position:relative; transition:border-color 0.25s, box-shadow 0.25s;
+}
+
+.price-card:hover { border-color:var(--border2); box-shadow:0 8px 40px rgba(0,0,0,0.4); }
+
+.price-card.featured {
+  border-color:rgba(6,199,85,0.32);
+  background:linear-gradient(135deg, rgba(6,199,85,0.05) 0%, var(--bg2) 60%);
+  box-shadow:0 0 40px rgba(6,199,85,0.07);
+}
+
+.price-badge {
+  position:absolute; top:-11px; left:50%; transform:translateX(-50%);
+  background:var(--line); color:#000; font-size:0.67rem; font-weight:700;
+  padding:0.2em 0.85em; border-radius:100px; letter-spacing:0.1em;
+  white-space:nowrap; font-family:'DM Mono',monospace;
+}
+
+.price-plan { font-family:'Syne',sans-serif; font-weight:700; font-size:0.93rem; color:var(--text); margin-bottom:0.3rem; }
+.price-desc { font-size:0.75rem; color:var(--muted); margin-bottom:1.3rem; font-family:'DM Mono',monospace; }
+
+.price-amount { font-family:'Syne',sans-serif; font-weight:800; font-size:1.2rem; line-height:1; margin-bottom:0.2rem; color:var(--white); }
+
+.price-card.featured .price-amount {
+  background:linear-gradient(135deg,var(--line),var(--cyan));
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+}
+
+.price-period { font-size:0.73rem; color:var(--muted); margin-bottom:1.6rem; font-family:'DM Mono',monospace; }
+
+.price-features { list-style:none; margin-bottom:1.8rem; display:flex; flex-direction:column; gap:0.55rem; }
+.price-features li { font-size:0.83rem; display:flex; align-items:flex-start; gap:0.55rem; color:var(--muted); font-weight:300; }
+.price-features li::before { content:'—'; color:var(--line); flex-shrink:0; font-family:'DM Mono',monospace; }
+
+.btn-plan {
+  display:block; width:100%; text-align:center; padding:0.72em 1em; border-radius:4px;
+  font-size:0.8rem; font-weight:600; text-decoration:none; border:1px solid var(--border2);
+  color:var(--muted); transition:all 0.2s; font-family:'DM Mono',monospace;
+  cursor:pointer; background:transparent; letter-spacing:0.06em;
+}
+
+.btn-plan:hover { border-color:rgba(255,255,255,0.28); color:var(--text); }
+
+.price-card.featured .btn-plan {
+  background:var(--line); border-color:var(--line); color:#000; font-weight:700;
+  box-shadow:0 0 20px rgba(6,199,85,0.2);
+}
+
+.price-card.featured .btn-plan:hover { box-shadow:0 0 36px rgba(6,199,85,0.42); }
+
+.refund-note {
+  margin-top:2.5rem; padding:1.2rem 1.5rem; background:var(--bg2);
+  border:1px solid var(--border); border-left:3px solid rgba(6,199,85,0.4);
+  border-radius:0 8px 8px 0; font-size:0.83rem; color:var(--muted);
+  max-width:960px; font-weight:300;
+}
+
+.refund-note strong { color:var(--text); font-weight:600; }
+
+#howto { background:var(--bg2); }
+
+.steps-grid {
+  display:grid; grid-template-columns:repeat(4,1fr);
+  max-width:1000px; margin:0 auto;
+  background:var(--border); border:1px solid var(--border); border-radius:12px; overflow:hidden;
+}
+
+.step-item {
+  background:var(--bg3); padding:2rem 1.4rem; text-align:center;
+  border-right:1px solid var(--border); transition:background 0.2s;
+}
+
+.step-item:last-child { border-right:none; }
+.step-item:hover { background:var(--bg2); }
+
+.step-num { font-family:'DM Mono',monospace; font-size:0.68rem; color:var(--line); letter-spacing:0.15em; margin-bottom:1rem; display:block; }
+.step-title { font-family:'Syne',sans-serif; font-weight:700; font-size:0.88rem; color:var(--white); margin-bottom:0.5rem; }
+.step-desc  { font-size:0.78rem; color:var(--muted); line-height:1.65; font-weight:300; }
+
+#terms { background:var(--bg); }
+.terms-wrap { max-width:760px; margin:0 auto; }
+
+.accordion-item { border:1px solid var(--border); border-radius:8px; margin-bottom:0.6rem; overflow:hidden; background:var(--bg2); }
+
+.accordion-btn {
+  width:100%; background:none; border:none; padding:1.1rem 1.4rem;
+  text-align:left; font-family:'DM Mono',monospace; font-weight:500; font-size:0.86rem;
+  color:var(--text); cursor:pointer; display:flex; justify-content:space-between;
+  align-items:center; gap:1rem; transition:background 0.2s; letter-spacing:0.04em;
+}
+
+.accordion-btn:hover { background:var(--bg3); }
+.accordion-item.open .accordion-btn { color:var(--line); }
+.accordion-arrow { font-size:0.68rem; color:var(--muted); transition:transform 0.25s; flex-shrink:0; }
+.accordion-item.open .accordion-arrow { transform:rotate(180deg); }
+.accordion-body { max-height:0; overflow:hidden; transition:max-height 0.35s ease; }
+
+.accordion-body-inner { padding:0 1.4rem 1.4rem; font-size:0.83rem; color:var(--muted); line-height:1.85; font-weight:300; }
+.accordion-body-inner p { margin-bottom:0.7rem; }
+.accordion-body-inner p:last-child { margin-bottom:0; }
+.accordion-body-inner strong { color:var(--text); font-weight:600; }
+.accordion-body-inner ul { padding-left:1.2rem; margin:0.5rem 0; }
+.accordion-body-inner ul li { margin-bottom:0.35rem; }
+
+#cta { text-align:center; padding:100px 5vw; position:relative; z-index:1; overflow:hidden; }
+
+.cta-glow {
+  position:absolute; width:700px; height:400px; border-radius:50%;
+  background:radial-gradient(ellipse,rgba(6,199,85,0.08) 0%,transparent 70%);
+  top:50%; left:50%; transform:translate(-50%,-50%); pointer-events:none;
+}
+
+#cta h2 { margin-bottom:0.8rem; }
+#cta p { color:var(--muted); font-size:1rem; margin:0 auto 2.5rem; max-width:460px; font-weight:300; }
+
+.line-btn {
+  display:inline-flex; align-items:center; gap:0.7rem;
+  background:var(--line); color:#000; padding:1em 2.4em; border-radius:6px;
+  font-weight:700; font-size:1rem; text-decoration:none;
+  transition:box-shadow 0.2s,transform 0.15s;
+  box-shadow:0 0 40px rgba(6,199,85,0.28);
+}
+
+.line-btn:hover { box-shadow:0 0 60px rgba(6,199,85,0.5); transform:translateY(-2px); }
+
+footer {
+  background:var(--bg2); border-top:1px solid var(--border);
+  padding:36px 5vw; font-size:0.78rem;
+  display:flex; justify-content:space-between; align-items:center;
+  flex-wrap:wrap; gap:1rem; color:var(--muted);
+  font-family:'DM Mono',monospace; position:relative; z-index:1;
+}
+
+footer a { color:var(--muted); text-decoration:none; transition:color 0.2s; }
+footer a:hover { color:var(--text); }
+.footer-links { display:flex; gap:1.5rem; flex-wrap:wrap; }
+
+@media (max-width:768px) {
+  .nav-links { display:none; flex-direction:column; position:absolute; top:58px; left:0; right:0; background:var(--bg2); border-bottom:1px solid var(--border); padding:1rem 5vw; gap:1rem; }
+  .nav-links.open { display:flex; }
+  .hamburger { display:flex; }
+  .hero-grid { grid-template-columns:1fr; gap:3rem; }
+  .hero-mockup { order:-1; }
+  .phone-frame { width:220px; }
+  .stats-strip { grid-template-columns:repeat(2,1fr); }
+  .features-grid { grid-template-columns:1fr; }
+  .example-row { grid-template-columns:1fr; }
+  .steps-grid { grid-template-columns:repeat(2,1fr); }
+  .step-item:nth-child(2) { border-right:none; }
+  footer { flex-direction:column; text-align:center; }
+}
+
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(28px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+.hero-text > * { animation:fadeUp 0.7s ease both; }
+.hero-text > *:nth-child(1) { animation-delay:0.1s; }
+.hero-text > *:nth-child(2) { animation-delay:0.22s; }
+.hero-text > *:nth-child(3) { animation-delay:0.34s; }
+.hero-text > *:nth-child(4) { animation-delay:0.46s; }
+.hero-mockup { animation:fadeUp 0.8s 0.3s ease both; }
+</style>
+</head>
+<body>
+
+<!-- 粒子 canvas -->
+<canvas id="particle-canvas"></canvas>
+<!-- 掃描線 -->
+<div class="scanline"></div>
+<div class="scanline2"></div>
+
+<nav>
+  <a href="#hero" class="nav-brand"><span class="nav-dot"></span>萬語通</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#features">功能</a></li>
+    <li><a href="#compare">比較</a></li>
+    <li><a href="#pricing">方案</a></li>
+    <li><a href="#howto">說明</a></li>
+    <li><a href="#terms">條款</a></li>
+    <li><a href="https://line.me/ti/p/@969wpxno" class="nav-cta">立即加入</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<section id="hero">
+  <div class="orb1"></div>
+  <div class="orb2"></div>
+  <!-- 矩陣雨 -->
+  <canvas id="matrix-canvas"></canvas>
+  <!-- 電路板 SVG -->
+  <div class="circuit-bg">
+  <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <pattern id="circuit" x="0" y="0" width="120" height="120" patternUnits="userSpaceOnUse">
+        <path d="M20 0 L20 20 L0 20" fill="none" stroke="#06c755" stroke-width="0.8"/>
+        <path d="M60 0 L60 40 L100 40 L100 20" fill="none" stroke="#06c755" stroke-width="0.8"/>
+        <path d="M0 60 L40 60 L40 80 L80 80" fill="none" stroke="#06c755" stroke-width="0.8"/>
+        <path d="M120 60 L100 60 L100 100 L60 100 L60 120" fill="none" stroke="#06c755" stroke-width="0.8"/>
+        <path d="M20 120 L20 100 L60 100" fill="none" stroke="#00d4ff" stroke-width="0.5"/>
+        <circle cx="20" cy="20" r="2.5" fill="#06c755"/>
+        <circle cx="100" cy="40" r="2.5" fill="#06c755"/>
+        <circle cx="40" cy="80" r="2.5" fill="#06c755"/>
+        <circle cx="60" cy="100" r="2.5" fill="#00d4ff"/>
+        <circle cx="60" cy="40" r="1.5" fill="none" stroke="#06c755" stroke-width="1"/>
+        <rect x="36" y="56" width="8" height="8" fill="none" stroke="#06c755" stroke-width="0.8"/>
+        <rect x="96" y="96" width="8" height="8" fill="none" stroke="#00d4ff" stroke-width="0.8"/>
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#circuit)"/>
+  </svg>
+  </div>
+  <div class="hero-grid">
+    <div class="hero-text">
+      <div class="hero-eyebrow">LINE Bot · DeepL Engine · 即時翻譯</div>
+      <h1>語言障礙<br><span class="hl">從此消失</span></h1>
+      <p class="hero-desc">直接在 LINE 群組即時翻譯，無需切換 App。支援 36 種語言，DeepL 高精度引擎，圖片文字一鍵辨識翻譯，語音訊息自動轉錄翻譯。</p>
+      <div class="hero-actions">
+        <a href="https://line.me/ti/p/@969wpxno" class="btn-primary">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.105.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.070 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+          加入 LINE Bot 免費試用
+        </a>
+        <a href="#pricing" class="btn-secondary">查看方案 →</a>
+      </div>
+    </div>
+    <div class="hero-mockup">
+      <div class="phone-glow"></div>
+      <div class="phone-frame">
+
+        <!-- 狀態列 -->
+        <div style="background:#000;padding:5px 16px 3px;display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:0.62rem;color:#fff;font-weight:600;font-family:'DM Mono',monospace;">9:41</span>
+          <div style="display:flex;gap:5px;align-items:center;">
+            <svg width="12" height="9" viewBox="0 0 12 9" fill="white"><rect x="0" y="4" width="2" height="5" rx="0.5"/><rect x="3" y="2.5" width="2" height="6.5" rx="0.5"/><rect x="6" y="1" width="2" height="8" rx="0.5"/><rect x="9" y="0" width="2" height="9" rx="0.5"/></svg>
+            <svg width="13" height="9" viewBox="0 0 13 9" fill="white"><path d="M6.5 1.5C8.8 1.5 10.8 2.5 12.1 4.1L13 3.2C11.4 1.2 9.1 0 6.5 0S1.6 1.2 0 3.2l.9.9C3.2 2.5 5.2 1.5 6.5 1.5z"/><path d="M6.5 4C7.9 4 9.2 4.6 10.1 5.6l.9-.9C9.8 3.5 8.2 2.8 6.5 2.8S3.2 3.5 2 4.7l.9.9C3.8 4.6 5.1 4 6.5 4z"/><circle cx="6.5" cy="7.5" r="1.5"/></svg>
+            <svg width="18" height="9" viewBox="0 0 18 9" fill="white"><rect x="0" y="1" width="14" height="7" rx="1.5" stroke="white" stroke-width="1" fill="none"/><rect x="1.5" y="2.5" width="10" height="4" rx="0.5" fill="white"/><rect x="15" y="3" width="2" height="3" rx="1" fill="white"/></svg>
+          </div>
+        </div>
+
+        <!-- LINE 頂部導覽 -->
+        <div style="background:#06c755;padding:9px 14px;display:flex;align-items:center;gap:10px;position:relative;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="white" style="opacity:0.9;flex-shrink:0;"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+          <!-- Bot 頭像 -->
+          <div style="width:34px;height:34px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;box-shadow:0 1px 4px rgba(0,0,0,0.2);">🌐</div>
+          <div style="flex:1;min-width:0;">
+            <div style="font-size:0.85rem;font-weight:700;color:#fff;line-height:1.2;">萬語通</div>
+            <div style="font-size:0.62rem;color:rgba(255,255,255,0.85);line-height:1.2;">Official Account</div>
+          </div>
+          <div style="display:flex;gap:14px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="white" opacity="0.9"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="white" opacity="0.9"><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
+          </div>
+        </div>
+
+        <!-- 聊天背景 -->
+        <div style="background:#f0f0f0;min-height:340px;padding:10px 10px 8px;display:flex;flex-direction:column;gap:6px;position:relative;">
+
+          <!-- 日期標籤 -->
+          <div style="text-align:center;margin:2px 0 4px;">
+            <span style="background:rgba(0,0,0,0.18);color:#fff;font-size:0.6rem;padding:2px 10px;border-radius:10px;font-family:'DM Mono',monospace;">今天</span>
+          </div>
+
+          <!-- 用戶訊息1（右側綠色） -->
+          <div style="display:flex;justify-content:flex-end;align-items:flex-end;gap:4px;">
+            <span style="font-size:0.55rem;color:#999;align-self:flex-end;margin-bottom:1px;">14:31</span>
+            <div style="background:#06c755;color:#fff;padding:8px 11px;border-radius:16px 16px 3px 16px;font-size:0.73rem;max-width:75%;line-height:1.55;box-shadow:0 1px 2px rgba(0,0,0,0.15);">我需要這個藥，<br>請問有貨嗎？</div>
+          </div>
+
+          <!-- Bot 訊息1（左側白色） -->
+          <div style="display:flex;align-items:flex-end;gap:6px;">
+            <div style="width:26px;height:26px;border-radius:50%;background:#06c755;display:flex;align-items:center;justify-content:center;font-size:0.75rem;flex-shrink:0;">🌐</div>
+            <div style="display:flex;flex-direction:column;gap:2px;">
+              <span style="font-size:0.58rem;color:#888;margin-left:2px;">萬語通</span>
+              <div style="display:flex;align-items:flex-end;gap:4px;">
+                <div style="background:#fff;color:#333;padding:8px 11px;border-radius:3px 16px 16px 16px;font-size:0.73rem;max-width:75%;line-height:1.55;box-shadow:0 1px 2px rgba(0,0,0,0.1);">Saya membutuhkan<br>obat ini, apakah ada<br>stoknya?</div>
+                <span style="font-size:0.55rem;color:#999;align-self:flex-end;margin-bottom:1px;">14:31</span>
+              </div>
+              <span style="font-size:0.56rem;color:#aaa;margin-left:2px;font-family:'DM Mono',monospace;">繁中 → 印尼文 · DeepL ✓</span>
+            </div>
+          </div>
+
+          <!-- 用戶訊息2 -->
+          <div style="display:flex;justify-content:flex-end;align-items:flex-end;gap:4px;margin-top:4px;">
+            <span style="font-size:0.55rem;color:#999;align-self:flex-end;margin-bottom:1px;">14:33</span>
+            <div style="background:#06c755;color:#fff;padding:8px 11px;border-radius:16px 16px 3px 16px;font-size:0.73rem;max-width:75%;line-height:1.55;box-shadow:0 1px 2px rgba(0,0,0,0.15);">Can you send me<br>the invoice?</div>
+          </div>
+
+          <!-- Bot 訊息2 -->
+          <div style="display:flex;align-items:flex-end;gap:6px;">
+            <div style="width:26px;height:26px;border-radius:50%;background:#06c755;display:flex;align-items:center;justify-content:center;font-size:0.75rem;flex-shrink:0;">🌐</div>
+            <div style="display:flex;flex-direction:column;gap:2px;">
+              <div style="display:flex;align-items:flex-end;gap:4px;">
+                <div style="background:#fff;color:#333;padding:8px 11px;border-radius:3px 16px 16px 16px;font-size:0.73rem;max-width:75%;line-height:1.55;box-shadow:0 1px 2px rgba(0,0,0,0.1);">請問可以把發票<br>寄給我嗎？</div>
+                <span style="font-size:0.55rem;color:#999;align-self:flex-end;margin-bottom:1px;">14:33</span>
+              </div>
+              <span style="font-size:0.56rem;color:#aaa;margin-left:2px;font-family:'DM Mono',monospace;">英文 → 繁中 · DeepL ✓</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- 輸入列 -->
+        <div style="background:#fff;border-top:1px solid #e0e0e0;padding:7px 10px;display:flex;align-items:center;gap:8px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#aaa"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+          <div style="flex:1;background:#f5f5f5;border-radius:20px;padding:6px 12px;font-size:0.72rem;color:#bbb;">傳送訊息…</div>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#aaa"><path d="M12 15c1.66 0 3-1.34 3-3V6c0-1.66-1.34-3-3-3S9 4.34 9 6v6c0 1.66 1.34 3 3 3zm-1-9c0-.55.45-1 1-1s1 .45 1 1v6c0 .55-.45 1-1 1s-1-.45-1-1V6z"/><path d="M17 12c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-2.08c3.39-.49 6-3.39 6-6.92h-2z"/></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#06c755"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="stats" style="padding:0 5vw 80px;">
+  <div class="stats-strip">
+    <div class="stat-item"><div class="stat-num">0.3秒</div><div class="stat-label">平均翻譯速度</div></div>
+    <div class="stat-item"><div class="stat-num">36</div><div class="stat-label">支援語言種數</div></div>
+    <div class="stat-item"><div class="stat-num">NT$49</div><div class="stat-label">最低體驗價格</div></div>
+    <div class="stat-item"><div class="stat-num">24/7</div><div class="stat-label">全天候服務</div></div>
+  </div>
+</section>
+
+<section id="features">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="eyebrow">// Features</div>
+    <h2>你真正需要的翻譯工具</h2>
+    <p class="lead">不只是翻文字，而是幫你在 LINE 裡直接打破語言障礙。</p>
+    <div class="features-grid">
+      <div class="feature-card"><span class="feature-icon">🌏</span><div class="feature-title">36 種語言支援</div><div class="feature-desc">日、英、韓、印尼、泰、越南、阿拉伯、希伯來等 36 種語言，涵蓋 DeepL 全語言，一指切換即時生效。</div></div>
+      <div class="feature-card"><span class="feature-icon">📷</span><div class="feature-title">圖片 OCR 翻譯</div><div class="feature-desc">傳一張截圖，自動辨識文字並翻譯。菜單、合約、藥袋，一張圖搞定。</div></div>
+      <div class="feature-card"><span class="feature-icon">👥</span><div class="feature-title">群組雙向翻譯</div><div class="feature-desc">加入群組後自動翻譯雙向對話，台籍主管與外籍員工無需切換任何 App。</div></div>
+      <div class="feature-card"><span class="feature-icon">🎤</span><div class="feature-title">語音訊息翻譯</div><div class="feature-desc">直接傳語音，自動轉錄並翻譯成目標語言文字。工地、工廠雙手忙時特別好用。</div></div>
+      <div class="feature-card"><span class="feature-icon">⚡</span><div class="feature-title">DeepL 高精度引擎</div><div class="feature-desc">採用 DeepL 而非 Google 翻譯，語意更準確，專業術語、商業文件皆適用。</div></div>
+      <div class="feature-card"><span class="feature-icon">🆓</span><div class="feature-title">免費試用</div><div class="feature-desc">個人版及群組每日免費 10 次翻譯，無需綁信用卡，體驗滿意再付費升級。</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="compare">
+  <div class="compare-wrap">
+    <div class="eyebrow">// Why DeepL</div>
+    <h2>DeepL vs Google 翻譯</h2>
+    <p class="lead">翻譯引擎的差異，直接影響你傳出去的訊息是否專業、準確。</p>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th class="hl">萬語通（DeepL）</th>
+          <th class="dim">Google 翻譯</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>翻譯準確度</td><td><span class="chk">● 業界最高</span></td><td><span class="prt">普通</span></td></tr>
+        <tr><td>自然語感</td><td><span class="chk">● 接近母語者</span></td><td><span class="prt">略顯生硬</span></td></tr>
+        <tr><td>專業術語處理</td><td><span class="chk">● 優秀</span></td><td><span class="crs">✕ 容易出錯</span></td></tr>
+        <tr><td>圖片 OCR 翻譯</td><td><span class="chk">● 支援</span></td><td><span class="crs">✕ 需切換 App</span></td></tr>
+        <tr><td>語音訊息翻譯</td><td><span class="chk">● 支援</span></td><td><span class="crs">✕ 不支援</span></td></tr>
+        <tr><td>LINE 群組翻譯</td><td><span class="chk">● 原生支援</span></td><td><span class="crs">✕ 不支援</span></td></tr>
+        <tr><td>使用方式</td><td><span class="chk">● 直接在 LINE</span></td><td><span class="crs">✕ 需開另一 App</span></td></tr>
+      </tbody>
+    </table>
+    <div class="example-box">
+      <div class="example-title">// 翻譯範例對比 — 商業信件語句</div>
+      <div class="example-row">
+        <div><div class="ex-label">原文（繁中）</div><div class="ex-text">感謝您撥冗回覆，期待後續合作愉快。</div></div>
+        <div class="hl-col"><div class="ex-label">萬語通（DeepL）</div><div class="ex-text">Thank you for taking the time to respond. I look forward to a productive collaboration.</div></div>
+        <div><div class="ex-label">Google 翻譯</div><div class="ex-text">Thank you for your time to reply, I look forward to a pleasant future cooperation.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div style="max-width:960px;margin:0 auto;">
+    <div class="eyebrow">// Pricing</div>
+    <h2>選擇適合你的方案</h2>
+    <p class="lead">個人使用或企業群組，都有對應方案。</p>
+    <div class="pricing-tabs">
+      <button class="pricing-tab active" onclick="switchTab('personal')">個人版</button>
+      <button class="pricing-tab" onclick="switchTab('group')">群組版</button>
+    </div>
+    <div class="pricing-panel active" id="tab-personal">
+      <div class="pricing-grid">
+        <div class="price-card">
+          <div class="price-plan">免費版</div><div class="price-desc">// 立即可用</div>
+          <div class="price-amount">$0</div><div class="price-period">每日 15 次免費</div>
+          <ul class="price-features"><li>每日 15 次免費翻譯</li><li>36 種語言支援</li><li>語言隨時切換</li></ul>
+          <a href="https://line.me/ti/p/@969wpxno" class="btn-plan">免費開始</a>
+        </div>
+        <div class="price-card">
+          <div class="price-plan">7日體驗</div><div class="price-desc">// 低門檻體驗</div>
+          <div class="price-amount">NT$49</div><div class="price-period">7 天</div>
+          <ul class="price-features"><li>無限次翻譯</li><li>36 種語言支援</li><li>圖片 OCR 翻譯</li><li>語音訊息翻譯</li></ul>
+          <a href="https://line.me/ti/p/fishxit" class="btn-plan">聯繫開通</a>
+        </div>
+        <div class="price-card featured">
+          <div class="price-badge">最受歡迎</div>
+          <div class="price-plan">月付方案</div><div class="price-desc">// 個人無限翻譯</div>
+          <div class="price-amount">NT$199</div><div class="price-period">每月</div>
+          <ul class="price-features"><li>無限次翻譯</li><li>36 種語言支援</li><li>圖片 OCR 翻譯</li><li>語音訊息翻譯</li><li>優先客服支援</li></ul>
+          <a href="https://line.me/ti/p/fishxit" class="btn-plan">聯繫開通</a>
+        </div>
+        <div class="price-card">
+          <div class="price-plan">年付方案</div><div class="price-desc">// 買 8 個月送 4 個月</div>
+          <div class="price-amount">NT$1,590</div><div class="price-period">每年（約 NT$133／月）</div>
+          <ul class="price-features"><li>無限次翻譯</li><li>36 種語言支援</li><li>圖片 OCR 翻譯</li><li>語音訊息翻譯</li><li>優先客服支援</li><li>買8個月送4個月，省 NT$798</li></ul>
+          <a href="https://line.me/ti/p/fishxit" class="btn-plan">聯繫開通</a>
+        </div>
+      </div>
+    </div>
+    <div class="pricing-panel" id="tab-group">
+      <div class="pricing-grid">
+        <div class="price-card">
+          <div class="price-plan">免費試用</div><div class="price-desc">// 加入即用</div>
+          <div class="price-amount">$0</div><div class="price-period">每日 15 次免費</div>
+          <ul class="price-features"><li>每日 15 次自動翻譯</li><li>36 種語言支援</li><li>雙向自動偵測語言</li><li>加入即用，無需開通</li></ul>
+          <a href="https://line.me/ti/p/@969wpxno" class="btn-plan">免費加入</a>
+        </div>
+        <div class="price-card">
+          <div class="price-plan">7日體驗</div><div class="price-desc">// 低門檻試用</div>
+          <div class="price-amount">NT$49</div><div class="price-period">7 天／每群組</div>
+          <ul class="price-features"><li>群組雙向翻譯（無限次）</li><li>36 種語言支援</li><li>自訂語言對</li></ul>
+          <a href="https://line.me/ti/p/fishxit" class="btn-plan">聯繫開通</a>
+        </div>
+        <div class="price-card">
+          <div class="price-plan">體驗版</div><div class="price-desc">// 文字溝通，零障礙</div>
+          <div class="price-amount">NT$199</div><div class="price-period">每月／每群組</div>
+          <ul class="price-features"><li>群組雙向翻譯（無限次）</li><li>語音訊息翻譯</li><li>自訂語言對（如中文↔印尼文）</li><li>翻譯歷史記錄</li><li>忽略詞設定</li></ul>
+          <a href="https://line.me/ti/p/fishxit" class="btn-plan">聯繫開通</a>
+        </div>
+        <div class="price-card featured">
+          <div class="price-badge">推薦企業</div>
+          <div class="price-plan">商務版</div><div class="price-desc">// 文件、圖片、語音，全面覆蓋</div>
+          <div class="price-amount">NT$499</div><div class="price-period">每月／每群組</div>
+          <ul class="price-features"><li>體驗版所有功能</li><li>📷 圖片 OCR 翻譯</li><li>工廠貼紙、文件截圖、證件直接翻</li><li>優先客服</li></ul>
+          <a href="https://line.me/ti/p/fishxit" class="btn-plan">聯繫開通</a>
+        </div>
+      </div>
+    </div>
+    <div class="refund-note">
+      <strong>退費政策：</strong>本服務為數位內容，付款後原則上不退費。僅限付款後 24 小時內、Bot 完全無回應時可申請，且手續費自負。付款帳號請洽客服索取，請勿相信其他管道，謹防詐騙。
+    </div>
+  </div>
+</section>
+
+<section id="howto">
+  <div style="max-width:1000px;margin:0 auto;text-align:center;">
+    <div class="eyebrow">// How It Works</div>
+    <h2>4 步驟開始翻譯</h2>
+    <p class="lead" style="margin:0 auto 3rem;">從加入到開始翻譯，只需要幾分鐘。</p>
+    <div class="steps-grid">
+      <div class="step-item"><span class="step-num">STEP 01</span><div class="step-title">加入萬語通</div><div class="step-desc">點選按鈕，加入 LINE Bot 好友。</div></div>
+      <div class="step-item"><span class="step-num">STEP 02</span><div class="step-title">輸入 @語言</div><div class="step-desc">傳送 @語言 查看目前翻譯設定。</div></div>
+      <div class="step-item"><span class="step-num">STEP 03</span><div class="step-title">切換目標語言</div><div class="step-desc">傳 @印尼 即切換為中文↔印尼文。</div></div>
+      <div class="step-item"><span class="step-num">STEP 04</span><div class="step-title">開始傳訊息</div><div class="step-desc">文字、圖片、語音皆可，Bot 自動翻譯回覆。</div></div>
+    </div>
+    <div style="margin-top:2rem;font-size:0.78rem;color:var(--muted);font-family:'DM Mono',monospace;">
+      群組版：將 Bot 加入群組後傳
+      <code style="background:var(--bg3);border:1px solid var(--border);padding:2px 8px;border-radius:4px;color:var(--line);">@群組說明</code>
+      查看完整指令。
+    </div>
+  </div>
+</section>
+
+<section id="terms">
+  <div class="terms-wrap">
+    <div class="eyebrow">// Legal</div>
+    <h2>使用條款 · 隱私政策 · 退費規定</h2>
+    <p class="lead">點擊各條目展開詳細內容。</p>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">使用條款<span class="accordion-arrow">▼</span></button>
+      <div class="accordion-body"><div class="accordion-body-inner">
+        <p><strong>1. 服務範圍</strong><br>萬語通（以下稱「本服務」）提供 LINE 平台上的翻譯功能，包含文字翻譯、圖片 OCR 翻譯及語音翻譯。</p>
+        <p><strong>2. 使用規範</strong><br>使用者不得利用本服務進行任何違法行為，包含但不限於傳播違法內容、詐欺、散布不實資訊。</p>
+        <p><strong>3. 服務中斷</strong><br>因不可抗力或第三方服務（LINE、DeepL）中斷所造成的服務暫停，本服務不負賠償責任，但將盡力恢復正常運作。</p>
+        <p><strong>4. 帳號停用</strong><br>違反使用規範者，本服務有權在不通知的情況下立即停用帳號，且不退還任何費用。</p>
+        <p><strong>5. 條款修訂</strong><br>本服務保留隨時修訂條款之權利，重大修訂將透過 LINE Bot 通知用戶。</p>
+      </div></div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">隱私權聲明<span class="accordion-arrow">▼</span></button>
+      <div class="accordion-body"><div class="accordion-body-inner">
+        <p><strong>1. 資料收集</strong><br>本服務收集您的 LINE User ID、使用紀錄（翻譯次數、語言設定）、付款記錄。</p>
+        <p><strong>2. 資料用途</strong><br>所收集資料僅用於：提供翻譯服務、計算使用次數、處理付款與到期管理。</p>
+        <p><strong>3. 不儲存對話</strong><br>您傳送的翻譯內容<strong>不會被儲存</strong>，翻譯處理後即刪除，本服務無法查看您的對話內容。</p>
+        <p><strong>4. 第三方服務</strong><br>翻譯功能透過 DeepL API 處理，圖片 OCR 透過 Anthropic Claude API 處理，語音翻譯透過 OpenAI Whisper 處理。各服務商均有其隱私政策。</p>
+        <p><strong>5. 資料刪除</strong><br>如需刪除個人資料，請聯繫客服 LINE：fishxit，我們將於 7 個工作日內處理。</p>
+      </div></div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">退費政策<span class="accordion-arrow">▼</span></button>
+      <div class="accordion-body"><div class="accordion-body-inner">
+        <p>⚠️ 本服務為數位內容，<strong>付款後原則上不退費</strong>。</p>
+        <p><strong>唯一例外</strong></p>
+        <ul>
+          <li>付款後 <strong>24 小時內</strong>，Bot 完全無法回應（非網路或 LINE 本身問題），可提出申請。</li>
+        </ul>
+        <p><strong>以下情況不受理退費</strong></p>
+        <ul>
+          <li>已成功使用翻譯功能（即使只用 1 次）</li>
+          <li>翻譯品質不如預期</li>
+          <li>個人原因（不想用、忘記使用、操作不熟）</li>
+          <li>超過 24 小時後申請</li>
+          <li>語音或圖片功能部分異常，但文字翻譯仍正常</li>
+        </ul>
+        <p><strong>申請方式</strong></p>
+        <ul>
+          <li>24 小時內聯繫客服 LINE ID：<strong>fishxit</strong>，附上付款時間與問題截圖。</li>
+          <li>審核後 5～7 個工作日內處理。</li>
+          <li>跨行轉帳手續費由申請人自行負擔。</li>
+        </ul>
+        <p><strong>安全提醒：</strong>付款帳號僅透過客服 LINE 提供，請勿相信其他管道，謹防假冒詐騙。</p>
+      </div></div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">支援語言清單<span class="accordion-arrow">▼</span></button>
+      <div class="accordion-body"><div class="accordion-body-inner">
+        <p>萬語通目前支援以下 36 種語言（均可與繁體中文互譯）：</p>
+        <ul>
+          <li>英文、日文、韓文、印尼文、泰文、越南文、馬來文</li>
+          <li>法文、德文、西班牙文、俄文、葡萄牙文、義大利文</li>
+          <li>阿拉伯文、希伯來文</li>
+          <li>荷蘭文、波蘭文、土耳其文、瑞典文、捷克文</li>
+          <li>羅馬尼亞文、匈牙利文、烏克蘭文、保加利亞文</li>
+          <li>丹麥文、芬蘭文、希臘文、挪威文</li>
+          <li>愛沙尼亞文、拉脫維亞文、立陶宛文</li>
+          <li>斯洛伐克文、斯洛維尼亞文、簡體中文</li>
+        </ul>
+        <p>指令範例：傳 <strong>@印尼</strong> 切換印尼文；傳 <strong>@希伯來</strong> 切換希伯來文。傳 <strong>@說明</strong> 查看完整指令清單。</p>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<section id="cta">
+  <div class="cta-glow"></div>
+  <h2>現在就開始翻譯</h2>
+  <p>免費加入，每日 15 次免費體驗（個人版及群組版），滿意再升級付費方案。</p>
+  <a href="https://line.me/ti/p/@969wpxno" class="line-btn">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.105.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.070 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+    加入 LINE Bot 開始翻譯
+  </a>
+</section>
+
+<footer>
+  <div>© 2026 萬語通 · 客服 LINE：fishxit</div>
+  <div class="footer-links">
+    <a href="#features">功能</a>
+    <a href="#pricing">方案</a>
+    <a href="#terms">條款</a>
+    <a href="https://line.me/ti/p/fishxit">聯繫客服</a>
+  </div>
+</footer>
+
+<script>
+/* ══════════════════════════════════
+   升級版粒子系統：多色、深度、數據流
+══════════════════════════════════ */
+(function(){
+  var canvas = document.getElementById('particle-canvas');
+  var ctx = canvas.getContext('2d');
+  var particles = [];
+  var beams = [];   // 橫向數據流光束
+  var W, H;
+
+  function resize(){
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  // 粒子：分遠景/中景/近景三層，速度、大小、顏色各異
+  var COLORS = [
+    { r:6,  g:199, b:85  },  // LINE 綠
+    { r:0,  g:212, b:255 },  // cyan
+    { r:80, g:255, b:160 },  // 淺綠
+    { r:120,g:80,  b:255 },  // 紫（少量）
+  ];
+
+  function Particle(){
+    var layer = Math.floor(Math.random() * 3); // 0=遠 1=中 2=近
+    this.layer = layer;
+    this.x  = Math.random() * W;
+    this.y  = Math.random() * H;
+    var speed = [0.12, 0.28, 0.55][layer];
+    this.vx = (Math.random() - 0.5) * speed;
+    this.vy = (Math.random() - 0.5) * speed;
+    this.r  = [0.5, 1.1, 2.0][layer] + Math.random() * 0.8;
+    var ci  = layer === 2
+      ? (Math.random() < 0.15 ? 3 : Math.random() < 0.5 ? 0 : 1)
+      : (Math.random() < 0.6 ? 0 : 1);
+    this.col = COLORS[ci];
+    this.alpha = [0.3, 0.55, 0.85][layer];
+    this.pulse = Math.random() * Math.PI * 2;
+    this.pulseSpeed = 0.02 + Math.random() * 0.03;
+  }
+
+  for(var i = 0; i < 110; i++) particles.push(new Particle());
+
+  // 數據流光束
+  function Beam(){
+    this.reset();
+  }
+  Beam.prototype.reset = function(){
+    this.y     = Math.random() * H;
+    this.x     = -200;
+    this.w     = 80 + Math.random() * 200;
+    this.speed = 1.5 + Math.random() * 2.5;
+    this.alpha = 0.06 + Math.random() * 0.1;
+    this.cyan  = Math.random() < 0.4;
+  };
+  for(var b = 0; b < 6; b++){
+    var bm = new Beam();
+    bm.x = Math.random() * W;
+    beams.push(bm);
+  }
+
+  // 背景暈染（角落深色）
+  function drawVignette(){
+    var grad = ctx.createRadialGradient(W/2, H/2, H*0.3, W/2, H/2, H*0.9);
+    grad.addColorStop(0, 'rgba(8,11,16,0)');
+    grad.addColorStop(1, 'rgba(4,6,10,0.55)');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, W, H);
+  }
+
+  function draw(){
+    ctx.clearRect(0, 0, W, H);
+
+    // 暈染
+    drawVignette();
+
+    // 畫數據流光束
+    for(var b = 0; b < beams.length; b++){
+      var bm = beams[b];
+      bm.x += bm.speed;
+      if(bm.x > W + 200) bm.reset();
+      var gr = ctx.createLinearGradient(bm.x, 0, bm.x + bm.w, 0);
+      var col = bm.cyan ? '0,212,255' : '6,199,85';
+      gr.addColorStop(0, 'rgba(' + col + ',0)');
+      gr.addColorStop(0.4, 'rgba(' + col + ',' + bm.alpha + ')');
+      gr.addColorStop(1, 'rgba(' + col + ',0)');
+      ctx.fillStyle = gr;
+      ctx.fillRect(bm.x, bm.y - 1, bm.w, 2);
+    }
+
+    // 畫粒子（遠→近，讓近層蓋在遠層上）
+    for(var layer = 0; layer < 3; layer++){
+      for(var i = 0; i < particles.length; i++){
+        var p = particles[i];
+        if(p.layer !== layer) continue;
+
+        p.x += p.vx; p.y += p.vy;
+        if(p.x < -10) p.x = W + 10; if(p.x > W + 10) p.x = -10;
+        if(p.y < -10) p.y = H + 10; if(p.y > H + 10) p.y = -10;
+        p.pulse += p.pulseSpeed;
+
+        var pa = p.alpha * (0.7 + 0.3 * Math.sin(p.pulse));
+        var c  = p.col;
+
+        // 近景粒子加光暈
+        if(layer === 2){
+          var glow = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 4);
+          glow.addColorStop(0, 'rgba(' + c.r + ',' + c.g + ',' + c.b + ',' + (pa * 0.4) + ')');
+          glow.addColorStop(1, 'rgba(' + c.r + ',' + c.g + ',' + c.b + ',0)');
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r * 4, 0, Math.PI * 2);
+          ctx.fillStyle = glow;
+          ctx.fill();
+        }
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(' + c.r + ',' + c.g + ',' + c.b + ',' + pa + ')';
+        ctx.fill();
+
+        // 連線（只在中/近景之間，且同色系）
+        if(layer >= 1){
+          for(var j = i + 1; j < particles.length; j++){
+            var q = particles[j];
+            if(q.layer < 1) continue;
+            var dx = p.x - q.x, dy = p.y - q.y;
+            var dist = Math.sqrt(dx*dx + dy*dy);
+            var maxD = layer === 2 ? 140 : 110;
+            if(dist < maxD){
+              var la = (1 - dist/maxD) * 0.14 * pa;
+              ctx.beginPath();
+              ctx.moveTo(p.x, p.y);
+              ctx.lineTo(q.x, q.y);
+              ctx.strokeStyle = 'rgba(' + c.r + ',' + c.g + ',' + c.b + ',' + la + ')';
+              ctx.lineWidth = layer === 2 ? 0.8 : 0.4;
+              ctx.stroke();
+            }
+          }
+        }
+      }
+    }
+
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+/* ══════════════════════════════════
+   矩陣數字雨（升級：多色、變速）
+══════════════════════════════════ */
+(function(){
+  var canvas = document.getElementById('matrix-canvas');
+  if(!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノ萬語通TRANSLATE'.split('');
+  var fontSize = 13;
+  var cols, drops, speeds, colorMode;
+
+  function resize(){
+    canvas.width  = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+    cols      = Math.floor(canvas.width / fontSize);
+    drops     = [];
+    speeds    = [];
+    colorMode = [];
+    for(var i = 0; i < cols; i++){
+      drops[i]     = Math.random() * -80;
+      speeds[i]    = 0.3 + Math.random() * 0.5;
+      colorMode[i] = Math.random() < 0.25 ? 'cyan' : 'green';
+    }
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  function draw(){
+    ctx.fillStyle = 'rgba(8,11,16,0.055)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    for(var i = 0; i < cols; i++){
+      var c   = chars[Math.floor(Math.random() * chars.length)];
+      var x   = i * fontSize;
+      var y   = drops[i] * fontSize;
+      var isCyan = colorMode[i] === 'cyan';
+
+      // 頭部最亮
+      ctx.fillStyle = isCyan ? '#b0f8ff' : '#c0ffcc';
+      ctx.font = 'bold ' + fontSize + 'px "DM Mono", monospace';
+      ctx.fillText(c, x, y);
+
+      // 第二行稍暗
+      if(y > fontSize){
+        ctx.fillStyle = isCyan ? 'rgba(0,212,255,0.75)' : 'rgba(6,199,85,0.75)';
+        ctx.font = fontSize + 'px "DM Mono", monospace';
+        ctx.fillText(chars[Math.floor(Math.random() * chars.length)], x, y - fontSize);
+      }
+
+      // 第三行更暗
+      if(y > fontSize * 2){
+        ctx.fillStyle = isCyan ? 'rgba(0,212,255,0.3)' : 'rgba(6,199,85,0.3)';
+        ctx.fillText(chars[Math.floor(Math.random() * chars.length)], x, y - fontSize * 2);
+      }
+
+      if(drops[i] * fontSize > canvas.height && Math.random() > 0.97){
+        drops[i]     = 0;
+        colorMode[i] = Math.random() < 0.25 ? 'cyan' : 'green';
+      }
+      drops[i] += speeds[i];
+    }
+    setTimeout(function(){ requestAnimationFrame(draw); }, 50);
+  }
+  draw();
+})();
+</script>
+
+<script>
+function toggleNav() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+
+function switchTab(tab) {
+  document.querySelectorAll('.pricing-tab').forEach(function(btn, i) {
+    btn.classList.toggle('active', (tab === 'personal' && i === 0) || (tab === 'group' && i === 1));
+  });
+  document.getElementById('tab-personal').classList.toggle('active', tab === 'personal');
+  document.getElementById('tab-group').classList.toggle('active', tab === 'group');
+}
+
+function toggleAccordion(btn) {
+  var item  = btn.closest('.accordion-item');
+  var body  = item.querySelector('.accordion-body');
+  var inner = item.querySelector('.accordion-body-inner');
+  var isOpen = item.classList.contains('open');
+  document.querySelectorAll('.accordion-item.open').forEach(function(o) {
+    o.classList.remove('open');
+    o.querySelector('.accordion-body').style.maxHeight = '0';
+  });
+  if (!isOpen) {
+    item.classList.add('open');
+    body.style.maxHeight = (inner.scrollHeight + 32) + 'px';
+  }
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+  a.addEventListener('click', function(e) {
+    var t = document.querySelector(this.getAttribute('href'));
+    if (t) {
+      e.preventDefault();
+      window.scrollTo({ top: t.getBoundingClientRect().top + window.pageYOffset - 64, behavior: 'smooth' });
+      document.getElementById('navLinks').classList.remove('open');
+    }
+  });
+});
+
+var sections = document.querySelectorAll('section[id]');
+var navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', function() {
+  var y = window.pageYOffset + 80;
+  sections.forEach(function(s) {
+    if (y >= s.offsetTop && y < s.offsetTop + s.offsetHeight) {
+      navLinks.forEach(function(l) {
+        l.style.color = (l.getAttribute('href') === '#' + s.id) ? 'var(--text)' : '';
+      });
+    }
+  });
+});
+</script>
+</body>
+</html>

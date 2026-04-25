@@ -450,9 +450,49 @@ html:not(.light) .theme-toggle-knob { transform: translateX(0px); background: va
   .art-hamburger { display:flex; }
 }
 
+
+.history-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 4vw; height: 36px;
+  background: rgba(6,199,85,0.92);
+  backdrop-filter: blur(10px);
+}
+
+.history-nav-btn {
+  display: flex; align-items: center; gap: 0.4rem;
+  background: none; border: none; cursor: pointer;
+  color: #000; font-size: 0.82rem; font-weight: 700;
+  font-family: 'Noto Sans TC', sans-serif;
+  padding: 0.2em 0.6em; border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.history-nav-btn:hover { background: rgba(0,0,0,0.1); }
+.history-nav-btn:disabled { opacity: 0.35; cursor: default; }
+
+.history-nav-center {
+  font-size: 0.7rem; color: rgba(0,0,0,0.6);
+  font-family: 'DM Mono', monospace; letter-spacing: 0.06em;
+}
+
+/* nav 往下移讓出空間 */
+nav { top: 36px !important; }
+.article-top-banner { padding-top: 116px !important; }
+
 </style>
 </head>
 <body>
+
+<div class="history-nav">
+  <button class="history-nav-btn" onclick="history.back()" id="btnBack">
+    ‹ 上一頁
+  </button>
+  <span class="history-nav-center">瀏覽紀錄</span>
+  <button class="history-nav-btn" onclick="history.forward()" id="btnForward">
+    下一頁 ›
+  </button>
+</div>
 
 <nav>
   <a href="index.html" class="nav-brand"><span class="nav-dot"></span>萬語通</a>

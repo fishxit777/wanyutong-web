@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>台灣雇主管理外勞最常遇到的 5 個溝通問題（與解法）｜萬語通</title>
+<meta name="description" content="工廠主管、看護雇主、工地領班、餐廳老闆每天都在面對的外勞溝通困境：聽不懂指令、圖片看不懂、確認沒有回應…這篇整理 5 大問題與實際解法，附 LINE 翻譯機器人操作示範。">
+<meta name="keywords" content="外勞溝通問題,台灣外勞管理,印尼外勞翻譯,越南外勞溝通,外籍移工管理技巧,外勞LINE翻譯,工廠外勞管理,看護外勞溝通">
+<meta name="author" content="萬語通 WanyuTong">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://fishxit777.github.io/wanyutong-web/blog-foreign-worker-communication.html">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://fishxit777.github.io/wanyutong-web/blog-foreign-worker-communication.html">
+<meta property="og:title" content="台灣雇主管理外勞最常遇到的 5 個溝通問題（與解法）">
+<meta property="og:description" content="工廠、看護、工地、餐飲、農場雇主每天都在面對的溝通困境，這篇整理 5 大問題與實際解法。">
+<meta property="og:site_name" content="萬語通">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-04-25">
+<meta property="article:author" content="萬語通編輯團隊">
+<meta property="article:tag" content="外勞管理,溝通技巧,LINE翻譯,移工">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "台灣雇主管理外勞最常遇到的 5 個溝通問題（與解法）",
+  "description": "工廠主管、看護雇主、工地領班、餐廳老闆每天都在面對的外勞溝通困境，整理 5 大問題與實際解法。",
+  "author": { "@type": "Organization", "name": "萬語通" },
+  "publisher": { "@type": "Organization", "name": "萬語通", "url": "https://fishxit777.github.io/wanyutong-web/" },
+  "datePublished": "2026-04-25",
+  "dateModified": "2026-04-25",
+  "mainEntityOfPage": "https://fishxit777.github.io/wanyutong-web/blog-foreign-worker-communication.html",
+  "inLanguage": "zh-TW",
+  "keywords": "外勞溝通,台灣外勞管理,印尼外勞翻譯,越南外勞溝通,外籍移工管理,LINE翻譯機器人"
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg:     #080b10;
+  --bg2:    #0e1218;
+  --bg3:    #141a24;
+  --border: rgba(255,255,255,0.07);
+  --border2:rgba(255,255,255,0.12);
+  --text:   #e8edf5;
+  --muted:  #6b7a99;
+  --line:   #06c755;
+  --cyan:   #00d4ff;
+  --white:  #ffffff;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.8;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image:
+    linear-gradient(rgba(6,199,85,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(6,199,85,0.03) 1px, transparent 1px);
+  background-size: 96px 96px;
+  pointer-events: none; z-index: 0;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: 56px; display: flex; align-items: center; justify-content: space-between;
+  padding: 0 5vw;
+  background: rgba(8,11,16,0.9);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-brand {
+  font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem;
+  color: var(--white); text-decoration: none; display: flex; align-items: center; gap: 0.45rem;
+}
+
+.nav-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--line); box-shadow: 0 0 10px var(--line);
+  animation: blink 2.4s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%,100% { opacity:1; } 50% { opacity:0.35; }
+}
+
+.nav-back {
+  font-size: 0.78rem; color: var(--muted); text-decoration: none;
+  font-family: 'DM Mono', monospace; letter-spacing: 0.06em;
+  transition: color 0.2s; display: flex; align-items: center; gap: 0.4rem;
+}
+.nav-back:hover { color: var(--text); }
+
+.nav-cta {
+  background: var(--line); color: #000; padding: 0.38em 1.1em;
+  border-radius: 4px; font-weight: 700; font-size: 0.8rem;
+  text-decoration: none; transition: box-shadow 0.2s;
+}
+.nav-cta:hover { box-shadow: 0 0 24px rgba(6,199,85,0.4); }
+
+/* HERO */
+.article-hero {
+  padding: 120px 5vw 70px;
+  max-width: 800px; margin: 0 auto;
+  position: relative; z-index: 1;
+}
+
+.article-tag {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  border: 1px solid rgba(6,199,85,0.3); border-radius: 2px;
+  padding: 0.28em 0.85em; font-size: 0.68rem; color: var(--line);
+  margin-bottom: 1.4rem; font-family: 'DM Mono', monospace;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  background: rgba(6,199,85,0.06);
+}
+
+.article-hero h1 {
+  font-family: 'Syne', sans-serif; font-weight: 800;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  line-height: 1.2; letter-spacing: -0.02em;
+  color: var(--white); margin-bottom: 1.2rem;
+}
+
+.article-hero h1 .hl {
+  background: linear-gradient(135deg, var(--line) 0%, var(--cyan) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+
+.article-meta {
+  display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;
+  font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--muted);
+  margin-bottom: 2.5rem; padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.meta-item { display: flex; align-items: center; gap: 0.4rem; }
+
+/* CONTENT */
+.article-body {
+  max-width: 800px; margin: 0 auto;
+  padding: 0 5vw 80px;
+  position: relative; z-index: 1;
+}
+
+.article-body p {
+  font-size: 0.97rem; color: var(--text); line-height: 1.9;
+  margin-bottom: 1.4rem; font-weight: 300;
+}
+
+.article-body strong { color: var(--white); font-weight: 600; }
+
+/* 問題區塊 */
+.problem-block {
+  margin: 3rem 0;
+  border: 1px solid var(--border);
+  border-radius: 12px; overflow: hidden;
+  background: var(--bg2);
+}
+
+.problem-header {
+  padding: 1.4rem 1.8rem;
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: flex-start; gap: 1.2rem;
+  background: var(--bg3);
+}
+
+.problem-num {
+  font-family: 'DM Mono', monospace; font-size: 0.65rem;
+  color: var(--line); letter-spacing: 0.15em; text-transform: uppercase;
+  padding: 0.25em 0.7em; border: 1px solid rgba(6,199,85,0.3);
+  border-radius: 3px; flex-shrink: 0; margin-top: 0.15rem;
+}
+
+.problem-title {
+  font-family: 'Syne', sans-serif; font-weight: 700;
+  font-size: 1.05rem; color: var(--white); line-height: 1.35;
+}
+
+.problem-body { padding: 1.6rem 1.8rem; }
+
+.problem-body p {
+  font-size: 0.88rem; color: var(--muted);
+  margin-bottom: 1.2rem; line-height: 1.85;
+}
+
+.problem-body p:last-child { margin-bottom: 0; }
+
+/* 場景對話框 */
+.scene-box {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 8px; padding: 1.2rem 1.4rem;
+  margin: 1.2rem 0; font-size: 0.83rem;
+}
+
+.scene-label {
+  font-family: 'DM Mono', monospace; font-size: 0.65rem;
+  color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase;
+  margin-bottom: 0.7rem;
+}
+
+.scene-line { display: flex; gap: 0.7rem; margin-bottom: 0.5rem; align-items: flex-start; }
+.scene-line:last-child { margin-bottom: 0; }
+.scene-role { color: var(--line); font-weight: 600; flex-shrink: 0; font-size: 0.82rem; }
+.scene-text { color: var(--text); line-height: 1.6; }
+.scene-text.bad { color: #e05c5c; }
+.scene-text.good { color: var(--line); }
+
+/* 解法框 */
+.solution-box {
+  background: rgba(6,199,85,0.05);
+  border: 1px solid rgba(6,199,85,0.2);
+  border-radius: 8px; padding: 1.2rem 1.4rem; margin-top: 1.2rem;
+}
+
+.solution-label {
+  font-family: 'DM Mono', monospace; font-size: 0.65rem;
+  color: var(--line); letter-spacing: 0.1em; text-transform: uppercase;
+  margin-bottom: 0.7rem;
+}
+
+.solution-box p {
+  font-size: 0.86rem; color: var(--text); margin-bottom: 0.6rem; line-height: 1.75;
+}
+
+.solution-box p:last-child { margin-bottom: 0; }
+
+.cmd {
+  display: inline-block;
+  background: var(--bg3); border: 1px solid var(--border);
+  padding: 1px 8px; border-radius: 4px;
+  color: var(--line); font-family: 'DM Mono', monospace;
+  font-size: 0.82em;
+}
+
+/* 分隔標題 */
+.section-divider {
+  display: flex; align-items: center; gap: 1rem;
+  margin: 3.5rem 0 2rem;
+}
+
+.section-divider-line { flex: 1; height: 1px; background: var(--border); }
+
+.section-divider-text {
+  font-family: 'DM Mono', monospace; font-size: 0.68rem;
+  color: var(--muted); letter-spacing: 0.15em; text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* CTA 區塊 */
+.article-cta {
+  margin: 4rem 0 0;
+  background: var(--bg2); border: 1px solid rgba(6,199,85,0.2);
+  border-radius: 12px; padding: 2.5rem;
+  text-align: center; position: relative; overflow: hidden;
+}
+
+.article-cta::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at center, rgba(6,199,85,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.article-cta h3 {
+  font-family: 'Syne', sans-serif; font-weight: 800;
+  font-size: 1.4rem; color: var(--white); margin-bottom: 0.7rem;
+  position: relative;
+}
+
+.article-cta p {
+  font-size: 0.9rem; color: var(--muted);
+  margin-bottom: 1.8rem; position: relative;
+}
+
+.btn-line {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  background: var(--line); color: #000; padding: 0.85em 2em;
+  border-radius: 6px; font-weight: 700; font-size: 0.95rem;
+  text-decoration: none; transition: box-shadow 0.2s, transform 0.15s;
+  box-shadow: 0 0 30px rgba(6,199,85,0.25); position: relative;
+}
+
+.btn-line:hover { box-shadow: 0 0 50px rgba(6,199,85,0.45); transform: translateY(-2px); }
+
+.btn-secondary-link {
+  display: block; margin-top: 1rem;
+  font-size: 0.8rem; color: var(--muted);
+  text-decoration: none; font-family: 'DM Mono', monospace;
+  transition: color 0.2s; position: relative;
+}
+
+.btn-secondary-link:hover { color: var(--text); }
+
+/* 目錄 */
+.toc {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 10px; padding: 1.4rem 1.8rem; margin-bottom: 3rem;
+}
+
+.toc-title {
+  font-family: 'DM Mono', monospace; font-size: 0.68rem;
+  color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase;
+  margin-bottom: 0.9rem;
+}
+
+.toc ol { padding-left: 1.2rem; }
+.toc li { margin-bottom: 0.4rem; }
+.toc a {
+  font-size: 0.86rem; color: var(--muted); text-decoration: none;
+  transition: color 0.2s; line-height: 1.6;
+}
+.toc a:hover { color: var(--line); }
+
+/* FOOTER */
+footer {
+  background: var(--bg2); border-top: 1px solid var(--border);
+  padding: 30px 5vw; font-size: 0.75rem;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 1rem; color: var(--muted);
+  font-family: 'DM Mono', monospace; position: relative; z-index: 1;
+}
+
+footer a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+footer a:hover { color: var(--text); }
+
+@media (max-width: 680px) {
+  .article-hero { padding: 100px 5vw 50px; }
+  .problem-header { flex-direction: column; gap: 0.6rem; }
+  .article-meta { gap: 0.8rem; }
+  footer { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand"><span class="nav-dot"></span>萬語通</a>
+  <a href="index.html" class="nav-back">← 回官網</a>
+  <a href="https://line.me/ti/p/@969wpxno" class="nav-cta">免費體驗</a>
+</nav>
+
+<div class="article-hero">
+  <div class="article-tag">// 雇主指南 · 2026-04-25</div>
+  <h1>台灣雇主管理外勞<br>最常遇到的 <span class="hl">5 個溝通問題</span>（與解法）</h1>
+  <div class="article-meta">
+    <div class="meta-item">📍 適用對象：工廠、看護、工地、餐飲、農場雇主</div>
+    <div class="meta-item">⏱ 閱讀時間：約 5 分鐘</div>
+    <div class="meta-item">🔧 工具：萬語通 LINE Bot</div>
+  </div>
+  <p style="font-size:0.97rem;color:var(--muted);line-height:1.9;font-weight:300;">
+    台灣目前有超過 75 萬名外籍移工，主要來自印尼、越南、菲律賓、泰國。對雇主來說，語言不通不只是「溝通不順」這麼簡單——它會直接影響工安、效率、甚至法律責任。這篇文章整理雇主最常反映的 5 個溝通困境，以及目前最實際的解決方法。
+  </p>
+</div>
+
+<div class="article-body">
+
+  <div class="toc">
+    <div class="toc-title">// 文章目錄</div>
+    <ol>
+      <li><a href="#problem1">發出工作指令，外勞點頭卻沒照做</a></li>
+      <li><a href="#problem2">傳一張圖片說明，外勞完全看不懂</a></li>
+      <li><a href="#problem3">工安規定說了等於沒說</a></li>
+      <li><a href="#problem4">多國籍外勞同一個群組，根本沒辦法統一管理</a></li>
+      <li><a href="#problem5">半夜收到系統訊息，整個群組被吵醒</a></li>
+    </ol>
+  </div>
+
+  <!-- 問題一 -->
+  <div class="problem-block" id="problem1">
+    <div class="problem-header">
+      <div class="problem-num">問題 01</div>
+      <div class="problem-title">發出工作指令，外勞點頭卻沒照做——你不知道他聽懂了沒</div>
+    </div>
+    <div class="problem-body">
+      <p>這是雇主回報最多的問題。外勞在群組裡看到你的訊息，會點頭、會回「OK」，但實際執行的時候完全不是那回事。你以為他懂了，他可能只是不想讓你失望。</p>
+
+      <div class="scene-box">
+        <div class="scene-label">// 常見場景</div>
+        <div class="scene-line"><span class="scene-role">主管</span><span class="scene-text">明天早上 7 點到倉庫 B 區集合，搬第三批貨。</span></div>
+        <div class="scene-line"><span class="scene-role">印尼大哥</span><span class="scene-text">OK boss 👍</span></div>
+        <div class="scene-line"><span class="scene-role">（隔天）</span><span class="scene-text bad">沒人到 B 區，跑去 A 區等</span></div>
+      </div>
+
+      <div class="solution-box">
+        <div class="solution-label">// 萬語通解法</div>
+        <p>使用 <span class="cmd">@確認 明天早上7點到倉庫B區集合，搬第三批貨</span> 指令，Bot 自動翻譯成印尼文並要求每個人回覆 <strong>1＝明白 / 2＝不明白</strong>。</p>
+        <p>回覆統計即時呈現，誰沒回、誰說不明白，一眼就看到。再也不用猜。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 問題二 -->
+  <div class="problem-block" id="problem2">
+    <div class="problem-header">
+      <div class="problem-num">問題 02</div>
+      <div class="problem-title">傳一張圖片說明，外勞完全看不懂圖上的字</div>
+    </div>
+    <div class="problem-body">
+      <p>工廠裡的操作手冊、機器標示貼紙、工地的施工圖說明、農藥使用說明書……這些文件通常只有中文版。主管把圖片截圖傳到群組，外勞看到的是一堆看不懂的中文字。</p>
+
+      <div class="scene-box">
+        <div class="scene-label">// 常見場景</div>
+        <div class="scene-line"><span class="scene-role">主管</span><span class="scene-text">（傳了一張機器操作流程截圖）</span></div>
+        <div class="scene-line"><span class="scene-role">越南姐</span><span class="scene-text bad">看了五分鐘，還是不知道要按哪個鍵</span></div>
+      </div>
+
+      <div class="solution-box">
+        <div class="solution-label">// 萬語通解法</div>
+        <p>付費版群組直接把圖片傳給萬語通，Bot 自動 OCR 辨識圖片裡的文字，翻成目標語言回傳。</p>
+        <p>工廠貼紙、合約截圖、施工說明，一張圖搞定，不需要打字重新輸入。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 問題三 -->
+  <div class="problem-block" id="problem3">
+    <div class="problem-header">
+      <div class="problem-num">問題 03</div>
+      <div class="problem-title">工安規定說了等於沒說——萬一出事，責任在誰？</div>
+    </div>
+    <div class="problem-body">
+      <p>這是很多雇主沒有認真面對的法律風險。《職業安全衛生法》規定雇主有義務讓勞工了解工作環境的危害。如果外勞因為語言不通而發生職災，「我有說過」是不夠的——你必須確認「他真的聽懂了」。</p>
+
+      <div class="scene-box">
+        <div class="scene-label">// 常見場景</div>
+        <div class="scene-line"><span class="scene-role">主管</span><span class="scene-text">這台機器一定要戴手套才能操作，不然很危險。</span></div>
+        <div class="scene-line"><span class="scene-role">泰國弟</span><span class="scene-text">（聽不懂，繼續徒手操作）</span></div>
+        <div class="scene-line"><span class="scene-role">後來</span><span class="scene-text bad">發生意外，雇主被認定未盡告知義務</span></div>
+      </div>
+
+      <div class="solution-box">
+        <div class="solution-label">// 萬語通解法</div>
+        <p>工安宣導用 <span class="cmd">@確認</span> 系統發送，Bot 翻譯後要求每位外勞個別確認收到。</p>
+        <p>回覆記錄留存在群組歷史（<span class="cmd">@群組歷史</span> 可查），萬一需要舉證，有白紙黑字的數位記錄。這不是在說你壞話，而是在保護你。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 問題四 -->
+  <div class="problem-block" id="problem4">
+    <div class="problem-header">
+      <div class="problem-num">問題 04</div>
+      <div class="problem-title">群組裡有印尼、越南、泰國三種外勞，一條訊息根本發不到位</div>
+    </div>
+    <div class="problem-body">
+      <p>台灣很多工廠、農場的外勞來自不同國家，混合國籍的群組是常態。以前的解法是：傳三次、用三種語言——這實際上沒有人會這樣做，最後就是放棄，用比手畫腳的方式溝通。</p>
+
+      <div class="scene-box">
+        <div class="scene-label">// 常見場景</div>
+        <div class="scene-line"><span class="scene-role">主管</span><span class="scene-text">（在三個不同群組，分別傳三次一樣的訊息）</span></div>
+        <div class="scene-line"><span class="scene-role">或者</span><span class="scene-text bad">只傳一次，印尼人看懂了，越南和泰國的都不知道</span></div>
+      </div>
+
+      <div class="solution-box">
+        <div class="solution-label">// 萬語通解法</div>
+        <p>使用 <span class="cmd">@群組多語 印尼文 越南文 泰文</span> 設定持久多語模式，之後發任何訊息，Bot 自動同時翻成三種語言，一條訊息，三個族群都收到。</p>
+        <p>搭配 <span class="cmd">@確認</span> 使用時，確認訊息也會自動翻成多語，每個人用自己語言回覆。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 問題五 -->
+  <div class="problem-block" id="problem5">
+    <div class="problem-header">
+      <div class="problem-num">問題 05</div>
+      <div class="problem-title">半夜收到系統通知，整個宿舍群組被吵醒</div>
+    </div>
+    <div class="problem-body">
+      <p>很多公司的系統排程或到期提醒會在半夜觸發，一推播出去，全群組的外勞手機同時響。睡眠被打擾，隔天工作精神差，累積下來對整個工作環境都是負面影響。</p>
+
+      <div class="scene-box">
+        <div class="scene-label">// 常見場景</div>
+        <div class="scene-line"><span class="scene-role">凌晨 2:00</span><span class="scene-text bad">系統推播方案到期通知，15 個外勞手機同時震動</span></div>
+        <div class="scene-line"><span class="scene-role">隔天</span><span class="scene-text bad">外勞抱怨沒睡好，主管也覺得尷尬</span></div>
+      </div>
+
+      <div class="solution-box">
+        <div class="solution-label">// 萬語通解法</div>
+        <p>使用 <span class="cmd">@勿擾 22:00-07:00</span> 設定勿擾時段，指定時間內的系統通知自動丟棄，不推播、不補發。</p>
+        <p>工作時間內的翻譯和指令完全不受影響，只有系統性通知會靜音。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider">
+    <div class="section-divider-line"></div>
+    <div class="section-divider-text">// 總結</div>
+    <div class="section-divider-line"></div>
+  </div>
+
+  <p>這 5 個問題，每一個都不是小事。它們每天消耗雇主的時間和精神，累積下來對工作效率和職場關係都有影響。</p>
+
+  <p>解法不是「學印尼文」或「請翻譯員」——那些成本和門檻都太高。最實際的做法，是用已經在手上的 LINE，讓工具替你解決語言這一關。</p>
+
+  <p><strong>萬語通的設計出發點就是這樣</strong>：不改變雇主的工作習慣，不需要裝新的 App，就在 LINE 裡，把溝通這件事做對。</p>
+
+  <div class="article-cta">
+    <h3>現在免費試用，今天就解決溝通問題</h3>
+    <p>每日 15 次免費翻譯，不用綁信用卡。工廠、看護、工地、餐飲、農場雇主都適用。</p>
+    <a href="https://line.me/ti/p/@969wpxno" class="btn-line">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.105.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.07 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+      加入 LINE Bot 免費體驗
+    </a>
+    <a href="index.html" class="btn-secondary-link">← 回官網了解更多功能</a>
+  </div>
+
+</div>
+
+<footer>
+  <div>© 2026 萬語通 · 客服 LINE：fishxit · Email：bao58881@gmail.com</div>
+  <div style="display:flex;gap:1.5rem;flex-wrap:wrap;">
+    <a href="index.html">官網</a>
+    <a href="index.html#pricing">收費方案</a>
+    <a href="index.html#terms">使用條款</a>
+    <a href="https://line.me/ti/p/~fishxit">聯繫客服</a>
+  </div>
+</footer>
+
+</body>
+</html>

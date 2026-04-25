@@ -1475,5 +1475,21 @@ window.addEventListener('scroll', function() {
   });
 });
 </script>
+
+<script>
+(function(){
+  try {
+    if (localStorage.getItem("wyt-admin") === "1") return;
+    fetch("https://one1stars-line-bot.onrender.com/track", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({
+        page: "index",
+        referrer: document.referrer
+      })
+    });
+  } catch(e) {}
+})();
+</script>
 </body>
 </html>

@@ -404,15 +404,22 @@ html.light footer { background: var(--bg3); border-top-color: var(--border); }
 html.light .theme-toggle-knob { transform: translateX(18px); background: var(--line); }
 html:not(.light) .theme-toggle-knob { transform: translateX(0px); background: var(--cyan); }
 
+.art-nav-links { display:flex; align-items:center; gap:1.6rem; }
+.art-nav-links a { font-size:0.78rem; color:var(--muted); text-decoration:none; font-family:'DM Mono',monospace; letter-spacing:0.06em; transition:color 0.2s; }
+.art-nav-links a:hover { color:var(--text); }
+@media(max-width:600px){ .art-nav-links { display:none; } }
 </style>
 </head>
 <body>
 
 <nav>
   <a href="index.html" class="nav-brand"><span class="nav-dot"></span>萬語通</a>
-  <div style="display:flex;align-items:center;gap:1.2rem;">
-    <a href="blog.html" class="nav-back">← 回部落格</a>
-    <a href="index.html" style="font-size:0.72rem;color:var(--muted);text-decoration:none;font-family:'DM Mono',monospace;transition:color 0.2s;" onmouseover="this.style.color='var(--text)'" onmouseout="this.style.color='var(--muted)'">官網</a>
+  <div class="art-nav-links">
+    <a href="index.html#features">為何選我</a>
+    <a href="index.html#pricing">收費方案</a>
+    <a href="blog.html">部落格</a>
+    <a href="index.html#terms">條款</a>
+    <a href="https://line.me/ti/p/@969wpxno" class="nav-cta">免費體驗</a>
   </div>
   <a href="https://line.me/ti/p/@969wpxno" class="nav-cta">免費體驗</a>
   <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="切換日/夜模式" aria-label="切換日夜模式"><div class="theme-toggle-knob" id="themeKnob">🌙</div></button>

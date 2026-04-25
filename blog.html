@@ -464,13 +464,26 @@ html:not(.light) .theme-toggle-knob { transform: translateX(0px); background: va
 }
 .blog-hero-cta .btn-ghost:hover { color: var(--text); }
 
+
+.blog-hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px; background:none; border:none; }
+.blog-hamburger span { display:block; width:22px; height:2px; background:var(--text); border-radius:1px; transition:all 0.3s; }
+
+@media (max-width: 760px) {
+  .nav-links-blog { display:none; flex-direction:column; position:absolute; top:56px; left:0; right:0; background:var(--bg2); border-bottom:1px solid var(--border); padding:1rem 5vw; gap:1rem; z-index:200; }
+  .nav-links-blog.open { display:flex; }
+  .nav-links-blog a { font-size:0.88rem; padding:0.3rem 0; border-bottom:1px solid var(--border); }
+  .nav-links-blog a:last-child { border-bottom:none; }
+  .nav-links-blog .nav-cta { display:inline-block; margin-top:0.3rem; text-align:center; }
+  .blog-hamburger { display:flex; }
+}
+
 </style>
 </head>
 <body>
 
 <nav>
   <a href="index.html" class="nav-brand"><span class="nav-dot"></span>萬語通</a>
-  <div class="nav-links-blog">
+  <div class="nav-links-blog" id="blogNavLinks">
     <a href="index.html">官網</a>
     <a href="index.html#features">為何選我</a>
     <a href="index.html#pricing">收費方案</a>
@@ -478,7 +491,12 @@ html:not(.light) .theme-toggle-knob { transform: translateX(0px); background: va
     <a href="index.html#terms">條款</a>
     <a href="https://line.me/ti/p/@969wpxno" class="nav-cta">免費體驗</a>
   </div>
-  <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="切換日/夜模式" aria-label="切換日夜模式"><div class="theme-toggle-knob" id="themeKnob">🌙</div></button>
+  <div style="display:flex;align-items:center;gap:0.6rem;">
+    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="切換日/夜模式" aria-label="切換日夜模式"><div class="theme-toggle-knob" id="themeKnob">🌙</div></button>
+    <button class="blog-hamburger" onclick="document.getElementById('blogNavLinks').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>
 
 <div class="blog-hero">
@@ -650,6 +668,10 @@ function toggleTheme() {
     });
   } catch(e) {}
 })();
+function toggleBlogNav(){
+  document.getElementById("blogNavLinks").classList.toggle("open");
+}
+
 </script>
 </body>
 </html>

@@ -437,13 +437,26 @@ html:not(.light) .theme-toggle-knob { transform: translateX(0px); background: va
 }
 .top-banner-btn:hover { box-shadow: 0 0 28px rgba(6,199,85,0.4); }
 
+
+.art-hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px; background:none; border:none; }
+.art-hamburger span { display:block; width:22px; height:2px; background:var(--text); border-radius:1px; }
+
+@media (max-width: 760px) {
+  .art-nav-links { display:none; flex-direction:column; position:absolute; top:56px; left:0; right:0; background:var(--bg2); border-bottom:1px solid var(--border); padding:1rem 5vw; gap:1rem; z-index:200; }
+  .art-nav-links.open { display:flex; }
+  .art-nav-links a { font-size:0.88rem; padding:0.3rem 0; border-bottom:1px solid var(--border); }
+  .art-nav-links a:last-child { border-bottom:none; }
+  .art-nav-links .nav-cta { display:inline-block; margin-top:0.3rem; text-align:center; }
+  .art-hamburger { display:flex; }
+}
+
 </style>
 </head>
 <body>
 
 <nav>
   <a href="index.html" class="nav-brand"><span class="nav-dot"></span>萬語通</a>
-  <div class="art-nav-links">
+  <div class="art-nav-links" id="artNavLinks">
     <a href="index.html">官網</a>
     <a href="index.html#features">為何選我</a>
     <a href="index.html#pricing">收費方案</a>
@@ -451,8 +464,13 @@ html:not(.light) .theme-toggle-knob { transform: translateX(0px); background: va
     <a href="index.html#terms">條款</a>
     <a href="https://line.me/ti/p/@969wpxno" class="nav-cta">免費體驗</a>
   </div>
+  <div style="display:flex;align-items:center;gap:0.6rem;">
+    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="切換日/夜模式" aria-label="切換日夜模式"><div class="theme-toggle-knob" id="themeKnob">🌙</div></button>
+    <button class="art-hamburger" onclick="document.getElementById('artNavLinks').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
   <a href="https://line.me/ti/p/@969wpxno" class="nav-cta">免費體驗</a>
-  <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="切換日/夜模式" aria-label="切換日夜模式"><div class="theme-toggle-knob" id="themeKnob">🌙</div></button>
 </nav>
 
 <div class="article-top-banner">

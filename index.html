@@ -1490,14 +1490,8 @@ window.addEventListener('scroll', function() {
 (function(){
   try {
     if (localStorage.getItem("wyt-admin") === "1") return;
-    fetch("https://one1stars-line-bot.onrender.com/track", {
-      method: "POST",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({
-        page: "index",
-        referrer: document.referrer
-      })
-    });
+    var img = new Image();
+    img.src = "https://one1stars-line-bot.onrender.com/track/pixel?p=index&r=" + encodeURIComponent(document.referrer);
   } catch(e) {}
 })();
 </script>

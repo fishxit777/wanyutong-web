@@ -480,6 +480,71 @@ html:not(.light) .theme-toggle-knob { transform: translateX(0px); background: va
 nav { top: 36px !important; }
 .article-top-banner { padding-top: 116px !important; }
 
+
+.article-nav {
+  max-width: 800px; margin: 2.5rem auto 0;
+  padding: 0 5vw;
+  position: relative; z-index: 1;
+}
+
+.article-nav-inner {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.article-nav-card {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 10px; padding: 1.2rem 1.4rem;
+  text-decoration: none; color: inherit;
+  transition: border-color 0.2s, transform 0.15s;
+  display: flex; flex-direction: column; gap: 0.5rem;
+}
+
+.article-nav-card:hover {
+  border-color: rgba(6,199,85,0.3); transform: translateY(-2px);
+}
+
+.article-nav-card.prev { text-align: left; }
+.article-nav-card.next { text-align: right; }
+
+.article-nav-card.disabled {
+  opacity: 0.4; pointer-events: none; cursor: default;
+}
+
+.nav-card-dir {
+  font-family: 'DM Mono', monospace; font-size: 0.65rem;
+  color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase;
+}
+
+.nav-card-dir span { color: var(--line); }
+
+.nav-card-title {
+  font-family: 'Syne', sans-serif; font-weight: 700;
+  font-size: 0.88rem; color: var(--white); line-height: 1.4;
+}
+
+.nav-card-tag {
+  font-size: 0.72rem; color: var(--muted);
+  font-family: 'DM Mono', monospace;
+}
+
+.article-nav-back {
+  text-align: center; margin-top: 1.2rem;
+  font-size: 0.8rem; color: var(--muted);
+  font-family: 'DM Mono', monospace;
+}
+
+.article-nav-back a {
+  color: var(--muted); text-decoration: none; transition: color 0.2s;
+}
+
+.article-nav-back a:hover { color: var(--line); }
+
+@media (max-width: 600px) {
+  .article-nav-inner { grid-template-columns: 1fr; }
+  .article-nav-card.next { text-align: left; }
+}
+
 </style>
 </head>
 <body>
@@ -689,6 +754,29 @@ nav { top: 36px !important; }
     </a>
     <a href="blog.html" class="btn-secondary-link">← 回部落格看更多文章</a>
   </div>
+
+<div class="article-nav">
+  <div class="article-nav-inner">
+
+    <!-- 上一篇：目前是第一篇，所以 disabled -->
+    <div class="article-nav-card prev disabled">
+      <div class="nav-card-dir">‹ 上一篇</div>
+      <div class="nav-card-title">這是第一篇文章</div>
+      <div class="nav-card-tag">— 沒有上一篇 —</div>
+    </div>
+
+    <a href="blog-foreign-worker-safety-law.html" class="article-nav-card next">
+      <div class="nav-card-dir">下一篇 ›</div>
+      <div class="nav-card-title">外勞發生工安事故，雇主的法律責任是什麼？</div>
+      <div class="nav-card-tag">法規須知</div>
+    </a>
+
+  </div>
+  <div class="article-nav-back">
+    <a href="blog.html">← 回部落格，查看所有文章</a>
+  </div>
+</div>
+
 
 </div>
 

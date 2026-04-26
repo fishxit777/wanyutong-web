@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>常見問題 FAQ｜萬語通 LINE 翻譯機器人</title>
+<meta name="description" content="萬語通常見問題解答：如何使用、支援哪些語言、費用方案、退費政策、翻譯引擎說明。快速了解萬語通 LINE Bot 翻譯服務。">
+<meta name="keywords" content="萬語通FAQ,常見問題,LINE翻譯機器人,外勞翻譯,翻譯Bot,外籍員工溝通,DeepL翻譯">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://fishxit777.github.io/wanyutong-web/faq.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fishxit777.github.io/wanyutong-web/faq.html">
+<meta property="og:title" content="常見問題 FAQ｜萬語通 LINE 翻譯機器人">
+<meta property="og:description" content="萬語通使用說明、費用方案、退費政策常見問題解答。">
+<meta property="og:site_name" content="萬語通">
+<meta property="og:locale" content="zh_TW">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"萬語通是什麼？怎麼開始使用？","acceptedAnswer":{"@type":"Answer","text":"搜尋 LINE ID @969wpxno 加入好友，免費版每日 15 次翻譯，無需付費即可體驗。"}},{"@type":"Question","name":"萬語通支援哪些語言？","acceptedAnswer":{"@type":"Answer","text":"採用 DeepL API，支援 36 種語言，全部開放。群組版最多同時 8 種語言同步翻譯。"}},{"@type":"Question","name":"可以退費嗎？","acceptedAnswer":{"@type":"Answer","text":"付款後原則上不退費。唯一例外：付款後 24 小時內 Bot 完全無法回應，可聯繫客服 fishxit 申請。"}}]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#080b10; --bg2:#0e1218; --bg3:#141a24;
+  --border:rgba(255,255,255,0.07); --border2:rgba(255,255,255,0.12);
+  --text:#e8edf5; --muted:#6b7a99; --line:#06c755; --cyan:#00d4ff; --white:#ffffff;
+}
+html.light {
+  --bg:#f0f4f8; --bg2:#ffffff; --bg3:#e8edf5;
+  --border:rgba(0,0,0,0.08); --border2:rgba(0,0,0,0.14);
+  --text:#1a2233; --muted:#5a6a88; --line:#05b34a; --cyan:#008ecc; --white:#1a2233;
+}
+html,body { transition:background 0.35s ease,color 0.35s ease; }
+html.light body::before { background-image: linear-gradient(rgba(5,179,74,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(5,179,74,0.06) 1px,transparent 1px),linear-gradient(rgba(0,142,204,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,142,204,0.03) 1px,transparent 1px); }
+html.light body::after { background: radial-gradient(ellipse at 0% 0%,rgba(220,230,240,0.5) 0%,transparent 50%),radial-gradient(ellipse at 100% 0%,rgba(220,230,240,0.4) 0%,transparent 45%),radial-gradient(ellipse at 0% 100%,rgba(220,230,240,0.4) 0%,transparent 45%),radial-gradient(ellipse at 100% 100%,rgba(220,230,240,0.5) 0%,transparent 50%); }
+html.light nav { background:rgba(240,244,248,0.92); border-bottom-color:rgba(0,0,0,0.08); }
+html.light footer { background:var(--bg3); border-top-color:var(--border); }
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body { font-family:'Noto Sans TC',sans-serif; background:var(--bg); color:var(--text); line-height:1.8; overflow-x:hidden; }
+
+body::before {
+  content:''; position:fixed; inset:0;
+  background-image: linear-gradient(rgba(6,199,85,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(6,199,85,0.04) 1px,transparent 1px),linear-gradient(rgba(0,212,255,0.015) 1px,transparent 1px),linear-gradient(90deg,rgba(0,212,255,0.015) 1px,transparent 1px);
+  background-size:96px 96px,96px 96px,24px 24px,24px 24px;
+  pointer-events:none; z-index:0;
+}
+body::after {
+  content:''; position:fixed; inset:0;
+  background: radial-gradient(ellipse at 0% 0%,rgba(4,6,10,0.7) 0%,transparent 50%),radial-gradient(ellipse at 100% 0%,rgba(4,6,10,0.6) 0%,transparent 45%),radial-gradient(ellipse at 0% 100%,rgba(4,6,10,0.6) 0%,transparent 45%),radial-gradient(ellipse at 100% 100%,rgba(4,6,10,0.7) 0%,transparent 50%);
+  pointer-events:none; z-index:0;
+}
+#particle-canvas { position:fixed; inset:0; pointer-events:none; z-index:0; opacity:0.7; }
+#matrix-canvas {
+  position:fixed; top:0; right:0; width:52%; height:100%;
+  pointer-events:none; z-index:0; opacity:0.16;
+  mask-image:linear-gradient(to left,rgba(0,0,0,0.9) 0%,transparent 100%);
+  -webkit-mask-image:linear-gradient(to left,rgba(0,0,0,0.9) 0%,transparent 100%);
+}
+@keyframes scanline  { 0%{transform:translateY(-4px)} 100%{transform:translateY(100vh)} }
+@keyframes scanline2 { 0%{transform:translateY(-4px)} 100%{transform:translateY(100vh)} }
+.scanline  { position:fixed; left:0; right:0; height:2px; background:linear-gradient(90deg,transparent 0%,rgba(6,199,85,0.18) 40%,rgba(0,212,255,0.12) 60%,transparent 100%); pointer-events:none; z-index:1; animation:scanline 9s linear infinite; }
+.scanline2 { position:fixed; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent 0%,rgba(0,212,255,0.1) 50%,transparent 100%); pointer-events:none; z-index:1; animation:scanline2 14s linear infinite; animation-delay:-6s; }
+
+.theme-toggle { width:40px; height:22px; border-radius:11px; border:1.5px solid var(--border2); background:var(--bg3); cursor:pointer; transition:background 0.3s,border-color 0.3s; flex-shrink:0; display:flex; align-items:center; padding:0 3px; }
+.theme-toggle-knob { width:14px; height:14px; border-radius:50%; transition:transform 0.3s,background 0.3s; display:flex; align-items:center; justify-content:center; font-size:0.6rem; line-height:1; }
+html.light .theme-toggle-knob { transform:translateX(18px); background:var(--line); }
+html:not(.light) .theme-toggle-knob { transform:translateX(0px); background:var(--cyan); }
+
+nav { position:fixed; top:0; left:0; right:0; z-index:100; height:56px; display:flex; align-items:center; justify-content:space-between; padding:0 5vw; background:rgba(8,11,16,0.9); backdrop-filter:blur(20px); border-bottom:1px solid var(--border); }
+.nav-brand { font-family:'Syne',sans-serif; font-weight:800; font-size:1.1rem; color:var(--white); text-decoration:none; display:flex; align-items:center; gap:0.45rem; }
+.nav-dot { width:7px; height:7px; border-radius:50%; background:var(--line); box-shadow:0 0 10px var(--line); animation:blink 2.4s ease-in-out infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.35} }
+.nav-links-blog { display:flex; align-items:center; gap:1.8rem; }
+.nav-links-blog a { font-size:0.78rem; color:var(--muted); text-decoration:none; font-family:'DM Mono',monospace; letter-spacing:0.06em; transition:color 0.2s; }
+.nav-links-blog a:hover { color:var(--text); }
+.nav-links-blog a.active { color:var(--line); }
+.nav-cta { background:var(--line); color:#000 !important; padding:0.38em 1.1em; border-radius:4px; font-weight:700; font-size:0.78rem; text-decoration:none; transition:box-shadow 0.2s; }
+.nav-cta:hover { box-shadow:0 0 24px rgba(6,199,85,0.4); }
+.blog-hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px; background:none; border:none; }
+.blog-hamburger span { display:block; width:22px; height:2px; background:var(--text); border-radius:1px; }
+@media(max-width:760px){
+  .nav-links-blog { display:none; flex-direction:column; position:absolute; top:56px; left:0; right:0; background:var(--bg2); border-bottom:1px solid var(--border); padding:1rem 5vw; gap:1rem; z-index:200; }
+  .nav-links-blog.open { display:flex; }
+  .nav-links-blog a { font-size:0.88rem; padding:0.3rem 0; border-bottom:1px solid var(--border); }
+  .nav-links-blog a:last-child { border-bottom:none; }
+  .nav-links-blog .nav-cta { display:inline-block; margin-top:0.3rem; text-align:center; }
+  .blog-hamburger { display:flex; }
+}
+
+.faq-hero { padding:110px 5vw 60px; max-width:860px; margin:0 auto; position:relative; z-index:1; border-bottom:1px solid var(--border); }
+.faq-eyebrow { font-family:'DM Mono',monospace; font-size:0.68rem; color:var(--cyan); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:0.9rem; display:inline-block; }
+.faq-hero h1 { font-family:'Syne',sans-serif; font-weight:800; font-size:clamp(2rem,5vw,3.2rem); line-height:1.1; letter-spacing:-0.02em; color:var(--white); margin-bottom:1rem; }
+.faq-hero h1 .hl { background:linear-gradient(135deg,var(--line) 0%,var(--cyan) 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.faq-hero p { color:var(--muted); font-size:0.92rem; max-width:500px; font-weight:300; }
+
+.faq-filter { display:flex; gap:0.6rem; flex-wrap:wrap; padding:1.8rem 5vw 0; max-width:860px; margin:0 auto; position:relative; z-index:1; }
+.faq-filter-btn { font-family:'DM Mono',monospace; font-size:0.72rem; letter-spacing:0.06em; padding:0.36em 1em; border-radius:3px; border:1px solid var(--border2); background:transparent; color:var(--muted); cursor:pointer; transition:all 0.2s; }
+.faq-filter-btn:hover { color:var(--text); border-color:rgba(255,255,255,0.2); }
+.faq-filter-btn.active { background:var(--line); border-color:var(--line); color:#000; font-weight:700; }
+
+.faq-body { max-width:860px; margin:0 auto; padding:2.4rem 5vw 80px; position:relative; z-index:1; }
+.faq-section-label { font-family:'DM Mono',monospace; font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--cyan); margin:2.8rem 0 1rem; padding-bottom:0.6rem; border-bottom:1px solid var(--border); }
+.faq-section-label:first-child { margin-top:0; }
+
+.faq-item { border:1px solid var(--border); border-radius:6px; background:var(--bg2); margin-bottom:8px; overflow:hidden; transition:border-color 0.2s; }
+.faq-item:hover { border-color:rgba(6,199,85,0.2); }
+.faq-item.open { border-color:rgba(6,199,85,0.35); }
+.faq-q { display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:1.1rem 1.3rem; cursor:pointer; user-select:none; }
+.faq-q-text { font-size:0.9rem; font-weight:500; color:var(--text); line-height:1.5; }
+.faq-icon { font-family:'DM Mono',monospace; font-size:1.2rem; color:var(--line); flex-shrink:0; width:22px; text-align:center; transition:transform 0.3s; line-height:1; }
+.faq-item.open .faq-icon { transform:rotate(45deg); }
+.faq-a { max-height:0; overflow:hidden; transition:max-height 0.35s ease; }
+.faq-item.open .faq-a { max-height:800px; }
+.faq-a-inner { padding:0 1.3rem 1.2rem; color:var(--muted); font-size:0.88rem; line-height:1.9; font-weight:300; }
+.faq-a-inner strong { color:var(--text); font-weight:500; }
+.faq-a-inner a { color:var(--cyan); text-decoration:none; }
+.faq-a-inner a:hover { text-decoration:underline; }
+.faq-a-inner ul { padding-left:1.2rem; margin-top:0.5rem; }
+.faq-a-inner li { margin-bottom:0.3rem; }
+.tag-badge { display:inline-block; font-family:'DM Mono',monospace; font-size:0.68rem; letter-spacing:0.06em; padding:0.18em 0.7em; border-radius:3px; vertical-align:middle; margin-left:4px; }
+.tag-green { background:rgba(6,199,85,0.1); color:var(--line); border:1px solid rgba(6,199,85,0.25); }
+.tag-cyan  { background:rgba(0,212,255,0.1); color:var(--cyan); border:1px solid rgba(0,212,255,0.25); }
+
+.faq-cta { max-width:860px; margin:0 auto; padding:0 5vw 80px; position:relative; z-index:1; }
+.faq-cta-card { background:var(--bg2); border:1px solid var(--border); border-radius:8px; padding:2.4rem 2rem; text-align:center; position:relative; overflow:hidden; }
+.faq-cta-card::before { content:''; position:absolute; top:0; left:50%; transform:translateX(-50%); width:60%; height:1px; background:linear-gradient(90deg,transparent,var(--line),transparent); }
+.faq-cta-card h3 { font-family:'Syne',sans-serif; font-size:1.3rem; font-weight:800; color:var(--white); margin-bottom:0.6rem; }
+.faq-cta-card p { color:var(--muted); font-size:0.88rem; margin-bottom:1.6rem; font-weight:300; }
+.btn-line { display:inline-flex; align-items:center; gap:0.5rem; background:var(--line); color:#000; padding:0.65em 1.6em; border-radius:5px; font-weight:700; font-size:0.88rem; text-decoration:none; transition:box-shadow 0.2s,transform 0.15s; box-shadow:0 0 20px rgba(6,199,85,0.25); }
+.btn-line:hover { box-shadow:0 0 36px rgba(6,199,85,0.45); transform:translateY(-2px); }
+.btn-ghost-sm { display:inline-block; margin-left:1rem; font-size:0.82rem; color:var(--muted); text-decoration:none; font-family:'DM Mono',monospace; transition:color 0.2s; }
+.btn-ghost-sm:hover { color:var(--text); }
+
+footer { background:var(--bg2); border-top:1px solid var(--border); padding:2rem 5vw; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; position:relative; z-index:1; font-size:0.78rem; color:var(--muted); }
+.footer-links { display:flex; gap:1.5rem; flex-wrap:wrap; }
+.footer-links a { color:var(--muted); text-decoration:none; font-family:'DM Mono',monospace; font-size:0.72rem; letter-spacing:0.04em; transition:color 0.2s; }
+.footer-links a:hover { color:var(--text); }
+</style>
+</head>
+<body>
+
+<canvas id="particle-canvas"></canvas>
+<canvas id="matrix-canvas"></canvas>
+<div class="scanline"></div>
+<div class="scanline2"></div>
+
+<nav>
+  <a href="index.html" class="nav-brand"><span class="nav-dot"></span>萬語通</a>
+  <div class="nav-links-blog" id="faqNavLinks">
+    <a href="index.html">官網</a>
+    <a href="index.html#features">為何選我</a>
+    <a href="index.html#pricing">收費方案</a>
+    <a href="blog.html">部落格</a>
+    <a href="faq.html" class="active">常見問題</a>
+    <a href="index.html#terms">條款</a>
+    <a href="https://line.me/ti/p/@969wpxno" class="nav-cta">免費體驗</a>
+  </div>
+  <div style="display:flex;align-items:center;gap:0.6rem;">
+    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="切換日/夜模式" aria-label="切換日夜模式"><div class="theme-toggle-knob" id="themeKnob">🌙</div></button>
+    <button class="blog-hamburger" onclick="document.getElementById('faqNavLinks').classList.toggle('open')"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="faq-hero">
+  <div class="faq-eyebrow">// 萬語通 · 常見問題</div>
+  <h1>有問題？<br><span class="hl">我們來解答</span></h1>
+  <p>快速找到您想知道的答案，讓萬語通幫您解決外籍員工溝通難題。</p>
+</div>
+
+<div class="faq-filter">
+  <button class="faq-filter-btn active" onclick="filterFaq('all',this)">全部</button>
+  <button class="faq-filter-btn" onclick="filterFaq('start',this)">入門使用</button>
+  <button class="faq-filter-btn" onclick="filterFaq('pricing',this)">費用方案</button>
+  <button class="faq-filter-btn" onclick="filterFaq('feature',this)">功能說明</button>
+  <button class="faq-filter-btn" onclick="filterFaq('trust',this)">安全信任</button>
+</div>
+
+<div class="faq-body">
+
+  <div class="faq-section-label" data-sec="start">// 入門使用</div>
+
+  <div class="faq-item" data-sec="start">
+    <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">萬語通是什麼？怎麼開始使用？</span><span class="faq-icon">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">
+      萬語通是一款在 <strong>LINE 群組或私訊</strong>中運作的翻譯機器人，專為台灣雇主與外籍員工日常溝通設計。<br><br>開始步驟：
+      <ul><li>搜尋 LINE ID：<strong>@969wpxno</strong>，加入好友</li><li>傳送任何訊息，Bot 自動偵測語言並翻譯</li><li>免費版每日 <strong>15 次</strong>，無需付費即可體驗</li></ul><br>
+      群組版只需將萬語通加入群組，即可讓所有成員使用翻譯功能。
+    </div></div>
+  </div>
+
+  <div class="faq-item" data-sec="start">
+    <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">萬語通支援哪些語言？</span><span class="faq-icon">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">
+      採用 <strong>DeepL API</strong> 引擎，支援 <strong>36 種語言</strong>，全部開放、無一限制。<br><br>
+      常用語言：印尼文、越南文、泰文、菲律賓文（他加祿語）、英文、日文、韓文、簡繁中文等。<br><br>
+      <span class="tag-badge tag-green">群組版</span>&nbsp;最多可同時對 <strong>8 種語言同步翻譯</strong>，是市面上同類產品支援語言最多的。
+    </div></div>
+  </div>
+
+  <div class="faq-item" data-sec="start">
+    <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">個人版和群組版有什麼差別？</span><span class="faq-icon">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">
+      <strong>個人版</strong>：用於 LINE 私訊，適合個人對外籍友人、員工一對一溝通。<br><br>
+      <strong>群組版</strong>：加入 LINE 群組後，群組內所有人都能享受翻譯服務，適合工廠、工地、餐廳等多人場景。群組版還包含語音翻譯、圖片OCR、忽略詞、翻譯歷史等進階功能。
+    </div></div>
+  </div>
+
+  <div class="faq-section-label" data-sec="pricing">// 費用方案</div>
+
+  <div class="faq-item" data-sec="pricing">
+    <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">免費版有什麼限制？</span><span class="faq-icon">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">
+      免費版每日提供 <strong>15 次翻譯</strong>，隔天自動重置。功能為基本文字翻譯，不含語音、圖片OCR等進階功能。個人版與群組版皆可免費體驗，先確認效果再決定是否升級。
+    </div></div>
+  </div>
+
+  <div class="faq-item" data-sec="pricing">
+    <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">付費方案有哪些？費用是多少？</span><span class="faq-icon">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">
+      <strong>個人版</strong><ul><li>7日體驗：<strong>NT$49</strong></li><li>月付：<strong>NT$199</strong> / 30天</li><li>年付：<strong>NT$1,590</strong> / 365天（約 NT$133/月）</li></ul><br>
+      <strong>群組版</strong><ul><li>7日體驗：<strong>NT$49</strong></li><li>體驗版：<strong>NT$199</strong>/月（文字＋語音＋忽略詞＋歷史）</li><li>商務版：<strong>NT$499</strong>/月（含圖片OCR）</li></ul><br>
+      購買請在 LINE 傳送「<strong>@購買</strong>」或直接聯繫客服 <a href="https://line.me/ti/p/~fishxit">fishxit</a>。
+    </div></div>
+  </div>
+
+  <div class="faq-item" data-sec="pricing">
+    <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">可以退費嗎？</span><span class="faq-icon">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">
+      付款後原則上 <strong>不提供退費</strong>。<br><br>
+      唯一例外：付款後 <strong>24 小時內</strong> Bot 完全無法回應（非用戶端問題），可聯繫客服 <a href="https://line.me/ti/p/~fishxit">fishxit</a> 申請退費審查。
+    </div></div>
+  </div>
+
+  <div class="faq-item" data-sec="pricing">
+    <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">如何升級或延長方案？</span><span class="faq-icon">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">
+      目前付款方式為人工處理：
+      <ul><li>在 LINE 傳送 <strong>@購買</strong>，Bot 會引導您聯繫客服</li><li>完成匯款後，客服會在後台為您手動開通</li><li>開通成功後 Bot 會主動通知您</li></ul>
+      線上自動付款功能正在整合中，敬請期待。
+    </div></div>
+  </div>
+
+  <div class="faq-section-label" data-sec="feature">// 功能說明</div>
+
+  <div class="faq-item" data-sec="feature">
+    <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">可以翻譯語音訊息嗎？</span><span class="faq-icon">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">
+      可以！<span class="tag-badge tag-cyan">付費版限定</span><br><br>
+      語音訊息透過 <strong>OpenAI Whisper</strong> 引擎轉錄成文字，再由 DeepL 翻譯。支援印尼文、越南文、泰文等多種語言語音輸入。群組版「體驗版」以上方案包含此功能。
+    </div></div>
+  </div>
+
+  <div class="faq-item" data-sec="feature">
+    <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">可以翻譯圖片中的文字嗎？（OCR）</span><span class="faq-icon">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">
+      可以！<span class="tag-badge tag-cyan">商務版限定</span><br><br>
+      直接在 LINE 傳送圖片，萬語通會自動辨識圖片中的文字（OCR）並翻譯。適合用於合約、公文、藥品說明書等書面文件。採用 <strong>Claude AI</strong> 進行圖片文字辨識，準確率高。
+    </div></div>
+  </div>
+
+  <div class="faq-item" data-sec="feature">
+    <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">什麼是「翻譯確認」功能？</span><span class="faq-icon">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">
+      翻譯確認是萬語通獨有的功能。翻譯完成後，外籍員工可以對翻譯結果按 <strong>👍 / 👎</strong> 給予回饋，讓雇主知道對方是否真正理解了訊息內容。這解決了「翻譯出來但對方看不懂」的常見問題。
+    </div></div>
+  </div>
+
+  <div class="faq-item" data-sec="feature">
+    <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">什麼是「忽略詞」功能？</span><span class="faq-icon">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">
+      忽略詞讓您設定不需要翻譯的特定字詞，例如人名、地名、公司內部專有名詞。設定後，包含該詞的訊息不會觸發翻譯，避免誤翻或群組訊息被不必要地打斷。
+    </div></div>
+  </div>
+
+  <div class="faq-item" data-sec="feature">
+    <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">什麼是「勿擾模式」？</span><span class="faq-icon">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">
+      勿擾模式可讓群組在指定時段（例如午休、下班後）暫停翻譯功能，避免 Bot 在非工作時間持續回應干擾群組成員。
+    </div></div>
+  </div>
+
+  <div class="faq-section-label" data-sec="trust">// 安全與信任</div>
+
+  <div class="faq-item" data-sec="trust">
+    <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">翻譯引擎是哪家？準確嗎？</span><span class="faq-icon">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">
+      文字翻譯使用 <strong>DeepL API</strong>，在多項翻譯品質評比中獲得最高評分，尤其亞洲語言（印尼文、越南文）表現優於 Google 翻譯與一般 AI 翻譯。<br><br>
+      語音翻譯使用 <strong>OpenAI Whisper</strong>（語音轉文字）＋ DeepL。圖片 OCR 使用 <strong>Claude AI</strong>。
+    </div></div>
+  </div>
+
+  <div class="faq-item" data-sec="trust">
+    <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">我的對話內容會被保存或外洩嗎？</span><span class="faq-icon">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">
+      翻譯歷史僅保存 <strong>最近 100 筆</strong>，供用戶自行查詢。資料儲存於加密的 PostgreSQL 資料庫，不會對外公開，也不會用於廣告或第三方分析。伺服器設有 API rate limiting 與爬蟲防護機制。
+    </div></div>
+  </div>
+
+  <div class="faq-item" data-sec="trust">
+    <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Bot 突然無法使用怎麼辦？</span><span class="faq-icon">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">
+      萬語通部署在 Render.com Starter 方案（不休眠），並由 UptimeRobot 每 5 分鐘監控一次，異常時立即處理。<br><br>
+      若遇到無法使用的情況，請聯繫客服 <a href="https://line.me/ti/p/~fishxit">fishxit</a>，我們會優先排查。付款後 24 小時內 Bot 完全無法回應者，可申請退費。
+    </div></div>
+  </div>
+
+</div>
+
+<div class="faq-cta">
+  <div class="faq-cta-card">
+    <h3>還有其他問題？</h3>
+    <p>加入萬語通 LINE Bot，直接在對話中詢問客服，或先免費體驗看看。</p>
+    <a href="https://line.me/ti/p/@969wpxno" class="btn-line" target="_blank" rel="noopener">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.105.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.07 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+      免費體驗 LINE Bot
+    </a>
+    <a href="index.html#pricing" class="btn-ghost-sm">查看收費方案 →</a>
+  </div>
+</div>
+
+<footer>
+  <div>© 2026 萬語通 · 客服 LINE：fishxit · Email：bao58881@gmail.com</div>
+  <div class="footer-links">
+    <a href="index.html">官網</a>
+    <a href="blog.html">部落格</a>
+    <a href="faq.html">常見問題</a>
+    <a href="index.html#pricing">收費方案</a>
+    <a href="index.html#terms">使用條款</a>
+    <a href="https://line.me/ti/p/~fishxit">聯繫客服</a>
+  </div>
+</footer>
+
+<script>
+function toggleTheme(){var isLight=document.documentElement.classList.toggle('light');document.getElementById('themeKnob').textContent=isLight?'☀️':'🌙';try{localStorage.setItem('wyt-theme',isLight?'light':'dark');}catch(e){}}
+(function(){try{if(localStorage.getItem('wyt-theme')==='light')document.documentElement.classList.add('light');}catch(e){}})();
+function toggleFaq(el){var item=el.closest('.faq-item');var isOpen=item.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(function(i){i.classList.remove('open');});if(!isOpen)item.classList.add('open');}
+function filterFaq(key,btn){document.querySelectorAll('.faq-filter-btn').forEach(function(b){b.classList.remove('active');});btn.classList.add('active');document.querySelectorAll('.faq-item,.faq-section-label').forEach(function(el){if(key==='all'||el.dataset.sec===key){el.style.display='';}else{el.style.display='none';el.classList.remove('open');}});}
+</script>
+
+<script>
+(function(){
+  var canvas=document.getElementById('particle-canvas');
+  var ctx=canvas.getContext('2d');
+  var particles=[],beams=[],W,H;
+  function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;}
+  resize();window.addEventListener('resize',resize);
+  var COLORS=[{r:6,g:199,b:85},{r:0,g:212,b:255},{r:80,g:255,b:160},{r:120,g:80,b:255}];
+  function Particle(){var layer=Math.floor(Math.random()*3);this.layer=layer;this.x=Math.random()*W;this.y=Math.random()*H;var speed=[0.12,0.28,0.55][layer];this.vx=(Math.random()-0.5)*speed;this.vy=(Math.random()-0.5)*speed;this.r=[0.5,1.1,2.0][layer]+Math.random()*0.8;var ci=layer===2?(Math.random()<0.15?3:Math.random()<0.5?0:1):(Math.random()<0.6?0:1);this.col=COLORS[ci];this.alpha=[0.3,0.55,0.85][layer];this.pulse=Math.random()*Math.PI*2;this.pulseSpeed=0.02+Math.random()*0.03;}
+  for(var i=0;i<110;i++)particles.push(new Particle());
+  function Beam(){this.reset();}
+  Beam.prototype.reset=function(){this.y=Math.random()*H;this.x=-200;this.w=80+Math.random()*200;this.speed=1.5+Math.random()*2.5;this.alpha=0.06+Math.random()*0.1;this.cyan=Math.random()<0.4;};
+  for(var b=0;b<6;b++){var bm=new Beam();bm.x=Math.random()*W;beams.push(bm);}
+  function drawVignette(){var grad=ctx.createRadialGradient(W/2,H/2,H*0.3,W/2,H/2,H*0.9);grad.addColorStop(0,'rgba(8,11,16,0)');grad.addColorStop(1,'rgba(4,6,10,0.55)');ctx.fillStyle=grad;ctx.fillRect(0,0,W,H);}
+  function draw(){
+    ctx.clearRect(0,0,W,H);drawVignette();
+    for(var b=0;b<beams.length;b++){var bm=beams[b];bm.x+=bm.speed;if(bm.x>W+200)bm.reset();var gr=ctx.createLinearGradient(bm.x,0,bm.x+bm.w,0);var col=bm.cyan?'0,212,255':'6,199,85';gr.addColorStop(0,'rgba('+col+',0)');gr.addColorStop(0.4,'rgba('+col+','+bm.alpha+')');gr.addColorStop(1,'rgba('+col+',0)');ctx.fillStyle=gr;ctx.fillRect(bm.x,bm.y-1,bm.w,2);}
+    for(var layer=0;layer<3;layer++){for(var i=0;i<particles.length;i++){var p=particles[i];if(p.layer!==layer)continue;p.x+=p.vx;p.y+=p.vy;if(p.x<-10)p.x=W+10;if(p.x>W+10)p.x=-10;if(p.y<-10)p.y=H+10;if(p.y>H+10)p.y=-10;p.pulse+=p.pulseSpeed;var pa=p.alpha*(0.7+0.3*Math.sin(p.pulse));var c=p.col;if(layer===2){var glow=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r*4);glow.addColorStop(0,'rgba('+c.r+','+c.g+','+c.b+','+(pa*0.4)+')');glow.addColorStop(1,'rgba('+c.r+','+c.g+','+c.b+',0)');ctx.beginPath();ctx.arc(p.x,p.y,p.r*4,0,Math.PI*2);ctx.fillStyle=glow;ctx.fill();}ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='rgba('+c.r+','+c.g+','+c.b+','+pa+')';ctx.fill();if(layer>=1){for(var j=i+1;j<particles.length;j++){var q=particles[j];if(q.layer<1)continue;var dx=p.x-q.x,dy=p.y-q.y;var dist=Math.sqrt(dx*dx+dy*dy);var maxD=layer===2?140:110;if(dist<maxD){var la=(1-dist/maxD)*0.14*pa;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.strokeStyle='rgba('+c.r+','+c.g+','+c.b+','+la+')';ctx.lineWidth=layer===2?0.8:0.4;ctx.stroke();}}}}}
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+(function(){
+  var canvas=document.getElementById('matrix-canvas');if(!canvas)return;
+  var ctx=canvas.getContext('2d');
+  var chars='01アイウエオカキクケコサシスセソタチツテトナニヌネノ萬語通TRANSLATE'.split('');
+  var fontSize=13,cols,drops,speeds,colorMode;
+  function resize(){canvas.width=canvas.offsetWidth;canvas.height=canvas.offsetHeight;cols=Math.floor(canvas.width/fontSize);drops=[];speeds=[];colorMode=[];for(var i=0;i<cols;i++){drops[i]=Math.random()*-80;speeds[i]=0.3+Math.random()*0.5;colorMode[i]=Math.random()<0.25?'cyan':'green';}}
+  resize();window.addEventListener('resize',resize);
+  function draw(){ctx.fillStyle='rgba(8,11,16,0.055)';ctx.fillRect(0,0,canvas.width,canvas.height);for(var i=0;i<cols;i++){var c=chars[Math.floor(Math.random()*chars.length)];var x=i*fontSize;var y=drops[i]*fontSize;var isCyan=colorMode[i]==='cyan';ctx.fillStyle=isCyan?'#b0f8ff':'#c0ffcc';ctx.font='bold '+fontSize+'px "DM Mono",monospace';ctx.fillText(c,x,y);if(y>fontSize){ctx.fillStyle=isCyan?'rgba(0,212,255,0.75)':'rgba(6,199,85,0.75)';ctx.font=fontSize+'px "DM Mono",monospace';ctx.fillText(chars[Math.floor(Math.random()*chars.length)],x,y-fontSize);}if(y>fontSize*2){ctx.fillStyle=isCyan?'rgba(0,212,255,0.3)':'rgba(6,199,85,0.3)';ctx.fillText(chars[Math.floor(Math.random()*chars.length)],x,y-fontSize*2);}if(drops[i]*fontSize>canvas.height&&Math.random()>0.97){drops[i]=0;colorMode[i]=Math.random()<0.25?'cyan':'green';}drops[i]+=speeds[i];}setTimeout(function(){requestAnimationFrame(draw);},50);}
+  draw();
+})();
+</script>
+
+<script>
+(function(){try{if(localStorage.getItem("wyt-admin")==="1")return;var img=new Image();img.src="https://one1stars-line-bot.onrender.com/track/pixel?p=faq&r="+encodeURIComponent(document.referrer);}catch(e){}})();
+</script>
+</body>
+</html>

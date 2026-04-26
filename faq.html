@@ -175,6 +175,7 @@ footer { background:var(--bg2); border-top:1px solid var(--border); padding:2rem
   <button class="faq-filter-btn" onclick="filterFaq('pricing',this)">費用方案</button>
   <button class="faq-filter-btn" onclick="filterFaq('feature',this)">功能說明</button>
   <button class="faq-filter-btn" onclick="filterFaq('trust',this)">安全信任</button>
+  <button class="faq-filter-btn" onclick="filterFaq('disclaimer',this)">免責聲明</button>
 </div>
 
 <div class="faq-body">
@@ -238,7 +239,7 @@ footer { background:var(--bg2); border-top:1px solid var(--border); padding:2rem
     <div class="faq-a"><div class="faq-a-inner">
       目前付款方式為人工處理：
       <ul><li>在 LINE 傳送 <strong>@購買</strong>，Bot 會引導您聯繫客服</li><li>完成匯款後，客服會在後台為您手動開通</li><li>開通成功後 Bot 會主動通知您</li></ul>
-      線上自動付款功能正在整合中，敬請期待。
+
     </div></div>
   </div>
 
@@ -294,21 +295,52 @@ footer { background:var(--bg2); border-top:1px solid var(--border); padding:2rem
   <div class="faq-item" data-sec="trust">
     <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">我的對話內容會被保存或外洩嗎？</span><span class="faq-icon">+</span></div>
     <div class="faq-a"><div class="faq-a-inner">
-      翻譯歷史僅保存 <strong>最近 100 筆</strong>，供用戶自行查詢。資料儲存於加密的 PostgreSQL 資料庫，不會對外公開，也不會用於廣告或第三方分析。伺服器設有 API rate limiting 與爬蟲防護機制。
+      翻譯歷史僅保存 <strong>最近 20 筆</strong>，供用戶自行查詢。資料儲存於加密的資料庫，不會對外公開，也不會用於廣告或第三方分析。伺服器設有頻率限制與爬蟲防護機制。
     </div></div>
   </div>
 
   <div class="faq-item" data-sec="trust">
     <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Bot 突然無法使用怎麼辦？</span><span class="faq-icon">+</span></div>
     <div class="faq-a"><div class="faq-a-inner">
-      萬語通部署在 Render.com Starter 方案（不休眠），並由 UptimeRobot 每 5 分鐘監控一次，異常時立即處理。<br><br>
+      萬語通伺服器全天候運行，設有自動監控，異常時我們會立即處理。<br><br>
       若遇到無法使用的情況，請聯繫客服 <a href="https://line.me/ti/p/~fishxit">fishxit</a>，我們會優先排查。付款後 24 小時內 Bot 完全無法回應者，可申請退費。
     </div></div>
   </div>
 
-</div>
+  <div class="faq-section-label" data-sec="disclaimer">// 免責聲明</div>
 
-<div class="faq-cta">
+  <div class="faq-item" data-sec="disclaimer">
+    <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">服務中斷、系統異常或帳號安全事件的責任範圍</span><span class="faq-icon">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">
+      萬語通致力於提供穩定的翻譯服務，但以下情況屬於不可控範圍，本服務不承擔賠償責任：<br><br>
+      <ul>
+        <li><strong>第三方平台中斷：</strong>因 LINE、DeepL、OpenAI、Anthropic 等第三方服務商系統故障、政策調整或停止服務，導致萬語通功能受影響。</li>
+        <li><strong>不可抗力事件：</strong>包含但不限於自然災害、網路基礎設施故障、政府法規限制、戰爭、疫情等不可預見事件。</li>
+        <li><strong>惡意攻擊與資安事件：</strong>因駭客入侵、DDoS 攻擊、社交工程詐騙、帳號遭盜用等資安事件，導致服務中斷或用戶資料受影響。萬語通已採取合理的資安措施，但無法保證完全免疫於所有攻擊手段。</li>
+        <li><strong>帳號損失：</strong>因用戶帳號遭盜用或未授權存取所造成的付費點數損失，萬語通不承擔補償責任。建議用戶妥善保管 LINE 帳號安全。</li>
+        <li><strong>翻譯品質：</strong>翻譯結果由第三方引擎提供，萬語通不保證翻譯內容在所有情境下完全準確，不對因翻譯誤差造成的後果承擔法律責任。</li>
+        <li><strong>間接損失：</strong>因服務中斷所造成的業務損失、商業機會損失或其他間接損失，本服務不予賠償。</li>
+      </ul>
+      <br>
+      若遇到服務異常，請聯繫客服 <a href="https://line.me/ti/p/~fishxit">fishxit</a>，我們將盡速協助處理。
+    </div></div>
+  </div>
+
+  <div class="faq-item" data-sec="disclaimer">
+    <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">本服務的使用限制與終止條款</span><span class="faq-icon">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">
+      萬語通保留以下權利，且不因此承擔任何賠償責任：<br><br>
+      <ul>
+        <li><strong>服務調整：</strong>基於技術、法規或商業考量，隨時調整功能範圍、收費方案或服務條款，並提前通知用戶。</li>
+        <li><strong>帳號停用：</strong>對於違反使用條款（包含濫用翻譯功能、傳播違法內容）的用戶，有權立即停用帳號，且不退還任何費用。</li>
+        <li><strong>服務終止：</strong>在極端情況下（如公司停止營運），萬語通將盡力提前通知用戶，但不承擔因服務終止造成的損失賠償。</li>
+      </ul>
+      <br>
+      繼續使用萬語通服務，即視為接受上述免責條款。
+    </div></div>
+  </div>
+
+</div>
   <div class="faq-cta-card">
     <h3>還有其他問題？</h3>
     <p>加入萬語通 LINE Bot，直接在對話中詢問客服，或先免費體驗看看。</p>

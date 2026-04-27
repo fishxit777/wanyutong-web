@@ -209,8 +209,18 @@ nav {
 }
 
 .article-card {
-  min-width: 0; /* 防止文字溢出 */
+  min-width: 0;
+  word-break: break-word;
+}
+
+.card-body {
+  min-width: 0;
   overflow: hidden;
+}
+
+.card-title, .card-desc {
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 /* 第一篇：featured，橫跨兩欄 */
@@ -614,10 +624,10 @@ html:not(.light) .theme-toggle-knob { transform: translateX(0px); background: va
     </div>
     <div class="card-body">
       <div class="card-tags">
-        <span class="card-tag green">溝通技巧</span>
-        <span class="card-tag">工廠</span>
-        <span class="card-tag">看護</span>
-        <span class="card-tag">工地</span>
+        <span class="card-tag green" id="ct1a">溝通技巧</span>
+        <span class="card-tag" id="ct1b">工廠</span>
+        <span class="card-tag" id="ct1c">看護</span>
+        <span class="card-tag" id="ct1d">工地</span>
       </div>
       <div class="card-title" id="bc1-title">台灣雇主管理外勞最常遇到的 5 個溝通問題（與解法）</div>
       <div class="card-desc" id="bc1-desc">工廠主管、看護雇主、工地領班每天都在面對的困境：發了指令卻沒照做、圖片看不懂、工安說了等於沒說、多國籍外勞一條訊息發不到位……每個問題都有具體解法。</div>
@@ -645,9 +655,9 @@ html:not(.light) .theme-toggle-knob { transform: translateX(0px); background: va
     </div>
     <div class="card-body">
       <div class="card-tags">
-        <span class="card-tag">法規須知</span>
-        <span class="card-tag">工廠</span>
-        <span class="card-tag">工地</span>
+        <span class="card-tag" id="ct2a">法規須知</span>
+        <span class="card-tag" id="ct2b">工廠</span>
+        <span class="card-tag" id="ct2c">工地</span>
       </div>
       <div class="card-title" id="bc2-title">外勞發生工安事故，雇主的法律責任是什麼？</div>
       <div class="card-desc" id="bc2-desc">「我有說過」在法院站不住腳。職安法告知義務、中文文件的法律效力、如何用數位記錄保護自己——雇主必看。</div>
@@ -665,7 +675,7 @@ html:not(.light) .theme-toggle-knob { transform: translateX(0px); background: va
     </div>
     <div class="card-body">
       <div class="card-tags">
-        <span class="card-tag">產業別</span>
+        <span class="card-tag" id="ct3a">產業別</span>
       </div>
       <div class="card-title" id="bc3-title">餐飲業雇主怎麼管外勞？排班、衛生規定、點菜溝通全攻略</div>
       <div class="card-desc" id="bc3-desc">餐廳廚房、外場的外籍員工溝通場景特別多，這篇整理最常卡關的時刻與解法…</div>
@@ -685,8 +695,8 @@ html:not(.light) .theme-toggle-knob { transform: translateX(0px); background: va
     </div>
     <div class="card-body">
       <div class="card-tags">
-        <span class="card-tag">產業別</span>
-        <span class="card-tag">工具教學</span>
+        <span class="card-tag" id="ct4a">產業別</span>
+        <span class="card-tag" id="ct4b">工具教學</span>
       </div>
       <div class="card-title" id="bc4-title">家庭看護雇主的翻譯難題：如何用 LINE 確認外勞真的懂照護指示？</div>
       <div class="card-desc" id="bc4-desc">藥物劑量、照護步驟、緊急聯絡方式——這些資訊一定要讓外勞完全理解，不能靠猜的…</div>
@@ -768,6 +778,9 @@ var blogI18n = {
     'b-btn1':'免費體驗 LINE Bot','b-btn2':'查看收費方案 →',
     'b-stat-label':'篇文章',
     'bf-all':'全部','bf-comm':'溝通技巧','bf-tool':'工具教學','bf-law':'法規須知','bf-ind':'產業別',
+    'ct1a':'溝通技巧','ct1b':'工廠','ct1c':'看護','ct1d':'工地',
+    'ct2a':'法規須知','ct2b':'工廠','ct2c':'工地',
+    'ct3a':'產業別','ct4a':'產業別','ct4b':'工具教學',
     'bc1-title':'台灣雇主管理外勞最常遇到的 5 個溝通問題（與解法）',
     'bc1-desc':'工廠主管、看護雇主、工地領班每天都在面對的困境：發了指令卻沒照做、圖片看不懂、工安說了等於沒說、多國籍外勞一條訊息發不到位……每個問題都有具體解法。',
     'bc1-read':'閱讀文章 →',
@@ -795,6 +808,9 @@ var blogI18n = {
     'b-btn1':'Try LINE Bot Free','b-btn2':'View Plans →',
     'b-stat-label':'Articles',
     'bf-all':'All','bf-comm':'Communication','bf-tool':'Tools','bf-law':'Legal','bf-ind':'Industry',
+    'ct1a':'Communication','ct1b':'Factory','ct1c':'Caregiver','ct1d':'Construction',
+    'ct2a':'Legal','ct2b':'Factory','ct2c':'Construction',
+    'ct3a':'Industry','ct4a':'Industry','ct4b':'Tools',
     'bc1-title':'5 Communication Problems Taiwan Employers Face with Foreign Workers (And Solutions)',
     'bc1-desc':'Factory managers, caregivers, and site supervisors face this daily: commands ignored, pictures misunderstood, safety instructions that go unheard, multilingual groups that can\'t get one message. Every problem has a concrete solution.',
     'bc1-read':'Read Article →',

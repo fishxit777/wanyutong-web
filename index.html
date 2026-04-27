@@ -289,6 +289,13 @@ nav {
   display: flex;
   align-items: center;
   gap: 0.45rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+@media (max-width: 500px) {
+  .nav-brand { font-size: 0.95rem; }
+  .lang-toggle { font-size: 0.62rem; }
+  .lang-btn { padding: 3px 7px; }
 }
 
 .nav-dot {
@@ -1643,6 +1650,55 @@ var i18n = {
     'footer.pricing':  '收費方案',
     'footer.terms':    '使用條款',
     'footer.contact':  '聯繫客服',
+    // COMPARE VALUES
+    'cmp.val.acc.wyt':   '● 業界最高',
+    'cmp.val.acc.goo':   '普通',
+    'cmp.val.nat.wyt':   '● 接近母語者',
+    'cmp.val.nat.goo':   '略顯生硬',
+    'cmp.val.term.wyt':  '● 優秀',
+    'cmp.val.term.goo':  '✕ 容易出錯',
+    'cmp.val.ocr.wyt':   '● 支援',
+    'cmp.val.ocr.goo':   '✕ 需切換 App',
+    'cmp.val.voice.wyt': '● 支援',
+    'cmp.val.voice.goo': '✕ 不支援',
+    'cmp.val.grp.wyt':   '● 原生支援',
+    'cmp.val.grp.goo':   '✕ 不支援',
+    'cmp.val.use.wyt':   '● 直接在 LINE',
+    'cmp.val.use.goo':   '✕ 需開另一 App',
+    'cmp.ex.orig.text':  '感謝您撥冗回覆，期待後續合作愉快。',
+    // VS VALUES
+    'vs.val.price.wyt':  '● NT$199起',
+    'vs.val.price.ech':  '美金（較貴）',
+    'vs.val.price.t2g':  'NT$99起',
+    'vs.val.price.lig':  '按字元計費',
+    'vs.val.free.wyt':   '● 每日15次',
+    'vs.val.free.ech':   '每日20次',
+    'vs.val.free.t2g':   '流量制',
+    'vs.val.free.lig':   '5,000字元永久',
+    'vs.val.eng.wyt':    '● DeepL（最高品質）',
+    'vs.val.eng.ech':    'AI語意',
+    'vs.val.multi.wyt':  '● ✓ 最多8種',
+    'vs.val.multi.ech':  '最多5種',
+    'vs.val.curr.ech':   '✕ 美金',
+    'vs.val.curr.lig':   '按量計費',
+    // PRICING PLANS - Personal
+    'pp1.name': '免費版',   'pp1.desc': '// 立即可用',   'pp1.period': '每日 15 次免費',
+    'pp1.f1': '每日 15 次免費翻譯', 'pp1.f2': '36 種語言支援', 'pp1.f3': '語言隨時切換',
+    'pp2.name': '7日體驗',  'pp2.desc': '// 低門檻體驗', 'pp2.period': '7 天',
+    'pp2.f1': '無限次翻譯', 'pp2.f2': '36 種語言支援', 'pp2.f3': '圖片 OCR 翻譯', 'pp2.f4': '語音訊息翻譯',
+    'pp3.name': '月付方案', 'pp3.desc': '// 個人無限翻譯', 'pp3.period': '每月',
+    'pp3.f1': '無限次翻譯', 'pp3.f2': '36 種語言支援', 'pp3.f3': '圖片 OCR 翻譯', 'pp3.f4': '語音訊息翻譯', 'pp3.f5': '優先客服支援',
+    'pp4.name': '年付方案', 'pp4.desc': '// 買 8 個月送 4 個月', 'pp4.period': '每年（約 NT$133／月）',
+    'pp4.f1': '無限次翻譯', 'pp4.f2': '36 種語言支援', 'pp4.f3': '圖片 OCR 翻譯', 'pp4.f4': '語音訊息翻譯', 'pp4.f5': '優先客服支援', 'pp4.f6': '買8個月送4個月，省 NT$798',
+    // PRICING PLANS - Group
+    'pg1.name': '免費試用', 'pg1.desc': '// 加入即用',          'pg1.period': '每日 15 次免費',
+    'pg1.f1': '每日 15 次自動翻譯', 'pg1.f2': '36 種語言支援', 'pg1.f3': '雙向自動偵測語言', 'pg1.f4': '加入即用，無需開通',
+    'pg2.name': '7日體驗',  'pg2.desc': '// 低門檻試用',        'pg2.period': '7 天／每群組',
+    'pg2.f1': '群組雙向翻譯（無限次）', 'pg2.f2': '36 種語言支援', 'pg2.f3': '自訂語言對',
+    'pg3.name': '體驗版',   'pg3.desc': '// 文字溝通，零障礙',  'pg3.period': '每月／每群組',
+    'pg3.f1': '群組雙向翻譯（無限次）', 'pg3.f2': '語音訊息翻譯', 'pg3.f3': '自訂語言對（如中文↔印尼文）', 'pg3.f4': '翻譯歷史記錄', 'pg3.f5': '忽略詞設定',
+    'pg4.name': '商務版',   'pg4.desc': '// 文件、圖片、語音，全面覆蓋', 'pg4.period': '每月／每群組',
+    'pg4.f1': '體驗版所有功能', 'pg4.f2': '📷 圖片 OCR 翻譯', 'pg4.f3': '工廠貼紙、文件截圖、證件直接翻', 'pg4.f4': '優先客服',
   },
   en: {
     // NAV
@@ -1767,6 +1823,55 @@ var i18n = {
     'footer.pricing':  'Pricing',
     'footer.terms':    'Terms',
     'footer.contact':  'Contact',
+    // COMPARE VALUES
+    'cmp.val.acc.wyt':   '● Industry Best',
+    'cmp.val.acc.goo':   'Average',
+    'cmp.val.nat.wyt':   '● Near Native',
+    'cmp.val.nat.goo':   'Slightly Stiff',
+    'cmp.val.term.wyt':  '● Excellent',
+    'cmp.val.term.goo':  '✕ Prone to Errors',
+    'cmp.val.ocr.wyt':   '● Supported',
+    'cmp.val.ocr.goo':   '✕ Requires App Switch',
+    'cmp.val.voice.wyt': '● Supported',
+    'cmp.val.voice.goo': '✕ Not Supported',
+    'cmp.val.grp.wyt':   '● Native Support',
+    'cmp.val.grp.goo':   '✕ Not Supported',
+    'cmp.val.use.wyt':   '● Directly in LINE',
+    'cmp.val.use.goo':   '✕ Requires Another App',
+    'cmp.ex.orig.text':  '感謝您撥冗回覆，期待後續合作愉快。',
+    // VS VALUES
+    'vs.val.price.wyt':  '● From NT$199',
+    'vs.val.price.ech':  'USD (More Expensive)',
+    'vs.val.price.t2g':  'From NT$99',
+    'vs.val.price.lig':  'Per Character',
+    'vs.val.free.wyt':   '● 15/day Free',
+    'vs.val.free.ech':   '20/day Free',
+    'vs.val.free.t2g':   'Data-based',
+    'vs.val.free.lig':   '5,000 chars forever',
+    'vs.val.eng.wyt':    '● DeepL (Highest Quality)',
+    'vs.val.eng.ech':    'AI Semantic',
+    'vs.val.multi.wyt':  '● ✓ Up to 8 langs',
+    'vs.val.multi.ech':  'Up to 5 langs',
+    'vs.val.curr.ech':   '✕ USD Only',
+    'vs.val.curr.lig':   'Usage-based',
+    // PRICING PLANS - Personal
+    'pp1.name': 'Free',        'pp1.desc': '// Start Now',         'pp1.period': '15 free/day',
+    'pp1.f1': '15 free translations/day', 'pp1.f2': '36 languages', 'pp1.f3': 'Switch language anytime',
+    'pp2.name': '7-Day Trial', 'pp2.desc': '// Low-risk Trial',    'pp2.period': '7 days',
+    'pp2.f1': 'Unlimited translations', 'pp2.f2': '36 languages', 'pp2.f3': 'Image OCR', 'pp2.f4': 'Voice translation',
+    'pp3.name': 'Monthly',     'pp3.desc': '// Unlimited Personal','pp3.period': 'per month',
+    'pp3.f1': 'Unlimited translations', 'pp3.f2': '36 languages', 'pp3.f3': 'Image OCR', 'pp3.f4': 'Voice translation', 'pp3.f5': 'Priority support',
+    'pp4.name': 'Annual',      'pp4.desc': '// 8 months + 4 free', 'pp4.period': 'per year (≈NT$133/mo)',
+    'pp4.f1': 'Unlimited translations', 'pp4.f2': '36 languages', 'pp4.f3': 'Image OCR', 'pp4.f4': 'Voice translation', 'pp4.f5': 'Priority support', 'pp4.f6': '4 months free, save NT$798',
+    // PRICING PLANS - Group
+    'pg1.name': 'Free Trial',  'pg1.desc': '// Add & Go',          'pg1.period': '15 free/day',
+    'pg1.f1': '15 auto-translations/day', 'pg1.f2': '36 languages', 'pg1.f3': 'Auto language detection', 'pg1.f4': 'No setup needed',
+    'pg2.name': '7-Day Trial', 'pg2.desc': '// Low-risk Trial',    'pg2.period': '7 days / group',
+    'pg2.f1': 'Unlimited group translation', 'pg2.f2': '36 languages', 'pg2.f3': 'Custom language pair',
+    'pg3.name': 'Basic',       'pg3.desc': '// Zero language barriers', 'pg3.period': 'per month / group',
+    'pg3.f1': 'Unlimited group translation', 'pg3.f2': 'Voice translation', 'pg3.f3': 'Custom pair (e.g. ZH↔ID)', 'pg3.f4': 'Translation history', 'pg3.f5': 'Ignore word list',
+    'pg4.name': 'Business',    'pg4.desc': '// Docs, Images, Voice — All Covered', 'pg4.period': 'per month / group',
+    'pg4.f1': 'All Basic features', 'pg4.f2': '📷 Image OCR', 'pg4.f3': 'Factory stickers, docs, ID cards', 'pg4.f4': 'Priority support',
   }
 };
 
@@ -1899,6 +2004,92 @@ function applyLang(lang) {
 
   // 更新 html lang 屬性
   document.documentElement.lang = lang === 'zh' ? 'zh-TW' : 'en';
+
+  // COMPARE TABLE VALUES
+  var cmpTbody = document.querySelector('#compare tbody');
+  if (cmpTbody) {
+    var cmpSpans = cmpTbody.querySelectorAll('span');
+    var cmpVals = [
+      ['cmp.val.acc.wyt','cmp.val.acc.goo'],
+      ['cmp.val.nat.wyt','cmp.val.nat.goo'],
+      ['cmp.val.term.wyt','cmp.val.term.goo'],
+      ['cmp.val.ocr.wyt','cmp.val.ocr.goo'],
+      ['cmp.val.voice.wyt','cmp.val.voice.goo'],
+      ['cmp.val.grp.wyt','cmp.val.grp.goo'],
+      ['cmp.val.use.wyt','cmp.val.use.goo'],
+    ];
+    var si = 0;
+    cmpVals.forEach(function(pair){
+      if (cmpSpans[si] && t[pair[0]]) cmpSpans[si].textContent = t[pair[0]]; si++;
+      if (cmpSpans[si] && t[pair[1]]) cmpSpans[si].textContent = t[pair[1]]; si++;
+    });
+  }
+
+  // VS COMPETITORS TABLE VALUES
+  var vsTbody = document.querySelector('#vs-competitors tbody');
+  if (vsTbody) {
+    var vsRowsAll = vsTbody.querySelectorAll('tr');
+    var vsData = [
+      ['vs.val.price.wyt','vs.val.price.ech',null,'vs.val.price.t2g','vs.val.price.lig'],
+      ['vs.val.free.wyt','vs.val.free.ech',null,'vs.val.free.t2g','vs.val.free.lig'],
+      ['vs.val.eng.wyt','vs.val.eng.ech',null,null,null],
+      [null,null,null,null,null],
+      ['vs.val.voice.wyt',null,null,null,null],
+      ['vs.val.multi.wyt','vs.val.multi.ech',null,null,null],
+      [null,null,null,null,null],
+      [null,null,null,null,null],
+      [null,null,null,null,null],
+      [null,'vs.val.curr.ech',null,null,'vs.val.curr.lig'],
+    ];
+    vsRowsAll.forEach(function(row, ri){
+      var spans = row.querySelectorAll('td span');
+      var keys = vsData[ri] || [];
+      spans.forEach(function(span, ci){
+        var k = keys[ci+1];
+        if (k && t[k]) span.textContent = t[k];
+        else if (ci === 0 && keys[1] && t[keys[1]]) span.textContent = t[keys[1]];
+      });
+      // first td span (WanyuTong col)
+      var firstSpan = row.querySelector('td:nth-child(2) span');
+      if (firstSpan && keys[0] && t[keys[0]]) firstSpan.textContent = t[keys[0]];
+      var echSpan = row.querySelector('td:nth-child(3) span');
+      if (echSpan && keys[1] && t[keys[1]]) echSpan.textContent = t[keys[1]];
+      var t2gSpan = row.querySelector('td:nth-child(4) span');
+      if (t2gSpan && keys[3] && t[keys[3]]) t2gSpan.textContent = t[keys[3]];
+      var ligSpan = row.querySelector('td:nth-child(5) span');
+      if (ligSpan && keys[4] && t[keys[4]]) ligSpan.textContent = t[keys[4]];
+    });
+  }
+
+  // PRICING PLANS
+  var personalPlans = [
+    { name:'pp1.name', desc:'pp1.desc', period:'pp1.period', features:['pp1.f1','pp1.f2','pp1.f3'] },
+    { name:'pp2.name', desc:'pp2.desc', period:'pp2.period', features:['pp2.f1','pp2.f2','pp2.f3','pp2.f4'] },
+    { name:'pp3.name', desc:'pp3.desc', period:'pp3.period', features:['pp3.f1','pp3.f2','pp3.f3','pp3.f4','pp3.f5'] },
+    { name:'pp4.name', desc:'pp4.desc', period:'pp4.period', features:['pp4.f1','pp4.f2','pp4.f3','pp4.f4','pp4.f5','pp4.f6'] },
+  ];
+  var groupPlans = [
+    { name:'pg1.name', desc:'pg1.desc', period:'pg1.period', features:['pg1.f1','pg1.f2','pg1.f3','pg1.f4'] },
+    { name:'pg2.name', desc:'pg2.desc', period:'pg2.period', features:['pg2.f1','pg2.f2','pg2.f3'] },
+    { name:'pg3.name', desc:'pg3.desc', period:'pg3.period', features:['pg3.f1','pg3.f2','pg3.f3','pg3.f4','pg3.f5'] },
+    { name:'pg4.name', desc:'pg4.desc', period:'pg4.period', features:['pg4.f1','pg4.f2','pg4.f3','pg4.f4'] },
+  ];
+  function applyPlans(panelId, plans) {
+    var cards = document.querySelectorAll('#' + panelId + ' .price-card');
+    cards.forEach(function(card, i) {
+      var p = plans[i]; if (!p) return;
+      var planEl = card.querySelector('.price-plan');
+      var descEl = card.querySelector('.price-desc');
+      var periodEl = card.querySelector('.price-period');
+      var liEls = card.querySelectorAll('.price-features li');
+      if (planEl && t[p.name]) planEl.textContent = t[p.name];
+      if (descEl && t[p.desc]) descEl.textContent = t[p.desc];
+      if (periodEl && t[p.period]) periodEl.textContent = t[p.period];
+      liEls.forEach(function(li, j){ if (p.features[j] && t[p.features[j]]) li.textContent = t[p.features[j]]; });
+    });
+  }
+  applyPlans('tab-personal', personalPlans);
+  applyPlans('tab-group', groupPlans);
 
   // 按鈕狀態
   document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');

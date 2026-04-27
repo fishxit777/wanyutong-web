@@ -103,6 +103,7 @@ nav {
 .nav-brand {
   font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem;
   color: var(--white); text-decoration: none; display: flex; align-items: center; gap: 0.45rem;
+  white-space: nowrap; flex-shrink: 0;
 }
 
 .nav-dot {
@@ -205,6 +206,11 @@ nav {
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   position: relative; z-index: 1;
+}
+
+.article-card {
+  min-width: 0; /* 防止文字溢出 */
+  overflow: hidden;
 }
 
 /* 第一篇：featured，橫跨兩欄 */
@@ -406,6 +412,9 @@ footer a:hover { color: var(--text); }
   .nav-links-blog { display: none; }
   .sidebar-cta { flex-direction: column; text-align: center; }
   footer { flex-direction: column; text-align: center; }
+  .lang-toggle { font-size: 0.62rem; }
+  .lang-btn { padding: 3px 7px; }
+  .nav-brand { font-size: 0.95rem; }
 }
 
 @keyframes fadeUp {

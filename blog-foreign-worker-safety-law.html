@@ -163,6 +163,7 @@ nav {
 .nav-brand {
   font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem;
   color: var(--white); text-decoration: none; display: flex; align-items: center; gap: 0.45rem;
+  white-space: nowrap; flex-shrink: 0;
 }
 .nav-dot {
   width: 7px; height: 7px; border-radius: 50%;
@@ -460,6 +461,12 @@ footer a:hover { color: var(--text); }
   .article-nav-inner { grid-template-columns: 1fr; }
   .article-nav-card.next { text-align: left; }
   footer { flex-direction: column; text-align: center; }
+}
+
+@media (max-width: 500px) {
+  .lang-toggle { font-size: 0.62rem; }
+  .lang-btn { padding: 3px 7px; }
+  .nav-brand { font-size: 0.95rem; white-space: nowrap; }
 }
 </style>
 </head>

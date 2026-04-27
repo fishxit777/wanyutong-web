@@ -122,6 +122,7 @@ nav {
 .nav-brand {
   font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem;
   color: var(--white); text-decoration: none; display: flex; align-items: center; gap: 0.45rem;
+  white-space: nowrap; flex-shrink: 0;
 }
 
 .nav-dot {
@@ -582,6 +583,12 @@ nav { top: 36px !important; }
   .article-nav-card.next { text-align: left; }
 }
 
+
+@media (max-width: 500px) {
+  .lang-toggle { font-size: 0.62rem; }
+  .lang-btn { padding: 3px 7px; }
+  .nav-brand { font-size: 0.95rem; white-space: nowrap; }
+}
 </style>
 </head>
 <body>

@@ -756,7 +756,19 @@ footer a:hover { color:var(--text); }
   to   { opacity:1; transform:translateY(0); }
 }
 
-.hero-text > * { animation:fadeUp 0.7s ease both; }
+.lang-toggle {
+  display: flex; align-items: center;
+  background: var(--bg3); border: 1px solid var(--border2);
+  border-radius: 20px; overflow: hidden;
+  font-family: 'DM Mono', monospace; font-size: 0.72rem;
+}
+.lang-btn {
+  padding: 4px 11px; cursor: pointer; border: none;
+  background: transparent; color: var(--muted);
+  transition: all 0.2s; line-height: 1;
+}
+.lang-btn.active { background: var(--line); color: #000; font-weight: 700; }
+
 .hero-text > *:nth-child(1) { animation-delay:0.1s; }
 .hero-text > *:nth-child(2) { animation-delay:0.22s; }
 .hero-text > *:nth-child(3) { animation-delay:0.34s; }
@@ -788,6 +800,10 @@ footer a:hover { color:var(--text); }
     <li><a href="https://line.me/ti/p/@969wpxno" class="nav-cta">免費體驗</a></li>
   </ul>
   <div style="display:flex;align-items:center;gap:0.8rem;">
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('zh')" id="btn-zh">繁中</button>
+      <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
+    </div>
     <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="切換日/夜模式" aria-label="切換日夜模式"><div class="theme-toggle-knob" id="themeKnob">🌙</div></button>
     <div class="hamburger" id="hamburger" onclick="toggleNav()">
       <span></span><span></span><span></span>
@@ -1496,6 +1512,409 @@ window.addEventListener('scroll', function() {
     if (localStorage.getItem("wyt-admin") === "1") return;
     var img = new Image();
     img.src = "https://one1stars-line-bot.onrender.com/track/pixel?p=index&r=" + encodeURIComponent(document.referrer);
+  } catch(e) {}
+})();
+</script>
+<script>
+// ═══════════════════════════════════════
+// 萬語通官網 i18n 語言包
+// ═══════════════════════════════════════
+var i18n = {
+  zh: {
+    // NAV
+    'nav.features':    '為何選我',
+    'nav.compare':     '引擎差異',
+    'nav.competitors': '競品比較',
+    'nav.pricing':     '收費方案',
+    'nav.howto':       '如何開始',
+    'nav.terms':       '條款',
+    'nav.cta':         '免費體驗',
+    'nav.blog':        '📝 部落格',
+    'nav.faq':         '❓ 常見問題',
+    // HERO
+    'hero.eyebrow':    '工廠 · 看護 · 工地 · 餐飲 · 農場 雇主專用',
+    'hero.h1a':        '語言障礙',
+    'hero.h1b':        '從此消失',
+    'hero.desc':       '印尼、越南、泰國外勞在你的 LINE 群組裡，發一則指令、傳一張照片、說一段話，著即翻譯到位。不用學外語，不用再比手畫腳。',
+    'hero.btn1':       '免費體驗，馬上解決',
+    'hero.btn2':       '查看方案 →',
+    // STATS
+    'stat.speed':      '平均翻譯速度',
+    'stat.langs':      '支援語言種數',
+    'stat.price':      '最低體驗價格',
+    'stat.service':    '全天候服務',
+    // FEATURES
+    'feat.eyebrow':    '// Features',
+    'feat.h2':         '你真正需要的翻譯工具',
+    'feat.lead':       '不只是翻文字，而是幫你在 LINE 裡直接打破語言障礙。',
+    'feat.1.title':    '36 種語言支援',
+    'feat.1.desc':     '日、英、韓、印尼、泰、越南、阿拉伯、希伯來等 36 種語言，DeepL API 支援的語言，萬語通全部開放，無一限制，一指切換即時生效。',
+    'feat.2.title':    '圖片 OCR 翻譯',
+    'feat.2.desc':     '傳一張截圖，自動辨識文字並翻譯。菜單、合約、工廠警示貼紙，一張圖搞定。',
+    'feat.3.title':    '群組雙向翻譯',
+    'feat.3.desc':     '加入群組即用。台籍主管說中文，印尼越南泰國大家各看各的翻譯。混合國籍群組也沒問題。',
+    'feat.4.title':    '語音訊息翻譯',
+    'feat.4.desc':     '直接傳語音，自動轉錄並翻譯成目標語言文字。工地、工廠雙手忙時特別好用。',
+    'feat.5.title':    '翻譯確認系統',
+    'feat.5.desc':     '發完指令幫你盯著。印尼大哥收到了嗎？看懂了嗎？每個人回覆 1=明白、2=不明白，后台一目瞭然。',
+    'feat.6.title':    '常用句快速發送',
+    'feat.6.desc':     '儲存常用工作指令，一個指令即發出雙語版本，省去每次重複輸入的時間。',
+    'feat.7.title':    '行業詞庫',
+    'feat.7.desc':     '「沖壓模」「山機」「拍打」這些詞不該被翻，製造、餐飲、建築、農業各有專用詞庫，車間術語自動保留。',
+    'feat.8.title':    '勿擾模式',
+    'feat.8.desc':     '晚上 10 點後不想被系統通知打擾？設定勿擾時段，指定時間內系統自動靜音。',
+    'feat.9.title':    'DeepL 高精度引擎',
+    'feat.9.desc':     '採用 DeepL 而非 Google 翻譯，語意更準確，專業術語、商業文件皆適用。',
+    'feat.10.title':   '免費先試，滿意再付',
+    'feat.10.desc':    '每日 15 次免費，不用綁信用卡。真的好用再付錢，不好用不費一分。',
+    // COMPARE
+    'cmp.eyebrow':     '// 為何翻譯品質很重要',
+    'cmp.h2':          '同樣一句話，外勞理解的意思差很大',
+    'cmp.lead1':       '市面上多數翻譯 Bot 僅支援 5～8 種語言，萬語通支援 36 種，是同類產品的 4 倍以上。',
+    'cmp.lead2':       '用 Google 翻譯跨展一下，印尼大哥讀到一半就看不懂。我們用 DeepL，讓你的每句指令都翻對、讓外勞真的懂。',
+    'cmp.row.accuracy':'翻譯準確度',
+    'cmp.row.natural': '自然語感',
+    'cmp.row.term':    '專業術語處理',
+    'cmp.row.ocr':     '圖片 OCR 翻譯',
+    'cmp.row.voice':   '語音訊息翻譯',
+    'cmp.row.group':   'LINE 群組翻譯',
+    'cmp.row.usage':   '使用方式',
+    'cmp.ex.eyebrow':  '// 翻譯範例對比 — 商業信件語句',
+    'cmp.ex.orig':     '原文（繁中）',
+    'cmp.ex.wyt':      '萬語通（DeepL）',
+    'cmp.ex.google':   'Google 翻譯',
+    // VS COMPETITORS
+    'vs.eyebrow':      '// vs Competitors',
+    'vs.h2':           '萬語通 vs 其他 LINE 翻譯 Bot',
+    'vs.lead':         '同樣是 LINE 翻譯服務，功能差距卻很大。',
+    'vs.col.feature':  '功能',
+    'vs.row.price':    '月費',
+    'vs.row.free':     '免費額度',
+    'vs.row.engine':   '翻譯引擎',
+    'vs.row.ocr':      '圖片 OCR 翻譯',
+    'vs.row.voice':    '語音翻譯',
+    'vs.row.multi':    '多語同翻',
+    'vs.row.confirm':  '翻譯確認系統',
+    'vs.row.vocab':    '行業詞庫',
+    'vs.row.dnd':      '勿擾模式',
+    'vs.row.currency': '台灣在地計價',
+    // PRICING
+    'price.eyebrow':   '// Pricing',
+    'price.h2':        '選擇適合你的方案',
+    'price.lead':      '個人使用或企業群組，都有對應方案。',
+    'price.tab.personal': '個人版',
+    'price.tab.group': '群組版',
+    'price.badge.popular': '最受歡迎',
+    'price.badge.biz': '推薦企業',
+    'price.contact':   '聯繫開通',
+    'price.start':     '免費開始',
+    'price.join':      '免費加入',
+    'price.refund':    '退費政策：本服務為數位內容，付款後原則上不退費。僅限付款後 24 小時內、Bot 完全無回應時可申請，且手續費自負。付款帳號請洽客服索取，請勿相信其他管道，謹防詐騙。',
+    // HOWTO
+    'howto.eyebrow':   '// How It Works',
+    'howto.h2':        '4 步驟開始翻譯',
+    'howto.lead':      '從加入到開始翻譯，只需要幾分鐘。',
+    'howto.s1.title':  '加入萬語通',
+    'howto.s1.desc':   '點選按鈕，加入 LINE Bot 好友。',
+    'howto.s2.title':  '輸入 @語言',
+    'howto.s2.desc':   '傳送 @語言 查看目前翻譯設定。',
+    'howto.s3.title':  '切換目標語言',
+    'howto.s3.desc':   '傳 @印尼 即切換為中文↔印尼文。',
+    'howto.s4.title':  '開始傳訊息',
+    'howto.s4.desc':   '文字、圖片、語音皆可，Bot 自動翻譯回覆。',
+    'howto.group':     '群組版：將 Bot 加入群組後傳',
+    'howto.group2':    '查看完整指令。',
+    // TERMS
+    'terms.eyebrow':   '// Legal',
+    'terms.h2':        '使用條款 · 隱私政策 · 退費規定',
+    'terms.lead':      '點擊各條目展開詳細內容。',
+    'terms.tos':       '使用條款',
+    'terms.privacy':   '隱私權聲明',
+    'terms.refund':    '退費政策',
+    'terms.langs':     '支援語言清單',
+    // CTA
+    'cta.h2':          '現在就開始翻譯',
+    'cta.p':           '免費加入，每日 15 次免費體驗（個人版及群組版），滿意再升級付費方案。',
+    'cta.btn':         '加入 LINE Bot 開始翻譯',
+    // FOOTER
+    'footer.copy':     '© 2026 萬語通 · 客服 LINE：fishxit · Email：bao58881@gmail.com',
+    'footer.blog':     '部落格',
+    'footer.faq':      '常見問題',
+    'footer.pricing':  '收費方案',
+    'footer.terms':    '使用條款',
+    'footer.contact':  '聯繫客服',
+  },
+  en: {
+    // NAV
+    'nav.features':    'Why Us',
+    'nav.compare':     'Engine',
+    'nav.competitors': 'Compare',
+    'nav.pricing':     'Pricing',
+    'nav.howto':       'Get Started',
+    'nav.terms':       'Terms',
+    'nav.cta':         'Try Free',
+    'nav.blog':        '📝 Blog',
+    'nav.faq':         '❓ FAQ',
+    // HERO
+    'hero.eyebrow':    'For Factory · Caregiver · Construction · Restaurant · Farm Employers',
+    'hero.h1a':        'Language Barriers',
+    'hero.h1b':        'Gone Forever',
+    'hero.desc':       'Indonesian, Vietnamese, Thai workers in your LINE group — send a command, share a photo, say anything, and it\'s instantly translated. No language learning, no more hand gestures.',
+    'hero.btn1':       'Try Free Now',
+    'hero.btn2':       'View Plans →',
+    // STATS
+    'stat.speed':      'Avg. Translation Speed',
+    'stat.langs':      'Supported Languages',
+    'stat.price':      'Starting Price',
+    'stat.service':    '24/7 Service',
+    // FEATURES
+    'feat.eyebrow':    '// Features',
+    'feat.h2':         'The Translation Tool You Actually Need',
+    'feat.lead':       'Not just text translation — breaking language barriers directly inside LINE.',
+    'feat.1.title':    '36 Languages Supported',
+    'feat.1.desc':     'Japanese, English, Korean, Indonesian, Thai, Vietnamese, Arabic, Hebrew and 36 more. All DeepL-supported languages fully unlocked, switch instantly.',
+    'feat.2.title':    'Image OCR Translation',
+    'feat.2.desc':     'Send a screenshot and get instant text recognition and translation. Menus, contracts, factory warning stickers — one image does it all.',
+    'feat.3.title':    'Group Two-Way Translation',
+    'feat.3.desc':     'Add to any LINE group and it works immediately. Taiwanese managers speak Chinese, everyone else reads their own language. Multi-nationality groups supported.',
+    'feat.4.title':    'Voice Message Translation',
+    'feat.4.desc':     'Send a voice message and get automatic transcription and translation. Perfect when your hands are busy on the job site or factory floor.',
+    'feat.5.title':    'Translation Confirmation',
+    'feat.5.desc':     'After sending a command, track comprehension. Did the Indonesian worker receive it? Understand it? Reply 1=Yes, 2=No — all visible in dashboard.',
+    'feat.6.title':    'Quick Phrase Sending',
+    'feat.6.desc':     'Save common work commands and send bilingual versions with one command. No more repetitive typing.',
+    'feat.7.title':    'Industry Vocabulary',
+    'feat.7.desc':     'Technical terms like "stamping die" or "mixer" won\'t get mistranslated. Industry-specific vocab for manufacturing, food service, construction, and agriculture.',
+    'feat.8.title':    'Do Not Disturb Mode',
+    'feat.8.desc':     'Don\'t want notifications after 10PM? Set quiet hours and the system automatically silences during specified periods.',
+    'feat.9.title':    'DeepL High-Accuracy Engine',
+    'feat.9.desc':     'We use DeepL, not Google Translate — more accurate semantics, handles professional terminology and business documents.',
+    'feat.10.title':   'Try Free, Pay When Satisfied',
+    'feat.10.desc':    '15 free translations daily, no credit card required. Only pay when you\'re convinced it works.',
+    // COMPARE
+    'cmp.eyebrow':     '// Why Translation Quality Matters',
+    'cmp.h2':          'The Same Sentence Can Mean Something Very Different',
+    'cmp.lead1':       'Most LINE translation bots support only 5–8 languages. WanyuTong supports 36 — over 4× the competition.',
+    'cmp.lead2':       'With Google Translate, your Indonesian worker might understand half of what you said. With DeepL, every command translates correctly — workers actually understand.',
+    'cmp.row.accuracy':'Translation Accuracy',
+    'cmp.row.natural': 'Natural Fluency',
+    'cmp.row.term':    'Technical Terminology',
+    'cmp.row.ocr':     'Image OCR Translation',
+    'cmp.row.voice':   'Voice Message Translation',
+    'cmp.row.group':   'LINE Group Translation',
+    'cmp.row.usage':   'How to Use',
+    'cmp.ex.eyebrow':  '// Translation Example — Business Email',
+    'cmp.ex.orig':     'Original (Chinese)',
+    'cmp.ex.wyt':      'WanyuTong (DeepL)',
+    'cmp.ex.google':   'Google Translate',
+    // VS COMPETITORS
+    'vs.eyebrow':      '// vs Competitors',
+    'vs.h2':           'WanyuTong vs Other LINE Translation Bots',
+    'vs.lead':         'Same category, very different capabilities.',
+    'vs.col.feature':  'Feature',
+    'vs.row.price':    'Monthly Fee',
+    'vs.row.free':     'Free Quota',
+    'vs.row.engine':   'Translation Engine',
+    'vs.row.ocr':      'Image OCR',
+    'vs.row.voice':    'Voice Translation',
+    'vs.row.multi':    'Multi-Language',
+    'vs.row.confirm':  'Confirmation System',
+    'vs.row.vocab':    'Industry Vocab',
+    'vs.row.dnd':      'Do Not Disturb',
+    'vs.row.currency': 'Local Currency (TWD)',
+    // PRICING
+    'price.eyebrow':   '// Pricing',
+    'price.h2':        'Choose the Right Plan',
+    'price.lead':      'Plans for individual users and enterprise groups.',
+    'price.tab.personal': 'Personal',
+    'price.tab.group': 'Group',
+    'price.badge.popular': 'Most Popular',
+    'price.badge.biz': 'Enterprise Pick',
+    'price.contact':   'Contact to Activate',
+    'price.start':     'Start Free',
+    'price.join':      'Join Free',
+    'price.refund':    'Refund Policy: This is a digital service. Payments are generally non-refundable. The only exception is if the Bot is completely unresponsive within 24 hours of payment. Contact support LINE: fishxit.',
+    // HOWTO
+    'howto.eyebrow':   '// How It Works',
+    'howto.h2':        '4 Steps to Start Translating',
+    'howto.lead':      'From setup to first translation in just a few minutes.',
+    'howto.s1.title':  'Add WanyuTong',
+    'howto.s1.desc':   'Click the button to add the LINE Bot as a friend.',
+    'howto.s2.title':  'Type @language',
+    'howto.s2.desc':   'Send @language to check your current translation settings.',
+    'howto.s3.title':  'Switch Target Language',
+    'howto.s3.desc':   'Send @Indonesian to switch to Chinese↔Indonesian.',
+    'howto.s4.title':  'Start Messaging',
+    'howto.s4.desc':   'Text, images, and voice all work — the Bot auto-translates and replies.',
+    'howto.group':     'For groups: Add the Bot to your group, then send',
+    'howto.group2':    'to see the full command list.',
+    // TERMS
+    'terms.eyebrow':   '// Legal',
+    'terms.h2':        'Terms of Service · Privacy Policy · Refund Policy',
+    'terms.lead':      'Click each item to expand details.',
+    'terms.tos':       'Terms of Service',
+    'terms.privacy':   'Privacy Policy',
+    'terms.refund':    'Refund Policy',
+    'terms.langs':     'Supported Languages',
+    // CTA
+    'cta.h2':          'Start Translating Now',
+    'cta.p':           'Join free with 15 free translations daily (personal & group). Upgrade when you\'re ready.',
+    'cta.btn':         'Add LINE Bot & Start',
+    // FOOTER
+    'footer.copy':     '© 2026 WanyuTong · Support LINE: fishxit · Email: bao58881@gmail.com',
+    'footer.blog':     'Blog',
+    'footer.faq':      'FAQ',
+    'footer.pricing':  'Pricing',
+    'footer.terms':    'Terms',
+    'footer.contact':  'Contact',
+  }
+};
+
+// ─── 套用語言到 DOM ───
+function applyLang(lang) {
+  var t = i18n[lang];
+  function s(id, key) { var el = document.getElementById(id); if (el && t[key]) el.textContent = t[key]; }
+  function q(sel, key) { var el = document.querySelector(sel); if (el && t[key]) el.textContent = t[key]; }
+  function qa(sel, key) { document.querySelectorAll(sel).forEach(function(el){ if(t[key]) el.textContent = t[key]; }); }
+
+  // NAV
+  q('a[href="#features"]', 'nav.features');
+  q('a[href="#compare"]', 'nav.compare');
+  q('a[href="#vs-competitors"]', 'nav.competitors');
+  q('a[href="#pricing"]', 'nav.pricing');
+  q('a[href="#howto"]', 'nav.howto');
+  q('a[href="#terms"]', 'nav.terms');
+  q('.nav-cta', 'nav.cta');
+  q('a[href="blog.html"].nav-blog-pill', 'nav.blog');
+  q('a[href="faq.html"].nav-blog-pill', 'nav.faq');
+
+  // HERO
+  q('.hero-eyebrow', 'hero.eyebrow');
+  var h1 = document.querySelector('#hero h1');
+  if (h1) h1.innerHTML = t['hero.h1a'] + '<br><span class="hl">' + t['hero.h1b'] + '</span>';
+  q('.hero-desc', 'hero.desc');
+  var btn1 = document.querySelector('.btn-primary');
+  if (btn1) btn1.childNodes[btn1.childNodes.length-1].textContent = ' ' + t['hero.btn1'];
+  q('.btn-secondary', 'hero.btn2');
+
+  // STATS
+  var statLabels = document.querySelectorAll('.stat-label');
+  var statKeys = ['stat.speed','stat.langs','stat.price','stat.service'];
+  statLabels.forEach(function(el, i){ if(t[statKeys[i]]) el.textContent = t[statKeys[i]]; });
+
+  // FEATURES
+  q('#features .eyebrow', 'feat.eyebrow');
+  q('#features h2', 'feat.h2');
+  q('#features .lead', 'feat.lead');
+  var cards = document.querySelectorAll('.feature-card');
+  var fKeys = ['feat.1','feat.2','feat.3','feat.4','feat.5','feat.6','feat.7','feat.8','feat.9','feat.10'];
+  cards.forEach(function(card, i) {
+    var k = fKeys[i]; if (!k) return;
+    var title = card.querySelector('.feature-title');
+    var desc = card.querySelector('.feature-desc');
+    if (title && t[k+'.title']) title.textContent = t[k+'.title'];
+    if (desc && t[k+'.desc']) desc.textContent = t[k+'.desc'];
+  });
+
+  // COMPARE
+  q('#compare .eyebrow', 'cmp.eyebrow');
+  q('#compare h2', 'cmp.h2');
+  var leads = document.querySelectorAll('#compare .lead');
+  if (leads[0] && t['cmp.lead1']) leads[0].textContent = t['cmp.lead1'];
+  if (leads[1] && t['cmp.lead2']) leads[1].textContent = t['cmp.lead2'];
+  q('.example-title', 'cmp.ex.eyebrow');
+  var exLabels = document.querySelectorAll('.ex-label');
+  if (exLabels[0]) exLabels[0].textContent = t['cmp.ex.orig'];
+  if (exLabels[1]) exLabels[1].textContent = t['cmp.ex.wyt'];
+  if (exLabels[2]) exLabels[2].textContent = t['cmp.ex.google'];
+  var cmpRows = document.querySelectorAll('#compare tbody tr td:first-child');
+  var cmpKeys = ['cmp.row.accuracy','cmp.row.natural','cmp.row.term','cmp.row.ocr','cmp.row.voice','cmp.row.group','cmp.row.usage'];
+  cmpRows.forEach(function(el,i){ if(t[cmpKeys[i]]) el.textContent = t[cmpKeys[i]]; });
+
+  // VS COMPETITORS
+  q('#vs-competitors .eyebrow', 'vs.eyebrow');
+  q('#vs-competitors h2', 'vs.h2');
+  q('#vs-competitors .lead', 'vs.lead');
+  q('#vs-competitors th:first-child', 'vs.col.feature');
+  var vsRows = document.querySelectorAll('#vs-competitors tbody tr td:first-child');
+  var vsKeys = ['vs.row.price','vs.row.free','vs.row.engine','vs.row.ocr','vs.row.voice','vs.row.multi','vs.row.confirm','vs.row.vocab','vs.row.dnd','vs.row.currency'];
+  vsRows.forEach(function(el,i){ if(t[vsKeys[i]]) el.textContent = t[vsKeys[i]]; });
+
+  // PRICING
+  q('#pricing .eyebrow', 'price.eyebrow');
+  q('#pricing h2', 'price.h2');
+  q('#pricing .lead', 'price.lead');
+  var tabs = document.querySelectorAll('.pricing-tab');
+  if (tabs[0]) tabs[0].textContent = t['price.tab.personal'];
+  if (tabs[1]) tabs[1].textContent = t['price.tab.group'];
+  document.querySelectorAll('.price-badge').forEach(function(el){
+    if (el.textContent.trim() === '最受歡迎' || el.textContent.trim() === 'Most Popular') el.textContent = t['price.badge.popular'];
+    if (el.textContent.trim() === '推薦企業' || el.textContent.trim() === 'Enterprise Pick') el.textContent = t['price.badge.biz'];
+  });
+  document.querySelectorAll('.btn-plan').forEach(function(el){
+    var txt = el.textContent.trim();
+    if (txt === '免費開始' || txt === 'Start Free') el.textContent = t['price.start'];
+    else if (txt === '免費加入' || txt === 'Join Free') el.textContent = t['price.join'];
+    else el.textContent = t['price.contact'];
+  });
+  q('.refund-note', 'price.refund');
+
+  // HOWTO
+  q('#howto .eyebrow', 'howto.eyebrow');
+  q('#howto h2', 'howto.h2');
+  q('#howto .lead', 'howto.lead');
+  var steps = document.querySelectorAll('.step-item');
+  var sKeys = ['howto.s1','howto.s2','howto.s3','howto.s4'];
+  steps.forEach(function(step, i){
+    var k = sKeys[i]; if(!k) return;
+    var title = step.querySelector('.step-title');
+    var desc = step.querySelector('.step-desc');
+    if (title && t[k+'.title']) title.textContent = t[k+'.title'];
+    if (desc && t[k+'.desc']) desc.textContent = t[k+'.desc'];
+  });
+
+  // TERMS
+  q('#terms .eyebrow', 'terms.eyebrow');
+  q('#terms h2', 'terms.h2');
+  q('#terms .lead', 'terms.lead');
+  var accBtns = document.querySelectorAll('.accordion-btn');
+  var accKeys = ['terms.tos','terms.privacy','terms.refund','terms.langs'];
+  accBtns.forEach(function(btn, i){
+    var arrow = btn.querySelector('.accordion-arrow');
+    if (t[accKeys[i]]) btn.childNodes[0].textContent = t[accKeys[i]];
+  });
+
+  // CTA
+  q('#cta h2', 'cta.h2');
+  q('#cta p', 'cta.p');
+  var ctaBtn = document.querySelector('#cta .line-btn');
+  if (ctaBtn) ctaBtn.childNodes[ctaBtn.childNodes.length-1].textContent = ' ' + t['cta.btn'];
+
+  // FOOTER
+  var footerCopy = document.querySelector('footer div:first-child');
+  if (footerCopy) footerCopy.textContent = t['footer.copy'];
+  var footerLinks = document.querySelectorAll('.footer-links a');
+  var fLinkKeys = ['footer.blog','footer.faq','footer.pricing','footer.terms','footer.contact'];
+  footerLinks.forEach(function(el,i){ if(t[fLinkKeys[i]]) el.textContent = t[fLinkKeys[i]]; });
+
+  // 更新 html lang 屬性
+  document.documentElement.lang = lang === 'zh' ? 'zh-TW' : 'en';
+
+  // 按鈕狀態
+  document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+}
+
+function setLang(lang) {
+  try { localStorage.setItem('wyt-lang', lang); } catch(e) {}
+  applyLang(lang);
+}
+
+// 初始化：讀取儲存的語言
+(function(){
+  try {
+    var saved = localStorage.getItem('wyt-lang') || 'zh';
+    if (saved === 'en') applyLang('en');
   } catch(e) {}
 })();
 </script>

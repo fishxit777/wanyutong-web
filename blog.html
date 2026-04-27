@@ -571,9 +571,33 @@ html:not(.light) .theme-toggle-knob { transform: translateX(0px); background: va
 
   <!-- 文章一：已發布，featured -->
   <a href="blog-foreign-worker-communication.html" class="article-card featured">
-    <div class="card-img">
-      <img src="blog-communication.jpg" alt="工廠主管與外籍員工溝通" loading="lazy">
-      <div class="card-img-overlay"></div>
+    <div class="card-img" style="background:linear-gradient(135deg,#0d1f0f 0%,#0a1a2a 50%,#1a0d00 100%);overflow:hidden;">
+      <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(6,199,85,0.08) 0%,rgba(0,212,255,0.04) 100%);"></div>
+      <!-- 格線裝飾 -->
+      <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(6,199,85,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(6,199,85,0.06) 1px,transparent 1px);background-size:32px 32px;"></div>
+      <!-- 主視覺：人物對話場景 -->
+      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:2rem;">
+        <!-- 左側人物（主管）-->
+        <div style="display:flex;flex-direction:column;align-items:center;gap:0.5rem;">
+          <div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#f59e0b,#d97706);display:flex;align-items:center;justify-content:center;font-size:1.5rem;box-shadow:0 0 20px rgba(245,158,11,0.4);">👷</div>
+          <div style="background:rgba(245,158,11,0.15);border:1px solid rgba(245,158,11,0.3);border-radius:8px;padding:6px 10px;font-size:0.65rem;color:#fbbf24;font-family:'DM Mono',monospace;white-space:nowrap;">請明天加班</div>
+        </div>
+        <!-- 訊號箭頭 + LINE Bot -->
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+          <div style="font-size:1.2rem;">⚡</div>
+          <div style="width:52px;height:28px;background:var(--line);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:0.55rem;font-weight:700;color:#000;font-family:'DM Mono',monospace;box-shadow:0 0 16px rgba(6,199,85,0.5);">萬語通</div>
+          <div style="font-size:1.2rem;">⚡</div>
+        </div>
+        <!-- 右側人物（外勞）-->
+        <div style="display:flex;flex-direction:column;align-items:center;gap:0.5rem;">
+          <div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#06c755,#059669);display:flex;align-items:center;justify-content:center;font-size:1.5rem;box-shadow:0 0 20px rgba(6,199,85,0.4);">🧑‍🏭</div>
+          <div style="background:rgba(6,199,85,0.12);border:1px solid rgba(6,199,85,0.3);border-radius:8px;padding:6px 10px;font-size:0.65rem;color:#6ee7b7;font-family:'DM Mono',monospace;white-space:nowrap;">Besok lembur</div>
+        </div>
+      </div>
+      <!-- 底部標語 -->
+      <div style="position:absolute;bottom:14px;left:0;right:0;text-align:center;">
+        <span style="font-family:'DM Mono',monospace;font-size:0.65rem;color:rgba(255,255,255,0.3);letter-spacing:0.1em;">// 36種語言・即時翻譯・零誤差</span>
+      </div>
     </div>
     <div class="card-body">
       <div class="card-tags">
@@ -593,9 +617,23 @@ html:not(.light) .theme-toggle-knob { transform: translateX(0px); background: va
 
   <!-- 文章二：已發布 -->
   <a href="blog-foreign-worker-safety-law.html" class="article-card">
-    <div class="card-img">
-      <img src="blog-safety.jpg" alt="年輕女性外籍勞工工廠" loading="lazy">
-      <div class="card-img-overlay"></div>
+    <div class="card-img" style="background:linear-gradient(135deg,#0d0f1a 0%,#1a0d0d 100%);overflow:hidden;">
+      <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(224,92,92,0.07) 0%,rgba(245,158,11,0.05) 100%);"></div>
+      <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(224,92,92,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(224,92,92,0.05) 1px,transparent 1px);background-size:28px 28px;"></div>
+      <!-- 主視覺：法律警示場景 -->
+      <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.8rem;">
+        <!-- 天秤圖示 -->
+        <div style="font-size:2.8rem;filter:drop-shadow(0 0 12px rgba(245,158,11,0.6));">⚖️</div>
+        <!-- 警示條文 -->
+        <div style="display:flex;flex-direction:column;gap:5px;width:72%;">
+          <div style="background:rgba(224,92,92,0.12);border-left:3px solid #e05c5c;border-radius:0 4px 4px 0;padding:5px 10px;font-size:0.62rem;color:#fca5a5;font-family:'DM Mono',monospace;">職業安全衛生法 §6</div>
+          <div style="background:rgba(245,158,11,0.1);border-left:3px solid #f59e0b;border-radius:0 4px 4px 0;padding:5px 10px;font-size:0.62rem;color:#fde68a;font-family:'DM Mono',monospace;">告知義務 · 母語版本</div>
+          <div style="background:rgba(6,199,85,0.08);border-left:3px solid #06c755;border-radius:0 4px 4px 0;padding:5px 10px;font-size:0.62rem;color:#6ee7b7;font-family:'DM Mono',monospace;">數位記錄 · 保護雇主</div>
+        </div>
+      </div>
+      <div style="position:absolute;bottom:10px;left:0;right:0;text-align:center;">
+        <span style="font-family:'DM Mono',monospace;font-size:0.6rem;color:rgba(255,255,255,0.25);letter-spacing:0.1em;">// 雇主必看 · 法律責任完整解析</span>
+      </div>
     </div>
     <div class="card-body">
       <div class="card-tags">

@@ -472,6 +472,9 @@ html:not(.light) .theme-toggle-knob { transform: translateX(0px); background: va
 .top-banner-btn:hover { box-shadow: 0 0 28px rgba(6,199,85,0.4); }
 
 
+.lang-toggle{display:flex;align-items:center;background:var(--bg3);border:1px solid var(--border2);border-radius:20px;overflow:hidden;font-family:'DM Mono',monospace;font-size:0.72rem;}
+.lang-btn{padding:4px 11px;cursor:pointer;border:none;background:transparent;color:var(--muted);transition:all 0.2s;line-height:1;}
+.lang-btn.active{background:var(--line);color:#000;font-weight:700;}
 .art-hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px; background:none; border:none; }
 .art-hamburger span { display:block; width:22px; height:2px; background:var(--text); border-radius:1px; }
 
@@ -590,23 +593,23 @@ nav { top: 36px !important; }
 
 <div class="history-nav">
   <button class="history-nav-btn" onclick="history.back()" id="btnBack">
-    ‹ 上一頁
+    <span id="a1-back">‹ 上一頁</span>
   </button>
-  <span class="history-nav-center">瀏覽紀錄</span>
+  <span class="history-nav-center" id="a1-browse">瀏覽紀錄</span>
   <button class="history-nav-btn" onclick="history.forward()" id="btnForward">
-    下一頁 ›
+    <span id="a1-forward">下一頁 ›</span>
   </button>
 </div>
 
 <nav>
   <a href="index.html" class="nav-brand"><span class="nav-dot"></span>萬語通</a>
   <div class="art-nav-links" id="artNavLinks">
-    <a href="index.html">官網</a>
-    <a href="index.html#features">為何選我</a>
-    <a href="index.html#pricing">收費方案</a>
-    <a href="blog.html">部落格</a>
-    <a href="faq.html">常見問題</a>
-    <a href="index.html#terms">條款</a>
+    <a href="index.html" id="a1-nav-home">官網</a>
+    <a href="index.html#features" id="a1-nav-feat">為何選我</a>
+    <a href="index.html#pricing" id="a1-nav-price">收費方案</a>
+    <a href="blog.html" id="a1-nav-blog">部落格</a>
+    <a href="faq.html" id="a1-nav-faq">常見問題</a>
+    <a href="index.html#terms" id="a1-nav-terms">條款</a>
     <a href="https://line.me/ti/p/@969wpxno" class="nav-cta">免費體驗</a>
   </div>
   <div style="display:flex;align-items:center;gap:0.6rem;">
@@ -631,12 +634,12 @@ nav { top: 36px !important; }
 </div>
 
 <div class="article-hero">
-  <div class="article-tag">// 雇主指南 · 2026-04-25</div>
+  <div class="article-tag" id="a1-tag">// 雇主指南 · 2026-04-25</div>
   <h1>台灣雇主管理外勞<br>最常遇到的 <span class="hl">5 個溝通問題</span>（與解法）</h1>
   <div class="article-meta">
-    <div class="meta-item">📍 適用對象：工廠、看護、工地、餐飲、農場雇主</div>
-    <div class="meta-item">⏱ 閱讀時間：約 5 分鐘</div>
-    <div class="meta-item">🔧 工具：萬語通 LINE Bot</div>
+    <div class="meta-item" id="a1-meta1">📍 適用對象：工廠、看護、工地、餐飲、農場雇主</div>
+    <div class="meta-item" id="a1-meta2">⏱ 閱讀時間：約 5 分鐘</div>
+    <div class="meta-item" id="a1-meta3">🔧 工具：萬語通 LINE Bot</div>
   </div>
   <p style="font-size:0.97rem;color:var(--muted);line-height:1.9;font-weight:300;">
     台灣目前有超過 75 萬名外籍移工，主要來自印尼、越南、菲律賓、泰國。對雇主來說，語言不通不只是「溝通不順」這麼簡單——它會直接影響工安、效率、甚至法律責任。這篇文章整理雇主最常反映的 5 個溝通困境，以及目前最實際的解決方法。
@@ -849,14 +852,53 @@ nav { top: 36px !important; }
 </div>
 
 <footer>
-  <div>© 2026 萬語通 · 客服 LINE：fishxit · Email：bao58881@gmail.com</div>
+  <div id="a1-footer-copy">© 2026 萬語通 · 客服 LINE：fishxit · Email：bao58881@gmail.com</div>
   <div style="display:flex;gap:1.5rem;flex-wrap:wrap;">
-    <a href="index.html">官網</a>
-    <a href="index.html#pricing">收費方案</a>
-    <a href="index.html#terms">使用條款</a>
-    <a href="https://line.me/ti/p/~fishxit">聯繫客服</a>
+    <a href="index.html" id="a1-f1">官網</a>
+    <a href="index.html#pricing" id="a1-f2">收費方案</a>
+    <a href="index.html#terms" id="a1-f3">使用條款</a>
+    <a href="https://line.me/ti/p/~fishxit" id="a1-f4">聯繫客服</a>
   </div>
 </footer>
+<script>
+var a1I18n = {
+  zh:{
+    'a1-back':'‹ 上一頁','a1-forward':'下一頁 ›','a1-browse':'瀏覽紀錄',
+    'a1-nav-home':'官網','a1-nav-feat':'為何選我','a1-nav-price':'收費方案',
+    'a1-nav-blog':'部落格','a1-nav-faq':'常見問題','a1-nav-terms':'條款',
+    'a1-tag':'// 雇主指南 · 2026-04-25',
+    'a1-meta1':'📍 適用對象：工廠、看護、工地、餐飲、農場雇主',
+    'a1-meta2':'⏱ 閱讀時間：約 5 分鐘','a1-meta3':'🔧 工具：萬語通 LINE Bot',
+    'a1-footer-copy':'© 2026 萬語通 · 客服 LINE：fishxit · Email：bao58881@gmail.com',
+    'a1-f1':'官網','a1-f2':'收費方案','a1-f3':'使用條款','a1-f4':'聯繫客服',
+  },
+  en:{
+    'a1-back':'‹ Back','a1-forward':'Next ›','a1-browse':'History',
+    'a1-nav-home':'Home','a1-nav-feat':'Why Us','a1-nav-price':'Pricing',
+    'a1-nav-blog':'Blog','a1-nav-faq':'FAQ','a1-nav-terms':'Terms',
+    'a1-tag':'// Employer Guide · 2026-04-25',
+    'a1-meta1':'📍 For: Factory, Caregiver, Construction, Restaurant & Farm Employers',
+    'a1-meta2':'⏱ Reading time: ~5 min','a1-meta3':'🔧 Tool: WanyuTong LINE Bot',
+    'a1-footer-copy':'© 2026 WanyuTong · Support LINE: fishxit · Email: bao58881@gmail.com',
+    'a1-f1':'Home','a1-f2':'Pricing','a1-f3':'Terms','a1-f4':'Contact',
+  }
+};
+function applyA1Lang(lang){
+  var t=a1I18n[lang];
+  Object.keys(t).forEach(function(id){var el=document.getElementById(id);if(el)el.textContent=t[id];});
+  // H1
+  var h1=document.querySelector('.article-hero h1');
+  if(h1){
+    if(lang==='en') h1.innerHTML='5 Communication Problems Taiwan Employers Face<br>with Foreign Workers <span class="hl">(And Solutions)</span>';
+    else h1.innerHTML='台灣雇主管理外勞<br>最常遇到的 <span class="hl">5 個溝通問題</span>（與解法）';
+  }
+  document.getElementById('btn-zh').classList.toggle('active',lang==='zh');
+  document.getElementById('btn-en').classList.toggle('active',lang==='en');
+  document.documentElement.lang=lang==='zh'?'zh-TW':'en';
+}
+function setLang(lang){try{localStorage.setItem('wyt-lang',lang);}catch(e){}applyA1Lang(lang);}
+(function(){try{var s=localStorage.getItem('wyt-lang');if(s==='en')applyA1Lang('en');}catch(e){}})();
+</script>
 
 
 <script>

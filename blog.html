@@ -500,7 +500,10 @@ html:not(.light) .theme-toggle-knob { transform: translateX(0px); background: va
 .blog-hero-cta .btn-ghost:hover { color: var(--text); }
 
 
-.blog-hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px; background:none; border:none; }
+.lang-toggle{display:flex;align-items:center;background:var(--bg3);border:1px solid var(--border2);border-radius:20px;overflow:hidden;font-family:'DM Mono',monospace;font-size:0.72rem;}
+.lang-btn{padding:4px 11px;cursor:pointer;border:none;background:transparent;color:var(--muted);transition:all 0.2s;line-height:1;}
+.lang-btn.active{background:var(--line);color:#000;font-weight:700;}
+
 .blog-hamburger span { display:block; width:22px; height:2px; background:var(--text); border-radius:1px; transition:all 0.3s; }
 
 @media (max-width: 760px) {
@@ -524,15 +527,16 @@ html:not(.light) .theme-toggle-knob { transform: translateX(0px); background: va
 <nav>
   <a href="index.html" class="nav-brand"><span class="nav-dot"></span>萬語通</a>
   <div class="nav-links-blog" id="blogNavLinks">
-    <a href="index.html">官網</a>
-    <a href="index.html#features">為何選我</a>
-    <a href="index.html#pricing">收費方案</a>
-    <a href="blog.html" class="active">部落格</a>
-    <a href="faq.html">常見問題</a>
-    <a href="index.html#terms">條款</a>
-    <a href="https://line.me/ti/p/@969wpxno" class="nav-cta">免費體驗</a>
+    <a href="index.html" id="b-nav-home">官網</a>
+    <a href="index.html#features" id="b-nav-feat">為何選我</a>
+    <a href="index.html#pricing" id="b-nav-price">收費方案</a>
+    <a href="blog.html" class="active" id="b-nav-blog">部落格</a>
+    <a href="faq.html" id="b-nav-faq">常見問題</a>
+    <a href="index.html#terms" id="b-nav-terms">條款</a>
+    <a href="https://line.me/ti/p/@969wpxno" class="nav-cta" id="b-nav-cta">免費體驗</a>
   </div>
   <div style="display:flex;align-items:center;gap:0.6rem;">
+    <div class="lang-toggle"><button class="lang-btn active" onclick="setLang('zh')" id="btn-zh">繁中</button><button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button></div>
     <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="切換日/夜模式" aria-label="切換日夜模式"><div class="theme-toggle-knob" id="themeKnob">🌙</div></button>
     <button class="blog-hamburger" onclick="document.getElementById('blogNavLinks').classList.toggle('open')">
       <span></span><span></span><span></span>
@@ -542,29 +546,29 @@ html:not(.light) .theme-toggle-knob { transform: translateX(0px); background: va
 
 <div class="blog-hero">
   <div class="blog-hero-text">
-    <div class="blog-eyebrow">// 萬語通 · 雇主指南</div>
-    <h1>外勞管理<br>實用知識庫</h1>
-    <p>工廠、看護、工地、餐飲、農場雇主每天都會遇到的溝通問題與解法，全都在這裡。</p>
+    <div class="blog-eyebrow" id="b-eyebrow">// 萬語通 · 雇主指南</div>
+    <h1 id="b-h1">外勞管理<br>實用知識庫</h1>
+    <p id="b-lead">工廠、看護、工地、餐飲、農場雇主每天都會遇到的溝通問題與解法，全都在這裡。</p>
     <div class="blog-hero-cta">
       <a href="https://line.me/ti/p/@969wpxno" class="btn-line-sm">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.105.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.07 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
-        免費體驗 LINE Bot
+        <span id="b-btn1">免費體驗 LINE Bot</span>
       </a>
-      <a href="index.html#pricing" class="btn-ghost">查看收費方案 →</a>
+      <a href="index.html#pricing" class="btn-ghost" id="b-btn2">查看收費方案 →</a>
     </div>
   </div>
   <div class="blog-hero-stat">
     <div class="num">2</div>
-    <div class="label">篇文章</div>
+    <div class="label" id="b-stat-label">篇文章</div>
   </div>
 </div>
 
 <div class="blog-filter">
-  <button class="filter-btn active">全部</button>
-  <button class="filter-btn">溝通技巧</button>
-  <button class="filter-btn">工具教學</button>
-  <button class="filter-btn">法規須知</button>
-  <button class="filter-btn">產業別</button>
+  <button class="filter-btn active" id="bf-all">全部</button>
+  <button class="filter-btn" id="bf-comm">溝通技巧</button>
+  <button class="filter-btn" id="bf-tool">工具教學</button>
+  <button class="filter-btn" id="bf-law">法規須知</button>
+  <button class="filter-btn" id="bf-ind">產業別</button>
 </div>
 
 <div class="blog-grid">
@@ -606,16 +610,11 @@ html:not(.light) .theme-toggle-knob { transform: translateX(0px); background: va
         <span class="card-tag">看護</span>
         <span class="card-tag">工地</span>
       </div>
-      <div class="card-title">台灣雇主管理外勞最常遇到的 5 個溝通問題（與解法）</div>
-      <div class="card-desc">工廠主管、看護雇主、工地領班每天都在面對的困境：發了指令卻沒照做、圖片看不懂、工安說了等於沒說、多國籍外勞一條訊息發不到位……每個問題都有具體解法。</div>
+      <div class="card-title" id="bc1-title">台灣雇主管理外勞最常遇到的 5 個溝通問題（與解法）</div>
+      <div class="card-desc" id="bc1-desc">工廠主管、看護雇主、工地領班每天都在面對的困境：發了指令卻沒照做、圖片看不懂、工安說了等於沒說、多國籍外勞一條訊息發不到位……每個問題都有具體解法。</div>
       <div class="card-footer">
         <span class="card-date">2026-04-25</span>
-        <span class="card-read">閱讀文章 →</span>
-      </div>
-    </div>
-  </a>
-
-  <!-- 文章二：已發布 -->
+        <span class="card-read" id="bc1-read">閱讀文章 →</span>
   <a href="blog-foreign-worker-safety-law.html" class="article-card">
     <div class="card-img" style="background:linear-gradient(135deg,#0d0f1a 0%,#1a0d0d 100%);overflow:hidden;">
       <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(224,92,92,0.07) 0%,rgba(245,158,11,0.05) 100%);"></div>
@@ -641,31 +640,29 @@ html:not(.light) .theme-toggle-knob { transform: translateX(0px); background: va
         <span class="card-tag">工廠</span>
         <span class="card-tag">工地</span>
       </div>
-      <div class="card-title">外勞發生工安事故，雇主的法律責任是什麼？</div>
-      <div class="card-desc">「我有說過」在法院站不住腳。職安法告知義務、中文文件的法律效力、如何用數位記錄保護自己——雇主必看。</div>
+      <div class="card-title" id="bc2-title">外勞發生工安事故，雇主的法律責任是什麼？</div>
+      <div class="card-desc" id="bc2-desc">「我有說過」在法院站不住腳。職安法告知義務、中文文件的法律效力、如何用數位記錄保護自己——雇主必看。</div>
       <div class="card-footer">
         <span class="card-date">2026-04-25</span>
-        <span class="card-read">閱讀文章 →</span>
+        <span class="card-read" id="bc2-read">閱讀文章 →</span>
       </div>
     </div>
   </a>
 
   <!-- 文章三：即將推出 -->
   <div class="article-card coming-soon">
-    <div class="coming-badge">即將推出</div>
-    <div class="card-img" style="background:var(--bg3);">
-      <div class="card-img-pattern"></div>
-      <div class="card-img-icon">🍽️</div>
+    <div class="coming-badge" id="bc3-badge">即將推出</div>
+
     </div>
     <div class="card-body">
       <div class="card-tags">
         <span class="card-tag">產業別</span>
       </div>
-      <div class="card-title">餐飲業雇主怎麼管外勞？排班、衛生規定、點菜溝通全攻略</div>
-      <div class="card-desc">餐廳廚房、外場的外籍員工溝通場景特別多，這篇整理最常卡關的時刻與解法…</div>
+      <div class="card-title" id="bc3-title">餐飲業雇主怎麼管外勞？排班、衛生規定、點菜溝通全攻略</div>
+      <div class="card-desc" id="bc3-desc">餐廳廚房、外場的外籍員工溝通場景特別多，這篇整理最常卡關的時刻與解法…</div>
       <div class="card-footer">
-        <span class="card-date">即將發布</span>
-        <span class="card-read">敬請期待</span>
+        <span class="card-date" id="bc3-date">即將發布</span>
+        <span class="card-read" id="bc3-read">敬請期待</span>
       </div>
     </div>
   </div>
@@ -682,11 +679,11 @@ html:not(.light) .theme-toggle-knob { transform: translateX(0px); background: va
         <span class="card-tag">產業別</span>
         <span class="card-tag">工具教學</span>
       </div>
-      <div class="card-title">家庭看護雇主的翻譯難題：如何用 LINE 確認外勞真的懂照護指示？</div>
-      <div class="card-desc">藥物劑量、照護步驟、緊急聯絡方式——這些資訊一定要讓外勞完全理解，不能靠猜的…</div>
+      <div class="card-title" id="bc4-title">家庭看護雇主的翻譯難題：如何用 LINE 確認外勞真的懂照護指示？</div>
+      <div class="card-desc" id="bc4-desc">藥物劑量、照護步驟、緊急聯絡方式——這些資訊一定要讓外勞完全理解，不能靠猜的…</div>
       <div class="card-footer">
-        <span class="card-date">即將發布</span>
-        <span class="card-read">敬請期待</span>
+        <span class="card-date" id="bc4-date">即將發布</span>
+        <span class="card-read" id="bc4-read">敬請期待</span>
       </div>
     </div>
   </div>
@@ -696,24 +693,24 @@ html:not(.light) .theme-toggle-knob { transform: translateX(0px); background: va
 <div class="blog-sidebar">
   <div class="sidebar-cta">
     <div class="sidebar-cta-text">
-      <h3>解決外勞溝通問題，從今天開始</h3>
-      <p>每日 15 次免費翻譯，不用綁信用卡。工廠、看護、工地、餐飲、農場雇主皆適用。</p>
+      <h3 id="b-cta-h3">解決外勞溝通問題，從今天開始</h3>
+      <p id="b-cta-p">每日 15 次免費翻譯，不用綁信用卡。工廠、看護、工地、餐飲、農場雇主皆適用。</p>
     </div>
     <a href="https://line.me/ti/p/@969wpxno" class="btn-line">
       <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.105.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.07 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
-      免費加入 LINE Bot
+      <span id="b-cta-btn">免費加入 LINE Bot</span>
     </a>
   </div>
 </div>
 
 <footer>
-  <div>© 2026 萬語通 · 客服 LINE：fishxit · Email：bao58881@gmail.com</div>
+  <div id="b-footer-copy">© 2026 萬語通 · 客服 LINE：fishxit · Email：bao58881@gmail.com</div>
   <div class="footer-links">
-    <a href="index.html">官網</a>
-    <a href="blog.html">部落格</a>
-    <a href="index.html#pricing">收費方案</a>
-    <a href="index.html#terms">使用條款</a>
-    <a href="https://line.me/ti/p/~fishxit">聯繫客服</a>
+    <a href="index.html" id="b-f1">官網</a>
+    <a href="blog.html" id="b-f2">部落格</a>
+    <a href="index.html#pricing" id="b-f3">收費方案</a>
+    <a href="index.html#terms" id="b-f4">使用條款</a>
+    <a href="https://line.me/ti/p/~fishxit" id="b-f5">聯繫客服</a>
   </div>
 </footer>
 
@@ -751,5 +748,83 @@ function toggleBlogNav(){
 (function(){var canvas=document.getElementById('matrix-canvas');if(!canvas)return;var ctx=canvas.getContext('2d');var chars='01アイウエオカキクケコサシスセソタチツテトナニヌネノ萬語通TRANSLATE'.split('');var fontSize=13,cols,drops,speeds,colorMode;function resize(){canvas.width=canvas.offsetWidth;canvas.height=canvas.offsetHeight;cols=Math.floor(canvas.width/fontSize);drops=[];speeds=[];colorMode=[];for(var i=0;i<cols;i++){drops[i]=Math.random()*-80;speeds[i]=0.3+Math.random()*0.5;colorMode[i]=Math.random()<0.25?'cyan':'green';}}resize();window.addEventListener('resize',resize);function draw(){ctx.fillStyle='rgba(8,11,16,0.055)';ctx.fillRect(0,0,canvas.width,canvas.height);for(var i=0;i<cols;i++){var c=chars[Math.floor(Math.random()*chars.length)];var x=i*fontSize;var y=drops[i]*fontSize;var isCyan=colorMode[i]==='cyan';ctx.fillStyle=isCyan?'#b0f8ff':'#c0ffcc';ctx.font='bold '+fontSize+'px "DM Mono",monospace';ctx.fillText(c,x,y);if(y>fontSize){ctx.fillStyle=isCyan?'rgba(0,212,255,0.75)':'rgba(6,199,85,0.75)';ctx.font=fontSize+'px "DM Mono",monospace';ctx.fillText(chars[Math.floor(Math.random()*chars.length)],x,y-fontSize);}if(y>fontSize*2){ctx.fillStyle=isCyan?'rgba(0,212,255,0.3)':'rgba(6,199,85,0.3)';ctx.fillText(chars[Math.floor(Math.random()*chars.length)],x,y-fontSize*2);}if(drops[i]*fontSize>canvas.height&&Math.random()>0.97){drops[i]=0;colorMode[i]=Math.random()<0.25?'cyan':'green';}drops[i]+=speeds[i];}setTimeout(function(){requestAnimationFrame(draw);},50);}draw();})();
 </script>
 
+<script>
+var blogI18n = {
+  zh: {
+    'b-nav-home':'官網','b-nav-feat':'為何選我','b-nav-price':'收費方案','b-nav-blog':'部落格',
+    'b-nav-faq':'常見問題','b-nav-terms':'條款','b-nav-cta':'免費體驗',
+    'b-eyebrow':'// 萬語通 · 雇主指南',
+    'b-h1':'外勞管理<br>實用知識庫',
+    'b-lead':'工廠、看護、工地、餐飲、農場雇主每天都會遇到的溝通問題與解法，全都在這裡。',
+    'b-btn1':'免費體驗 LINE Bot','b-btn2':'查看收費方案 →',
+    'b-stat-label':'篇文章',
+    'bf-all':'全部','bf-comm':'溝通技巧','bf-tool':'工具教學','bf-law':'法規須知','bf-ind':'產業別',
+    'bc1-title':'台灣雇主管理外勞最常遇到的 5 個溝通問題（與解法）',
+    'bc1-desc':'工廠主管、看護雇主、工地領班每天都在面對的困境：發了指令卻沒照做、圖片看不懂、工安說了等於沒說、多國籍外勞一條訊息發不到位……每個問題都有具體解法。',
+    'bc1-read':'閱讀文章 →',
+    'bc2-title':'外勞發生工安事故，雇主的法律責任是什麼？',
+    'bc2-desc':'「我有說過」在法院站不住腳。職安法告知義務、中文文件的法律效力、如何用數位記錄保護自己——雇主必看。',
+    'bc2-read':'閱讀文章 →',
+    'bc3-badge':'即將推出','bc3-title':'餐飲業雇主怎麼管外勞？排班、衛生規定、點菜溝通全攻略',
+    'bc3-desc':'餐廳廚房、外場的外籍員工溝通場景特別多，這篇整理最常卡關的時刻與解法…',
+    'bc3-date':'即將發布','bc3-read':'敬請期待',
+    'bc4-title':'家庭看護雇主的翻譯難題：如何用 LINE 確認外勞真的懂照護指示？',
+    'bc4-desc':'藥物劑量、照護步驟、緊急聯絡方式——這些資訊一定要讓外勞完全理解，不能靠猜的…',
+    'bc4-date':'即將發布','bc4-read':'敬請期待',
+    'b-cta-h3':'解決外勞溝通問題，從今天開始',
+    'b-cta-p':'每日 15 次免費翻譯，不用綁信用卡。工廠、看護、工地、餐飲、農場雇主皆適用。',
+    'b-cta-btn':'免費加入 LINE Bot',
+    'b-footer-copy':'© 2026 萬語通 · 客服 LINE：fishxit · Email：bao58881@gmail.com',
+    'b-f1':'官網','b-f2':'部落格','b-f3':'收費方案','b-f4':'使用條款','b-f5':'聯繫客服',
+  },
+  en: {
+    'b-nav-home':'Home','b-nav-feat':'Why Us','b-nav-price':'Pricing','b-nav-blog':'Blog',
+    'b-nav-faq':'FAQ','b-nav-terms':'Terms','b-nav-cta':'Try Free',
+    'b-eyebrow':'// WanyuTong · Employer Guide',
+    'b-h1':'Foreign Worker Management<br>Knowledge Base',
+    'b-lead':'Communication challenges and solutions that factory, caregiver, construction, restaurant, and farm employers face every day — all here.',
+    'b-btn1':'Try LINE Bot Free','b-btn2':'View Plans →',
+    'b-stat-label':'Articles',
+    'bf-all':'All','bf-comm':'Communication','bf-tool':'Tools','bf-law':'Legal','bf-ind':'Industry',
+    'bc1-title':'5 Communication Problems Taiwan Employers Face with Foreign Workers (And Solutions)',
+    'bc1-desc':'Factory managers, caregivers, and site supervisors face this daily: commands ignored, pictures misunderstood, safety instructions that go unheard, multilingual groups that can\'t get one message. Every problem has a concrete solution.',
+    'bc1-read':'Read Article →',
+    'bc2-title':'When a Foreign Worker Has a Workplace Accident — What Is the Employer\'s Legal Liability?',
+    'bc2-desc':'"I told them" doesn\'t hold up in court. Occupational Safety Act obligations, the legal weight of Chinese-only documents, and how to protect yourself with digital records — essential reading for employers.',
+    'bc2-read':'Read Article →',
+    'bc3-badge':'Coming Soon','bc3-title':'Managing Foreign Workers in Food Service: Scheduling, Hygiene Rules & Order Communication',
+    'bc3-desc':'Restaurant kitchens and front-of-house have unique communication challenges. This guide covers the most common sticking points and solutions…',
+    'bc3-date':'Coming Soon','bc3-read':'Stay Tuned',
+    'bc4-title':'The Home Caregiver\'s Translation Challenge: How to Confirm Workers Truly Understand Care Instructions',
+    'bc4-desc':'Medication dosages, care procedures, emergency contacts — these must be fully understood. No guessing allowed…',
+    'bc4-date':'Coming Soon','bc4-read':'Stay Tuned',
+    'b-cta-h3':'Start Solving Communication Problems Today',
+    'b-cta-p':'15 free translations daily, no credit card required. For factory, caregiver, construction, restaurant, and farm employers.',
+    'b-cta-btn':'Join LINE Bot Free',
+    'b-footer-copy':'© 2026 WanyuTong · Support LINE: fishxit · Email: bao58881@gmail.com',
+    'b-f1':'Home','b-f2':'Blog','b-f3':'Pricing','b-f4':'Terms','b-f5':'Contact',
+  }
+};
+
+function applyBlogLang(lang) {
+  var t = blogI18n[lang];
+  Object.keys(t).forEach(function(id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    if (id === 'b-h1') el.innerHTML = t[id];
+    else el.textContent = t[id];
+  });
+  document.getElementById('btn-zh').classList.toggle('active', lang==='zh');
+  document.getElementById('btn-en').classList.toggle('active', lang==='en');
+  document.documentElement.lang = lang==='zh'?'zh-TW':'en';
+}
+function setLang(lang) {
+  try { localStorage.setItem('wyt-lang', lang); } catch(e) {}
+  applyBlogLang(lang);
+}
+(function(){
+  try { var s=localStorage.getItem('wyt-lang'); if(s==='en') applyBlogLang('en'); } catch(e) {}
+})();
+</script>
 </body>
 </html>

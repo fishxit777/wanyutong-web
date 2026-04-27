@@ -78,6 +78,9 @@ nav { position:fixed; top:0; left:0; right:0; z-index:100; height:56px; display:
 .nav-links-blog a.active { color:var(--line); }
 .nav-cta { background:var(--line); color:#000 !important; padding:0.38em 1.1em; border-radius:4px; font-weight:700; font-size:0.78rem; text-decoration:none; transition:box-shadow 0.2s; }
 .nav-cta:hover { box-shadow:0 0 24px rgba(6,199,85,0.4); }
+.lang-toggle{display:flex;align-items:center;background:var(--bg3);border:1px solid var(--border2);border-radius:20px;overflow:hidden;font-family:'DM Mono',monospace;font-size:0.72rem;}
+.lang-btn{padding:4px 11px;cursor:pointer;border:none;background:transparent;color:var(--muted);transition:all 0.2s;line-height:1;}
+.lang-btn.active{background:var(--line);color:#000;font-weight:700;}
 .blog-hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px; background:none; border:none; }
 .blog-hamburger span { display:block; width:22px; height:2px; background:var(--text); border-radius:1px; }
 @media(max-width:760px){
@@ -149,42 +152,43 @@ footer { background:var(--bg2); border-top:1px solid var(--border); padding:2rem
 <nav>
   <a href="index.html" class="nav-brand"><span class="nav-dot"></span>萬語通</a>
   <div class="nav-links-blog" id="faqNavLinks">
-    <a href="index.html">官網</a>
-    <a href="index.html#features">為何選我</a>
-    <a href="index.html#pricing">收費方案</a>
-    <a href="blog.html">部落格</a>
-    <a href="faq.html" class="active">常見問題</a>
-    <a href="index.html#terms">條款</a>
-    <a href="https://line.me/ti/p/@969wpxno" class="nav-cta">免費體驗</a>
+    <a href="index.html" id="f-nav-home">官網</a>
+    <a href="index.html#features" id="f-nav-feat">為何選我</a>
+    <a href="index.html#pricing" id="f-nav-price">收費方案</a>
+    <a href="blog.html" id="f-nav-blog">部落格</a>
+    <a href="faq.html" class="active" id="f-nav-faq">常見問題</a>
+    <a href="index.html#terms" id="f-nav-terms">條款</a>
+    <a href="https://line.me/ti/p/@969wpxno" class="nav-cta" id="f-nav-cta">免費體驗</a>
   </div>
   <div style="display:flex;align-items:center;gap:0.6rem;">
+    <div class="lang-toggle"><button class="lang-btn active" onclick="setLang('zh')" id="btn-zh">繁中</button><button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button></div>
     <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="切換日/夜模式" aria-label="切換日夜模式"><div class="theme-toggle-knob" id="themeKnob">🌙</div></button>
     <button class="blog-hamburger" onclick="document.getElementById('faqNavLinks').classList.toggle('open')"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
 <div class="faq-hero">
-  <div class="faq-eyebrow">// 萬語通 · 常見問題</div>
+  <div class="faq-eyebrow" id="f-eyebrow">// 萬語通 · 常見問題</div>
   <h1>有問題？<br><span class="hl">我們來解答</span></h1>
-  <p>快速找到您想知道的答案，讓萬語通幫您解決外籍員工溝通難題。</p>
+  <p id="f-lead">快速找到您想知道的答案，讓萬語通幫您解決外籍員工溝通難題。</p>
 </div>
 
 <div class="faq-filter">
-  <button class="faq-filter-btn active" onclick="filterFaq('all',this)">全部</button>
-  <button class="faq-filter-btn" onclick="filterFaq('start',this)">入門使用</button>
-  <button class="faq-filter-btn" onclick="filterFaq('pricing',this)">費用方案</button>
-  <button class="faq-filter-btn" onclick="filterFaq('feature',this)">功能說明</button>
-  <button class="faq-filter-btn" onclick="filterFaq('trust',this)">安全信任</button>
-  <button class="faq-filter-btn" onclick="filterFaq('disclaimer',this)">免責聲明</button>
+  <button class="faq-filter-btn active" onclick="filterFaq('all',this)" id="ff-all">全部</button>
+  <button class="faq-filter-btn" onclick="filterFaq('start',this)" id="ff-start">入門使用</button>
+  <button class="faq-filter-btn" onclick="filterFaq('pricing',this)" id="ff-pricing">費用方案</button>
+  <button class="faq-filter-btn" onclick="filterFaq('feature',this)" id="ff-feature">功能說明</button>
+  <button class="faq-filter-btn" onclick="filterFaq('trust',this)" id="ff-trust">安全信任</button>
+  <button class="faq-filter-btn" onclick="filterFaq('disclaimer',this)" id="ff-disc">免責聲明</button>
 </div>
 
 <div class="faq-body">
 
-  <div class="faq-section-label" data-sec="start">// 入門使用</div>
+  <div class="faq-section-label" data-sec="start" id="fsl-start">// 入門使用</div>
 
   <div class="faq-item" data-sec="start">
-    <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">萬語通是什麼？怎麼開始使用？</span><span class="faq-icon">+</span></div>
-    <div class="faq-a"><div class="faq-a-inner">
+    <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text" id="fq1">萬語通是什麼？怎麼開始使用？</span><span class="faq-icon">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner" id="fa1">
       萬語通是一款在 <strong>LINE 群組或私訊</strong>中運作的翻譯機器人，專為台灣雇主與外籍員工日常溝通設計。<br><br>開始步驟：
       <ul><li>搜尋 LINE ID：<strong>@969wpxno</strong>，加入好友</li><li>傳送任何訊息，Bot 自動偵測語言並翻譯</li><li>免費版每日 <strong>15 次</strong>，無需付費即可體驗</li></ul><br>
       群組版只需將萬語通加入群組，即可讓所有成員使用翻譯功能。
@@ -192,8 +196,8 @@ footer { background:var(--bg2); border-top:1px solid var(--border); padding:2rem
   </div>
 
   <div class="faq-item" data-sec="start">
-    <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">萬語通支援哪些語言？</span><span class="faq-icon">+</span></div>
-    <div class="faq-a"><div class="faq-a-inner">
+    <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text" id="fq2">萬語通支援哪些語言？</span><span class="faq-icon">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner" id="fa2">
       採用 <strong>DeepL API</strong> 引擎，支援 <strong>36 種語言</strong>，全部開放、無一限制。<br><br>
       常用語言：印尼文、越南文、泰文、菲律賓文（他加祿語）、英文、日文、韓文、簡繁中文等。<br><br>
       <span class="tag-badge tag-green">群組版</span>&nbsp;最多可同時對 <strong>8 種語言同步翻譯</strong>，是市面上同類產品支援語言最多的。
@@ -201,25 +205,25 @@ footer { background:var(--bg2); border-top:1px solid var(--border); padding:2rem
   </div>
 
   <div class="faq-item" data-sec="start">
-    <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">個人版和群組版有什麼差別？</span><span class="faq-icon">+</span></div>
-    <div class="faq-a"><div class="faq-a-inner">
+    <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text" id="fq3">個人版和群組版有什麼差別？</span><span class="faq-icon">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner" id="fa3">
       <strong>個人版</strong>：用於 LINE 私訊，適合個人對外籍友人、員工一對一溝通。<br><br>
       <strong>群組版</strong>：加入 LINE 群組後，群組內所有人都能享受翻譯服務，適合工廠、工地、餐廳等多人場景。群組版還包含語音翻譯、圖片OCR、忽略詞、翻譯歷史等進階功能。
     </div></div>
   </div>
 
-  <div class="faq-section-label" data-sec="pricing">// 費用方案</div>
+  <div class="faq-section-label" data-sec="pricing" id="fsl-pricing">// 費用方案</div>
 
   <div class="faq-item" data-sec="pricing">
-    <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">免費版有什麼限制？</span><span class="faq-icon">+</span></div>
-    <div class="faq-a"><div class="faq-a-inner">
+    <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text" id="fq4">免費版有什麼限制？</span><span class="faq-icon">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner" id="fa4">
       免費版每日提供 <strong>15 次翻譯</strong>，隔天自動重置。功能為基本文字翻譯，不含語音、圖片OCR等進階功能。個人版與群組版皆可免費體驗，先確認效果再決定是否升級。
     </div></div>
   </div>
 
   <div class="faq-item" data-sec="pricing">
-    <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">付費方案有哪些？費用是多少？</span><span class="faq-icon">+</span></div>
-    <div class="faq-a"><div class="faq-a-inner">
+    <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text" id="fq5">付費方案有哪些？費用是多少？</span><span class="faq-icon">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner" id="fa5">
       <strong>個人版</strong><ul><li>7日體驗：<strong>NT$49</strong></li><li>月付：<strong>NT$199</strong> / 30天</li><li>年付：<strong>NT$1,590</strong> / 365天（約 NT$133/月）</li></ul><br>
       <strong>群組版</strong><ul><li>7日體驗：<strong>NT$49</strong></li><li>體驗版：<strong>NT$199</strong>/月（文字＋語音＋忽略詞＋歷史）</li><li>商務版：<strong>NT$499</strong>/月（含圖片OCR）</li></ul><br>
       購買請在 LINE 傳送「<strong>@購買</strong>」或直接聯繫客服 <a href="https://line.me/ti/p/~fishxit">fishxit</a>。
@@ -227,91 +231,91 @@ footer { background:var(--bg2); border-top:1px solid var(--border); padding:2rem
   </div>
 
   <div class="faq-item" data-sec="pricing">
-    <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">可以退費嗎？</span><span class="faq-icon">+</span></div>
-    <div class="faq-a"><div class="faq-a-inner">
+    <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text" id="fq6">可以退費嗎？</span><span class="faq-icon">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner" id="fa6">
       付款後原則上 <strong>不提供退費</strong>。<br><br>
       唯一例外：付款後 <strong>24 小時內</strong> Bot 完全無法回應（非用戶端問題），可聯繫客服 <a href="https://line.me/ti/p/~fishxit">fishxit</a> 申請退費審查。
     </div></div>
   </div>
 
   <div class="faq-item" data-sec="pricing">
-    <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">如何升級或延長方案？</span><span class="faq-icon">+</span></div>
-    <div class="faq-a"><div class="faq-a-inner">
+    <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text" id="fq7">如何升級或延長方案？</span><span class="faq-icon">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner" id="fa7">
       目前付款方式為人工處理：
       <ul><li>在 LINE 傳送 <strong>@購買</strong>，Bot 會引導您聯繫客服</li><li>完成匯款後，客服會在後台為您手動開通</li><li>開通成功後 Bot 會主動通知您</li></ul>
 
     </div></div>
   </div>
 
-  <div class="faq-section-label" data-sec="feature">// 功能說明</div>
+  <div class="faq-section-label" data-sec="feature" id="fsl-feature">// 功能說明</div>
 
   <div class="faq-item" data-sec="feature">
-    <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">可以翻譯語音訊息嗎？</span><span class="faq-icon">+</span></div>
-    <div class="faq-a"><div class="faq-a-inner">
+    <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text" id="fq8">可以翻譯語音訊息嗎？</span><span class="faq-icon">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner" id="fa8">
       可以！<span class="tag-badge tag-cyan">付費版限定</span><br><br>
       語音訊息透過 <strong>OpenAI Whisper</strong> 引擎轉錄成文字，再由 DeepL 翻譯。支援印尼文、越南文、泰文等多種語言語音輸入。群組版「體驗版」以上方案包含此功能。
     </div></div>
   </div>
 
   <div class="faq-item" data-sec="feature">
-    <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">可以翻譯圖片中的文字嗎？（OCR）</span><span class="faq-icon">+</span></div>
-    <div class="faq-a"><div class="faq-a-inner">
+    <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text" id="fq9">可以翻譯圖片中的文字嗎？（OCR）</span><span class="faq-icon">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner" id="fa9">
       可以！<span class="tag-badge tag-cyan">商務版限定</span><br><br>
       直接在 LINE 傳送圖片，萬語通會自動辨識圖片中的文字（OCR）並翻譯。適合用於合約、公文、藥品說明書等書面文件。採用 <strong>Claude AI</strong> 進行圖片文字辨識，準確率高。
     </div></div>
   </div>
 
   <div class="faq-item" data-sec="feature">
-    <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">什麼是「翻譯確認」功能？</span><span class="faq-icon">+</span></div>
-    <div class="faq-a"><div class="faq-a-inner">
+    <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text" id="fq10">什麼是「翻譯確認」功能？</span><span class="faq-icon">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner" id="fa10">
       翻譯確認是萬語通獨有的功能。翻譯完成後，外籍員工可以對翻譯結果按 <strong>👍 / 👎</strong> 給予回饋，讓雇主知道對方是否真正理解了訊息內容。這解決了「翻譯出來但對方看不懂」的常見問題。
     </div></div>
   </div>
 
   <div class="faq-item" data-sec="feature">
-    <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">什麼是「忽略詞」功能？</span><span class="faq-icon">+</span></div>
-    <div class="faq-a"><div class="faq-a-inner">
+    <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text" id="fq11">什麼是「忽略詞」功能？</span><span class="faq-icon">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner" id="fa11">
       忽略詞讓您設定不需要翻譯的特定字詞，例如人名、地名、公司內部專有名詞。設定後，包含該詞的訊息不會觸發翻譯，避免誤翻或群組訊息被不必要地打斷。
     </div></div>
   </div>
 
   <div class="faq-item" data-sec="feature">
-    <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">什麼是「勿擾模式」？</span><span class="faq-icon">+</span></div>
-    <div class="faq-a"><div class="faq-a-inner">
+    <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text" id="fq12">什麼是「勿擾模式」？</span><span class="faq-icon">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner" id="fa12">
       勿擾模式可讓群組在指定時段（例如午休、下班後）暫停翻譯功能，避免 Bot 在非工作時間持續回應干擾群組成員。
     </div></div>
   </div>
 
-  <div class="faq-section-label" data-sec="trust">// 安全與信任</div>
+  <div class="faq-section-label" data-sec="trust" id="fsl-trust">// 安全與信任</div>
 
   <div class="faq-item" data-sec="trust">
-    <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">翻譯引擎是哪家？準確嗎？</span><span class="faq-icon">+</span></div>
-    <div class="faq-a"><div class="faq-a-inner">
+    <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text" id="fq13">翻譯引擎是哪家？準確嗎？</span><span class="faq-icon">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner" id="fa13">
       文字翻譯使用 <strong>DeepL API</strong>，在多項翻譯品質評比中獲得最高評分，尤其亞洲語言（印尼文、越南文）表現優於 Google 翻譯與一般 AI 翻譯。<br><br>
       語音翻譯使用 <strong>OpenAI Whisper</strong>（語音轉文字）＋ DeepL。圖片 OCR 使用 <strong>Claude AI</strong>。
     </div></div>
   </div>
 
   <div class="faq-item" data-sec="trust">
-    <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">我的對話內容會被保存或外洩嗎？</span><span class="faq-icon">+</span></div>
-    <div class="faq-a"><div class="faq-a-inner">
+    <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text" id="fq14">我的對話內容會被保存或外洩嗎？</span><span class="faq-icon">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner" id="fa14">
       翻譯歷史僅保存 <strong>最近 20 筆</strong>，供用戶自行查詢。資料儲存於加密的資料庫，不會對外公開，也不會用於廣告或第三方分析。伺服器設有頻率限制與爬蟲防護機制。
     </div></div>
   </div>
 
   <div class="faq-item" data-sec="trust">
-    <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Bot 突然無法使用怎麼辦？</span><span class="faq-icon">+</span></div>
-    <div class="faq-a"><div class="faq-a-inner">
+    <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text" id="fq15">Bot 突然無法使用怎麼辦？</span><span class="faq-icon">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner" id="fa15">
       萬語通伺服器全天候運行，設有自動監控，異常時我們會立即處理。<br><br>
       若遇到無法使用的情況，請聯繫客服 <a href="https://line.me/ti/p/~fishxit">fishxit</a>，我們會優先排查。付款後 24 小時內 Bot 完全無法回應者，可申請退費。
     </div></div>
   </div>
 
-  <div class="faq-section-label" data-sec="disclaimer">// 免責聲明</div>
+  <div class="faq-section-label" data-sec="disclaimer" id="fsl-disc">// 免責聲明</div>
 
   <div class="faq-item" data-sec="disclaimer">
-    <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">服務中斷、系統異常或帳號安全事件的責任範圍</span><span class="faq-icon">+</span></div>
-    <div class="faq-a"><div class="faq-a-inner">
+    <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text" id="fq16">服務中斷、系統異常或帳號安全事件的責任範圍</span><span class="faq-icon">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner" id="fa16">
       萬語通致力於提供穩定的翻譯服務，但以下情況屬於不可控範圍，本服務不承擔賠償責任：<br><br>
       <ul>
         <li><strong>第三方平台中斷：</strong>因 LINE、DeepL、OpenAI、Anthropic 等第三方服務商系統故障、政策調整或停止服務，導致萬語通功能受影響。</li>
@@ -327,8 +331,8 @@ footer { background:var(--bg2); border-top:1px solid var(--border); padding:2rem
   </div>
 
   <div class="faq-item" data-sec="disclaimer">
-    <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">本服務的使用限制與終止條款</span><span class="faq-icon">+</span></div>
-    <div class="faq-a"><div class="faq-a-inner">
+    <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text" id="fq17">本服務的使用限制與終止條款</span><span class="faq-icon">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner" id="fa17">
       萬語通保留以下權利，且不因此承擔任何賠償責任：<br><br>
       <ul>
         <li><strong>服務調整：</strong>基於技術、法規或商業考量，隨時調整功能範圍、收費方案或服務條款，並提前通知用戶。</li>
@@ -342,23 +346,23 @@ footer { background:var(--bg2); border-top:1px solid var(--border); padding:2rem
 
 </div>
   <div class="faq-cta-card">
-    <h3>還有其他問題？</h3>
-    <p>加入萬語通 LINE Bot，直接在對話中詢問客服，或先免費體驗看看。</p>
+    <h3 id="f-cta-h3">還有其他問題？</h3>
+    <p id="f-cta-p">加入萬語通 LINE Bot，直接在對話中詢問客服，或先免費體驗看看。</p>
     <a href="https://line.me/ti/p/@969wpxno" class="btn-line" target="_blank" rel="noopener">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.105.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.07 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
       免費體驗 LINE Bot
     </a>
-    <a href="index.html#pricing" class="btn-ghost-sm">查看收費方案 →</a>
+    <a href="index.html#pricing" class="btn-ghost-sm"><span id="f-cta-btn2">查看收費方案 →</span></a>
   </div>
 </div>
 
 <footer>
-  <div>© 2026 萬語通 · 客服 LINE：fishxit · Email：bao58881@gmail.com</div>
+  <div id="f-footer-copy">© 2026 萬語通 · 客服 LINE：fishxit · Email：bao58881@gmail.com</div>
   <div class="footer-links">
-    <a href="index.html">官網</a>
-    <a href="blog.html">部落格</a>
+    <a href="index.html" id="f-nav-home">官網</a>
+    <a href="blog.html" id="f-nav-blog">部落格</a>
     <a href="faq.html">常見問題</a>
-    <a href="index.html#pricing">收費方案</a>
+    <a href="index.html#pricing" id="f-nav-price">收費方案</a>
     <a href="index.html#terms">使用條款</a>
     <a href="https://line.me/ti/p/~fishxit">聯繫客服</a>
   </div>
@@ -408,6 +412,114 @@ function filterFaq(key,btn){document.querySelectorAll('.faq-filter-btn').forEach
 
 <script>
 (function(){try{if(localStorage.getItem("wyt-admin")==="1")return;var img=new Image();img.src="https://one1stars-line-bot.onrender.com/track/pixel?p=faq&r="+encodeURIComponent(document.referrer);}catch(e){}})();
+</script>
+<script>
+var faqI18n = {
+  zh: {
+    'f-nav-home':'官網','f-nav-feat':'為何選我','f-nav-price':'收費方案','f-nav-blog':'部落格',
+    'f-nav-faq':'常見問題','f-nav-terms':'條款','f-nav-cta':'免費體驗',
+    'f-eyebrow':'// 萬語通 · 常見問題',
+    'f-h1':'有問題？<br><span class="hl">我們來解答</span>',
+    'f-lead':'快速找到您想知道的答案，讓萬語通幫您解決外籍員工溝通難題。',
+    'ff-all':'全部','ff-start':'入門使用','ff-pricing':'費用方案',
+    'ff-feature':'功能說明','ff-trust':'安全信任','ff-disc':'免責聲明',
+    'fsl-start':'// 入門使用','fsl-pricing':'// 費用方案','fsl-feature':'// 功能說明',
+    'fsl-trust':'// 安全與信任','fsl-disc':'// 免責聲明',
+    'fq1':'萬語通是什麼？怎麼開始使用？','fq2':'萬語通支援哪些語言？',
+    'fq3':'個人版和群組版有什麼差別？','fq4':'免費版有什麼限制？',
+    'fq5':'付費方案有哪些？費用是多少？','fq6':'可以退費嗎？',
+    'fq7':'如何升級或延長方案？','fq8':'可以翻譯語音訊息嗎？',
+    'fq9':'可以翻譯圖片中的文字嗎？（OCR）','fq10':'什麼是「翻譯確認」功能？',
+    'fq11':'什麼是「忽略詞」功能？','fq12':'什麼是「勿擾模式」？',
+    'fq13':'翻譯引擎是哪家？準確嗎？','fq14':'我的對話內容會被保存或外洩嗎？',
+    'fq15':'Bot 突然無法使用怎麼辦？',
+    'fq16':'服務中斷、系統異常或帳號安全事件的責任範圍',
+    'fq17':'本服務的使用限制與終止條款',
+    'fa1':'萬語通是一款在 <strong>LINE 群組或私訊</strong>中運作的翻譯機器人，專為台灣雇主與外籍員工日常溝通設計。<br><br>開始步驟：<ul><li>搜尋 LINE ID：<strong>@969wpxno</strong>，加入好友</li><li>傳送任何訊息，Bot 自動偵測語言並翻譯</li><li>免費版每日 <strong>15 次</strong>，無需付費即可體驗</li></ul><br>群組版只需將萬語通加入群組，即可讓所有成員使用翻譯功能。',
+    'fa2':'採用 <strong>DeepL API</strong> 引擎，支援 <strong>36 種語言</strong>，全部開放、無一限制。<br><br>常用語言：印尼文、越南文、泰文、菲律賓文（他加祿語）、英文、日文、韓文、簡繁中文等。<br><br><span class="tag-badge tag-green">群組版</span>&nbsp;最多可同時對 <strong>8 種語言同步翻譯</strong>，是市面上同類產品支援語言最多的。',
+    'fa3':'<strong>個人版</strong>：用於 LINE 私訊，適合個人對外籍友人、員工一對一溝通。<br><br><strong>群組版</strong>：加入 LINE 群組後，群組內所有人都能享受翻譯服務，適合工廠、工地、餐廳等多人場景。群組版還包含語音翻譯、圖片OCR、忽略詞、翻譯歷史等進階功能。',
+    'fa4':'免費版每日提供 <strong>15 次翻譯</strong>，隔天自動重置。功能為基本文字翻譯，不含語音、圖片OCR等進階功能。個人版與群組版皆可免費體驗，先確認效果再決定是否升級。',
+    'fa5':'<strong>個人版</strong><ul><li>7日體驗：<strong>NT$49</strong></li><li>月付：<strong>NT$199</strong> / 30天</li><li>年付：<strong>NT$1,590</strong> / 365天（約 NT$133/月）</li></ul><br><strong>群組版</strong><ul><li>7日體驗：<strong>NT$49</strong></li><li>體驗版：<strong>NT$199</strong>/月（文字＋語音＋忽略詞＋歷史）</li><li>商務版：<strong>NT$499</strong>/月（含圖片OCR）</li></ul><br>購買請在 LINE 傳送「<strong>@購買</strong>」或直接聯繫客服 <a href="https://line.me/ti/p/~fishxit">fishxit</a>。',
+    'fa6':'付款後原則上 <strong>不提供退費</strong>。<br><br>唯一例外：付款後 <strong>24 小時內</strong> Bot 完全無法回應（非用戶端問題），可聯繫客服 <a href="https://line.me/ti/p/~fishxit">fishxit</a> 申請退費審查。',
+    'fa7':'目前付款方式為人工處理：<ul><li>在 LINE 傳送 <strong>@購買</strong>，Bot 會引導您聯繫客服</li><li>完成匯款後，客服會在後台為您手動開通</li><li>開通成功後 Bot 會主動通知您</li></ul>',
+    'fa8':'可以！<span class="tag-badge tag-cyan">付費版限定</span><br><br>語音訊息透過 <strong>OpenAI Whisper</strong> 引擎轉錄成文字，再由 DeepL 翻譯。支援印尼文、越南文、泰文等多種語言語音輸入。群組版「體驗版」以上方案包含此功能。',
+    'fa9':'可以！<span class="tag-badge tag-cyan">商務版限定</span><br><br>直接在 LINE 傳送圖片，萬語通會自動辨識圖片中的文字（OCR）並翻譯。適合用於合約、公文、藥品說明書等書面文件。採用 <strong>Claude AI</strong> 進行圖片文字辨識，準確率高。',
+    'fa10':'翻譯確認是萬語通獨有的功能。翻譯完成後，外籍員工可以對翻譯結果按 <strong>👍 / 👎</strong> 給予回饋，讓雇主知道對方是否真正理解了訊息內容。這解決了「翻譯出來但對方看不懂」的常見問題。',
+    'fa11':'忽略詞讓您設定不需要翻譯的特定字詞，例如人名、地名、公司內部專有名詞。設定後，包含該詞的訊息不會觸發翻譯，避免誤翻或群組訊息被不必要地打斷。',
+    'fa12':'勿擾模式可讓群組在指定時段（例如午休、下班後）暫停翻譯功能，避免 Bot 在非工作時間持續回應干擾群組成員。',
+    'fa13':'文字翻譯使用 <strong>DeepL API</strong>，在多項翻譯品質評比中獲得最高評分，尤其亞洲語言（印尼文、越南文）表現優於 Google 翻譯與一般 AI 翻譯。<br><br>語音翻譯使用 <strong>OpenAI Whisper</strong>（語音轉文字）＋ DeepL。圖片 OCR 使用 <strong>Claude AI</strong>。',
+    'fa14':'翻譯歷史僅保存 <strong>最近 20 筆</strong>，供用戶自行查詢。資料儲存於加密的資料庫，不會對外公開，也不會用於廣告或第三方分析。伺服器設有頻率限制與爬蟲防護機制。',
+    'fa15':'萬語通伺服器全天候運行，設有自動監控，異常時我們會立即處理。<br><br>若遇到無法使用的情況，請聯繫客服 <a href="https://line.me/ti/p/~fishxit">fishxit</a>，我們會優先排查。付款後 24 小時內 Bot 完全無法回應者，可申請退費。',
+    'fa16':'萬語通致力於提供穩定的翻譯服務，但以下情況屬於不可控範圍，本服務不承擔賠償責任：<br><br><ul><li><strong>第三方平台中斷：</strong>因 LINE、DeepL、OpenAI、Anthropic 等第三方服務商系統故障、政策調整或停止服務，導致萬語通功能受影響。</li><li><strong>不可抗力事件：</strong>包含但不限於自然災害、網路基礎設施故障、政府法規限制、戰爭、疫情等不可預見事件。</li><li><strong>惡意攻擊與資安事件：</strong>因駭客入侵、DDoS 攻擊、社交工程詐騙、帳號遭盜用等資安事件，導致服務中斷或用戶資料受影響。</li><li><strong>帳號損失：</strong>因用戶帳號遭盜用或未授權存取所造成的付費點數損失，萬語通不承擔補償責任。</li><li><strong>翻譯品質：</strong>翻譯結果由第三方引擎提供，萬語通不保證翻譯內容在所有情境下完全準確。</li><li><strong>間接損失：</strong>因服務中斷所造成的業務損失、商業機會損失或其他間接損失，本服務不予賠償。</li></ul><br>若遇到服務異常，請聯繫客服 <a href="https://line.me/ti/p/~fishxit">fishxit</a>，我們將盡速協助處理。',
+    'fa17':'萬語通保留以下權利，且不因此承擔任何賠償責任：<br><br><ul><li><strong>服務調整：</strong>基於技術、法規或商業考量，隨時調整功能範圍、收費方案或服務條款，並提前通知用戶。</li><li><strong>帳號停用：</strong>對於違反使用條款（包含濫用翻譯功能、傳播違法內容）的用戶，有權立即停用帳號，且不退還任何費用。</li><li><strong>服務終止：</strong>在極端情況下（如公司停止營運），萬語通將盡力提前通知用戶，但不承擔因服務終止造成的損失賠償。</li></ul><br>繼續使用萬語通服務，即視為接受上述免責條款。',
+    'f-cta-h3':'還有其他問題？',
+    'f-cta-p':'加入萬語通 LINE Bot，直接在對話中詢問客服，或先免費體驗看看。',
+    'f-cta-btn':'免費體驗 LINE Bot','f-cta-btn2':'查看收費方案 →',
+    'f-footer-copy':'© 2026 萬語通 · 客服 LINE：fishxit · Email：bao58881@gmail.com',
+  },
+  en: {
+    'f-nav-home':'Home','f-nav-feat':'Why Us','f-nav-price':'Pricing','f-nav-blog':'Blog',
+    'f-nav-faq':'FAQ','f-nav-terms':'Terms','f-nav-cta':'Try Free',
+    'f-eyebrow':'// WanyuTong · FAQ',
+    'f-h1':'Have Questions?<br><span class="hl">We Have Answers</span>',
+    'f-lead':'Find answers quickly and let WanyuTong help you solve foreign worker communication challenges.',
+    'ff-all':'All','ff-start':'Getting Started','ff-pricing':'Pricing','ff-feature':'Features',
+    'ff-trust':'Security','ff-disc':'Disclaimer',
+    'fsl-start':'// Getting Started','fsl-pricing':'// Pricing','fsl-feature':'// Features',
+    'fsl-trust':'// Security & Trust','fsl-disc':'// Disclaimer',
+    'fq1':'What is WanyuTong? How do I get started?','fq2':'What languages does WanyuTong support?',
+    'fq3':'What\'s the difference between Personal and Group plans?','fq4':'What are the limitations of the free plan?',
+    'fq5':'What paid plans are available and how much do they cost?','fq6':'Can I get a refund?',
+    'fq7':'How do I upgrade or extend my plan?','fq8':'Can it translate voice messages?',
+    'fq9':'Can it translate text in images? (OCR)','fq10':'What is the "Translation Confirmation" feature?',
+    'fq11':'What is the "Ignore Word" feature?','fq12':'What is "Do Not Disturb" mode?',
+    'fq13':'Which translation engine is used? Is it accurate?','fq14':'Will my conversations be stored or leaked?',
+    'fq15':'What if the Bot suddenly stops working?',
+    'fq16':'Liability for Service Interruptions, System Issues, or Account Security Incidents',
+    'fq17':'Service Restrictions and Termination Terms',
+    'fa1':'WanyuTong is a translation bot that works in <strong>LINE groups and private messages</strong>, designed for communication between Taiwanese employers and foreign workers.<br><br>Getting started:<ul><li>Search LINE ID: <strong>@969wpxno</strong> and add as friend</li><li>Send any message — the Bot auto-detects language and translates</li><li>Free plan: <strong>15 translations/day</strong>, no payment needed</li></ul><br>For groups: simply add WanyuTong to your LINE group and all members can use it immediately.',
+    'fa2':'Powered by the <strong>DeepL API</strong> engine, supporting <strong>36 languages</strong> — all fully unlocked with no restrictions.<br><br>Common languages: Indonesian, Vietnamese, Thai, Filipino (Tagalog), English, Japanese, Korean, Simplified/Traditional Chinese, and more.<br><br><span class="tag-badge tag-green">Group Plan</span>&nbsp;supports up to <strong>8 simultaneous language translations</strong> — the most of any similar product.',
+    'fa3':'<strong>Personal Plan</strong>: Works in LINE private messages. Great for one-on-one communication with foreign friends or employees.<br><br><strong>Group Plan</strong>: Add to a LINE group and everyone can use the translation service. Ideal for factories, construction sites, restaurants, and other multi-person settings. Includes voice translation, image OCR, ignore words, and translation history.',
+    'fa4':'The free plan provides <strong>15 translations per day</strong>, automatically reset the next day. Basic text translation only — no voice or image OCR. Try it on both Personal and Group plans before deciding to upgrade.',
+    'fa5':'<strong>Personal Plan</strong><ul><li>7-Day Trial: <strong>NT$49</strong></li><li>Monthly: <strong>NT$199</strong> / 30 days</li><li>Annual: <strong>NT$1,590</strong> / 365 days (≈NT$133/month)</li></ul><br><strong>Group Plan</strong><ul><li>7-Day Trial: <strong>NT$49</strong></li><li>Basic: <strong>NT$199</strong>/month (text + voice + ignore words + history)</li><li>Business: <strong>NT$499</strong>/month (includes image OCR)</li></ul><br>To purchase, send "<strong>@buy</strong>" in LINE or contact support <a href="https://line.me/ti/p/~fishxit">fishxit</a>.',
+    'fa6':'Payments are generally <strong>non-refundable</strong>.<br><br>The only exception: if the Bot is completely unresponsive within <strong>24 hours</strong> of payment (not due to user-side issues), you may request a refund review from support <a href="https://line.me/ti/p/~fishxit">fishxit</a>.',
+    'fa7':'Payment is currently processed manually:<ul><li>Send <strong>@buy</strong> in LINE — the Bot will guide you to support</li><li>After payment, support will manually activate your plan</li><li>The Bot will notify you when activation is complete</li></ul>',
+    'fa8':'Yes! <span class="tag-badge tag-cyan">Paid Plans Only</span><br><br>Voice messages are transcribed via <strong>OpenAI Whisper</strong> and then translated by DeepL. Supports Indonesian, Vietnamese, Thai, and more. Available in Group Basic plan and above.',
+    'fa9':'Yes! <span class="tag-badge tag-cyan">Business Plan Only</span><br><br>Send an image directly in LINE and WanyuTong will automatically recognize and translate the text (OCR). Great for contracts, official documents, and medication instructions. Uses <strong>Claude AI</strong> for high-accuracy text recognition.',
+    'fa10':'Translation Confirmation is a WanyuTong-exclusive feature. After translation, foreign workers can give feedback with <strong>👍 / 👎</strong>, letting employers know if the message was truly understood. This solves the common problem of "translated but still misunderstood."',
+    'fa11':'Ignore Words let you set specific terms that should NOT be translated — such as names, locations, or internal company jargon. Once set, messages containing those words won\'t trigger translation.',
+    'fa12':'Do Not Disturb mode lets you pause translation during specified hours (e.g., lunch break, after work), preventing the Bot from responding during non-work hours.',
+    'fa13':'Text translation uses <strong>DeepL API</strong>, which consistently ranks highest in translation quality benchmarks — especially for Asian languages like Indonesian and Vietnamese, outperforming Google Translate.<br><br>Voice uses <strong>OpenAI Whisper</strong> (speech-to-text) + DeepL. Image OCR uses <strong>Claude AI</strong>.',
+    'fa14':'Translation history stores only the <strong>most recent 20 records</strong> for user reference. Data is stored in an encrypted database and is never shared publicly, used for advertising, or sold to third parties.',
+    'fa15':'WanyuTong servers run 24/7 with automated monitoring and immediate response to any anomalies.<br><br>If you encounter issues, contact support <a href="https://line.me/ti/p/~fishxit">fishxit</a> and we\'ll prioritize your case. If the Bot is completely unresponsive within 24 hours of payment, a refund may be requested.',
+    'fa16':'WanyuTong strives to provide stable service, but the following situations are outside our control and we bear no liability:<br><br><ul><li><strong>Third-party outages:</strong> Service disruptions caused by LINE, DeepL, OpenAI, Anthropic, or other providers.</li><li><strong>Force majeure:</strong> Natural disasters, infrastructure failures, government restrictions, war, pandemics, etc.</li><li><strong>Cyberattacks & security incidents:</strong> Hacking, DDoS attacks, social engineering, or account compromise. We take reasonable security measures but cannot guarantee complete immunity.</li><li><strong>Account losses:</strong> We are not responsible for paid credits lost due to unauthorized account access.</li><li><strong>Translation quality:</strong> Translation results are provided by third-party engines. We cannot guarantee accuracy in all contexts.</li><li><strong>Indirect losses:</strong> Business losses, missed opportunities, or other indirect damages from service outages are not compensable.</li></ul><br>For service issues, contact support <a href="https://line.me/ti/p/~fishxit">fishxit</a> and we\'ll assist promptly.',
+    'fa17':'WanyuTong reserves the following rights without liability:<br><br><ul><li><strong>Service modifications:</strong> We may adjust features, pricing, or terms at any time for technical, legal, or business reasons, with advance notice.</li><li><strong>Account suspension:</strong> Accounts violating our terms (abuse, illegal content) may be immediately suspended without refund.</li><li><strong>Service termination:</strong> In extreme cases (e.g., business closure), we will do our best to notify users in advance but bear no liability for losses.</li></ul><br>Continued use of WanyuTong constitutes acceptance of these terms.',
+    'f-cta-h3':'Still Have Questions?',
+    'f-cta-p':'Add WanyuTong on LINE to ask our support directly, or try it free first.',
+    'f-cta-btn':'Try LINE Bot Free','f-cta-btn2':'View Pricing →',
+    'f-footer-copy':'© 2026 WanyuTong · Support LINE: fishxit · Email: bao58881@gmail.com',
+  }
+};
+
+function applyFaqLang(lang) {
+  var t = faqI18n[lang];
+  Object.keys(t).forEach(function(id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    if (id === 'f-h1' || id.startsWith('fa')) el.innerHTML = t[id];
+    else el.textContent = t[id];
+  });
+  document.getElementById('btn-zh').classList.toggle('active', lang==='zh');
+  document.getElementById('btn-en').classList.toggle('active', lang==='en');
+  document.documentElement.lang = lang==='zh'?'zh-TW':'en';
+}
+function setLang(lang) {
+  try { localStorage.setItem('wyt-lang', lang); } catch(e) {}
+  applyFaqLang(lang);
+}
+(function(){
+  try { var s=localStorage.getItem('wyt-lang'); if(s==='en') applyFaqLang('en'); } catch(e) {}
+})();
 </script>
 </body>
 </html>

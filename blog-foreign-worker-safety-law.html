@@ -184,6 +184,9 @@ nav {
 }
 .nav-cta:hover { box-shadow: 0 0 24px rgba(6,199,85,0.4); color: #000; }
 
+.lang-toggle{display:flex;align-items:center;background:var(--bg3);border:1px solid var(--border2);border-radius:20px;overflow:hidden;font-family:'DM Mono',monospace;font-size:0.72rem;}
+.lang-btn{padding:4px 11px;cursor:pointer;border:none;background:transparent;color:var(--muted);transition:all 0.2s;line-height:1;}
+.lang-btn.active{background:var(--line);color:#000;font-weight:700;}
 .art-hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px; background:none; border:none; }
 .art-hamburger span { display:block; width:22px; height:2px; background:var(--text); border-radius:1px; }
 
@@ -469,23 +472,24 @@ footer a:hover { color: var(--text); }
 
 <!-- 上一頁 / 下一頁 -->
 <div class="history-nav">
-  <button class="history-nav-btn" onclick="history.back()">‹ 上一頁</button>
-  <span class="history-nav-center">瀏覽紀錄</span>
-  <button class="history-nav-btn" onclick="history.forward()">下一頁 ›</button>
+  <button class="history-nav-btn" onclick="history.back()"><span id="a2-back">‹ 上一頁</span></button>
+  <span class="history-nav-center" id="a2-browse">瀏覽紀錄</span>
+  <button class="history-nav-btn" onclick="history.forward()"><span id="a2-forward">下一頁 ›</span></button>
 </div>
 
 <nav>
   <a href="index.html" class="nav-brand"><span class="nav-dot"></span>萬語通</a>
   <div class="art-nav-links" id="artNavLinks">
-    <a href="index.html">官網</a>
-    <a href="index.html#features">為何選我</a>
-    <a href="index.html#pricing">收費方案</a>
-    <a href="blog.html">部落格</a>
-    <a href="faq.html">常見問題</a>
-    <a href="index.html#terms">條款</a>
+    <a href="index.html" id="a2-nav-home">官網</a>
+    <a href="index.html#features" id="a2-nav-feat">為何選我</a>
+    <a href="index.html#pricing" id="a2-nav-price">收費方案</a>
+    <a href="blog.html" id="a2-nav-blog">部落格</a>
+    <a href="faq.html" id="a2-nav-faq">常見問題</a>
+    <a href="index.html#terms" id="a2-nav-terms">條款</a>
     <a href="https://line.me/ti/p/@969wpxno" class="nav-cta">免費體驗</a>
   </div>
   <div style="display:flex;align-items:center;gap:0.6rem;">
+    <div class="lang-toggle"><button class="lang-btn active" onclick="setLang('zh')" id="btn-zh">繁中</button><button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button></div>
     <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="切換日/夜模式" aria-label="切換日夜模式"><div class="theme-toggle-knob" id="themeKnob">🌙</div></button>
     <button class="art-hamburger" onclick="document.getElementById('artNavLinks').classList.toggle('open')">
       <span></span><span></span><span></span>
@@ -507,12 +511,12 @@ footer a:hover { color: var(--text); }
 </div>
 
 <div class="article-hero">
-  <div class="article-tag">// 法規須知 · 2026-04-25</div>
+  <div class="article-tag" id="a2-tag">// 法規須知 · 2026-04-25</div>
   <h1>外勞發生工安事故<br><span class="hl">雇主的法律責任</span>是什麼？</h1>
   <div class="article-meta">
-    <div>⚖️ 適用對象：工廠、工地、農場、看護雇主</div>
-    <div>⏱ 閱讀時間：約 6 分鐘</div>
-    <div>📋 法規依據：職業安全衛生法</div>
+    <div id="a2-meta1">⚖️ 適用對象：工廠、工地、農場、看護雇主</div>
+    <div id="a2-meta2">⏱ 閱讀時間：約 6 分鐘</div>
+    <div id="a2-meta3">📋 法規依據：職業安全衛生法</div>
   </div>
   <p style="font-size:0.97rem;color:var(--muted);line-height:1.9;font-weight:300;">
     台灣每年都有外籍移工在職場發生意外，其中不少案例最後演變成雇主的法律糾紛。很多雇主以為「我有說過工安規定」就沒事，但法院判決告訴我們：「說過」不等於「告知到位」。這篇文章整理雇主在外勞工安上最常被忽略的法律義務，以及如何用現有工具保護自己。
@@ -739,15 +743,53 @@ footer a:hover { color: var(--text); }
 </div>
 
 <footer>
-  <div>© 2026 萬語通 · 客服 LINE：fishxit · Email：bao58881@gmail.com</div>
+  <div id="a2-footer-copy">© 2026 萬語通 · 客服 LINE：fishxit · Email：bao58881@gmail.com</div>
   <div style="display:flex;gap:1.5rem;flex-wrap:wrap;">
-    <a href="index.html">官網</a>
-    <a href="blog.html">部落格</a>
-    <a href="index.html#pricing">收費方案</a>
-    <a href="index.html#terms">使用條款</a>
-    <a href="https://line.me/ti/p/~fishxit">聯繫客服</a>
+    <a href="index.html" id="a2-f1">官網</a>
+    <a href="blog.html" id="a2-f2">部落格</a>
+    <a href="index.html#pricing" id="a2-f3">收費方案</a>
+    <a href="index.html#terms" id="a2-f4">使用條款</a>
+    <a href="https://line.me/ti/p/~fishxit" id="a2-f5">聯繫客服</a>
   </div>
 </footer>
+<script>
+var a2I18n = {
+  zh:{
+    'a2-back':'‹ 上一頁','a2-forward':'下一頁 ›','a2-browse':'瀏覽紀錄',
+    'a2-nav-home':'官網','a2-nav-feat':'為何選我','a2-nav-price':'收費方案',
+    'a2-nav-blog':'部落格','a2-nav-faq':'常見問題','a2-nav-terms':'條款',
+    'a2-tag':'// 法規須知 · 2026-04-25',
+    'a2-meta1':'⚖️ 適用對象：工廠、工地、農場、看護雇主',
+    'a2-meta2':'⏱ 閱讀時間：約 6 分鐘','a2-meta3':'📋 法規依據：職業安全衛生法',
+    'a2-footer-copy':'© 2026 萬語通 · 客服 LINE：fishxit · Email：bao58881@gmail.com',
+    'a2-f1':'官網','a2-f2':'部落格','a2-f3':'收費方案','a2-f4':'使用條款','a2-f5':'聯繫客服',
+  },
+  en:{
+    'a2-back':'‹ Back','a2-forward':'Next ›','a2-browse':'History',
+    'a2-nav-home':'Home','a2-nav-feat':'Why Us','a2-nav-price':'Pricing',
+    'a2-nav-blog':'Blog','a2-nav-faq':'FAQ','a2-nav-terms':'Terms',
+    'a2-tag':'// Legal · 2026-04-25',
+    'a2-meta1':'⚖️ For: Factory, Construction, Farm & Caregiver Employers',
+    'a2-meta2':'⏱ Reading time: ~6 min','a2-meta3':'📋 Legal basis: Occupational Safety and Health Act',
+    'a2-footer-copy':'© 2026 WanyuTong · Support LINE: fishxit · Email: bao58881@gmail.com',
+    'a2-f1':'Home','a2-f2':'Blog','a2-f3':'Pricing','a2-f4':'Terms','a2-f5':'Contact',
+  }
+};
+function applyA2Lang(lang){
+  var t=a2I18n[lang];
+  Object.keys(t).forEach(function(id){var el=document.getElementById(id);if(el)el.textContent=t[id];});
+  var h1=document.querySelector('.article-hero h1');
+  if(h1){
+    if(lang==='en') h1.innerHTML='When a Foreign Worker Has a Workplace Accident<br><span class="hl">What Is the Employer\'s Legal Liability?</span>';
+    else h1.innerHTML='外勞發生工安事故<br><span class="hl">雇主的法律責任</span>是什麼？';
+  }
+  document.getElementById('btn-zh').classList.toggle('active',lang==='zh');
+  document.getElementById('btn-en').classList.toggle('active',lang==='en');
+  document.documentElement.lang=lang==='zh'?'zh-TW':'en';
+}
+function setLang(lang){try{localStorage.setItem('wyt-lang',lang);}catch(e){}applyA2Lang(lang);}
+(function(){try{var s=localStorage.getItem('wyt-lang');if(s==='en')applyA2Lang('en');}catch(e){}})();
+</script>
 
 <script>
 function toggleTheme() {

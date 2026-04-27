@@ -206,21 +206,39 @@ nav {
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   position: relative; z-index: 1;
+  overflow: hidden;
 }
 
 .article-card {
   min-width: 0;
-  word-break: break-word;
+  max-width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 .card-body {
   min-width: 0;
+  max-width: 100%;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
-.card-title, .card-desc {
+.card-title, .card-desc, .card-tag {
   overflow-wrap: break-word;
   word-break: break-word;
+  white-space: normal;
+}
+
+.card-img {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.card-img > div[style] {
+  max-width: 100%;
+  overflow: hidden;
 }
 
 /* 第一篇：featured，橫跨兩欄 */
@@ -343,6 +361,13 @@ nav {
 /* 即將推出卡片 */
 .article-card.coming-soon {
   opacity: 0.5; pointer-events: none;
+}
+
+.article-card.coming-soon .card-img {
+  aspect-ratio: 16/8;
+  height: auto;
+  min-height: 120px;
+  max-height: 200px;
 }
 
 .coming-badge {
@@ -671,7 +696,9 @@ html:not(.light) .theme-toggle-knob { transform: translateX(0px); background: va
   <!-- 文章三：即將推出 -->
   <div class="article-card coming-soon">
     <div class="coming-badge" id="bc3-badge">即將推出</div>
-
+    <div class="card-img" style="background:var(--bg3);aspect-ratio:16/8;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+      <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(6,199,85,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(6,199,85,0.06) 1px,transparent 1px);background-size:32px 32px;"></div>
+      <div style="font-size:3rem;position:relative;z-index:1;">🍽️</div>
     </div>
     <div class="card-body">
       <div class="card-tags">
@@ -689,9 +716,9 @@ html:not(.light) .theme-toggle-knob { transform: translateX(0px); background: va
   <!-- 文章四：即將推出 -->
   <div class="article-card coming-soon">
     <div class="coming-badge">即將推出</div>
-    <div class="card-img" style="background:var(--bg3);">
-      <div class="card-img-pattern"></div>
-      <div class="card-img-icon">🏠</div>
+    <div class="card-img" style="background:var(--bg3);aspect-ratio:16/8;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+      <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(6,199,85,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(6,199,85,0.06) 1px,transparent 1px);background-size:32px 32px;"></div>
+      <div style="font-size:3rem;position:relative;z-index:1;">🏠</div>
     </div>
     <div class="card-body">
       <div class="card-tags">

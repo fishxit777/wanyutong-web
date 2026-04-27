@@ -949,10 +949,10 @@ footer a:hover { color:var(--text); }
 
 <section id="stats" style="padding:0 5vw 80px;">
   <div class="stats-strip">
-    <div class="stat-item"><div class="stat-num">0.3秒</div><div class="stat-label">平均翻譯速度</div></div>
-    <div class="stat-item"><div class="stat-num">36</div><div class="stat-label">支援語言種數</div></div>
-    <div class="stat-item"><div class="stat-num">NT$49</div><div class="stat-label">最低體驗價格</div></div>
-    <div class="stat-item"><div class="stat-num">24/7</div><div class="stat-label">全天候服務</div></div>
+    <div class="stat-item"><div class="stat-num" id="stat-speed">0.3秒</div><div class="stat-label" id="stat-speed-label">平均翻譯速度</div></div>
+    <div class="stat-item"><div class="stat-num">36</div><div class="stat-label" id="stat-langs-label">支援語言種數</div></div>
+    <div class="stat-item"><div class="stat-num">NT$49</div><div class="stat-label" id="stat-price-label">最低體驗價格</div></div>
+    <div class="stat-item"><div class="stat-num">24/7</div><div class="stat-label" id="stat-service-label">全天候服務</div></div>
   </div>
 </section>
 
@@ -1030,13 +1030,13 @@ footer a:hover { color:var(--text); }
         <tr><td>月費</td><td><span class="chk">● NT$199起</span></td><td><span class="prt">美金（較貴）</span></td><td><span class="prt">NT$99起</span></td><td><span class="prt">按字元計費</span></td></tr>
         <tr><td>免費額度</td><td><span class="chk">● 每日15次</span></td><td><span class="prt">每日20次</span></td><td><span class="prt">流量制</span></td><td><span class="prt">5,000字元永久</span></td></tr>
         <tr><td>翻譯引擎</td><td><span class="chk">● DeepL（最高品質）</span></td><td><span class="prt">AI語意</span></td><td><span class="prt">AI</span></td><td><span class="prt">未知</span></td></tr>
-        <tr><td>圖片 OCR 翻譯</td><td><span class="chk">● ✓（商務版）</span></td><td><span class="crs">✕</span></td><td><span class="chk">● ✓</span></td><td><span class="crs">✕</span></td></tr>
-        <tr><td>語音翻譯</td><td><span class="chk">● ✓ 所有付費版</span></td><td><span class="chk">● ✓</span></td><td><span class="chk">● ✓</span></td><td><span class="crs">✕</span></td></tr>
-        <tr><td>多語同翻</td><td><span class="chk">● ✓ 最多8種</span></td><td><span class="prt">最多5種</span></td><td><span class="crs">✕</span></td><td><span class="chk">● ✓</span></td></tr>
-        <tr><td>翻譯確認系統</td><td><span class="chk">● ✓（獨有）</span></td><td><span class="crs">✕</span></td><td><span class="crs">✕</span></td><td><span class="crs">✕</span></td></tr>
-        <tr><td>行業詞庫</td><td><span class="chk">● ✓（獨有）</span></td><td><span class="crs">✕</span></td><td><span class="crs">✕</span></td><td><span class="crs">✕</span></td></tr>
-        <tr><td>勿擾模式</td><td><span class="chk">● ✓（獨有）</span></td><td><span class="crs">✕</span></td><td><span class="crs">✕</span></td><td><span class="crs">✕</span></td></tr>
-        <tr><td>台灣在地計價</td><td><span class="chk">● NT$（台幣）</span></td><td><span class="crs">✕ 美金</span></td><td><span class="chk">● NT$</span></td><td><span class="prt">按量計費</span></td></tr>
+        <tr><td>圖片 OCR 翻譯</td><td><span class="chk" id="vs-ocr-wyt">● ✓（商務版）</span></td><td><span class="crs">✕</span></td><td><span class="chk">● ✓</span></td><td><span class="crs">✕</span></td></tr>
+        <tr><td>語音翻譯</td><td><span class="chk" id="vs-voice-wyt">● ✓ 所有付費版</span></td><td><span class="chk">● ✓</span></td><td><span class="chk">● ✓</span></td><td><span class="crs">✕</span></td></tr>
+        <tr><td>多語同翻</td><td><span class="chk" id="vs-multi-wyt">● ✓ 最多8種</span></td><td><span class="prt" id="vs-multi-ech">最多5種</span></td><td><span class="crs">✕</span></td><td><span class="chk">● ✓</span></td></tr>
+        <tr><td>翻譯確認系統</td><td><span class="chk" id="vs-confirm-wyt">● ✓（獨有）</span></td><td><span class="crs">✕</span></td><td><span class="crs">✕</span></td><td><span class="crs">✕</span></td></tr>
+        <tr><td>行業詞庫</td><td><span class="chk" id="vs-vocab-wyt">● ✓（獨有）</span></td><td><span class="crs">✕</span></td><td><span class="crs">✕</span></td><td><span class="crs">✕</span></td></tr>
+        <tr><td>勿擾模式</td><td><span class="chk" id="vs-dnd-wyt">● ✓（獨有）</span></td><td><span class="crs">✕</span></td><td><span class="crs">✕</span></td><td><span class="crs">✕</span></td></tr>
+        <tr><td>台灣在地計價</td><td><span class="chk">● NT$（台幣）</span></td><td><span class="crs" id="vs-curr-ech">✕ 美金</span></td><td><span class="chk">● NT$</span></td><td><span class="prt" id="vs-curr-lig">按量計費</span></td></tr>
       </tbody>
     </table>
   </div>
@@ -1142,7 +1142,7 @@ footer a:hover { color:var(--text); }
 
     <div class="accordion-item">
       <button class="accordion-btn" onclick="toggleAccordion(this)">使用條款<span class="accordion-arrow">▼</span></button>
-      <div class="accordion-body"><div class="accordion-body-inner">
+      <div class="accordion-body"><div class="accordion-body-inner" id="acc-tos">
         <p><strong>1. 服務範圍</strong><br>萬語通（以下稱「本服務」）提供 LINE 平台上的翻譯功能，包含文字翻譯、圖片 OCR 翻譯及語音翻譯。</p>
         <p><strong>2. 使用規範</strong><br>使用者不得利用本服務進行任何違法行為，包含但不限於傳播違法內容、詐欺、散布不實資訊。</p>
         <p><strong>3. 服務中斷</strong><br>因不可抗力或第三方服務（LINE、DeepL）中斷所造成的服務暫停，本服務不負賠償責任，但將盡力恢復正常運作。</p>
@@ -1153,7 +1153,7 @@ footer a:hover { color:var(--text); }
 
     <div class="accordion-item">
       <button class="accordion-btn" onclick="toggleAccordion(this)">隱私權聲明<span class="accordion-arrow">▼</span></button>
-      <div class="accordion-body"><div class="accordion-body-inner">
+      <div class="accordion-body"><div class="accordion-body-inner" id="acc-privacy">
         <p><strong>1. 資料收集</strong><br>本服務收集您的 LINE User ID、使用紀錄（翻譯次數、語言設定）、付款記錄。</p>
         <p><strong>2. 資料用途</strong><br>所收集資料僅用於：提供翻譯服務、計算使用次數、處理付款與到期管理。</p>
         <p><strong>3. 不儲存對話</strong><br>您傳送的翻譯內容<strong>不會被儲存</strong>，翻譯處理後即刪除，本服務無法查看您的對話內容。</p>
@@ -1164,7 +1164,7 @@ footer a:hover { color:var(--text); }
 
     <div class="accordion-item">
       <button class="accordion-btn" onclick="toggleAccordion(this)">退費政策<span class="accordion-arrow">▼</span></button>
-      <div class="accordion-body"><div class="accordion-body-inner">
+      <div class="accordion-body"><div class="accordion-body-inner" id="acc-refund">
         <p>⚠️ 本服務為數位內容，<strong>付款後原則上不退費</strong>。</p>
         <p><strong>唯一例外</strong></p>
         <ul>
@@ -1190,7 +1190,7 @@ footer a:hover { color:var(--text); }
 
     <div class="accordion-item">
       <button class="accordion-btn" onclick="toggleAccordion(this)">支援語言清單<span class="accordion-arrow">▼</span></button>
-      <div class="accordion-body"><div class="accordion-body-inner">
+      <div class="accordion-body"><div class="accordion-body-inner" id="acc-langs">
         <p>萬語通目前支援以下 36 種語言（均可與繁體中文互譯）：</p>
         <ul>
           <li>英文、日文、韓文、印尼文、泰文、越南文、馬來文</li>
@@ -1643,8 +1643,25 @@ var i18n = {
     'cta.h2':          '現在就開始翻譯',
     'cta.p':           '免費加入，每日 15 次免費體驗（個人版及群組版），滿意再升級付費方案。',
     'cta.btn':         '加入 LINE Bot 開始翻譯',
-    // FOOTER
-    'footer.copy':     '© 2026 萬語通 · 客服 LINE：fishxit · Email：bao58881@gmail.com',
+    // STATS NUM
+    'stat.speed.num': '0.3秒',
+    // TERMS CONTENT
+    'acc.tos': '<p><strong>1. 服務範圍</strong><br>萬語通（以下稱「本服務」）提供 LINE 平台上的翻譯功能，包含文字翻譯、圖片 OCR 翻譯及語音翻譯。</p><p><strong>2. 使用規範</strong><br>使用者不得利用本服務進行任何違法行為，包含但不限於傳播違法內容、詐欺、散布不實資訊。</p><p><strong>3. 服務中斷</strong><br>因不可抗力或第三方服務（LINE、DeepL）中斷所造成的服務暫停，本服務不負賠償責任，但將盡力恢復正常運作。</p><p><strong>4. 帳號停用</strong><br>違反使用規範者，本服務有權在不通知的情況下立即停用帳號，且不退還任何費用。</p><p><strong>5. 條款修訂</strong><br>本服務保留隨時修訂條款之權利，重大修訂將透過 LINE Bot 通知用戶。</p>',
+    'acc.privacy': '<p><strong>1. 資料收集</strong><br>本服務收集您的 LINE User ID、使用紀錄（翻譯次數、語言設定）、付款記錄。</p><p><strong>2. 資料用途</strong><br>所收集資料僅用於：提供翻譯服務、計算使用次數、處理付款與到期管理。</p><p><strong>3. 不儲存對話</strong><br>您傳送的翻譯內容<strong>不會被儲存</strong>，翻譯處理後即刪除，本服務無法查看您的對話內容。</p><p><strong>4. 第三方服務</strong><br>翻譯功能透過 DeepL API 處理，圖片 OCR 透過 Anthropic Claude API 處理，語音翻譯透過 OpenAI Whisper 處理。各服務商均有其隱私政策。</p><p><strong>5. 資料刪除</strong><br>如需刪除個人資料，請聯繫客服 LINE：fishxit，我們將於 7 個工作日內處理。</p>',
+    'acc.refund': '<p>⚠️ 本服務為數位內容，<strong>付款後原則上不退費</strong>。</p><p><strong>唯一例外</strong></p><ul><li>付款後 <strong>24 小時內</strong>，Bot 完全無法回應（非網路或 LINE 本身問題），可提出申請。</li></ul><p><strong>以下情況不受理退費</strong></p><ul><li>已成功使用翻譯功能（即使只用 1 次）</li><li>翻譯品質不如預期</li><li>個人原因（不想用、忘記使用、操作不熟）</li><li>超過 24 小時後申請</li><li>語音或圖片功能部分異常，但文字翻譯仍正常</li></ul><p><strong>申請方式</strong></p><ul><li>24 小時內聯繫客服 LINE ID：<strong>fishxit</strong>，附上付款時間與問題截圖。</li><li>審核後 5～7 個工作日內處理。</li><li>跨行轉帳手續費由申請人自行負擔。</li></ul><p><strong>安全提醒：</strong>付款帳號僅透過客服 LINE 提供，請勿相信其他管道，謹防假冒詐騙。</p>',
+    'acc.langs': '<p>萬語通目前支援以下 36 種語言（均可與繁體中文互譯）：</p><ul><li>英文、日文、韓文、印尼文、泰文、越南文、馬來文</li><li>法文、德文、西班牙文、俄文、葡萄牙文、義大利文</li><li>阿拉伯文、希伯來文</li><li>荷蘭文、波蘭文、土耳其文、瑞典文、捷克文</li><li>羅馬尼亞文、匈牙利文、烏克蘭文、保加利亞文</li><li>丹麥文、芬蘭文、希臘文、挪威文</li><li>愛沙尼亞文、拉脫維亞文、立陶宛文</li><li>斯洛伐克文、斯洛維尼亞文、簡體中文</li></ul><p>指令範例：傳 <strong>@印尼</strong> 切換印尼文；傳 <strong>@希伯來</strong> 切換希伯來文。傳 <strong>@說明</strong> 查看完整指令清單。</p>',
+    // VS specific cells
+    'vs.ocr.wyt':     '● ✓（商務版）',
+    'vs.voice.wyt':   '● ✓ 所有付費版',
+    'vs.multi.wyt':   '● ✓ 最多8種',
+    'vs.multi.ech':   '最多5種',
+    'vs.confirm.wyt': '● ✓（獨有）',
+    'vs.vocab.wyt':   '● ✓（獨有）',
+    'vs.dnd.wyt':     '● ✓（獨有）',
+    'vs.curr.ech':    '✕ 美金',
+    'vs.curr.lig':    '按量計費',
+  },
+  en: {
     'footer.blog':     '部落格',
     'footer.faq':      '常見問題',
     'footer.pricing':  '收費方案',
@@ -1816,6 +1833,23 @@ var i18n = {
     'cta.h2':          'Start Translating Now',
     'cta.p':           'Join free with 15 free translations daily (personal & group). Upgrade when you\'re ready.',
     'cta.btn':         'Add LINE Bot & Start',
+    // STATS NUM
+    'stat.speed.num': '0.3s',
+    // TERMS CONTENT
+    'acc.tos': '<p><strong>1. Scope of Service</strong><br>WanyuTong ("the Service") provides translation features on the LINE platform, including text, image OCR, and voice translation.</p><p><strong>2. Acceptable Use</strong><br>Users may not use the Service for any illegal activities, including but not limited to spreading illegal content, fraud, or misinformation.</p><p><strong>3. Service Interruption</strong><br>The Service is not liable for outages caused by force majeure or third-party services (LINE, DeepL), but will make best efforts to restore normal operation.</p><p><strong>4. Account Suspension</strong><br>Users who violate these terms may have their accounts immediately suspended without notice and without any refund.</p><p><strong>5. Terms Revision</strong><br>The Service reserves the right to revise these terms at any time. Major revisions will be notified via LINE Bot.</p>',
+    'acc.privacy': '<p><strong>1. Data Collection</strong><br>The Service collects your LINE User ID, usage records (translation count, language settings), and payment records.</p><p><strong>2. Data Use</strong><br>Collected data is used solely to: provide translation services, calculate usage, and manage payments and expiration.</p><p><strong>3. No Conversation Storage</strong><br>Your translated content is <strong>not stored</strong>. It is deleted after processing. The Service cannot view your conversation content.</p><p><strong>4. Third-party Services</strong><br>Text translation is processed via DeepL API. Image OCR via Anthropic Claude API. Voice translation via OpenAI Whisper. Each provider has its own privacy policy.</p><p><strong>5. Data Deletion</strong><br>To delete personal data, contact support LINE: fishxit. We will process requests within 7 business days.</p>',
+    'acc.refund': '<p>⚠️ This is a digital service. <strong>Payments are generally non-refundable.</strong></p><p><strong>One Exception</strong></p><ul><li>If the Bot is completely unresponsive within <strong>24 hours</strong> of payment (not due to network or LINE issues), you may apply for a refund.</li></ul><p><strong>Non-refundable situations</strong></p><ul><li>Translation has been successfully used (even once)</li><li>Translation quality did not meet expectations</li><li>Personal reasons (changed mind, forgot to use, unfamiliar with operation)</li><li>Application submitted after 24 hours</li><li>Voice or image features partially abnormal but text translation still works</li></ul><p><strong>How to Apply</strong></p><ul><li>Contact support LINE ID: <strong>fishxit</strong> within 24 hours with payment time and screenshot.</li><li>Processing within 5–7 business days after review.</li><li>Bank transfer fees are borne by the applicant.</li></ul><p><strong>Safety Notice:</strong> Payment account info is only provided via our support LINE. Do not trust other channels.</p>',
+    'acc.langs': '<p>WanyuTong currently supports 36 languages (all translatable to/from Traditional Chinese):</p><ul><li>English, Japanese, Korean, Indonesian, Thai, Vietnamese, Malay</li><li>French, German, Spanish, Russian, Portuguese, Italian</li><li>Arabic, Hebrew</li><li>Dutch, Polish, Turkish, Swedish, Czech</li><li>Romanian, Hungarian, Ukrainian, Bulgarian</li><li>Danish, Finnish, Greek, Norwegian</li><li>Estonian, Latvian, Lithuanian</li><li>Slovak, Slovenian, Simplified Chinese</li></ul><p>Example: Send <strong>@Indonesian</strong> to switch; send <strong>@help</strong> for full command list.</p>',
+    // VS specific cells
+    'vs.ocr.wyt':     '● ✓ (Business)',
+    'vs.voice.wyt':   '● ✓ All Paid Plans',
+    'vs.multi.wyt':   '● ✓ Up to 8 langs',
+    'vs.multi.ech':   'Up to 5 langs',
+    'vs.confirm.wyt': '● ✓ (Exclusive)',
+    'vs.vocab.wyt':   '● ✓ (Exclusive)',
+    'vs.dnd.wyt':     '● ✓ (Exclusive)',
+    'vs.curr.ech':    '✕ USD Only',
+    'vs.curr.lig':    'Usage-based',
     // FOOTER
     'footer.copy':     '© 2026 WanyuTong · Support LINE: fishxit · Email: bao58881@gmail.com',
     'footer.blog':     'Blog',
@@ -2001,6 +2035,28 @@ function applyLang(lang) {
   var footerLinks = document.querySelectorAll('.footer-links a');
   var fLinkKeys = ['footer.blog','footer.faq','footer.pricing','footer.terms','footer.contact'];
   footerLinks.forEach(function(el,i){ if(t[fLinkKeys[i]]) el.textContent = t[fLinkKeys[i]]; });
+
+  // STAT SPEED NUM
+  var speedNum = document.getElementById('stat-speed');
+  if (speedNum && t['stat.speed.num']) speedNum.textContent = t['stat.speed.num'];
+
+  // ACCORDION CONTENT (innerHTML swap)
+  ['tos','privacy','refund','langs'].forEach(function(key){
+    var el = document.getElementById('acc-' + key);
+    if (el && t['acc.' + key]) el.innerHTML = t['acc.' + key];
+  });
+
+  // VS SPECIFIC CELLS by id
+  var vsIds = {
+    'vs-ocr-wyt':'vs.ocr.wyt', 'vs-voice-wyt':'vs.voice.wyt',
+    'vs-multi-wyt':'vs.multi.wyt', 'vs-multi-ech':'vs.multi.ech',
+    'vs-confirm-wyt':'vs.confirm.wyt', 'vs-vocab-wyt':'vs.vocab.wyt',
+    'vs-dnd-wyt':'vs.dnd.wyt', 'vs-curr-ech':'vs.curr.ech', 'vs-curr-lig':'vs.curr.lig'
+  };
+  Object.keys(vsIds).forEach(function(id){
+    var el = document.getElementById(id);
+    if (el && t[vsIds[id]]) el.textContent = t[vsIds[id]];
+  });
 
   // 更新 html lang 屬性
   document.documentElement.lang = lang === 'zh' ? 'zh-TW' : 'en';

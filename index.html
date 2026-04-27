@@ -1057,26 +1057,26 @@ footer a:hover { color:var(--text); }
           <div class="price-plan">免費版</div><div class="price-desc">// 立即可用</div>
           <div class="price-amount">$0</div><div class="price-period">每日 15 次免費</div>
           <ul class="price-features"><li>每日 15 次免費翻譯</li><li>36 種語言支援</li><li>語言隨時切換</li></ul>
-          <a href="https://line.me/ti/p/@969wpxno" class="btn-plan">免費開始</a>
+          <a href="https://line.me/ti/p/@969wpxno" class="btn-plan" data-btn="start">免費開始</a>
         </div>
         <div class="price-card">
           <div class="price-plan">7日體驗</div><div class="price-desc">// 低門檻體驗</div>
           <div class="price-amount">NT$49</div><div class="price-period">7 天</div>
           <ul class="price-features"><li>無限次翻譯</li><li>36 種語言支援</li><li>圖片 OCR 翻譯</li><li>語音訊息翻譯</li></ul>
-          <a href="https://line.me/ti/p/~fishxit" class="btn-plan">聯繫開通</a>
+          <a href="https://line.me/ti/p/~fishxit" class="btn-plan" data-btn="contact">聯繫開通</a>
         </div>
         <div class="price-card featured">
           <div class="price-badge">最受歡迎</div>
           <div class="price-plan">月付方案</div><div class="price-desc">// 個人無限翻譯</div>
           <div class="price-amount">NT$199</div><div class="price-period">每月</div>
           <ul class="price-features"><li>無限次翻譯</li><li>36 種語言支援</li><li>圖片 OCR 翻譯</li><li>語音訊息翻譯</li><li>優先客服支援</li></ul>
-          <a href="https://line.me/ti/p/~fishxit" class="btn-plan">聯繫開通</a>
+          <a href="https://line.me/ti/p/~fishxit" class="btn-plan" data-btn="contact">聯繫開通</a>
         </div>
         <div class="price-card">
           <div class="price-plan">年付方案</div><div class="price-desc">// 買 8 個月送 4 個月</div>
           <div class="price-amount">NT$1,590</div><div class="price-period">每年（約 NT$133／月）</div>
           <ul class="price-features"><li>無限次翻譯</li><li>36 種語言支援</li><li>圖片 OCR 翻譯</li><li>語音訊息翻譯</li><li>優先客服支援</li><li>買8個月送4個月，省 NT$798</li></ul>
-          <a href="https://line.me/ti/p/~fishxit" class="btn-plan">聯繫開通</a>
+          <a href="https://line.me/ti/p/~fishxit" class="btn-plan" data-btn="contact">聯繫開通</a>
         </div>
       </div>
     </div>
@@ -1086,26 +1086,26 @@ footer a:hover { color:var(--text); }
           <div class="price-plan">免費試用</div><div class="price-desc">// 加入即用</div>
           <div class="price-amount">$0</div><div class="price-period">每日 15 次免費</div>
           <ul class="price-features"><li>每日 15 次自動翻譯</li><li>36 種語言支援</li><li>雙向自動偵測語言</li><li>加入即用，無需開通</li></ul>
-          <a href="https://line.me/ti/p/@969wpxno" class="btn-plan">免費加入</a>
+          <a href="https://line.me/ti/p/@969wpxno" class="btn-plan" data-btn="join">免費加入</a>
         </div>
         <div class="price-card">
           <div class="price-plan">7日體驗</div><div class="price-desc">// 低門檻試用</div>
           <div class="price-amount">NT$49</div><div class="price-period">7 天／每群組</div>
           <ul class="price-features"><li>群組雙向翻譯（無限次）</li><li>36 種語言支援</li><li>自訂語言對</li></ul>
-          <a href="https://line.me/ti/p/~fishxit" class="btn-plan">聯繫開通</a>
+          <a href="https://line.me/ti/p/~fishxit" class="btn-plan" data-btn="contact">聯繫開通</a>
         </div>
         <div class="price-card">
           <div class="price-plan">體驗版</div><div class="price-desc">// 文字溝通，零障礙</div>
           <div class="price-amount">NT$199</div><div class="price-period">每月／每群組</div>
           <ul class="price-features"><li>群組雙向翻譯（無限次）</li><li>語音訊息翻譯</li><li>自訂語言對（如中文↔印尼文）</li><li>翻譯歷史記錄</li><li>忽略詞設定</li></ul>
-          <a href="https://line.me/ti/p/~fishxit" class="btn-plan">聯繫開通</a>
+          <a href="https://line.me/ti/p/~fishxit" class="btn-plan" data-btn="contact">聯繫開通</a>
         </div>
         <div class="price-card featured">
           <div class="price-badge">推薦企業</div>
           <div class="price-plan">商務版</div><div class="price-desc">// 文件、圖片、語音，全面覆蓋</div>
           <div class="price-amount">NT$499</div><div class="price-period">每月／每群組</div>
           <ul class="price-features"><li>體驗版所有功能</li><li>📷 圖片 OCR 翻譯</li><li>工廠貼紙、文件截圖、證件直接翻</li><li>優先客服</li></ul>
-          <a href="https://line.me/ti/p/~fishxit" class="btn-plan">聯繫開通</a>
+          <a href="https://line.me/ti/p/~fishxit" class="btn-plan" data-btn="contact">聯繫開通</a>
         </div>
       </div>
     </div>
@@ -1933,7 +1933,12 @@ function applyLang(lang) {
   if (h1) h1.innerHTML = t['hero.h1a'] + '<br><span class="hl">' + t['hero.h1b'] + '</span>';
   q('.hero-desc', 'hero.desc');
   var btn1 = document.querySelector('.btn-primary');
-  if (btn1) btn1.childNodes[btn1.childNodes.length-1].textContent = ' ' + t['hero.btn1'];
+  if (btn1) {
+    var svgEl1 = btn1.querySelector('svg');
+    btn1.innerHTML = '';
+    if (svgEl1) btn1.appendChild(svgEl1);
+    btn1.appendChild(document.createTextNode(' ' + t['hero.btn1']));
+  }
   q('.btn-secondary', 'hero.btn2');
 
   // STATS
@@ -1990,11 +1995,11 @@ function applyLang(lang) {
     if (el.textContent.trim() === '最受歡迎' || el.textContent.trim() === 'Most Popular') el.textContent = t['price.badge.popular'];
     if (el.textContent.trim() === '推薦企業' || el.textContent.trim() === 'Enterprise Pick') el.textContent = t['price.badge.biz'];
   });
-  document.querySelectorAll('.btn-plan').forEach(function(el){
-    var txt = el.textContent.trim();
-    if (txt === '免費開始' || txt === 'Start Free') el.textContent = t['price.start'];
-    else if (txt === '免費加入' || txt === 'Join Free') el.textContent = t['price.join'];
-    else el.textContent = t['price.contact'];
+  document.querySelectorAll('.btn-plan[data-btn]').forEach(function(el){
+    var btn = el.dataset.btn;
+    if (btn === 'start') el.textContent = t['price.start'];
+    else if (btn === 'join') el.textContent = t['price.join'];
+    else if (btn === 'contact') el.textContent = t['price.contact'];
   });
   q('.refund-note', 'price.refund');
 
@@ -2027,7 +2032,12 @@ function applyLang(lang) {
   q('#cta h2', 'cta.h2');
   q('#cta p', 'cta.p');
   var ctaBtn = document.querySelector('#cta .line-btn');
-  if (ctaBtn) ctaBtn.childNodes[ctaBtn.childNodes.length-1].textContent = ' ' + t['cta.btn'];
+  if (ctaBtn) {
+    var svgEl = ctaBtn.querySelector('svg');
+    ctaBtn.innerHTML = '';
+    if (svgEl) ctaBtn.appendChild(svgEl);
+    ctaBtn.appendChild(document.createTextNode(' ' + t['cta.btn']));
+  }
 
   // FOOTER
   var footerCopy = document.querySelector('footer div:first-child');

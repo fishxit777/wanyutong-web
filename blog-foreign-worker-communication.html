@@ -681,7 +681,7 @@ nav { top: 36px !important; }
   </div>
 </div>
 
-<div class="article-body">
+<div class="article-body" id="article-body">
 
   <div class="toc">
     <div class="toc-title">// 文章目錄</div>
@@ -898,6 +898,318 @@ function applyA1Lang(lang){
   if(h1){
     if(lang==='en') h1.innerHTML='5 Communication Problems Taiwan Employers Face<br>with Foreign Workers <span class="hl">(And Solutions)</span>';
     else h1.innerHTML='台灣雇主管理外勞<br>最常遇到的 <span class="hl">5 個溝通問題</span>（與解法）';
+  }
+  // Hero desc
+  var heroDesc=document.querySelector('.article-hero > p');
+  if(heroDesc){
+    if(lang==='en') heroDesc.textContent='Taiwan currently has over 750,000 foreign workers, primarily from Indonesia, Vietnam, the Philippines, and Thailand. For employers, the language barrier isn\'t just an inconvenience — it directly affects workplace safety, efficiency, and legal liability. This article covers the 5 most common communication challenges employers face and the most practical solutions available today.';
+    else heroDesc.textContent='台灣目前有超過 75 萬名外籍移工，主要來自印尼、越南、菲律賓、泰國。對雇主來說，語言不通不只是「溝通不順」這麼簡單——它會直接影響工安、效率、甚至法律責任。這篇文章整理雇主最常反映的 5 個溝通困境，以及目前最實際的解決方法。';
+  }
+  // Full article body swap
+  var body=document.getElementById('article-body');
+  if(!body)return;
+  if(lang==='en'){
+    body.innerHTML=`
+  <div class="toc">
+    <div class="toc-title">// Table of Contents</div>
+    <ol>
+      <li><a href="#problem1">Commands issued, worker nods — but doesn't follow through</a></li>
+      <li><a href="#problem2">Sent an image explanation, worker has no idea what it says</a></li>
+      <li><a href="#problem3">Safety rules explained — as good as not said</a></li>
+      <li><a href="#problem4">Multi-nationality group, impossible to reach everyone</a></li>
+      <li><a href="#problem5">System notification at midnight wakes up the whole dorm</a></li>
+    </ol>
+  </div>
+
+  <div class="problem-block" id="problem1">
+    <div class="problem-header">
+      <div class="problem-num">Problem 01</div>
+      <div class="problem-title">You gave a command, the worker nodded — but nothing happened. Did they actually understand?</div>
+    </div>
+    <div class="problem-body">
+      <p>This is the most commonly reported issue by employers. The foreign worker sees your message in the group, nods, replies "OK" — then executes it completely differently. You assumed they understood. They may have just not wanted to disappoint you.</p>
+      <div class="scene-box">
+        <div class="scene-label">// Common Scenario</div>
+        <div class="scene-line"><span class="scene-role">Supervisor</span><span class="scene-text">Tomorrow morning at 7AM, meet at Warehouse B to move the third batch of goods.</span></div>
+        <div class="scene-line"><span class="scene-role">Indonesian Worker</span><span class="scene-text">OK boss 👍</span></div>
+        <div class="scene-line"><span class="scene-role">(Next day)</span><span class="scene-text bad">No one at Warehouse B — everyone went to Warehouse A instead</span></div>
+      </div>
+      <div class="solution-box">
+        <div class="solution-label">// WanyuTong Solution</div>
+        <p>Use the <span class="cmd">@confirm Tomorrow morning at 7AM, meet at Warehouse B to move the third batch</span> command. The Bot automatically translates into Indonesian and asks each person to reply <strong>1 = Understood / 2 = Not clear</strong>.</p>
+        <p>Response tracking is real-time — you instantly see who hasn't replied and who said they don't understand. No more guessing.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="problem-block" id="problem2">
+    <div class="problem-header">
+      <div class="problem-num">Problem 02</div>
+      <div class="problem-title">You sent an image with instructions — the worker can't read any of it</div>
+    </div>
+    <div class="problem-body">
+      <p>Factory operation manuals, machine warning stickers, construction diagrams, pesticide instructions — these documents almost always exist only in Chinese. When you screenshot them and send to the group, your foreign workers see a wall of unreadable Chinese text.</p>
+      <div class="scene-box">
+        <div class="scene-label">// Common Scenario</div>
+        <div class="scene-line"><span class="scene-role">Supervisor</span><span class="scene-text">(Sends a screenshot of the machine operation procedure)</span></div>
+        <div class="scene-line"><span class="scene-role">Vietnamese Worker</span><span class="scene-text bad">Stares at it for 5 minutes, still doesn't know which button to press</span></div>
+      </div>
+      <div class="solution-box">
+        <div class="solution-label">// WanyuTong Solution</div>
+        <p>With a paid group plan, just send the image to WanyuTong. The Bot automatically runs OCR on the image text and translates it into the target language.</p>
+        <p>Factory stickers, contract screenshots, construction instructions — one image, done. No retyping required.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="problem-block" id="problem3">
+    <div class="problem-header">
+      <div class="problem-num">Problem 03</div>
+      <div class="problem-title">You explained the safety rules — it was as good as saying nothing. If something happens, who's liable?</div>
+    </div>
+    <div class="problem-body">
+      <p>This is a legal risk many employers haven't taken seriously. The Occupational Safety and Health Act requires employers to ensure workers understand workplace hazards. If a foreign worker has an accident due to a language barrier, "I told them" is not enough — you must prove they <em>actually understood</em>.</p>
+      <div class="scene-box">
+        <div class="scene-label">// Common Scenario</div>
+        <div class="scene-line"><span class="scene-role">Supervisor</span><span class="scene-text">You must wear gloves to operate this machine — it's very dangerous without them.</span></div>
+        <div class="scene-line"><span class="scene-role">Thai Worker</span><span class="scene-text">(Doesn't understand, continues without gloves)</span></div>
+        <div class="scene-line"><span class="scene-role">Later</span><span class="scene-text bad">Accident occurs. Employer found to have failed their notification obligation.</span></div>
+      </div>
+      <div class="solution-box">
+        <div class="solution-label">// WanyuTong Solution</div>
+        <p>Send safety announcements via the <span class="cmd">@confirm</span> system. The Bot translates and requires each worker to individually confirm receipt.</p>
+        <p>Responses are stored in group history (retrievable via <span class="cmd">@history</span>). If you ever need to prove compliance, you have a timestamped digital record. This isn't about distrust — it's about protecting yourself.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="problem-block" id="problem4">
+    <div class="problem-header">
+      <div class="problem-num">Problem 04</div>
+      <div class="problem-title">Indonesian, Vietnamese, and Thai workers in one group — one message can't reach everyone</div>
+    </div>
+    <div class="problem-body">
+      <p>Many factories and farms in Taiwan employ workers from different countries — mixed-nationality groups are the norm. The old solution was to send the same message three times in three languages. In reality, nobody does this. The result is giving up and resorting to gestures.</p>
+      <div class="scene-box">
+        <div class="scene-label">// Common Scenario</div>
+        <div class="scene-line"><span class="scene-role">Supervisor</span><span class="scene-text">(Sends the same message to three separate groups)</span></div>
+        <div class="scene-line"><span class="scene-role">Or</span><span class="scene-text bad">Sends once — Indonesian workers understand, Vietnamese and Thai don't</span></div>
+      </div>
+      <div class="solution-box">
+        <div class="solution-label">// WanyuTong Solution</div>
+        <p>Use <span class="cmd">@multilang Indonesian Vietnamese Thai</span> to set persistent multi-language mode. Every message you send afterward is automatically translated into all three languages simultaneously — one message, everyone gets it.</p>
+        <p>When combined with <span class="cmd">@confirm</span>, confirmation messages are also sent in each language, and workers can reply in their own language.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="problem-block" id="problem5">
+    <div class="problem-header">
+      <div class="problem-num">Problem 05</div>
+      <div class="problem-title">Midnight system notifications wake up the entire dorm group</div>
+    </div>
+    <div class="problem-body">
+      <p>Many company systems send scheduled reminders or expiration alerts at odd hours. One push notification and every foreign worker's phone lights up simultaneously. Disrupted sleep leads to poor performance the next day — and a negative atmosphere overall.</p>
+      <div class="scene-box">
+        <div class="scene-label">// Common Scenario</div>
+        <div class="scene-line"><span class="scene-role">2:00 AM</span><span class="scene-text bad">System sends plan expiration alert — 15 workers' phones all vibrate at once</span></div>
+        <div class="scene-line"><span class="scene-role">Next day</span><span class="scene-text bad">Workers complain about poor sleep. Supervisor feels awkward.</span></div>
+      </div>
+      <div class="solution-box">
+        <div class="solution-label">// WanyuTong Solution</div>
+        <p>Use <span class="cmd">@dnd 22:00-07:00</span> to set quiet hours. System notifications during this period are automatically suppressed — no push, no delayed delivery.</p>
+        <p>Translation and command functions during work hours are completely unaffected. Only system notifications are silenced.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider">
+    <div class="section-divider-line"></div>
+    <div class="section-divider-text">// Summary</div>
+    <div class="section-divider-line"></div>
+  </div>
+
+  <p>None of these 5 problems are trivial. Each one drains employer time and energy every day, and the cumulative impact on efficiency and workplace relationships is significant.</p>
+  <p>The solution isn't "learn Indonesian" or "hire an interpreter" — those are too costly and impractical. The most realistic approach is to use the tool already in your hands — LINE — and let it handle the language barrier for you.</p>
+  <p><strong>That's exactly what WanyuTong was designed for</strong>: no change to your workflow, no new app to install — just LINE, doing communication right.</p>
+
+  <div class="article-cta">
+    <h3>Try It Free Today — Solve Your Communication Problem Now</h3>
+    <p>15 free translations daily, no credit card required. For factory, caregiver, construction, restaurant, and farm employers.</p>
+    <a href="https://line.me/ti/p/@969wpxno" class="btn-line">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.105.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.07 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+      Join LINE Bot — Try Free
+    </a>
+    <a href="blog.html" class="btn-secondary-link">← Back to Blog</a>
+  </div>
+
+  <div class="article-nav">
+    <div class="article-nav-inner">
+      <div class="article-nav-card prev disabled">
+        <div class="nav-card-dir">‹ Previous</div>
+        <div class="nav-card-title">This is the first article</div>
+        <div class="nav-card-tag">— No previous article —</div>
+      </div>
+      <a href="blog-foreign-worker-safety-law.html" class="article-nav-card next">
+        <div class="nav-card-dir">Next ›</div>
+        <div class="nav-card-title">When a Foreign Worker Has a Workplace Accident — What Is the Employer's Legal Liability?</div>
+        <div class="nav-card-tag">Legal</div>
+      </a>
+    </div>
+    <div class="article-nav-back">
+      <a href="blog.html">← Back to Blog</a>
+    </div>
+  </div>`;
+  } else {
+    body.innerHTML=`
+  <div class="toc">
+    <div class="toc-title">// 文章目錄</div>
+    <ol>
+      <li><a href="#problem1">發出工作指令，外勞點頭卻沒照做</a></li>
+      <li><a href="#problem2">傳一張圖片說明，外勞完全看不懂</a></li>
+      <li><a href="#problem3">工安規定說了等於沒說</a></li>
+      <li><a href="#problem4">多國籍外勞同一個群組，根本沒辦法統一管理</a></li>
+      <li><a href="#problem5">半夜收到系統訊息，整個群組被吵醒</a></li>
+    </ol>
+  </div>
+
+  <div class="problem-block" id="problem1">
+    <div class="problem-header">
+      <div class="problem-num">問題 01</div>
+      <div class="problem-title">發出工作指令，外勞點頭卻沒照做——你不知道他聽懂了沒</div>
+    </div>
+    <div class="problem-body">
+      <p>這是雇主回報最多的問題。外勞在群組裡看到你的訊息，會點頭、會回「OK」，但實際執行的時候完全不是那回事。你以為他懂了，他可能只是不想讓你失望。</p>
+      <div class="scene-box">
+        <div class="scene-label">// 常見場景</div>
+        <div class="scene-line"><span class="scene-role">主管</span><span class="scene-text">明天早上 7 點到倉庫 B 區集合，搬第三批貨。</span></div>
+        <div class="scene-line"><span class="scene-role">印尼大哥</span><span class="scene-text">OK boss 👍</span></div>
+        <div class="scene-line"><span class="scene-role">（隔天）</span><span class="scene-text bad">沒人到 B 區，跑去 A 區等</span></div>
+      </div>
+      <div class="solution-box">
+        <div class="solution-label">// 萬語通解法</div>
+        <p>使用 <span class="cmd">@確認 明天早上7點到倉庫B區集合，搬第三批貨</span> 指令，Bot 自動翻譯成印尼文並要求每個人回覆 <strong>1＝明白 / 2＝不明白</strong>。</p>
+        <p>回覆統計即時呈現，誰沒回、誰說不明白，一眼就看到。再也不用猜。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="problem-block" id="problem2">
+    <div class="problem-header">
+      <div class="problem-num">問題 02</div>
+      <div class="problem-title">傳一張圖片說明，外勞完全看不懂圖上的字</div>
+    </div>
+    <div class="problem-body">
+      <p>工廠裡的操作手冊、機器標示貼紙、工地的施工圖說明、農藥使用說明書……這些文件通常只有中文版。主管把圖片截圖傳到群組，外勞看到的是一堆看不懂的中文字。</p>
+      <div class="scene-box">
+        <div class="scene-label">// 常見場景</div>
+        <div class="scene-line"><span class="scene-role">主管</span><span class="scene-text">（傳了一張機器操作流程截圖）</span></div>
+        <div class="scene-line"><span class="scene-role">越南姐</span><span class="scene-text bad">看了五分鐘，還是不知道要按哪個鍵</span></div>
+      </div>
+      <div class="solution-box">
+        <div class="solution-label">// 萬語通解法</div>
+        <p>付費版群組直接把圖片傳給萬語通，Bot 自動 OCR 辨識圖片裡的文字，翻成目標語言回傳。</p>
+        <p>工廠貼紙、合約截圖、施工說明，一張圖搞定，不需要打字重新輸入。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="problem-block" id="problem3">
+    <div class="problem-header">
+      <div class="problem-num">問題 03</div>
+      <div class="problem-title">工安規定說了等於沒說——萬一出事，責任在誰？</div>
+    </div>
+    <div class="problem-body">
+      <p>這是很多雇主沒有認真面對的法律風險。《職業安全衛生法》規定雇主有義務讓勞工了解工作環境的危害。如果外勞因為語言不通而發生職災，「我有說過」是不夠的——你必須確認「他真的聽懂了」。</p>
+      <div class="scene-box">
+        <div class="scene-label">// 常見場景</div>
+        <div class="scene-line"><span class="scene-role">主管</span><span class="scene-text">這台機器一定要戴手套才能操作，不然很危險。</span></div>
+        <div class="scene-line"><span class="scene-role">泰國弟</span><span class="scene-text">（聽不懂，繼續徒手操作）</span></div>
+        <div class="scene-line"><span class="scene-role">後來</span><span class="scene-text bad">發生意外，雇主被認定未盡告知義務</span></div>
+      </div>
+      <div class="solution-box">
+        <div class="solution-label">// 萬語通解法</div>
+        <p>工安宣導用 <span class="cmd">@確認</span> 系統發送，Bot 翻譯後要求每位外勞個別確認收到。</p>
+        <p>回覆記錄留存在群組歷史（<span class="cmd">@群組歷史</span> 可查），萬一需要舉證，有白紙黑字的數位記錄。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="problem-block" id="problem4">
+    <div class="problem-header">
+      <div class="problem-num">問題 04</div>
+      <div class="problem-title">群組裡有印尼、越南、泰國三種外勞，一條訊息根本發不到位</div>
+    </div>
+    <div class="problem-body">
+      <p>台灣很多工廠、農場的外勞來自不同國家，混合國籍的群組是常態。以前的解法是：傳三次、用三種語言——這實際上沒有人會這樣做，最後就是放棄，用比手畫腳的方式溝通。</p>
+      <div class="scene-box">
+        <div class="scene-label">// 常見場景</div>
+        <div class="scene-line"><span class="scene-role">主管</span><span class="scene-text">（在三個不同群組，分別傳三次一樣的訊息）</span></div>
+        <div class="scene-line"><span class="scene-role">或者</span><span class="scene-text bad">只傳一次，印尼人看懂了，越南和泰國的都不知道</span></div>
+      </div>
+      <div class="solution-box">
+        <div class="solution-label">// 萬語通解法</div>
+        <p>使用 <span class="cmd">@群組多語 印尼文 越南文 泰文</span> 設定持久多語模式，之後發任何訊息，Bot 自動同時翻成三種語言，一條訊息，三個族群都收到。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="problem-block" id="problem5">
+    <div class="problem-header">
+      <div class="problem-num">問題 05</div>
+      <div class="problem-title">半夜收到系統通知，整個宿舍群組被吵醒</div>
+    </div>
+    <div class="problem-body">
+      <p>很多公司的系統排程或到期提醒會在半夜觸發，一推播出去，全群組的外勞手機同時響。睡眠被打擾，隔天工作精神差，累積下來對整個工作環境都是負面影響。</p>
+      <div class="scene-box">
+        <div class="scene-label">// 常見場景</div>
+        <div class="scene-line"><span class="scene-role">凌晨 2:00</span><span class="scene-text bad">系統推播方案到期通知，15 個外勞手機同時震動</span></div>
+        <div class="scene-line"><span class="scene-role">隔天</span><span class="scene-text bad">外勞抱怨沒睡好，主管也覺得尷尬</span></div>
+      </div>
+      <div class="solution-box">
+        <div class="solution-label">// 萬語通解法</div>
+        <p>使用 <span class="cmd">@勿擾 22:00-07:00</span> 設定勿擾時段，指定時間內的系統通知自動丟棄，不推播、不補發。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider">
+    <div class="section-divider-line"></div>
+    <div class="section-divider-text">// 總結</div>
+    <div class="section-divider-line"></div>
+  </div>
+
+  <p>這 5 個問題，每一個都不是小事。它們每天消耗雇主的時間和精神，累積下來對工作效率和職場關係都有影響。</p>
+  <p>解法不是「學印尼文」或「請翻譯員」——那些成本和門檻都太高。最實際的做法，是用已經在手上的 LINE，讓工具替你解決語言這一關。</p>
+  <p><strong>萬語通的設計出發點就是這樣</strong>：不改變雇主的工作習慣，不需要裝新的 App，就在 LINE 裡，把溝通這件事做對。</p>
+
+  <div class="article-cta">
+    <h3>現在免費試用，今天就解決溝通問題</h3>
+    <p>每日 15 次免費翻譯，不用綁信用卡。工廠、看護、工地、餐飲、農場雇主都適用。</p>
+    <a href="https://line.me/ti/p/@969wpxno" class="btn-line">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.105.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.07 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+      加入 LINE Bot 免費體驗
+    </a>
+    <a href="blog.html" class="btn-secondary-link">← 回部落格看更多文章</a>
+  </div>
+
+  <div class="article-nav">
+    <div class="article-nav-inner">
+      <div class="article-nav-card prev disabled">
+        <div class="nav-card-dir">‹ 上一篇</div>
+        <div class="nav-card-title">這是第一篇文章</div>
+        <div class="nav-card-tag">— 沒有上一篇 —</div>
+      </div>
+      <a href="blog-foreign-worker-safety-law.html" class="article-nav-card next">
+        <div class="nav-card-dir">下一篇 ›</div>
+        <div class="nav-card-title">外勞發生工安事故，雇主的法律責任是什麼？</div>
+        <div class="nav-card-tag">法規須知</div>
+      </a>
+    </div>
+    <div class="article-nav-back">
+      <a href="blog.html">← 回部落格，查看所有文章</a>
+    </div>
+  </div>`;
   }
   document.getElementById('btn-zh').classList.toggle('active',lang==='zh');
   document.getElementById('btn-en').classList.toggle('active',lang==='en');

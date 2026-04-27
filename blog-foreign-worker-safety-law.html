@@ -570,7 +570,7 @@ footer a:hover { color: var(--text); }
   </div>
 </div>
 
-<div class="article-body">
+<div class="article-body" id="article-body">
 
   <div class="toc">
     <div class="toc-title">// 文章目錄</div>
@@ -789,6 +789,333 @@ function applyA2Lang(lang){
   if(h1){
     if(lang==='en') h1.innerHTML='When a Foreign Worker Has a Workplace Accident<br><span class="hl">What Is the Employer\'s Legal Liability?</span>';
     else h1.innerHTML='外勞發生工安事故<br><span class="hl">雇主的法律責任</span>是什麼？';
+  }
+  var heroDesc=document.querySelector('.article-hero > p');
+  if(heroDesc){
+    if(lang==='en') heroDesc.textContent='Every year in Taiwan, foreign workers are involved in workplace accidents, and many cases escalate into legal disputes for employers. Many employers assume "I told them the safety rules" is sufficient — but court rulings show otherwise. This article outlines the most commonly overlooked legal obligations employers have regarding foreign worker safety, and how to protect yourself with the tools you already have.';
+    else heroDesc.textContent='台灣每年都有外籍移工在職場發生意外，其中不少案例最後演變成雇主的法律糾紛。很多雇主以為「我有說過工安規定」就沒事，但法院判決告訴我們：「說過」不等於「告知到位」。這篇文章整理雇主在外勞工安上最常被忽略的法律義務，以及如何用現有工具保護自己。';
+  }
+  // Cover card text
+  var coverTitle=document.querySelector('.article-cover [style*="font-family:\'Syne\'"]');
+  if(coverTitle) coverTitle.textContent=lang==='en'?'Occupational Safety and Health Act':'職業安全衛生法';
+  var coverSub=document.querySelector('.article-cover [style*="DM Mono"][style*="0.7rem"]');
+  if(coverSub) coverSub.textContent=lang==='en'?'Complete Guide to Employer Legal Obligations':'雇主法律義務完整解析';
+
+  // Full article body swap
+  var body=document.getElementById('article-body');
+  if(!body)return;
+  if(lang==='en'){
+    body.innerHTML=`
+  <div class="toc">
+    <div class="toc-title">// Table of Contents</div>
+    <ol>
+      <li><a href="#law1">What does the OSH Act say about foreign workers?</a></li>
+      <li><a href="#law2">Is a Chinese-only document enough to fulfill notification obligations?</a></li>
+      <li><a href="#law3">Why doesn't "I told them" hold up in court?</a></li>
+      <li><a href="#law4">What liabilities does an employer face after a workplace accident?</a></li>
+      <li><a href="#law5">How to protect yourself with digital records — the most practical approach</a></li>
+    </ol>
+  </div>
+
+  <div class="law-block" id="law1">
+    <div class="law-header">
+      <div class="law-num">Key Point 01</div>
+      <div class="law-title">OSH Act requirements for foreign workers: Employers must ensure workers "truly understand" the hazards</div>
+    </div>
+    <div class="law-body">
+      <p>Article 32 of the Occupational Safety and Health Act requires employers to provide workers with safety and health training necessary for their work and disaster prevention — and this obligation <strong>applies equally regardless of the worker's nationality</strong>.</p>
+      <p>The key phrase is "truly understand" — not just "notify." The law requires two-way confirmation: the foreign worker genuinely comprehends the hazard content, not just that you said it once.</p>
+      <div class="warn-box">
+        <div class="warn-label">⚠️ Common Misconception</div>
+        <p>Many employers believe that verbally explaining safety rules at onboarding is sufficient to fulfill the notification obligation. Legally, this is not enough — especially when the foreign worker's Chinese ability is limited and they may not understand anything you're saying.</p>
+      </div>
+      <div class="solution-box">
+        <div class="solution-label">// Correct Approach</div>
+        <p>Safety communications must be delivered in <strong>a language the worker can understand</strong>, with written or digital documentation proving the worker individually acknowledged receipt and understanding.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="law-block" id="law2">
+    <div class="law-header">
+      <div class="law-num">Key Point 02</div>
+      <div class="law-title">Does a Chinese-only document legally count as fulfilling notification obligations?</div>
+    </div>
+    <div class="law-body">
+      <p>This is the most disputed area in practice. An employer hands an Indonesian worker a Chinese "Safety Operating Procedures" form and has them sign it — does that count as completed notification?</p>
+      <div class="scene-box">
+        <div class="scene-label">// Real Scenario</div>
+        <div class="scene-line"><span class="scene-role">Employer</span><span class="scene-text">(Slides Chinese safety form to Indonesian worker) Please sign this to confirm you've read and understood the safety rules.</span></div>
+        <div class="scene-line"><span class="scene-role">Indonesian Worker</span><span class="scene-text bad">(Can't read it, signs because everyone else did)</span></div>
+        <div class="scene-line"><span class="scene-role">Three months later</span><span class="scene-text bad">Worker injured operating machinery. Files complaint that employer failed to properly notify of hazards.</span></div>
+      </div>
+      <p>According to the Ministry of Labor's Occupational Safety and Health Administration, safety notification must ensure workers can <em>"understand"</em>. If the worker's Chinese ability is insufficient, a signature on a Chinese document alone <strong>cannot prove notification was effective</strong>, and the employer may still be found in violation of notification obligations.</p>
+      <div class="warn-box">
+        <div class="warn-label">⚠️ Legal Risk</div>
+        <p>Article 43 of the OSH Act states that violating safety and health training regulations carries fines of NT$30,000 to NT$150,000. If a major workplace accident results, criminal liability may also apply.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="law-block" id="law3">
+    <div class="law-header">
+      <div class="law-num">Key Point 03</div>
+      <div class="law-title">Why doesn't "I told them" hold up in court?</div>
+    </div>
+    <div class="law-body">
+      <p>In labor disputes and workplace accident litigation, the burden of proof typically falls on the employer. When a foreign worker claims the employer failed their notification obligation, the employer must provide <strong>concrete evidence</strong> that notification was given and understood.</p>
+      <p>Verbal explanation with no record is nearly equivalent to saying nothing in court.</p>
+      <div class="scene-box">
+        <div class="scene-label">// Common Courtroom Scenario</div>
+        <div class="scene-line"><span class="scene-role">Worker's Attorney</span><span class="scene-text">How did the employer confirm the foreign worker understood the operational hazards?</span></div>
+        <div class="scene-line"><span class="scene-role">Employer</span><span class="scene-text bad">I told him. He nodded.</span></div>
+        <div class="scene-line"><span class="scene-role">Judge</span><span class="scene-text bad">This cannot serve as proof of effective notification. The foreign worker may not have understood Chinese at all — the nod means nothing.</span></div>
+      </div>
+      <div class="solution-box">
+        <div class="solution-label">// What Counts as Valid Proof</div>
+        <p>You need more than a signature — you need a <strong>bilingual notification record</strong>: the safety content communicated in the worker's language, with individual confirmation replies of "understood," and a queryable timestamp for the entire process.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="law-block" id="law4">
+    <div class="law-header">
+      <div class="law-num">Key Point 04</div>
+      <div class="law-title">What liabilities might an employer face after a workplace accident?</div>
+    </div>
+    <div class="law-body">
+      <p>When a foreign worker suffers a workplace injury, employers may face liability on multiple fronts:</p>
+      <div class="warn-box">
+        <div class="warn-label">⚠️ Potential Legal Liabilities</div>
+        <p><strong>Administrative fines:</strong> Violating OSH Act safety training requirements: NT$30,000–NT$150,000.</p>
+        <p><strong>Civil damages:</strong> The worker or their family may sue under civil law for medical costs, disability compensation, and emotional damages.</p>
+        <p><strong>Criminal liability:</strong> If the accident resulted from employer negligence in the course of business, criminal charges for occupational negligence causing injury may apply — up to 5 years imprisonment.</p>
+        <p><strong>Labor Insurance recovery:</strong> If the Labor Insurance Bureau determines the accident was due to employer negligence, they may seek recovery from the employer after paying out benefits.</p>
+      </div>
+      <p>Foreign worker accident cases sometimes also involve diplomatic dimensions — Indonesia, Vietnam, and Thailand's representative offices in Taiwan may intervene to assist workers, making cases more complex.</p>
+    </div>
+  </div>
+
+  <div class="law-block" id="law5">
+    <div class="law-header">
+      <div class="law-num">Key Point 05</div>
+      <div class="law-title">How to protect yourself with digital records — the most practical approach</div>
+    </div>
+    <div class="law-body">
+      <p>The most effective protection is ensuring every safety communication generates a <strong>queryable bilingual confirmation record</strong>. You don't need special software or complex procedures — it can be done in your existing LINE group.</p>
+      <div class="solution-box">
+        <div class="solution-label">// Using WanyuTong to Build Safety Records</div>
+        <p><strong>Step 1:</strong> Send a safety instruction in the group with the <span class="cmd">@confirm</span> command. The system automatically translates it into the workers' language.</p>
+        <p>Example: <span class="cmd">@confirm Before operating the stamping press, protective gloves must be worn — starting the machine without them is strictly prohibited.</span></p>
+        <p><strong>Step 2:</strong> Each worker receives the translated notice and replies <strong>1 = Understood / 2 = Not clear</strong>. The Bot automatically records each person's response and timestamp.</p>
+        <p><strong>Step 3:</strong> Use <span class="cmd">@confirm-status</span> to see who hasn't replied, then follow up individually.</p>
+        <p><strong>Step 4:</strong> Use <span class="cmd">@history</span> to retrieve the full record. In case of a dispute, you have timestamped bilingual confirmation records as legal evidence.</p>
+      </div>
+      <p>This process does exactly what courts require: communicate hazards in the worker's language, obtain individual confirmation, and maintain a queryable digital record.</p>
+      <div class="scene-box">
+        <div class="scene-label">// After Using WanyuTong</div>
+        <div class="scene-line"><span class="scene-role">Supervisor</span><span class="scene-text">@confirm This afternoon at 3PM there will be elevated work. All personnel must wear safety harnesses — no exceptions.</span></div>
+        <div class="scene-line"><span class="scene-role">Bot</span><span class="scene-text good">Translated into Indonesian and Vietnamese and sent. Awaiting confirmation from 5 people…</span></div>
+        <div class="scene-line"><span class="scene-role">Adi</span><span class="scene-text good">1 (Understood)</span></div>
+        <div class="scene-line"><span class="scene-role">Nguyen Van Minh</span><span class="scene-text good">1 (Understood)</span></div>
+        <div class="scene-line"><span class="scene-role">@confirm-status</span><span class="scene-text good">Confirmed: 4/5. Not replied: Somchai (Thai)</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider">
+    <div class="section-divider-line"></div>
+    <div class="section-divider-text">// Summary</div>
+    <div class="section-divider-line"></div>
+  </div>
+
+  <p>Safety notification is not just a moral obligation — it's a legal requirement. The fact that a foreign worker cannot understand Chinese safety regulations due to a language barrier cannot be used by employers to avoid responsibility. It is, in fact, a problem employers must proactively solve.</p>
+  <p>The good news is that this problem now has a simpler solution than ever before. You don't need to hire a translator or create multilingual documents — just use your existing LINE group, and a single command completes bilingual notification and captures confirmation records.</p>
+  <p><strong>The cost of preventing one workplace accident is far less than the cost of facing legal proceedings afterward.</strong></p>
+
+  <div class="article-cta">
+    <h3>Start Building Safety Records Today</h3>
+    <p>15 free translations daily, no credit card required. The @confirm system gives every safety communication a bilingual record.</p>
+    <a href="https://line.me/ti/p/@969wpxno" class="btn-line">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.105.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.07 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+      Join LINE Bot — Try Free
+    </a>
+    <a href="blog.html" class="btn-secondary-link">← Back to Blog</a>
+  </div>
+
+  <div class="article-nav">
+    <div class="article-nav-inner">
+      <a href="blog-foreign-worker-communication.html" class="article-nav-card prev">
+        <div class="nav-card-dir">‹ Previous</div>
+        <div class="nav-card-title">5 Communication Problems Taiwan Employers Face with Foreign Workers (And Solutions)</div>
+        <div class="nav-card-tag">Communication</div>
+      </a>
+      <div class="article-nav-card next disabled">
+        <div class="nav-card-dir">Next ›</div>
+        <div class="nav-card-title">Managing Foreign Workers in Food Service: Scheduling, Hygiene & Order Communication</div>
+        <div class="nav-card-tag">Coming Soon</div>
+      </div>
+    </div>
+    <div class="article-nav-back">
+      <a href="blog.html">← Back to Blog</a>
+    </div>
+  </div>`;
+  } else {
+    body.innerHTML=`
+  <div class="toc">
+    <div class="toc-title">// 文章目錄</div>
+    <ol>
+      <li><a href="#law1">職安法對外籍勞工的規定是什麼？</a></li>
+      <li><a href="#law2">只有中文版文件，算不算盡到告知義務？</a></li>
+      <li><a href="#law3">「我有說過」為什麼在法院站不住腳？</a></li>
+      <li><a href="#law4">發生職災後，雇主會面臨哪些責任？</a></li>
+      <li><a href="#law5">如何用數位記錄保護自己？</a></li>
+    </ol>
+  </div>
+
+  <div class="law-block" id="law1">
+    <div class="law-header">
+      <div class="law-num">重點 01</div>
+      <div class="law-title">職安法對外籍勞工的規定：雇主必須讓員工「確實了解」危害</div>
+    </div>
+    <div class="law-body">
+      <p>《職業安全衛生法》第 32 條規定，雇主對勞工應施以從事工作與預防災變所必要之安全衛生教育及訓練，而且這個義務<strong>不因勞工的國籍而有差別</strong>。</p>
+      <p>關鍵字是「確實了解」，不是「告知」。法律要求的是雙向確認——外籍勞工真的理解了危害內容，而不只是你說了一遍。</p>
+      <div class="warn-box">
+        <div class="warn-label">⚠️ 常見誤解</div>
+        <p>很多雇主認為，只要在勞工到職時口頭說明工安規定，就算完成告知義務。但這在法律上並不充分，特別是當外籍勞工的中文能力有限，根本聽不懂你在說什麼。</p>
+      </div>
+      <div class="solution-box">
+        <div class="solution-label">// 正確做法</div>
+        <p>工安宣導必須用<strong>外勞能理解的語言</strong>進行，並且要有書面或數位記錄，證明外勞確實回應並確認收到。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="law-block" id="law2">
+    <div class="law-header">
+      <div class="law-num">重點 02</div>
+      <div class="law-title">只有中文版文件，在法律上算告知到位嗎？</div>
+    </div>
+    <div class="law-body">
+      <p>這是實務上最常發生爭議的地方。雇主發了一份中文的「安全操作規範」給印尼籍員工，員工簽名了——這樣算不算告知義務完成？</p>
+      <div class="scene-box">
+        <div class="scene-label">// 真實場景</div>
+        <div class="scene-line"><span class="scene-role">雇主</span><span class="scene-text">（把中文工安表格推給印尼員工）請你簽名，表示你已閱讀並了解工安規定。</span></div>
+        <div class="scene-line"><span class="scene-role">印尼員工</span><span class="scene-text bad">（看不懂，但跟著其他人簽了）</span></div>
+        <div class="scene-line"><span class="scene-role">三個月後</span><span class="scene-text bad">員工操作機器受傷，申訴雇主未確實告知危害</span></div>
+      </div>
+      <p>根據勞動部職安署的見解，安全告知必須確保勞工能「理解」，如果勞工中文能力不足，僅憑中文文件的簽名，<strong>無法證明告知到位</strong>，雇主仍可能被認定違反告知義務。</p>
+      <div class="warn-box">
+        <div class="warn-label">⚠️ 法律風險</div>
+        <p>職安法第 43 條規定，違反安全衛生教育訓練規定者，處新台幣 3 萬元以上 15 萬元以下罰鍰。若因此導致重大職災，還可能面臨刑事責任。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="law-block" id="law3">
+    <div class="law-header">
+      <div class="law-num">重點 03</div>
+      <div class="law-title">「我有說過」為什麼在法院站不住腳？</div>
+    </div>
+    <div class="law-body">
+      <p>在勞動爭議和職災訴訟中，舉證責任往往在雇主這一方。當外籍勞工主張雇主未盡告知義務時，雇主需要提出<strong>具體證據</strong>證明曾經告知，且對方理解。</p>
+      <p>口頭說明沒有記錄，在法庭上幾乎等於沒說。</p>
+      <div class="scene-box">
+        <div class="scene-label">// 法院常見情境</div>
+        <div class="scene-line"><span class="scene-role">勞方律師</span><span class="scene-text">請問雇主如何確認外籍勞工理解操作危害？</span></div>
+        <div class="scene-line"><span class="scene-role">雇主</span><span class="scene-text bad">我有跟他說過，他點頭了。</span></div>
+        <div class="scene-line"><span class="scene-role">法官</span><span class="scene-text bad">這無法作為有效告知的證明，外籍勞工可能根本聽不懂中文的點頭。</span></div>
+      </div>
+      <div class="solution-box">
+        <div class="solution-label">// 有效的證明方式</div>
+        <p>需要的不只是簽名，而是<strong>雙語告知記錄</strong>——用外勞看得懂的語言傳達工安內容，並取得他們個別確認「明白」的回覆，且這個過程有可查詢的時間戳記。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="law-block" id="law4">
+    <div class="law-header">
+      <div class="law-num">重點 04</div>
+      <div class="law-title">發生職災後，雇主可能面臨哪些責任？</div>
+    </div>
+    <div class="law-body">
+      <p>外籍勞工發生職業災害，雇主在以下幾個面向都可能承擔責任：</p>
+      <div class="warn-box">
+        <div class="warn-label">⚠️ 可能的法律責任</div>
+        <p><strong>行政罰鍰：</strong>違反職安法安全衛生教育規定，處 3 萬至 15 萬元罰鍰。</p>
+        <p><strong>民事賠償：</strong>勞工或家屬可依民法向雇主請求損害賠償，包含醫療費、失能補償、精神慰撫金等。</p>
+        <p><strong>刑事責任：</strong>若職災因雇主業務過失造成，可能涉及刑法業務過失傷害罪，最高可處 5 年以下有期徒刑。</p>
+        <p><strong>勞保給付追償：</strong>若勞保局認定職災因雇主過失所致，勞保局給付後可向雇主追償。</p>
+      </div>
+      <p>外籍勞工的職災案件有時還會涉及外交層面，印尼、越南、泰國駐台辦事處會介入協助勞工，使案件更複雜。</p>
+    </div>
+  </div>
+
+  <div class="law-block" id="law5">
+    <div class="law-header">
+      <div class="law-num">重點 05</div>
+      <div class="law-title">如何用數位記錄保護自己？最實際的做法</div>
+    </div>
+    <div class="law-body">
+      <p>最有效的保護方式，是讓每一次工安宣導都產生<strong>可查詢的雙語確認記錄</strong>。這不需要特別的軟體或複雜的流程，在 LINE 群組就能做到。</p>
+      <div class="solution-box">
+        <div class="solution-label">// 用萬語通建立工安記錄的流程</div>
+        <p><strong>第一步：</strong>在群組傳送工安指示，加上 <span class="cmd">@確認</span> 指令，系統自動翻譯成外勞語言。</p>
+        <p>例如：<span class="cmd">@確認 操作衝壓機前必須戴防護手套，否則嚴禁啟動機器</span></p>
+        <p><strong>第二步：</strong>每位外勞收到翻譯後的告知，回覆 <strong>1＝明白 / 2＝不明白</strong>，Bot 自動記錄每個人的回覆與時間。</p>
+        <p><strong>第三步：</strong>用 <span class="cmd">@確認進度</span> 查看誰還沒回覆，對沒回覆的人單獨追蹤。</p>
+        <p><strong>第四步：</strong>用 <span class="cmd">@群組歷史</span> 查詢完整記錄，萬一發生糾紛，有時間戳記的雙語確認記錄可作為舉證依據。</p>
+      </div>
+      <p>這個流程做的事情和法院要求的完全一致：用外勞能理解的語言告知、取得個別確認、保留可查詢的數位記錄。</p>
+      <div class="scene-box">
+        <div class="scene-label">// 使用萬語通後的場景</div>
+        <div class="scene-line"><span class="scene-role">主管</span><span class="scene-text">@確認 今天下午三點進行高架作業，所有人必須繫安全帶，否則禁止上架。</span></div>
+        <div class="scene-line"><span class="scene-role">Bot</span><span class="scene-text good">已翻譯成印尼文、越南文並發送，等待 5 人確認…</span></div>
+        <div class="scene-line"><span class="scene-role">阿迪</span><span class="scene-text good">1（明白）</span></div>
+        <div class="scene-line"><span class="scene-role">阮文明</span><span class="scene-text good">1（明白）</span></div>
+        <div class="scene-line"><span class="scene-role">@確認進度</span><span class="scene-text good">已確認 4/5，未回覆：Somchai（泰）</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider">
+    <div class="section-divider-line"></div>
+    <div class="section-divider-text">// 總結</div>
+    <div class="section-divider-line"></div>
+  </div>
+
+  <p>工安告知不只是道德義務，更是法律要求。外籍勞工因語言障礙無法理解中文的工安規定，不能成為雇主規避責任的理由——反而是雇主必須主動解決的問題。</p>
+  <p>好消息是，這個問題現在有了比過去更簡單的解法。你不需要聘請翻譯員，不需要製作多語言文件，只要在現有的 LINE 群組裡，用一個指令就能完成雙語告知並取得確認記錄。</p>
+  <p><strong>預防一次職災的成本，遠低於事後面對法律糾紛的代價。</strong></p>
+
+  <div class="article-cta">
+    <h3>建立工安記錄，從今天開始</h3>
+    <p>每日 15 次免費翻譯，不用綁信用卡。@確認 系統讓每次工安宣導都有雙語記錄。</p>
+    <a href="https://line.me/ti/p/@969wpxno" class="btn-line">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.105.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.07 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+      加入 LINE Bot 免費體驗
+    </a>
+    <a href="blog.html" class="btn-secondary-link">← 回部落格看更多文章</a>
+  </div>
+
+  <div class="article-nav">
+    <div class="article-nav-inner">
+      <a href="blog-foreign-worker-communication.html" class="article-nav-card prev">
+        <div class="nav-card-dir">‹ 上一篇</div>
+        <div class="nav-card-title">台灣雇主管理外勞最常遇到的 5 個溝通問題（與解法）</div>
+        <div class="nav-card-tag">溝通技巧</div>
+      </a>
+      <div class="article-nav-card next disabled">
+        <div class="nav-card-dir">下一篇 ›</div>
+        <div class="nav-card-title">餐飲業雇主怎麼管外勞？排班、衛生規定、點菜溝通全攻略</div>
+        <div class="nav-card-tag">即將發布</div>
+      </div>
+    </div>
+    <div class="article-nav-back">
+      <a href="blog.html">← 回部落格，查看所有文章</a>
+    </div>
+  </div>`;
   }
   document.getElementById('btn-zh').classList.toggle('active',lang==='zh');
   document.getElementById('btn-en').classList.toggle('active',lang==='en');

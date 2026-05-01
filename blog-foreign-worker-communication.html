@@ -617,7 +617,7 @@ nav { top: 36px !important; }
     <a href="blog.html" id="a1-nav-blog">部落格</a>
     <a href="faq.html" id="a1-nav-faq">常見問題</a>
     <a href="index.html#terms" id="a1-nav-terms">條款</a>
-    <a href="https://line.me/ti/p/@969wpxno" class="nav-cta">免費體驗</a>
+    <a href="https://line.me/ti/p/@969wpxno" class="nav-cta a1-cta-label">免費體驗</a>
   </div>
   <div style="display:flex;align-items:center;gap:0.6rem;">
     <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="切換日/夜模式" aria-label="切換日夜模式"><div class="theme-toggle-knob" id="themeKnob">🌙</div></button>
@@ -625,15 +625,15 @@ nav { top: 36px !important; }
       <span></span><span></span><span></span>
     </button>
   </div>
-  <a href="https://line.me/ti/p/@969wpxno" class="nav-cta">免費體驗</a>
+  <a href="https://line.me/ti/p/@969wpxno" class="nav-cta a1-cta-label">免費體驗</a>
 </nav>
 
 <div class="article-top-banner">
   <div class="top-banner-inner">
-    <div class="top-banner-text">
+    <div class="top-banner-text" id="a1-top-banner-text">
       <strong>萬語通</strong>：台灣雇主管理外勞的 LINE 翻譯機器人，印尼・越南・泰文即時雙向翻譯。<br>每日免費 15 次，NT$199/月起。
     </div>
-    <a href="https://line.me/ti/p/@969wpxno" class="top-banner-btn">
+    <a href="https://line.me/ti/p/@969wpxno" class="top-banner-btn" id="a1-top-banner-btn">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.105.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.07 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
       免費體驗
     </a>
@@ -897,6 +897,20 @@ var a1I18n = {
 function applyA1Lang(lang){
   var t=a1I18n[lang];
   Object.keys(t).forEach(function(id){var el=document.getElementById(id);if(el)el.textContent=t[id];});
+  document.querySelectorAll('.a1-cta-label').forEach(function(el){ el.textContent = lang==='en' ? 'Try Free' : '免費體驗'; });
+  var topBannerText=document.getElementById('a1-top-banner-text');
+  if(topBannerText){
+    topBannerText.innerHTML=lang==='en'
+      ? '<strong>WanyuTong</strong>: A LINE translation bot for Taiwan employers managing foreign workers, with real-time two-way Indonesian, Vietnamese, and Thai translation.<br>15 free translations daily. Paid plans from NT$199/month.'
+      : '<strong>萬語通</strong>：台灣雇主管理外勞的 LINE 翻譯機器人，印尼・越南・泰文即時雙向翻譯。<br>每日免費 15 次，NT$199/月起。';
+  }
+  var topBannerBtn=document.getElementById('a1-top-banner-btn');
+  if(topBannerBtn){
+    var icon=topBannerBtn.querySelector('svg');
+    topBannerBtn.innerHTML='';
+    if(icon) topBannerBtn.appendChild(icon);
+    topBannerBtn.appendChild(document.createTextNode(lang==='en' ? ' Try Free' : ' 免費體驗'));
+  }
   // H1
   var h1=document.querySelector('.article-hero h1');
   if(h1){
@@ -1215,8 +1229,10 @@ function applyA1Lang(lang){
     </div>
   </div>`;
   }
-  document.getElementById('btn-zh').classList.toggle('active',lang==='zh');
-  document.getElementById('btn-en').classList.toggle('active',lang==='en');
+  var btnZh=document.getElementById('btn-zh');
+  var btnEn=document.getElementById('btn-en');
+  if(btnZh) btnZh.classList.toggle('active',lang==='zh');
+  if(btnEn) btnEn.classList.toggle('active',lang==='en');
   document.documentElement.lang=lang==='zh'?'zh-TW':'en';
 }
 function setLang(lang){try{localStorage.setItem('wyt-lang',lang);}catch(e){}applyA1Lang(lang);}

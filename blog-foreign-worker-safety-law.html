@@ -493,7 +493,7 @@ footer a:hover { color: var(--text); }
     <a href="blog.html" id="a2-nav-blog">部落格</a>
     <a href="faq.html" id="a2-nav-faq">常見問題</a>
     <a href="index.html#terms" id="a2-nav-terms">條款</a>
-    <a href="https://line.me/ti/p/@969wpxno" class="nav-cta">免費體驗</a>
+    <a href="https://line.me/ti/p/@969wpxno" class="nav-cta a2-cta-label">免費體驗</a>
   </div>
   <div style="display:flex;align-items:center;gap:0.6rem;">
     <div class="lang-toggle"><button class="lang-btn active" onclick="setLang('zh')" id="btn-zh">繁中</button><button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button></div>
@@ -507,10 +507,10 @@ footer a:hover { color: var(--text); }
 <!-- 頁首橫幅 -->
 <div class="article-top-banner">
   <div class="top-banner-inner">
-    <div class="top-banner-text">
+    <div class="top-banner-text" id="a2-top-banner-text">
       <strong>萬語通</strong>：台灣雇主管理外勞的 LINE 翻譯機器人，工安宣導確認系統內建，每次告知都有數位記錄。
     </div>
-    <a href="https://line.me/ti/p/@969wpxno" class="top-banner-btn">
+    <a href="https://line.me/ti/p/@969wpxno" class="top-banner-btn" id="a2-top-banner-btn">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.105.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.07 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
       免費體驗
     </a>
@@ -789,6 +789,20 @@ var a2I18n = {
 function applyA2Lang(lang){
   var t=a2I18n[lang];
   Object.keys(t).forEach(function(id){var el=document.getElementById(id);if(el)el.textContent=t[id];});
+  document.querySelectorAll('.a2-cta-label').forEach(function(el){ el.textContent = lang==='en' ? 'Try Free' : '免費體驗'; });
+  var topBannerText=document.getElementById('a2-top-banner-text');
+  if(topBannerText){
+    topBannerText.innerHTML=lang==='en'
+      ? '<strong>WanyuTong</strong>: A LINE translation bot for Taiwan employers managing foreign workers, with built-in safety notice confirmation and digital records for each notice.'
+      : '<strong>萬語通</strong>：台灣雇主管理外勞的 LINE 翻譯機器人，工安宣導確認系統內建，每次告知都有數位記錄。';
+  }
+  var topBannerBtn=document.getElementById('a2-top-banner-btn');
+  if(topBannerBtn){
+    var icon=topBannerBtn.querySelector('svg');
+    topBannerBtn.innerHTML='';
+    if(icon) topBannerBtn.appendChild(icon);
+    topBannerBtn.appendChild(document.createTextNode(lang==='en' ? ' Try Free' : ' 免費體驗'));
+  }
   var h1=document.querySelector('.article-hero h1');
   if(h1){
     if(lang==='en') h1.innerHTML='When a Foreign Worker Has a Workplace Accident<br><span class="hl">What Is the Employer\'s Legal Liability?</span>';
@@ -796,7 +810,7 @@ function applyA2Lang(lang){
   }
   var heroDesc=document.querySelector('.article-hero > p');
   if(heroDesc){
-    if(lang==='en') heroDesc.textContent='Every year in Taiwan, foreign workers are involved in workplace accidents, and many cases escalate into legal disputes for employers. Many employers assume "I told them the safety rules" is sufficient — but court rulings show otherwise. This article outlines the most commonly overlooked legal obligations employers have regarding foreign worker safety, and how to protect yourself with the tools you already have.';
+    if(lang==='en') heroDesc.textContent='Every year in Taiwan, foreign workers are involved in workplace accidents, and some cases escalate into legal or labor disputes for employers. Many employers assume "I told them the safety rules" is sufficient, but disputes may require clearer proof of notice and understanding. This article outlines commonly overlooked employer obligations and practical ways to reduce risk with the tools you already use.';
     else heroDesc.textContent='台灣每年都有外籍移工在職場發生意外，其中不少案例最後演變成雇主的法律糾紛。很多雇主以為「我有說過工安規定」就沒事，但法院判決告訴我們：「說過」不等於「告知到位」。這篇文章整理雇主在外勞工安上最常被忽略的法律義務，以及如何用現有工具保護自己。';
   }
   // Cover card text
@@ -828,14 +842,14 @@ function applyA2Lang(lang){
     </div>
     <div class="law-body">
       <p>Article 32 of the Occupational Safety and Health Act requires employers to provide workers with safety and health training necessary for their work and disaster prevention — and this obligation <strong>applies equally regardless of the worker's nationality</strong>.</p>
-      <p>The key phrase is "truly understand" — not just "notify." The law requires two-way confirmation: the foreign worker genuinely comprehends the hazard content, not just that you said it once.</p>
+      <p>In practice, the key issue is often whether the worker actually understood the hazard information, not only whether the employer said it once.</p>
       <div class="warn-box">
         <div class="warn-label">⚠️ Common Misconception</div>
-        <p>Many employers believe that verbally explaining safety rules at onboarding is sufficient to fulfill the notification obligation. Legally, this is not enough — especially when the foreign worker's Chinese ability is limited and they may not understand anything you're saying.</p>
+        <p>Many employers believe that verbally explaining safety rules at onboarding is enough. In a later dispute, this may be difficult to prove, especially when the worker's Chinese ability is limited.</p>
       </div>
       <div class="solution-box">
         <div class="solution-label">// Correct Approach</div>
-        <p>Safety communications must be delivered in <strong>a language the worker can understand</strong>, with written or digital documentation proving the worker individually acknowledged receipt and understanding.</p>
+        <p>Safety communications should be delivered in <strong>a language the worker can understand</strong>, with written or digital documentation showing each worker acknowledged receipt and understanding.</p>
       </div>
     </div>
   </div>
@@ -853,10 +867,10 @@ function applyA2Lang(lang){
         <div class="scene-line"><span class="scene-role">Indonesian Worker</span><span class="scene-text bad">(Can't read it, signs because everyone else did)</span></div>
         <div class="scene-line"><span class="scene-role">Three months later</span><span class="scene-text bad">Worker injured operating machinery. Files complaint that employer failed to properly notify of hazards.</span></div>
       </div>
-      <p>According to the Ministry of Labor's Occupational Safety and Health Administration, safety notification must ensure workers can <em>"understand"</em>. If the worker's Chinese ability is insufficient, a signature on a Chinese document alone <strong>cannot prove notification was effective</strong>, and the employer may still be found in violation of notification obligations.</p>
+      <p>In safety-notice disputes, a Chinese-only signature may be weak evidence if the worker could not understand the content. Employers should avoid relying on a signed Chinese form alone as proof that the notice was effective.</p>
       <div class="warn-box">
         <div class="warn-label">⚠️ Legal Risk</div>
-        <p>Article 43 of the OSH Act states that violating safety and health training regulations carries fines of NT$30,000 to NT$150,000. If a major workplace accident results, criminal liability may also apply.</p>
+        <p>Violations of safety and health training obligations may lead to administrative penalties. If a serious workplace accident occurs, additional civil or criminal liability may also be reviewed based on the specific facts and current law.</p>
       </div>
     </div>
   </div>
@@ -891,9 +905,9 @@ function applyA2Lang(lang){
       <p>When a foreign worker suffers a workplace injury, employers may face liability on multiple fronts:</p>
       <div class="warn-box">
         <div class="warn-label">⚠️ Potential Legal Liabilities</div>
-        <p><strong>Administrative fines:</strong> Violating OSH Act safety training requirements: NT$30,000–NT$150,000.</p>
+        <p><strong>Administrative fines:</strong> Violating safety training or notice requirements may lead to penalties under applicable regulations.</p>
         <p><strong>Civil damages:</strong> The worker or their family may sue under civil law for medical costs, disability compensation, and emotional damages.</p>
-        <p><strong>Criminal liability:</strong> If the accident resulted from employer negligence in the course of business, criminal charges for occupational negligence causing injury may apply — up to 5 years imprisonment.</p>
+        <p><strong>Criminal liability:</strong> If the accident is linked to employer negligence, criminal liability may be reviewed by investigators or courts depending on the facts.</p>
         <p><strong>Labor Insurance recovery:</strong> If the Labor Insurance Bureau determines the accident was due to employer negligence, they may seek recovery from the employer after paying out benefits.</p>
       </div>
       <p>Foreign worker accident cases sometimes also involve diplomatic dimensions — Indonesia, Vietnam, and Thailand's representative offices in Taiwan may intervene to assist workers, making cases more complex.</p>
@@ -915,7 +929,7 @@ function applyA2Lang(lang){
         <p><strong>Step 3:</strong> Use <span class="cmd">@confirm-status</span> to see who hasn't replied, then follow up individually.</p>
         <p><strong>Step 4:</strong> Use <span class="cmd">@history</span> to retrieve the full record. In case of a dispute, you have timestamped bilingual confirmation records as legal evidence.</p>
       </div>
-      <p>This process does exactly what courts require: communicate hazards in the worker's language, obtain individual confirmation, and maintain a queryable digital record.</p>
+      <p>This process is closer to what dispute evidence usually needs: communicate hazards in the worker's language, obtain individual confirmation, and maintain a queryable digital record.</p>
       <div class="scene-box">
         <div class="scene-label">// After Using WanyuTong</div>
         <div class="scene-line"><span class="scene-role">Supervisor</span><span class="scene-text">@confirm This afternoon at 3PM there will be elevated work. All personnel must wear safety harnesses — no exceptions.</span></div>
@@ -933,7 +947,7 @@ function applyA2Lang(lang){
     <div class="section-divider-line"></div>
   </div>
 
-  <p>Safety notification is not just a moral obligation — it's a legal requirement. The fact that a foreign worker cannot understand Chinese safety regulations due to a language barrier cannot be used by employers to avoid responsibility. It is, in fact, a problem employers must proactively solve.</p>
+  <p>Safety notification is not just a management detail; it may involve legal responsibility. A language barrier should not be ignored when communicating safety rules to foreign workers.</p>
   <p>The good news is that this problem now has a simpler solution than ever before. You don't need to hire a translator or create multilingual documents — just use your existing LINE group, and a single command completes bilingual notification and captures confirmation records.</p>
   <p><strong>The cost of preventing one workplace accident is far less than the cost of facing legal proceedings afterward.</strong></p>
 

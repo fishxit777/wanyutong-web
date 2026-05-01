@@ -1769,7 +1769,7 @@ var i18n = {
     // COMPARE
     'cmp.eyebrow':     '// Why Translation Quality Matters',
     'cmp.h2':          'The Same Sentence Can Mean Something Very Different',
-    'cmp.lead1':       'Most LINE translation bots support only 5–8 languages. WanyuTong supports 36 — over 4× the competition.',
+    'cmp.lead1':       'For multi-language group translation, many LINE bots support only about 5–8 languages at once. WanyuTong supports 36 languages overall, and group plans can translate up to 8 languages in the same group.',
     'cmp.lead2':       'Translation quality matters in real workplaces. WanyuTong uses high-quality translation workflows to reduce cross-language misunderstandings.',
     'cmp.row.accuracy':'Translation Accuracy',
     'cmp.row.natural': 'Natural Fluency',
@@ -1917,6 +1917,18 @@ function applyLang(lang) {
   function s(id, key) { var el = document.getElementById(id); if (el && t[key]) el.textContent = t[key]; }
   function q(sel, key) { var el = document.querySelector(sel); if (el && t[key]) el.textContent = t[key]; }
   function qa(sel, key) { document.querySelectorAll(sel).forEach(function(el){ if(t[key]) el.textContent = t[key]; }); }
+  function replaceVisibleText(map) {
+    var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null);
+    var nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(function(node) {
+      var text = node.nodeValue;
+      Object.keys(map).forEach(function(from) {
+        if (text.indexOf(from) !== -1) text = text.split(from).join(map[from]);
+      });
+      node.nodeValue = text;
+    });
+  }
 
   // NAV
   q('a[href="#features"]', 'nav.features');
@@ -2072,6 +2084,30 @@ function applyLang(lang) {
 
   // 更新 html lang 屬性
   document.documentElement.lang = lang === 'zh' ? 'zh-TW' : 'en';
+
+  if (lang === 'en') {
+    replaceVisibleText({
+      '萬語通': 'WanyuTong',
+      '繁中': 'ZH',
+      '今天': 'Today',
+      '我需要這個藥，': 'I need this medicine,',
+      '請問有貨嗎？': 'is it in stock?',
+      '請問可以把發票': 'Could you send',
+      '寄給我嗎？': 'the invoice to me?',
+      '繁中 → 印尼文 · DeepL ✓': 'ZH → Indonesian · DeepL ✓',
+      '英文 → 繁中 · DeepL ✓': 'English → ZH · DeepL ✓',
+      '傳送訊息…': 'Message...',
+      '印尼文': 'Indonesian',
+      '英文': 'English',
+      '（DeepL）': ' (DeepL)',
+      'Google 翻譯': 'Google Translate',
+      '感謝您撥冗回覆，期待後續合作愉快。': 'Thank you for your reply. I look forward to working together.',
+      '未知': 'Unknown',
+      '群組版：將 Bot 加入群組後傳': 'For groups: Add the Bot to your group, then send',
+      '@群組說明': '@group help',
+      '查看完整指令。': 'to see the full command list.'
+    });
+  }
 
   // COMPARE TABLE VALUES
   var cmpTbody = document.querySelector('#compare tbody');

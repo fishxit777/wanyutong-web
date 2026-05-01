@@ -788,6 +788,18 @@ var a2I18n = {
 };
 function applyA2Lang(lang){
   var t=a2I18n[lang];
+  function replaceVisibleText(map) {
+    var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null);
+    var nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(function(node) {
+      var text = node.nodeValue;
+      Object.keys(map).forEach(function(from) {
+        if (text.indexOf(from) !== -1) text = text.split(from).join(map[from]);
+      });
+      node.nodeValue = text;
+    });
+  }
   Object.keys(t).forEach(function(id){var el=document.getElementById(id);if(el)el.textContent=t[id];});
   document.querySelectorAll('.a2-cta-label').forEach(function(el){ el.textContent = lang==='en' ? 'Try Free' : '免費體驗'; });
   var topBannerText=document.getElementById('a2-top-banner-text');
@@ -1134,6 +1146,19 @@ function applyA2Lang(lang){
       <a href="blog.html">← 回部落格，查看所有文章</a>
     </div>
   </div>`;
+  }
+  if(lang==='en'){
+    replaceVisibleText({
+      '萬語通': 'WanyuTong',
+      '繁中': 'ZH',
+      '「我有說過」不夠': '"I told them" is not enough',
+      '法院不採信口頭告知': 'Verbal notice alone is weak evidence',
+      '母語書面告知義務': 'Native-language notice duty',
+      '僅中文文件風險高': 'Chinese-only documents carry risk',
+      '數位記錄保護雇主': 'Digital records protect employers',
+      'LINE 翻譯記錄可作為證據': 'LINE translation records can support evidence',
+      '// 工廠 · 工地 · 農場 · 看護雇主必看': '// For factory · site · farm · caregiver employers'
+    });
   }
   document.getElementById('btn-zh').classList.toggle('active',lang==='zh');
   document.getElementById('btn-en').classList.toggle('active',lang==='en');

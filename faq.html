@@ -509,12 +509,37 @@ var faqI18n = {
 
 function applyFaqLang(lang) {
   var t = faqI18n[lang];
+  function replaceVisibleText(map) {
+    var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null);
+    var nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(function(node) {
+      var text = node.nodeValue;
+      Object.keys(map).forEach(function(from) {
+        if (text.indexOf(from) !== -1) text = text.split(from).join(map[from]);
+      });
+      node.nodeValue = text;
+    });
+  }
   Object.keys(t).forEach(function(id) {
     var el = document.getElementById(id);
     if (!el) return;
     if (id === 'f-h1' || id.startsWith('fa')) el.innerHTML = t[id];
     else el.textContent = t[id];
   });
+  if (lang === 'en') {
+    replaceVisibleText({
+      '萬語通': 'WanyuTong',
+      '繁中': 'ZH',
+      '官網': 'Home',
+      '部落格': 'Blog',
+      '常見問題': 'FAQ',
+      '收費方案': 'Pricing',
+      '使用條款': 'Terms',
+      '聯繫客服': 'Contact',
+      '免費體驗 LINE Bot': 'Try LINE Bot Free'
+    });
+  }
   document.getElementById('btn-zh').classList.toggle('active', lang==='zh');
   document.getElementById('btn-en').classList.toggle('active', lang==='en');
   document.documentElement.lang = lang==='zh'?'zh-TW':'en';

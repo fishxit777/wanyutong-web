@@ -871,12 +871,39 @@ var blogI18n = {
 
 function applyBlogLang(lang) {
   var t = blogI18n[lang];
+  function replaceVisibleText(map) {
+    var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null);
+    var nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(function(node) {
+      var text = node.nodeValue;
+      Object.keys(map).forEach(function(from) {
+        if (text.indexOf(from) !== -1) text = text.split(from).join(map[from]);
+      });
+      node.nodeValue = text;
+    });
+  }
   Object.keys(t).forEach(function(id) {
     var el = document.getElementById(id);
     if (!el) return;
     if (id === 'b-h1') el.innerHTML = t[id];
     else el.textContent = t[id];
   });
+  if (lang === 'en') {
+    replaceVisibleText({
+      '萬語通': 'WanyuTong',
+      '繁中': 'ZH',
+      '請明天加班': 'Please work overtime tomorrow',
+      '// 36種語言・即時翻譯・零誤差': '// 36 languages · instant translation · fewer misunderstandings',
+      '職業安全衛生法 §6': 'Occupational Safety and Health Act',
+      '告知義務 · 母語版本': 'Notice duty · native-language version',
+      '數位記錄 · 保護雇主': 'Digital records · employer protection',
+      '// 雇主必看 · 法律責任完整解析': '// Employer guide · legal risk overview',
+      '// 餐飲業雇主指南': '// Food service employer guide',
+      '// 家庭看護雇主指南': '// Home caregiver employer guide',
+      '即將推出': 'Coming Soon'
+    });
+  }
   document.getElementById('btn-zh').classList.toggle('active', lang==='zh');
   document.getElementById('btn-en').classList.toggle('active', lang==='en');
   document.documentElement.lang = lang==='zh'?'zh-TW':'en';

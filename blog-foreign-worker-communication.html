@@ -896,6 +896,18 @@ var a1I18n = {
 };
 function applyA1Lang(lang){
   var t=a1I18n[lang];
+  function replaceVisibleText(map) {
+    var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null);
+    var nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(function(node) {
+      var text = node.nodeValue;
+      Object.keys(map).forEach(function(from) {
+        if (text.indexOf(from) !== -1) text = text.split(from).join(map[from]);
+      });
+      node.nodeValue = text;
+    });
+  }
   Object.keys(t).forEach(function(id){var el=document.getElementById(id);if(el)el.textContent=t[id];});
   document.querySelectorAll('.a1-cta-label').forEach(function(el){ el.textContent = lang==='en' ? 'Try Free' : '免費體驗'; });
   var topBannerText=document.getElementById('a1-top-banner-text');
@@ -1228,6 +1240,16 @@ function applyA1Lang(lang){
       <a href="blog.html">← 回部落格，查看所有文章</a>
     </div>
   </div>`;
+  }
+  if(lang==='en'){
+    replaceVisibleText({
+      '萬語通': 'WanyuTong',
+      '繁中': 'ZH',
+      '請明天加班': 'Please work overtime tomorrow',
+      '⚠️ 看不懂？': '⚠️ Not clear?',
+      '✅ 已確認明白': '✅ Confirmed understood',
+      '// 36種語言 · 即時翻譯 · 工廠/看護/工地適用': '// 36 languages · instant translation · factory/caregiver/site use'
+    });
   }
   var btnZh=document.getElementById('btn-zh');
   var btnEn=document.getElementById('btn-en');

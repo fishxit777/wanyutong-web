@@ -2021,52 +2021,14 @@ function applyLang(lang) {
     var cards = document.querySelectorAll('#' + panelId + ' .price-card');
     cards.forEach(function(card, i) {
       var p = plans[i]; if (!p) return;
-      var isPersonal = panelId === 'tab-personal';
-      var amounts = isPersonal ? ['$0', 'NT$49', 'NT$199', 'NT$1,590'] : ['$0', 'NT$49', 'NT$199', 'NT$499'];
-      var btnTypes = isPersonal ? ['start', 'contact', 'contact', 'contact'] : ['join', 'contact', 'contact', 'contact'];
-      var hrefs = isPersonal
-        ? ['https://line.me/ti/p/@969wpxno', 'https://line.me/ti/p/~fishxit', 'https://line.me/ti/p/~fishxit', 'https://line.me/ti/p/~fishxit']
-        : ['https://line.me/ti/p/@969wpxno', 'https://line.me/ti/p/~fishxit', 'https://line.me/ti/p/~fishxit', 'https://line.me/ti/p/~fishxit'];
-      var featured = (isPersonal && i === 2) || (!isPersonal && i === 3);
-      card.classList.toggle('featured', featured);
-      card.textContent = '';
-      if (featured) {
-        var badge = document.createElement('div');
-        badge.className = 'price-badge';
-        badge.textContent = isPersonal ? t['price.badge.popular'] : t['price.badge.biz'];
-        card.appendChild(badge);
-      }
-      var planEl = document.createElement('div');
-      planEl.className = 'price-plan';
-      planEl.textContent = t[p.name];
-      card.appendChild(planEl);
-      var descEl = document.createElement('div');
-      descEl.className = 'price-desc';
-      descEl.textContent = t[p.desc];
-      card.appendChild(descEl);
-      var amountEl = document.createElement('div');
-      amountEl.className = 'price-amount';
-      amountEl.textContent = amounts[i];
-      card.appendChild(amountEl);
-      var periodEl = document.createElement('div');
-      periodEl.className = 'price-period';
-      periodEl.textContent = t[p.period];
-      card.appendChild(periodEl);
-      var ul = document.createElement('ul');
-      ul.className = 'price-features';
-      p.features.forEach(function(featureKey) {
-        if (!t[featureKey]) return;
-        var li = document.createElement('li');
-        li.textContent = t[featureKey];
-        ul.appendChild(li);
-      });
-      card.appendChild(ul);
-      var btn = document.createElement('a');
-      btn.className = 'btn-plan';
-      btn.dataset.btn = btnTypes[i];
-      btn.href = hrefs[i];
-      btn.textContent = t['price.' + btnTypes[i]];
-      card.appendChild(btn);
+      var planEl = card.querySelector('.price-plan');
+      var descEl = card.querySelector('.price-desc');
+      var periodEl = card.querySelector('.price-period');
+      var liEls = card.querySelectorAll('.price-features li');
+      if (planEl && t[p.name]) planEl.textContent = t[p.name];
+      if (descEl && t[p.desc]) descEl.textContent = t[p.desc];
+      if (periodEl && t[p.period]) periodEl.textContent = t[p.period];
+      liEls.forEach(function(li, j){ if (p.features[j] && t[p.features[j]]) li.textContent = t[p.features[j]]; });
     });
   }
   function applyPricingPlans() {

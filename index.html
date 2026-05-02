@@ -2344,54 +2344,173 @@ function applyLang(lang) {
 }
 
 function forcePricingLang(lang) {
-  var t = i18n[lang] || i18n.zh;
-  var personalPlans = [
-    { name:'pp1.name', desc:'pp1.desc', period:'pp1.period', features:['pp1.f1','pp1.f2','pp1.f3'] },
-    { name:'pp2.name', desc:'pp2.desc', period:'pp2.period', features:['pp2.f1','pp2.f2','pp2.f3','pp2.f4'] },
-    { name:'pp3.name', desc:'pp3.desc', period:'pp3.period', features:['pp3.f1','pp3.f2','pp3.f3','pp3.f4','pp3.f5'] },
-    { name:'pp4.name', desc:'pp4.desc', period:'pp4.period', features:['pp4.f1','pp4.f2','pp4.f3','pp4.f4','pp4.f5','pp4.f6'] },
-  ];
-  var groupPlans = [
-    { name:'pg1.name', desc:'pg1.desc', period:'pg1.period', features:['pg1.f1','pg1.f2','pg1.f3','pg1.f4'] },
-    { name:'pg2.name', desc:'pg2.desc', period:'pg2.period', features:['pg2.f1','pg2.f2','pg2.f3'] },
-    { name:'pg3.name', desc:'pg3.desc', period:'pg3.period', features:['pg3.f1','pg3.f2','pg3.f3','pg3.f4','pg3.f5'] },
-    { name:'pg4.name', desc:'pg4.desc', period:'pg4.period', features:['pg4.f1','pg4.f2','pg4.f3','pg4.f4'] },
-  ];
+  var copy = {
+    zh: {
+      eyebrow: '// Pricing',
+      title: '選擇適合你的方案',
+      lead: '個人使用或企業群組，都有對應方案。',
+      tabs: ['個人版', '群組版'],
+      refund: '退費政策：本服務為數位內容，付款後原則上不退費。僅限付款後 24 小時內、Bot 完全無法回應且非使用者網路、LINE 或操作問題時，可聯繫客服 fishxit 申請審核；付款帳號僅由官方客服提供，請勿相信其他管道。',
+      badges: { personal: '最受歡迎', group: '推薦企業' },
+      buttons: { start: '免費開始', join: '免費加入', contact: '聯繫開通' },
+      personal: [
+        { name:'免費版', desc:'// 立即可用', amount:'$0', period:'每日 15 次免費', features:['每日 15 次免費翻譯','36 種語言支援','語言隨時切換'] },
+        { name:'7日體驗', desc:'// 低門檻體驗', amount:'NT$49', period:'7 天', features:['無限次翻譯','36 種語言支援','圖片 OCR 翻譯','語音訊息翻譯'] },
+        { name:'月付方案', desc:'// 個人無限翻譯', amount:'NT$199', period:'每月', features:['無限次翻譯','36 種語言支援','圖片 OCR 翻譯','語音訊息翻譯','優先客服支援'] },
+        { name:'年付方案', desc:'// 年繳最省', amount:'NT$1,590', period:'每年（約 NT$133／月）', features:['無限次翻譯','36 種語言支援','圖片 OCR 翻譯','語音訊息翻譯','優先客服支援','比月付一年省 NT$798'] }
+      ],
+      group: [
+        { name:'免費試用', desc:'// 加入即用', amount:'$0', period:'每日 15 次免費', features:['每日 15 次自動翻譯','36 種語言支援','雙向自動偵測語言','加入即用，無需開通'] },
+        { name:'7日體驗', desc:'// 低門檻試用', amount:'NT$49', period:'7 天／每群組', features:['群組雙向翻譯（無限次）','36 種語言支援','自訂語言對'] },
+        { name:'體驗版', desc:'// 文字溝通，零障礙', amount:'NT$199', period:'每月／每群組', features:['群組雙向翻譯（無限次）','語音訊息翻譯','自訂語言對（如中文↔印尼文）','翻譯歷史記錄','忽略詞設定'] },
+        { name:'商務版', desc:'// 文件、圖片、語音，全面覆蓋', amount:'NT$499', period:'每月／每群組', features:['體驗版所有功能','📷 圖片 OCR 翻譯','工廠貼紙、文件截圖、證件直接翻','優先客服'] }
+      ]
+    },
+    en: {
+      eyebrow: '// Pricing',
+      title: 'Choose the Right Plan',
+      lead: 'Plans for individual users and enterprise groups.',
+      tabs: ['Personal', 'Group'],
+      refund: 'Refund Policy: This is a digital service. Payments are generally non-refundable. If the Bot is completely unresponsive within 24 hours of payment, contact support LINE: fishxit with payment time and screenshots for review.',
+      badges: { personal: 'Most Popular', group: 'Enterprise Pick' },
+      buttons: { start: 'Start Free', join: 'Join Free', contact: 'Contact to Activate' },
+      personal: [
+        { name:'Free', desc:'// Start Now', amount:'$0', period:'15 free/day', features:['15 free translations/day','36 languages','Switch language anytime'] },
+        { name:'7-Day Trial', desc:'// Low-risk Trial', amount:'NT$49', period:'7 days', features:['Unlimited translations','36 languages','Image OCR','Voice translation'] },
+        { name:'Monthly', desc:'// Unlimited Personal', amount:'NT$199', period:'per month', features:['Unlimited translations','36 languages','Image OCR','Voice translation','Priority support'] },
+        { name:'Annual', desc:'// Best annual value', amount:'NT$1,590', period:'per year (≈NT$133/mo)', features:['Unlimited translations','36 languages','Image OCR','Voice translation','Priority support','Save NT$798 vs monthly for a year'] }
+      ],
+      group: [
+        { name:'Free Trial', desc:'// Add & Go', amount:'$0', period:'15 free/day', features:['15 auto-translations/day','36 languages','Auto language detection','No setup needed'] },
+        { name:'7-Day Trial', desc:'// Low-risk Trial', amount:'NT$49', period:'7 days / group', features:['Unlimited group translation','36 languages','Custom language pair'] },
+        { name:'Basic', desc:'// Zero language barriers', amount:'NT$199', period:'per month / group', features:['Unlimited group translation','Voice translation','Custom pair (e.g. ZH↔ID)','Translation history','Ignore word list'] },
+        { name:'Business', desc:'// Full OCR, voice, and image coverage', amount:'NT$499', period:'per month / group', features:['Everything in Basic','📷 Image OCR','Translate stickers, screenshots, and documents','Priority support'] }
+      ]
+    }
+  };
+  var t = copy[lang] || copy.zh;
   function text(sel, value) {
     var el = document.querySelector(sel);
     if (el && value) el.textContent = value;
   }
-  function applyCards(panelId, plans) {
+  function ensure(card, className, beforeSelector) {
+    var el = card.querySelector('.' + className);
+    if (!el) {
+      el = document.createElement('div');
+      el.className = className;
+      var before = beforeSelector ? card.querySelector(beforeSelector) : null;
+      if (before) card.insertBefore(el, before);
+      else card.appendChild(el);
+    }
+    return el;
+  }
+  function applyCards(panelId, plans, badgeText) {
     document.querySelectorAll('#' + panelId + ' .price-card').forEach(function(card, i) {
       var plan = plans[i];
       if (!plan) return;
-      var planEl = card.querySelector('.price-plan');
-      var descEl = card.querySelector('.price-desc');
-      var periodEl = card.querySelector('.price-period');
-      if (planEl) planEl.textContent = t[plan.name];
-      if (descEl) descEl.textContent = t[plan.desc];
-      if (periodEl) periodEl.textContent = t[plan.period];
+      var amountEl = ensure(card, 'price-amount', '.btn-plan');
+      var planEl = ensure(card, 'price-plan', '.price-amount');
+      var descEl = ensure(card, 'price-desc', '.price-amount');
+      var periodEl = ensure(card, 'price-period', '.price-features, .btn-plan');
+      planEl.textContent = plan.name;
+      descEl.textContent = plan.desc;
+      amountEl.textContent = plan.amount;
+      periodEl.textContent = plan.period;
+      var ul = card.querySelector('.price-features');
+      if (!ul) {
+        ul = document.createElement('ul');
+        ul.className = 'price-features';
+        var btnBefore = card.querySelector('.btn-plan');
+        if (btnBefore) card.insertBefore(ul, btnBefore);
+        else card.appendChild(ul);
+      }
+      while (ul.children.length < plan.features.length) ul.appendChild(document.createElement('li'));
+      while (ul.children.length > plan.features.length) ul.removeChild(ul.lastElementChild);
       card.querySelectorAll('.price-features li').forEach(function(li, j) {
-        var key = plan.features[j];
-        if (key && t[key]) li.textContent = t[key];
+        li.textContent = plan.features[j] || '';
       });
       var badge = card.querySelector('.price-badge');
-      if (badge) {
-        badge.textContent = panelId === 'tab-personal' ? t['price.badge.popular'] : t['price.badge.biz'];
-      }
+      if (badge) badge.textContent = badgeText;
       var btn = card.querySelector('.btn-plan[data-btn]');
-      if (btn) btn.textContent = t['price.' + btn.dataset.btn];
+      if (btn) btn.textContent = t.buttons[btn.dataset.btn] || btn.textContent;
     });
   }
-  text('#pricing .eyebrow', t['price.eyebrow']);
-  text('#pricing h2', t['price.h2']);
-  text('#pricing .lead', t['price.lead']);
+  text('#pricing .eyebrow', t.eyebrow);
+  text('#pricing h2', t.title);
+  text('#pricing .lead', t.lead);
   var tabs = document.querySelectorAll('.pricing-tab');
-  if (tabs[0]) tabs[0].textContent = t['price.tab.personal'];
-  if (tabs[1]) tabs[1].textContent = t['price.tab.group'];
-  text('.refund-note', t['price.refund']);
-  applyCards('tab-personal', personalPlans);
-  applyCards('tab-group', groupPlans);
+  if (tabs[0]) tabs[0].textContent = t.tabs[0];
+  if (tabs[1]) tabs[1].textContent = t.tabs[1];
+  text('.refund-note', t.refund);
+  applyCards('tab-personal', t.personal, t.badges.personal);
+  applyCards('tab-group', t.group, t.badges.group);
+}
+
+function forceCompareLang(lang) {
+  var copy = {
+    zh: {
+      compare: [
+        ['翻譯準確度','● 業界最高','普通'],
+        ['自然語感','● 接近母語者','略顯生硬'],
+        ['專業術語處理','● 優秀','✕ 容易出錯'],
+        ['圖片 OCR 翻譯','● 支援','✕ 需切換 App'],
+        ['語音訊息翻譯','● 支援','✕ 不支援'],
+        ['LINE 群組翻譯','● 原生支援','✕ 不支援'],
+        ['使用方式','● 直接在 LINE','✕ 需開另一 App']
+      ],
+      vs: [
+        ['月費','● NT$199起','美金（較貴）','NT$99起','按字元計費'],
+        ['免費額度','● 每日15次','每日20次','流量制','5,000字元永久'],
+        ['翻譯引擎','● DeepL（高品質）','AI語意','AI','未知'],
+        ['圖片 OCR 翻譯','● ✓（商務版）','✕','● ✓','✕'],
+        ['語音翻譯','● ✓ 所有付費版','● ✓','● ✓','✕'],
+        ['多語同翻','● ✓ 最多8種','最多5種','✕','● ✓'],
+        ['翻譯確認系統','● ✓（獨有）','✕','✕','✕'],
+        ['行業詞庫','● ✓（獨有）','✕','✕','✕'],
+        ['勿擾模式','● ✓（獨有）','✕','✕','✕'],
+        ['台灣在地計價','✕ USD Only','✕ 美金','● NT$','按量計費']
+      ]
+    },
+    en: {
+      compare: [
+        ['Translation Accuracy','● High Quality','Average'],
+        ['Natural Tone','● Near Native','Slightly Stiff'],
+        ['Terminology Handling','● Excellent','✕ Prone to Errors'],
+        ['Image OCR','● Supported','✕ Requires App Switch'],
+        ['Voice Messages','● Supported','✕ Not Supported'],
+        ['LINE Group Translation','● Native Support','✕ Not Supported'],
+        ['Workflow','● Directly in LINE','✕ Requires Another App']
+      ],
+      vs: [
+        ['Monthly Fee','● From NT$199','USD (More Expensive)','From NT$99','Per Character'],
+        ['Free Quota','● 15/day Free','20/day Free','Data-based','5,000 chars forever'],
+        ['Translation Engine','● DeepL (High Quality)','AI Semantic','AI','Unknown'],
+        ['Image OCR','● ✓ (Business)','✕','● ✓','✕'],
+        ['Voice Translation','● ✓ All Paid Plans','● ✓','● ✓','✕'],
+        ['Multi-language','● ✓ Up to 8 langs','Up to 5 langs','✕','● ✓'],
+        ['Confirmation System','● ✓ (Exclusive)','✕','✕','✕'],
+        ['Industry Glossary','● ✓ (Exclusive)','✕','✕','✕'],
+        ['Do Not Disturb','● ✓ (Exclusive)','✕','✕','✕'],
+        ['Taiwan Local Pricing','✕ USD Only','✕ USD','● NT$','Usage-based']
+      ]
+    }
+  };
+  var t = copy[lang] || copy.zh;
+  document.querySelectorAll('#compare tbody tr').forEach(function(row, i) {
+    var data = t.compare[i];
+    if (!data) return;
+    var cells = row.querySelectorAll('td');
+    if (cells[0]) cells[0].textContent = data[0];
+    if (cells[1]) cells[1].textContent = data[1];
+    if (cells[2]) cells[2].textContent = data[2];
+  });
+  document.querySelectorAll('#vs-competitors tbody tr').forEach(function(row, i) {
+    var data = t.vs[i];
+    if (!data) return;
+    row.querySelectorAll('td').forEach(function(cell, j) {
+      if (data[j]) cell.textContent = data[j];
+    });
+  });
 }
 
 function setLang(lang) {
@@ -2400,6 +2519,7 @@ function setLang(lang) {
     applyLang(lang);
   } finally {
     forcePricingLang(lang);
+    forceCompareLang(lang);
   }
 }
 
@@ -2408,7 +2528,10 @@ function setLang(lang) {
   try {
     var saved = localStorage.getItem('wyt-lang') || 'zh';
     if (saved === 'en') setLang('en');
-    else forcePricingLang('zh');
+    else {
+      forcePricingLang('zh');
+      forceCompareLang('zh');
+    }
   } catch(e) {}
 })();
 </script>

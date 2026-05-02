@@ -64,6 +64,11 @@ h1 { font-size:clamp(2.3rem,7vw,5.6rem); line-height:1.08; margin:.3rem 0 1.4rem
 .hero-card { min-height:210px; border:1px solid var(--border); border-radius:12px; background:linear-gradient(135deg, color-mix(in srgb, var(--accent) 15%, transparent), var(--panel2)); display:grid; place-items:center; margin:2rem 0 3.5rem; text-align:center; }
 .hero-card .mark { font-size:3.2rem; font-weight:900; }
 .hero-card .sub { font-family:'DM Mono',monospace; color:var(--muted); margin-top:.8rem; }
+
+.article-photo { margin:2rem 0 3.5rem; border:1px solid var(--border); border-radius:16px; overflow:hidden; background:var(--panel2); box-shadow:0 24px 70px rgba(0,0,0,.22); }
+.article-photo img { width:100%; aspect-ratio:16/9; object-fit:cover; display:block; background:var(--panel); }
+.article-photo figcaption { padding:.85rem 1rem; color:var(--muted); font-size:.92rem; line-height:1.65; border-top:1px solid var(--border); }
+body.light .article-photo { box-shadow:0 18px 48px rgba(15,23,42,.12); }
 .content-block { border-top:1px solid var(--border); padding:2rem 0; }
 .content-block h2 { font-size:1.65rem; margin:0 0 .8rem; }
 .content-block p { color:var(--muted); line-height:2; font-size:1.04rem; margin:0; }
@@ -95,6 +100,9 @@ footer { border-top:1px solid var(--border); padding:2rem 5vw; display:flex; jus
   .meta { gap:.8rem; font-size:.9rem; }
   .article-nav-inner { grid-template-columns:1fr; }
   .article-nav-card.next { text-align:left; }
+  .article-photo { margin:1.4rem 0 2.4rem; border-radius:12px; }
+  .article-photo img { aspect-ratio:4/3; }
+  .article-photo figcaption { font-size:.88rem; padding:.75rem .85rem; }
   footer { flex-direction:column; padding:1.7rem 1rem; }
 }
 </style>
@@ -127,7 +135,10 @@ footer { border-top:1px solid var(--border); padding:2rem 5vw; display:flex; jus
     <h1>工廠外籍員工 LINE 翻譯怎麼用？</h1>
     <p class="lead">工廠管理最常見的問題是交班、機台、包裝、品質檢查與安全提醒沒有說清楚。</p>
     <div class="meta"><span>適用對象：製造業、加工廠、倉儲、包裝線主管</span><span>閱讀時間：約 5 分鐘</span><span>工具：LINE Bot 萬語通</span></div>
-    <div class="hero-card"><div><div class="mark">萬語通</div><div class="sub">// WanyuTong Guide</div></div></div>
+    <figure class="article-photo hero-photo">
+      <img src="assets/blog/factory-line-translation.jpg" alt="工廠作業現場，適合說明外籍員工與主管的生產交辦翻譯" loading="eager" decoding="async">
+      <figcaption>工廠交辦常包含安全、品質、包裝與異常回報，翻譯錯一次就可能影響出貨。</figcaption>
+    </figure>
 
       <section class="content-block">
         <h2>工廠溝通要快，也要準</h2>
@@ -168,7 +179,10 @@ footer { border-top:1px solid var(--border); padding:2rem 5vw; display:flex; jus
     <h1>How Factories Can Use LINE Translation for Foreign Workers</h1>
     <p class="lead">Factories often struggle with shift handovers, machine instructions, packing rules, quality checks, and safety reminders.</p>
     <div class="meta"><span>For: Manufacturing, warehouse, processing, and packing line supervisors</span><span>Reading time: ~5 min</span><span>Tool: WanyuTong LINE Bot</span></div>
-    <div class="hero-card"><div><div class="mark">WanyuTong</div><div class="sub">// Employer Guide</div></div></div>
+    <figure class="article-photo hero-photo">
+      <img src="assets/blog/factory-line-translation.jpg" alt="Factory work floor for explaining production instructions and supervisor translation." loading="lazy" decoding="async">
+      <figcaption>Factory instructions often involve safety, quality, packing, and abnormal reports. One misunderstanding can affect shipment.</figcaption>
+    </figure>
 
       <section class="content-block">
         <h2>Factory communication must be fast and accurate</h2>

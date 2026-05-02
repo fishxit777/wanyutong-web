@@ -64,6 +64,11 @@ h1 { font-size:clamp(2.3rem,7vw,5.6rem); line-height:1.08; margin:.3rem 0 1.4rem
 .hero-card { min-height:210px; border:1px solid var(--border); border-radius:12px; background:linear-gradient(135deg, color-mix(in srgb, var(--accent) 15%, transparent), var(--panel2)); display:grid; place-items:center; margin:2rem 0 3.5rem; text-align:center; }
 .hero-card .mark { font-size:3.2rem; font-weight:900; }
 .hero-card .sub { font-family:'DM Mono',monospace; color:var(--muted); margin-top:.8rem; }
+
+.article-photo { margin:2rem 0 3.5rem; border:1px solid var(--border); border-radius:16px; overflow:hidden; background:var(--panel2); box-shadow:0 24px 70px rgba(0,0,0,.22); }
+.article-photo img { width:100%; aspect-ratio:16/9; object-fit:cover; display:block; background:var(--panel); }
+.article-photo figcaption { padding:.85rem 1rem; color:var(--muted); font-size:.92rem; line-height:1.65; border-top:1px solid var(--border); }
+body.light .article-photo { box-shadow:0 18px 48px rgba(15,23,42,.12); }
 .content-block { border-top:1px solid var(--border); padding:2rem 0; }
 .content-block h2 { font-size:1.65rem; margin:0 0 .8rem; }
 .content-block p { color:var(--muted); line-height:2; font-size:1.04rem; margin:0; }
@@ -95,6 +100,9 @@ footer { border-top:1px solid var(--border); padding:2rem 5vw; display:flex; jus
   .meta { gap:.8rem; font-size:.9rem; }
   .article-nav-inner { grid-template-columns:1fr; }
   .article-nav-card.next { text-align:left; }
+  .article-photo { margin:1.4rem 0 2.4rem; border-radius:12px; }
+  .article-photo img { aspect-ratio:4/3; }
+  .article-photo figcaption { font-size:.88rem; padding:.75rem .85rem; }
   footer { flex-direction:column; padding:1.7rem 1rem; }
 }
 </style>
@@ -127,7 +135,10 @@ footer { border-top:1px solid var(--border); padding:2rem 5vw; display:flex; jus
     <h1>餐飲業雇主怎麼跟外籍員工溝通？</h1>
     <p class="lead">餐飲現場節奏快、指令多，外籍員工若聽錯桌號、餐點、備料或衛生規定，很容易造成客訴與管理壓力。</p>
     <div class="meta"><span>適用對象：餐廳、便當店、飲料店、小吃店雇主</span><span>閱讀時間：約 5 分鐘</span><span>工具：LINE Bot 萬語通</span></div>
-    <div class="hero-card"><div><div class="mark">萬語通</div><div class="sub">// WanyuTong Guide</div></div></div>
+    <figure class="article-photo hero-photo">
+      <img src="assets/blog/restaurant-foreign-worker.jpg" alt="餐飲廚房工作現場，適合說明餐廳外籍員工溝通與交辦情境" loading="eager" decoding="async">
+      <figcaption>餐飲現場節奏快，菜單、桌號、備料與清潔交辦都需要清楚傳達。</figcaption>
+    </figure>
 
       <section class="content-block">
         <h2>餐飲業最怕的是即時錯誤</h2>
@@ -168,7 +179,10 @@ footer { border-top:1px solid var(--border); padding:2rem 5vw; display:flex; jus
     <h1>How Restaurant Employers Can Communicate with Foreign Workers</h1>
     <p class="lead">Restaurant teams move fast. When table numbers, menu items, prep tasks, or hygiene rules are misunderstood, service quality and management pressure suffer.</p>
     <div class="meta"><span>For: Restaurant, beverage shop, and food service employers</span><span>Reading time: ~5 min</span><span>Tool: WanyuTong LINE Bot</span></div>
-    <div class="hero-card"><div><div class="mark">WanyuTong</div><div class="sub">// Employer Guide</div></div></div>
+    <figure class="article-photo hero-photo">
+      <img src="assets/blog/restaurant-foreign-worker.jpg" alt="Restaurant kitchen team at work, illustrating restaurant foreign worker communication." loading="lazy" decoding="async">
+      <figcaption>Restaurant teams move fast. Menus, table numbers, prep tasks, and cleaning notes need clear translation.</figcaption>
+    </figure>
 
       <section class="content-block">
         <h2>Food service mistakes happen in real time</h2>

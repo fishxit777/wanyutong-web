@@ -64,6 +64,11 @@ h1 { font-size:clamp(2.3rem,7vw,5.6rem); line-height:1.08; margin:.3rem 0 1.4rem
 .hero-card { min-height:210px; border:1px solid var(--border); border-radius:12px; background:linear-gradient(135deg, color-mix(in srgb, var(--accent) 15%, transparent), var(--panel2)); display:grid; place-items:center; margin:2rem 0 3.5rem; text-align:center; }
 .hero-card .mark { font-size:3.2rem; font-weight:900; }
 .hero-card .sub { font-family:'DM Mono',monospace; color:var(--muted); margin-top:.8rem; }
+
+.article-photo { margin:2rem 0 3.5rem; border:1px solid var(--border); border-radius:16px; overflow:hidden; background:var(--panel2); box-shadow:0 24px 70px rgba(0,0,0,.22); }
+.article-photo img { width:100%; aspect-ratio:16/9; object-fit:cover; display:block; background:var(--panel); }
+.article-photo figcaption { padding:.85rem 1rem; color:var(--muted); font-size:.92rem; line-height:1.65; border-top:1px solid var(--border); }
+body.light .article-photo { box-shadow:0 18px 48px rgba(15,23,42,.12); }
 .content-block { border-top:1px solid var(--border); padding:2rem 0; }
 .content-block h2 { font-size:1.65rem; margin:0 0 .8rem; }
 .content-block p { color:var(--muted); line-height:2; font-size:1.04rem; margin:0; }
@@ -95,6 +100,9 @@ footer { border-top:1px solid var(--border); padding:2rem 5vw; display:flex; jus
   .meta { gap:.8rem; font-size:.9rem; }
   .article-nav-inner { grid-template-columns:1fr; }
   .article-nav-card.next { text-align:left; }
+  .article-photo { margin:1.4rem 0 2.4rem; border-radius:12px; }
+  .article-photo img { aspect-ratio:4/3; }
+  .article-photo figcaption { font-size:.88rem; padding:.75rem .85rem; }
   footer { flex-direction:column; padding:1.7rem 1rem; }
 }
 </style>
@@ -127,7 +135,10 @@ footer { border-top:1px solid var(--border); padding:2rem 5vw; display:flex; jus
     <h1>看護與家庭照顧怎麼用 LINE 翻譯降低誤會？</h1>
     <p class="lead">家庭看護的溝通不只關係工作效率，也關係長輩安全、用藥時間、飲食禁忌與情緒照顧。</p>
     <div class="meta"><span>適用對象：家庭雇主、看護雇主、長照家庭</span><span>閱讀時間：約 5 分鐘</span><span>工具：LINE Bot 萬語通</span></div>
-    <div class="hero-card"><div><div class="mark">萬語通</div><div class="sub">// WanyuTong Guide</div></div></div>
+    <figure class="article-photo hero-photo">
+      <img src="assets/blog/caregiver-line-translation.jpg" alt="照顧服務與家庭照護情境，適合說明看護與家屬 LINE 溝通" loading="eager" decoding="async">
+      <figcaption>照護溝通牽涉用藥、飲食、作息與安全，留下清楚紀錄比只靠口頭更穩。</figcaption>
+    </figure>
 
       <section class="content-block">
         <h2>家庭照顧最怕小事沒說清楚</h2>
@@ -168,7 +179,10 @@ footer { border-top:1px solid var(--border); padding:2rem 5vw; display:flex; jus
     <h1>How Families Can Use LINE Translation with Caregivers</h1>
     <p class="lead">Caregiver communication affects elder safety, medication timing, dietary restrictions, and emotional care.</p>
     <div class="meta"><span>For: Families hiring caregivers and long-term care households</span><span>Reading time: ~5 min</span><span>Tool: WanyuTong LINE Bot</span></div>
-    <div class="hero-card"><div><div class="mark">WanyuTong</div><div class="sub">// Employer Guide</div></div></div>
+    <figure class="article-photo hero-photo">
+      <img src="assets/blog/caregiver-line-translation.jpg" alt="Caregiving scene for explaining LINE communication between families and caregivers." loading="lazy" decoding="async">
+      <figcaption>Care communication involves medication, diet, routines, and safety, so written LINE records help families stay aligned.</figcaption>
+    </figure>
 
       <section class="content-block">
         <h2>Small misunderstandings can become care risks</h2>

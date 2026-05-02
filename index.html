@@ -1062,6 +1062,22 @@ footer a:hover { color:var(--text); }
         <p id="ref-card-3-desc" style="color:var(--muted);font-size:0.9rem;line-height:1.8;">付款成功後，推薦人與新朋友都會獲得翻譯天數；傳 <strong>@推薦狀態</strong> 查綁定與發獎，傳 <strong>@到期</strong> 查新的到期日。</p>
       </div>
     </div>
+    <div id="ref-reward-table" style="margin-top:1.2rem;overflow:auto;border:1px solid var(--border);border-radius:14px;background:rgba(255,255,255,0.58);">
+      <table style="width:100%;border-collapse:collapse;font-size:0.88rem;color:var(--text);">
+        <thead>
+          <tr style="background:rgba(21,128,61,0.08);">
+            <th style="text-align:left;padding:0.85rem 1rem;">新朋友首次付款方案</th>
+            <th style="text-align:left;padding:0.85rem 1rem;">推薦人加贈</th>
+            <th style="text-align:left;padding:0.85rem 1rem;">新朋友加贈</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td style="padding:0.78rem 1rem;border-top:1px solid var(--border);">7 日體驗 NT$49</td><td style="padding:0.78rem 1rem;border-top:1px solid var(--border);">3 天</td><td style="padding:0.78rem 1rem;border-top:1px solid var(--border);">3 天</td></tr>
+          <tr><td style="padding:0.78rem 1rem;border-top:1px solid var(--border);">月付 NT$199</td><td style="padding:0.78rem 1rem;border-top:1px solid var(--border);">14 天</td><td style="padding:0.78rem 1rem;border-top:1px solid var(--border);">7 天</td></tr>
+          <tr><td style="padding:0.78rem 1rem;border-top:1px solid var(--border);">年付 NT$1,590</td><td style="padding:0.78rem 1rem;border-top:1px solid var(--border);">90 天</td><td style="padding:0.78rem 1rem;border-top:1px solid var(--border);">30 天</td></tr>
+        </tbody>
+      </table>
+    </div>
     <p id="ref-note" style="color:var(--muted);font-size:0.82rem;line-height:1.8;margin-top:1rem;">規則備註：推薦優惠採單層制，僅限個人推薦新個人用戶；不可自己推薦自己，不可重複綁定，必須在新朋友首次付款前使用。群組版方案不參與推薦碼活動。優惠規則以 LINE Bot 與後台紀錄為準。</p>
   </div>
 </section>
@@ -1642,6 +1658,18 @@ var i18n = {
     'ref.card2.desc':  '新朋友加入萬語通後，第一次付款前在個人聊天傳送 @使用推薦碼 推薦碼。',
     'ref.card3.title': '付款後自動加天數',
     'ref.card3.desc':  '付款成功後，推薦人與新朋友都會獲得翻譯天數；傳 @推薦狀態 查綁定與發獎，傳 @到期 查新的到期日。',
+    'ref.table.plan':  '新朋友首次付款方案',
+    'ref.table.referrer': '推薦人加贈',
+    'ref.table.friend': '新朋友加贈',
+    'ref.table.trial': '7 日體驗 NT$49',
+    'ref.table.trial.referrer': '3 天',
+    'ref.table.trial.friend': '3 天',
+    'ref.table.monthly': '月付 NT$199',
+    'ref.table.monthly.referrer': '14 天',
+    'ref.table.monthly.friend': '7 天',
+    'ref.table.yearly': '年付 NT$1,590',
+    'ref.table.yearly.referrer': '90 天',
+    'ref.table.yearly.friend': '30 天',
     'ref.note':        '規則備註：推薦優惠採單層制，僅限個人推薦新個人用戶；不可自己推薦自己，不可重複綁定，必須在新朋友首次付款前使用。群組版方案不參與推薦碼活動。優惠規則以 LINE Bot 與後台紀錄為準。',
     // PRICING
     'price.eyebrow':   '// Pricing',
@@ -1844,6 +1872,18 @@ var i18n = {
     'ref.card2.desc':  'Before the first payment, the new friend sends @使用推薦碼 referral-code in a personal chat.',
     'ref.card3.title': 'Bonus Days Are Added',
     'ref.card3.desc':  'After successful payment, both sides receive bonus days. Send @推薦狀態 to check reward status and @到期 to check the new expiration date.',
+    'ref.table.plan':  'New Friend First Payment',
+    'ref.table.referrer': 'Referrer Bonus',
+    'ref.table.friend': 'New Friend Bonus',
+    'ref.table.trial': '7-Day Trial NT$49',
+    'ref.table.trial.referrer': '3 days',
+    'ref.table.trial.friend': '3 days',
+    'ref.table.monthly': 'Monthly NT$199',
+    'ref.table.monthly.referrer': '14 days',
+    'ref.table.monthly.friend': '7 days',
+    'ref.table.yearly': 'Annual NT$1,590',
+    'ref.table.yearly.referrer': '90 days',
+    'ref.table.yearly.friend': '30 days',
     'ref.note':        'Rule note: single-level referral only, personal account to new personal account. Self-referral and duplicate binding are not allowed, and the code must be used before the new friend’s first payment. Group plans are not part of the referral-code program. LINE Bot and backend records are the final basis.',
     // PRICING
     'price.eyebrow':   '// Pricing',
@@ -2058,6 +2098,14 @@ function applyLang(lang) {
   q('#ref-card-3-title', 'ref.card3.title');
   q('#ref-card-3-desc', 'ref.card3.desc');
   q('#ref-note', 'ref.note');
+  var refTableCells = document.querySelectorAll('#ref-reward-table th, #ref-reward-table td');
+  var refTableKeys = [
+    'ref.table.plan','ref.table.referrer','ref.table.friend',
+    'ref.table.trial','ref.table.trial.referrer','ref.table.trial.friend',
+    'ref.table.monthly','ref.table.monthly.referrer','ref.table.monthly.friend',
+    'ref.table.yearly','ref.table.yearly.referrer','ref.table.yearly.friend'
+  ];
+  refTableCells.forEach(function(el,i){ if(t[refTableKeys[i]]) el.textContent = t[refTableKeys[i]]; });
 
   // PRICING
   q('#pricing .eyebrow', 'price.eyebrow');

@@ -2005,6 +2005,36 @@ function applyLang(lang) {
   function s(id, key) { var el = document.getElementById(id); if (el && t[key]) el.textContent = t[key]; }
   function q(sel, key) { var el = document.querySelector(sel); if (el && t[key]) el.textContent = t[key]; }
   function qa(sel, key) { document.querySelectorAll(sel).forEach(function(el){ if(t[key]) el.textContent = t[key]; }); }
+  var personalPlans = [
+    { name:'pp1.name', desc:'pp1.desc', period:'pp1.period', features:['pp1.f1','pp1.f2','pp1.f3'] },
+    { name:'pp2.name', desc:'pp2.desc', period:'pp2.period', features:['pp2.f1','pp2.f2','pp2.f3','pp2.f4'] },
+    { name:'pp3.name', desc:'pp3.desc', period:'pp3.period', features:['pp3.f1','pp3.f2','pp3.f3','pp3.f4','pp3.f5'] },
+    { name:'pp4.name', desc:'pp4.desc', period:'pp4.period', features:['pp4.f1','pp4.f2','pp4.f3','pp4.f4','pp4.f5','pp4.f6'] },
+  ];
+  var groupPlans = [
+    { name:'pg1.name', desc:'pg1.desc', period:'pg1.period', features:['pg1.f1','pg1.f2','pg1.f3','pg1.f4'] },
+    { name:'pg2.name', desc:'pg2.desc', period:'pg2.period', features:['pg2.f1','pg2.f2','pg2.f3'] },
+    { name:'pg3.name', desc:'pg3.desc', period:'pg3.period', features:['pg3.f1','pg3.f2','pg3.f3','pg3.f4','pg3.f5'] },
+    { name:'pg4.name', desc:'pg4.desc', period:'pg4.period', features:['pg4.f1','pg4.f2','pg4.f3','pg4.f4'] },
+  ];
+  function applyPlans(panelId, plans) {
+    var cards = document.querySelectorAll('#' + panelId + ' .price-card');
+    cards.forEach(function(card, i) {
+      var p = plans[i]; if (!p) return;
+      var planEl = card.querySelector('.price-plan');
+      var descEl = card.querySelector('.price-desc');
+      var periodEl = card.querySelector('.price-period');
+      var liEls = card.querySelectorAll('.price-features li');
+      if (planEl && t[p.name]) planEl.textContent = t[p.name];
+      if (descEl && t[p.desc]) descEl.textContent = t[p.desc];
+      if (periodEl && t[p.period]) periodEl.textContent = t[p.period];
+      liEls.forEach(function(li, j){ if (p.features[j] && t[p.features[j]]) li.textContent = t[p.features[j]]; });
+    });
+  }
+  function applyPricingPlans() {
+    applyPlans('tab-personal', personalPlans);
+    applyPlans('tab-group', groupPlans);
+  }
   function replaceVisibleText(map) {
     var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null);
     var nodes = [];
@@ -2125,6 +2155,7 @@ function applyLang(lang) {
     else if (btn === 'contact') el.textContent = t['price.contact'];
   });
   q('.refund-note', 'price.refund');
+  applyPricingPlans();
 
   // HOWTO
   q('#howto .eyebrow', 'howto.eyebrow');
@@ -2194,7 +2225,29 @@ function applyLang(lang) {
   // 更新 html lang 屬性
   document.documentElement.lang = lang === 'zh' ? 'zh-TW' : 'en';
 
-  if (lang === 'en') {
+  if (lang === 'zh') {
+    replaceVisibleText({
+      'WanyuTong': '萬語通',
+      'ZH → Indonesian · DeepL ✓': '繁中 → 印尼文 · DeepL ✓',
+      'English → ZH · DeepL ✓': '英文 → 繁中 · DeepL ✓',
+      'Today': '今天',
+      'I need this medicine,': '我需要這個藥，',
+      'is it in stock?': '請問有貨嗎？',
+      'Could you send': '請問可以把發票',
+      'the invoice to me?': '寄給我嗎？',
+      'Message...': '傳送訊息…',
+      'ZH': '繁中',
+      'Indonesian': '印尼文',
+      'English': '英文',
+      ' (DeepL)': '（DeepL）',
+      'Google Translate': 'Google 翻譯',
+      'Thank you for your reply. I look forward to working together.': '感謝您撥冗回覆，期待後續合作愉快。',
+      'Unknown': '未知',
+      'For groups: Add the Bot to your group, then send': '群組版：將 Bot 加入群組後傳',
+      '@group help': '@群組說明',
+      'to see the full command list.': '查看完整指令。'
+    });
+  } else if (lang === 'en') {
     replaceVisibleText({
       '萬語通': 'WanyuTong',
       '繁中': 'ZH',
@@ -2274,39 +2327,20 @@ function applyLang(lang) {
     });
   }
 
-  // PRICING PLANS
-  var personalPlans = [
-    { name:'pp1.name', desc:'pp1.desc', period:'pp1.period', features:['pp1.f1','pp1.f2','pp1.f3'] },
-    { name:'pp2.name', desc:'pp2.desc', period:'pp2.period', features:['pp2.f1','pp2.f2','pp2.f3','pp2.f4'] },
-    { name:'pp3.name', desc:'pp3.desc', period:'pp3.period', features:['pp3.f1','pp3.f2','pp3.f3','pp3.f4','pp3.f5'] },
-    { name:'pp4.name', desc:'pp4.desc', period:'pp4.period', features:['pp4.f1','pp4.f2','pp4.f3','pp4.f4','pp4.f5','pp4.f6'] },
-  ];
-  var groupPlans = [
-    { name:'pg1.name', desc:'pg1.desc', period:'pg1.period', features:['pg1.f1','pg1.f2','pg1.f3','pg1.f4'] },
-    { name:'pg2.name', desc:'pg2.desc', period:'pg2.period', features:['pg2.f1','pg2.f2','pg2.f3'] },
-    { name:'pg3.name', desc:'pg3.desc', period:'pg3.period', features:['pg3.f1','pg3.f2','pg3.f3','pg3.f4','pg3.f5'] },
-    { name:'pg4.name', desc:'pg4.desc', period:'pg4.period', features:['pg4.f1','pg4.f2','pg4.f3','pg4.f4'] },
-  ];
-  function applyPlans(panelId, plans) {
-    var cards = document.querySelectorAll('#' + panelId + ' .price-card');
-    cards.forEach(function(card, i) {
-      var p = plans[i]; if (!p) return;
-      var planEl = card.querySelector('.price-plan');
-      var descEl = card.querySelector('.price-desc');
-      var periodEl = card.querySelector('.price-period');
-      var liEls = card.querySelectorAll('.price-features li');
-      if (planEl && t[p.name]) planEl.textContent = t[p.name];
-      if (descEl && t[p.desc]) descEl.textContent = t[p.desc];
-      if (periodEl && t[p.period]) periodEl.textContent = t[p.period];
-      liEls.forEach(function(li, j){ if (p.features[j] && t[p.features[j]]) li.textContent = t[p.features[j]]; });
-    });
-  }
-  applyPlans('tab-personal', personalPlans);
-  applyPlans('tab-group', groupPlans);
+  // Final pricing pass in case broad text replacements touched pricing nodes.
+  applyPricingPlans();
 
   // 按鈕狀態
-  document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
-  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  var btnZh = document.getElementById('btn-zh');
+  var btnEn = document.getElementById('btn-en');
+  if (btnZh) {
+    btnZh.textContent = lang === 'zh' ? '繁中' : 'ZH';
+    btnZh.classList.toggle('active', lang === 'zh');
+  }
+  if (btnEn) {
+    btnEn.textContent = 'EN';
+    btnEn.classList.toggle('active', lang === 'en');
+  }
 }
 
 function setLang(lang) {

@@ -538,7 +538,19 @@ function applyFaqLang(lang) {
     if (id === 'f-h1' || id.startsWith('fa')) el.innerHTML = t[id];
     else el.textContent = t[id];
   });
-  if (lang === 'en') {
+  if (lang === 'zh') {
+    replaceVisibleText({
+      'WanyuTong': '萬語通',
+      'Home': '官網',
+      'Blog': '部落格',
+      'FAQ': '常見問題',
+      'Pricing': '收費方案',
+      'Terms': '使用條款',
+      'Contact': '聯繫客服',
+      'Try LINE Bot Free': '免費體驗 LINE Bot',
+      'ZH': '繁中'
+    });
+  } else if (lang === 'en') {
     replaceVisibleText({
       '萬語通': 'WanyuTong',
       '繁中': 'ZH',
@@ -551,8 +563,16 @@ function applyFaqLang(lang) {
       '免費體驗 LINE Bot': 'Try LINE Bot Free'
     });
   }
-  document.getElementById('btn-zh').classList.toggle('active', lang==='zh');
-  document.getElementById('btn-en').classList.toggle('active', lang==='en');
+  var btnZh = document.getElementById('btn-zh');
+  var btnEn = document.getElementById('btn-en');
+  if (btnZh) {
+    btnZh.textContent = lang === 'zh' ? '繁中' : 'ZH';
+    btnZh.classList.toggle('active', lang==='zh');
+  }
+  if (btnEn) {
+    btnEn.textContent = 'EN';
+    btnEn.classList.toggle('active', lang==='en');
+  }
   document.documentElement.lang = lang==='zh'?'zh-TW':'en';
 }
 function setLang(lang) {

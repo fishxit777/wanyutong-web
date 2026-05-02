@@ -2343,16 +2343,72 @@ function applyLang(lang) {
   }
 }
 
+function forcePricingLang(lang) {
+  var t = i18n[lang] || i18n.zh;
+  var personalPlans = [
+    { name:'pp1.name', desc:'pp1.desc', period:'pp1.period', features:['pp1.f1','pp1.f2','pp1.f3'] },
+    { name:'pp2.name', desc:'pp2.desc', period:'pp2.period', features:['pp2.f1','pp2.f2','pp2.f3','pp2.f4'] },
+    { name:'pp3.name', desc:'pp3.desc', period:'pp3.period', features:['pp3.f1','pp3.f2','pp3.f3','pp3.f4','pp3.f5'] },
+    { name:'pp4.name', desc:'pp4.desc', period:'pp4.period', features:['pp4.f1','pp4.f2','pp4.f3','pp4.f4','pp4.f5','pp4.f6'] },
+  ];
+  var groupPlans = [
+    { name:'pg1.name', desc:'pg1.desc', period:'pg1.period', features:['pg1.f1','pg1.f2','pg1.f3','pg1.f4'] },
+    { name:'pg2.name', desc:'pg2.desc', period:'pg2.period', features:['pg2.f1','pg2.f2','pg2.f3'] },
+    { name:'pg3.name', desc:'pg3.desc', period:'pg3.period', features:['pg3.f1','pg3.f2','pg3.f3','pg3.f4','pg3.f5'] },
+    { name:'pg4.name', desc:'pg4.desc', period:'pg4.period', features:['pg4.f1','pg4.f2','pg4.f3','pg4.f4'] },
+  ];
+  function text(sel, value) {
+    var el = document.querySelector(sel);
+    if (el && value) el.textContent = value;
+  }
+  function applyCards(panelId, plans) {
+    document.querySelectorAll('#' + panelId + ' .price-card').forEach(function(card, i) {
+      var plan = plans[i];
+      if (!plan) return;
+      var planEl = card.querySelector('.price-plan');
+      var descEl = card.querySelector('.price-desc');
+      var periodEl = card.querySelector('.price-period');
+      if (planEl) planEl.textContent = t[plan.name];
+      if (descEl) descEl.textContent = t[plan.desc];
+      if (periodEl) periodEl.textContent = t[plan.period];
+      card.querySelectorAll('.price-features li').forEach(function(li, j) {
+        var key = plan.features[j];
+        if (key && t[key]) li.textContent = t[key];
+      });
+      var badge = card.querySelector('.price-badge');
+      if (badge) {
+        badge.textContent = panelId === 'tab-personal' ? t['price.badge.popular'] : t['price.badge.biz'];
+      }
+      var btn = card.querySelector('.btn-plan[data-btn]');
+      if (btn) btn.textContent = t['price.' + btn.dataset.btn];
+    });
+  }
+  text('#pricing .eyebrow', t['price.eyebrow']);
+  text('#pricing h2', t['price.h2']);
+  text('#pricing .lead', t['price.lead']);
+  var tabs = document.querySelectorAll('.pricing-tab');
+  if (tabs[0]) tabs[0].textContent = t['price.tab.personal'];
+  if (tabs[1]) tabs[1].textContent = t['price.tab.group'];
+  text('.refund-note', t['price.refund']);
+  applyCards('tab-personal', personalPlans);
+  applyCards('tab-group', groupPlans);
+}
+
 function setLang(lang) {
   try { localStorage.setItem('wyt-lang', lang); } catch(e) {}
-  applyLang(lang);
+  try {
+    applyLang(lang);
+  } finally {
+    forcePricingLang(lang);
+  }
 }
 
 // 初始化：讀取儲存的語言
 (function(){
   try {
     var saved = localStorage.getItem('wyt-lang') || 'zh';
-    if (saved === 'en') applyLang('en');
+    if (saved === 'en') setLang('en');
+    else forcePricingLang('zh');
   } catch(e) {}
 })();
 </script>

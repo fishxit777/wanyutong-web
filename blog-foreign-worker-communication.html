@@ -473,8 +473,9 @@ html:not(.light) .theme-toggle-knob { transform: translateX(0px); background: va
 .top-banner-btn:hover { box-shadow: 0 0 28px rgba(6,199,85,0.4); }
 
 
-.lang-toggle{display:flex;align-items:center;background:var(--bg3);border:1px solid var(--border2);border-radius:20px;overflow:hidden;font-family:'DM Mono',monospace;font-size:0.72rem;}
-.lang-btn{padding:4px 11px;cursor:pointer;border:none;background:transparent;color:var(--muted);transition:all 0.2s;line-height:1;}
+.article-nav-tools{display:flex;align-items:center;gap:0.6rem;flex-shrink:0;}
+.lang-toggle{display:inline-flex;align-items:center;background:var(--bg3);border:1px solid var(--border2);border-radius:20px;overflow:hidden;font-family:'DM Mono',monospace;font-size:0.72rem;box-shadow:0 8px 28px rgba(0,0,0,0.18);}
+.lang-btn{min-width:42px;padding:5px 11px;cursor:pointer;border:none;background:transparent;color:var(--muted);transition:all 0.2s;line-height:1.1;}
 .lang-btn.active{background:var(--line);color:#000;font-weight:700;}
 .art-hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px; background:none; border:none; }
 .art-hamburger span { display:block; width:22px; height:2px; background:var(--text); border-radius:1px; }
@@ -486,6 +487,11 @@ html:not(.light) .theme-toggle-knob { transform: translateX(0px); background: va
   .art-nav-links a:last-child { border-bottom:none; }
   .art-nav-links .nav-cta { display:inline-block; margin-top:0.3rem; text-align:center; }
   .art-hamburger { display:flex; }
+  nav { padding: 0 4vw; }
+  .article-nav-tools { gap:0.45rem; }
+  .lang-toggle { font-size:0.72rem; border-color:rgba(6,199,85,0.34); }
+  .lang-btn { min-width:40px; padding:6px 10px; }
+  .theme-toggle { width:36px; }
 }
 
 
@@ -517,6 +523,14 @@ html:not(.light) .theme-toggle-knob { transform: translateX(0px); background: va
 /* nav 往下移讓出空間 */
 nav { top: 36px !important; }
 .article-top-banner { padding-top: 116px !important; }
+@media (max-width: 560px) {
+  .history-nav { height:34px; padding:0 3vw; }
+  .history-nav-btn { font-size:0.78rem; padding:0.2em 0.35em; }
+  .history-nav-center { font-size:0.64rem; }
+  nav { top:34px !important; height:62px; }
+  .article-top-banner { padding-top:118px !important; }
+  .top-banner-inner { padding:0.9rem; border-radius:8px; }
+}
 
 
 .article-nav {
@@ -619,7 +633,11 @@ nav { top: 36px !important; }
     <a href="index.html#terms" id="a1-nav-terms">條款</a>
     <a href="https://line.me/ti/p/@969wpxno" class="nav-cta a1-cta-label">免費體驗</a>
   </div>
-  <div style="display:flex;align-items:center;gap:0.6rem;">
+  <div class="article-nav-tools">
+    <div class="lang-toggle" aria-label="Language">
+      <button class="lang-btn active" onclick="setLang('zh')" id="btn-zh" type="button">繁中</button>
+      <button class="lang-btn" onclick="setLang('en')" id="btn-en" type="button">EN</button>
+    </div>
     <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="切換日/夜模式" aria-label="切換日夜模式"><div class="theme-toggle-knob" id="themeKnob">🌙</div></button>
     <button class="art-hamburger" onclick="document.getElementById('artNavLinks').classList.toggle('open')">
       <span></span><span></span><span></span>

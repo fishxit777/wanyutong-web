@@ -665,6 +665,97 @@ h2 {
 
 .refund-note strong { color:var(--text); font-weight:600; }
 
+#ref-reward-table {
+  margin-top: 1.2rem !important;
+  overflow: auto !important;
+  border: 1px solid rgba(6,199,85,0.34) !important;
+  border-radius: 12px !important;
+  background:
+    linear-gradient(135deg, rgba(6,199,85,0.13), rgba(0,212,255,0.06)),
+    rgba(14,18,24,0.92) !important;
+  box-shadow: 0 18px 54px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+#ref-reward-table table {
+  min-width: 620px;
+  color: var(--text) !important;
+}
+
+#ref-reward-table thead tr {
+  background: linear-gradient(90deg, rgba(6,199,85,0.28), rgba(0,212,255,0.12)) !important;
+}
+
+#ref-reward-table th {
+  color: var(--text) !important;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+#ref-reward-table td {
+  color: rgba(232,237,245,0.9) !important;
+  border-top-color: rgba(255,255,255,0.1) !important;
+}
+
+#ref-reward-table tbody tr:nth-child(odd) {
+  background: rgba(255,255,255,0.035);
+}
+
+#ref-reward-table tbody tr:nth-child(even) {
+  background: rgba(6,199,85,0.055);
+}
+
+#ref-reward-table tbody td:first-child {
+  color: var(--text) !important;
+  font-weight: 700;
+}
+
+#ref-reward-table tbody td:nth-child(2),
+#ref-reward-table tbody td:nth-child(3) {
+  color: var(--line) !important;
+  font-weight: 800;
+}
+
+html.light #ref-reward-table {
+  border-color: rgba(5,179,74,0.36) !important;
+  background:
+    linear-gradient(135deg, rgba(5,179,74,0.12), rgba(0,142,204,0.06)),
+    #ffffff !important;
+  box-shadow: 0 18px 42px rgba(26,34,51,0.09), inset 0 1px 0 rgba(255,255,255,0.9);
+}
+
+html.light #ref-reward-table thead tr {
+  background: linear-gradient(90deg, rgba(5,179,74,0.18), rgba(0,142,204,0.08)) !important;
+}
+
+html.light #ref-reward-table td {
+  color: #334155 !important;
+  border-top-color: rgba(15,23,42,0.08) !important;
+}
+
+html.light #ref-reward-table tbody tr:nth-child(odd) {
+  background: rgba(255,255,255,0.78);
+}
+
+html.light #ref-reward-table tbody tr:nth-child(even) {
+  background: rgba(5,179,74,0.075);
+}
+
+@media (max-width: 640px) {
+  #ref-reward-table {
+    border-radius: 10px !important;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+  }
+  #ref-reward-table table {
+    min-width: 520px;
+    font-size: 0.82rem !important;
+  }
+  #ref-reward-table th,
+  #ref-reward-table td {
+    padding: 0.78rem 0.85rem !important;
+  }
+}
+
 #howto { background:var(--bg2); }
 
 .steps-grid {

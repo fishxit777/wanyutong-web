@@ -603,6 +603,54 @@ nav { top: 36px !important; }
   .lang-btn { padding: 3px 7px; }
   .nav-brand { font-size: 0.95rem; white-space: nowrap; }
 }
+
+
+.article-photo {
+  margin: 2.2rem 0 3.6rem;
+  border: 1px solid var(--border2, var(--border));
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.03);
+  box-shadow: 0 24px 70px rgba(0,0,0,.28);
+}
+
+.article-photo img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  background: var(--bg2);
+}
+
+.article-photo figcaption {
+  padding: .9rem 1rem;
+  color: var(--muted);
+  font-size: .92rem;
+  line-height: 1.7;
+  border-top: 1px solid var(--border);
+}
+
+html.light .article-photo {
+  background: rgba(255,255,255,.78);
+  box-shadow: 0 18px 48px rgba(15,23,42,.12);
+}
+
+@media (max-width: 768px) {
+  .article-photo {
+    margin: 1.4rem 0 2.6rem;
+    border-radius: 12px;
+  }
+
+  .article-photo img {
+    aspect-ratio: 4 / 3;
+  }
+
+  .article-photo figcaption {
+    font-size: .88rem;
+    padding: .75rem .85rem;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -671,33 +719,10 @@ nav { top: 36px !important; }
   </p>
 </div>
 
-<div class="article-cover">
-  <div style="width:100%;height:340px;border-radius:12px;border:1px solid var(--border);background:linear-gradient(135deg,#0d1f0f 0%,#0a1a2a 50%,#1a0d00 100%);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;">
-    <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(6,199,85,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(6,199,85,0.06) 1px,transparent 1px);background-size:40px 40px;"></div>
-    <div style="position:relative;z-index:1;display:flex;align-items:center;gap:3rem;">
-      <div style="display:flex;flex-direction:column;align-items:center;gap:0.8rem;">
-        <div style="width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#f59e0b,#d97706);display:flex;align-items:center;justify-content:center;font-size:2rem;box-shadow:0 0 30px rgba(245,158,11,0.5);">👷</div>
-        <div style="background:rgba(245,158,11,0.15);border:1px solid rgba(245,158,11,0.35);border-radius:10px;padding:8px 14px;font-size:0.8rem;color:#fbbf24;font-family:'DM Mono',monospace;">請明天加班</div>
-        <div style="background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.2);border-radius:10px;padding:6px 12px;font-size:0.72rem;color:#fde68a;font-family:'DM Mono',monospace;">⚠️ 看不懂？</div>
-      </div>
-      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
-        <div style="font-size:0.7rem;color:var(--muted);font-family:'DM Mono',monospace;letter-spacing:0.1em;">BEFORE</div>
-        <div style="width:2px;height:40px;background:rgba(255,255,255,0.1);"></div>
-        <div style="width:56px;height:32px;background:var(--line);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.65rem;font-weight:800;color:#000;font-family:'DM Mono',monospace;box-shadow:0 0 24px rgba(6,199,85,0.6);">萬語通</div>
-        <div style="width:2px;height:40px;background:rgba(255,255,255,0.1);"></div>
-        <div style="font-size:0.7rem;color:var(--muted);font-family:'DM Mono',monospace;letter-spacing:0.1em;">AFTER</div>
-      </div>
-      <div style="display:flex;flex-direction:column;align-items:center;gap:0.8rem;">
-        <div style="width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#06c755,#059669);display:flex;align-items:center;justify-content:center;font-size:2rem;box-shadow:0 0 30px rgba(6,199,85,0.5);">🧑‍🏭</div>
-        <div style="background:rgba(6,199,85,0.12);border:1px solid rgba(6,199,85,0.3);border-radius:10px;padding:8px 14px;font-size:0.8rem;color:#6ee7b7;font-family:'DM Mono',monospace;">Besok lembur</div>
-        <div style="background:rgba(6,199,85,0.08);border:1px solid rgba(6,199,85,0.2);border-radius:10px;padding:6px 12px;font-size:0.72rem;color:#6ee7b7;font-family:'DM Mono',monospace;">✅ 已確認明白</div>
-      </div>
-    </div>
-    <div style="position:absolute;bottom:16px;left:0;right:0;text-align:center;">
-      <span style="font-family:'DM Mono',monospace;font-size:0.68rem;color:rgba(255,255,255,0.3);letter-spacing:0.12em;">// 36種語言 · 即時翻譯 · 工廠/看護/工地適用</span>
-    </div>
-  </div>
-</div>
+<figure class="article-photo hero-photo">
+  <img src="assets/blog/foreign-worker-communication.jpg" alt="外籍移工與雇主溝通情境，適合說明台灣雇主管理外勞常見溝通問題" loading="eager" decoding="async">
+  <figcaption>外勞管理最常卡在「以為對方懂了」。留下可翻譯、可回查的 LINE 訊息紀錄，能降低交辦誤會。</figcaption>
+</figure>
 
 <div class="article-body" id="article-body">
 

@@ -715,22 +715,32 @@ h2 {
 .compare-wrap { max-width:860px; margin:0 auto; }
 
 .compare-table {
-  width:100%; border-collapse:collapse;
-  background:var(--bg3); border:1px solid var(--border); border-radius:12px; overflow:hidden; font-size:0.87rem;
+  width:100%; border-collapse:separate; border-spacing:0;
+  background:rgba(12,17,26,0.9); border:1px solid rgba(114,139,176,0.22); border-radius:12px; overflow:hidden; font-size:0.87rem;
+  box-shadow:0 22px 70px rgba(0,0,0,0.32), inset 0 1px 0 rgba(255,255,255,0.04);
 }
 
-.compare-table th { padding:1rem 1.4rem; text-align:center; font-family:'Syne',sans-serif; font-weight:700; font-size:0.83rem; letter-spacing:0.03em; }
-.compare-table th:first-child { text-align:left; background:var(--bg2); color:var(--muted); }
-.compare-table th.hl  { background:rgba(6,199,85,0.1); color:var(--line); border-bottom:2px solid rgba(6,199,85,0.35); -webkit-text-fill-color:var(--line); }
-.compare-table th.dim { background:var(--bg2); color:var(--muted); }
+.compare-table th { padding:1rem 1.4rem; text-align:center; font-family:'Syne',sans-serif; font-weight:700; font-size:0.83rem; letter-spacing:0.03em; border-bottom:1px solid rgba(114,139,176,0.18); }
+.compare-table th:first-child { text-align:left; background:rgba(8,12,19,0.78); color:var(--text); }
+.compare-table th.hl  {
+  background:linear-gradient(180deg, rgba(6,199,85,0.24), rgba(6,199,85,0.11));
+  color:#6dff9d; border-bottom:2px solid rgba(6,199,85,0.64); -webkit-text-fill-color:#6dff9d;
+  box-shadow:inset 1px 0 rgba(6,199,85,0.22), inset -1px 0 rgba(6,199,85,0.22);
+}
+.compare-table th.dim { background:rgba(8,12,19,0.78); color:#8fa1c2; }
 
-.compare-table td { padding:0.9rem 1.4rem; border-top:1px solid var(--border); text-align:center; font-size:0.83rem; color:var(--muted); }
-.compare-table td:first-child { text-align:left; font-size:0.8rem; }
-.compare-table tr:hover td { background:rgba(255,255,255,0.02); }
+.compare-table td { padding:0.9rem 1.4rem; border-top:1px solid rgba(114,139,176,0.16); text-align:center; font-size:0.83rem; color:#9ba9c5; }
+.compare-table td:first-child { text-align:left; font-size:0.8rem; color:#b9c5dc; background:rgba(255,255,255,0.018); }
+.compare-table td:nth-child(2) {
+  background:linear-gradient(90deg, rgba(6,199,85,0.13), rgba(6,199,85,0.065));
+  border-left:1px solid rgba(6,199,85,0.22);
+  border-right:1px solid rgba(6,199,85,0.18);
+}
+.compare-table tr:hover td { background-color:rgba(255,255,255,0.032); }
 
-.chk  { color:var(--line); font-weight:700; }
-.crs  { color:#2a2a3a; }
-.prt  { color:#6b7a99; font-size:0.78rem; }
+.chk  { color:#7cffaa; font-weight:800; text-shadow:0 0 18px rgba(6,199,85,0.18); }
+.crs  { color:#ff8f8f; font-weight:700; }
+.prt  { color:#a8b7d4; font-size:0.78rem; }
 
 .example-box { margin-top:2rem; background:var(--bg3); border:1px solid var(--border); border-radius:12px; padding:1.6rem; }
 .example-title { font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--muted); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:1rem; }
@@ -755,7 +765,7 @@ h2 {
 .pricing-panel { display:none; }
 .pricing-panel.active { display:block; }
 
-.pricing-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1.5rem; max-width:960px; }
+.pricing-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:1.2rem; max-width:1120px; }
 
 .price-card {
   background:var(--bg2); border:1px solid var(--border); border-radius:12px;
@@ -808,6 +818,54 @@ h2 {
 }
 
 .price-card.featured .btn-plan:hover { box-shadow:0 0 36px rgba(6,199,85,0.42); }
+
+.price-card.enterprise {
+  border-color:rgba(0,212,255,0.28);
+  background:linear-gradient(135deg, rgba(0,212,255,0.07), rgba(6,199,85,0.035) 58%, var(--bg2));
+}
+
+.price-card.enterprise .price-amount { color:#8de8ff; }
+
+.price-card.enterprise .btn-plan {
+  border-color:rgba(0,212,255,0.42);
+  color:#bcefff;
+}
+
+html.light .compare-table {
+  background:#ffffff;
+  border-color:rgba(27,55,92,0.14);
+  box-shadow:0 18px 48px rgba(20,37,61,0.11);
+}
+
+html.light .compare-table th:first-child,
+html.light .compare-table th.dim {
+  background:#edf3f9;
+  color:#42516c;
+}
+
+html.light .compare-table th.hl {
+  background:linear-gradient(180deg, rgba(5,179,74,0.18), rgba(5,179,74,0.08));
+  color:#057a38;
+  -webkit-text-fill-color:#057a38;
+}
+
+html.light .compare-table td {
+  color:#5a6a88;
+  border-top-color:rgba(27,55,92,0.1);
+}
+
+html.light .compare-table td:first-child {
+  color:#273449;
+  background:#f6f9fc;
+}
+
+html.light .compare-table td:nth-child(2) {
+  background:linear-gradient(90deg, rgba(5,179,74,0.12), rgba(5,179,74,0.04));
+}
+
+html.light .chk { color:#047a37; text-shadow:none; }
+html.light .crs { color:#b4232e; }
+html.light .prt { color:#50617f; }
 
 .refund-note {
   margin-top:2.5rem; padding:1.2rem 1.5rem; background:var(--bg2);
@@ -1451,14 +1509,26 @@ footer a:hover { color:var(--text); }
         <div class="price-card">
           <div class="price-plan">體驗版</div><div class="price-desc">// 文字溝通，零障礙</div>
           <div class="price-amount">NT$199</div><div class="price-period">每月／每群組</div>
-          <ul class="price-features"><li>群組雙向翻譯（無限次）</li><li>語音訊息翻譯</li><li>自訂語言對（如中文↔印尼文）</li><li>翻譯歷史記錄</li><li>忽略詞設定</li></ul>
+          <ul class="price-features"><li>群組雙向翻譯（無限次）</li><li>語音訊息翻譯</li><li>自訂語言對（如中文↔印尼文）</li><li>AI 摘要最近 30 筆</li><li>翻譯歷史＋忽略詞</li></ul>
+          <a href="https://line.me/ti/p/~fishxit" class="btn-plan" data-btn="contact">聯繫開通</a>
+        </div>
+        <div class="price-card">
+          <div class="price-plan">商務版</div><div class="price-desc">// 文件、圖片、語音，全面覆蓋</div>
+          <div class="price-amount">NT$499</div><div class="price-period">每月／每群組</div>
+          <ul class="price-features"><li>體驗版所有功能</li><li>圖片 OCR 翻譯</li><li>工廠貼紙、文件截圖、證件直接翻</li><li>AI 摘要最近 100 筆</li><li>優先客服</li></ul>
           <a href="https://line.me/ti/p/~fishxit" class="btn-plan" data-btn="contact">聯繫開通</a>
         </div>
         <div class="price-card featured">
           <div class="price-badge">推薦企業</div>
-          <div class="price-plan">商務版</div><div class="price-desc">// 文件、圖片、語音，全面覆蓋</div>
-          <div class="price-amount">NT$499</div><div class="price-period">每月／每群組</div>
-          <ul class="price-features"><li>體驗版所有功能</li><li>📷 圖片 OCR 翻譯</li><li>工廠貼紙、文件截圖、證件直接翻</li><li>優先客服</li></ul>
+          <div class="price-plan">進階版</div><div class="price-desc">// 摘要更長，查詢能力預留</div>
+          <div class="price-amount">NT$999</div><div class="price-period">每月／每群組</div>
+          <ul class="price-features"><li>商務版所有功能</li><li>AI 摘要最近 300 筆</li><li>日期區間搜尋能力預留</li><li>適合管理訊息量大的群組</li><li>保留早鳥價資格</li></ul>
+          <a href="https://line.me/ti/p/~fishxit" class="btn-plan" data-btn="contact">聯繫開通</a>
+        </div>
+        <div class="price-card enterprise">
+          <div class="price-plan">企業版</div><div class="price-desc">// 專人報價，多群管理</div>
+          <div class="price-amount">NT$3,000 起</div><div class="price-period">每月／依需求報價</div>
+          <ul class="price-features"><li>多群統計能力預留</li><li>專人報價與導入協助</li><li>匯出與報表能力預留</li><li>可依團隊流程客製</li><li>適合多據點或多群組管理</li></ul>
           <a href="https://line.me/ti/p/~fishxit" class="btn-plan" data-btn="contact">聯繫開通</a>
         </div>
       </div>
@@ -2276,9 +2346,13 @@ var i18n = {
     'pg2.name': '7日體驗',  'pg2.desc': '// 低門檻試用',        'pg2.period': '7 天／每群組',
     'pg2.f1': '群組雙向翻譯（無限次）', 'pg2.f2': '36 種語言支援', 'pg2.f3': '自訂語言對',
     'pg3.name': '體驗版',   'pg3.desc': '// 文字溝通，零障礙',  'pg3.period': '每月／每群組',
-    'pg3.f1': '群組雙向翻譯（無限次）', 'pg3.f2': '語音訊息翻譯', 'pg3.f3': '自訂語言對（如中文↔印尼文）', 'pg3.f4': '翻譯歷史記錄', 'pg3.f5': '忽略詞設定',
+    'pg3.f1': '群組雙向翻譯（無限次）', 'pg3.f2': '語音訊息翻譯', 'pg3.f3': '自訂語言對（如中文↔印尼文）', 'pg3.f4': 'AI 摘要最近 30 筆', 'pg3.f5': '翻譯歷史＋忽略詞',
     'pg4.name': '商務版',   'pg4.desc': '// 文件、圖片、語音，全面覆蓋', 'pg4.period': '每月／每群組',
-    'pg4.f1': '體驗版所有功能', 'pg4.f2': '📷 圖片 OCR 翻譯', 'pg4.f3': '工廠貼紙、文件截圖、證件直接翻', 'pg4.f4': '優先客服',
+    'pg4.f1': '體驗版所有功能', 'pg4.f2': '圖片 OCR 翻譯', 'pg4.f3': '工廠貼紙、文件截圖、證件直接翻', 'pg4.f4': 'AI 摘要最近 100 筆', 'pg4.f5': '優先客服',
+    'pg5.name': '進階版',   'pg5.desc': '// 摘要更長，查詢能力預留', 'pg5.period': '每月／每群組',
+    'pg5.f1': '商務版所有功能', 'pg5.f2': 'AI 摘要最近 300 筆', 'pg5.f3': '日期區間搜尋能力預留', 'pg5.f4': '適合管理訊息量大的群組', 'pg5.f5': '保留早鳥價資格',
+    'pg6.name': '企業版',   'pg6.desc': '// 專人報價，多群管理', 'pg6.period': '每月／依需求報價',
+    'pg6.f1': '多群統計能力預留', 'pg6.f2': '專人報價與導入協助', 'pg6.f3': '匯出與報表能力預留', 'pg6.f4': '可依團隊流程客製', 'pg6.f5': '適合多據點或多群組管理',
   },
   en: {
     // NAV
@@ -2512,9 +2586,13 @@ var i18n = {
     'pg2.name': '7-Day Trial', 'pg2.desc': '// Low-risk Trial',    'pg2.period': '7 days / group',
     'pg2.f1': 'Unlimited group translation', 'pg2.f2': '36 languages', 'pg2.f3': 'Custom language pair',
     'pg3.name': 'Basic',       'pg3.desc': '// Zero language barriers', 'pg3.period': 'per month / group',
-    'pg3.f1': 'Unlimited group translation', 'pg3.f2': 'Voice translation', 'pg3.f3': 'Custom pair (e.g. ZH↔ID)', 'pg3.f4': 'Translation history', 'pg3.f5': 'Ignore word list',
+    'pg3.f1': 'Unlimited group translation', 'pg3.f2': 'Voice translation', 'pg3.f3': 'Custom pair (e.g. ZH↔ID)', 'pg3.f4': 'AI summary: latest 30 messages', 'pg3.f5': 'Translation history + ignore words',
     'pg4.name': 'Business',    'pg4.desc': '// Docs, Images, Voice — All Covered', 'pg4.period': 'per month / group',
-    'pg4.f1': 'All Basic features', 'pg4.f2': '📷 Image OCR', 'pg4.f3': 'Factory stickers, docs, ID cards', 'pg4.f4': 'Priority support',
+    'pg4.f1': 'All Basic features', 'pg4.f2': 'Image OCR translation', 'pg4.f3': 'Factory stickers, docs, ID cards', 'pg4.f4': 'AI summary: latest 100 messages', 'pg4.f5': 'Priority support',
+    'pg5.name': 'Advanced',    'pg5.desc': '// Longer summaries, search-ready', 'pg5.period': 'per month / group',
+    'pg5.f1': 'All Business features', 'pg5.f2': 'AI summary: latest 300 messages', 'pg5.f3': 'Date-range search reserved', 'pg5.f4': 'For high-volume LINE groups', 'pg5.f5': 'Early-bird price retained',
+    'pg6.name': 'Enterprise',  'pg6.desc': '// Custom quote, multi-group operations', 'pg6.period': 'per month / quoted by need',
+    'pg6.f1': 'Multi-group analytics reserved', 'pg6.f2': 'Dedicated quote and onboarding', 'pg6.f3': 'Export and reporting reserved', 'pg6.f4': 'Workflow customization available', 'pg6.f5': 'For multi-site or multi-group teams',
   }
 };
 
@@ -2534,7 +2612,9 @@ function applyLang(lang) {
     { name:'pg1.name', desc:'pg1.desc', period:'pg1.period', features:['pg1.f1','pg1.f2','pg1.f3','pg1.f4'] },
     { name:'pg2.name', desc:'pg2.desc', period:'pg2.period', features:['pg2.f1','pg2.f2','pg2.f3'] },
     { name:'pg3.name', desc:'pg3.desc', period:'pg3.period', features:['pg3.f1','pg3.f2','pg3.f3','pg3.f4','pg3.f5'] },
-    { name:'pg4.name', desc:'pg4.desc', period:'pg4.period', features:['pg4.f1','pg4.f2','pg4.f3','pg4.f4'] },
+    { name:'pg4.name', desc:'pg4.desc', period:'pg4.period', features:['pg4.f1','pg4.f2','pg4.f3','pg4.f4','pg4.f5'] },
+    { name:'pg5.name', desc:'pg5.desc', period:'pg5.period', features:['pg5.f1','pg5.f2','pg5.f3','pg5.f4','pg5.f5'] },
+    { name:'pg6.name', desc:'pg6.desc', period:'pg6.period', features:['pg6.f1','pg6.f2','pg6.f3','pg6.f4','pg6.f5'] },
   ];
   function applyPlans(panelId, plans) {
     var cards = document.querySelectorAll('#' + panelId + ' .price-card');
@@ -2891,8 +2971,10 @@ function forcePricingLang(lang) {
       group: [
         { name:'免費試用', desc:'// 加入即用', amount:'$0', period:'每日 15 次免費', features:['每日 15 次自動翻譯','36 種語言支援','雙向自動偵測語言','加入即用，無需開通'] },
         { name:'7日體驗', desc:'// 低門檻試用', amount:'NT$49', period:'7 天／每群組', features:['群組雙向翻譯（無限次）','36 種語言支援','自訂語言對'] },
-        { name:'體驗版', desc:'// 文字溝通，零障礙', amount:'NT$199', period:'每月／每群組', features:['群組雙向翻譯（無限次）','語音訊息翻譯','自訂語言對（如中文↔印尼文）','翻譯歷史記錄','忽略詞設定'] },
-        { name:'商務版', desc:'// 文件、圖片、語音，全面覆蓋', amount:'NT$499', period:'每月／每群組', features:['體驗版所有功能','📷 圖片 OCR 翻譯','工廠貼紙、文件截圖、證件直接翻','優先客服'] }
+        { name:'體驗版', desc:'// 文字溝通，零障礙', amount:'NT$199', period:'每月／每群組', features:['群組雙向翻譯（無限次）','語音訊息翻譯','自訂語言對（如中文↔印尼文）','AI 摘要最近 30 筆','翻譯歷史＋忽略詞'] },
+        { name:'商務版', desc:'// 文件、圖片、語音，全面覆蓋', amount:'NT$499', period:'每月／每群組', features:['體驗版所有功能','圖片 OCR 翻譯','工廠貼紙、文件截圖、證件直接翻','AI 摘要最近 100 筆','優先客服'] },
+        { name:'進階版', desc:'// 摘要更長，查詢能力預留', amount:'NT$999', period:'每月／每群組', features:['商務版所有功能','AI 摘要最近 300 筆','日期區間搜尋能力預留','適合管理訊息量大的群組','保留早鳥價資格'] },
+        { name:'企業版', desc:'// 專人報價，多群管理', amount:'NT$3,000 起', period:'每月／依需求報價', features:['多群統計能力預留','專人報價與導入協助','匯出與報表能力預留','可依團隊流程客製','適合多據點或多群組管理'] }
       ]
     },
     en: {
@@ -2912,8 +2994,10 @@ function forcePricingLang(lang) {
       group: [
         { name:'Free Trial', desc:'// Add & Go', amount:'$0', period:'15 free/day', features:['15 auto-translations/day','36 languages','Auto language detection','No setup needed'] },
         { name:'7-Day Trial', desc:'// Low-risk Trial', amount:'NT$49', period:'7 days / group', features:['Unlimited group translation','36 languages','Custom language pair'] },
-        { name:'Basic', desc:'// Zero language barriers', amount:'NT$199', period:'per month / group', features:['Unlimited group translation','Voice translation','Custom pair (e.g. ZH↔ID)','Translation history','Ignore word list'] },
-        { name:'Business', desc:'// Full OCR, voice, and image coverage', amount:'NT$499', period:'per month / group', features:['Everything in Basic','📷 Image OCR','Translate stickers, screenshots, and documents','Priority support'] }
+        { name:'Basic', desc:'// Zero language barriers', amount:'NT$199', period:'per month / group', features:['Unlimited group translation','Voice translation','Custom pair (e.g. ZH↔ID)','AI summary: latest 30 messages','Translation history + ignore words'] },
+        { name:'Business', desc:'// Full OCR, voice, and image coverage', amount:'NT$499', period:'per month / group', features:['Everything in Basic','Image OCR translation','Translate stickers, screenshots, and documents','AI summary: latest 100 messages','Priority support'] },
+        { name:'Advanced', desc:'// Longer summaries, search-ready', amount:'NT$999', period:'per month / group', features:['Everything in Business','AI summary: latest 300 messages','Date-range search reserved','For high-volume LINE groups','Early-bird price retained'] },
+        { name:'Enterprise', desc:'// Custom quote, multi-group operations', amount:'NT$3,000+', period:'per month / quoted by need', features:['Multi-group analytics reserved','Dedicated quote and onboarding','Export and reporting reserved','Workflow customization available','For multi-site or multi-group teams'] }
       ]
     }
   };
@@ -2997,7 +3081,7 @@ function forceCompareLang(lang) {
         ['翻譯確認系統','● ✓（獨有）','✕','✕','✕'],
         ['行業詞庫','● ✓（獨有）','✕','✕','✕'],
         ['勿擾模式','● ✓（獨有）','✕','✕','✕'],
-        ['台灣在地計價','✕ USD Only','✕ 美金','● NT$','按量計費']
+        ['台灣在地計價','● NT$（台幣）','✕ 美金','● NT$','按量計費']
       ]
     },
     en: {
@@ -3020,24 +3104,37 @@ function forceCompareLang(lang) {
         ['Confirmation System','● ✓ (Exclusive)','✕','✕','✕'],
         ['Industry Glossary','● ✓ (Exclusive)','✕','✕','✕'],
         ['Do Not Disturb','● ✓ (Exclusive)','✕','✕','✕'],
-        ['Taiwan Local Pricing','✕ USD Only','✕ USD','● NT$','Usage-based']
+        ['Taiwan Local Pricing','● NT$','✕ USD','● NT$','Usage-based']
       ]
     }
   };
   var t = copy[lang] || copy.zh;
+  function esc(value) {
+    return String(value || '').replace(/[&<>"']/g, function(ch) {
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch];
+    });
+  }
+  function valueHtml(value) {
+    var cls = 'prt';
+    if (String(value).indexOf('●') === 0) cls = 'chk';
+    if (String(value).indexOf('✕') === 0) cls = 'crs';
+    return '<span class="' + cls + '">' + esc(value) + '</span>';
+  }
   document.querySelectorAll('#compare tbody tr').forEach(function(row, i) {
     var data = t.compare[i];
     if (!data) return;
     var cells = row.querySelectorAll('td');
     if (cells[0]) cells[0].textContent = data[0];
-    if (cells[1]) cells[1].textContent = data[1];
-    if (cells[2]) cells[2].textContent = data[2];
+    if (cells[1]) cells[1].innerHTML = valueHtml(data[1]);
+    if (cells[2]) cells[2].innerHTML = valueHtml(data[2]);
   });
   document.querySelectorAll('#vs-competitors tbody tr').forEach(function(row, i) {
     var data = t.vs[i];
     if (!data) return;
     row.querySelectorAll('td').forEach(function(cell, j) {
-      if (data[j]) cell.textContent = data[j];
+      if (!data[j]) return;
+      if (j === 0) cell.textContent = data[j];
+      else cell.innerHTML = valueHtml(data[j]);
     });
   });
 }

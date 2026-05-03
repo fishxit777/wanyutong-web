@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>工地外籍員工 LINE 翻譯怎麼用？安全、集合與回報流程｜萬語通</title>
+<meta name="description" content="工地外籍員工溝通最怕安全指令、集合時間、材料規格與異常回報沒有說清楚。這篇整理營造現場可落地的 LINE 翻譯流程。">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://fishxit777.github.io/wanyutong-web/blog-construction-line-translation.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="工地外籍員工 LINE 翻譯怎麼用？">
+<meta property="og:description" content="工地外籍員工溝通最怕安全指令、集合時間、材料規格與異常回報沒有說清楚。">
+<meta property="og:url" content="https://fishxit777.github.io/wanyutong-web/blog-construction-line-translation.html">
+<meta property="og:site_name" content="萬語通">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-05-04">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#090d13; --panel:#111820; --panel2:rgba(17,24,32,.78); --text:#f4f7fb; --muted:#91a0b6;
+  --line:#06c755; --border:rgba(255,255,255,.12); --grid:rgba(255,255,255,.045); --accent:#38bdf8;
+}
+body.light {
+  --bg:#f3f6fb; --panel:#ffffff; --panel2:rgba(255,255,255,.86); --text:#111827; --muted:#64748b;
+  --border:rgba(15,23,42,.13); --grid:rgba(15,23,42,.055);
+}
+* { box-sizing:border-box; }
+body { margin:0; font-family:'Noto Sans TC',system-ui,sans-serif; background:var(--bg); color:var(--text); letter-spacing:0; }
+body::before {
+  content:""; position:fixed; inset:0; z-index:-2;
+  background:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px),
+    radial-gradient(circle at 25% 20%, rgba(6,199,85,.18), transparent 32%),
+    radial-gradient(circle at 80% 10%, rgba(56,189,248,.15), transparent 30%),
+    var(--bg);
+  background-size:80px 80px,80px 80px,100% 100%,100% 100%,100% 100%;
+}
+.history-nav { height:46px; background:#5db85f; color:#06100a; display:grid; grid-template-columns:1fr 1fr 1fr; align-items:center; padding:0 4.5vw; font-weight:700; position:sticky; top:0; z-index:20; }
+.history-nav button { border:0; background:transparent; color:inherit; font:inherit; cursor:pointer; }
+.history-nav .center { text-align:center; font-family:'DM Mono',monospace; font-weight:400; }
+nav { height:72px; display:flex; align-items:center; justify-content:space-between; padding:0 5vw; background:rgba(8,12,18,.88); border-bottom:1px solid var(--border); position:sticky; top:46px; z-index:19; backdrop-filter:blur(16px); }
+body.light nav { background:rgba(255,255,255,.9); }
+.brand { display:flex; align-items:center; gap:12px; font-weight:900; font-size:1.35rem; text-decoration:none; color:var(--text); }
+.brand::before { content:""; width:9px; height:9px; border-radius:50%; background:var(--line); box-shadow:0 0 18px var(--line); }
+.nav-links { display:flex; gap:1.5rem; align-items:center; }
+.nav-links a { color:var(--muted); text-decoration:none; font-weight:700; }
+.nav-links a:hover { color:var(--line); }
+.nav-tools { display:flex; gap:.7rem; align-items:center; }
+.nav-cta, .line-btn { background:#61c766; color:#071109; border:0; border-radius:7px; padding:.8rem 1.25rem; font-weight:900; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; }
+.lang-toggle { display:inline-flex; border:1px solid var(--border); border-radius:999px; overflow:hidden; background:var(--panel); }
+.lang-toggle button { border:0; background:transparent; color:var(--muted); padding:.42rem .75rem; font-weight:800; cursor:pointer; }
+.lang-toggle button.active { background:#61c766; color:#071109; }
+.theme-toggle { width:48px; height:30px; border:1px solid var(--border); border-radius:999px; background:var(--panel); cursor:pointer; color:var(--text); }
+.article-shell { max-width:1050px; margin:0 auto; padding:4.2rem 5vw 2rem; }
+.promo { margin-bottom:3.5rem; padding:1.55rem 1.75rem; border:1px solid rgba(6,199,85,.35); background:rgba(6,199,85,.08); border-radius:12px; display:flex; justify-content:space-between; align-items:center; gap:1rem; }
+.promo strong { color:#62d66d; }
+.eyebrow { display:inline-flex; color:var(--accent); border:1px solid color-mix(in srgb, var(--accent) 55%, transparent); background:color-mix(in srgb, var(--accent) 12%, transparent); padding:.5rem .8rem; border-radius:4px; font-family:'DM Mono',monospace; font-size:.82rem; margin-bottom:1.4rem; }
+h1 { font-size:clamp(2.3rem,7vw,5.6rem); line-height:1.08; margin:.3rem 0 1.4rem; max-width:920px; }
+.lead { color:var(--muted); font-size:clamp(1.05rem,2vw,1.45rem); line-height:1.9; max-width:840px; }
+.meta { display:flex; gap:1.5rem; flex-wrap:wrap; color:var(--muted); margin:1.7rem 0 3rem; font-weight:700; }
+.hero-card { min-height:210px; border:1px solid var(--border); border-radius:12px; background:linear-gradient(135deg, color-mix(in srgb, var(--accent) 15%, transparent), var(--panel2)); display:grid; place-items:center; margin:2rem 0 3.5rem; text-align:center; }
+.hero-card .mark { font-size:3.2rem; font-weight:900; }
+.hero-card .sub { font-family:'DM Mono',monospace; color:var(--muted); margin-top:.8rem; }
+
+.article-photo { margin:2rem 0 3.5rem; border:1px solid var(--border); border-radius:16px; overflow:hidden; background:var(--panel2); box-shadow:0 24px 70px rgba(0,0,0,.22); }
+.article-photo img { width:100%; aspect-ratio:16/9; object-fit:cover; display:block; background:var(--panel); }
+.article-photo figcaption { padding:.85rem 1rem; color:var(--muted); font-size:.92rem; line-height:1.65; border-top:1px solid var(--border); }
+body.light .article-photo { box-shadow:0 18px 48px rgba(15,23,42,.12); }
+.content-block { border-top:1px solid var(--border); padding:2rem 0; }
+.content-block h2 { font-size:1.65rem; margin:0 0 .8rem; }
+.content-block p { color:var(--muted); line-height:2; font-size:1.04rem; margin:0; }
+.article-cta { margin:3rem 0; padding:2rem; border:1px solid rgba(6,199,85,.35); border-radius:12px; background:rgba(6,199,85,.08); text-align:center; }
+.article-cta h2 { margin:0 0 .8rem; }
+.article-cta p { color:var(--muted); line-height:1.8; }
+.article-nav { margin:2.5rem auto 0; }
+.article-nav-inner { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+.article-nav-card { min-height:150px; padding:1.35rem; border:1px solid var(--border); border-radius:10px; background:var(--panel2); color:var(--text); text-decoration:none; display:flex; flex-direction:column; justify-content:center; gap:.55rem; transition:.2s; }
+.article-nav-card:hover { border-color:rgba(6,199,85,.45); transform:translateY(-2px); }
+.article-nav-card.next { text-align:right; }
+.article-nav-card.disabled { opacity:.45; pointer-events:none; }
+.nav-card-dir,.nav-card-tag { color:var(--muted); font-family:'DM Mono',monospace; font-size:.82rem; }
+.nav-card-title { font-weight:900; line-height:1.55; }
+.article-nav-back { text-align:center; margin-top:1.4rem; }
+.article-nav-back a { color:var(--muted); text-decoration:none; }
+.article-nav-back a:hover { color:var(--line); }
+footer { border-top:1px solid var(--border); padding:2rem 5vw; display:flex; justify-content:space-between; gap:1rem; color:var(--muted); font-family:'DM Mono',monospace; font-size:.82rem; }
+.lang-content { display:none; }
+.lang-content.active { display:block; }
+@media (max-width:760px) {
+  .history-nav { padding:0 1rem; font-size:.88rem; }
+  nav { height:auto; min-height:70px; align-items:flex-start; gap:.8rem; flex-wrap:wrap; padding:1rem; }
+  .nav-links { order:3; width:100%; justify-content:space-between; gap:.6rem; font-size:.88rem; }
+  .nav-cta { display:none; }
+  .article-shell { padding:2.6rem 1.1rem 1.5rem; }
+  .promo { flex-direction:column; align-items:flex-start; }
+  h1 { font-size:clamp(2.05rem,12vw,3.5rem); }
+  .meta { gap:.8rem; font-size:.9rem; }
+  .article-nav-inner { grid-template-columns:1fr; }
+  .article-nav-card.next { text-align:left; }
+  .article-photo { margin:1.4rem 0 2.4rem; border-radius:12px; }
+  .article-photo img { aspect-ratio:4/3; }
+  .article-photo figcaption { font-size:.88rem; padding:.75rem .85rem; }
+  footer { flex-direction:column; padding:1.7rem 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="history-nav">
+  <button type="button" onclick="history.back()" data-zh="‹ 上一頁" data-en="‹ Back">‹ 上一頁</button>
+  <div class="center" data-zh="瀏覽紀錄" data-en="History">瀏覽紀錄</div>
+  <button type="button" onclick="history.forward()" data-zh="下一頁 ›" data-en="Next ›">下一頁 ›</button>
+</div>
+<nav>
+  <a class="brand" href="index.html">萬語通</a>
+  <div class="nav-links">
+    <a href="index.html" data-zh="官網" data-en="Home">官網</a>
+    <a href="index.html#pricing" data-zh="收費方案" data-en="Pricing">收費方案</a>
+    <a href="blog.html" data-zh="部落格" data-en="Blog">部落格</a>
+    <a href="faq.html" data-zh="常見問題" data-en="FAQ">常見問題</a>
+  </div>
+  <div class="nav-tools">
+    <a class="nav-cta" href="https://line.me/ti/p/@969wpxno" data-zh="免費體驗" data-en="Try Free">免費體驗</a>
+    <div class="lang-toggle"><button id="btn-zh" class="active" onclick="setLang('zh')" type="button">繁中</button><button id="btn-en" onclick="setLang('en')" type="button">EN</button></div>
+    <button class="theme-toggle" onclick="toggleTheme()" type="button" aria-label="切換日夜模式">●</button>
+  </div>
+</nav>
+
+<main class="article-shell">
+  <article class="lang-content active" data-lang="zh">
+    <div class="promo"><p><strong>萬語通：</strong>台灣雇主管理外籍員工的 LINE 翻譯機器人，支援文字、語音與圖片翻譯。</p><a class="line-btn" href="https://line.me/ti/p/@969wpxno">免費體驗</a></div>
+    <span class="eyebrow">// 工地管理 · 2026-05-04</span>
+    <h1>工地外籍員工 LINE 翻譯怎麼用？</h1>
+    <p class="lead">工地溝通最怕「聽懂一半」。集合時間、安全提醒、材料規格、臨時變更與異常回報，都需要留下清楚的雙語訊息。</p>
+    <div class="meta"><span>適用對象：工地主任、領班、包商、營造現場管理者</span><span>閱讀時間：約 5 分鐘</span><span>工具：LINE Bot 萬語通</span></div>
+    <figure class="article-photo hero-photo">
+      <img src="assets/blog/factory-line-translation.jpg" alt="工地與現場管理情境，適合說明外籍員工安全提醒與集合通知翻譯" loading="eager" decoding="async">
+      <figcaption>工地交辦常常又急又細，重點不是只翻成外語，而是讓安全、時間與責任能被確認。</figcaption>
+    </figure>
+
+      <section class="content-block">
+        <h2>安全提醒要先被看懂</h2>
+        <p>高處作業、吊掛、用電、動火、開挖與機具移動，任何一項聽錯都可能變成事故。主管可以先把安全提醒固定成中文句型，再用 LINE 翻譯給不同國籍工人確認。</p>
+      </section>
+
+      <section class="content-block">
+        <h2>集合與變更要留下紀錄</h2>
+        <p>工地常臨時改集合時間、樓層、入口、材料區或施工順序。用 LINE 群組發雙語通知，比口頭轉達更容易回查，也能降低「我不知道」的爭議。</p>
+      </section>
+
+      <section class="content-block">
+        <h2>讓外籍工人也能回報異常</h2>
+        <p>不是只有主管需要下指令。外籍工人遇到材料不夠、工具損壞、身體不適或現場危險時，也需要能用自己的語言回報，主管再看中文處理。</p>
+      </section>
+
+      <section class="content-block">
+        <h2>建議先做一個公告群</h2>
+        <p>如果原本的群組聊天太多，建議另外建立「今日工地公告群」。只放集合、安全、材料、變更與回報，讓翻譯內容更乾淨，也比較容易追蹤。</p>
+      </section>
+    <div class="article-cta"><h2>先把最常誤會的句子翻清楚</h2><p>每天 15 次免費翻譯，不用信用卡。先把工作現場最常出錯的句子丟進 LINE 翻譯，馬上就能測試效果。</p><a class="line-btn" href="https://line.me/ti/p/@969wpxno">加入 LINE Bot 免費體驗</a></div>
+    <div class="article-nav"><div class="article-nav-inner">
+        <a href="blog-line-group-translation.html" class="article-nav-card prev">
+          <div class="nav-card-dir">‹ 上一篇</div>
+          <div class="nav-card-title">哪些情境需要 LINE 群組翻譯機器人？</div>
+          <div class="nav-card-tag">繼續閱讀</div>
+        </a>
+        <a href="blog-image-ocr-translation.html" class="article-nav-card next">
+          <div class="nav-card-dir">下一篇 ›</div>
+          <div class="nav-card-title">圖片 OCR 翻譯適合哪些外勞管理場景？</div>
+          <div class="nav-card-tag">繼續閱讀</div>
+        </a></div><div class="article-nav-back"><a href="blog.html">← 回部落格，查看所有文章</a></div></div>
+  </article>
+
+  <article class="lang-content" data-lang="en">
+    <div class="promo"><p><strong>WanyuTong:</strong> a LINE translation bot for Taiwan employers managing foreign workers, supporting text, voice, and image translation.</p><a class="line-btn" href="https://line.me/ti/p/@969wpxno">Try Free</a></div>
+    <span class="eyebrow">// Construction Site Guide · 2026-05-04</span>
+    <h1>How Can Construction Sites Use LINE Translation?</h1>
+    <p class="lead">Construction communication often involves safety, meeting points, materials, schedule changes, and abnormal reports. These messages need to be clear and recorded.</p>
+    <div class="meta"><span>For: Site managers, foremen, contractors, and construction supervisors</span><span>Reading time: ~5 min</span><span>Tool: WanyuTong LINE Bot</span></div>
+    <figure class="article-photo hero-photo">
+      <img src="assets/blog/factory-line-translation.jpg" alt="Construction and site management scene for explaining safety notices and meeting point translation." loading="lazy" decoding="async">
+      <figcaption>On-site instructions are often urgent and detailed. The goal is not only translation, but also confirmation of safety, time, and responsibility.</figcaption>
+    </figure>
+
+      <section class="content-block">
+        <h2>Safety notices must be understood first</h2>
+        <p>Working at height, lifting, electricity, hot work, excavation, and machinery movement can become dangerous if misunderstood. Supervisors can prepare fixed Chinese notices and translate them in LINE.</p>
+      </section>
+
+      <section class="content-block">
+        <h2>Meeting points and changes need records</h2>
+        <p>Construction sites often change meeting time, floor, entrance, material area, or task order. Bilingual LINE notices are easier to review than verbal relays.</p>
+      </section>
+
+      <section class="content-block">
+        <h2>Workers also need to report issues</h2>
+        <p>Foreign workers may need to report missing materials, broken tools, health problems, or unsafe situations in their own language while supervisors read Chinese.</p>
+      </section>
+
+      <section class="content-block">
+        <h2>Start with one announcement group</h2>
+        <p>If the main group is too noisy, create a dedicated site notice group for meeting points, safety, materials, changes, and reports.</p>
+      </section>
+    <div class="article-cta"><h2>Translate the sentences your team misunderstands most</h2><p>Start with 15 free translations per day. Send your most common workplace instructions in LINE and test the result immediately.</p><a class="line-btn" href="https://line.me/ti/p/@969wpxno">Try WanyuTong Free</a></div>
+    <div class="article-nav"><div class="article-nav-inner">
+        <a href="blog-line-group-translation.html" class="article-nav-card prev">
+          <div class="nav-card-dir">‹ Previous</div>
+          <div class="nav-card-title">Factory communication</div>
+          <div class="nav-card-tag">Continue reading</div>
+        </a>
+        <a href="blog-image-ocr-translation.html" class="article-nav-card next">
+          <div class="nav-card-dir">Next ›</div>
+          <div class="nav-card-title">Image OCR translation</div>
+          <div class="nav-card-tag">Continue reading</div>
+        </a></div><div class="article-nav-back"><a href="blog.html">← Back to Blog</a></div></div>
+  </article>
+</main>
+<footer><div>© 2026 萬語通 · LINE: fishxit · Email: bao58881@gmail.com</div><div><a href="index.html">Home</a> · <a href="blog.html">Blog</a> · <a href="faq.html">FAQ</a></div></footer>
+<script>
+function setLang(lang) {
+  document.documentElement.lang = lang === 'zh' ? 'zh-TW' : 'en';
+  localStorage.setItem('wyt-lang', lang);
+  document.querySelectorAll('.lang-content').forEach(function(el) { el.classList.toggle('active', el.dataset.lang === lang); });
+  document.querySelectorAll('[data-zh]').forEach(function(el) { el.textContent = el.dataset[lang]; });
+  document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+}
+function toggleTheme() {
+  document.body.classList.toggle('light');
+  localStorage.setItem('wyt-theme', document.body.classList.contains('light') ? 'light' : 'dark');
+}
+(function() {
+  if (localStorage.getItem('wyt-theme') === 'light') document.body.classList.add('light');
+  setLang(localStorage.getItem('wyt-lang') || 'zh');
+})();
+</script>
+</body>
+</html>

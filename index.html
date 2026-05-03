@@ -213,7 +213,9 @@ body::after {
   height: 100%;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.9;
+  opacity: 0.82;
+  mask-image: linear-gradient(to right, transparent 0%, transparent 34%, rgba(0,0,0,0.24) 48%, rgba(0,0,0,0.9) 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, transparent 34%, rgba(0,0,0,0.24) 48%, rgba(0,0,0,0.9) 100%);
 }
 
 .hero-data-rail {
@@ -1549,7 +1551,7 @@ footer a:hover { color:var(--text); }
     wireframe: true
   });
   var core = new THREE.Mesh(coreGeo, coreMat);
-  core.position.set(1.5, 0.05, 0);
+  core.position.set(2.45, 0.05, 0);
   root.add(core);
 
   var ringMat = new THREE.MeshBasicMaterial({ color: 0x00d4ff, transparent: true, opacity: 0.32 });
@@ -1561,7 +1563,7 @@ footer a:hover { color:var(--text); }
   ring2.rotation.y = Math.PI / 2.4;
   root.add(ring1, ring2);
 
-  var nodeGeo = new THREE.BoxGeometry(0.16, 0.16, 0.16);
+  var nodeGeo = new THREE.BoxGeometry(0.13, 0.13, 0.13);
   var nodeMats = [
     new THREE.MeshStandardMaterial({ color: 0x06c755, emissive: 0x06c755, emissiveIntensity: 0.45, roughness: 0.3 }),
     new THREE.MeshStandardMaterial({ color: 0x00d4ff, emissive: 0x00d4ff, emissiveIntensity: 0.35, roughness: 0.3 }),
@@ -1570,7 +1572,7 @@ footer a:hover { color:var(--text); }
   var nodePositions = [];
   for(var lane=0; lane<4; lane++){
     for(var i=0; i<9; i++){
-      var x = -5.8 + i * 0.75 + (lane % 2) * 0.18;
+      var x = -1.35 + i * 0.48 + (lane % 2) * 0.14;
       var y = -2.1 + lane * 1.18 + Math.sin(i * 0.9 + lane) * 0.16;
       var z = -1.4 + Math.cos(i * 0.7 + lane) * 1.25;
       var node = new THREE.Mesh(nodeGeo, nodeMats[(i + lane) % nodeMats.length]);
@@ -1594,7 +1596,7 @@ footer a:hover { color:var(--text); }
   });
   var lineGeo = new THREE.BufferGeometry();
   lineGeo.setAttribute('position', new THREE.Float32BufferAttribute(linePositions, 3));
-  root.add(new THREE.LineSegments(lineGeo, new THREE.LineBasicMaterial({ color: 0x4bffd0, transparent: true, opacity: 0.18 })));
+  root.add(new THREE.LineSegments(lineGeo, new THREE.LineBasicMaterial({ color: 0x4bffd0, transparent: true, opacity: 0.13 })));
 
   var packetGeo = new THREE.BoxGeometry(0.08, 0.08, 0.08);
   var packets = [];
@@ -1602,7 +1604,7 @@ footer a:hover { color:var(--text); }
     var packet = new THREE.Mesh(packetGeo, new THREE.MeshBasicMaterial({
       color: p % 3 === 0 ? cyan : (p % 3 === 1 ? green : soft),
       transparent: true,
-      opacity: 0.86
+      opacity: 0.76
     }));
     packet.userData.lane = p % 4;
     packet.userData.t = Math.random();
@@ -1626,13 +1628,13 @@ footer a:hover { color:var(--text); }
     camera.aspect = w / h;
     camera.updateProjectionMatrix();
     root.scale.setScalar(w < 800 ? 0.72 : 1);
-    root.position.x = w < 800 ? 0.45 : 0;
+    root.position.x = w < 800 ? 0.7 : 0.38;
   }
   resize();
   window.addEventListener('resize', resize);
 
   function laneStart(lane){
-    return new THREE.Vector3(-5.7, -2.05 + lane * 1.18, -1.2 + lane * 0.36);
+    return new THREE.Vector3(-1.45, -2.05 + lane * 1.18, -1.2 + lane * 0.36);
   }
 
   function animate(){

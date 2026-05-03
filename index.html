@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-<title>萬語通 — 讓每個 LINE 群都聽得懂、管得住｜AI 翻譯與群組秘書</title>
+<title>萬語通 — 讓每個 LINE 群都聽得懂、管得住｜LINE 多語翻譯</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- SEO Meta -->
-<meta name="description" content="萬語通讓每個 LINE 群都聽得懂、管得住。支援印尼文、越南文、泰文等多語翻譯，並加入 AI 群組秘書、群聊摘要、待辦整理與每日報表，適合工廠、看護、工地、餐飲與農場雇主管理外籍工作者。">
+<meta name="description" content="萬語通讓 LINE 群組跨語言溝通更清楚。支援印尼文、越南文、泰文等多語翻譯，適合工廠、看護、工地、餐飲與農場雇主管理外籍工作者。">
 <meta name="keywords" content="外勞翻譯,LINE翻譯機器人,印尼文翻譯,越南文翻譯,泰文翻譯,台灣外勞管理,外籍勞工溝通,工廠外勞翻譯,看護翻譯,移工翻譯工具,萬語通">
 <meta name="author" content="萬語通 WanyuTong">
 <meta name="robots" content="index, follow">
@@ -16,7 +16,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://fishxit777.github.io/wanyutong-web/">
 <meta property="og:title" content="萬語通 — 讓每個 LINE 群都聽得懂、管得住">
-<meta property="og:description" content="WanyuTong helps every LINE group understand, organize, and respond smarter. 多語翻譯加 AI 群組秘書，整理摘要、待辦與每日報表。">
+<meta property="og:description" content="WanyuTong helps LINE groups communicate clearly across languages. 支援多語翻譯，適合雇主管理外籍工作者與日常群組溝通。">
 <meta property="og:image" content="https://fishxit777.github.io/wanyutong-web/og-image.png">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:site_name" content="萬語通">
@@ -24,7 +24,7 @@
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="萬語通 — 讓每個 LINE 群都聽得懂、管得住">
-<meta name="twitter:description" content="多語翻譯加 AI 群組秘書，讓 LINE 群聊能翻譯、整理、摘要與追蹤待辦。">
+<meta name="twitter:description" content="LINE 群組多語翻譯工具，協助雇主降低外籍工作者溝通誤會。">
 <meta name="twitter:image" content="https://fishxit777.github.io/wanyutong-web/og-image.png">
 
 <!-- JSON-LD 結構化資料 -->
@@ -37,7 +37,7 @@
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "LINE",
   "url": "https://fishxit777.github.io/wanyutong-web/",
-  "description": "萬語通讓每個 LINE 群都聽得懂、管得住，提供多語翻譯、AI 群組秘書、群聊摘要、待辦整理與每日報表，適用於工廠、看護、工地、餐飲、農場等場景。",
+  "description": "萬語通讓 LINE 群組跨語言溝通更清楚，提供多語翻譯與群組管理輔助，適用於工廠、看護、工地、餐飲、農場等場景。",
   "offers": {
     "@type": "Offer",
     "price": "199",
@@ -627,6 +627,35 @@ h2 {
 .feature-title { font-family:'Syne',sans-serif; font-weight:700; font-size:0.93rem; color:var(--white); margin-bottom:0.5rem; }
 .feature-desc  { font-size:0.83rem; color:var(--muted); line-height:1.75; font-weight:300; }
 
+#guides { background:var(--bg2); }
+
+.guide-grid {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:1rem; max-width:1100px; margin:0 auto;
+}
+
+.guide-card {
+  display:block; text-decoration:none; color:inherit;
+  background:var(--bg3); border:1px solid var(--border);
+  border-radius:12px; padding:1.4rem;
+  transition:border-color 0.2s, transform 0.2s, background 0.2s;
+}
+
+.guide-card:hover {
+  border-color:rgba(6,199,85,0.36);
+  background:rgba(255,255,255,0.045);
+  transform:translateY(-2px);
+}
+
+.guide-tag {
+  display:inline-block; color:var(--line);
+  font-family:'DM Mono',monospace; font-size:0.66rem;
+  letter-spacing:0.08em; margin-bottom:0.6rem;
+}
+
+.guide-title { color:var(--white); font-weight:700; line-height:1.45; margin-bottom:0.5rem; }
+.guide-desc { color:var(--muted); font-size:0.82rem; line-height:1.75; font-weight:300; }
+
 #compare { background:var(--bg2); }
 .compare-wrap { max-width:860px; margin:0 auto; }
 
@@ -915,6 +944,7 @@ footer a:hover { color:var(--text); }
   .phone-frame { width:220px; }
   .stats-strip { grid-template-columns:repeat(2,1fr); }
   .features-grid { grid-template-columns:1fr; }
+  .guide-grid { grid-template-columns:1fr; }
   .example-row { grid-template-columns:1fr; }
   .steps-grid { grid-template-columns:repeat(2,1fr); }
   .step-item:nth-child(2) { border-right:none; }
@@ -989,9 +1019,9 @@ footer a:hover { color:var(--text); }
   <div class="hero-data-rail" aria-hidden="true"></div>
   <div class="hero-signal-stack" aria-hidden="true">
     <span class="signal-chip">LINE GROUPS</span>
-    <span class="signal-chip">AI SECRETARY</span>
-    <span class="signal-chip">TASKS / PAYMENTS</span>
-    <span class="signal-chip">DAILY REPORTS</span>
+    <span class="signal-chip">CLEAR MESSAGES</span>
+    <span class="signal-chip">GROUP CONTROL</span>
+    <span class="signal-chip">WORKPLACE READY</span>
   </div>
   <!-- 矩陣雨 -->
   <canvas id="matrix-canvas"></canvas>
@@ -1021,7 +1051,7 @@ footer a:hover { color:var(--text); }
     <div class="hero-text">
       <div class="hero-eyebrow">工廠 · 看護 · 工地 · 餐飲 · 農場 雇主專用</div>
       <h1>聽得懂<br><span class="hl">管得住</span></h1>
-      <p class="hero-desc">萬語通讓每個 LINE 群都聽得懂、管得住。多語翻譯解決溝通，AI 群組秘書整理重點、待辦、付款與每日報表，讓雇主不用再靠人工翻群聊。</p>
+      <p class="hero-desc">萬語通讓每個 LINE 群都聽得懂、管得住。支援印尼文、越南文、泰文等多語翻譯，協助雇主降低溝通誤會，讓工作通知、請假、付款與日常對話更清楚。</p>
       <div class="hero-actions">
         <a href="https://line.me/ti/p/@969wpxno" class="btn-primary">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.105.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.070 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
@@ -1144,6 +1174,46 @@ footer a:hover { color:var(--text); }
       <div class="feature-card"><span class="feature-icon">🔕</span><div class="feature-title">勿擾模式</div><div class="feature-desc">晚上 10 點後不想被系統通知張醧？設定勿擾時段，指定時間內系統自動靜音，不打擾不漏檔。</div></div>
       <div class="feature-card"><span class="feature-icon">⚡</span><div class="feature-title">DeepL 高精度引擎</div><div class="feature-desc">主要文字翻譯採用 DeepL，協助提升自然語感與專業詞彙理解；重要文件仍建議人工複核。</div></div>
       <div class="feature-card"><span class="feature-icon">🆓</span><div class="feature-title">免費先試，滿意再付</div><div class="feature-desc">每日 15 次免費，不用綁信用卡。真的好用再付錢，不好用不費一分。</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="guides">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="eyebrow" id="guide-eyebrow">// Employer Guides</div>
+    <h2 id="guide-title">雇主最常遇到的 LINE 溝通問題</h2>
+    <p class="lead" id="guide-lead">先用可公開、可搜尋、可長期累積的實用內容建立信任。這些文章聚焦外籍工作者溝通、群組翻譯與日常管理，不提前承諾尚未正式開放的進階功能。</p>
+    <div class="guide-grid">
+      <a class="guide-card" href="blog-foreign-worker-communication.html">
+        <span class="guide-tag" id="guide-1-tag">雇主管理</span>
+        <div class="guide-title" id="guide-1-title">管理外籍員工最常遇到的 5 個溝通問題</div>
+        <div class="guide-desc" id="guide-1-desc">從指令誤會、圖片看不懂到多國籍群組通知，整理雇主可以立刻改善的流程。</div>
+      </a>
+      <a class="guide-card" href="blog-factory-line-translation.html">
+        <span class="guide-tag" id="guide-2-tag">工廠現場</span>
+        <div class="guide-title" id="guide-2-title">工廠外籍員工語言不通怎麼辦？</div>
+        <div class="guide-desc" id="guide-2-desc">工安、機台、交期、加班與品質規範，都需要能被確實理解的 LINE 翻譯流程。</div>
+      </a>
+      <a class="guide-card" href="blog-caregiver-line-translation.html">
+        <span class="guide-tag" id="guide-3-tag">看護照護</span>
+        <div class="guide-title" id="guide-3-title">外籍看護聽不懂照護指示怎麼辦？</div>
+        <div class="guide-desc" id="guide-3-desc">家屬交代、用藥、回診與臨時狀況，透過 LINE 翻譯降低照護溝通落差。</div>
+      </a>
+      <a class="guide-card" href="blog-restaurant-foreign-worker-translation.html">
+        <span class="guide-tag" id="guide-4-tag">餐飲服務</span>
+        <div class="guide-title" id="guide-4-title">餐飲業如何跟外籍員工溝通？</div>
+        <div class="guide-desc" id="guide-4-desc">排班、衛生、點餐備註與客訴處理，都可以先從固定翻譯流程開始。</div>
+      </a>
+      <a class="guide-card" href="blog-line-group-translation.html">
+        <span class="guide-tag" id="guide-5-tag">LINE 群組</span>
+        <div class="guide-title" id="guide-5-title">LINE 群組翻譯機器人適合誰？</div>
+        <div class="guide-desc" id="guide-5-desc">多國籍員工、跨語言主管與需要雙向通知的團隊，都適合用群組翻譯降低成本。</div>
+      </a>
+      <a class="guide-card" href="blog-image-ocr-translation.html">
+        <span class="guide-tag" id="guide-6-tag">圖片翻譯</span>
+        <div class="guide-title" id="guide-6-title">圖片 OCR 翻譯可以用在哪裡？</div>
+        <div class="guide-desc" id="guide-6-desc">班表、公告、合約截圖與文件照片，讓雇主不用每次手打文字再翻譯。</div>
+      </a>
     </div>
   </div>
 </section>
@@ -1907,7 +1977,7 @@ var i18n = {
     'hero.eyebrow':    '工廠 · 看護 · 工地 · 餐飲 · 農場 雇主專用',
     'hero.h1a':        '聽得懂',
     'hero.h1b':        '管得住',
-    'hero.desc':       '萬語通讓每個 LINE 群都聽得懂、管得住。多語翻譯解決溝通，AI 群組秘書整理重點、待辦、付款與每日報表，讓雇主不用再靠人工翻群聊。',
+    'hero.desc':       '萬語通讓每個 LINE 群都聽得懂、管得住。支援印尼文、越南文、泰文等多語翻譯，協助雇主降低溝通誤會，讓工作通知、請假、付款與日常對話更清楚。',
     'hero.btn1':       '免費體驗，馬上解決',
     'hero.btn2':       '查看方案 →',
     // STATS
@@ -1939,6 +2009,28 @@ var i18n = {
     'feat.9.desc':     '主要文字翻譯採用 DeepL，協助提升自然語感與專業詞彙理解；重要文件仍建議人工複核。',
     'feat.10.title':   '免費先試，滿意再付',
     'feat.10.desc':    '每日 15 次免費，不用綁信用卡。真的好用再付錢，不好用不費一分。',
+    // GUIDES
+    'guide.eyebrow':   '// Employer Guides',
+    'guide.title':     '雇主最常遇到的 LINE 溝通問題',
+    'guide.lead':      '先用可公開、可搜尋、可長期累積的實用內容建立信任。這些文章聚焦外籍工作者溝通、群組翻譯與日常管理，不提前承諾尚未正式開放的進階功能。',
+    'guide.1.tag':     '雇主管理',
+    'guide.1.title':   '管理外籍員工最常遇到的 5 個溝通問題',
+    'guide.1.desc':    '從指令誤會、圖片看不懂到多國籍群組通知，整理雇主可以立刻改善的流程。',
+    'guide.2.tag':     '工廠現場',
+    'guide.2.title':   '工廠外籍員工語言不通怎麼辦？',
+    'guide.2.desc':    '工安、機台、交期、加班與品質規範，都需要能被確實理解的 LINE 翻譯流程。',
+    'guide.3.tag':     '看護照護',
+    'guide.3.title':   '外籍看護聽不懂照護指示怎麼辦？',
+    'guide.3.desc':    '家屬交代、用藥、回診與臨時狀況，透過 LINE 翻譯降低照護溝通落差。',
+    'guide.4.tag':     '餐飲服務',
+    'guide.4.title':   '餐飲業如何跟外籍員工溝通？',
+    'guide.4.desc':    '排班、衛生、點餐備註與客訴處理，都可以先從固定翻譯流程開始。',
+    'guide.5.tag':     'LINE 群組',
+    'guide.5.title':   'LINE 群組翻譯機器人適合誰？',
+    'guide.5.desc':    '多國籍員工、跨語言主管與需要雙向通知的團隊，都適合用群組翻譯降低成本。',
+    'guide.6.tag':     '圖片翻譯',
+    'guide.6.title':   '圖片 OCR 翻譯可以用在哪裡？',
+    'guide.6.desc':    '班表、公告、合約截圖與文件照片，讓雇主不用每次手打文字再翻譯。',
     // COMPARE
     'cmp.eyebrow':     '// 為何翻譯品質很重要',
     'cmp.h2':          '同樣一句話，外勞理解的意思差很大',
@@ -2153,6 +2245,28 @@ var i18n = {
     'feat.9.desc':     'We use DeepL for core text translation to improve natural phrasing and terminology handling. Critical documents should still be reviewed by a person.',
     'feat.10.title':   'Try Free, Pay When Satisfied',
     'feat.10.desc':    '15 free translations daily, no credit card required. Only pay when you\'re convinced it works.',
+    // GUIDES
+    'guide.eyebrow':   '// Employer Guides',
+    'guide.title':     'Common LINE Communication Problems for Employers',
+    'guide.lead':      'Build trust first with practical, searchable content. These guides focus on foreign worker communication, group translation, and daily management without promising advanced features before they are officially released.',
+    'guide.1.tag':     'Employer Guide',
+    'guide.1.title':   '5 common communication problems when managing foreign workers',
+    'guide.1.desc':    'From misunderstood instructions to multi-language group notices, learn workflows employers can improve immediately.',
+    'guide.2.tag':     'Factory',
+    'guide.2.title':   'What if factory workers do not understand Chinese?',
+    'guide.2.desc':    'Safety, machines, deadlines, overtime, and quality rules all need a LINE translation flow people can actually understand.',
+    'guide.3.tag':     'Caregiving',
+    'guide.3.title':   'What if a caregiver misunderstands care instructions?',
+    'guide.3.desc':    'Family requests, medicine, appointments, and urgent issues can be made clearer with LINE translation.',
+    'guide.4.tag':     'Restaurant',
+    'guide.4.title':   'How restaurants can communicate with foreign staff',
+    'guide.4.desc':    'Scheduling, hygiene, order notes, and customer complaints are easier when fixed translation flows are in place.',
+    'guide.5.tag':     'LINE Groups',
+    'guide.5.title':   'Who needs a LINE group translation bot?',
+    'guide.5.desc':    'Multi-national teams and bilingual workplace groups can reduce communication costs with group translation.',
+    'guide.6.tag':     'Image OCR',
+    'guide.6.title':   'What can image OCR translation be used for?',
+    'guide.6.desc':    'Schedules, notices, contracts, and document photos can be translated without typing everything again.',
     // COMPARE
     'cmp.eyebrow':     '// Why Translation Quality Matters',
     'cmp.h2':          'The Same Sentence Can Mean Something Very Different',
@@ -2414,6 +2528,16 @@ function applyLang(lang) {
     if (title && t[k+'.title']) title.textContent = t[k+'.title'];
     if (desc && t[k+'.desc']) desc.textContent = t[k+'.desc'];
   });
+
+  // GUIDES
+  q('#guide-eyebrow', 'guide.eyebrow');
+  q('#guide-title', 'guide.title');
+  q('#guide-lead', 'guide.lead');
+  for (var gi = 1; gi <= 6; gi++) {
+    q('#guide-' + gi + '-tag', 'guide.' + gi + '.tag');
+    q('#guide-' + gi + '-title', 'guide.' + gi + '.title');
+    q('#guide-' + gi + '-desc', 'guide.' + gi + '.desc');
+  }
 
   // COMPARE
   q('#compare .eyebrow', 'cmp.eyebrow');

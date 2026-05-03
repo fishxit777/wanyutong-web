@@ -195,10 +195,10 @@ body::after {
 
 /* ── 矩陣雨 canvas ── */
 #matrix-canvas {
-  position: absolute;
-  top: 0; right: 0;
+  position: fixed;
+  top: 58px; right: 0;
   width: 52%;
-  height: 100%;
+  height: calc(100vh - 58px);
   pointer-events: none;
   z-index: 0;
   opacity: 0.16;
@@ -207,10 +207,10 @@ body::after {
 }
 
 #hero3d-canvas {
-  position: absolute;
-  inset: 0;
+  position: fixed;
+  inset: 58px 0 0 0;
   width: 100%;
-  height: 100%;
+  height: calc(100vh - 58px);
   pointer-events: none;
   z-index: 0;
   opacity: 0.82;
@@ -219,8 +219,8 @@ body::after {
 }
 
 .hero-data-rail {
-  position: absolute;
-  inset: 0;
+  position: fixed;
+  inset: 58px 0 0 0;
   pointer-events: none;
   z-index: 1;
   overflow: hidden;
@@ -242,14 +242,15 @@ body::after {
 .hero-data-rail::after { top: 71%; animation-delay: -4.5s; }
 
 .hero-signal-stack {
-  position: absolute;
-  right: 8vw;
-  top: 22%;
+  position: fixed;
+  right: -5vw;
+  top: 31%;
   display: grid;
   gap: 8px;
-  z-index: 1;
+  z-index: 0;
   pointer-events: none;
-  opacity: 0.72;
+  opacity: 0.34;
+  transform: translateX(30%);
 }
 
 .signal-chip {
@@ -277,12 +278,26 @@ body::after {
 
 /* ── 電路板 SVG 背景 ── */
 .circuit-bg {
-  position: absolute;
-  inset: 0;
+  position: fixed;
+  inset: 58px 0 0 0;
   pointer-events: none;
   z-index: 0;
   opacity: 0.09;
   overflow: hidden;
+}
+
+body:not(.at-hero) #hero3d-canvas {
+  opacity: 0.22;
+}
+
+body:not(.at-hero) .hero-data-rail,
+body:not(.at-hero) .hero-signal-stack,
+body:not(.at-hero) #matrix-canvas {
+  opacity: 0.08;
+}
+
+body:not(.at-hero) .circuit-bg {
+  opacity: 0.04;
 }
 
 /* ── 掃描線：兩條，不同速度 ── */
@@ -564,6 +579,44 @@ h1 {
 .chat-msg.bot  { background:#252525; color:#ddd; align-self:flex-start; border-bottom-left-radius:3px; border:1px solid rgba(255,255,255,0.06); }
 
 .chat-label { font-size:0.61rem; color:#555; text-align:center; margin:2px 0; font-family:'DM Mono',monospace; }
+
+.phone-bubble-row { display:flex; align-items:flex-end; gap:6px; }
+.phone-bubble-row.owner { justify-content:flex-end; }
+.phone-avatar {
+  width:25px; height:25px; border-radius:50%;
+  background:#06c755; display:flex; align-items:center; justify-content:center;
+  color:#fff; font-size:0.7rem; flex-shrink:0;
+  box-shadow:0 1px 3px rgba(0,0,0,0.15);
+}
+.phone-bubble {
+  padding:7px 10px; border-radius:14px;
+  font-size:0.66rem; line-height:1.48; max-width:78%;
+  box-shadow:0 1px 2px rgba(0,0,0,0.12);
+}
+.phone-bubble.owner {
+  background:#06c755; color:#fff; border-bottom-right-radius:3px;
+}
+.phone-bubble.system {
+  background:#fff; color:#28313d; border-bottom-left-radius:3px;
+}
+.phone-bubble.notice {
+  background:#eef9f1; color:#0c5f31; border:1px solid rgba(6,199,85,0.18);
+}
+.phone-meta {
+  font-size:0.52rem; color:#8b95a1; margin-top:2px;
+  font-family:'DM Mono',monospace;
+}
+.phone-time { font-size:0.52rem; color:#999; margin-bottom:1px; white-space:nowrap; }
+.phone-check-card {
+  background:#fff; border:1px solid #e5e9ef; border-left:3px solid #06c755;
+  border-radius:8px; padding:6px 8px; color:#2f3a45; font-size:0.61rem; line-height:1.45;
+  box-shadow:0 1px 2px rgba(0,0,0,0.08);
+}
+.phone-mini-tags { display:flex; gap:4px; flex-wrap:wrap; margin-top:4px; }
+.phone-mini-tag {
+  background:#f1f5f9; color:#627086; border-radius:999px;
+  padding:1px 6px; font-size:0.52rem; font-family:'DM Mono',monospace;
+}
 
 #stats { padding: 0 5vw 80px; position:relative; z-index:1; }
 
@@ -983,7 +1036,7 @@ footer a:hover { color:var(--text); }
 .hero-mockup { animation:fadeUp 0.8s 0.3s ease both; }
 </style>
 </head>
-<body>
+<body class="at-hero">
 
 <!-- 粒子 canvas -->
 <canvas id="particle-canvas"></canvas>
@@ -1097,47 +1150,60 @@ footer a:hover { color:var(--text); }
         </div>
 
         <!-- 聊天背景 -->
-        <div style="background:#f0f0f0;min-height:340px;padding:10px 10px 8px;display:flex;flex-direction:column;gap:6px;position:relative;">
+        <div style="background:#f0f2f5;min-height:340px;padding:9px 9px 8px;display:flex;flex-direction:column;gap:6px;position:relative;">
 
-          <!-- 日期標籤 -->
-          <div style="text-align:center;margin:2px 0 4px;">
-            <span style="background:rgba(0,0,0,0.18);color:#fff;font-size:0.6rem;padding:2px 10px;border-radius:10px;font-family:'DM Mono',monospace;">今天</span>
+          <div style="text-align:center;margin:1px 0 3px;">
+            <span style="background:rgba(0,0,0,0.16);color:#fff;font-size:0.56rem;padding:2px 9px;border-radius:10px;font-family:'DM Mono',monospace;">今天</span>
           </div>
 
-          <!-- 用戶訊息1（右側綠色） -->
-          <div style="display:flex;justify-content:flex-end;align-items:flex-end;gap:4px;">
-            <span style="font-size:0.55rem;color:#999;align-self:flex-end;margin-bottom:1px;">14:31</span>
-            <div style="background:#06c755;color:#fff;padding:8px 11px;border-radius:16px 16px 3px 16px;font-size:0.73rem;max-width:75%;line-height:1.55;box-shadow:0 1px 2px rgba(0,0,0,0.15);">我需要這個藥，<br>請問有貨嗎？</div>
+          <div class="phone-bubble-row owner">
+            <span class="phone-time">08:20</span>
+            <div class="phone-bubble owner">今天 15:00 前<br>完成 A 區清潔，<br>回覆 1 表示收到。</div>
           </div>
 
-          <!-- Bot 訊息1（左側白色） -->
-          <div style="display:flex;align-items:flex-end;gap:6px;">
-            <div style="width:26px;height:26px;border-radius:50%;background:#06c755;display:flex;align-items:center;justify-content:center;font-size:0.75rem;flex-shrink:0;">🌐</div>
-            <div style="display:flex;flex-direction:column;gap:2px;">
-              <span style="font-size:0.58rem;color:#888;margin-left:2px;">萬語通</span>
-              <div style="display:flex;align-items:flex-end;gap:4px;">
-                <div style="background:#fff;color:#333;padding:8px 11px;border-radius:3px 16px 16px 16px;font-size:0.73rem;max-width:75%;line-height:1.55;box-shadow:0 1px 2px rgba(0,0,0,0.1);">Saya membutuhkan<br>obat ini, apakah ada<br>stoknya?</div>
-                <span style="font-size:0.55rem;color:#999;align-self:flex-end;margin-bottom:1px;">14:31</span>
-              </div>
-              <span style="font-size:0.56rem;color:#aaa;margin-left:2px;font-family:'DM Mono',monospace;">繁中 → 印尼文 · DeepL ✓</span>
+          <div class="phone-bubble-row">
+            <div class="phone-avatar">🌐</div>
+            <div>
+              <div class="phone-bubble system">Selesaikan<br>pembersihan area A<br>sebelum 15:00.<br>Balas 1 jika paham.</div>
+              <div class="phone-meta">繁中 → 印尼文 · 工作通知 ✓</div>
             </div>
           </div>
 
-          <!-- 用戶訊息2 -->
-          <div style="display:flex;justify-content:flex-end;align-items:flex-end;gap:4px;margin-top:4px;">
-            <span style="font-size:0.55rem;color:#999;align-self:flex-end;margin-bottom:1px;">14:33</span>
-            <div style="background:#06c755;color:#fff;padding:8px 11px;border-radius:16px 16px 3px 16px;font-size:0.73rem;max-width:75%;line-height:1.55;box-shadow:0 1px 2px rgba(0,0,0,0.15);">Can you send me<br>the invoice?</div>
+          <div class="phone-bubble-row">
+            <div class="phone-avatar">ID</div>
+            <div>
+              <div class="phone-bubble system">1</div>
+              <div class="phone-meta">已收到 · 08:22</div>
+            </div>
           </div>
 
-          <!-- Bot 訊息2 -->
-          <div style="display:flex;align-items:flex-end;gap:6px;">
-            <div style="width:26px;height:26px;border-radius:50%;background:#06c755;display:flex;align-items:center;justify-content:center;font-size:0.75rem;flex-shrink:0;">🌐</div>
-            <div style="display:flex;flex-direction:column;gap:2px;">
-              <div style="display:flex;align-items:flex-end;gap:4px;">
-                <div style="background:#fff;color:#333;padding:8px 11px;border-radius:3px 16px 16px 16px;font-size:0.73rem;max-width:75%;line-height:1.55;box-shadow:0 1px 2px rgba(0,0,0,0.1);">請問可以把發票<br>寄給我嗎？</div>
-                <span style="font-size:0.55rem;color:#999;align-self:flex-end;margin-bottom:1px;">14:33</span>
-              </div>
-              <span style="font-size:0.56rem;color:#aaa;margin-left:2px;font-family:'DM Mono',monospace;">英文 → 繁中 · DeepL ✓</span>
+          <div class="phone-check-card">
+            <strong>確認進度</strong><br>
+            已確認 6 / 8 人，尚未回覆 2 人
+            <div class="phone-mini-tags">
+              <span class="phone-mini-tag">通知</span>
+              <span class="phone-mini-tag">回覆追蹤</span>
+            </div>
+          </div>
+
+          <div class="phone-bubble-row">
+            <div class="phone-avatar">VN</div>
+            <div>
+              <div class="phone-bubble system">Em xin nghỉ<br>chiều nay được không?</div>
+              <div class="phone-meta">越南文 → 繁中</div>
+            </div>
+          </div>
+
+          <div class="phone-bubble-row owner">
+            <span class="phone-time">09:18</span>
+            <div class="phone-bubble owner">可以，請先交接<br>機台紀錄。</div>
+          </div>
+
+          <div class="phone-bubble-row">
+            <div class="phone-avatar">🌐</div>
+            <div>
+              <div class="phone-bubble notice">Được, vui lòng bàn giao<br>nhật ký máy trước.</div>
+              <div class="phone-meta">繁中 → 越南文 · DeepL ✓</div>
             </div>
           </div>
 
@@ -1521,7 +1587,17 @@ footer a:hover { color:var(--text); }
 
 <script src="https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.min.js"></script>
 <script>
-/* Hero 3D: LINE group nodes flow into an AI secretary core. */
+/* Keep the hero visual layer fixed, then quiet it down while reading lower sections. */
+(function(){
+  function updateHeroLayer(){
+    document.body.classList.toggle('at-hero', window.scrollY < window.innerHeight * 0.72);
+  }
+  updateHeroLayer();
+  window.addEventListener('scroll', updateHeroLayer, { passive: true });
+  window.addEventListener('resize', updateHeroLayer);
+})();
+
+/* Hero 3D: LINE group nodes flow into the product core. */
 (function(){
   var canvas = document.getElementById('hero3d-canvas');
   if(!canvas || !window.THREE) return;

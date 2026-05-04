@@ -682,6 +682,61 @@ h2 {
 .feature-title { font-family:'Syne',sans-serif; font-weight:700; font-size:0.93rem; color:var(--white); margin-bottom:0.5rem; }
 .feature-desc  { font-size:0.83rem; color:var(--muted); line-height:1.75; font-weight:300; }
 
+#workplace-os { background:var(--bg2); }
+
+.story-wrap { max-width:1120px; margin:0 auto; }
+
+.story-head {
+  display:grid; grid-template-columns:minmax(0,0.95fr) minmax(280px,0.75fr);
+  gap:2rem; align-items:end; margin-bottom:2rem;
+}
+
+.story-note {
+  border:1px solid rgba(6,199,85,0.28); border-radius:12px; padding:1.25rem 1.35rem;
+  background:linear-gradient(135deg, rgba(6,199,85,0.1), rgba(0,212,255,0.04));
+  color:var(--muted); font-size:0.9rem; line-height:1.8;
+}
+
+.story-note strong { color:var(--text); }
+
+.story-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:1rem;
+}
+
+.story-card {
+  min-height:300px; border:1px solid var(--border); border-radius:12px; padding:1.55rem;
+  background:linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.015));
+  display:flex; flex-direction:column; justify-content:space-between; gap:1.2rem;
+  position:relative; overflow:hidden;
+}
+
+.story-card::before {
+  content:''; position:absolute; inset:0 0 auto 0; height:3px;
+  background:linear-gradient(90deg, var(--line), var(--cyan), #facc15);
+  opacity:0.78;
+}
+
+.story-kicker {
+  font-family:'DM Mono',monospace; color:var(--cyan); font-size:0.72rem;
+  letter-spacing:0.1em; margin-bottom:0.75rem;
+}
+
+.story-card-title { font-size:1.35rem; color:var(--white); font-weight:900; line-height:1.25; margin-bottom:0.75rem; }
+.story-card-desc { color:var(--muted); font-size:0.9rem; line-height:1.85; }
+
+.story-list { list-style:none; display:flex; flex-direction:column; gap:0.55rem; margin-top:1rem; }
+.story-list li { color:var(--text); font-size:0.84rem; line-height:1.5; display:flex; gap:0.55rem; align-items:flex-start; }
+.story-list li::before { content:'✓'; color:var(--line); font-weight:900; flex-shrink:0; }
+
+.story-proof {
+  display:grid; grid-template-columns:repeat(4,1fr); gap:1px; margin-top:1rem;
+  background:var(--border); border:1px solid var(--border); border-radius:12px; overflow:hidden;
+}
+
+.proof-cell { background:var(--bg3); padding:1rem; }
+.proof-num { color:var(--line); font-family:'DM Mono',monospace; font-weight:800; font-size:1rem; margin-bottom:0.35rem; }
+.proof-label { color:var(--muted); font-size:0.76rem; line-height:1.5; }
+
 #guides { background:var(--bg2); }
 
 .guide-grid {
@@ -710,6 +765,40 @@ h2 {
 
 .guide-title { color:var(--white); font-weight:700; line-height:1.45; margin-bottom:0.5rem; }
 .guide-desc { color:var(--muted); font-size:0.82rem; line-height:1.75; font-weight:300; }
+
+#setup-flow { background:var(--bg); }
+
+.setup-wrap { max-width:1100px; margin:0 auto; }
+
+.setup-grid {
+  display:grid; grid-template-columns:0.78fr 1.22fr; gap:1.2rem; align-items:stretch;
+}
+
+.setup-summary {
+  border:1px solid rgba(250,204,21,0.28); border-radius:12px; padding:1.5rem;
+  background:linear-gradient(145deg, rgba(250,204,21,0.1), rgba(6,199,85,0.04), var(--bg2));
+}
+
+.setup-summary h3 { color:var(--white); font-size:1.35rem; line-height:1.35; margin-bottom:0.85rem; }
+.setup-summary p { color:var(--muted); font-size:0.9rem; line-height:1.8; }
+
+.setup-price {
+  display:grid; gap:0.7rem; margin-top:1.3rem;
+}
+
+.setup-price-row {
+  display:flex; justify-content:space-between; gap:1rem; align-items:center;
+  border:1px solid var(--border); border-radius:10px; padding:0.8rem 0.9rem; background:rgba(255,255,255,0.035);
+}
+
+.setup-price-row span:first-child { color:var(--muted); font-size:0.82rem; }
+.setup-price-row strong { color:var(--text); font-size:0.9rem; text-align:right; }
+
+.setup-steps { display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:12px; overflow:hidden; }
+.setup-step { background:var(--bg2); padding:1.35rem; min-height:180px; }
+.setup-step-num { font-family:'DM Mono',monospace; color:var(--line); font-size:0.7rem; letter-spacing:0.12em; margin-bottom:0.8rem; }
+.setup-step-title { color:var(--white); font-weight:800; margin-bottom:0.55rem; }
+.setup-step-desc { color:var(--muted); font-size:0.84rem; line-height:1.75; }
 
 #compare { background:var(--bg2); }
 .compare-wrap { max-width:860px; margin:0 auto; }
@@ -751,6 +840,61 @@ h2 {
 .hl-col .ex-text { border-color:rgba(6,199,85,0.22); background:rgba(6,199,85,0.05); }
 
 #pricing { background:var(--bg); }
+
+#ai-service-fit { background:var(--bg2); }
+
+.ai-fit-wrap { max-width:1040px; margin:0 auto; }
+.ai-fit-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem; }
+
+.ai-fit-card {
+  border:1px solid var(--border); border-radius:12px; padding:1.45rem;
+  background:var(--bg3);
+}
+
+.ai-fit-card.primary {
+  border-color:rgba(6,199,85,0.34);
+  background:linear-gradient(135deg, rgba(6,199,85,0.12), rgba(0,212,255,0.04), var(--bg3));
+}
+
+.ai-fit-card h3 { color:var(--white); margin-bottom:0.75rem; font-size:1.05rem; }
+.ai-fit-card p { color:var(--muted); line-height:1.8; font-size:0.88rem; }
+
+.fit-table { margin-top:1.1rem; width:100%; border-collapse:separate; border-spacing:0; border:1px solid var(--border); border-radius:12px; overflow:hidden; background:rgba(12,17,26,0.9); }
+.fit-table th, .fit-table td { padding:0.9rem 1rem; border-top:1px solid var(--border); text-align:left; font-size:0.84rem; line-height:1.55; }
+.fit-table th { border-top:0; color:var(--white); background:rgba(255,255,255,0.045); font-family:'DM Mono',monospace; font-size:0.75rem; letter-spacing:0.08em; }
+.fit-table td:first-child { color:var(--text); font-weight:800; width:23%; }
+.fit-table td:nth-child(2) { color:#a8b7d4; }
+.fit-table td:nth-child(3) { color:#9effb8; background:rgba(6,199,85,0.06); }
+
+html.light .story-note,
+html.light .story-card,
+html.light .setup-summary,
+html.light .ai-fit-card.primary {
+  box-shadow:0 18px 46px rgba(26,34,51,0.08);
+}
+
+html.light .story-card,
+html.light .proof-cell,
+html.light .setup-step,
+html.light .ai-fit-card,
+html.light .fit-table {
+  background:#ffffff;
+}
+
+html.light .story-card-title,
+html.light .setup-summary h3,
+html.light .setup-step-title,
+html.light .ai-fit-card h3,
+html.light .fit-table th {
+  color:#142033;
+}
+
+html.light .fit-table { border-color:rgba(27,55,92,0.14); }
+html.light .fit-table th { background:#edf3f9; color:#42516c; }
+html.light .fit-table td { border-top-color:rgba(27,55,92,0.1); }
+html.light .fit-table td:first-child { color:#273449; }
+html.light .fit-table td:nth-child(2) { color:#64748b; }
+html.light .fit-table td:nth-child(3) { color:#047a37; background:rgba(5,179,74,0.08); }
 
 .pricing-tabs { display:flex; margin-bottom:2.5rem; border:1px solid var(--border); border-radius:6px; padding:3px; width:fit-content; background:var(--bg2); }
 
@@ -1061,6 +1205,13 @@ footer a:hover { color:var(--text); }
   .compare-table { min-width:640px; }
   section { overflow:hidden; }
   .stats-strip { grid-template-columns:repeat(2,1fr); }
+  .story-head { grid-template-columns:1fr; align-items:start; }
+  .story-grid { grid-template-columns:1fr; }
+  .story-proof { grid-template-columns:repeat(2,1fr); }
+  .setup-grid { grid-template-columns:1fr; }
+  .setup-steps { grid-template-columns:1fr; }
+  .ai-fit-grid { grid-template-columns:1fr; }
+  .fit-table { min-width:680px; }
   .features-grid { grid-template-columns:1fr; }
   .guide-grid { grid-template-columns:1fr; }
   .example-row { grid-template-columns:1fr; }
@@ -1289,6 +1440,63 @@ footer a:hover { color:var(--text); }
   </div>
 </section>
 
+<section id="workplace-os">
+  <div class="story-wrap">
+    <div class="story-head">
+      <div>
+        <div class="eyebrow" id="os-eyebrow">// Workplace OS</div>
+        <h2 id="os-title">一個 LINE 秘書，三種本領</h2>
+        <p class="lead" id="os-lead">萬語通不是泛用 AI 客服，而是放在工作群裡的現場管理助理。外籍員工看得懂，主管問得清，重要紀錄留得住。</p>
+      </div>
+      <div class="story-note" id="os-note"><strong>導入重點：</strong>不用搬離 LINE、不用教員工新 App。把 Bot 加入群組，設定語言與報表，明天就能開始跑翻譯、摘要與每日整理。</div>
+    </div>
+    <div class="story-grid">
+      <div class="story-card">
+        <div>
+          <div class="story-kicker" id="os-card-1-kicker">ABILITY 01</div>
+          <div class="story-card-title" id="os-card-1-title">翻得懂</div>
+          <div class="story-card-desc" id="os-card-1-desc">台籍主管說中文，印尼、越南、泰國員工各看自己的語言；文字、語音、圖片都能處理。</div>
+        </div>
+        <ul class="story-list">
+          <li id="os-card-1-li-1">LINE 群組雙向翻譯</li>
+          <li id="os-card-1-li-2">語音轉文字再翻譯</li>
+          <li id="os-card-1-li-3">公告、合約、班表圖片 OCR</li>
+        </ul>
+      </div>
+      <div class="story-card">
+        <div>
+          <div class="story-kicker" id="os-card-2-kicker">ABILITY 02</div>
+          <div class="story-card-title" id="os-card-2-title">問得清</div>
+          <div class="story-card-desc" id="os-card-2-desc">不只把話翻出去，還能幫主管抓重點、待辦、付款金額與風險，降低「大家都看過但沒人處理」的狀況。</div>
+        </div>
+        <ul class="story-list">
+          <li id="os-card-2-li-1">AI 摘要群聊重點</li>
+          <li id="os-card-2-li-2">付款、合約、請假等關鍵字搜尋</li>
+          <li id="os-card-2-li-3">翻譯確認與人工複核提醒</li>
+        </ul>
+      </div>
+      <div class="story-card">
+        <div>
+          <div class="story-kicker" id="os-card-3-kicker">ABILITY 03</div>
+          <div class="story-card-title" id="os-card-3-title">留得住</div>
+          <div class="story-card-desc" id="os-card-3-desc">每天群組訊息很多，萬語通把重要事件整理成可查、可匯出的紀錄，方便補款、交接與管理。</div>
+        </div>
+        <ul class="story-list">
+          <li id="os-card-3-li-1">每日報表自動整理</li>
+          <li id="os-card-3-li-2">多群組統計與活躍排行</li>
+          <li id="os-card-3-li-3">搜尋結果與統計匯出 Excel</li>
+        </ul>
+      </div>
+    </div>
+    <div class="story-proof">
+      <div class="proof-cell"><div class="proof-num" id="os-proof-1-num">10 分鐘</div><div class="proof-label" id="os-proof-1-label">加入群組即可開始導入</div></div>
+      <div class="proof-cell"><div class="proof-num" id="os-proof-2-num">36 語言</div><div class="proof-label" id="os-proof-2-label">支援常見外籍員工語言</div></div>
+      <div class="proof-cell"><div class="proof-num" id="os-proof-3-num">300 筆</div><div class="proof-label" id="os-proof-3-label">進階版 AI 摘要上限</div></div>
+      <div class="proof-cell"><div class="proof-num" id="os-proof-4-num">Excel</div><div class="proof-label" id="os-proof-4-label">後台搜尋與統計可匯出</div></div>
+    </div>
+  </div>
+</section>
+
 <section id="features">
   <div style="max-width:1100px;margin:0 auto;">
     <div class="eyebrow">// Features</div>
@@ -1350,6 +1558,31 @@ footer a:hover { color:var(--text); }
         <div class="guide-title" id="guide-7-title">工地外籍員工溝通怎麼做？</div>
         <div class="guide-desc" id="guide-7-desc">集合時間、安全提醒、材料規格與異常回報，都需要留下清楚可回查的雙語訊息。</div>
       </a>
+    </div>
+  </div>
+</section>
+
+<section id="setup-flow">
+  <div class="setup-wrap">
+    <div class="eyebrow" id="setup-eyebrow">// 10 Minute Setup</div>
+    <h2 id="setup-title">把「導入」說得很簡單</h2>
+    <p class="lead" id="setup-lead">客戶不想研究系統，他只想知道明天能不能少一點誤會。萬語通的導入說法要直接：先把一個 LINE 群管好，再視群組數與報表需求升級。</p>
+    <div class="setup-grid">
+      <div class="setup-summary">
+        <h3 id="setup-summary-title">單一群組先用進階版，多群組再談企業導入</h3>
+        <p id="setup-summary-desc">企業導入 NT$3,000 起是多群組管理的最低導入門檻，實際會依群組數、報表、匯出與客製需求報價；如果只是單一群組，通常先用進階版 NT$999 就夠。</p>
+        <div class="setup-price">
+          <div class="setup-price-row"><span id="setup-price-1-label">單一 LINE 群</span><strong id="setup-price-1-value">進階版 NT$999／月</strong></div>
+          <div class="setup-price-row"><span id="setup-price-2-label">多群組或多據點</span><strong id="setup-price-2-value">企業導入 NT$3,000 起</strong></div>
+          <div class="setup-price-row"><span id="setup-price-3-label">需要報表與匯出</span><strong id="setup-price-3-value">依需求報價</strong></div>
+        </div>
+      </div>
+      <div class="setup-steps">
+        <div class="setup-step"><div class="setup-step-num" id="setup-step-1-num">STEP 01</div><div class="setup-step-title" id="setup-step-1-title">加入既有 LINE 群</div><div class="setup-step-desc" id="setup-step-1-desc">不用換軟體，主管與員工還是在原本群組溝通，Bot 只負責翻譯與整理。</div></div>
+        <div class="setup-step"><div class="setup-step-num" id="setup-step-2-num">STEP 02</div><div class="setup-step-title" id="setup-step-2-title">設定語言與使用規則</div><div class="setup-step-desc" id="setup-step-2-desc">確認中文、印尼文、越南文或泰文等主要語言，先把常見公告與安全提醒固定下來。</div></div>
+        <div class="setup-step"><div class="setup-step-num" id="setup-step-3-num">STEP 03</div><div class="setup-step-title" id="setup-step-3-title">開啟摘要與每日報表</div><div class="setup-step-desc" id="setup-step-3-desc">每天自動整理群組重點，補款、合約、出貨、請假與風險可以從後台回查。</div></div>
+        <div class="setup-step"><div class="setup-step-num" id="setup-step-4-num">STEP 04</div><div class="setup-step-title" id="setup-step-4-title">需要時匯出給主管</div><div class="setup-step-desc" id="setup-step-4-desc">搜尋結果與多群統計可匯出 Excel，方便補款、交接、對帳與客戶報告。</div></div>
+      </div>
     </div>
   </div>
 </section>
@@ -1417,6 +1650,38 @@ footer a:hover { color:var(--text); }
         <tr><td>台灣在地計價</td><td><span class="chk">● NT$（台幣）</span></td><td><span class="crs" id="vs-curr-ech">✕ 美金</span></td><td><span class="chk">● NT$</span></td><td><span class="prt" id="vs-curr-lig">按量計費</span></td></tr>
       </tbody>
     </table>
+  </div>
+</section>
+
+<section id="ai-service-fit">
+  <div class="ai-fit-wrap">
+    <div class="eyebrow" id="ai-fit-eyebrow">// Not Just AI Service</div>
+    <h2 id="ai-fit-title">萬語通不是社群 AI 客服，是現場 LINE 管理工具</h2>
+    <p class="lead" id="ai-fit-lead">一般 AI 客服擅長回覆客人、接私訊、導購與預約；萬語通的主戰場是雇主內部管理：翻譯工作指令、確認有沒有看懂、整理每天群組發生什麼事。</p>
+    <div class="ai-fit-grid">
+      <div class="ai-fit-card">
+        <h3 id="ai-fit-card-1-title">一般 AI 客服適合</h3>
+        <p id="ai-fit-card-1-desc">品牌、電商、餐廳或創作者要回覆粉絲、導購、接預約、整理 FAQ，重點是「對外接客」。</p>
+      </div>
+      <div class="ai-fit-card primary">
+        <h3 id="ai-fit-card-2-title">萬語通適合</h3>
+        <p id="ai-fit-card-2-desc">台灣雇主要管理外籍員工、工廠、工地、看護、餐飲與農場 LINE 群，重點是「對內管理」。</p>
+      </div>
+    </div>
+    <div style="overflow:auto;">
+      <table class="fit-table">
+        <thead>
+          <tr><th id="ai-fit-th-1">比較項目</th><th id="ai-fit-th-2">一般 AI 客服</th><th id="ai-fit-th-3">萬語通</th></tr>
+        </thead>
+        <tbody>
+          <tr><td id="ai-fit-row-1-a">核心場景</td><td id="ai-fit-row-1-b">IG、FB、官網、LINE 的客戶詢問</td><td id="ai-fit-row-1-c">LINE 群組裡的工作通知與外籍員工溝通</td></tr>
+          <tr><td id="ai-fit-row-2-a">主要成果</td><td id="ai-fit-row-2-b">回覆更快、客服少打字、提高轉換</td><td id="ai-fit-row-2-c">指令不誤會、事情有確認、每天有紀錄</td></tr>
+          <tr><td id="ai-fit-row-3-a">導入方式</td><td id="ai-fit-row-3-b">整理品牌資料、FAQ、商品與預約流程</td><td id="ai-fit-row-3-c">加入群組、設定語言、開摘要與報表</td></tr>
+          <tr><td id="ai-fit-row-4-a">最該借用</td><td id="ai-fit-row-4-b">知識庫、真人接手、導入 Demo 包裝</td><td id="ai-fit-row-4-c">未來可做常用句/SOP 資料庫與人工確認流程</td></tr>
+          <tr><td id="ai-fit-row-5-a">現在不追</td><td id="ai-fit-row-5-b">多平台社群私訊與留言導購</td><td id="ai-fit-row-5-c">先守住 LINE 群組與外籍員工管理這個垂直市場</td></tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </section>
 
@@ -2143,6 +2408,37 @@ var i18n = {
     'stat.langs':      '支援語言種數',
     'stat.price':      '最低體驗價格',
     'stat.service':    '全天候服務',
+    // WORKPLACE OS
+    'os.eyebrow':      '// Workplace OS',
+    'os.title':        '一個 LINE 秘書，三種本領',
+    'os.lead':         '萬語通不是泛用 AI 客服，而是放在工作群裡的現場管理助理。外籍員工看得懂，主管問得清，重要紀錄留得住。',
+    'os.note':         '導入重點：不用搬離 LINE、不用教員工新 App。把 Bot 加入群組，設定語言與報表，明天就能開始跑翻譯、摘要與每日整理。',
+    'os.card1.kicker': 'ABILITY 01',
+    'os.card1.title':  '翻得懂',
+    'os.card1.desc':   '台籍主管說中文，印尼、越南、泰國員工各看自己的語言；文字、語音、圖片都能處理。',
+    'os.card1.li1':    'LINE 群組雙向翻譯',
+    'os.card1.li2':    '語音轉文字再翻譯',
+    'os.card1.li3':    '公告、合約、班表圖片 OCR',
+    'os.card2.kicker': 'ABILITY 02',
+    'os.card2.title':  '問得清',
+    'os.card2.desc':   '不只把話翻出去，還能幫主管抓重點、待辦、付款金額與風險，降低「大家都看過但沒人處理」的狀況。',
+    'os.card2.li1':    'AI 摘要群聊重點',
+    'os.card2.li2':    '付款、合約、請假等關鍵字搜尋',
+    'os.card2.li3':    '翻譯確認與人工複核提醒',
+    'os.card3.kicker': 'ABILITY 03',
+    'os.card3.title':  '留得住',
+    'os.card3.desc':   '每天群組訊息很多，萬語通把重要事件整理成可查、可匯出的紀錄，方便補款、交接與管理。',
+    'os.card3.li1':    '每日報表自動整理',
+    'os.card3.li2':    '多群組統計與活躍排行',
+    'os.card3.li3':    '搜尋結果與統計匯出 Excel',
+    'os.proof1.num':   '10 分鐘',
+    'os.proof1.label': '加入群組即可開始導入',
+    'os.proof2.num':   '36 語言',
+    'os.proof2.label': '支援常見外籍員工語言',
+    'os.proof3.num':   '300 筆',
+    'os.proof3.label': '進階版 AI 摘要上限',
+    'os.proof4.num':   'Excel',
+    'os.proof4.label': '後台搜尋與統計可匯出',
     // FEATURES
     'feat.eyebrow':    '// Features',
     'feat.h2':         '你真正需要的翻譯工具',
@@ -2192,6 +2488,30 @@ var i18n = {
     'guide.7.tag':     '工地現場',
     'guide.7.title':   '工地外籍員工溝通怎麼做？',
     'guide.7.desc':    '集合時間、安全提醒、材料規格與異常回報，都需要留下清楚可回查的雙語訊息。',
+    // SETUP FLOW
+    'setup.eyebrow':   '// 10 Minute Setup',
+    'setup.title':     '把「導入」說得很簡單',
+    'setup.lead':      '客戶不想研究系統，他只想知道明天能不能少一點誤會。萬語通的導入說法要直接：先把一個 LINE 群管好，再視群組數與報表需求升級。',
+    'setup.summary.title': '單一群組先用進階版，多群組再談企業導入',
+    'setup.summary.desc':  '企業導入 NT$3,000 起是多群組管理的最低導入門檻，實際會依群組數、報表、匯出與客製需求報價；如果只是單一群組，通常先用進階版 NT$999 就夠。',
+    'setup.price1.label': '單一 LINE 群',
+    'setup.price1.value': '進階版 NT$999／月',
+    'setup.price2.label': '多群組或多據點',
+    'setup.price2.value': '企業導入 NT$3,000 起',
+    'setup.price3.label': '需要報表與匯出',
+    'setup.price3.value': '依需求報價',
+    'setup.step1.num': 'STEP 01',
+    'setup.step1.title': '加入既有 LINE 群',
+    'setup.step1.desc': '不用換軟體，主管與員工還是在原本群組溝通，Bot 只負責翻譯與整理。',
+    'setup.step2.num': 'STEP 02',
+    'setup.step2.title': '設定語言與使用規則',
+    'setup.step2.desc': '確認中文、印尼文、越南文或泰文等主要語言，先把常見公告與安全提醒固定下來。',
+    'setup.step3.num': 'STEP 03',
+    'setup.step3.title': '開啟摘要與每日報表',
+    'setup.step3.desc': '每天自動整理群組重點，補款、合約、出貨、請假與風險可以從後台回查。',
+    'setup.step4.num': 'STEP 04',
+    'setup.step4.title': '需要時匯出給主管',
+    'setup.step4.desc': '搜尋結果與多群統計可匯出 Excel，方便補款、交接、對帳與客戶報告。',
     // COMPARE
     'cmp.eyebrow':     '// 為何翻譯品質很重要',
     'cmp.h2':          '同樣一句話，外勞理解的意思差很大',
@@ -2223,6 +2543,32 @@ var i18n = {
     'vs.row.vocab':    '行業詞庫',
     'vs.row.dnd':      '勿擾模式',
     'vs.row.currency': '台灣在地計價',
+    // AI SERVICE FIT
+    'ai.eyebrow':      '// Not Just AI Service',
+    'ai.title':        '萬語通不是社群 AI 客服，是現場 LINE 管理工具',
+    'ai.lead':         '一般 AI 客服擅長回覆客人、接私訊、導購與預約；萬語通的主戰場是雇主內部管理：翻譯工作指令、確認有沒有看懂、整理每天群組發生什麼事。',
+    'ai.card1.title':  '一般 AI 客服適合',
+    'ai.card1.desc':   '品牌、電商、餐廳或創作者要回覆粉絲、導購、接預約、整理 FAQ，重點是「對外接客」。',
+    'ai.card2.title':  '萬語通適合',
+    'ai.card2.desc':   '台灣雇主要管理外籍員工、工廠、工地、看護、餐飲與農場 LINE 群，重點是「對內管理」。',
+    'ai.th1':          '比較項目',
+    'ai.th2':          '一般 AI 客服',
+    'ai.th3':          '萬語通',
+    'ai.row1.a':       '核心場景',
+    'ai.row1.b':       'IG、FB、官網、LINE 的客戶詢問',
+    'ai.row1.c':       'LINE 群組裡的工作通知與外籍員工溝通',
+    'ai.row2.a':       '主要成果',
+    'ai.row2.b':       '回覆更快、客服少打字、提高轉換',
+    'ai.row2.c':       '指令不誤會、事情有確認、每天有紀錄',
+    'ai.row3.a':       '導入方式',
+    'ai.row3.b':       '整理品牌資料、FAQ、商品與預約流程',
+    'ai.row3.c':       '加入群組、設定語言、開摘要與報表',
+    'ai.row4.a':       '最該借用',
+    'ai.row4.b':       '知識庫、真人接手、導入 Demo 包裝',
+    'ai.row4.c':       '未來可做常用句/SOP 資料庫與人工確認流程',
+    'ai.row5.a':       '現在不追',
+    'ai.row5.b':       '多平台社群私訊與留言導購',
+    'ai.row5.c':       '先守住 LINE 群組與外籍員工管理這個垂直市場',
     // REFERRAL
     'ref.eyebrow':     '// Referral',
     'ref.h2':          '介紹新朋友，雙方都加贈翻譯天數',
@@ -2386,6 +2732,37 @@ var i18n = {
     'stat.langs':      'Supported Languages',
     'stat.price':      'Starting Price',
     'stat.service':    '24/7 Service',
+    // WORKPLACE OS
+    'os.eyebrow':      '// Workplace OS',
+    'os.title':        'One LINE Assistant, Three Jobs',
+    'os.lead':         'WanyuTong is not a generic AI support bot. It is a workplace assistant inside LINE groups: workers understand, managers confirm, and important records stay searchable.',
+    'os.note':         'Onboarding point: no new app and no workflow migration. Add the Bot to a LINE group, set languages and reports, then start translation, summaries, and daily records the next day.',
+    'os.card1.kicker': 'ABILITY 01',
+    'os.card1.title':  'Translate Clearly',
+    'os.card1.desc':   'Taiwanese managers speak Chinese while Indonesian, Vietnamese, and Thai workers read their own languages. Text, voice, and images are all supported.',
+    'os.card1.li1':    'Two-way LINE group translation',
+    'os.card1.li2':    'Voice transcription and translation',
+    'os.card1.li3':    'OCR for notices, contracts, and schedules',
+    'os.card2.kicker': 'ABILITY 02',
+    'os.card2.title':  'Confirm Better',
+    'os.card2.desc':   'Beyond translating messages, WanyuTong helps managers spot tasks, payment amounts, risks, and items that still need human confirmation.',
+    'os.card2.li1':    'AI summaries of group chats',
+    'os.card2.li2':    'Search payments, contracts, leave, and keywords',
+    'os.card2.li3':    'Translation confirmation and review reminders',
+    'os.card3.kicker': 'ABILITY 03',
+    'os.card3.title':  'Keep Records',
+    'os.card3.desc':   'Busy LINE groups lose context quickly. WanyuTong turns important events into searchable and exportable records for handoff and management.',
+    'os.card3.li1':    'Automatic daily reports',
+    'os.card3.li2':    'Multi-group analytics and activity ranking',
+    'os.card3.li3':    'Search and analytics export to Excel',
+    'os.proof1.num':   '10 min',
+    'os.proof1.label': 'Add to a group and start onboarding',
+    'os.proof2.num':   '36 langs',
+    'os.proof2.label': 'Common foreign-worker languages supported',
+    'os.proof3.num':   '300 msgs',
+    'os.proof3.label': 'Advanced AI summary range',
+    'os.proof4.num':   'Excel',
+    'os.proof4.label': 'Export search and analytics from backend',
     // FEATURES
     'feat.eyebrow':    '// Features',
     'feat.h2':         'The Translation Tool You Actually Need',
@@ -2435,6 +2812,30 @@ var i18n = {
     'guide.7.tag':     'Construction',
     'guide.7.title':   'How should construction teams communicate with foreign workers?',
     'guide.7.desc':    'Meeting times, safety notices, material details, and issue reports should be written clearly and easy to review.',
+    // SETUP FLOW
+    'setup.eyebrow':   '// 10 Minute Setup',
+    'setup.title':     'Make Onboarding Easy to Understand',
+    'setup.lead':      'Customers do not want to study a system. They want fewer misunderstandings tomorrow. Start with one LINE group, then upgrade when group count, reporting, or exports require it.',
+    'setup.summary.title': 'Use Advanced for one group, Enterprise for multi-group rollout',
+    'setup.summary.desc':  'Enterprise setup from NT$3,000 is the minimum entry for multi-group management. Actual pricing depends on group count, reports, exports, and customization. For one group, the NT$999 Advanced plan is usually enough.',
+    'setup.price1.label': 'Single LINE group',
+    'setup.price1.value': 'Advanced NT$999/month',
+    'setup.price2.label': 'Multiple groups or sites',
+    'setup.price2.value': 'Enterprise from NT$3,000',
+    'setup.price3.label': 'Reports and exports',
+    'setup.price3.value': 'Quoted by needs',
+    'setup.step1.num': 'STEP 01',
+    'setup.step1.title': 'Add to the existing LINE group',
+    'setup.step1.desc': 'No software migration. Managers and workers keep using the same LINE group while the Bot handles translation and records.',
+    'setup.step2.num': 'STEP 02',
+    'setup.step2.title': 'Set languages and usage rules',
+    'setup.step2.desc': 'Confirm Chinese, Indonesian, Vietnamese, Thai, or other primary languages, then standardize common notices and safety reminders.',
+    'setup.step3.num': 'STEP 03',
+    'setup.step3.title': 'Enable summaries and daily reports',
+    'setup.step3.desc': 'Daily summaries help managers review payments, contracts, shipments, leave requests, and risks from the backend.',
+    'setup.step4.num': 'STEP 04',
+    'setup.step4.title': 'Export when managers need it',
+    'setup.step4.desc': 'Search results and multi-group statistics can be exported to Excel for payment checks, handoffs, reconciliation, and reports.',
     // COMPARE
     'cmp.eyebrow':     '// Why Translation Quality Matters',
     'cmp.h2':          'The Same Sentence Can Mean Something Very Different',
@@ -2466,6 +2867,32 @@ var i18n = {
     'vs.row.vocab':    'Industry Vocab',
     'vs.row.dnd':      'Do Not Disturb',
     'vs.row.currency': 'Local Currency (TWD)',
+    // AI SERVICE FIT
+    'ai.eyebrow':      '// Not Just AI Service',
+    'ai.title':        'WanyuTong Is Workplace LINE Management, Not Social AI Support',
+    'ai.lead':         'Generic AI support tools answer customers, DMs, shopping questions, and booking requests. WanyuTong focuses on internal employer operations: translating work instructions, confirming understanding, and summarizing what happened in LINE groups.',
+    'ai.card1.title':  'Generic AI support is for',
+    'ai.card1.desc':   'Brands, ecommerce teams, restaurants, or creators that need to answer fans, sell products, take bookings, and manage FAQs.',
+    'ai.card2.title':  'WanyuTong is for',
+    'ai.card2.desc':   'Taiwan employers managing foreign workers in factories, construction sites, caregiving, restaurants, farms, and LINE work groups.',
+    'ai.th1':          'Item',
+    'ai.th2':          'Generic AI Support',
+    'ai.th3':          'WanyuTong',
+    'ai.row1.a':       'Core scenario',
+    'ai.row1.b':       'Customer questions on IG, FB, websites, and LINE',
+    'ai.row1.c':       'Work notices and foreign-worker communication inside LINE groups',
+    'ai.row2.a':       'Main outcome',
+    'ai.row2.b':       'Faster replies, less support typing, higher conversion',
+    'ai.row2.c':       'Clear instructions, confirmed understanding, daily records',
+    'ai.row3.a':       'Onboarding',
+    'ai.row3.b':       'Prepare brand data, FAQs, products, and booking flows',
+    'ai.row3.c':       'Add to group, set languages, enable summaries and reports',
+    'ai.row4.a':       'Best idea to borrow',
+    'ai.row4.b':       'Knowledge base, human handoff, onboarding demo packaging',
+    'ai.row4.c':       'Future quick phrase/SOP database and human confirmation workflow',
+    'ai.row5.a':       'Not chasing now',
+    'ai.row5.b':       'Multi-platform social DMs and comment-to-commerce flows',
+    'ai.row5.c':       'Stay focused on LINE groups and foreign-worker management',
     // REFERRAL
     'ref.eyebrow':     '// Referral',
     'ref.h2':          'Invite a New Friend, Both Get Bonus Days',
@@ -2689,6 +3116,24 @@ function applyLang(lang) {
   var statKeys = ['stat.speed','stat.langs','stat.price','stat.service'];
   statLabels.forEach(function(el, i){ if(t[statKeys[i]]) el.textContent = t[statKeys[i]]; });
 
+  // WORKPLACE OS
+  q('#os-eyebrow', 'os.eyebrow');
+  q('#os-title', 'os.title');
+  q('#os-lead', 'os.lead');
+  q('#os-note', 'os.note');
+  for (var oi = 1; oi <= 3; oi++) {
+    q('#os-card-' + oi + '-kicker', 'os.card' + oi + '.kicker');
+    q('#os-card-' + oi + '-title', 'os.card' + oi + '.title');
+    q('#os-card-' + oi + '-desc', 'os.card' + oi + '.desc');
+    for (var oli = 1; oli <= 3; oli++) {
+      q('#os-card-' + oi + '-li-' + oli, 'os.card' + oi + '.li' + oli);
+    }
+  }
+  for (var op = 1; op <= 4; op++) {
+    q('#os-proof-' + op + '-num', 'os.proof' + op + '.num');
+    q('#os-proof-' + op + '-label', 'os.proof' + op + '.label');
+  }
+
   // FEATURES
   q('#features .eyebrow', 'feat.eyebrow');
   q('#features h2', 'feat.h2');
@@ -2707,10 +3152,28 @@ function applyLang(lang) {
   q('#guide-eyebrow', 'guide.eyebrow');
   q('#guide-title', 'guide.title');
   q('#guide-lead', 'guide.lead');
-  for (var gi = 1; gi <= 6; gi++) {
+  for (var gi = 1; gi <= 7; gi++) {
     q('#guide-' + gi + '-tag', 'guide.' + gi + '.tag');
     q('#guide-' + gi + '-title', 'guide.' + gi + '.title');
     q('#guide-' + gi + '-desc', 'guide.' + gi + '.desc');
+  }
+
+  // SETUP FLOW
+  q('#setup-eyebrow', 'setup.eyebrow');
+  q('#setup-title', 'setup.title');
+  q('#setup-lead', 'setup.lead');
+  q('#setup-summary-title', 'setup.summary.title');
+  q('#setup-summary-desc', 'setup.summary.desc');
+  q('#setup-price-1-label', 'setup.price1.label');
+  q('#setup-price-1-value', 'setup.price1.value');
+  q('#setup-price-2-label', 'setup.price2.label');
+  q('#setup-price-2-value', 'setup.price2.value');
+  q('#setup-price-3-label', 'setup.price3.label');
+  q('#setup-price-3-value', 'setup.price3.value');
+  for (var stp = 1; stp <= 4; stp++) {
+    q('#setup-step-' + stp + '-num', 'setup.step' + stp + '.num');
+    q('#setup-step-' + stp + '-title', 'setup.step' + stp + '.title');
+    q('#setup-step-' + stp + '-desc', 'setup.step' + stp + '.desc');
   }
 
   // COMPARE
@@ -2736,6 +3199,21 @@ function applyLang(lang) {
   var vsRows = document.querySelectorAll('#vs-competitors tbody tr td:first-child');
   var vsKeys = ['vs.row.price','vs.row.free','vs.row.engine','vs.row.ocr','vs.row.voice','vs.row.multi','vs.row.confirm','vs.row.vocab','vs.row.dnd','vs.row.currency'];
   vsRows.forEach(function(el,i){ if(t[vsKeys[i]]) el.textContent = t[vsKeys[i]]; });
+
+  // AI SERVICE FIT
+  q('#ai-fit-eyebrow', 'ai.eyebrow');
+  q('#ai-fit-title', 'ai.title');
+  q('#ai-fit-lead', 'ai.lead');
+  q('#ai-fit-card-1-title', 'ai.card1.title');
+  q('#ai-fit-card-1-desc', 'ai.card1.desc');
+  q('#ai-fit-card-2-title', 'ai.card2.title');
+  q('#ai-fit-card-2-desc', 'ai.card2.desc');
+  for (var ah = 1; ah <= 3; ah++) q('#ai-fit-th-' + ah, 'ai.th' + ah);
+  for (var ar = 1; ar <= 5; ar++) {
+    q('#ai-fit-row-' + ar + '-a', 'ai.row' + ar + '.a');
+    q('#ai-fit-row-' + ar + '-b', 'ai.row' + ar + '.b');
+    q('#ai-fit-row-' + ar + '-c', 'ai.row' + ar + '.c');
+  }
 
   // REFERRAL
   q('#referral .eyebrow', 'ref.eyebrow');

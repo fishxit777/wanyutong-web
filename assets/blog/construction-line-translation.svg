@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">工地外籍員工 LINE 翻譯示意圖</title>
+  <desc id="desc">工地吊臂、施工樓層、安全帽與雙語 LINE 通知，用於說明工地安全提醒與集合通知翻譯。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1118"/>
+      <stop offset="0.52" stop-color="#111b19"/>
+      <stop offset="1" stop-color="#0c1622"/>
+    </linearGradient>
+    <linearGradient id="lineBubble" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#06c755"/>
+      <stop offset="1" stop-color="#38d977"/>
+    </linearGradient>
+    <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
+      <path d="M80 0H0V80" fill="none" stroke="rgba(148, 197, 165, .16)" stroke-width="1"/>
+    </pattern>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="url(#grid)" opacity=".72"/>
+  <circle cx="1300" cy="140" r="220" fill="#06c755" opacity=".06"/>
+  <circle cx="180" cy="680" r="260" fill="#38bdf8" opacity=".05"/>
+
+  <g opacity=".72">
+    <circle cx="190" cy="210" r="7" fill="#68e391"/>
+    <circle cx="1180" cy="230" r="6" fill="#38bdf8"/>
+    <circle cx="1460" cy="530" r="5" fill="#68e391"/>
+    <circle cx="840" cy="600" r="7" fill="#facc15"/>
+  </g>
+
+  <rect y="690" width="1600" height="210" fill="#2a332e"/>
+  <path d="M0 695h1600" stroke="#4b5d52" stroke-width="4"/>
+
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <path d="M360 690V190M270 190h570M360 190l160 100M520 190L360 290" stroke="#f4c256" stroke-width="14"/>
+    <path d="M320 260l80 48M400 260l-80 48M320 340l80 48M400 340l-80 48M320 420l80 48M400 420l-80 48M320 500l80 48M400 500l-80 48M320 580l80 48M400 580l-80 48" stroke="#f4c256" stroke-width="8"/>
+    <path d="M780 190v205" stroke="#d8e0e8" stroke-width="5"/>
+    <path d="M760 405c0 35 42 35 42 0" fill="none" stroke="#d8e0e8" stroke-width="7"/>
+  </g>
+
+  <g transform="translate(900 250)" stroke-linecap="round">
+    <path d="M30 0v455M135 0v455M240 0v455M345 0v455M450 0v455" stroke="#9fb0be" stroke-width="8"/>
+    <path d="M0 55h500M0 150h500M0 245h500M0 340h500M0 435h500" stroke="#9fb0be" stroke-width="8"/>
+    <path d="M0 0l500 455M500 0L0 455" stroke="#f3c851" stroke-width="5"/>
+  </g>
+
+  <g transform="translate(580 520)">
+    <g>
+      <ellipse cx="55" cy="0" rx="42" ry="24" fill="#f6ca45"/>
+      <circle cx="55" cy="32" r="27" fill="#d9a066"/>
+      <rect x="15" y="72" width="82" height="110" rx="10" fill="#2aa66b"/>
+      <rect x="22" y="182" width="26" height="78" fill="#263340"/>
+      <rect x="63" y="182" width="26" height="78" fill="#263340"/>
+    </g>
+    <g transform="translate(130 10)">
+      <ellipse cx="55" cy="0" rx="42" ry="24" fill="#f6ca45"/>
+      <circle cx="55" cy="32" r="27" fill="#d9a066"/>
+      <rect x="15" y="72" width="82" height="110" rx="10" fill="#287ab8"/>
+      <rect x="22" y="182" width="26" height="78" fill="#263340"/>
+      <rect x="63" y="182" width="26" height="78" fill="#263340"/>
+    </g>
+  </g>
+
+  <g filter="url(#glow)">
+    <rect x="100" y="455" width="440" height="146" rx="18" fill="#f7fafc"/>
+    <path d="M540 565l45 22-53 4" fill="#f7fafc"/>
+    <text x="132" y="512" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="38" font-weight="800" fill="#132332">明天 08:00</text>
+    <text x="132" y="562" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="28" font-weight="600" fill="#243447">B 集合點，戴安全帽</text>
+  </g>
+
+  <g filter="url(#glow)">
+    <rect x="990" y="88" width="470" height="146" rx="18" fill="url(#lineBubble)"/>
+    <path d="M990 194l-45 24 53 3" fill="#06c755"/>
+    <text x="1024" y="145" font-family="Arial, sans-serif" font-size="38" font-weight="800" fill="#ffffff">Besok 08:00</text>
+    <text x="1024" y="196" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#ffffff">Titik B, pakai helm</text>
+  </g>
+
+  <g>
+    <text x="92" y="770" font-family="DM Mono, Consolas, monospace" font-size="31" font-weight="800" fill="#7dd3fc">// CONSTRUCTION LINE TRANSLATION</text>
+    <text x="92" y="820" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="30" font-weight="700" fill="#f8fafc">萬語通 · 工地安全通知 · 多語回報</text>
+  </g>
+</svg>

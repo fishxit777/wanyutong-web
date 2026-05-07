@@ -3,17 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>工地外籍員工 LINE 翻譯怎麼用？安全、集合與回報流程｜萬語通</title>
-<meta name="description" content="工地外籍員工溝通最怕安全指令、集合時間、材料規格與異常回報沒有說清楚。這篇整理營造現場可落地的 LINE 翻譯流程。">
+<title>工地外籍員工 LINE 翻譯怎麼用？安全提醒、集合通知與回報流程</title>
+<meta name="description" content="工地主任、領班與包商可用 LINE 翻譯處理安全提醒、集合時間、材料規格、臨時變更與異常回報。">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://fishxit777.github.io/wanyutong-web/blog-construction-line-translation.html">
 <meta property="og:type" content="article">
-<meta property="og:title" content="工地外籍員工 LINE 翻譯怎麼用？">
-<meta property="og:description" content="工地外籍員工溝通最怕安全指令、集合時間、材料規格與異常回報沒有說清楚。">
+<meta property="og:title" content="工地外籍員工 LINE 翻譯怎麼用？安全提醒、集合通知與回報流程">
+<meta property="og:description" content="工地主任、領班與包商可用 LINE 翻譯處理安全提醒、集合時間、材料規格、臨時變更與異常回報。">
 <meta property="og:url" content="https://fishxit777.github.io/wanyutong-web/blog-construction-line-translation.html">
 <meta property="og:site_name" content="萬語通">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2026-05-04">
+<meta property="article:modified_time" content="2026-05-08">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -72,6 +73,17 @@ body.light .article-photo { box-shadow:0 18px 48px rgba(15,23,42,.12); }
 .content-block { border-top:1px solid var(--border); padding:2rem 0; }
 .content-block h2 { font-size:1.65rem; margin:0 0 .8rem; }
 .content-block p { color:var(--muted); line-height:2; font-size:1.04rem; margin:0; }
+
+.faq-block, .related-guides { border-top:1px solid var(--border); padding:2rem 0; }
+.faq-block h2, .related-guides h2 { font-size:1.65rem; margin:0 0 1rem; }
+.faq-item { border:1px solid var(--border); border-radius:10px; background:var(--panel2); padding:1rem 1.1rem; margin:.85rem 0; }
+.faq-item h3 { margin:0 0 .45rem; font-size:1.05rem; line-height:1.55; }
+.faq-item p { color:var(--muted); line-height:1.85; margin:0; }
+.related-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.8rem; }
+.related-card { color:var(--text); text-decoration:none; border:1px solid var(--border); border-radius:10px; background:var(--panel2); padding:1rem; font-weight:900; line-height:1.5; min-height:92px; }
+.related-card span { display:block; color:var(--muted); font-family:'DM Mono',monospace; font-size:.78rem; margin-bottom:.35rem; font-weight:500; }
+.related-card:hover { border-color:rgba(6,199,85,.45); transform:translateY(-1px); }
+@media (max-width:760px) { .related-grid { grid-template-columns:1fr; } }
 .article-cta { margin:3rem 0; padding:2rem; border:1px solid rgba(6,199,85,.35); border-radius:12px; background:rgba(6,199,85,.08); text-align:center; }
 .article-cta h2 { margin:0 0 .8rem; }
 .article-cta p { color:var(--muted); line-height:1.8; }
@@ -106,6 +118,38 @@ footer { border-top:1px solid var(--border); padding:2rem 5vw; display:flex; jus
   footer { flex-direction:column; padding:1.7rem 1rem; }
 }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "工地最應該先翻譯哪些訊息？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "集合地點、集合時間、安全帽與護具、危險區域、材料規格、臨時變更與異常回報都應優先翻譯。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "工安通知需要人工確認嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "需要。翻譯能降低語言落差，但工安、金額、責任與法律相關內容仍建議主管人工確認。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "公告或施工圖可以拍照翻譯嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "進階以上可使用圖片 OCR，適合公告、班表、材料規格與現場通知照片。"
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <div class="history-nav">
@@ -132,7 +176,7 @@ footer { border-top:1px solid var(--border); padding:2rem 5vw; display:flex; jus
   <article class="lang-content active" data-lang="zh">
     <div class="promo"><p><strong>萬語通：</strong>台灣雇主管理外籍員工的 LINE 翻譯機器人，支援文字、語音與圖片翻譯。</p><a class="line-btn" href="https://line.me/ti/p/@969wpxno">免費體驗</a></div>
     <span class="eyebrow">// 工地管理 · 2026-05-04</span>
-    <h1>工地外籍員工 LINE 翻譯怎麼用？</h1>
+    <h1>工地外籍員工 LINE 翻譯怎麼用？安全提醒、集合通知與回報流程</h1>
     <p class="lead">工地溝通最怕「聽懂一半」。集合時間、安全提醒、材料規格、臨時變更與異常回報，都需要留下清楚的雙語訊息。</p>
     <div class="meta"><span>適用對象：工地主任、領班、包商、營造現場管理者</span><span>閱讀時間：約 5 分鐘</span><span>工具：LINE Bot 萬語通</span></div>
     <figure class="article-photo hero-photo">
@@ -159,6 +203,22 @@ footer { border-top:1px solid var(--border); padding:2rem 5vw; display:flex; jus
         <h2>建議先做一個公告群</h2>
         <p>如果原本的群組聊天太多，建議另外建立「今日工地公告群」。只放集合、安全、材料、變更與回報，讓翻譯內容更乾淨，也比較容易追蹤。</p>
       </section>
+    
+        <section class="faq-block">
+      <h2>常見問題</h2>
+      <div class="faq-item"><h3>工地最應該先翻譯哪些訊息？</h3><p>集合地點、集合時間、安全帽與護具、危險區域、材料規格、臨時變更與異常回報都應優先翻譯。</p></div>
+      <div class="faq-item"><h3>工安通知需要人工確認嗎？</h3><p>需要。翻譯能降低語言落差，但工安、金額、責任與法律相關內容仍建議主管人工確認。</p></div>
+      <div class="faq-item"><h3>公告或施工圖可以拍照翻譯嗎？</h3><p>進階以上可使用圖片 OCR，適合公告、班表、材料規格與現場通知照片。</p></div>
+    </section>
+
+        <section class="related-guides">
+      <h2>延伸閱讀</h2>
+      <div class="related-grid">
+        <a class="related-card" href="blog-image-ocr-translation.html"><span>圖片 OCR 翻譯</span>公告、班表與材料規格拍照翻譯</a>
+        <a class="related-card" href="blog-factory-line-translation.html"><span>工廠 SOP</span>交班與安全通知流程</a>
+        <a class="related-card" href="blog-foreign-worker-safety-law.html"><span>工安責任</span>安全提醒與紀錄如何降低風險</a>
+      </div>
+    </section>
     <div class="article-cta"><h2>先把最常誤會的句子翻清楚</h2><p>每天 15 次免費翻譯，不用信用卡。先把工作現場最常出錯的句子丟進 LINE 翻譯，馬上就能測試效果。</p><a class="line-btn" href="https://line.me/ti/p/@969wpxno">加入 LINE Bot 免費體驗</a></div>
     <div class="article-nav"><div class="article-nav-inner">
         <a href="blog-line-group-translation.html" class="article-nav-card prev">
@@ -176,7 +236,7 @@ footer { border-top:1px solid var(--border); padding:2rem 5vw; display:flex; jus
   <article class="lang-content" data-lang="en">
     <div class="promo"><p><strong>WanyuTong:</strong> a LINE translation bot for Taiwan employers managing foreign workers, supporting text, voice, and image translation.</p><a class="line-btn" href="https://line.me/ti/p/@969wpxno">Try Free</a></div>
     <span class="eyebrow">// Construction Site Guide · 2026-05-04</span>
-    <h1>How Can Construction Sites Use LINE Translation?</h1>
+    <h1>Construction site translation: LINE safety notices, meeting points, and reports</h1>
     <p class="lead">Construction communication often involves safety, meeting points, materials, schedule changes, and abnormal reports. These messages need to be clear and recorded.</p>
     <div class="meta"><span>For: Site managers, foremen, contractors, and construction supervisors</span><span>Reading time: ~5 min</span><span>Tool: WanyuTong LINE Bot</span></div>
     <figure class="article-photo hero-photo">
@@ -203,6 +263,22 @@ footer { border-top:1px solid var(--border); padding:2rem 5vw; display:flex; jus
         <h2>Start with one announcement group</h2>
         <p>If the main group is too noisy, create a dedicated site notice group for meeting points, safety, materials, changes, and reports.</p>
       </section>
+    
+    <section class="faq-block">
+      <h2>FAQ</h2>
+      <div class="faq-item"><h3>Where should construction teams use LINE translation first?</h3><p>Start with safety reminders, meeting times, entrance or floor changes, material specs, and issue reports because they must be understood quickly and kept as records.</p></div>
+      <div class="faq-item"><h3>Can foreign workers report problems in their own language?</h3><p>Yes. Workers can report health issues, broken tools, missing materials, or unsafe situations in their language while supervisors read Chinese.</p></div>
+      <div class="faq-item"><h3>What if the site group is too noisy?</h3><p>Use a fixed announcement group for meeting points, safety, materials, changes, and reports so translated messages stay clear.</p></div>
+    </section>
+
+    <section class="related-guides">
+      <h2>Related guides</h2>
+      <div class="related-grid">
+        <a class="related-card" href="blog-foreign-worker-safety-law.html"><span>Safety law</span>Keep records for safety notices</a>
+        <a class="related-card" href="blog-image-ocr-translation.html"><span>Image OCR</span>Translate site notices and material specs from photos</a>
+        <a class="related-card" href="blog-line-group-translation.html"><span>Group management</span>Use LINE group translation for site teams</a>
+      </div>
+    </section>
     <div class="article-cta"><h2>Translate the sentences your team misunderstands most</h2><p>Start with 15 free translations per day. Send your most common workplace instructions in LINE and test the result immediately.</p><a class="line-btn" href="https://line.me/ti/p/@969wpxno">Try WanyuTong Free</a></div>
     <div class="article-nav"><div class="article-nav-inner">
         <a href="blog-line-group-translation.html" class="article-nav-card prev">

@@ -1599,12 +1599,12 @@ footer a:hover { color:var(--text); }
       <div class="search-term-box">
         <div class="search-term-title" id="search-title">常見搜尋詞與延伸文章</div>
         <div class="search-term-cloud">
-          <a class="search-term-pill" href="blog-factory-line-translation.html">工廠外籍員工翻譯</a>
-          <a class="search-term-pill" href="blog-construction-line-translation.html">工地 LINE 翻譯</a>
-          <a class="search-term-pill" href="blog-caregiver-line-translation.html">外籍看護溝通</a>
-          <a class="search-term-pill" href="blog-image-ocr-translation.html">圖片 OCR 翻譯</a>
-          <a class="search-term-pill" href="blog-line-group-translation.html">LINE 群組翻譯機器人</a>
-          <a class="search-term-pill" href="blog-foreign-worker-communication.html">外籍員工管理溝通</a>
+          <a class="search-term-pill" id="search-term-1" href="blog-factory-line-translation.html">工廠外籍員工翻譯</a>
+          <a class="search-term-pill" id="search-term-2" href="blog-construction-line-translation.html">工地 LINE 翻譯</a>
+          <a class="search-term-pill" id="search-term-3" href="blog-caregiver-line-translation.html">外籍看護溝通</a>
+          <a class="search-term-pill" id="search-term-4" href="blog-image-ocr-translation.html">圖片 OCR 翻譯</a>
+          <a class="search-term-pill" id="search-term-5" href="blog-line-group-translation.html">LINE 群組翻譯機器人</a>
+          <a class="search-term-pill" id="search-term-6" href="blog-foreign-worker-communication.html">外籍員工管理溝通</a>
         </div>
       </div>
     </div>
@@ -2648,6 +2648,12 @@ var i18n = {
     'industry.4.title':'餐飲、農場與排班現場',
     'industry.4.desc': '排班、衛生、收貨、農務與日常交辦重複又瑣碎，適合用固定群組流程管理。',
     'industry.search': '常見搜尋詞與延伸文章',
+    'industry.term.1':'工廠外籍員工翻譯',
+    'industry.term.2':'工地 LINE 翻譯',
+    'industry.term.3':'外籍看護溝通',
+    'industry.term.4':'圖片 OCR 翻譯',
+    'industry.term.5':'LINE 群組翻譯機器人',
+    'industry.term.6':'外籍員工管理溝通',
     // GUIDES
     'guide.eyebrow':   '// Employer Guides',
     'guide.title':     '雇主最常遇到的 LINE 溝通問題',
@@ -2986,6 +2992,12 @@ var i18n = {
     'industry.4.title':'Restaurants, Farms, and Shift Teams',
     'industry.4.desc': 'Scheduling, hygiene, deliveries, farm work, and daily instructions are repetitive enough to benefit from a fixed LINE workflow.',
     'industry.search': 'Common search terms and related guides',
+    'industry.term.1':'Factory foreign worker translation',
+    'industry.term.2':'Construction LINE translation',
+    'industry.term.3':'Caregiver communication',
+    'industry.term.4':'Image OCR translation',
+    'industry.term.5':'LINE group translation bot',
+    'industry.term.6':'Foreign worker communication management',
     // GUIDES
     'guide.eyebrow':   '// Employer Guides',
     'guide.title':     'Common LINE Communication Problems for Employers',
@@ -3357,6 +3369,9 @@ function applyLang(lang) {
     s('industry-' + ii + '-desc', 'industry.' + ii + '.desc');
   }
   s('search-title', 'industry.search');
+  for (var ti = 1; ti <= 6; ti++) {
+    s('search-term-' + ti, 'industry.term.' + ti);
+  }
 
   // GUIDES
   q('#guide-eyebrow', 'guide.eyebrow');

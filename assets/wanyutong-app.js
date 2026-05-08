@@ -3,6 +3,8 @@
 
   var TOP_FLAG = 'wyt-force-top';
   var userScrollIntent = false;
+  var topTimers = [];
+  var topFrames = [];
 
   if ('scrollRestoration' in window.history) {
     window.history.scrollRestoration = 'manual';
@@ -10,6 +12,33 @@
 
   function hasAnchor() {
     return window.location.hash && window.location.hash.length > 1;
+  }
+
+  function clearTopQueue() {
+    while (topTimers.length) {
+      window.clearTimeout(topTimers.pop());
+    }
+    while (topFrames.length) {
+      window.cancelAnimationFrame(topFrames.pop());
+    }
+  }
+
+  function queueTopTimer(delay, force) {
+    var id = window.setTimeout(function () {
+      var index = topTimers.indexOf(id);
+      if (index !== -1) topTimers.splice(index, 1);
+      goTop(force);
+    }, delay);
+    topTimers.push(id);
+  }
+
+  function queueTopFrame(force) {
+    var id = window.requestAnimationFrame(function () {
+      var index = topFrames.indexOf(id);
+      if (index !== -1) topFrames.splice(index, 1);
+      goTop(force);
+    });
+    topFrames.push(id);
   }
 
   function goTop(force) {
@@ -62,11 +91,10 @@
   }
 
   function goTopSoon(force) {
+    clearTopQueue();
     goTop(force);
-    window.requestAnimationFrame(function () { goTop(force); });
-    [0, 60, 180, 420, 900].forEach(function (delay) {
-      window.setTimeout(function () { goTop(force); }, delay);
-    });
+    queueTopFrame(force);
+    queueTopTimer(80, force);
   }
 
   function markUserScrollIntent(event) {
@@ -75,6 +103,7 @@
       if (keys.indexOf(event.key) === -1) return;
     }
     userScrollIntent = true;
+    clearTopQueue();
   }
 
   window.addEventListener('wheel', markUserScrollIntent, { passive: true });
@@ -175,7 +204,7 @@
   });
 
   window.addEventListener('beforeunload', function () {
-    goTop(true);
+    markNextPageTop();
   });
 
   document.addEventListener('DOMContentLoaded', function () {
@@ -207,14 +236,12 @@
       var pageLink = target.closest('a[href]');
 
       if (langControl) {
-        goTop(true);
         goTopSoon(true);
         return;
       }
 
       if (historyControl) {
         markNextPageTop();
-        goTop(true);
         goTopSoon(true);
         return;
       }

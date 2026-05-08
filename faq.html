@@ -257,8 +257,8 @@ footer { background:var(--bg2); border-top:1px solid var(--border); padding:2rem
   <div class="faq-item" data-sec="pricing">
     <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text" id="fq7">如何升級或延長方案？</span><span class="faq-icon">+</span></div>
     <div class="faq-a"><div class="faq-a-inner" id="fa7">
-      目前付款方式為人工處理：
-      <ul><li>在 LINE 傳送 <strong>@購買</strong>，Bot 會引導您聯繫客服</li><li>完成匯款後，客服會在後台為您手動開通</li><li>開通成功後 Bot 會主動通知您</li></ul>
+      目前付款流程已改為自動金流：
+      <ul><li>在 LINE 傳送 <strong>@購買</strong>，Bot 會列出可購買方案</li><li>選擇方案後會產生綠界付款連結</li><li>付款完成後系統會自動開通或延長方案</li><li>若付款成功後 5 分鐘仍未開通，再聯繫客服 <a href="https://line.me/ti/p/~fishxit">fishxit</a></li></ul>
 
     </div></div>
   </div>
@@ -464,9 +464,9 @@ var faqI18n = {
     'fa2':'採用 <strong>DeepL API</strong> 引擎，依方案支援 <strong>36 種主要語言</strong>，可用指令快速切換。<br><br>常用語言：印尼文、越南文、泰文、菲律賓文（他加祿語）、英文、日文、韓文、簡繁中文等。<br><br><span class="tag-badge tag-green">群組版</span>&nbsp;最多可同時對 <strong>8 種語言同步翻譯</strong>。',
     'fa3':'<strong>個人版</strong>：用於 LINE 私訊，適合個人對外籍友人、員工一對一溝通。<br><br><strong>群組版</strong>：加入 LINE 群組後，群組內所有人都能使用雙向翻譯，適合工廠、工地、看護、餐飲、農場等多人場景。群組版還包含語音翻譯、圖片 OCR、忽略詞、群組重點摘要、每日報表與後台紀錄搜尋。',
     'fa4':'免費版每日提供 <strong>15 次翻譯</strong>，隔天自動重置。功能為基本文字翻譯，不含語音、圖片OCR等進階功能。個人版與群組版皆可免費體驗，先確認效果再決定是否升級。',
-    'fa5':'<strong>個人版</strong><ul><li>7日體驗：<strong>NT$49</strong></li><li>月付：<strong>NT$199</strong> / 30天</li><li>年付：<strong>NT$1,590</strong> / 365天（約 NT$133/月）</li></ul><br><strong>群組版</strong><ul><li>7日體驗：<strong>NT$49</strong></li><li>體驗版：<strong>NT$199</strong>/月（文字＋語音＋重點摘要最近 30 筆）</li><li>商務版：<strong>NT$499</strong>/月（圖片 OCR＋重點摘要最近 100 筆）</li><li>進階版：<strong>NT$999</strong>/月（圖片 OCR＋重點摘要最近 300 筆＋群組紀錄搜尋與統計）</li><li>企業導入：<strong>NT$3,000 起</strong>（多群組管理最低導入門檻）</li></ul><br>企業導入 NT$3,000 起是多群組管理的最低導入門檻，實際會依群組數、報表、匯出與客製需求報價；如果只是單一群組，通常先用進階版 NT$999 就夠。<br><br>購買請在 LINE 傳送「<strong>@購買</strong>」或直接聯繫客服 <a href="https://line.me/ti/p/~fishxit">fishxit</a>。',
+    'fa5':'<strong>個人版</strong><ul><li>7日體驗：<strong>NT$49</strong></li><li>月付：<strong>NT$199</strong> / 30天</li><li>年付：<strong>NT$1,590</strong> / 365天（約 NT$133/月）</li></ul><br><strong>群組版</strong><ul><li>7日體驗：<strong>NT$49</strong></li><li>體驗版：<strong>NT$199</strong>/月（文字＋語音＋重點摘要最近 30 筆）</li><li>商務版：<strong>NT$499</strong>/月（圖片 OCR＋重點摘要最近 100 筆）</li><li>進階版：<strong>NT$999</strong>/月（圖片 OCR＋重點摘要最近 300 筆＋群組紀錄搜尋與統計）</li><li>企業導入：<strong>NT$3,000 起</strong>（多群組管理最低導入門檻）</li></ul><br>企業導入 NT$3,000 起是多群組管理的最低導入門檻，實際會依群組數、報表、匯出與客製需求報價；如果只是單一群組，通常先用進階版 NT$999 就夠。<br><br>購買請在 LINE 傳送「<strong>@購買</strong>」，Bot 會產生綠界付款連結；付款異常再聯繫客服 <a href="https://line.me/ti/p/~fishxit">fishxit</a>。',
     'fa6':'付款後原則上 <strong>不提供退費</strong>。<br><br>唯一例外：付款後 <strong>24 小時內</strong> Bot 完全無法回應（非使用者網路、LINE 或操作問題），可聯繫客服 <a href="https://line.me/ti/p/~fishxit">fishxit</a> 申請退費審查。',
-    'fa7':'目前付款方式為人工處理：<ul><li>在 LINE 傳送 <strong>@購買</strong>，Bot 會引導您聯繫客服</li><li>完成匯款後，客服會在後台為您手動開通</li><li>開通成功後 Bot 會主動通知您</li></ul>',
+    'fa7':'目前付款流程已改為自動金流：<ul><li>在 LINE 傳送 <strong>@購買</strong>，Bot 會列出可購買方案</li><li>選擇方案後會產生綠界付款連結</li><li>付款完成後系統會自動開通或延長方案</li><li>若付款成功後 5 分鐘仍未開通，再聯繫客服 <a href="https://line.me/ti/p/~fishxit">fishxit</a></li></ul>',
     'fa-referral':'推薦人在萬語通個人聊天傳送 <strong>@推薦</strong> 取得推薦碼，再把推薦碼交給還沒付費的新朋友。新朋友首次付款前，在個人聊天傳送 <strong>@使用推薦碼 推薦碼</strong> 完成綁定；付款成功後，推薦人與新朋友都會自動加贈翻譯天數。<br><br>加贈天數依新朋友首次付款方案計算：7 日體驗雙方各 3 天；月付方案推薦人 14 天、新朋友 7 天；年付方案推薦人 90 天、新朋友 30 天。<br><br>可傳 <strong>@推薦狀態</strong> 查看推薦碼是否已綁定、待付款或已發獎；傳 <strong>@到期</strong> 查看新的到期日。推薦優惠僅限個人推薦新個人用戶，群組版方案不參與推薦碼活動；不可自己推薦自己、不可重複綁定，實際獎勵天數依首次付費方案與系統紀錄為準。',
     'fa8':'可以！<span class="tag-badge tag-cyan">付費版限定</span><br><br>語音訊息透過 <strong>OpenAI Whisper</strong> 引擎轉錄成文字，再由 DeepL 翻譯。支援印尼文、越南文、泰文等多種語言語音輸入。群組版「體驗版」以上方案包含此功能。',
     'fa9':'可以！<span class="tag-badge tag-cyan">商務版限定</span><br><br>直接在 LINE 傳送圖片，萬語通會自動辨識圖片中的文字（OCR）並翻譯。適合用於合約、公文、藥品說明書等書面文件。採用 <strong>Claude AI</strong> 進行圖片文字辨識，準確率高。',

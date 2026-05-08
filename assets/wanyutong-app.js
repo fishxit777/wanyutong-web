@@ -2,6 +2,7 @@
   'use strict';
 
   var TOP_FLAG = 'wyt-force-top';
+  var userScrollIntent = false;
 
   if ('scrollRestoration' in window.history) {
     window.history.scrollRestoration = 'manual';
@@ -13,6 +14,7 @@
 
   function goTop(force) {
     if (!force && hasAnchor()) return;
+    if (!force && userScrollIntent) return;
     var root = document.documentElement;
     var body = document.body;
     var rootScrollBehavior = root ? root.style.scrollBehavior : '';
@@ -66,6 +68,18 @@
       window.setTimeout(function () { goTop(force); }, delay);
     });
   }
+
+  function markUserScrollIntent(event) {
+    if (event && event.type === 'keydown') {
+      var keys = ['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', 'Home', 'End', ' '];
+      if (keys.indexOf(event.key) === -1) return;
+    }
+    userScrollIntent = true;
+  }
+
+  window.addEventListener('wheel', markUserScrollIntent, { passive: true });
+  window.addEventListener('touchmove', markUserScrollIntent, { passive: true });
+  window.addEventListener('keydown', markUserScrollIntent, true);
 
   window.wanyuGoTop = goTopSoon;
 
@@ -157,7 +171,6 @@
     syncChromeText(getCurrentLang());
     if (shouldResetFromNavigation()) {
       goTopSoon(false);
-      window.setTimeout(function () { goTopSoon(false); }, 1400);
     }
   });
 
@@ -196,8 +209,6 @@
       if (langControl) {
         goTop(true);
         goTopSoon(true);
-        window.setTimeout(function () { goTopSoon(true); }, 1200);
-        window.setTimeout(function () { goTopSoon(true); }, 2200);
         return;
       }
 
@@ -205,8 +216,6 @@
         markNextPageTop();
         goTop(true);
         goTopSoon(true);
-        window.setTimeout(function () { goTopSoon(true); }, 1200);
-        window.setTimeout(function () { goTopSoon(true); }, 2200);
         return;
       }
 

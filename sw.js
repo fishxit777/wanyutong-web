@@ -1,4 +1,4 @@
-const CACHE_NAME = 'wanyutong-pwa-20260509-1';
+const CACHE_NAME = 'wanyutong-pwa-20260509-2';
 const CORE_ASSETS = [
   './',
   './index.html',

@@ -524,6 +524,15 @@ footer a:hover { color:var(--line); }
   footer { padding:1.7rem 1rem; }
 }
 </style>
+
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#5fca6b">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="萬語通">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="assets/icons/wanyutong-icon-180.png">
+  <script src="assets/wanyutong-app.js" defer></script>
 </head>
 <body>
 
@@ -1199,7 +1208,7 @@ function applyA1Lang(lang){
   if(btnEn){btnEn.textContent='EN';btnEn.classList.toggle('active',lang==='en');}
   document.documentElement.lang=lang==='zh'?'zh-TW':'en';
 }
-function setLang(lang){try{localStorage.setItem('wyt-lang',lang);}catch(e){}applyA1Lang(lang);}
+function setLang(lang){try{localStorage.setItem('wyt-lang',lang);}catch(e){}applyA1Lang(lang);if(window.wanyuGoTop)window.wanyuGoTop(true);}
 (function(){try{var s=localStorage.getItem('wyt-lang');if(s==='en')applyA1Lang('en');}catch(e){}})();
 </script>
 

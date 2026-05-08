@@ -115,9 +115,19 @@
       if (!target || !target.closest) return;
 
       var langControl = target.closest('[onclick*="setLang"], .lang-toggle button, .lang-btn');
+      var historyControl = target.closest('[onclick*="history.back"], [onclick*="history.forward"], .history-nav button, .history-nav-btn');
       var pageLink = target.closest('a[href]');
 
       if (langControl) {
+        goTop(true);
+        goTopSoon(true);
+        window.setTimeout(function () { goTopSoon(true); }, 1200);
+        window.setTimeout(function () { goTopSoon(true); }, 2200);
+        return;
+      }
+
+      if (historyControl) {
+        markNextPageTop();
         goTop(true);
         goTopSoon(true);
         window.setTimeout(function () { goTopSoon(true); }, 1200);

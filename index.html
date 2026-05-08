@@ -1310,6 +1310,15 @@ footer a:hover { color:var(--text); }
 .hero-text > *:nth-child(4) { animation-delay:0.46s; }
 .hero-mockup { animation:fadeUp 0.8s 0.3s ease both; }
 </style>
+
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#5fca6b">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="萬語通">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="assets/icons/wanyutong-icon-180.png">
+  <script src="assets/wanyutong-app.js" defer></script>
 </head>
 <body class="at-hero">
 
@@ -3853,6 +3862,26 @@ function forceCompareLang(lang) {
   });
 }
 
+function forceIndustrySearchLang(lang) {
+  var copy = {
+    zh: {
+      title: '常見搜尋詞與相關指南',
+      terms: ['工廠外籍員工翻譯', '工地 LINE 翻譯', '外籍看護溝通', '圖片 OCR 翻譯', 'LINE 群組翻譯機器人', '外籍員工管理溝通']
+    },
+    en: {
+      title: 'Common search terms and related guides',
+      terms: ['Factory worker translation', 'Construction LINE translation', 'Caregiver communication', 'Image OCR translation', 'LINE group translation bot', 'Foreign worker management']
+    }
+  };
+  var t = copy[lang] || copy.zh;
+  var title = document.getElementById('search-title');
+  if (title) title.textContent = t.title;
+  for (var i = 1; i <= 6; i++) {
+    var item = document.getElementById('search-term-' + i);
+    if (item) item.textContent = t.terms[i - 1] || '';
+  }
+}
+
 function setLang(lang) {
   try { localStorage.setItem('wyt-lang', lang); } catch(e) {}
   try {
@@ -3860,6 +3889,8 @@ function setLang(lang) {
   } finally {
     forcePricingLang(lang);
     forceCompareLang(lang);
+    forceIndustrySearchLang(lang);
+    if (window.wanyuGoTop) window.wanyuGoTop(true);
   }
 }
 
@@ -3871,6 +3902,7 @@ function setLang(lang) {
     else {
       forcePricingLang('zh');
       forceCompareLang('zh');
+      forceIndustrySearchLang('zh');
     }
   } catch(e) {}
 })();

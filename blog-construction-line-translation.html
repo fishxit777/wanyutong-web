@@ -150,6 +150,15 @@ footer { border-top:1px solid var(--border); padding:2rem 5vw; display:flex; jus
   ]
 }
 </script>
+
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#5fca6b">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="萬語通">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="assets/icons/wanyutong-icon-180.png">
+  <script src="assets/wanyutong-app.js" defer></script>
 </head>
 <body>
 <div class="history-nav">
@@ -302,6 +311,7 @@ function setLang(lang) {
   document.querySelectorAll('[data-zh]').forEach(function(el) { el.textContent = el.dataset[lang]; });
   document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
   document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  if (window.wanyuGoTop) window.wanyuGoTop(true);
 }
 function toggleTheme() {
   document.body.classList.toggle('light');

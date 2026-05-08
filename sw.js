@@ -1,4 +1,4 @@
-const CACHE_NAME = 'wanyutong-pwa-20260508-1';
+const CACHE_NAME = 'wanyutong-pwa-20260508-2';
 const CORE_ASSETS = [
   './',
   './index.html',
@@ -52,12 +52,23 @@ self.addEventListener('fetch', (event) => {
   const url = new URL(request.url);
   if (url.origin !== self.location.origin) return;
 
-  if (request.mode === 'navigate') {
+  const accept = request.headers.get('accept') || '';
+  const destination = request.destination || '';
+  const shouldRefreshFirst =
+    request.mode === 'navigate' ||
+    accept.indexOf('text/html') !== -1 ||
+    destination === 'script' ||
+    destination === 'style' ||
+    destination === 'worker';
+
+  if (shouldRefreshFirst) {
     event.respondWith(
       fetch(request)
         .then((response) => {
-          const copy = response.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
+          if (response && response.ok) {
+            const copy = response.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
+          }
           return response;
         })
         .catch(() => caches.match(request).then((cached) => cached || caches.match('./index.html')))

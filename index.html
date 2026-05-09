@@ -1614,6 +1614,8 @@ footer a:hover { color:var(--text); }
           <a class="search-term-pill" id="search-term-4" href="blog-image-ocr-translation.html">圖片 OCR 翻譯</a>
           <a class="search-term-pill" id="search-term-5" href="blog-line-group-translation.html">LINE 群組翻譯機器人</a>
           <a class="search-term-pill" id="search-term-6" href="blog-foreign-worker-communication.html">外籍員工管理溝通</a>
+          <a class="search-term-pill" id="search-term-7" href="blog-foreign-worker-safety-law.html">外勞工安責任</a>
+          <a class="search-term-pill" id="search-term-8" href="blog-restaurant-foreign-worker-translation.html">餐飲外籍員工溝通</a>
         </div>
       </div>
     </div>
@@ -1660,6 +1662,11 @@ footer a:hover { color:var(--text); }
         <span class="guide-tag" id="guide-7-tag">工地現場</span>
         <div class="guide-title" id="guide-7-title">工地外籍員工溝通怎麼做？</div>
         <div class="guide-desc" id="guide-7-desc">集合時間、安全提醒、材料規格與異常回報，都需要留下清楚可回查的雙語訊息。</div>
+      </a>
+      <a class="guide-card" href="blog-foreign-worker-safety-law.html">
+        <span class="guide-tag" id="guide-8-tag">工安責任</span>
+        <div class="guide-title" id="guide-8-title">外勞發生工安事故，雇主責任怎麼降低？</div>
+        <div class="guide-desc" id="guide-8-desc">安全告知、母語理解、LINE 紀錄與確認追蹤，是外籍員工工安管理最該補上的基本流程。</div>
       </a>
     </div>
   </div>
@@ -2663,6 +2670,8 @@ var i18n = {
     'industry.term.4':'圖片 OCR 翻譯',
     'industry.term.5':'LINE 群組翻譯機器人',
     'industry.term.6':'外籍員工管理溝通',
+    'industry.term.7':'外勞工安責任',
+    'industry.term.8':'餐飲外籍員工溝通',
     // GUIDES
     'guide.eyebrow':   '// Employer Guides',
     'guide.title':     '雇主最常遇到的 LINE 溝通問題',
@@ -2688,6 +2697,9 @@ var i18n = {
     'guide.7.tag':     '工地現場',
     'guide.7.title':   '工地外籍員工溝通怎麼做？',
     'guide.7.desc':    '集合時間、安全提醒、材料規格與異常回報，都需要留下清楚可回查的雙語訊息。',
+    'guide.8.tag':     '工安責任',
+    'guide.8.title':   '外勞發生工安事故，雇主責任怎麼降低？',
+    'guide.8.desc':    '安全告知、母語理解、LINE 紀錄與確認追蹤，是外籍員工工安管理最該補上的基本流程。',
     // SETUP FLOW
     'setup.eyebrow':   '// 10 Minute Setup',
     'setup.title':     '把「導入」說得很簡單',
@@ -3007,6 +3019,8 @@ var i18n = {
     'industry.term.4':'Image OCR translation',
     'industry.term.5':'LINE group translation bot',
     'industry.term.6':'Foreign worker communication management',
+    'industry.term.7':'Foreign worker safety responsibility',
+    'industry.term.8':'Restaurant foreign worker communication',
     // GUIDES
     'guide.eyebrow':   '// Employer Guides',
     'guide.title':     'Common LINE Communication Problems for Employers',
@@ -3032,6 +3046,9 @@ var i18n = {
     'guide.7.tag':     'Construction',
     'guide.7.title':   'How should construction teams communicate with foreign workers?',
     'guide.7.desc':    'Meeting times, safety notices, material details, and issue reports should be written clearly and easy to review.',
+    'guide.8.tag':     'Safety',
+    'guide.8.title':   'How employers can reduce foreign worker safety risk',
+    'guide.8.desc':    'Safety notices, native-language understanding, LINE records, and confirmation tracking are basic steps for safer workplace management.',
     // SETUP FLOW
     'setup.eyebrow':   '// 10 Minute Setup',
     'setup.title':     'Make Onboarding Easy to Understand',
@@ -3386,7 +3403,7 @@ function applyLang(lang) {
   q('#guide-eyebrow', 'guide.eyebrow');
   q('#guide-title', 'guide.title');
   q('#guide-lead', 'guide.lead');
-  for (var gi = 1; gi <= 7; gi++) {
+  for (var gi = 1; gi <= 8; gi++) {
     q('#guide-' + gi + '-tag', 'guide.' + gi + '.tag');
     q('#guide-' + gi + '-title', 'guide.' + gi + '.title');
     q('#guide-' + gi + '-desc', 'guide.' + gi + '.desc');
@@ -3866,17 +3883,17 @@ function forceIndustrySearchLang(lang) {
   var copy = {
     zh: {
       title: '常見搜尋詞與相關指南',
-      terms: ['工廠外籍員工翻譯', '工地 LINE 翻譯', '外籍看護溝通', '圖片 OCR 翻譯', 'LINE 群組翻譯機器人', '外籍員工管理溝通']
+      terms: ['工廠外籍員工翻譯', '工地 LINE 翻譯', '外籍看護溝通', '圖片 OCR 翻譯', 'LINE 群組翻譯機器人', '外籍員工管理溝通', '外勞工安責任', '餐飲外籍員工溝通']
     },
     en: {
       title: 'Common search terms and related guides',
-      terms: ['Factory worker translation', 'Construction LINE translation', 'Caregiver communication', 'Image OCR translation', 'LINE group translation bot', 'Foreign worker management']
+      terms: ['Factory worker translation', 'Construction LINE translation', 'Caregiver communication', 'Image OCR translation', 'LINE group translation bot', 'Foreign worker management', 'Foreign worker safety responsibility', 'Restaurant foreign worker communication']
     }
   };
   var t = copy[lang] || copy.zh;
   var title = document.getElementById('search-title');
   if (title) title.textContent = t.title;
-  for (var i = 1; i <= 6; i++) {
+  for (var i = 1; i <= 8; i++) {
     var item = document.getElementById('search-term-' + i);
     if (item) item.textContent = t.terms[i - 1] || '';
   }

@@ -37,6 +37,15 @@ figure{margin:0;border:1px solid var(--line);border-radius:22px;overflow:hidden;
 .article-cta{margin-top:36px;padding:34px;border:1px solid rgba(124,201,111,.35);border-radius:22px;background:linear-gradient(135deg,rgba(124,201,111,.18),rgba(143,228,255,.08));text-align:center}.article-cta h2{margin:0 0 10px}.article-cta p{max-width:720px;margin:0 auto 22px}.pager{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:28px}.pager a{min-height:120px;padding:22px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.035)}.pager span{display:block;color:var(--muted);margin-bottom:10px}.pager b{font-size:1.15rem}
 .footer{position:relative;z-index:2;border-top:1px solid var(--line);padding:28px max(22px,calc((100vw - var(--max))/2));color:var(--muted);display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}.footer a{color:var(--muted);text-decoration:underline}.lang-panel{display:none}.lang-panel.active{display:block}
 @media(max-width:960px){.site-header{align-items:flex-start;flex-direction:column}.nav{width:100%;overflow-x:auto;padding-bottom:4px}.actions{width:100%;flex-wrap:wrap}.hero,.grid{grid-template-columns:1fr}.aside{position:static}}@media(max-width:640px){.top-strip{grid-template-columns:1fr;gap:8px;padding:12px 18px;text-align:center}.top-strip a:nth-child(2),.top-strip a:nth-child(3){text-align:center}.site-header{padding:18px}.shell{padding:52px 16px 64px}.content{padding:22px}.related,.pager{grid-template-columns:1fr}.cta{min-height:44px;padding:0 18px}}
+.top-strip{height:46px;min-height:46px;background:#5db85f;color:#06100a;display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center;padding:0 4.5vw;font-family:'Noto Sans TC',system-ui,sans-serif;font-weight:700;position:sticky;top:0;z-index:20}
+.top-strip button{border:0;background:transparent;color:inherit;font:inherit;cursor:pointer}.top-strip .center{text-align:center;font-family:'DM Mono',monospace;font-weight:400}.top-strip button:last-child{text-align:right}
+.site-header{height:72px;min-height:72px;padding:0 5vw;top:46px;z-index:19}.brand{font-size:1.35rem}.nav{gap:1.5rem}.cta{border-radius:7px;min-height:auto;padding:.8rem 1.25rem;background:#61c766;color:#071109}
+.shell{max-width:1050px;padding:4.2rem 5vw 2rem}.hero{display:block;margin-bottom:0}.hero figure{margin:2rem 0 3.5rem;border:1px solid var(--line);border-radius:16px;box-shadow:0 24px 70px rgba(0,0,0,.22)}.hero figure img{aspect-ratio:16/9}.hero figcaption{padding:.85rem 1rem;font-size:.92rem;line-height:1.65;border-top:1px solid var(--line)}
+.grid{display:block}.card{border:0;border-radius:0;background:transparent;box-shadow:none;overflow:visible}.content{padding:0}.content h2{font-size:1.65rem;margin:0 0 .8rem}.content p{line-height:2}.content .lang-panel>h2,.content .lang-panel>p,.content .lang-panel>.callout,.content .faq,.content .related,.content .article-cta,.content .pager,.content .lang-panel>div:not(.related):not(.faq):not(.article-cta):not(.pager){border-top:1px solid var(--line);padding-top:2rem;margin-top:2rem}
+.faq details{border:1px solid var(--line);border-radius:10px;background:var(--panel);padding:1rem 1.1rem;margin:.85rem 0}.faq details:first-child{margin-top:0}.faq summary{line-height:1.55}.faq p{line-height:1.85}
+.related-guides{border-top:1px solid var(--line);padding:2rem 0}.related-guides h2{font-size:1.65rem;margin:0 0 1rem}.related-grid,.related{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem}.related-card,.related a{color:var(--text);text-decoration:none;border:1px solid var(--line);border-radius:10px;background:var(--panel);padding:1rem;font-weight:900;line-height:1.5;min-height:92px}.related-card span,.related span{display:block;color:var(--muted);font-family:'DM Mono',monospace;font-size:.78rem;margin-bottom:.35rem;font-weight:500}.related-card:hover,.related a:hover{border-color:rgba(6,199,85,.45);transform:translateY(-1px)}
+.aside{display:none}.pager{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2.5rem auto 0}.pager a{min-height:150px;border-radius:10px;display:flex;flex-direction:column;justify-content:center}.pager a:nth-child(2){text-align:right}.footer{font-family:'DM Mono',monospace;font-size:.82rem}
+@media(max-width:760px){.top-strip{padding:0 1rem;font-size:.88rem}.site-header{height:auto;min-height:70px;align-items:flex-start;gap:.8rem;flex-wrap:wrap;padding:1rem}.nav{width:100%;justify-content:space-between;gap:.6rem;font-size:.88rem}.cta{display:none}.shell{padding:2.6rem 1.1rem 1.5rem}.hero figure{margin:1.4rem 0 2.4rem;border-radius:12px}.hero figure img{aspect-ratio:4/3}.related-grid,.related,.pager{grid-template-columns:1fr}.pager a:nth-child(2){text-align:left}.footer{flex-direction:column;padding:1.7rem 1rem}}
 </style>
 <script type="application/ld+json">[
   {
@@ -91,9 +100,9 @@ figure{margin:0;border:1px solid var(--line);border-radius:22px;overflow:hidden;
 </head>
 <body>
 <nav class="top-strip" aria-label="Article quick navigation">
-  <a href="blog.html" data-zh="‹ 回部落格" data-en="‹ Back">‹ 回部落格</a>
-  <a href="blog.html" data-zh="瀏覽紀錄" data-en="History">瀏覽紀錄</a>
-  <a href="blog-restaurant-foreign-worker-translation.html" data-zh="下一篇 ›" data-en="Next ›">下一篇 ›</a>
+  <button type="button" onclick="history.back()" data-zh="‹ 上一頁" data-en="‹ Back">‹ 上一頁</button>
+  <div class="center" data-zh="瀏覽紀錄" data-en="History">瀏覽紀錄</div>
+  <button type="button" onclick="history.forward()" data-zh="下一頁 ›" data-en="Next ›">下一頁 ›</button>
 </nav>
 <header class="site-header">
   <a class="brand" href="index.html">萬語通</a>
@@ -104,7 +113,7 @@ figure{margin:0;border:1px solid var(--line);border-radius:22px;overflow:hidden;
     <a href="faq.html" data-zh="常見問題" data-en="FAQ">常見問題</a>
   </nav>
   <div class="actions">
-    <a class="cta" href="join.html" data-zh="免費體驗" data-en="Try Free">免費體驗</a>
+    <a class="cta" href="https://line.me/ti/p/@969wpxno" data-zh="免費體驗" data-en="Try Free">免費體驗</a>
     <div class="lang-toggle" aria-label="Language switch"><button type="button" id="langZh" class="active" onclick="setLang('zh')">繁中</button><button type="button" id="langEn" onclick="setLang('en')">EN</button></div>
     <button class="theme-toggle" type="button" onclick="toggleTheme()" aria-label="Toggle theme">●</button>
   </div>
@@ -118,6 +127,15 @@ figure{margin:0;border:1px solid var(--line);border-radius:22px;overflow:hidden;
       <div class="meta"><span data-zh="適用對象：工廠、工地、農場、看護雇主" data-en="For factories, construction sites, farms, and caregiving employers">適用對象：工廠、工地、農場、看護雇主</span><span data-zh="閱讀時間：約 6 分鐘" data-en="Reading time: about 6 minutes">閱讀時間：約 6 分鐘</span><span>2026-04-25</span></div>
     </div>
     <figure><img src="assets/blog/foreign-worker-safety-law.jpg" alt="外勞發生工安事故雇主的法律責任是什麼？" width="960" height="720"><figcaption data-zh="工安管理重點不是只翻譯，而是讓安全提醒有看得懂、找得到的紀錄。" data-en="Safety communication should be understandable, confirmed, and traceable.">工安管理重點不是只翻譯，而是讓安全提醒有看得懂、找得到的紀錄。</figcaption></figure>
+  </section>
+  <section class="related-guides">
+    <h2 data-zh="常見搜尋詞" data-en="Search Terms">常見搜尋詞</h2>
+    <div class="related-grid">
+      <a class="related-card" href="blog-foreign-worker-safety-law.html"><span data-zh="外勞工安事故" data-en="Foreign worker safety incident">外勞工安事故</span><b data-zh="雇主責任、安全提醒與紀錄" data-en="Employer responsibility, notices, and records">雇主責任、安全提醒與紀錄</b></a>
+      <a class="related-card" href="blog-construction-line-translation.html"><span data-zh="工地 LINE 翻譯" data-en="Construction LINE translation">工地 LINE 翻譯</span><b data-zh="工地集合、危害提醒與回報" data-en="Site meetings, hazard notices, and reports">工地集合、危害提醒與回報</b></a>
+      <a class="related-card" href="blog-image-ocr-translation.html"><span data-zh="工安圖片翻譯" data-en="Safety image translation">工安圖片翻譯</span><b data-zh="SOP、告示牌與安全公告 OCR" data-en="SOPs, signs, and safety notices by OCR">SOP、告示牌與安全公告 OCR</b></a>
+      <a class="related-card" href="blog-factory-line-translation.html"><span data-zh="工廠外勞管理" data-en="Factory worker management">工廠外勞管理</span><b data-zh="機台、交班與品質規範翻譯" data-en="Machine, handover, and quality instructions">機台、交班與品質規範翻譯</b></a>
+    </div>
   </section>
   <div class="grid">
     <article class="card"><div class="content">
@@ -147,7 +165,7 @@ figure{margin:0;border:1px solid var(--line);border-radius:22px;overflow:hidden;
 <a href="blog-construction-line-translation.html"><b>工地翻譯整合安全提醒與異常回報流程</b><span>延伸閱讀</span></a>
 <a href="blog-image-ocr-translation.html"><b>圖片 OCR 把安全公告與 SOP 拍照翻譯</b><span>延伸閱讀</span></a>
 <a href="blog-factory-line-translation.html"><b>工廠 SOP、交班、機台與品質通知怎麼翻譯</b><span>延伸閱讀</span></a></div>
-        <div class="article-cta"><h2>現在免費試用，今天就把溝通留下紀錄</h2><p>每日 15 次免費翻譯，不用綁信用卡。先從一個 LINE 群組測試，確認通知、翻譯與回覆是否更好追蹤。</p><a class="cta" href="join.html">加入 LINE Bot 免費體驗</a></div>
+        <div class="article-cta"><h2>現在免費試用，今天就把溝通留下紀錄</h2><p>每日 15 次免費翻譯，不用綁信用卡。先從一個 LINE 群組測試，確認通知、翻譯與回覆是否更好追蹤。</p><a class="cta" href="https://line.me/ti/p/@969wpxno">加入 LINE Bot 免費體驗</a></div>
         <div class="pager"><a href="blog-foreign-worker-communication.html"><span>‹ 上一篇</span><b>台灣雇主管理外勞最常遇到的 5 個溝通問題（與解法）</b></a><a href="blog-restaurant-foreign-worker-translation.html"><span>下一篇 ›</span><b>餐飲業雇主怎麼跟外籍員工溝通？</b></a></div><p style="text-align:center;margin-top:26px"><a class="chips" href="blog.html">← 回部落格，查看所有文章</a></p>
       </div>
       <div class="lang-panel lang-en">
@@ -176,21 +194,16 @@ figure{margin:0;border:1px solid var(--line);border-radius:22px;overflow:hidden;
 <a href="blog-construction-line-translation.html"><b>Construction site translation workflow</b><span>Continue reading</span></a>
 <a href="blog-image-ocr-translation.html"><b>Image OCR for safety signs and SOPs</b><span>Continue reading</span></a>
 <a href="blog-factory-line-translation.html"><b>Factory SOP and handover translation</b><span>Continue reading</span></a></div>
-        <div class="article-cta"><h2>Try WanyuTong Free Today</h2><p>Start with 15 free translations per day. Test it in one LINE group and see whether notices, translations, and replies become easier to track.</p><a class="cta" href="join.html">Add LINE Bot</a></div>
+        <div class="article-cta"><h2>Try WanyuTong Free Today</h2><p>Start with 15 free translations per day. Test it in one LINE group and see whether notices, translations, and replies become easier to track.</p><a class="cta" href="https://line.me/ti/p/@969wpxno">Add LINE Bot</a></div>
         <div class="pager"><a href="blog-foreign-worker-communication.html"><span>‹ Previous</span><b>Foreign worker communication problems</b></a><a href="blog-restaurant-foreign-worker-translation.html"><span>Next ›</span><b>Restaurant worker communication</b></a></div><p style="text-align:center;margin-top:26px"><a class="chips" href="blog.html">← Back to Blog</a></p>
       </div>
     </div></article>
-    <aside class="aside" aria-label="Article shortcuts">
-      <div class="aside-card"><h2 data-zh="本文重點" data-en="Key Takeaways">本文重點</h2><p data-zh="把重要通知改成可翻譯、可確認、可搜尋的 LINE 紀錄。" data-en="Turn important notices into translated, confirmed, and searchable LINE records.">把重要通知改成可翻譯、可確認、可搜尋的 LINE 紀錄。</p></div>
-      <div class="aside-card"><h3 data-zh="常見搜尋詞" data-en="Search Terms">常見搜尋詞</h3><div class="chips"><a href="blog.html" data-zh="外籍員工翻譯" data-en="Foreign worker translation">外籍員工翻譯</a><a href="blog-line-group-translation.html" data-zh="LINE 群組翻譯" data-en="LINE group translation">LINE 群組翻譯</a><a href="blog-image-ocr-translation.html" data-zh="圖片 OCR 翻譯" data-en="Image OCR translation">圖片 OCR 翻譯</a><a href="index.html#pricing" data-zh="收費方案" data-en="Pricing">收費方案</a></div></div>
-      <div class="aside-card"><h3 data-zh="需要先測試？" data-en="Need a Trial?">需要先測試？</h3><p><a href="join.html" data-zh="免費加入 LINE Bot" data-en="Add the LINE Bot for free">免費加入 LINE Bot</a></p></div>
-    </aside>
   </div>
 </main>
 <footer class="footer"><span data-zh="© 2026 萬語通 · 客服 LINE：fishxit · Email：bao58881@gmail.com" data-en="© 2026 WanyuTong · LINE: fishxit · Email: bao58881@gmail.com">© 2026 萬語通 · 客服 LINE：fishxit · Email：bao58881@gmail.com</span><span><a href="index.html" data-zh="官網" data-en="Home">官網</a> · <a href="blog.html" data-zh="部落格" data-en="Blog">部落格</a> · <a href="faq.html" data-zh="常見問題" data-en="FAQ">常見問題</a></span></footer>
 <script src="assets/wanyutong-app.js"></script>
 <script>
-function setLang(lang){localStorage.setItem('wyt-lang',lang);document.documentElement.lang=lang==='zh'?'zh-TW':'en';document.querySelectorAll('[data-zh]').forEach(function(el){el.textContent=lang==='zh'?el.getAttribute('data-zh'):el.getAttribute('data-en')});document.querySelectorAll('.lang-panel').forEach(function(panel){panel.classList.toggle('active',panel.classList.contains('lang-'+lang))});var z=document.getElementById('langZh'),e=document.getElementById('langEn');if(z)z.classList.toggle('active',lang==='zh');if(e)e.classList.toggle('active',lang==='en')}
+function setLang(lang){localStorage.setItem('wyt-lang',lang);document.documentElement.lang=lang==='zh'?'zh-TW':'en';document.querySelectorAll('[data-zh]').forEach(function(el){el.textContent=lang==='zh'?el.getAttribute('data-zh'):el.getAttribute('data-en')});document.querySelectorAll('.lang-panel').forEach(function(panel){panel.classList.toggle('active',panel.classList.contains('lang-'+lang))});var z=document.getElementById('langZh'),e=document.getElementById('langEn');if(z)z.classList.toggle('active',lang==='zh');if(e)e.classList.toggle('active',lang==='en');if(window.wanyuGoTop)window.wanyuGoTop(true)}
 function toggleTheme(){document.body.classList.toggle('light');localStorage.setItem('wyt-theme',document.body.classList.contains('light')?'light':'dark')}
 (function(){if(localStorage.getItem('wyt-theme')==='light')document.body.classList.add('light');setLang(localStorage.getItem('wyt-lang')||'zh')})();
 </script>

@@ -133,8 +133,120 @@
     element.textContent = lang === 'en' ? enText : zhText;
   }
 
+  function ensureLanguageLayoutStyle() {
+    if (document.getElementById('wyt-language-layout-fix')) return;
+
+    var style = document.createElement('style');
+    style.id = 'wyt-language-layout-fix';
+    style.textContent = [
+      'nav{justify-content:flex-start!important;gap:clamp(.55rem,1vw,1.25rem)!important;padding:0 clamp(1rem,3vw,3rem)!important}',
+      '.nav-brand,.brand{flex:0 0 auto!important;white-space:nowrap!important;letter-spacing:.02em!important;gap:.38rem!important}',
+      '.nav-brand-sub:empty{display:none!important}',
+      '.nav-quick-links{display:flex;align-items:center;gap:.55rem;flex:0 0 auto}',
+      '.nav-links{flex:1 1 auto!important;min-width:0!important;justify-content:center!important;gap:clamp(.75rem,1.25vw,1.55rem)!important;margin:0!important;padding:0!important}',
+      '.nav-links a{white-space:nowrap!important;display:inline-flex!important;align-items:center!important;letter-spacing:.045em!important}',
+      '.nav-cta{flex:0 0 auto!important;white-space:nowrap!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;padding:.38em .9em!important;letter-spacing:.04em!important;line-height:1.1!important}',
+      '.nav-actions{display:flex!important;align-items:center!important;gap:.45rem!important;flex:0 0 auto!important;margin-left:auto!important}',
+      '@media(max-width:1280px){.nav-quick-links{display:none!important}.nav-links{gap:.85rem!important}.nav-links a{font-size:.72rem!important;letter-spacing:.035em!important}}',
+      '@media(max-width:1050px){nav{padding:0 4vw!important;gap:.5rem!important}.nav-blog-pill,.nav-quick-links{display:none!important}.nav-links{display:none!important;flex-direction:column;position:absolute;top:58px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:1rem 5vw;gap:1rem}.nav-links.open{display:flex!important}.hamburger{display:flex!important;flex-shrink:0!important}}'
+    ].join('\n');
+    document.head.appendChild(style);
+  }
+
+  function ensureNavStructure() {
+    var nav = document.querySelector('nav');
+    if (!nav) return;
+
+    var brand = document.querySelector('.nav-brand');
+    if (brand && !brand.querySelector('.nav-brand-main')) {
+      brand.innerHTML = '<span class="nav-dot"></span><span class="nav-brand-main"></span><span class="nav-brand-sub"></span>';
+    }
+
+    if (!document.querySelector('.nav-quick-links')) {
+      var blog = document.querySelector('a[href="blog.html"].nav-blog-pill');
+      var faq = document.querySelector('a[href="faq.html"].nav-blog-pill');
+      if (blog && faq && blog.parentNode) {
+        var quickLinks = document.createElement('div');
+        quickLinks.className = 'nav-quick-links';
+        blog.parentNode.insertBefore(quickLinks, blog);
+        quickLinks.appendChild(blog);
+        quickLinks.appendChild(faq);
+      }
+    }
+
+    if (!document.querySelector('.nav-actions')) {
+      var langToggle = document.querySelector('.lang-toggle');
+      if (langToggle && langToggle.parentNode) {
+        var actions = document.createElement('div');
+        actions.className = 'nav-actions';
+        langToggle.parentNode.insertBefore(actions, langToggle);
+        actions.appendChild(langToggle);
+
+        var themeToggle = document.getElementById('themeToggle');
+        if (themeToggle) actions.appendChild(themeToggle);
+
+        var hamburger = document.getElementById('hamburger');
+        if (hamburger) actions.appendChild(hamburger);
+      }
+    }
+  }
+
+  function syncNavLabels(activeLang) {
+    var labels = activeLang === 'en'
+      ? {
+        '#features': 'Features',
+        '#industries': 'Use Cases',
+        '#compare': 'Engine',
+        '#vs-competitors': 'Compare',
+        '#referral': 'Referral',
+        '#pricing': 'Pricing',
+        '#howto': 'Start',
+        '#terms': 'Terms'
+      }
+      : {
+        '#features': '為何選我',
+        '#industries': '適用產業',
+        '#compare': '引擎差異',
+        '#vs-competitors': '競品比較',
+        '#referral': '推薦優惠',
+        '#pricing': '收費方案',
+        '#howto': '如何開始',
+        '#terms': '條款'
+      };
+
+    Object.keys(labels).forEach(function (href) {
+      var link = document.querySelector('.nav-links a[href="' + href + '"]');
+      if (link) link.textContent = labels[href];
+    });
+
+    var cta = document.querySelector('.nav-links .nav-cta');
+    if (cta) cta.textContent = activeLang === 'en' ? 'Try Free' : '免費體驗';
+
+    var blog = document.querySelector('a[href="blog.html"].nav-blog-pill');
+    if (blog) blog.textContent = activeLang === 'en' ? 'Blog' : '📝 部落格';
+
+    var faq = document.querySelector('a[href="faq.html"].nav-blog-pill');
+    if (faq) faq.textContent = activeLang === 'en' ? 'FAQ' : '❓ 常見問題';
+  }
+
+  function syncFooterLinks(activeLang) {
+    var footerLinks = document.querySelectorAll('.footer-links a');
+    if (!footerLinks.length) return;
+
+    var labels = activeLang === 'en'
+      ? ['Blog', 'FAQ', 'Pricing', 'Terms', 'Contact']
+      : ['部落格', '常見問題', '收費方案', '使用條款', '聯繫客服'];
+
+    footerLinks.forEach(function (link, index) {
+      if (labels[index]) link.textContent = labels[index];
+    });
+  }
+
   function syncChromeText(lang) {
     var activeLang = lang === 'en' ? 'en' : 'zh';
+
+    ensureLanguageLayoutStyle();
+    ensureNavStructure();
 
     setLocalizedText(
       document.querySelector('.brand'),
@@ -142,6 +254,11 @@
       'WanyuTong',
       activeLang
     );
+
+    var brandMain = document.querySelector('.nav-brand-main');
+    var brandSub = document.querySelector('.nav-brand-sub');
+    if (brandMain) brandMain.textContent = activeLang === 'en' ? 'WanyuTong' : '萬語通';
+    if (brandSub) brandSub.textContent = activeLang === 'en' ? '' : 'WanyuTong';
 
     var btnZh = document.getElementById('btn-zh');
     var btnEn = document.getElementById('btn-en');
@@ -163,6 +280,9 @@
         activeLang
       );
     }
+
+    syncNavLabels(activeLang);
+    syncFooterLinks(activeLang);
   }
 
   window.wanyuSyncChromeText = syncChromeText;

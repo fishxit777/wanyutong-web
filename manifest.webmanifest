@@ -2,7 +2,7 @@
   "id": "./",
   "name": "萬語通 WanyuTong",
   "short_name": "萬語通",
-  "description": "台灣雇主與 LINE 群組使用的 AI 翻譯、圖片 OCR、摘要與每日報表工具。",
+  "description": "萬語通 WanyuTong 是 LINE 群組 AI 翻譯與多語溝通助手，支援文字翻譯、圖片 OCR、語音翻譯、摘要與每日報表。",
   "lang": "zh-Hant-TW",
   "dir": "ltr",
   "start_url": "./index.html",

@@ -1267,6 +1267,57 @@ footer a:hover { color:var(--text); }
   .phone-frame { width:214px; }
   .compare-wrap { max-width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch; }
   .compare-table { min-width:640px; }
+  #compare .compare-wrap { overflow:visible; }
+  #compare .compare-table {
+    min-width:0;
+    display:block;
+    border:0;
+    background:transparent;
+    overflow:visible;
+  }
+  #compare .compare-table thead { display:none; }
+  #compare .compare-table tbody {
+    display:grid;
+    gap:0.75rem;
+  }
+  #compare .compare-table tr {
+    display:block;
+    border:1px solid var(--border);
+    border-radius:10px;
+    overflow:hidden;
+    background:rgba(12,17,26,0.92);
+  }
+  #compare .compare-table td {
+    display:block;
+    width:100%;
+    text-align:left;
+    padding:0.78rem 0.95rem;
+    border-top:1px solid rgba(114,139,176,0.14);
+    line-height:1.55;
+  }
+  #compare .compare-table td:first-child {
+    border-top:0;
+    background:rgba(255,255,255,0.045);
+    color:var(--white);
+    font-weight:800;
+  }
+  #compare .compare-table td:not(:first-child)::before {
+    content:attr(data-label);
+    display:block;
+    margin-bottom:0.32rem;
+    color:#7f91b0;
+    font-family:'DM Mono',monospace;
+    font-size:0.66rem;
+    letter-spacing:0.07em;
+    text-transform:uppercase;
+  }
+  #compare .compare-table td:nth-child(2) {
+    background:rgba(6,199,85,0.07);
+    color:#9effb8;
+  }
+  #compare .compare-table td:nth-child(3) {
+    background:rgba(255,255,255,0.018);
+  }
   section { overflow:hidden; }
   .stats-strip { grid-template-columns:repeat(2,1fr); }
   .story-head { grid-template-columns:1fr; align-items:start; }
@@ -1426,7 +1477,7 @@ footer a:hover { color:var(--text); }
           <!-- Bot 頭像 -->
           <div style="width:34px;height:34px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;box-shadow:0 1px 4px rgba(0,0,0,0.2);">🌐</div>
           <div style="flex:1;min-width:0;">
-            <div style="font-size:0.85rem;font-weight:700;color:#fff;line-height:1.2;">萬語通</div>
+            <div id="phone-bot-name" style="font-size:0.85rem;font-weight:700;color:#fff;line-height:1.2;">萬語通</div>
             <div style="font-size:0.62rem;color:rgba(255,255,255,0.85);line-height:1.2;">Official Account</div>
           </div>
           <div style="display:flex;gap:14px;">
@@ -1439,19 +1490,19 @@ footer a:hover { color:var(--text); }
         <div style="background:#f0f2f5;min-height:340px;padding:9px 9px 8px;display:flex;flex-direction:column;gap:6px;position:relative;">
 
           <div style="text-align:center;margin:1px 0 3px;">
-            <span style="background:rgba(0,0,0,0.16);color:#fff;font-size:0.56rem;padding:2px 9px;border-radius:10px;font-family:'DM Mono',monospace;">今天</span>
+            <span id="phone-day" style="background:rgba(0,0,0,0.16);color:#fff;font-size:0.56rem;padding:2px 9px;border-radius:10px;font-family:'DM Mono',monospace;">今天</span>
           </div>
 
           <div class="phone-bubble-row owner">
             <span class="phone-time">08:20</span>
-            <div class="phone-bubble owner">今天 15:00 前<br>完成 A 區清潔，<br>回覆 1 表示收到。</div>
+            <div class="phone-bubble owner" id="phone-owner-1">今天 15:00 前<br>完成 A 區清潔，<br>回覆 1 表示收到。</div>
           </div>
 
           <div class="phone-bubble-row">
             <div class="phone-avatar">🌐</div>
             <div>
               <div class="phone-bubble system">Selesaikan<br>pembersihan area A<br>sebelum 15:00.<br>Balas 1 jika paham.</div>
-              <div class="phone-meta">繁中 → 印尼文 · 工作通知 ✓</div>
+              <div class="phone-meta" id="phone-meta-1">繁中 → 印尼文 · 工作通知 ✓</div>
             </div>
           </div>
 
@@ -1459,16 +1510,16 @@ footer a:hover { color:var(--text); }
             <div class="phone-avatar">ID</div>
             <div>
               <div class="phone-bubble system">1</div>
-              <div class="phone-meta">已收到 · 08:22</div>
+              <div class="phone-meta" id="phone-received">已收到 · 08:22</div>
             </div>
           </div>
 
           <div class="phone-check-card">
-            <strong>確認進度</strong><br>
-            已確認 6 / 8 人，尚未回覆 2 人
+            <strong id="phone-check-title">確認進度</strong><br>
+            <span id="phone-check-desc">已確認 6 / 8 人，尚未回覆 2 人</span>
             <div class="phone-mini-tags">
-              <span class="phone-mini-tag">通知</span>
-              <span class="phone-mini-tag">回覆追蹤</span>
+              <span class="phone-mini-tag" id="phone-tag-1">通知</span>
+              <span class="phone-mini-tag" id="phone-tag-2">回覆追蹤</span>
             </div>
           </div>
 
@@ -1476,20 +1527,20 @@ footer a:hover { color:var(--text); }
             <div class="phone-avatar">VN</div>
             <div>
               <div class="phone-bubble system">Em xin nghỉ<br>chiều nay được không?</div>
-              <div class="phone-meta">越南文 → 繁中</div>
+              <div class="phone-meta" id="phone-meta-2">越南文 → 繁中</div>
             </div>
           </div>
 
           <div class="phone-bubble-row owner">
             <span class="phone-time">09:18</span>
-            <div class="phone-bubble owner">可以，請先交接<br>機台紀錄。</div>
+            <div class="phone-bubble owner" id="phone-owner-2">可以，請先交接<br>機台紀錄。</div>
           </div>
 
           <div class="phone-bubble-row">
             <div class="phone-avatar">🌐</div>
             <div>
               <div class="phone-bubble notice">Được, vui lòng bàn giao<br>nhật ký máy trước.</div>
-              <div class="phone-meta">繁中 → 越南文 · 智慧引擎 ✓</div>
+              <div class="phone-meta" id="phone-meta-3">繁中 → 越南文 · 智慧引擎 ✓</div>
             </div>
           </div>
 
@@ -1498,7 +1549,7 @@ footer a:hover { color:var(--text); }
         <!-- 輸入列 -->
         <div style="background:#fff;border-top:1px solid #e0e0e0;padding:7px 10px;display:flex;align-items:center;gap:8px;">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="#aaa"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
-          <div style="flex:1;background:#f5f5f5;border-radius:20px;padding:6px 12px;font-size:0.72rem;color:#bbb;">傳送訊息…</div>
+          <div id="phone-input-placeholder" style="flex:1;background:#f5f5f5;border-radius:20px;padding:6px 12px;font-size:0.72rem;color:#bbb;">傳送訊息…</div>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="#aaa"><path d="M12 15c1.66 0 3-1.34 3-3V6c0-1.66-1.34-3-3-3S9 4.34 9 6v6c0 1.66 1.34 3 3 3zm-1-9c0-.55.45-1 1-1s1 .45 1 1v6c0 .55-.45 1-1 1s-1-.45-1-1V6z"/><path d="M17 12c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-2.08c3.39-.49 6-3.39 6-6.92h-2z"/></svg>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="#06c755"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
         </div>
@@ -1513,7 +1564,7 @@ footer a:hover { color:var(--text); }
     <div class="stat-item"><div class="stat-num" id="stat-speed">0.3秒</div><div class="stat-label" id="stat-speed-label">平均翻譯速度</div></div>
     <div class="stat-item"><div class="stat-num">36+</div><div class="stat-label" id="stat-langs-label">支援語言種數</div></div>
     <div class="stat-item"><div class="stat-num">NT$49</div><div class="stat-label" id="stat-price-label">最低體驗價格</div></div>
-    <div class="stat-item"><div class="stat-num">雲端</div><div class="stat-label" id="stat-service-label">雲端服務</div></div>
+    <div class="stat-item"><div class="stat-num" id="stat-service">雲端</div><div class="stat-label" id="stat-service-label">雲端服務</div></div>
   </div>
 </section>
 
@@ -2585,6 +2636,7 @@ var i18n = {
     'nav.cta':         '免費體驗',
     'nav.blog':        '📝 部落格',
     'nav.faq':         '❓ 常見問題',
+    'nav.brand':       '萬語通 WanyuTong',
     // HERO
     'hero.eyebrow':    '萬語通 WanyuTong',
     'hero.h1a':        'LINE 群組 AI 翻譯',
@@ -2592,11 +2644,25 @@ var i18n = {
     'hero.desc':       'AI Translation Assistant for Multilingual LINE Groups。專為工廠、工地、看護、餐飲等多語團隊設計，把 LINE 群組翻譯、圖片 OCR、語音翻譯、重點摘要、每日報表與後台搜尋放在同一個流程，讓跨語言工作群從「看得懂」進一步變成「管得住」。',
     'hero.btn1':       '免費體驗，馬上解決',
     'hero.btn2':       '查看方案 →',
+    'phone.bot':       '萬語通',
+    'phone.day':       '今天',
+    'phone.owner1':    '今天 15:00 前<br>完成 A 區清潔，<br>回覆 1 表示收到。',
+    'phone.meta1':     '繁中 → 印尼文 · 工作通知 ✓',
+    'phone.received':  '已收到 · 08:22',
+    'phone.check.title': '確認進度',
+    'phone.check.desc': '已確認 6 / 8 人，尚未回覆 2 人',
+    'phone.tag1':      '通知',
+    'phone.tag2':      '回覆追蹤',
+    'phone.meta2':     '越南文 → 繁中',
+    'phone.owner2':    '可以，請先交接<br>機台紀錄。',
+    'phone.meta3':     '繁中 → 越南文 · 智慧引擎 ✓',
+    'phone.input':     '傳送訊息…',
     // STATS
     'stat.speed':      '平均翻譯速度',
     'stat.langs':      '支援語言種數',
     'stat.price':      '最低體驗價格',
     'stat.service':    '雲端服務',
+    'stat.service.num': '雲端',
     // WORKPLACE OS
     'os.eyebrow':      '// Workplace OS',
     'os.title':        '一個 LINE 秘書，三種本領',
@@ -2730,14 +2796,16 @@ var i18n = {
     'cmp.h2':          '不是只選一個翻譯器，而是替現場選對翻譯方式',
     'cmp.lead1':       '萬語通採用 DeepL + Google Cloud Translation 的智慧雙引擎流程，依語言、專業詞彙、系統狀態與可用性自動選擇，必要時自動備援。',
     'cmp.lead2':       '遇到工安、合約、付款或醫療等重要內容時，Bot 會顯示人工複核提醒，協助降低跨語溝通誤會。',
-    'cmp.row.accuracy':'翻譯準確度',
-    'cmp.row.natural': '自然語感',
-    'cmp.row.term':    '專業術語處理',
+    'cmp.col.wyt':     '萬語通（智慧雙引擎）',
+    'cmp.col.general': '一般翻譯 App',
+    'cmp.row.engine':  '翻譯引擎',
+    'cmp.row.coverage':'語言覆蓋',
+    'cmp.row.review':  '專業與高風險提醒',
     'cmp.row.ocr':     '圖片 OCR 翻譯',
     'cmp.row.voice':   '語音訊息翻譯',
     'cmp.row.group':   'LINE 群組翻譯',
     'cmp.row.usage':   '使用方式',
-    'cmp.ex.eyebrow':  '// 翻譯範例對比 — 商業信件語句',
+    'cmp.ex.eyebrow':  '// 翻譯流程示意 — 系統依語言與情境選擇引擎',
     'cmp.ex.orig':     '原文（繁中）',
     'cmp.ex.wyt':      '萬語通（智慧雙引擎）',
     'cmp.ex.google':   '一般翻譯 App',
@@ -2868,21 +2936,23 @@ var i18n = {
     'footer.terms':    '使用條款',
     'footer.contact':  '聯繫客服',
     // COMPARE VALUES
-    'cmp.val.acc.wyt':   '● 高品質參考',
-    'cmp.val.acc.goo':   '普通',
-    'cmp.val.nat.wyt':   '● 接近母語者',
-    'cmp.val.nat.goo':   '略顯生硬',
-    'cmp.val.term.wyt':  '● 優秀',
-    'cmp.val.term.goo':  '✕ 容易出錯',
-    'cmp.val.ocr.wyt':   '● 支援',
-    'cmp.val.ocr.goo':   '✕ 需切換 App',
-    'cmp.val.voice.wyt': '● 支援',
-    'cmp.val.voice.goo': '✕ 不支援',
-    'cmp.val.grp.wyt':   '● 原生支援',
-    'cmp.val.grp.goo':   '✕ 不支援',
-    'cmp.val.use.wyt':   '● 直接在 LINE',
-    'cmp.val.use.goo':   '✕ 需開另一 App',
+    'cmp.val.engine.wyt':   '● DeepL + Google 自動路由',
+    'cmp.val.engine.goo':   '單一 App 或手動選擇',
+    'cmp.val.coverage.wyt': '● 36+ 常用語言，含菲律賓文/他加祿文',
+    'cmp.val.coverage.goo': '支援多，但需離開 LINE 操作',
+    'cmp.val.review.wyt':   '● 偵測工安、合約、金額等關鍵詞',
+    'cmp.val.review.goo':   '✕ 通常不會提醒管理風險',
+    'cmp.val.ocr.wyt':      '● 支援',
+    'cmp.val.ocr.goo':      '✕ 需切換 App',
+    'cmp.val.voice.wyt':    '● 支援',
+    'cmp.val.voice.goo':    '✕ 不支援',
+    'cmp.val.grp.wyt':      '● 原生支援',
+    'cmp.val.grp.goo':      '✕ 不支援',
+    'cmp.val.use.wyt':      '● 直接在 LINE，自動回覆',
+    'cmp.val.use.goo':      '✕ 需開另一 App',
     'cmp.ex.orig.text':  '感謝您撥冗回覆，期待後續合作愉快。',
+    'cmp.ex.wyt.text':   '依語言與情境自動選擇 DeepL 或 Google，並在工安、合約、金額等內容提醒人工確認。',
+    'cmp.ex.general.text': '需要複製、貼上、切換 App，通常不保留 LINE 群組內的確認與紀錄。',
     // VS VALUES
     'vs.val.price.wyt':  '● NT$199起',
     'vs.val.price.ech':  '美金（較貴）',
@@ -2934,6 +3004,7 @@ var i18n = {
     'nav.cta':         'Try Free',
     'nav.blog':        '📝 Blog',
     'nav.faq':         '❓ FAQ',
+    'nav.brand':       'WanyuTong',
     // HERO
     'hero.eyebrow':    'WanyuTong',
     'hero.h1a':        'AI Translation Assistant',
@@ -2941,11 +3012,25 @@ var i18n = {
     'hero.desc':       'WanyuTong is an AI Translation Assistant for Multilingual LINE Groups. It helps factories, worksites, caregiving teams, restaurants, and other LINE-based teams translate messages, OCR images, process voice, summarize key tasks, create daily reports, and keep searchable records.',
     'hero.btn1':       'Try Free Now',
     'hero.btn2':       'View Plans →',
+    'phone.bot':       'WanyuTong',
+    'phone.day':       'Today',
+    'phone.owner1':    'Finish cleaning Area A<br>before 15:00.<br>Reply 1 when received.',
+    'phone.meta1':     'ZH → Indonesian · Work Notice ✓',
+    'phone.received':  'Received · 08:22',
+    'phone.check.title': 'Confirmation Progress',
+    'phone.check.desc': 'Confirmed 6 / 8 people, 2 pending replies',
+    'phone.tag1':      'Notice',
+    'phone.tag2':      'Reply Tracking',
+    'phone.meta2':     'Vietnamese → English',
+    'phone.owner2':    'Yes. Please hand over<br>the machine log first.',
+    'phone.meta3':     'English → Vietnamese · Smart Engine ✓',
+    'phone.input':     'Message...',
     // STATS
     'stat.speed':      'Avg. Translation Speed',
     'stat.langs':      'Supported Languages',
     'stat.price':      'Starting Price',
     'stat.service':    'Cloud Hosted',
+    'stat.service.num': 'Cloud',
     // WORKPLACE OS
     'os.eyebrow':      '// Workplace OS',
     'os.title':        'One LINE Assistant, Three Jobs',
@@ -3079,17 +3164,19 @@ var i18n = {
     'cmp.h2':          'Not One Fixed Translator, but the Right Engine for the Situation',
     'cmp.lead1':       'WanyuTong uses a DeepL + Google Cloud Translation smart dual-engine workflow, choosing by language, terminology, system status, and availability with fallback when needed.',
     'cmp.lead2':       'For safety, contracts, payments, medical, or other high-risk content, the Bot shows a human-review reminder to reduce cross-language misunderstandings.',
-    'cmp.row.accuracy':'Translation Accuracy',
-    'cmp.row.natural': 'Natural Fluency',
-    'cmp.row.term':    'Technical Terminology',
+    'cmp.col.wyt':     'WanyuTong (Smart Dual Engine)',
+    'cmp.col.general': 'General Translation App',
+    'cmp.row.engine':  'Translation Engine',
+    'cmp.row.coverage':'Language Coverage',
+    'cmp.row.review':  'Professional & High-Risk Review',
     'cmp.row.ocr':     'Image OCR Translation',
     'cmp.row.voice':   'Voice Message Translation',
     'cmp.row.group':   'LINE Group Translation',
     'cmp.row.usage':   'How to Use',
-    'cmp.ex.eyebrow':  '// Translation Example — Business Email',
-    'cmp.ex.orig':     'Original (Chinese)',
-    'cmp.ex.wyt':      'WanyuTong (Smart dual engine)',
-    'cmp.ex.google':   'General translation app',
+    'cmp.ex.eyebrow':  '// Translation Flow Example — Engine Selected by Language and Context',
+    'cmp.ex.orig':     'Original Message',
+    'cmp.ex.wyt':      'WanyuTong (Smart Dual Engine)',
+    'cmp.ex.google':   'General Translation App',
     // VS COMPETITORS
     'vs.eyebrow':      '// vs Competitors',
     'vs.h2':           'WanyuTong vs Other LINE Translation Bots',
@@ -3217,21 +3304,23 @@ var i18n = {
     'footer.terms':    'Terms',
     'footer.contact':  'Contact',
     // COMPARE VALUES
-    'cmp.val.acc.wyt':   '● High Quality',
-    'cmp.val.acc.goo':   'Average',
-    'cmp.val.nat.wyt':   '● Near Native',
-    'cmp.val.nat.goo':   'Slightly Stiff',
-    'cmp.val.term.wyt':  '● Excellent',
-    'cmp.val.term.goo':  '✕ Prone to Errors',
-    'cmp.val.ocr.wyt':   '● Supported',
-    'cmp.val.ocr.goo':   '✕ Requires App Switch',
-    'cmp.val.voice.wyt': '● Supported',
-    'cmp.val.voice.goo': '✕ Not Supported',
-    'cmp.val.grp.wyt':   '● Native Support',
-    'cmp.val.grp.goo':   '✕ Not Supported',
-    'cmp.val.use.wyt':   '● Directly in LINE',
-    'cmp.val.use.goo':   '✕ Requires Another App',
-    'cmp.ex.orig.text':  '感謝您撥冗回覆，期待後續合作愉快。',
+    'cmp.val.engine.wyt':   '● DeepL + Google Smart Routing',
+    'cmp.val.engine.goo':   'Single app or manual selection',
+    'cmp.val.coverage.wyt': '● 36+ common languages, including Filipino/Tagalog',
+    'cmp.val.coverage.goo': 'Broad support, but usually outside LINE',
+    'cmp.val.review.wyt':   '● Detects safety, contract, and payment keywords',
+    'cmp.val.review.goo':   '✕ Usually no management-risk reminder',
+    'cmp.val.ocr.wyt':      '● Supported',
+    'cmp.val.ocr.goo':      '✕ Requires App Switch',
+    'cmp.val.voice.wyt':    '● Supported',
+    'cmp.val.voice.goo':    '✕ Not Supported',
+    'cmp.val.grp.wyt':      '● Native Support',
+    'cmp.val.grp.goo':      '✕ Not Supported',
+    'cmp.val.use.wyt':      '● Directly in LINE with automatic replies',
+    'cmp.val.use.goo':      '✕ Requires Another App',
+    'cmp.ex.orig.text':  'Thank you for your reply. I look forward to working together.',
+    'cmp.ex.wyt.text':   'Automatically selects DeepL or Google by language and context, and adds human-review reminders for safety, contracts, and payment amounts.',
+    'cmp.ex.general.text': 'You need to copy, paste, and switch apps. Confirmation records inside the LINE group are usually not retained.',
     // VS VALUES
     'vs.val.price.wyt':  '● From NT$199',
     'vs.val.price.ech':  'USD (More Expensive)',
@@ -3276,6 +3365,7 @@ var i18n = {
 function applyLang(lang) {
   var t = i18n[lang];
   function s(id, key) { var el = document.getElementById(id); if (el && t[key]) el.textContent = t[key]; }
+  function h(id, key) { var el = document.getElementById(id); if (el && t[key]) el.innerHTML = t[key]; }
   function q(sel, key) { var el = document.querySelector(sel); if (el && t[key]) el.textContent = t[key]; }
   function qa(sel, key) { document.querySelectorAll(sel).forEach(function(el){ if(t[key]) el.textContent = t[key]; }); }
   var personalPlans = [
@@ -3324,6 +3414,13 @@ function applyLang(lang) {
   }
 
   // NAV
+  var navBrand = document.querySelector('.nav-brand');
+  if (navBrand && t['nav.brand']) {
+    var navDot = navBrand.querySelector('.nav-dot');
+    navBrand.innerHTML = '';
+    if (navDot) navBrand.appendChild(navDot);
+    navBrand.appendChild(document.createTextNode(t['nav.brand']));
+  }
   q('a[href="#features"]', 'nav.features');
   q('a[href="#industries"]', 'nav.industries');
   q('a[href="#compare"]', 'nav.compare');
@@ -3341,6 +3438,19 @@ function applyLang(lang) {
   var h1 = document.querySelector('#hero h1');
   if (h1) h1.innerHTML = t['hero.h1a'] + '<br><span class="hl">' + t['hero.h1b'] + '</span>';
   q('.hero-desc', 'hero.desc');
+  s('phone-bot-name', 'phone.bot');
+  s('phone-day', 'phone.day');
+  h('phone-owner-1', 'phone.owner1');
+  s('phone-meta-1', 'phone.meta1');
+  s('phone-received', 'phone.received');
+  s('phone-check-title', 'phone.check.title');
+  s('phone-check-desc', 'phone.check.desc');
+  s('phone-tag-1', 'phone.tag1');
+  s('phone-tag-2', 'phone.tag2');
+  s('phone-meta-2', 'phone.meta2');
+  h('phone-owner-2', 'phone.owner2');
+  s('phone-meta-3', 'phone.meta3');
+  s('phone-input-placeholder', 'phone.input');
   var btn1 = document.querySelector('.btn-primary');
   if (btn1) {
     var svgEl1 = btn1.querySelector('svg');
@@ -3434,14 +3544,26 @@ function applyLang(lang) {
   var leads = document.querySelectorAll('#compare .lead');
   if (leads[0] && t['cmp.lead1']) leads[0].textContent = t['cmp.lead1'];
   if (leads[1] && t['cmp.lead2']) leads[1].textContent = t['cmp.lead2'];
+  var cmpHeaders = document.querySelectorAll('#compare thead th');
+  if (cmpHeaders[1] && t['cmp.col.wyt']) cmpHeaders[1].textContent = t['cmp.col.wyt'];
+  if (cmpHeaders[2] && t['cmp.col.general']) cmpHeaders[2].textContent = t['cmp.col.general'];
   q('.example-title', 'cmp.ex.eyebrow');
   var exLabels = document.querySelectorAll('.ex-label');
   if (exLabels[0]) exLabels[0].textContent = t['cmp.ex.orig'];
   if (exLabels[1]) exLabels[1].textContent = t['cmp.ex.wyt'];
   if (exLabels[2]) exLabels[2].textContent = t['cmp.ex.google'];
+  var exTexts = document.querySelectorAll('.example-row .ex-text');
+  if (exTexts[0] && t['cmp.ex.orig.text']) exTexts[0].textContent = t['cmp.ex.orig.text'];
+  if (exTexts[1] && t['cmp.ex.wyt.text']) exTexts[1].textContent = t['cmp.ex.wyt.text'];
+  if (exTexts[2] && t['cmp.ex.general.text']) exTexts[2].textContent = t['cmp.ex.general.text'];
   var cmpRows = document.querySelectorAll('#compare tbody tr td:first-child');
-  var cmpKeys = ['cmp.row.accuracy','cmp.row.natural','cmp.row.term','cmp.row.ocr','cmp.row.voice','cmp.row.group','cmp.row.usage'];
+  var cmpKeys = ['cmp.row.engine','cmp.row.coverage','cmp.row.review','cmp.row.ocr','cmp.row.voice','cmp.row.group','cmp.row.usage'];
   cmpRows.forEach(function(el,i){ if(t[cmpKeys[i]]) el.textContent = t[cmpKeys[i]]; });
+  document.querySelectorAll('#compare tbody tr').forEach(function(row) {
+    var cells = row.querySelectorAll('td');
+    if (cells[1] && t['cmp.col.wyt']) cells[1].setAttribute('data-label', t['cmp.col.wyt']);
+    if (cells[2] && t['cmp.col.general']) cells[2].setAttribute('data-label', t['cmp.col.general']);
+  });
 
   // VS COMPETITORS
   q('#vs-competitors .eyebrow', 'vs.eyebrow');
@@ -3553,6 +3675,8 @@ function applyLang(lang) {
   // STAT SPEED NUM
   var speedNum = document.getElementById('stat-speed');
   if (speedNum && t['stat.speed.num']) speedNum.textContent = t['stat.speed.num'];
+  var serviceNum = document.getElementById('stat-service');
+  if (serviceNum && t['stat.service.num']) serviceNum.textContent = t['stat.service.num'];
 
   // ACCORDION CONTENT (innerHTML swap)
   ['tos','privacy','refund','langs'].forEach(function(key){
@@ -3577,7 +3701,6 @@ function applyLang(lang) {
 
   if (lang === 'zh') {
     replaceVisibleText({
-      'WanyuTong': '萬語通',
       'ZH → Indonesian · Smart Engine ✓': '繁中 → 印尼文 · 智慧引擎 ✓',
       'English → ZH · Smart Engine ✓': '英文 → 繁中 · 智慧引擎 ✓',
       'Today': '今天',
@@ -3599,7 +3722,6 @@ function applyLang(lang) {
     });
   } else if (lang === 'en') {
     replaceVisibleText({
-      '萬語通': 'WanyuTong',
       '繁中': 'ZH',
       '今天': 'Today',
       '我需要這個藥，': 'I need this medicine,',
@@ -3626,9 +3748,9 @@ function applyLang(lang) {
   if (cmpTbody) {
     var cmpSpans = cmpTbody.querySelectorAll('span');
     var cmpVals = [
-      ['cmp.val.acc.wyt','cmp.val.acc.goo'],
-      ['cmp.val.nat.wyt','cmp.val.nat.goo'],
-      ['cmp.val.term.wyt','cmp.val.term.goo'],
+      ['cmp.val.engine.wyt','cmp.val.engine.goo'],
+      ['cmp.val.coverage.wyt','cmp.val.coverage.goo'],
+      ['cmp.val.review.wyt','cmp.val.review.goo'],
       ['cmp.val.ocr.wyt','cmp.val.ocr.goo'],
       ['cmp.val.voice.wyt','cmp.val.voice.goo'],
       ['cmp.val.grp.wyt','cmp.val.grp.goo'],
@@ -3804,13 +3926,13 @@ function forceCompareLang(lang) {
   var copy = {
     zh: {
       compare: [
-        ['翻譯準確度','● 高品質參考','普通'],
-        ['自然語感','● 接近母語者','略顯生硬'],
-        ['專業術語處理','● 優秀','✕ 容易出錯'],
+        ['翻譯引擎','● DeepL + Google 自動路由','單一 App 或手動選擇'],
+        ['語言覆蓋','● 36+ 常用語言，含菲律賓文/他加祿文','支援多，但需離開 LINE 操作'],
+        ['專業與高風險提醒','● 偵測工安、合約、金額等關鍵詞','✕ 通常不會提醒管理風險'],
         ['圖片 OCR 翻譯','● 支援','✕ 需切換 App'],
         ['語音訊息翻譯','● 支援','✕ 不支援'],
         ['LINE 群組翻譯','● 原生支援','✕ 不支援'],
-        ['使用方式','● 直接在 LINE','✕ 需開另一 App']
+        ['使用方式','● 直接在 LINE，自動回覆','✕ 需開另一 App']
       ],
       vs: [
         ['月費','● NT$199起','美金（較貴）','NT$99起','按字元計費'],
@@ -3827,13 +3949,13 @@ function forceCompareLang(lang) {
     },
     en: {
       compare: [
-        ['Translation Accuracy','● High Quality','Average'],
-        ['Natural Tone','● Near Native','Slightly Stiff'],
-        ['Terminology Handling','● Excellent','✕ Prone to Errors'],
-        ['Image OCR','● Supported','✕ Requires App Switch'],
-        ['Voice Messages','● Supported','✕ Not Supported'],
+        ['Translation Engine','● DeepL + Google Smart Routing','Single app or manual selection'],
+        ['Language Coverage','● 36+ common languages, including Filipino/Tagalog','Broad support, but usually outside LINE'],
+        ['Professional & High-Risk Review','● Detects safety, contract, and payment keywords','✕ Usually no management-risk reminder'],
+        ['Image OCR Translation','● Supported','✕ Requires App Switch'],
+        ['Voice Message Translation','● Supported','✕ Not Supported'],
         ['LINE Group Translation','● Native Support','✕ Not Supported'],
-        ['Workflow','● Directly in LINE','✕ Requires Another App']
+        ['How to Use','● Directly in LINE with automatic replies','✕ Requires Another App']
       ],
       vs: [
         ['Monthly Fee','● From NT$199','USD (More Expensive)','From NT$99','Per Character'],

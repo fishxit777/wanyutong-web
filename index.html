@@ -2814,6 +2814,10 @@ var i18n = {
     'vs.h2':           '萬語通 vs 其他 LINE 翻譯 Bot',
     'vs.lead':         '同樣是 LINE 翻譯服務，功能差距卻很大。',
     'vs.col.feature':  '功能',
+    'vs.col.wyt':      '萬語通',
+    'vs.col.echonora': 'Echonora',
+    'vs.col.t2go':     'T2GO',
+    'vs.col.ligo':     'Ligo',
     'vs.row.price':    '月費',
     'vs.row.free':     '免費額度',
     'vs.row.engine':   '翻譯引擎',
@@ -3180,6 +3184,10 @@ var i18n = {
     'vs.h2':           'WanyuTong vs Other LINE Translation Bots',
     'vs.lead':         'Same category, very different capabilities.',
     'vs.col.feature':  'Feature',
+    'vs.col.wyt':      'WanyuTong',
+    'vs.col.echonora': 'Echonora',
+    'vs.col.t2go':     'T2GO',
+    'vs.col.ligo':     'Ligo',
     'vs.row.price':    'Monthly Fee',
     'vs.row.free':     'Free Quota',
     'vs.row.engine':   'Translation Engine',
@@ -3567,7 +3575,10 @@ function applyLang(lang) {
   q('#vs-competitors .eyebrow', 'vs.eyebrow');
   q('#vs-competitors h2', 'vs.h2');
   q('#vs-competitors .lead', 'vs.lead');
-  q('#vs-competitors th:first-child', 'vs.col.feature');
+  var vsHeaderKeys = ['vs.col.feature','vs.col.wyt','vs.col.echonora','vs.col.t2go','vs.col.ligo'];
+  document.querySelectorAll('#vs-competitors thead th').forEach(function(el, i) {
+    if (t[vsHeaderKeys[i]]) el.textContent = t[vsHeaderKeys[i]];
+  });
   var vsRows = document.querySelectorAll('#vs-competitors tbody tr td:first-child');
   var vsKeys = ['vs.row.price','vs.row.free','vs.row.engine','vs.row.ocr','vs.row.voice','vs.row.multi','vs.row.confirm','vs.row.vocab','vs.row.dnd','vs.row.currency'];
   vsRows.forEach(function(el,i){ if(t[vsKeys[i]]) el.textContent = t[vsKeys[i]]; });
@@ -4008,6 +4019,10 @@ function forceCompareLang(lang) {
   if (exTexts[0]) exTexts[0].textContent = i18n[lang]['cmp.ex.orig.text'];
   if (exTexts[1]) exTexts[1].textContent = i18n[lang]['cmp.ex.wyt.text'];
   if (exTexts[2]) exTexts[2].textContent = i18n[lang]['cmp.ex.general.text'];
+  var vsHeaderKeys = ['vs.col.feature','vs.col.wyt','vs.col.echonora','vs.col.t2go','vs.col.ligo'];
+  document.querySelectorAll('#vs-competitors thead th').forEach(function(el, i) {
+    if (i18n[lang][vsHeaderKeys[i]]) el.textContent = i18n[lang][vsHeaderKeys[i]];
+  });
   document.querySelectorAll('#vs-competitors tbody tr').forEach(function(row, i) {
     var data = t.vs[i];
     if (!data) return;

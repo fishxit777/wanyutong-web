@@ -2928,8 +2928,6 @@ var i18n = {
     'vs.dnd.wyt':     '● ✓（獨有）',
     'vs.curr.ech':    '✕ 美金',
     'vs.curr.lig':    '按量計費',
-  },
-  en: {
     'footer.blog':     '部落格',
     'footer.faq':      '常見問題',
     'footer.pricing':  '收費方案',
@@ -3988,9 +3986,28 @@ function forceCompareLang(lang) {
     if (!data) return;
     var cells = row.querySelectorAll('td');
     if (cells[0]) cells[0].textContent = data[0];
-    if (cells[1]) cells[1].innerHTML = valueHtml(data[1]);
-    if (cells[2]) cells[2].innerHTML = valueHtml(data[2]);
+    if (cells[1]) {
+      cells[1].innerHTML = valueHtml(data[1]);
+      cells[1].setAttribute('data-label', i18n[lang]['cmp.col.wyt']);
+    }
+    if (cells[2]) {
+      cells[2].innerHTML = valueHtml(data[2]);
+      cells[2].setAttribute('data-label', i18n[lang]['cmp.col.general']);
+    }
   });
+  var cmpHeaders = document.querySelectorAll('#compare thead th');
+  if (cmpHeaders[1]) cmpHeaders[1].textContent = i18n[lang]['cmp.col.wyt'];
+  if (cmpHeaders[2]) cmpHeaders[2].textContent = i18n[lang]['cmp.col.general'];
+  var exampleTitle = document.querySelector('#compare .example-title');
+  var exLabels = document.querySelectorAll('#compare .ex-label');
+  var exTexts = document.querySelectorAll('#compare .example-row .ex-text');
+  if (exampleTitle) exampleTitle.textContent = i18n[lang]['cmp.ex.eyebrow'];
+  if (exLabels[0]) exLabels[0].textContent = i18n[lang]['cmp.ex.orig'];
+  if (exLabels[1]) exLabels[1].textContent = i18n[lang]['cmp.ex.wyt'];
+  if (exLabels[2]) exLabels[2].textContent = i18n[lang]['cmp.ex.google'];
+  if (exTexts[0]) exTexts[0].textContent = i18n[lang]['cmp.ex.orig.text'];
+  if (exTexts[1]) exTexts[1].textContent = i18n[lang]['cmp.ex.wyt.text'];
+  if (exTexts[2]) exTexts[2].textContent = i18n[lang]['cmp.ex.general.text'];
   document.querySelectorAll('#vs-competitors tbody tr').forEach(function(row, i) {
     var data = t.vs[i];
     if (!data) return;
@@ -4040,6 +4057,7 @@ function setLang(lang) {
     var saved = localStorage.getItem('wyt-lang') || 'zh';
     if (saved === 'en') setLang('en');
     else {
+      applyLang('zh');
       forcePricingLang('zh');
       forceCompareLang('zh');
       forceIndustrySearchLang('zh');

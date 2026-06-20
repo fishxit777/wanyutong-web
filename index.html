@@ -1,12 +1,12 @@
 ﻿<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-<title>萬語通 WanyuTong｜讓 LINE 工作群跨語言也能說清楚</title>
+<title>萬語通 WanyuTong｜跨語言工作交辦、確認與紀錄系統</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- SEO Meta -->
-<meta name="description" content="萬語通 WanyuTong 把翻譯、確認、圖片 OCR、語音、每日摘要與後台紀錄放在同一個 LINE 工作流程裡，協助工廠、工地、看護、餐飲等跨語言團隊把工作交代清楚、確認收到並留下紀錄。">
+<meta name="description" content="萬語通 WanyuTong 把 LINE 群組裡的工作通知、翻譯、收到確認、圖片 OCR、語音、AI 摘要、每日報表與後台紀錄放在同一個流程，協助跨語言團隊交代清楚、回覆有依據、重要內容查得到。">
 <meta name="keywords" content="外勞翻譯,LINE翻譯機器人,印尼文翻譯,越南文翻譯,泰文翻譯,台灣外勞管理,外籍勞工溝通,工廠外勞翻譯,看護翻譯,移工翻譯工具,萬語通">
 <meta name="author" content="萬語通 WanyuTong">
 <meta name="robots" content="index, follow">
@@ -15,16 +15,16 @@
 <!-- Open Graph (LINE / FB 分享預覽) -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://fishxit777.github.io/wanyutong-web/">
-<meta property="og:title" content="萬語通 WanyuTong｜讓 LINE 工作群跨語言也能說清楚">
-<meta property="og:description" content="翻譯、確認、圖片 OCR、語音、每日摘要與後台紀錄放在同一個 LINE 工作流程裡，讓跨語言團隊把工作交代清楚、確認收到並留下紀錄。">
+<meta property="og:title" content="萬語通 WanyuTong｜跨語言工作交辦、確認與紀錄系統">
+<meta property="og:description" content="工作通知、翻譯、收到確認、圖片 OCR、語音、AI 摘要、每日報表與後台紀錄放在同一個 LINE 流程裡，讓跨語言團隊交代清楚、回覆有依據、重要內容查得到。">
 <meta property="og:image" content="https://fishxit777.github.io/wanyutong-web/og-image.png">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:site_name" content="萬語通 WanyuTong">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="萬語通 WanyuTong｜讓 LINE 工作群跨語言也能說清楚">
-<meta name="twitter:description" content="翻譯、確認、圖片 OCR、語音、每日摘要與後台紀錄放在同一個 LINE 工作流程裡，讓跨語言團隊把工作交代清楚、確認收到並留下紀錄。">
+<meta name="twitter:title" content="萬語通 WanyuTong｜跨語言工作交辦、確認與紀錄系統">
+<meta name="twitter:description" content="工作通知、翻譯、收到確認、圖片 OCR、語音、AI 摘要、每日報表與後台紀錄放在同一個 LINE 流程裡，讓跨語言團隊交代清楚、回覆有依據、重要內容查得到。">
 <meta name="twitter:image" content="https://fishxit777.github.io/wanyutong-web/og-image.png">
 
 <!-- JSON-LD 結構化資料 -->
@@ -37,7 +37,7 @@
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "LINE",
   "url": "https://fishxit777.github.io/wanyutong-web/",
-  "description": "萬語通 WanyuTong 把翻譯、確認、圖片 OCR、語音、每日摘要與後台紀錄放在同一個 LINE 工作流程裡，協助跨語言團隊把工作交代清楚、確認收到並留下紀錄。",
+  "description": "萬語通 WanyuTong 把 LINE 群組裡的工作通知、翻譯、收到確認、圖片 OCR、語音、AI 摘要、每日報表與後台紀錄放在同一個流程，協助跨語言團隊交代清楚、回覆有依據、重要內容查得到。",
   "offers": {
     "@type": "Offer",
     "price": "199",
@@ -243,14 +243,14 @@ body::after {
 
 .hero-signal-stack {
   position: fixed;
-  right: -5vw;
+  right: clamp(12px, 2vw, 28px);
   top: 31%;
   display: grid;
   gap: 8px;
   z-index: 0;
   pointer-events: none;
   opacity: 0.34;
-  transform: translateX(30%);
+  transform: none;
 }
 
 .signal-chip {
@@ -1165,7 +1165,7 @@ html.light #ref-reward-table tbody tr:nth-child(even) {
     box-shadow: 0 12px 30px rgba(0,0,0,0.18);
   }
   #ref-reward-table table {
-    min-width: 520px;
+    min-width: 0 !important;
     font-size: 0.82rem !important;
   }
   #ref-reward-table th,
@@ -1264,6 +1264,7 @@ footer a:hover { color:var(--text); }
   .hero-signal-stack { display:none; }
   #hero3d-canvas { opacity:0.56; }
   #matrix-canvas { width:100%; opacity:0.08; }
+  .cta-glow { display:none; }
   .phone-frame { width:214px; }
   .compare-wrap { max-width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch; }
   .compare-table { min-width:640px; }
@@ -1326,7 +1327,109 @@ footer a:hover { color:var(--text); }
   .setup-grid { grid-template-columns:1fr; }
   .setup-steps { grid-template-columns:1fr; }
   .ai-fit-grid { grid-template-columns:1fr; }
-  .fit-table { min-width:680px; }
+  #ai-service-fit .fit-table {
+    min-width:0;
+    display:block;
+    border:0;
+    background:transparent;
+    overflow:visible;
+  }
+  #ai-service-fit .fit-table thead { display:none; }
+  #ai-service-fit .fit-table tbody {
+    display:grid;
+    gap:0.75rem;
+  }
+  #ai-service-fit .fit-table tr {
+    display:block;
+    border:1px solid var(--border);
+    border-radius:10px;
+    overflow:hidden;
+    background:rgba(12,17,26,0.92);
+  }
+  #ai-service-fit .fit-table td {
+    display:block;
+    width:100%;
+    border-top:1px solid var(--border);
+    padding:0.78rem 0.95rem;
+  }
+  #ai-service-fit .fit-table td:first-child {
+    border-top:0;
+    width:100%;
+    background:rgba(255,255,255,0.045);
+    color:var(--white);
+  }
+  #ai-service-fit .fit-table td:not(:first-child)::before {
+    content:attr(data-label);
+    display:block;
+    margin-bottom:0.32rem;
+    color:#7f91b0;
+    font-family:'DM Mono',monospace;
+    font-size:0.66rem;
+    letter-spacing:0.07em;
+    text-transform:uppercase;
+  }
+  #ai-service-fit .fit-table td:nth-child(2) {
+    background:rgba(255,255,255,0.018);
+  }
+  #ai-service-fit .fit-table td:nth-child(3) {
+    background:rgba(6,199,85,0.07);
+    color:#9effb8;
+  }
+  .reward-table-wrap {
+    overflow:visible !important;
+    border:0 !important;
+    background:transparent !important;
+  }
+  .reward-table {
+    display:block;
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+    table-layout:fixed;
+  }
+  .reward-table thead { display:none; }
+  .reward-table tbody {
+    display:grid;
+    gap:0.75rem;
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+  }
+  .reward-table tr {
+    display:block;
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+    border:1px solid var(--border);
+    border-radius:10px;
+    overflow:hidden;
+    background:rgba(12,17,26,0.92);
+  }
+  .reward-table td {
+    display:block;
+    width:100%;
+    max-width:100%;
+    min-width:0;
+    box-sizing:border-box;
+    border-top:1px solid var(--border) !important;
+    padding:0.78rem 0.95rem !important;
+  }
+  .reward-table td:first-child {
+    border-top:0 !important;
+    background:rgba(255,255,255,0.045);
+    color:var(--white);
+    font-weight:800;
+  }
+  .reward-table td:not(:first-child)::before {
+    content:attr(data-label);
+    display:block;
+    margin-bottom:0.28rem;
+    color:#7f91b0;
+    font-family:'DM Mono',monospace;
+    font-size:0.66rem;
+    letter-spacing:0.07em;
+    text-transform:uppercase;
+  }
   .features-grid { grid-template-columns:1fr; }
   .industry-shell { grid-template-columns:1fr; }
   .industry-copy { max-width:none; }
@@ -1447,12 +1550,12 @@ footer a:hover { color:var(--text); }
   <div class="hero-grid">
     <div class="hero-text">
         <div class="hero-eyebrow">萬語通 WanyuTong</div>
-        <h1 aria-label="讓 LINE 工作群跨語言也能說清楚">讓 LINE 工作群<br><span class="hl">跨語言也能說清楚</span></h1>
-        <p class="hero-desc">翻譯、確認、圖片 OCR、語音、每日摘要與後台紀錄，放在同一個 LINE 工作流程裡。專為工廠、工地、看護、餐飲等多語團隊設計，讓工作交代清楚、回覆有確認、重要內容留得住。</p>
+        <h1 aria-label="跨語言工作交辦 有翻譯、有確認、有紀錄">跨語言工作交辦<br><span class="hl">有翻譯、有確認、有紀錄</span></h1>
+        <p class="hero-desc">把 LINE 群組裡的工作通知、翻譯、收到確認、AI 摘要、每日報表與後台搜尋放在同一個流程。專為工廠、工地、看護、餐飲等多語團隊設計，讓主管交代得清楚，員工回覆有依據，重要內容查得到。</p>
       <div class="hero-actions">
         <a href="join.html" class="btn-primary">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.105.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.070 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
-          免費體驗，馬上解決
+          免費體驗 LINE 流程
         </a>
         <a href="#pricing" class="btn-secondary">查看方案 →</a>
       </div>
@@ -1628,8 +1731,8 @@ footer a:hover { color:var(--text); }
 <section id="features">
   <div style="max-width:1100px;margin:0 auto;">
     <div class="eyebrow">// Features</div>
-    <h2>你真正需要的 LINE 群組管理工具</h2>
-    <p class="lead">不只是翻文字，而是把工作通知、理解確認、群組重點摘要與每日報表留在同一個 LINE 流程。</p>
+    <h2>不是翻譯 App，是 LINE 工作交辦流程</h2>
+    <p class="lead">從發出指令、翻成對方語言、確認收到，到摘要、報表與後台搜尋，讓跨語言管理有閉環。</p>
     <div class="features-grid">
       <div class="feature-card"><span class="feature-icon">🌏</span><div class="feature-title">35 種語言與 DeepL 專業引擎</div><div class="feature-desc">以 DeepL 專業翻譯引擎處理常用工作語言。印尼、越南、泰文、英文、日文、韓文與簡繁中文等語言可快速切換。</div></div>
       <div class="feature-card"><span class="feature-icon">👥</span><div class="feature-title">群組雙向翻譯</div><div class="feature-desc">加入群組即用。台籍主管說中文，印尼、越南、泰國員工各看各的語言，混合國籍群組也能一起溝通。</div></div>
@@ -1836,11 +1939,11 @@ footer a:hover { color:var(--text); }
           <tr><th id="ai-fit-th-1">比較項目</th><th id="ai-fit-th-2">一般 AI 客服</th><th id="ai-fit-th-3">萬語通</th></tr>
         </thead>
         <tbody>
-          <tr><td id="ai-fit-row-1-a">核心場景</td><td id="ai-fit-row-1-b">IG、FB、官網、LINE 的客戶詢問</td><td id="ai-fit-row-1-c">LINE 群組裡的工作通知與外籍員工溝通</td></tr>
-          <tr><td id="ai-fit-row-2-a">主要成果</td><td id="ai-fit-row-2-b">回覆更快、客服少打字、提高轉換</td><td id="ai-fit-row-2-c">指令不誤會、事情有確認、每天有紀錄</td></tr>
-          <tr><td id="ai-fit-row-3-a">導入方式</td><td id="ai-fit-row-3-b">整理品牌資料、FAQ、商品與預約流程</td><td id="ai-fit-row-3-c">加入群組、設定語言、開摘要與報表</td></tr>
-          <tr><td id="ai-fit-row-4-a">最該借用</td><td id="ai-fit-row-4-b">知識庫、真人接手、導入 Demo 包裝</td><td id="ai-fit-row-4-c">未來可做常用句/SOP 資料庫與人工確認流程</td></tr>
-          <tr><td id="ai-fit-row-5-a">現在不追</td><td id="ai-fit-row-5-b">多平台社群私訊與留言導購</td><td id="ai-fit-row-5-c">先守住 LINE 群組與外籍員工管理這個垂直市場</td></tr>
+          <tr><td id="ai-fit-row-1-a">核心場景</td><td id="ai-fit-row-1-b" data-label="一般 AI 客服">IG、FB、官網、LINE 的客戶詢問</td><td id="ai-fit-row-1-c" data-label="萬語通">LINE 群組裡的工作通知與外籍員工溝通</td></tr>
+          <tr><td id="ai-fit-row-2-a">主要成果</td><td id="ai-fit-row-2-b" data-label="一般 AI 客服">回覆更快、客服少打字、提高轉換</td><td id="ai-fit-row-2-c" data-label="萬語通">指令不誤會、事情有確認、每天有紀錄</td></tr>
+          <tr><td id="ai-fit-row-3-a">導入方式</td><td id="ai-fit-row-3-b" data-label="一般 AI 客服">整理品牌資料、FAQ、商品與預約流程</td><td id="ai-fit-row-3-c" data-label="萬語通">加入群組、設定語言、開摘要與報表</td></tr>
+          <tr><td id="ai-fit-row-4-a">最該借用</td><td id="ai-fit-row-4-b" data-label="一般 AI 客服">知識庫、真人接手、導入 Demo 包裝</td><td id="ai-fit-row-4-c" data-label="萬語通">未來可做常用句/SOP 資料庫與人工確認流程</td></tr>
+          <tr><td id="ai-fit-row-5-a">現在不追</td><td id="ai-fit-row-5-b" data-label="一般 AI 客服">多平台社群私訊與留言導購</td><td id="ai-fit-row-5-c" data-label="萬語通">先守住 LINE 群組與外籍員工管理這個垂直市場</td></tr>
         </tbody>
       </table>
     </div>
@@ -1866,8 +1969,8 @@ footer a:hover { color:var(--text); }
         <p id="ref-card-3-desc" style="color:var(--muted);font-size:0.9rem;line-height:1.8;">付款成功後，推薦人與新朋友都會獲得翻譯天數；傳 <strong>@推薦狀態</strong> 查綁定與發獎，傳 <strong>@到期</strong> 查新的到期日。</p>
       </div>
     </div>
-    <div id="ref-reward-table" style="margin-top:1.2rem;overflow:auto;border:1px solid var(--border);border-radius:14px;background:rgba(255,255,255,0.58);">
-      <table style="width:100%;border-collapse:collapse;font-size:0.88rem;color:var(--text);">
+    <div id="ref-reward-table" class="reward-table-wrap" style="margin-top:1.2rem;overflow:auto;border:1px solid var(--border);border-radius:14px;background:rgba(255,255,255,0.58);">
+      <table class="reward-table" style="width:100%;border-collapse:collapse;font-size:0.88rem;color:var(--text);">
         <thead>
           <tr style="background:rgba(21,128,61,0.08);">
             <th style="text-align:left;padding:0.85rem 1rem;">新朋友首次付款方案</th>
@@ -1876,9 +1979,9 @@ footer a:hover { color:var(--text); }
           </tr>
         </thead>
         <tbody>
-          <tr><td style="padding:0.78rem 1rem;border-top:1px solid var(--border);">7 日體驗 NT$49</td><td style="padding:0.78rem 1rem;border-top:1px solid var(--border);">3 天</td><td style="padding:0.78rem 1rem;border-top:1px solid var(--border);">3 天</td></tr>
-          <tr><td style="padding:0.78rem 1rem;border-top:1px solid var(--border);">月付 NT$199</td><td style="padding:0.78rem 1rem;border-top:1px solid var(--border);">14 天</td><td style="padding:0.78rem 1rem;border-top:1px solid var(--border);">7 天</td></tr>
-          <tr><td style="padding:0.78rem 1rem;border-top:1px solid var(--border);">年付 NT$1,590</td><td style="padding:0.78rem 1rem;border-top:1px solid var(--border);">90 天</td><td style="padding:0.78rem 1rem;border-top:1px solid var(--border);">30 天</td></tr>
+          <tr><td style="padding:0.78rem 1rem;border-top:1px solid var(--border);">7 日體驗 NT$49</td><td style="padding:0.78rem 1rem;border-top:1px solid var(--border);" data-label="推薦人加贈">3 天</td><td style="padding:0.78rem 1rem;border-top:1px solid var(--border);" data-label="新朋友加贈">3 天</td></tr>
+          <tr><td style="padding:0.78rem 1rem;border-top:1px solid var(--border);">月付 NT$199</td><td style="padding:0.78rem 1rem;border-top:1px solid var(--border);" data-label="推薦人加贈">14 天</td><td style="padding:0.78rem 1rem;border-top:1px solid var(--border);" data-label="新朋友加贈">7 天</td></tr>
+          <tr><td style="padding:0.78rem 1rem;border-top:1px solid var(--border);">年付 NT$1,590</td><td style="padding:0.78rem 1rem;border-top:1px solid var(--border);" data-label="推薦人加贈">90 天</td><td style="padding:0.78rem 1rem;border-top:1px solid var(--border);" data-label="新朋友加贈">30 天</td></tr>
         </tbody>
       </table>
     </div>
@@ -2637,13 +2740,13 @@ var i18n = {
     'nav.blog':        '📝 部落格',
     'nav.faq':         '❓ 常見問題',
     'nav.brand':       '萬語通 WanyuTong',
-    'site.title':      '萬語通 WanyuTong｜讓 LINE 工作群跨語言也能說清楚',
+    'site.title':      '萬語通 WanyuTong｜跨語言工作交辦、確認與紀錄系統',
     // HERO
     'hero.eyebrow':    '萬語通 WanyuTong',
-    'hero.h1a':        '讓 LINE 工作群',
-    'hero.h1b':        '跨語言也能說清楚',
-    'hero.desc':       '翻譯、確認、圖片 OCR、語音、每日摘要與後台紀錄，放在同一個 LINE 工作流程裡。專為工廠、工地、看護、餐飲等多語團隊設計，讓工作交代清楚、回覆有確認、重要內容留得住。',
-    'hero.btn1':       '免費體驗，馬上解決',
+    'hero.h1a':        '跨語言工作交辦',
+    'hero.h1b':        '有翻譯、有確認、有紀錄',
+    'hero.desc':       '把 LINE 群組裡的工作通知、翻譯、收到確認、AI 摘要、每日報表與後台搜尋放在同一個流程。專為工廠、工地、看護、餐飲等多語團隊設計，讓主管交代得清楚，員工回覆有依據，重要內容查得到。',
+    'hero.btn1':       '免費體驗 LINE 流程',
     'hero.btn2':       '查看方案 →',
     'phone.bot':       '萬語通',
     'phone.day':       '今天',
@@ -2697,8 +2800,8 @@ var i18n = {
     'os.proof4.label': '後台搜尋與統計可匯出',
     // FEATURES
     'feat.eyebrow':    '// Features',
-    'feat.h2':         '你真正需要的 LINE 群組管理工具',
-    'feat.lead':       '不只是翻文字，而是把工作通知、理解確認、群組重點摘要與每日報表留在同一個 LINE 流程。',
+    'feat.h2':         '不是翻譯 App，是 LINE 工作交辦流程',
+    'feat.lead':       '從發出指令、翻成對方語言、確認收到，到摘要、報表與後台搜尋，讓跨語言管理有閉環。',
     'feat.1.title':    '35 種語言與 DeepL 專業引擎',
     'feat.1.desc':     '日、英、韓、印尼、泰、越南、阿拉伯、希伯來等 35 種常用語言，以 DeepL 專業翻譯引擎處理。',
     'feat.2.title':    '群組雙向翻譯',
@@ -2707,8 +2810,8 @@ var i18n = {
     'feat.3.desc':     '直接傳語音，自動轉錄並翻譯成目標語言文字。工地、工廠雙手忙時特別好用。',
     'feat.4.title':    '圖片 OCR 翻譯',
     'feat.4.desc':     '傳一張截圖，自動辨識文字並翻譯。班表、公告、合約、工廠警示貼紙，不用重新打字。',
-    'feat.5.title':    '翻譯確認系統',
-    'feat.5.desc':     '發完指令幫你盯著。印尼大哥收到了嗎？看懂了嗎？每個人回覆 1=明白、2=不明白，後台一目瞭然。',
+    'feat.5.title':    '收到確認與理解追蹤',
+    'feat.5.desc':     '發完指令後追蹤誰已收到、誰還沒回，重要通知可用固定回覆格式留下確認紀錄。',
     'feat.6.title':    '群組重點摘要',
     'feat.6.desc':     '把最近群聊整理成今日重點、待辦事項、時間期限、付款線索與需要確認的內容，主管不用整段往回翻。',
     'feat.7.title':    '群組每日報表',
@@ -3017,13 +3120,13 @@ var i18n = {
     'nav.blog':        '📝 Blog',
     'nav.faq':         '❓ FAQ',
     'nav.brand':       'WanyuTong',
-    'site.title':      'WanyuTong｜Make LINE Workgroups Clear Across Languages',
+    'site.title':      'WanyuTong | Cross-Language Work Instructions, Confirmation, and Records',
     // HERO
     'hero.eyebrow':    'WanyuTong',
-    'hero.h1a':        'Make LINE Workgroups',
-    'hero.h1b':        'Clear Across Languages',
-    'hero.desc':       'Translation, confirmations, image OCR, voice messages, daily summaries, and admin records in one LINE workflow. Built for factories, worksites, caregiving, restaurants, and multilingual teams that need instructions understood, replies confirmed, and records kept.',
-    'hero.btn1':       'Try Free Now',
+    'hero.h1a':        'Cross-Language Work Instructions',
+    'hero.h1b':        'Translated, Confirmed, Recorded',
+    'hero.desc':       'Put LINE work notices, translation, receipt confirmation, AI summaries, daily reports, and backend search into one workflow. Built for factories, worksites, caregiving, restaurants, and multilingual teams that need instructions understood, replies traceable, and records searchable.',
+    'hero.btn1':       'Try the LINE Workflow Free',
     'hero.btn2':       'View Plans →',
     'phone.bot':       'WanyuTong',
     'phone.day':       'Today',
@@ -3077,9 +3180,9 @@ var i18n = {
     'os.proof4.label': 'Export search and analytics from backend',
     // FEATURES
     'feat.eyebrow':    '// Features',
-    'feat.h2':         'The LINE Group Management Tool You Actually Need',
-    'feat.lead':       'Not just text translation. Keep work notices, comprehension checks, key summaries, and daily reports in one LINE workflow.',
-    'feat.1.title':    '36 Languages Supported',
+    'feat.h2':         'Not a Translation App. A LINE Work Instruction Workflow.',
+    'feat.lead':       'Send instructions, translate them, confirm receipt, summarize the group, and search records later — all inside the LINE group your team already uses.',
+    'feat.1.title':    '35 Languages Supported',
     'feat.1.desc':     'Japanese, English, Korean, Indonesian, Thai, Vietnamese, Arabic, Hebrew and more. Major languages are available by plan and can be switched quickly with commands.',
     'feat.2.title':    'Group Two-Way Translation',
     'feat.2.desc':     'Add it to a LINE group and use it immediately. Taiwanese managers speak Chinese while Indonesian, Vietnamese, and Thai workers read their own languages.',
@@ -3087,8 +3190,8 @@ var i18n = {
     'feat.3.desc':     'Send a voice message and get automatic transcription and translation. Useful when hands are busy on job sites or factory floors.',
     'feat.4.title':    'Image OCR Translation',
     'feat.4.desc':     'Send a screenshot or photo and translate the text. Schedules, notices, contracts, and warning labels can be handled without retyping.',
-    'feat.5.title':    'Translation Confirmation',
-    'feat.5.desc':     'After sending a command, track comprehension. Did the Indonesian worker receive it? Understand it? Reply 1=Yes, 2=No — all visible in dashboard.',
+    'feat.5.title':    'Receipt Confirmation',
+    'feat.5.desc':     'After sending instructions, track who has replied and who is still pending. Important notices can use fixed reply formats so managers have a traceable record.',
     'feat.6.title':    'Group Key Summaries',
     'feat.6.desc':     'Summarize recent group chats into highlights, tasks, deadlines, payment clues, and items that still need confirmation.',
     'feat.7.title':    'Group Daily Reports',
@@ -3625,6 +3728,10 @@ function applyLang(lang) {
     q('#ai-fit-row-' + ar + '-a', 'ai.row' + ar + '.a');
     q('#ai-fit-row-' + ar + '-b', 'ai.row' + ar + '.b');
     q('#ai-fit-row-' + ar + '-c', 'ai.row' + ar + '.c');
+    var aiGenericCell = document.querySelector('#ai-fit-row-' + ar + '-b');
+    var aiWytCell = document.querySelector('#ai-fit-row-' + ar + '-c');
+    if (aiGenericCell) aiGenericCell.setAttribute('data-label', t['ai.th2']);
+    if (aiWytCell) aiWytCell.setAttribute('data-label', t['ai.th3']);
   }
 
   // REFERRAL
@@ -3646,6 +3753,11 @@ function applyLang(lang) {
     'ref.table.yearly','ref.table.yearly.referrer','ref.table.yearly.friend'
   ];
   refTableCells.forEach(function(el,i){ if(t[refTableKeys[i]]) el.textContent = t[refTableKeys[i]]; });
+  document.querySelectorAll('#ref-reward-table tbody tr').forEach(function(row) {
+    var cells = row.querySelectorAll('td');
+    if (cells[1]) cells[1].setAttribute('data-label', t['ref.table.referrer']);
+    if (cells[2]) cells[2].setAttribute('data-label', t['ref.table.friend']);
+  });
 
   // PRICING
   q('#pricing .eyebrow', 'price.eyebrow');

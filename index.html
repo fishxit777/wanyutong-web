@@ -3606,6 +3606,11 @@ function applyLang(lang) {
   var vsRows = document.querySelectorAll('#vs-competitors tbody tr td:first-child');
   var vsKeys = ['vs.row.price','vs.row.free','vs.row.engine','vs.row.ocr','vs.row.voice','vs.row.multi','vs.row.confirm','vs.row.vocab','vs.row.dnd','vs.row.currency'];
   vsRows.forEach(function(el,i){ if(t[vsKeys[i]]) el.textContent = t[vsKeys[i]]; });
+  document.querySelectorAll('#vs-competitors tbody tr').forEach(function(row) {
+    row.querySelectorAll('td').forEach(function(cell, j) {
+      if (t[vsHeaderKeys[j]]) cell.setAttribute('data-label', t[vsHeaderKeys[j]]);
+    });
+  });
 
   // AI SERVICE FIT
   q('#ai-fit-eyebrow', 'ai.eyebrow');
@@ -4051,6 +4056,7 @@ function forceCompareLang(lang) {
     var data = t.vs[i];
     if (!data) return;
     row.querySelectorAll('td').forEach(function(cell, j) {
+      if (i18n[lang][vsHeaderKeys[j]]) cell.setAttribute('data-label', i18n[lang][vsHeaderKeys[j]]);
       if (!data[j]) return;
       if (j === 0) cell.textContent = data[j];
       else cell.innerHTML = valueHtml(data[j]);

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'wanyutong-pwa-20260510-layout-1';
+const CACHE_NAME = 'wanyutong-pwa-20260620-layout-2';
 const CORE_ASSETS = [
   './',
   './index.html',
@@ -20,7 +20,7 @@ const CORE_ASSETS = [
   './assets/icons/wanyutong-icon-192.png',
   './assets/icons/wanyutong-icon-512.png',
   './assets/blog/caregiver-line-translation.jpg',
-  './assets/blog/construction-line-translation.jpg',
+  './assets/blog/construction-line-translation.svg',
   './assets/blog/factory-line-translation.jpg',
   './assets/blog/foreign-worker-communication.jpg',
   './assets/blog/foreign-worker-safety-law.jpg',

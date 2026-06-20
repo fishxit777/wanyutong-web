@@ -94,6 +94,36 @@ a { color: inherit; }
   padding: 8px 14px;
   background: rgba(255, 255, 255, 0.04);
 }
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  overflow: hidden;
+  font-family: "DM Mono", monospace;
+  font-size: 12px;
+}
+.lang-btn {
+  min-height: 34px;
+  padding: 0 10px;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-weight: 800;
+}
+.lang-btn.active {
+  background: var(--line);
+  color: #031108;
+}
 .main {
   align-self: center;
   width: min(1160px, 100%);
@@ -341,6 +371,13 @@ h1 {
   .node-1 { left: 0; }
   .node-2 { right: 0; }
 }
+@media (max-width: 520px) {
+  .topbar { height: auto; align-items: flex-start; }
+  .brand { min-width: 0; font-size: 20px; }
+  .topbar-actions { gap: 8px; }
+  .toplink { padding: 7px 10px; font-size: 13px; }
+  .lang-btn { min-height: 32px; padding: 0 9px; }
+}
 @media (prefers-reduced-motion: reduce) {
   .qr-orbit, .node, .rail::after { animation: none; }
 }
@@ -349,45 +386,143 @@ h1 {
 <body>
 <div class="shell">
   <header class="topbar">
-    <a class="brand" href="index.html"><span class="brand-dot"></span>萬語通</a>
-    <a class="toplink" href="index.html">回到官網</a>
+    <a class="brand" href="index.html"><span class="brand-dot"></span><span id="join-brand">萬語通</span></a>
+    <div class="topbar-actions">
+      <a class="toplink" id="join-home-link" href="index.html">回到官網</a>
+      <div class="lang-toggle" aria-label="Language switch">
+        <button class="lang-btn active" id="join-lang-zh" type="button" onclick="setJoinLang('zh')">繁中</button>
+        <button class="lang-btn" id="join-lang-en" type="button" onclick="setJoinLang('en')">EN</button>
+      </div>
+    </div>
   </header>
 
   <main class="main">
     <section>
-      <div class="eyebrow">LINE Official Account</div>
-      <h1>掃碼加入<br><span class="grad">讓群組聽得懂</span></h1>
-      <p class="lead">加入萬語通 LINE 官方帳號後，可開始體驗 LINE 群組翻譯、AI 摘要與每日報表。工廠、工地、看護、餐飲與農場都能用同一套流程管理跨語言訊息。</p>
+      <div class="eyebrow" id="join-eyebrow">LINE Official Account</div>
+      <h1 id="join-title">掃碼加入<br><span class="grad">讓群組聽得懂</span></h1>
+      <p class="lead" id="join-lead">加入萬語通 LINE 官方帳號後，可開始體驗 LINE 群組翻譯、AI 摘要與每日報表。工廠、工地、看護、餐飲與農場都能用同一套流程管理跨語言訊息。</p>
       <div class="actions">
-        <a class="btn btn-primary" href="https://line.me/R/ti/p/@969wpxno">手機直接加入 LINE</a>
-        <a class="btn btn-secondary" href="faq.html">先看常見問題</a>
+        <a class="btn btn-primary" id="join-primary" href="https://line.me/R/ti/p/@969wpxno">手機直接加入 LINE</a>
+        <a class="btn btn-secondary" id="join-secondary" href="faq.html">先看常見問題</a>
       </div>
       <div class="proof">
-        <div class="proof-card"><strong>LINE 群組翻譯</strong><span>中文、印尼文、越南文、泰文等多語支援</span></div>
-        <div class="proof-card"><strong>AI 摘要與搜尋</strong><span>整理付款、合約、請假、會議與待辦</span></div>
-        <div class="proof-card"><strong>每日報表</strong><span>幫雇主留下可追蹤的管理紀錄</span></div>
+        <div class="proof-card"><strong id="join-proof-1-title">LINE 群組翻譯</strong><span id="join-proof-1-copy">中文、印尼文、越南文、泰文等多語支援</span></div>
+        <div class="proof-card"><strong id="join-proof-2-title">AI 摘要與搜尋</strong><span id="join-proof-2-copy">整理付款、合約、請假、會議與待辦</span></div>
+        <div class="proof-card"><strong id="join-proof-3-title">每日報表</strong><span id="join-proof-3-copy">幫雇主留下可追蹤的管理紀錄</span></div>
       </div>
     </section>
 
     <section class="qr-stage" aria-label="萬語通 LINE QR Code">
       <div class="qr-orbit">
         <div class="rail"></div>
-        <div class="node node-1"><b>翻譯</b><small>ZH · ID · VI · TH</small></div>
-        <div class="node node-2"><b>AI 摘要</b><small>PAYMENT · LEAVE</small></div>
-        <div class="node node-3"><b>每日報表</b><small>GROUP LOG</small></div>
+        <div class="node node-1"><b id="join-node-1">翻譯</b><small>ZH · ID · VI · TH</small></div>
+        <div class="node node-2"><b id="join-node-2">AI 摘要</b><small>PAYMENT · LEAVE</small></div>
+        <div class="node node-3"><b id="join-node-3">每日報表</b><small>GROUP LOG</small></div>
         <div class="qr-card">
           <div class="qr-top">
             <span>@969wpxno</span>
             <span class="status-pill">Official</span>
           </div>
           <div class="qr-box">
-            <img src="assets/wanyutong-line-qr.png" alt="萬語通 LINE 官方帳號 QR Code">
+            <img id="join-qr" src="assets/wanyutong-line-qr.png" alt="萬語通 LINE 官方帳號 QR Code">
           </div>
-          <p class="qr-note">桌機請用手機 LINE 掃描；手機請點「直接加入 LINE」。</p>
+          <p class="qr-note" id="join-qr-note">桌機請用手機 LINE 掃描；手機請點「直接加入 LINE」。</p>
         </div>
       </div>
     </section>
   </main>
 </div>
+<script>
+var joinCopy = {
+  zh: {
+    title: '加入萬語通 LINE｜掃碼體驗群組翻譯',
+    brand: '萬語通',
+    home: '回到官網',
+    eyebrow: 'LINE Official Account',
+    headline: '掃碼加入<br><span class="grad">讓群組聽得懂</span>',
+    lead: '加入萬語通 LINE 官方帳號後，可開始體驗 LINE 群組翻譯、AI 摘要與每日報表。工廠、工地、看護、餐飲與農場都能用同一套流程管理跨語言訊息。',
+    primary: '手機直接加入 LINE',
+    secondary: '先看常見問題',
+    proof1Title: 'LINE 群組翻譯',
+    proof1Copy: '中文、印尼文、越南文、泰文等多語支援',
+    proof2Title: 'AI 摘要與搜尋',
+    proof2Copy: '整理付款、合約、請假、會議與待辦',
+    proof3Title: '每日報表',
+    proof3Copy: '幫雇主留下可追蹤的管理紀錄',
+    node1: '翻譯',
+    node2: 'AI 摘要',
+    node3: '每日報表',
+    qrNote: '桌機請用手機 LINE 掃描；手機請點「直接加入 LINE」。',
+    qrAlt: '萬語通 LINE 官方帳號 QR Code',
+    zhLabel: '繁中'
+  },
+  en: {
+    title: 'Join WanyuTong LINE | Try Group Translation',
+    brand: 'WanyuTong',
+    home: 'Back to Website',
+    eyebrow: 'LINE Official Account',
+    headline: 'Scan to Join<br><span class="grad">Make Every Group Understand</span>',
+    lead: 'Add the WanyuTong LINE official account to try LINE group translation, AI summaries, and daily reports. Factories, construction sites, caregivers, restaurants, and farms can manage multilingual messages in one workflow.',
+    primary: 'Join LINE on Mobile',
+    secondary: 'Read FAQ First',
+    proof1Title: 'LINE Group Translation',
+    proof1Copy: 'Supports Chinese, Indonesian, Vietnamese, Thai, and more',
+    proof2Title: 'AI Summary and Search',
+    proof2Copy: 'Organizes payments, contracts, leave, meetings, and tasks',
+    proof3Title: 'Daily Reports',
+    proof3Copy: 'Keeps traceable management records for employers',
+    node1: 'Translation',
+    node2: 'AI Summary',
+    node3: 'Daily Report',
+    qrNote: 'On desktop, scan with LINE on your phone. On mobile, tap "Join LINE on Mobile."',
+    qrAlt: 'WanyuTong LINE official account QR Code',
+    zhLabel: 'ZH'
+  }
+};
+function setJoinLang(lang) {
+  var copy = joinCopy[lang] || joinCopy.zh;
+  document.documentElement.lang = lang === 'en' ? 'en' : 'zh-TW';
+  document.title = copy.title;
+  var pairs = [
+    ['join-brand', 'brand'],
+    ['join-home-link', 'home'],
+    ['join-eyebrow', 'eyebrow'],
+    ['join-lead', 'lead'],
+    ['join-primary', 'primary'],
+    ['join-secondary', 'secondary'],
+    ['join-proof-1-title', 'proof1Title'],
+    ['join-proof-1-copy', 'proof1Copy'],
+    ['join-proof-2-title', 'proof2Title'],
+    ['join-proof-2-copy', 'proof2Copy'],
+    ['join-proof-3-title', 'proof3Title'],
+    ['join-proof-3-copy', 'proof3Copy'],
+    ['join-node-1', 'node1'],
+    ['join-node-2', 'node2'],
+    ['join-node-3', 'node3'],
+    ['join-qr-note', 'qrNote']
+  ];
+  pairs.forEach(function(pair) {
+    var el = document.getElementById(pair[0]);
+    if (el) el.textContent = copy[pair[1]];
+  });
+  var headline = document.getElementById('join-title');
+  if (headline) headline.innerHTML = copy.headline;
+  var qr = document.getElementById('join-qr');
+  if (qr) qr.alt = copy.qrAlt;
+  var zh = document.getElementById('join-lang-zh');
+  var en = document.getElementById('join-lang-en');
+  if (zh) {
+    zh.textContent = copy.zhLabel;
+    zh.classList.toggle('active', lang !== 'en');
+  }
+  if (en) en.classList.toggle('active', lang === 'en');
+  try { localStorage.setItem('wyt-lang', lang === 'en' ? 'en' : 'zh'); } catch (e) {}
+}
+(function() {
+  var lang = 'zh';
+  try { lang = localStorage.getItem('wyt-lang') === 'en' ? 'en' : 'zh'; } catch (e) {}
+  setJoinLang(lang);
+})();
+</script>
 </body>
 </html>

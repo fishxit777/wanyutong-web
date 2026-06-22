@@ -203,7 +203,6 @@
         '#industries': 'Use Cases',
         '#compare': 'Engine',
         '#vs-competitors': 'Compare',
-        '#referral': 'Referral',
         '#pricing': 'Pricing',
         '#howto': 'Start',
         '#terms': 'Terms'
@@ -213,7 +212,6 @@
         '#industries': '適用產業',
         '#compare': '引擎差異',
         '#vs-competitors': '競品比較',
-        '#referral': '推薦優惠',
         '#pricing': '收費方案',
         '#howto': '如何開始',
         '#terms': '條款'

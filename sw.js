@@ -1,9 +1,12 @@
-const CACHE_NAME = 'wanyutong-pwa-20260620-layout-2';
+const CACHE_NAME = 'wanyutong-pwa-20260622-adsense-1';
 const CORE_ASSETS = [
   './',
   './index.html',
   './blog.html',
   './faq.html',
+  './privacy.html',
+  './terms.html',
+  './contact.html',
   './join.html',
   './blog-caregiver-line-translation.html',
   './blog-construction-line-translation.html',

@@ -1,0 +1,4 @@
+# Google AdSense placeholder for WanyuTong.
+# After AdSense gives the publisher ID, replace the next commented sample
+# with the exact line from AdSense:
+# google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0

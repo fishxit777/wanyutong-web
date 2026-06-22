@@ -1,4 +1,4 @@
-const CACHE_NAME = 'wanyutong-pwa-20260622-pricing-cleanup-1';
+const CACHE_NAME = 'wanyutong-pwa-20260622-annual-lifetime-1';
 const CORE_ASSETS = [
   './',
   './index.html',

@@ -1,12 +1,12 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-<title>萬語通 WanyuTong｜跨語言工作交辦、確認與紀錄系統</title>
+<title>萬語通 WanyuTong｜LINE 多國翻譯、AI 摘要與每日報表</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- SEO Meta -->
-<meta name="description" content="萬語通 WanyuTong 把 LINE 群組裡的工作通知、翻譯、收到確認、圖片 OCR、語音、AI 摘要、每日報表與後台紀錄放在同一個流程，協助跨語言團隊交代清楚、回覆有依據、重要內容查得到。">
+<meta name="description" content="萬語通 WanyuTong 把 LINE 群組裡的多國翻譯、圖片 OCR、語音、AI 摘要、每日報表、後台搜尋與統計放在同一個流程，協助跨語言團隊交代清楚、重要內容查得到。">
 <meta name="keywords" content="外勞翻譯,LINE翻譯機器人,印尼文翻譯,越南文翻譯,泰文翻譯,台灣外勞管理,外籍勞工溝通,工廠外勞翻譯,看護翻譯,移工翻譯工具,萬語通">
 <meta name="author" content="萬語通 WanyuTong">
 <meta name="robots" content="index, follow">
@@ -15,16 +15,16 @@
 <!-- Open Graph (LINE / FB 分享預覽) -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://fishxit777.github.io/wanyutong-web/">
-<meta property="og:title" content="萬語通 WanyuTong｜跨語言工作交辦、確認與紀錄系統">
-<meta property="og:description" content="工作通知、翻譯、收到確認、圖片 OCR、語音、AI 摘要、每日報表與後台紀錄放在同一個 LINE 流程裡，讓跨語言團隊交代清楚、回覆有依據、重要內容查得到。">
+<meta property="og:title" content="萬語通 WanyuTong｜LINE 多國翻譯、AI 摘要與每日報表">
+<meta property="og:description" content="多國翻譯、圖片 OCR、語音、AI 摘要、每日報表、後台搜尋與統計放在同一個 LINE 流程裡，讓跨語言團隊交代清楚、重要內容查得到。">
 <meta property="og:image" content="https://fishxit777.github.io/wanyutong-web/og-image.png">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:site_name" content="萬語通 WanyuTong">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="萬語通 WanyuTong｜跨語言工作交辦、確認與紀錄系統">
-<meta name="twitter:description" content="工作通知、翻譯、收到確認、圖片 OCR、語音、AI 摘要、每日報表與後台紀錄放在同一個 LINE 流程裡，讓跨語言團隊交代清楚、回覆有依據、重要內容查得到。">
+<meta name="twitter:title" content="萬語通 WanyuTong｜LINE 多國翻譯、AI 摘要與每日報表">
+<meta name="twitter:description" content="多國翻譯、圖片 OCR、語音、AI 摘要、每日報表、後台搜尋與統計放在同一個 LINE 流程裡，讓跨語言團隊交代清楚、重要內容查得到。">
 <meta name="twitter:image" content="https://fishxit777.github.io/wanyutong-web/og-image.png">
 
 <!-- JSON-LD 結構化資料 -->
@@ -37,7 +37,7 @@
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "LINE",
   "url": "https://fishxit777.github.io/wanyutong-web/",
-  "description": "萬語通 WanyuTong 把 LINE 群組裡的工作通知、翻譯、收到確認、圖片 OCR、語音、AI 摘要、每日報表與後台紀錄放在同一個流程，協助跨語言團隊交代清楚、回覆有依據、重要內容查得到。",
+  "description": "萬語通 WanyuTong 把 LINE 群組裡的多國翻譯、圖片 OCR、語音、AI 摘要、每日報表、後台搜尋與統計放在同一個流程，協助跨語言團隊交代清楚、重要內容查得到。",
   "offers": {
     "@type": "Offer",
     "price": "199",
@@ -50,7 +50,7 @@
     "reviewCount": "1"
   },
   "inLanguage": ["zh-TW", "id", "vi", "th", "en", "ja", "ko"],
-  "featureList": "群組雙向翻譯, 語音翻譯, 圖片OCR翻譯, 群組重點摘要, 群組每日報表, 群組紀錄搜尋, 翻譯確認系統, 行業詞庫, 勿擾模式",
+  "featureList": "群組雙向翻譯, 語音翻譯, 圖片OCR翻譯, 群組重點摘要, 群組每日報表, 群組紀錄搜尋, 後台搜尋統計, 報表匯出, 人工複核提醒",
   "contactPoint": {
     "@type": "ContactPoint",
     "contactType": "customer service",
@@ -1550,7 +1550,7 @@ footer a:hover { color:var(--text); }
     <div class="hero-text">
         <div class="hero-eyebrow">萬語通 WanyuTong</div>
         <h1 aria-label="跨語言工作交辦 有翻譯、有確認、有紀錄">跨語言工作交辦<br><span class="hl">有翻譯、有確認、有紀錄</span></h1>
-        <p class="hero-desc">把 LINE 群組裡的工作通知、翻譯、收到確認、AI 摘要、每日報表與後台搜尋放在同一個流程。專為工廠、工地、看護、餐飲等多語團隊設計，讓主管交代得清楚，員工回覆有依據，重要內容查得到。</p>
+        <p class="hero-desc">把 LINE 群組裡的多國翻譯、語音、圖片 OCR、AI 摘要、每日報表、後台搜尋與統計放在同一個流程。專為工廠、工地、看護、餐飲等多語團隊設計，讓主管交代得清楚，重要內容查得到。</p>
       <div class="hero-actions">
         <a href="join.html" class="btn-primary">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.105.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.070 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
@@ -1702,7 +1702,7 @@ footer a:hover { color:var(--text); }
         <ul class="story-list">
           <li id="os-card-2-li-1">AI 摘要群聊重點</li>
           <li id="os-card-2-li-2">付款、合約、請假等關鍵字搜尋</li>
-          <li id="os-card-2-li-3">翻譯確認與人工複核提醒</li>
+          <li id="os-card-2-li-3">風險內容人工複核提醒</li>
         </ul>
       </div>
       <div class="story-card">
@@ -1730,19 +1730,19 @@ footer a:hover { color:var(--text); }
 <section id="features">
   <div style="max-width:1100px;margin:0 auto;">
     <div class="eyebrow">// Features</div>
-    <h2>不是翻譯 App，是 LINE 工作交辦流程</h2>
-    <p class="lead">從發出指令、翻成對方語言、確認收到，到摘要、報表與後台搜尋，讓跨語言管理有閉環。</p>
+    <h2>不是翻譯 App，是 LINE 多國工作溝通流程</h2>
+    <p class="lead">從文字、語音、圖片 OCR 翻譯，到摘要、每日報表與後台搜尋，讓跨語言管理更清楚。</p>
     <div class="features-grid">
       <div class="feature-card"><span class="feature-icon">🌏</span><div class="feature-title">35 種語言與 DeepL 專業引擎</div><div class="feature-desc">以 DeepL 專業翻譯引擎處理常用工作語言。印尼、越南、泰文、英文、日文、韓文與簡繁中文等語言可快速切換。</div></div>
       <div class="feature-card"><span class="feature-icon">👥</span><div class="feature-title">群組雙向翻譯</div><div class="feature-desc">加入群組即用。台籍主管說中文，印尼、越南、泰國員工各看各的語言，混合國籍群組也能一起溝通。</div></div>
       <div class="feature-card"><span class="feature-icon">🎤</span><div class="feature-title">語音訊息翻譯</div><div class="feature-desc">直接傳語音，自動轉錄並翻譯成目標語言文字。工地、工廠雙手忙時特別好用。</div></div>
       <div class="feature-card"><span class="feature-icon">📷</span><div class="feature-title">圖片 OCR 翻譯</div><div class="feature-desc">傳一張截圖，自動辨識文字並翻譯。班表、公告、合約、工廠警示貼紙，不用重新打字。</div></div>
-      <div class="feature-card"><span class="feature-icon">✅</span><div class="feature-title">翻譯確認系統</div><div class="feature-desc">發完指令幫你盯著。印尼大哥收到了嗎？看懂了嗎？每個人回覆 1=明白、2=不明白，後台一目瞭然。</div></div>
-      <div class="feature-card"><span class="feature-icon">📝</span><div class="feature-title">群組重點摘要</div><div class="feature-desc">把最近群聊整理成今日重點、待辦事項、時間期限、付款線索與需要確認的內容，主管不用整段往回翻。</div></div>
+      <div class="feature-card"><span class="feature-icon">🧭</span><div class="feature-title">人工複核提醒</div><div class="feature-desc">遇到工安、合約、金額、醫療或重要交辦內容時，提醒使用者自行確認，避免把機器翻譯當成最終結論。</div></div>
+      <div class="feature-card"><span class="feature-icon">📝</span><div class="feature-title">群組重點摘要</div><div class="feature-desc">把最近群聊整理成今日重點、待辦事項、時間期限、付款線索與重要內容，主管不用整段往回翻。</div></div>
       <div class="feature-card"><span class="feature-icon">📊</span><div class="feature-title">群組每日報表</div><div class="feature-desc">每天固定時間整理群組重點，適合追蹤交期、請假、付款、合約、工安與人事交辦；重要事項仍建議人工確認。</div></div>
       <div class="feature-card"><span class="feature-icon">🔎</span><div class="feature-title">群組紀錄搜尋</div><div class="feature-desc">後台可搜尋付款、合約、報價、請假、會議等關鍵字，並匯出 Excel，方便補款、對帳、交接與追蹤。</div></div>
-      <div class="feature-card"><span class="feature-icon">🏭</span><div class="feature-title">行業詞庫與勿擾模式</div><div class="feature-desc">工廠、工地、餐飲、農場常用詞可保留，非工作時段也能降低通知干擾，讓 Bot 像現場工具而不是聊天玩具。</div></div>
-      <div class="feature-card"><span class="feature-icon">🆓</span><div class="feature-title">免費先試，滿意再付</div><div class="feature-desc">免費版每日 50 則文字翻譯；中文、日文、韓文無限免費，印尼文、菲律賓文、越南文每日限制次數。不用綁信用卡，需要完整功能再升級LINE多國翻譯機器人方案。</div></div>
+      <div class="feature-card"><span class="feature-icon">📤</span><div class="feature-title">報表製作與匯出</div><div class="feature-desc">付費方案可整理摘要、每日報表、搜尋結果與統計資料，方便交接、對帳、追蹤與主管回報。</div></div>
+      <div class="feature-card"><span class="feature-icon">🆓</span><div class="feature-title">免費先試，滿意再付</div><div class="feature-desc">免費版每日 50 則文字翻譯；中文、英文、日文、韓文無限免費，其他語言每日 50 則。不用綁信用卡，需要完整功能再升級LINE多國翻譯機器人方案。</div></div>
     </div>
   </div>
 </section>
@@ -1752,7 +1752,7 @@ footer a:hover { color:var(--text); }
     <div class="industry-copy">
       <div class="eyebrow" id="industry-eyebrow">// Industries & Search Intent</div>
       <h2 id="industry-title">先服務最需要跨語言管理的現場</h2>
-      <p class="lead" id="industry-lead">萬語通 WanyuTong 優先鎖定已經用 LINE 管人的台灣雇主：不是多一個 App，而是把 AI 翻譯、確認、摘要、報表與搜尋接到原本的工作群。</p>
+      <p class="lead" id="industry-lead">萬語通 WanyuTong 優先鎖定已經用 LINE 管人的台灣雇主：不是多一個 App，而是把 AI 翻譯、摘要、報表與搜尋接到原本的工作群。</p>
     </div>
     <div class="industry-grid">
       <div class="industry-card"><strong id="industry-1-title">工廠與製造業</strong><span id="industry-1-desc">工安通知、機台異常、加班、品質規範與交期確認，最怕訊息看過卻沒真正理解。</span></div>
@@ -1820,7 +1820,7 @@ footer a:hover { color:var(--text); }
       <a class="guide-card" href="blog-foreign-worker-safety-law.html">
         <span class="guide-tag" id="guide-8-tag">工安責任</span>
         <div class="guide-title" id="guide-8-title">外勞發生工安事故，雇主責任怎麼降低？</div>
-        <div class="guide-desc" id="guide-8-desc">安全告知、母語理解、LINE 紀錄與確認追蹤，是外籍員工工安管理最該補上的基本流程。</div>
+        <div class="guide-desc" id="guide-8-desc">安全告知、母語理解、LINE 紀錄與人工複核，是外籍員工工安管理最該補上的基本流程。</div>
       </a>
     </div>
   </div>
@@ -1834,10 +1834,10 @@ footer a:hover { color:var(--text); }
     <div class="setup-grid">
       <div class="setup-summary">
         <h3 id="setup-summary-title">先用 LINE多國翻譯機器人，把一個群組跑順</h3>
-        <p id="setup-summary-desc">付費模式為免費版、月費版、半年版、一年版與尊爵版(年)；單一群組可先從 NT$99 月費版開始，需要長期使用再改一年版或尊爵版(年)。</p>
+        <p id="setup-summary-desc">付費模式為免費版、月費版、半年版、一年版與尊爵版；單一群組可先從 NT$99 月費版開始，需要長期使用再改一年版或尊爵版。</p>
         <div class="setup-price">
           <div class="setup-price-row"><span id="setup-price-1-label">單一 LINE 群</span><strong id="setup-price-1-value">月費版 NT$99／30 天</strong></div>
-          <div class="setup-price-row"><span id="setup-price-2-label">穩定長期使用</span><strong id="setup-price-2-value">一年版 NT$799／尊爵版(年) NT$2500</strong></div>
+          <div class="setup-price-row"><span id="setup-price-2-label">穩定長期使用</span><strong id="setup-price-2-value">一年版 NT$899／尊爵版 NT$2500</strong></div>
           <div class="setup-price-row"><span id="setup-price-3-label">完整功能</span><strong id="setup-price-3-value">翻譯、語音、OCR、摘要、報表與後台搜尋</strong></div>
         </div>
       </div>
@@ -1856,7 +1856,7 @@ footer a:hover { color:var(--text); }
     <div class="eyebrow">// DeepL 專業引擎</div>
     <h2>不是只把字翻過去，而是讓現場真正看得懂</h2>
     <p class="lead">萬語通採用 DeepL 專業翻譯引擎，搭配 LINE 工作流程、風險字詞提醒與人工複核提示，讓重要通知更適合現場使用。</p>
-    <p class="lead">一般翻譯 App 需要離開 LINE、手動貼上文字；萬語通把文字、語音、圖片 OCR、確認與紀錄留在同一個 LINE 工作群，重要內容也會提醒人工複核。</p>
+    <p class="lead">一般翻譯 App 需要離開 LINE、手動貼上文字；萬語通把文字、語音、圖片 OCR、摘要與紀錄留在同一個 LINE 工作群，重要內容也會提醒人工複核。</p>
     <table class="compare-table">
       <thead>
         <tr>
@@ -1880,7 +1880,7 @@ footer a:hover { color:var(--text); }
       <div class="example-row">
         <div><div class="ex-label">原文（繁中）</div><div class="ex-text">感謝您撥冗回覆，期待後續合作愉快。</div></div>
         <div class="hl-col"><div class="ex-label">萬語通（DeepL 專業引擎）</div><div class="ex-text">使用 DeepL 翻譯，並在工安、合約、金額等內容提醒人工確認。</div></div>
-        <div><div class="ex-label">一般翻譯 App</div><div class="ex-text">需要複製、貼上、切換 App，通常不保留 LINE 群組內的確認與紀錄。</div></div>
+        <div><div class="ex-label">一般翻譯 App</div><div class="ex-text">需要複製、貼上、切換 App，通常不保留 LINE 群組內的摘要、報表與後台紀錄。</div></div>
       </div>
     </div>
   </div>
@@ -1908,9 +1908,9 @@ footer a:hover { color:var(--text); }
         <tr><td>圖片 OCR 翻譯</td><td><span class="chk" id="vs-ocr-wyt">● ✓（付費版）</span></td><td><span class="crs">✕</span></td><td><span class="chk">● ✓</span></td><td><span class="crs">✕</span></td></tr>
         <tr><td>語音翻譯</td><td><span class="chk" id="vs-voice-wyt">● ✓ 所有付費版</span></td><td><span class="chk">● ✓</span></td><td><span class="chk">● ✓</span></td><td><span class="crs">✕</span></td></tr>
         <tr><td>多語同翻</td><td><span class="chk" id="vs-multi-wyt">● ✓ 最多8種</span></td><td><span class="prt" id="vs-multi-ech">最多5種</span></td><td><span class="crs">✕</span></td><td><span class="chk">● ✓</span></td></tr>
-        <tr><td>翻譯確認系統</td><td><span class="chk" id="vs-confirm-wyt">● ✓（獨有）</span></td><td><span class="crs">✕</span></td><td><span class="crs">✕</span></td><td><span class="crs">✕</span></td></tr>
-        <tr><td>行業詞庫</td><td><span class="chk" id="vs-vocab-wyt">● ✓（獨有）</span></td><td><span class="crs">✕</span></td><td><span class="crs">✕</span></td><td><span class="crs">✕</span></td></tr>
-        <tr><td>勿擾模式</td><td><span class="chk" id="vs-dnd-wyt">● ✓（獨有）</span></td><td><span class="crs">✕</span></td><td><span class="crs">✕</span></td><td><span class="crs">✕</span></td></tr>
+        <tr><td>後台搜尋與統計</td><td><span class="chk" id="vs-confirm-wyt">● ✓</span></td><td><span class="crs">✕</span></td><td><span class="crs">✕</span></td><td><span class="crs">✕</span></td></tr>
+        <tr><td>每日報表</td><td><span class="chk" id="vs-vocab-wyt">● ✓</span></td><td><span class="crs">✕</span></td><td><span class="crs">✕</span></td><td><span class="crs">✕</span></td></tr>
+        <tr><td>報表匯出</td><td><span class="chk" id="vs-dnd-wyt">● ✓</span></td><td><span class="crs">✕</span></td><td><span class="crs">✕</span></td><td><span class="crs">✕</span></td></tr>
         <tr><td>台灣在地計價</td><td><span class="chk">● NT$（台幣）</span></td><td><span class="crs" id="vs-curr-ech">✕ 美金</span></td><td><span class="chk">● NT$</span></td><td><span class="prt" id="vs-curr-lig">按量計費</span></td></tr>
       </tbody>
     </table>
@@ -1921,7 +1921,7 @@ footer a:hover { color:var(--text); }
   <div class="ai-fit-wrap">
     <div class="eyebrow" id="ai-fit-eyebrow">// Not Just AI Service</div>
     <h2 id="ai-fit-title">萬語通 WanyuTong 不是社群 AI 客服，是雇主的 LINE 跨語言工作流程</h2>
-    <p class="lead" id="ai-fit-lead">一般 AI 客服擅長回覆客人、接私訊、導購與預約；萬語通 WanyuTong 的主戰場是雇主內部管理：翻譯工作指令、確認有沒有看懂、整理每天群組發生什麼事。</p>
+    <p class="lead" id="ai-fit-lead">一般 AI 客服擅長回覆客人、接私訊、導購與預約；萬語通 WanyuTong 的主戰場是雇主內部管理：翻譯群組訊息、整理每天重點、保留可搜尋紀錄。</p>
     <div class="ai-fit-grid">
       <div class="ai-fit-card">
         <h3 id="ai-fit-card-1-title">一般 AI 客服適合</h3>
@@ -1939,9 +1939,9 @@ footer a:hover { color:var(--text); }
         </thead>
         <tbody>
           <tr><td id="ai-fit-row-1-a">核心場景</td><td id="ai-fit-row-1-b" data-label="一般 AI 客服">IG、FB、官網、LINE 的客戶詢問</td><td id="ai-fit-row-1-c" data-label="萬語通">LINE 群組裡的工作通知與外籍員工溝通</td></tr>
-          <tr><td id="ai-fit-row-2-a">主要成果</td><td id="ai-fit-row-2-b" data-label="一般 AI 客服">回覆更快、客服少打字、提高轉換</td><td id="ai-fit-row-2-c" data-label="萬語通">指令不誤會、事情有確認、每天有紀錄</td></tr>
+          <tr><td id="ai-fit-row-2-a">主要成果</td><td id="ai-fit-row-2-b" data-label="一般 AI 客服">回覆更快、客服少打字、提高轉換</td><td id="ai-fit-row-2-c" data-label="萬語通">訊息看得懂、重點可整理、紀錄可回查</td></tr>
           <tr><td id="ai-fit-row-3-a">導入方式</td><td id="ai-fit-row-3-b" data-label="一般 AI 客服">整理品牌資料、FAQ、商品與預約流程</td><td id="ai-fit-row-3-c" data-label="萬語通">加入群組、設定語言、開摘要與報表</td></tr>
-          <tr><td id="ai-fit-row-4-a">最該借用</td><td id="ai-fit-row-4-b" data-label="一般 AI 客服">知識庫、真人接手、導入 Demo 包裝</td><td id="ai-fit-row-4-c" data-label="萬語通">未來可做常用句/SOP 資料庫與人工確認流程</td></tr>
+          <tr><td id="ai-fit-row-4-a">最該借用</td><td id="ai-fit-row-4-b" data-label="一般 AI 客服">知識庫、真人接手、導入 Demo 包裝</td><td id="ai-fit-row-4-c" data-label="萬語通">強化摘要、報表、搜尋、匯出與客服表單流程</td></tr>
           <tr><td id="ai-fit-row-5-a">現在不追</td><td id="ai-fit-row-5-b" data-label="一般 AI 客服">多平台社群私訊與留言導購</td><td id="ai-fit-row-5-c" data-label="萬語通">先守住 LINE 群組與外籍員工管理這個垂直市場</td></tr>
         </tbody>
       </table>
@@ -1953,7 +1953,7 @@ footer a:hover { color:var(--text); }
   <div style="max-width:960px;margin:0 auto;">
     <div class="eyebrow">// Pricing</div>
     <h2>選擇適合你的方案</h2>
-    <p class="lead">免費版每日 50 則文字翻譯；中文、日文、韓文無限免費，印尼文、菲律賓文、越南文每日限制次數。付費方案聚焦 LINE多國翻譯機器人群組使用。</p>
+    <p class="lead">免費版每日 50 則文字翻譯；中文、英文、日文、韓文無限免費，其他語言每日 50 則。付費方案聚焦 LINE多國翻譯機器人群組使用。</p>
     <div class="pricing-tabs">
       <button class="pricing-tab active" onclick="switchTab('group')">LINE多國翻譯機器人</button>
     </div>
@@ -1961,35 +1961,35 @@ footer a:hover { color:var(--text); }
       <div class="pricing-grid">
         <div class="price-card">
           <div class="price-plan">免費版</div>
-          <div class="price-amount">$0</div><div class="price-period">每日 50 則免費</div>
-          <ul class="price-features"><li>每日 50 則文字翻譯</li><li>無限免費次數：中文、日文、韓文</li><li>每日限制次數：印尼文、菲律賓文、越南文</li><li>適合初期註冊 LINE 群組</li><li>加入即用，無需開通</li></ul>
-          <a href="join.html" class="btn-plan" data-btn="join">免費加入</a>
+          <div class="price-amount">$0</div><div class="price-period">加入即用</div>
+          <ul class="price-features"><li>無限免費次數：中文、英文、日文、韓文</li><li>其他語言每日 50 則</li><li>適合輕度／初期使用者</li><li>加入即用，無需開通</li></ul>
+          <a href="join.html" class="btn-plan" data-btn="join">免費開通</a>
         </div>
         <div class="price-card">
           <div class="price-plan">月費版</div>
           <div class="price-amount">NT$99</div><div class="price-period">30 天／每群組</div>
-          <ul class="price-features"><li>完整群組翻譯功能</li><li>語音、圖片 OCR、摘要與每日報表</li><li>支援完整語言清單</li></ul>
-          <a href="https://line.me/ti/p/~fishxit" class="btn-plan" data-btn="contact">聯繫開通</a>
+          <ul class="price-features"><li>小資輕鬆擁有完整服務</li><li>支援完整語言清單</li><li>支持語音、圖片 OCR 翻譯</li><li>後台紀錄搜尋與統計</li><li>新增報表製作滙出功能</li><li>配屬 AI 祕書可滙整 300 筆摘要</li></ul>
+          <a href="https://line.me/ti/p/~fishxit" class="btn-plan" data-btn="contact">加入開通</a>
         </div>
         <div class="price-card">
           <div class="price-plan">半年版</div>
           <div class="price-amount">NT$499</div><div class="price-period">180 天／每群組</div>
-          <ul class="price-features"><li>等同買 5 個月送 1 個月</li><li>完整群組翻譯、語音、OCR</li><li>AI 摘要最近 300 筆</li><li>後台紀錄搜尋與統計</li></ul>
-          <a href="https://line.me/ti/p/~fishxit" class="btn-plan" data-btn="contact">聯繫開通</a>
+          <ul class="price-features"><li>經濟實惠的價格</li><li>支援完整語言清單</li><li>支持語音、圖片 OCR 翻譯</li><li>後台紀錄搜尋與統計</li><li>新增報表製作滙出功能</li><li>配屬 AI 祕書可滙整 300 筆摘要</li><li>適合中度／中長期使用者</li></ul>
+          <a href="https://line.me/ti/p/~fishxit" class="btn-plan" data-btn="contact">加入開通</a>
         </div>
         <div class="price-card featured">
           <div class="price-badge">長期最划算</div>
           <div class="price-plan">一年版</div>
-          <div class="price-amount">NT$799</div><div class="price-period">420 天／每群組</div>
-          <ul class="price-features"><li>完整群組翻譯、語音、OCR</li><li>摘要、報表、搜尋與匯出</li><li>適合穩定長期使用的群組</li><li>到期前自動提醒一次</li></ul>
-          <a href="https://line.me/ti/p/~fishxit" class="btn-plan" data-btn="contact">聯繫開通</a>
+          <div class="price-amount">NT$899</div><div class="price-period">365 天／每群組</div>
+          <ul class="price-features"><li>最佳實惠的價格</li><li>支援完整語言清單</li><li>支持語音、圖片 OCR 翻譯</li><li>後台紀錄搜尋與統計</li><li>新增報表製作滙出功能</li><li>配屬 AI 祕書可滙整 300 筆摘要</li><li>適合重度／長期使用者</li></ul>
+          <a href="https://line.me/ti/p/~fishxit" class="btn-plan" data-btn="contact">加入開通</a>
         </div>
         <div class="price-card enterprise">
-          <div class="price-badge">尊爵買斷</div>
-          <div class="price-plan">尊爵版(年)</div>
-          <div class="price-amount">NT$2500</div><div class="price-period">永久買斷／每群組</div>
-          <ul class="price-features"><li>專屬客製化機器人</li><li>預計開發台語版、客語版</li></ul>
-          <a href="https://line.me/ti/p/~fishxit" class="btn-plan" data-btn="contact">聯繫開通</a>
+          <div class="price-badge">尊爵服務</div>
+          <div class="price-plan">尊爵版</div>
+          <div class="price-amount">NT$2500</div><div class="price-period">一次付費永久服務</div>
+          <ul class="price-features"><li>支援完整語言清單</li><li>支持語音、圖片 OCR 翻譯</li><li>後台紀錄搜尋與統計</li><li>新增報表製作滙出功能</li><li>配屬 AI 祕書可滙整 300 筆摘要</li><li>可客製化專屬機器人</li><li>支持更新版本及語言</li></ul>
+          <a href="https://line.me/ti/p/~fishxit" class="btn-plan" data-btn="contact">加入開通</a>
         </div>
       </div>
     </div>
@@ -2027,11 +2027,11 @@ footer a:hover { color:var(--text); }
     <div class="accordion-item">
       <button class="accordion-btn" onclick="toggleAccordion(this)">使用條款<span class="accordion-arrow">▼</span></button>
       <div class="accordion-body"><div class="accordion-body-inner" id="acc-tos">
-        <p><strong>1. 服務範圍</strong><br>萬語通（以下稱「本服務」）提供 LINE 平台上的文字翻譯、圖片 OCR 翻譯、語音轉文字翻譯、常用句與群組翻譯輔助功能。實際功能依免費版、月費版、半年版、一年版或尊爵版(年)而定。</p>
+        <p><strong>1. 服務範圍</strong><br>萬語通（以下稱「本服務」）提供 LINE 平台上的文字翻譯、圖片 OCR 翻譯、語音轉文字翻譯、群組翻譯、摘要、每日報表、後台紀錄搜尋與統計等輔助功能。實際功能依免費版、月費版、半年版、一年版或尊爵版而定。</p>
         <p><strong>2. 使用規範</strong><br>使用者不得利用本服務進行違法、詐欺、騷擾、散布不實資訊、侵害他人權益或其他不當用途。違反規範者，本服務得限制或停用帳號，已付款項不另行退還。</p>
         <p><strong>3. 翻譯結果</strong><br>翻譯、OCR 與語音轉錄結果僅供溝通參考，可能因原文品質、口音、截圖清晰度、專業語境或第三方 AI 服務而產生錯誤；不構成法律、醫療、財務、合約或安全作業指示之專業意見。重要內容請自行複核或交由專業人員確認。</p>
         <p><strong>4. 服務中斷</strong><br>因 LINE、DeepL、OpenAI、Anthropic、雲端主機、網路、不可抗力或維護造成的延遲或中斷，本服務將盡力恢復，但不承諾永久不中斷，也不負衍生損害賠償責任。</p>
-        <p><strong>5. 帳號與付款安全</strong><br>官方 LINE Bot 為 @969wpxno，客服 LINE 為 fishxit。月費版、半年版、一年版與尊爵版(年)請以官方 LINE Bot 產生的綠界連結或官網正式入口為準。客服僅處理付款異常、補款、對帳與開通問題。請勿相信陌生私訊、截圖轉傳或非官方連結。使用者應自行保管 LINE 帳號與手機安全，因帳號遭盜用、釣魚或社交工程造成的損失，本服務不負責。</p>
+        <p><strong>5. 帳號與付款安全</strong><br>官方 LINE Bot 為 @969wpxno，客服 LINE 為 fishxit。月費版、半年版、一年版與尊爵版請以官方 LINE Bot 產生的綠界連結或官網正式入口為準。客服僅處理付款異常、補款、對帳與開通問題。請勿相信陌生私訊、截圖轉傳或非官方連結。使用者應自行保管 LINE 帳號與手機安全，因帳號遭盜用、釣魚或社交工程造成的損失，本服務不負責。</p>
         <p><strong>6. 條款修訂</strong><br>本服務保留調整功能、價格與條款之權利；重大變更將盡可能透過網站或 LINE Bot 公告。</p>
       </div></div>
     </div>
@@ -2041,7 +2041,7 @@ footer a:hover { color:var(--text); }
       <div class="accordion-body"><div class="accordion-body-inner" id="acc-privacy">
         <p><strong>1. 資料收集</strong><br>本服務會收集 LINE User ID、群組 ID、語言設定、翻譯次數、到期狀態、付款與開通紀錄、必要的系統紀錄與錯誤紀錄，用於提供服務、計費、客服與安全稽核。</p>
         <p><strong>2. 翻譯內容處理</strong><br>為提供翻譯、OCR 或語音功能，使用者傳送的文字、圖片或語音可能會依功能需求傳送至 LINE、DeepL、OpenAI、Anthropic 或其他必要服務商處理。</p>
-        <p><strong>3. 記錄保存</strong><br>系統可能保存近期翻譯紀錄與使用紀錄，以支援 @歷史、常用句、用量統計、除錯與客服查詢；不會將內容出售給廣告商或公開揭露。若您不希望敏感內容被第三方服務處理，請勿透過本服務傳送。</p>
+        <p><strong>3. 記錄保存</strong><br>系統可能保存近期翻譯紀錄與使用紀錄，以支援歷史查詢、後台搜尋、用量統計、除錯與客服查詢；不會將內容出售給廣告商或公開揭露。若您不希望敏感內容被第三方服務處理，請勿透過本服務傳送。</p>
         <p><strong>4. 第三方服務</strong><br>LINE、DeepL、OpenAI、Anthropic 等服務商各有其隱私政策與資料處理規範，本服務會在功能必要範圍內使用。</p>
         <p><strong>5. 資料刪除</strong><br>如需查詢或刪除個人資料，請聯繫客服 LINE：fishxit。我們會在合理期間內處理；依法或基於帳務、稽核、安全所需保留的紀錄，可能無法立即刪除。</p>
       </div></div>
@@ -2097,7 +2097,7 @@ footer a:hover { color:var(--text); }
 <section id="cta">
   <div class="cta-glow"></div>
   <h2>現在就開始翻譯</h2>
-  <p>免費加入，每日 50 次免費翻譯；需要完整語言、語音、OCR、摘要與報表時，再升級LINE多國翻譯機器人方案。</p>
+  <p>免費開通，每日 50 次免費翻譯；需要完整語言、語音、OCR、摘要與報表時，再升級LINE多國翻譯機器人方案。</p>
   <a href="join.html" class="line-btn">
     <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.105.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.070 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
     加入 LINE Bot 開始翻譯
@@ -2674,7 +2674,7 @@ var i18n = {
     'hero.eyebrow':    '萬語通 WanyuTong',
     'hero.h1a':        '跨語言工作交辦',
     'hero.h1b':        '有翻譯、有確認、有紀錄',
-    'hero.desc':       '把 LINE 群組裡的工作通知、翻譯、收到確認、AI 摘要、每日報表與後台搜尋放在同一個流程。專為工廠、工地、看護、餐飲等多語團隊設計，讓主管交代得清楚，員工回覆有依據，重要內容查得到。',
+    'hero.desc':       '把 LINE 群組裡的多國翻譯、語音、圖片 OCR、AI 摘要、每日報表、後台搜尋與統計放在同一個流程。專為工廠、工地、看護、餐飲等多語團隊設計，讓主管交代得清楚，重要內容查得到。',
     'hero.btn1':       '免費體驗 LINE 流程',
     'hero.btn2':       '查看方案 →',
     'phone.bot':       '萬語通',
@@ -2712,7 +2712,7 @@ var i18n = {
     'os.card2.desc':   '不只把話翻出去，還能幫主管抓重點、待辦、付款金額與風險，降低「大家都看過但沒人處理」的狀況。',
     'os.card2.li1':    'AI 摘要群聊重點',
     'os.card2.li2':    '付款、合約、請假等關鍵字搜尋',
-    'os.card2.li3':    '翻譯確認與人工複核提醒',
+    'os.card2.li3':    '風險內容人工複核提醒',
     'os.card3.kicker': 'ABILITY 03',
     'os.card3.title':  '留得住',
     'os.card3.desc':   '每天群組訊息很多，萬語通把重要事件整理成可查、可匯出的紀錄，方便補款、交接與管理。',
@@ -2739,22 +2739,22 @@ var i18n = {
     'feat.3.desc':     '直接傳語音，自動轉錄並翻譯成目標語言文字。工地、工廠雙手忙時特別好用。',
     'feat.4.title':    '圖片 OCR 翻譯',
     'feat.4.desc':     '傳一張截圖，自動辨識文字並翻譯。班表、公告、合約、工廠警示貼紙，不用重新打字。',
-    'feat.5.title':    '收到確認與理解追蹤',
-    'feat.5.desc':     '發完指令後追蹤誰已收到、誰還沒回，重要通知可用固定回覆格式留下確認紀錄。',
+    'feat.5.title':    '人工複核提醒',
+    'feat.5.desc':     '遇到工安、合約、金額、醫療或重要交辦內容時，提醒使用者自行確認，避免把機器翻譯當成最終結論。',
     'feat.6.title':    '群組重點摘要',
     'feat.6.desc':     '把最近群聊整理成今日重點、待辦事項、時間期限、付款線索與需要確認的內容，主管不用整段往回翻。',
     'feat.7.title':    '群組每日報表',
     'feat.7.desc':     '每天固定時間整理群組重點，適合追蹤交期、請假、付款、合約、工安與人事交辦；重要事項仍建議人工確認。',
     'feat.8.title':    '群組紀錄搜尋',
     'feat.8.desc':     '後台可搜尋付款、合約、報價、請假、會議等關鍵字，並匯出 Excel，方便補款、對帳、交接與追蹤。',
-    'feat.9.title':    '行業詞庫與勿擾模式',
-    'feat.9.desc':     '工廠、工地、餐飲、農場常用詞可保留，非工作時段也能降低通知干擾，讓 Bot 像現場工具而不是聊天玩具。',
+    'feat.9.title':    '報表製作與匯出',
+    'feat.9.desc':     '付費方案可整理摘要、每日報表、搜尋結果與統計資料，方便交接、對帳、追蹤與主管回報。',
     'feat.10.title':   '免費先試，滿意再付',
-    'feat.10.desc':    '免費版每日 50 則文字翻譯；中文、日文、韓文無限免費，印尼文、菲律賓文、越南文每日限制次數。不用綁信用卡，需要完整功能再升級LINE多國翻譯機器人方案。',
+    'feat.10.desc':    '免費版中文、英文、日文、韓文無限免費，其他語言每日 50 則。不用綁信用卡，需要完整功能再升級 LINE多國翻譯機器人方案。',
     // INDUSTRIES
     'industry.eyebrow':'// Industries & Search Intent',
     'industry.title':  '先服務最需要跨語言管理的現場',
-    'industry.lead':   '萬語通 WanyuTong 優先鎖定已經用 LINE 管人的台灣雇主：不是多一個 App，而是把 AI 翻譯、確認、摘要、報表與搜尋接到原本的工作群。',
+    'industry.lead':   '萬語通 WanyuTong 優先鎖定已經用 LINE 管人的台灣雇主：不是多一個 App，而是把 AI 翻譯、摘要、報表與搜尋接到原本的工作群。',
     'industry.1.title':'工廠與製造業',
     'industry.1.desc': '工安通知、機台異常、加班、品質規範與交期確認，最怕訊息看過卻沒真正理解。',
     'industry.2.title':'工地與工程團隊',
@@ -2799,17 +2799,17 @@ var i18n = {
     'guide.7.desc':    '集合時間、安全提醒、材料規格與異常回報，都需要留下清楚可回查的雙語訊息。',
     'guide.8.tag':     '工安責任',
     'guide.8.title':   '外勞發生工安事故，雇主責任怎麼降低？',
-    'guide.8.desc':    '安全告知、母語理解、LINE 紀錄與確認追蹤，是外籍員工工安管理最該補上的基本流程。',
+    'guide.8.desc':    '安全告知、母語理解、LINE 紀錄與人工複核，是外籍員工工安管理最該補上的基本流程。',
     // SETUP FLOW
     'setup.eyebrow':   '// 10 Minute Setup',
     'setup.title':     '把「導入」說得很簡單',
     'setup.lead':      '客戶不想研究系統，他只想知道明天能不能少一點誤會。萬語通的導入說法要直接：先把一個 LINE 群管好，再視群組數與報表需求升級。',
     'setup.summary.title': '先用 LINE多國翻譯機器人，把一個群組跑順',
-    'setup.summary.desc':  '付費模式為免費版、月費版、半年版、一年版與尊爵版(年)；單一群組可先從 NT$99 月費版開始，需要長期使用再改一年版或尊爵版(年)。',
+    'setup.summary.desc':  '付費模式為免費版、月費版、半年版、一年版與尊爵版；單一群組可先從 NT$99 月費版開始，需要長期使用再改一年版或尊爵版。',
     'setup.price1.label': '單一 LINE 群',
     'setup.price1.value': '月費版 NT$99／30 天',
     'setup.price2.label': '穩定長期使用',
-    'setup.price2.value': '一年版 NT$799／尊爵版(年) NT$2500',
+    'setup.price2.value': '一年版 NT$899／尊爵版 NT$2500',
     'setup.price3.label': '完整功能',
     'setup.price3.value': '翻譯、語音、OCR、摘要、報表與後台搜尋',
     'setup.step1.num': 'STEP 01',
@@ -2857,14 +2857,14 @@ var i18n = {
     'vs.row.ocr':      '圖片 OCR 翻譯',
     'vs.row.voice':    '語音翻譯',
     'vs.row.multi':    '多語同翻',
-    'vs.row.confirm':  '翻譯確認系統',
-    'vs.row.vocab':    '行業詞庫',
-    'vs.row.dnd':      '勿擾模式',
+    'vs.row.confirm':  '後台搜尋與統計',
+    'vs.row.vocab':    '每日報表',
+    'vs.row.dnd':      '報表匯出',
     'vs.row.currency': '台灣在地計價',
     // AI SERVICE FIT
     'ai.eyebrow':      '// Not Just AI Service',
     'ai.title':        '萬語通 WanyuTong 不是社群 AI 客服，是雇主的 LINE 跨語言工作流程',
-    'ai.lead':         '一般 AI 客服擅長回覆客人、接私訊、導購與預約；萬語通 WanyuTong 的主戰場是雇主內部管理：翻譯工作指令、確認有沒有看懂、整理每天群組發生什麼事。',
+    'ai.lead':         '一般 AI 客服擅長回覆客人、接私訊、導購與預約；萬語通 WanyuTong 的主戰場是雇主內部管理：翻譯群組訊息、整理每天重點、保留可搜尋紀錄。',
     'ai.card1.title':  '一般 AI 客服適合',
     'ai.card1.desc':   '品牌、電商、餐廳或創作者要回覆粉絲、導購、接預約、整理 FAQ，重點是「對外接客」。',
     'ai.card2.title':  '萬語通適合',
@@ -2877,27 +2877,27 @@ var i18n = {
     'ai.row1.c':       'LINE 群組裡的工作通知與外籍員工溝通',
     'ai.row2.a':       '主要成果',
     'ai.row2.b':       '回覆更快、客服少打字、提高轉換',
-    'ai.row2.c':       '指令不誤會、事情有確認、每天有紀錄',
+    'ai.row2.c':       '訊息看得懂、重點可整理、紀錄可回查',
     'ai.row3.a':       '導入方式',
     'ai.row3.b':       '整理品牌資料、FAQ、商品與預約流程',
     'ai.row3.c':       '加入群組、設定語言、開摘要與報表',
     'ai.row4.a':       '最該借用',
     'ai.row4.b':       '知識庫、真人接手、導入 Demo 包裝',
-    'ai.row4.c':       '未來可做常用句/SOP 資料庫與人工確認流程',
+    'ai.row4.c':       '強化摘要、報表、搜尋、匯出與客服表單流程',
     'ai.row5.a':       '現在不追',
     'ai.row5.b':       '多平台社群私訊與留言導購',
     'ai.row5.c':       '先守住 LINE 群組與外籍員工管理這個垂直市場',
     // PRICING
     'price.eyebrow':   '// Pricing',
     'price.h2':        '選擇適合你的方案',
-    'price.lead':      '免費版每日 50 則文字翻譯；中文、日文、韓文無限免費，印尼文、菲律賓文、越南文每日限制次數。付費方案聚焦 LINE多國翻譯機器人群組使用。',
+    'price.lead':      '免費版中文、英文、日文、韓文無限免費；其他語言每日 50 則。付費方案聚焦 LINE多國翻譯機器人群組使用。',
     'price.tab.personal': 'LINE多國翻譯機器人',
     'price.tab.group': 'LINE多國翻譯機器人',
     'price.badge.popular': '最受歡迎',
     'price.badge.biz': '長期最划算',
-    'price.contact':   '聯繫開通',
-    'price.start':     '免費開始',
-    'price.join':      '免費加入',
+    'price.contact':   '加入開通',
+    'price.start':     '免費開通',
+    'price.join':      '免費開通',
     'price.refund':    '付款與退費：目前方案採付款連結開通或延長，不等同信用卡週期自動續扣；是否啟用自動扣款以綠界付款頁與訂購畫面顯示為準。本服務為數位內容，付款後原則上不退費；僅限付款後 24 小時內、Bot 完全無法回應且非使用者網路、LINE 或操作問題時，可聯繫客服 fishxit 申請審核。付款請以官方 LINE Bot @969wpxno 產生的綠界連結或官網正式入口為準，請勿相信陌生私訊或非官方連結。',
     // HOWTO
     'howto.eyebrow':   '// How It Works',
@@ -2923,22 +2923,22 @@ var i18n = {
     'terms.langs':     '支援語言清單',
     // CTA
     'cta.h2':          '現在就開始翻譯',
-    'cta.p':           '免費加入，每日 50 次免費翻譯；需要完整語言、語音、OCR、摘要與報表時，再升級LINE多國翻譯機器人方案。',
+    'cta.p':           '免費開通，每日 50 次免費翻譯；需要完整語言、語音、OCR、摘要與報表時，再升級LINE多國翻譯機器人方案。',
     'cta.btn':         '加入 LINE Bot 開始翻譯',
     // STATS NUM
     'stat.speed.num': '0.3秒',
     // TERMS CONTENT
 'acc.tos': [
-  "<p><strong>1. 服務範圍</strong><br>萬語通（以下稱「本服務」）提供 LINE 平台上的文字翻譯、圖片 OCR 翻譯、語音轉文字翻譯、常用句與群組翻譯輔助功能。免費版每日 50 則文字翻譯，中文、日文、韓文無限免費，印尼文、菲律賓文、越南文每日限制次數；付費功能以 LINE多國翻譯機器人方案為主。</p>",
+  "<p><strong>1. 服務範圍</strong><br>萬語通（以下稱「本服務」）提供 LINE 平台上的文字翻譯、圖片 OCR 翻譯、語音轉文字翻譯、群組翻譯、摘要、每日報表、後台紀錄搜尋與統計等輔助功能。免費版中文、英文、日文、韓文無限免費，其他語言每日 50 則；付費功能以 LINE多國翻譯機器人方案為主。</p>",
   "<p><strong>2. 使用規範與公平使用</strong><br>使用者不得利用本服務進行違法、詐欺、騷擾、散布不實資訊、侵害他人權益、機器批量請求、轉售翻譯額度、共享帳號營利或其他不當用途。高用量或大量翻譯方案仍受公平使用政策限制；若出現異常流量、濫用、影響服務穩定或明顯超出一般人工使用情境，本服務得暫停、限速、要求升級或人工審核。違反規範者，本服務得限制或停用帳號，已付款項不另行退還。</p>",
   "<p><strong>3. 逆向工程、繞過與未授權自動化</strong><br>除法律明文允許者外，使用者不得逆向工程、反編譯、拆解、掃描、測試未公開 API、繞過付款或額度限制、偽造付款或 webhook 通知、擷取私有下載連結、建立未授權自動化程式、批量爬取內容，或複製本服務之核心流程、資料結構、監控規則、定價與授權機制、後台功能。若發現上述行為，本服務得立即限制、暫停或終止服務，並保留相關紀錄供安全稽核、金流對帳與法律主張使用。</p>",
   "<p><strong>4. 翻譯結果</strong><br>翻譯、OCR 與語音轉錄結果僅供溝通參考，可能因原文品質、口音、截圖清晰度、專業語境或第三方 AI 服務而產生錯誤；不構成法律、醫療、財務、合約或安全作業指示之專業意見。重要內容請自行複核或交由專業人員確認。</p>",
   "<p><strong>5. 推薦活動狀態</strong><br>個人好友推薦活動已停止受理新綁定與新發獎；既有已發放的翻譯天數不受影響。LINE多國翻譯機器人方案不適用推薦碼活動。若歷史推薦紀錄涉及退款、爭議交易或濫用，本服務仍得依紀錄調整或追回優惠。</p>",
   "<p><strong>6. 服務中斷</strong><br>因 LINE、DeepL、OpenAI、Anthropic、雲端主機、網路、不可抗力或維護造成的延遲或中斷，本服務將盡力恢復，但不承諾永久不中斷，也不負衍生損害賠償責任。</p>",
-  "<p><strong>7. 帳號與付款安全</strong><br>官方 LINE Bot 為 @969wpxno，客服 LINE 為 fishxit。月費版、半年版、一年版與尊爵版(年)請以官方 LINE Bot 產生的綠界連結或官網正式入口為準。付款連結開通或延長不等同信用卡週期自動續扣；是否啟用自動扣款以綠界付款頁與訂購畫面顯示為準。請勿相信陌生私訊、截圖轉傳或非官方連結。使用者應自行保管 LINE 帳號與手機安全，因帳號遭盜用、釣魚或社交工程造成的損失，本服務不負責。</p>",
+  "<p><strong>7. 帳號與付款安全</strong><br>官方 LINE Bot 為 @969wpxno，客服 LINE 為 fishxit。月費版、半年版、一年版與尊爵版請以官方 LINE Bot 產生的綠界連結或官網正式入口為準。付款連結開通或延長不等同信用卡週期自動續扣；是否啟用自動扣款以綠界付款頁與訂購畫面顯示為準。請勿相信陌生私訊、截圖轉傳或非官方連結。使用者應自行保管 LINE 帳號與手機安全，因帳號遭盜用、釣魚或社交工程造成的損失，本服務不負責。</p>",
   "<p><strong>8. 條款修訂</strong><br>本服務保留調整功能、價格與條款之權利；重大變更將盡可能透過網站或 LINE Bot 公告。</p>"
 ].join(""),
-'acc.privacy': "<p><strong>1. 資料收集</strong><br>本服務會收集 LINE User ID、群組 ID、語言設定、翻譯次數、到期狀態、付款與開通紀錄、歷史推薦碼與推薦獎勵紀錄、必要的系統紀錄與錯誤紀錄，用於提供服務、計費、客服、安全稽核與歷史帳務追蹤。</p><p><strong>2. 翻譯內容處理</strong><br>為提供翻譯、OCR 或語音功能，使用者傳送的文字、圖片或語音可能會依功能需求傳送至 LINE、DeepL、OpenAI、Anthropic 或其他必要服務商處理。</p><p><strong>3. 記錄保存</strong><br>系統可能保存近期翻譯紀錄與使用紀錄，以支援 @歷史、常用句、用量統計、除錯與客服查詢；不會將內容出售給廣告商或公開揭露。若您不希望敏感內容被第三方服務處理，請勿透過本服務傳送。</p><p><strong>4. 第三方服務</strong><br>LINE、DeepL、OpenAI、Anthropic 等服務商各有其隱私政策與資料處理規範，本服務會在功能必要範圍內使用。</p><p><strong>5. 資料刪除</strong><br>如需查詢或刪除個人資料，請聯繫客服 LINE：fishxit。我們會在合理期間內處理；依法或基於帳務、稽核、安全所需保留的紀錄，可能無法立即刪除。</p>",
+'acc.privacy': "<p><strong>1. 資料收集</strong><br>本服務會收集 LINE User ID、群組 ID、語言設定、翻譯次數、到期狀態、付款與開通紀錄、歷史推薦碼與推薦獎勵紀錄、必要的系統紀錄與錯誤紀錄，用於提供服務、計費、客服、安全稽核與歷史帳務追蹤。</p><p><strong>2. 翻譯內容處理</strong><br>為提供翻譯、OCR 或語音功能，使用者傳送的文字、圖片或語音可能會依功能需求傳送至 LINE、DeepL、OpenAI、Anthropic 或其他必要服務商處理。</p><p><strong>3. 記錄保存</strong><br>系統可能保存近期翻譯紀錄與使用紀錄，以支援歷史查詢、後台搜尋、用量統計、除錯與客服查詢；不會將內容出售給廣告商或公開揭露。若您不希望敏感內容被第三方服務處理，請勿透過本服務傳送。</p><p><strong>4. 第三方服務</strong><br>LINE、DeepL、OpenAI、Anthropic 等服務商各有其隱私政策與資料處理規範，本服務會在功能必要範圍內使用。</p><p><strong>5. 資料刪除</strong><br>如需查詢或刪除個人資料，請聯繫客服 LINE：fishxit。我們會在合理期間內處理；依法或基於帳務、稽核、安全所需保留的紀錄，可能無法立即刪除。</p>",
     'acc.refund': "<p>⚠️ 本服務為數位內容，<strong>付款後原則上不退費</strong>。目前方案採付款連結開通或延長，不等同信用卡週期自動續扣；是否啟用自動扣款以綠界付款頁與訂購畫面顯示為準。</p><p><strong>唯一例外</strong></p><ul><li>付款後 <strong>24 小時內</strong>，若 Bot 完全無法回應（非使用者網路、LINE 本身或操作問題），可提出申請。</li></ul><p><strong>以下情況不受理退費</strong></p><ul><li>已成功使用任何翻譯功能（即使只用 1 次）</li><li>翻譯品質、語氣或用字不如預期</li><li>個人原因（不想用、忘記使用、操作不熟、買錯方案）</li><li>超過 24 小時後申請</li><li>語音或圖片功能部分異常，但文字翻譯仍可正常使用</li><li>第三方服務、LINE 或網路環境造成的短暫異常</li></ul><p><strong>申請方式</strong></p><ul><li>24 小時內聯繫客服 LINE ID：<strong>fishxit</strong>，附上付款時間、LINE ID 與問題截圖。</li><li>審核後 5～7 個工作日內處理。</li><li>跨行轉帳或金流手續費由申請人自行負擔。</li></ul><p><strong>安全提醒：</strong>一般付款請以官方 LINE Bot @969wpxno 產生的綠界連結或官網正式入口為準；客服 fishxit 僅處理付款異常、補款、對帳與人工導入，請勿相信其他管道。</p>",
     'acc.langs': '<p>萬語通採用 DeepL 專業翻譯引擎，支援 35 種常用語言（依方案與系統狀態調整）：</p><ul><li>英文、日文、韓文、印尼文、泰文、越南文、馬來文</li><li>法文、德文、西班牙文、俄文、葡萄牙文、義大利文</li><li>阿拉伯文、希伯來文</li><li>荷蘭文、波蘭文、土耳其文、瑞典文、捷克文</li><li>羅馬尼亞文、匈牙利文、烏克蘭文、保加利亞文</li><li>丹麥文、芬蘭文、希臘文、挪威文</li><li>愛沙尼亞文、拉脫維亞文、立陶宛文</li><li>斯洛伐克文、斯洛維尼亞文、簡體中文</li></ul><p>指令範例：傳 <strong>@印尼</strong> 切換印尼文；傳 <strong>@越南</strong> 切換越南文；傳 <strong>@支援語言</strong> 查看完整語言清單。</p>',
     // VS specific cells
@@ -2993,24 +2993,24 @@ var i18n = {
     'vs.val.curr.lig':   '按量計費',
     // PRICING PLANS - Legacy hidden labels kept only for DOM safety.
     'pp1.name': '免費版',   'pp1.desc': '',   'pp1.period': '每日 50 則免費',
-    'pp1.f1': '每日 50 則文字翻譯', 'pp1.f2': '中文、日文、韓文無限免費', 'pp1.f3': '印尼文、菲律賓文、越南文每日限制次數',
+    'pp1.f1': '每日 50 則文字翻譯', 'pp1.f2': '中文、英文、日文、韓文無限免費', 'pp1.f3': '其他語言每日 50 則',
     'pp2.name': '舊方案已停用',  'pp2.desc': '', 'pp2.period': '不再顯示',
-    'pp2.f1': '請將 Bot 加入 LINE 群組', 'pp2.f2': '使用 LINE多國翻譯機器人', 'pp2.f3': '月費版／半年版／一年版／尊爵版(年)', 'pp2.f4': '付款以官方連結為準',
+    'pp2.f1': '請將 Bot 加入 LINE 群組', 'pp2.f2': '使用 LINE多國翻譯機器人', 'pp2.f3': '月費版／半年版／一年版／尊爵版', 'pp2.f4': '付款以官方連結為準',
     'pp3.name': '月費版', 'pp3.desc': '', 'pp3.period': 'NT$99／30 天',
     'pp3.f1': '完整群組翻譯功能', 'pp3.f2': '語音、圖片 OCR、摘要與每日報表', 'pp3.f3': '支援完整語言清單',
-    'pp4.name': '一年版', 'pp4.desc': '', 'pp4.period': 'NT$799／420 天',
+    'pp4.name': '一年版', 'pp4.desc': '', 'pp4.period': 'NT$899／365 天',
     'pp4.f1': '完整群組翻譯、語音、OCR', 'pp4.f2': '摘要、報表、搜尋與匯出', 'pp4.f3': '適合穩定長期使用的群組', 'pp4.f4': '到期前自動提醒一次',
     // PRICING PLANS - Group
-    'pg1.name': '免費版', 'pg1.desc': '',          'pg1.period': '每日 50 則免費',
-    'pg1.f1': '每日 50 則文字翻譯', 'pg1.f2': '無限免費次數：中文、日文、韓文', 'pg1.f3': '每日限制次數：印尼文、菲律賓文、越南文', 'pg1.f4': '適合初期註冊 LINE 群組', 'pg1.f5': '加入即用，無需開通',
+    'pg1.name': '免費版', 'pg1.desc': '',          'pg1.period': '加入即用',
+    'pg1.f1': '無限免費次數：中文、英文、日文、韓文', 'pg1.f2': '其他語言每日 50 則', 'pg1.f3': '適合輕度／初期使用者', 'pg1.f4': '加入即用，無需開通', 'pg1.f5': '',
     'pg2.name': '月費版',  'pg2.desc': '',        'pg2.period': '30 天／每群組',
-    'pg2.f1': '完整群組翻譯功能', 'pg2.f2': '語音、圖片 OCR、摘要與每日報表', 'pg2.f3': '支援完整語言清單',
+    'pg2.f1': '小資輕鬆擁有完整服務', 'pg2.f2': '支援完整語言清單', 'pg2.f3': '支持語音、圖片 OCR 翻譯', 'pg2.f4': '後台紀錄搜尋與統計', 'pg2.f5': '新增報表製作滙出功能', 'pg2.f6': '配屬 AI 祕書可滙整 300 筆摘要',
     'pg3.name': '半年版',   'pg3.desc': '',  'pg3.period': '180 天／每群組',
-    'pg3.f1': '等同買 5 個月送 1 個月', 'pg3.f2': '完整群組翻譯、語音、OCR', 'pg3.f3': 'AI 摘要最近 300 筆', 'pg3.f4': '後台紀錄搜尋與統計',
-    'pg4.name': '一年版',   'pg4.desc': '', 'pg4.period': '420 天／每群組',
-    'pg4.f1': '完整群組翻譯、語音、OCR', 'pg4.f2': '摘要、報表、搜尋與匯出', 'pg4.f3': '適合穩定長期使用的群組', 'pg4.f4': '到期前自動提醒一次',
-    'pg5.name': '尊爵版(年)',   'pg5.desc': '', 'pg5.period': '永久買斷／每群組',
-    'pg5.f1': '專屬客製化機器人', 'pg5.f2': '預計開發台語版、客語版',
+    'pg3.f1': '經濟實惠的價格', 'pg3.f2': '支援完整語言清單', 'pg3.f3': '支持語音、圖片 OCR 翻譯', 'pg3.f4': '後台紀錄搜尋與統計', 'pg3.f5': '新增報表製作滙出功能', 'pg3.f6': '配屬 AI 祕書可滙整 300 筆摘要', 'pg3.f7': '適合中度／中長期使用者',
+    'pg4.name': '一年版',   'pg4.desc': '', 'pg4.period': '365 天／每群組',
+    'pg4.f1': '最佳實惠的價格', 'pg4.f2': '支援完整語言清單', 'pg4.f3': '支持語音、圖片 OCR 翻譯', 'pg4.f4': '後台紀錄搜尋與統計', 'pg4.f5': '新增報表製作滙出功能', 'pg4.f6': '配屬 AI 祕書可滙整 300 筆摘要', 'pg4.f7': '適合重度／長期使用者',
+    'pg5.name': '尊爵版',   'pg5.desc': '', 'pg5.period': '一次付費永久服務',
+    'pg5.f1': '支援完整語言清單', 'pg5.f2': '支持語音、圖片 OCR 翻譯', 'pg5.f3': '後台紀錄搜尋與統計', 'pg5.f4': '新增報表製作滙出功能', 'pg5.f5': '配屬 AI 祕書可滙整 300 筆摘要', 'pg5.f6': '可客製化專屬機器人', 'pg5.f7': '支持更新版本及語言',
   },
   en: {
     // NAV
@@ -3030,7 +3030,7 @@ var i18n = {
     'hero.eyebrow':    'WanyuTong',
     'hero.h1a':        'Cross-Language Work Instructions',
     'hero.h1b':        'Translated, Confirmed, Recorded',
-    'hero.desc':       'Put LINE work notices, translation, receipt confirmation, AI summaries, daily reports, and backend search into one workflow. Built for factories, worksites, caregiving, restaurants, and multilingual teams that need instructions understood, replies traceable, and records searchable.',
+    'hero.desc':       'Put LINE group translation, AI summaries, daily reports, and backend search into one workflow. Built for factories, worksites, caregiving, restaurants, and multilingual teams that need messages understood and records searchable.',
     'hero.btn1':       'Try the LINE Workflow Free',
     'hero.btn2':       'View Plans →',
     'phone.bot':       'WanyuTong',
@@ -3106,7 +3106,7 @@ var i18n = {
     'feat.9.title':    'Industry Terms and Quiet Hours',
     'feat.9.desc':     'Keep workplace terms intact and reduce non-work-hour interruptions, so the Bot behaves like an operational tool instead of a chat toy.',
     'feat.10.title':   'Try Free, Pay When Satisfied',
-    'feat.10.desc':    'The free plan includes 50 translations per day and is limited to English, Japanese, and Korean. Upgrade when you need more languages and full group features.',
+    'feat.10.desc':    'The free plan includes unlimited Chinese, English, Japanese, and Korean use plus 50 other-language messages per day. Upgrade when you need full language coverage and group features.',
     // INDUSTRIES
     'industry.eyebrow':'// Industries & Search Intent',
     'industry.title':  'Start with workplaces that need cross-language management most',
@@ -3155,17 +3155,17 @@ var i18n = {
     'guide.7.desc':    'Meeting times, safety notices, material details, and issue reports should be written clearly and easy to review.',
     'guide.8.tag':     'Safety',
     'guide.8.title':   'How employers can reduce foreign worker safety risk',
-    'guide.8.desc':    'Safety notices, native-language understanding, LINE records, and confirmation tracking are basic steps for safer workplace management.',
+    'guide.8.desc':    'Safety notices, native-language understanding, LINE records, and human review are basic steps for safer workplace management.',
     // SETUP FLOW
     'setup.eyebrow':   '// 10 Minute Setup',
     'setup.title':     'Make Onboarding Easy to Understand',
     'setup.lead':      'Customers do not want to study a system. They want fewer misunderstandings tomorrow. Start with one LINE group, then upgrade when group count, reporting, or exports require it.',
     'setup.summary.title': 'Start with the LINE Multilingual Translation Bot and make one group work first',
-    'setup.summary.desc':  'Plans are simplified to Free, Monthly, Half-Year, and Premium Annual. A single LINE group can start from the NT$99 monthly plan and move to Half-Year or Premium Annual later.',
+    'setup.summary.desc':  'Plans are simplified to Free, Monthly, Half-Year, and Premium. A single LINE group can start from the NT$99 monthly plan and move to Half-Year or Premium later.',
     'setup.price1.label': 'Single LINE group',
     'setup.price1.value': 'Monthly NT$99 / 30 days',
     'setup.price2.label': 'Long-term use',
-    'setup.price2.value': 'Annual NT$799 / Premium Annual NT$2500',
+    'setup.price2.value': 'Annual NT$899 / Premium NT$2500',
     'setup.price3.label': 'Full features',
     'setup.price3.value': 'Translation, voice, OCR, summaries, reports, and backend search',
     'setup.step1.num': 'STEP 01',
@@ -3213,14 +3213,14 @@ var i18n = {
     'vs.row.ocr':      'Image OCR',
     'vs.row.voice':    'Voice Translation',
     'vs.row.multi':    'Multi-Language',
-    'vs.row.confirm':  'Confirmation System',
-    'vs.row.vocab':    'Industry Vocab',
-    'vs.row.dnd':      'Do Not Disturb',
+    'vs.row.confirm':  'Backend Search & Stats',
+    'vs.row.vocab':    'Daily Reports',
+    'vs.row.dnd':      'Report Export',
     'vs.row.currency': 'Local Currency (TWD)',
     // AI SERVICE FIT
     'ai.eyebrow':      '// Not Just AI Service',
     'ai.title':        'WanyuTong Is a Multilingual LINE Workgroup Workflow, Not Social AI Support',
-    'ai.lead':         'Generic AI support tools answer customers, DMs, shopping questions, and booking requests. WanyuTong focuses on internal employer operations: translating work instructions, confirming understanding, and summarizing what happened in multilingual LINE groups.',
+    'ai.lead':         'Generic AI support tools answer customers, DMs, shopping questions, and booking requests. WanyuTong focuses on internal employer operations: translating group messages, summarizing daily highlights, and keeping searchable records.',
     'ai.card1.title':  'Generic AI support is for',
     'ai.card1.desc':   'Brands, ecommerce teams, restaurants, or creators that need to answer fans, sell products, take bookings, and manage FAQs.',
     'ai.card2.title':  'WanyuTong is for',
@@ -3233,27 +3233,27 @@ var i18n = {
     'ai.row1.c':       'Work notices and foreign-worker communication inside LINE groups',
     'ai.row2.a':       'Main outcome',
     'ai.row2.b':       'Faster replies, less support typing, higher conversion',
-    'ai.row2.c':       'Clear instructions, confirmed understanding, daily records',
+    'ai.row2.c':       'Clear messages, summarized highlights, searchable records',
     'ai.row3.a':       'Onboarding',
     'ai.row3.b':       'Prepare brand data, FAQs, products, and booking flows',
     'ai.row3.c':       'Add to group, set languages, enable summaries and reports',
     'ai.row4.a':       'Best idea to borrow',
     'ai.row4.b':       'Knowledge base, human handoff, onboarding demo packaging',
-    'ai.row4.c':       'Future quick phrase/SOP database and human confirmation workflow',
+    'ai.row4.c':       'Stronger summaries, reports, search, export, and support-form flow',
     'ai.row5.a':       'Not chasing now',
     'ai.row5.b':       'Multi-platform social DMs and comment-to-commerce flows',
     'ai.row5.c':       'Stay focused on LINE groups and foreign-worker management',
     // PRICING
     'price.eyebrow':   '// Pricing',
     'price.h2':        'Choose the Right Plan',
-    'price.lead':      'The free plan includes 50 text translations per day. Chinese, Japanese, and Korean are unlimited; Indonesian, Filipino, and Vietnamese use the daily quota. Paid plans focus on LINE group usage.',
+    'price.lead':      'The free plan includes 50 text translations per day. Chinese, English, Japanese, and Korean are unlimited; Other languages use the daily 50-message quota. Paid plans focus on LINE group usage.',
     'price.tab.personal': 'Group',
     'price.tab.group': 'Group',
     'price.badge.popular': 'Most Popular',
     'price.badge.biz': 'Best Value',
-    'price.contact':   'Contact to Activate',
-    'price.start':     'Start Free',
-    'price.join':      'Join Free',
+    'price.contact':   'Activate',
+    'price.start':     'Activate Free',
+    'price.join':      'Activate Free',
     'price.refund':    'Payment and Refund Policy: Plans are activated or extended through payment links and do not automatically mean recurring card billing. Any recurring payment setting depends on what is shown on the ECPay payment page and order screen. This is a digital service and payments are generally non-refundable. If the Bot is completely unresponsive within 24 hours of payment and the issue is not caused by the user network, LINE, or operation error, contact support LINE: fishxit with payment time and issue screenshots for review. Use only the official LINE Bot @969wpxno payment link or the official website entry for payment.',
     // HOWTO
     'howto.eyebrow':   '// How It Works',
@@ -3279,22 +3279,22 @@ var i18n = {
     'terms.langs':     'Supported Languages',
     // CTA
     'cta.h2':          'Start Translating Now',
-    'cta.p':           'Join free with 50 translations per day. Upgrade when you need full language coverage, voice, OCR, summaries, and reports.',
+    'cta.p':           'Activate free with unlimited Chinese, English, Japanese, and Korean use plus 50 other-language messages per day. Upgrade when you need full language coverage, voice, OCR, summaries, and reports.',
     'cta.btn':         'Add LINE Bot & Start',
     // STATS NUM
     'stat.speed.num': '0.3s',
     // TERMS CONTENT
 'acc.tos': [
-  "<p><strong>1. Scope of Service</strong><br>WanyuTong provides translation features on the LINE platform, including text translation, image OCR translation, voice-to-text translation, quick phrases, and group translation assistance. The free plan includes 50 text translations per day; Chinese, Japanese, and Korean are unlimited, while Indonesian, Filipino, and Vietnamese use the daily quota. Paid features focus on LINE group plans.</p>",
+  "<p><strong>1. Scope of Service</strong><br>WanyuTong provides translation features on the LINE platform, including text translation, image OCR translation, voice-to-text translation, group translation, summaries, daily reports, backend record search, and statistics. The free plan has unlimited Chinese, English, Japanese, and Korean use; other languages include 50 messages per day. Paid features focus on LINE group plans.</p>",
   "<p><strong>2. Acceptable Use and Fair Use</strong><br>Users may not use the Service for illegal activity, fraud, harassment, misinformation, infringement, machine batch requests, resale of translation quota, account sharing for commercial gain, or other abusive purposes. High-volume plans remain subject to fair use. If abnormal traffic, abuse, service-impacting usage, or usage clearly beyond ordinary human operation occurs, the Service may pause, rate-limit, require an upgrade, or require manual review. Violations may result in account restriction or suspension without refund.</p>",
   "<p><strong>3. Reverse Engineering, Circumvention, and Unauthorized Automation</strong><br>Except where expressly permitted by law, users may not reverse engineer, decompile, disassemble, scan, test non-public APIs, bypass payment or quota limits, forge payment or webhook notifications, extract private download links, create unauthorized automation, batch-scrape content, or copy the Service core workflows, data structures, monitoring rules, pricing and licensing mechanisms, or admin features. If such behavior is detected, the Service may immediately restrict, suspend, or terminate access and retain relevant records for security auditing, payment reconciliation, and legal claims.</p>",
   "<p><strong>4. Translation Results</strong><br>Translation, OCR, and speech transcription results are for communication reference only and may contain errors due to source quality, accent, image clarity, technical context, or third-party AI services. They are not legal, medical, financial, contractual, or safety-operation advice. Critical content should be reviewed by the user or a qualified professional.</p>",
   "<p><strong>5. Referral Program Status</strong><br>The personal referral program no longer accepts new bindings or new rewards. Previously granted bonus days remain valid. Group plans are not part of any referral-code program. If historical referral records involve refunds, disputed transactions, or abuse, the Service may still adjust or reverse bonuses based on records.</p>",
   "<p><strong>6. Service Interruption</strong><br>Delays or interruptions may occur due to LINE, DeepL, OpenAI, Anthropic, cloud hosting, network issues, force majeure, or maintenance. We will make reasonable efforts to restore service but do not guarantee uninterrupted operation or liability for consequential losses.</p>",
-  "<p><strong>7. Account and Payment Safety</strong><br>The official LINE Bot is @969wpxno and support LINE is fishxit. Monthly, half-year, and Premium Annual plans should use the payment link generated by the official LINE Bot or the official website entry. Payment-link activation or extension does not automatically mean recurring card billing; any recurring payment setting depends on what is shown on the ECPay payment page and order screen. Users are responsible for securing their LINE accounts and devices. Losses caused by account theft, phishing, or social engineering are not the responsibility of the Service.</p>",
+  "<p><strong>7. Account and Payment Safety</strong><br>The official LINE Bot is @969wpxno and support LINE is fishxit. Monthly, half-year, and Premium plans should use the payment link generated by the official LINE Bot or the official website entry. Payment-link activation or extension does not automatically mean recurring card billing; any recurring payment setting depends on what is shown on the ECPay payment page and order screen. Users are responsible for securing their LINE accounts and devices. Losses caused by account theft, phishing, or social engineering are not the responsibility of the Service.</p>",
   "<p><strong>8. Terms Revision</strong><br>We may adjust features, pricing, and terms. Major changes will be announced via the website or LINE Bot where practical.</p>"
 ].join(""),
-'acc.privacy': "<p><strong>1. Data Collection</strong><br>The Service may collect LINE User IDs, group IDs, language settings, translation counts, expiration status, payment and activation records, historical referral codes and referral reward records, required system logs, and error logs for service delivery, billing, support, security auditing, and historical account reconciliation.</p><p><strong>2. Translation Processing</strong><br>To provide translation, OCR, or voice features, text, images, or voice messages may be sent to LINE, DeepL, OpenAI, Anthropic, or other necessary service providers for processing.</p><p><strong>3. Record Retention</strong><br>The system may retain recent translation records and usage records to support history commands, quick phrases, usage analytics, debugging, and support. Content is not sold to advertisers or publicly disclosed. Do not send sensitive content if you do not want it processed by third-party services.</p><p><strong>4. Third-party Services</strong><br>LINE, DeepL, OpenAI, Anthropic, and other providers have their own privacy and data-processing policies. The Service uses them only where required for features.</p><p><strong>5. Data Deletion</strong><br>To request access or deletion, contact support LINE: fishxit. We will process requests within a reasonable period; records required for accounting, auditing, security, or legal reasons may be retained as needed.</p>",
+'acc.privacy': "<p><strong>1. Data Collection</strong><br>The Service may collect LINE User IDs, group IDs, language settings, translation counts, expiration status, payment and activation records, historical referral codes and referral reward records, required system logs, and error logs for service delivery, billing, support, security auditing, and historical account reconciliation.</p><p><strong>2. Translation Processing</strong><br>To provide translation, OCR, or voice features, text, images, or voice messages may be sent to LINE, DeepL, OpenAI, Anthropic, or other necessary service providers for processing.</p><p><strong>3. Record Retention</strong><br>The system may retain recent translation records and usage records to support history lookup, backend search, usage analytics, debugging, and support. Content is not sold to advertisers or publicly disclosed. Do not send sensitive content if you do not want it processed by third-party services.</p><p><strong>4. Third-party Services</strong><br>LINE, DeepL, OpenAI, Anthropic, and other providers have their own privacy and data-processing policies. The Service uses them only where required for features.</p><p><strong>5. Data Deletion</strong><br>To request access or deletion, contact support LINE: fishxit. We will process requests within a reasonable period; records required for accounting, auditing, security, or legal reasons may be retained as needed.</p>",
     'acc.refund': "<p>⚠️ This is a digital service. <strong>Payments are generally non-refundable.</strong> Plans are activated or extended through payment links and do not automatically mean recurring card billing. Any recurring payment setting depends on what is shown on the ECPay payment page and order screen.</p><p><strong>One Exception</strong></p><ul><li>If the Bot is completely unresponsive within <strong>24 hours</strong> of payment and the issue is not caused by the user's network, LINE, or operation error, you may apply for review.</li></ul><p><strong>Non-refundable situations</strong></p><ul><li>Any translation feature has been successfully used, even once</li><li>Translation quality, tone, or wording did not meet expectations</li><li>Personal reasons, including changed mind, forgot to use, unfamiliar operation, or wrong plan selected</li><li>Application submitted after 24 hours</li><li>Voice or image features are partially abnormal while text translation still works</li><li>Short interruptions caused by third-party services, LINE, or network conditions</li></ul><p><strong>How to Apply</strong></p><ul><li>Contact support LINE ID: <strong>fishxit</strong> within 24 hours with payment time, LINE ID, and issue screenshots.</li><li>Processing takes 5-7 business days after review.</li><li>Bank transfer or payment processing fees are borne by the applicant.</li></ul><p><strong>Safety Notice:</strong> General payments should use the payment link generated by official LINE Bot @969wpxno or the official website entry. Support fishxit only handles payment exceptions, manual adjustments, reconciliation, and activation issues.</p>",
     'acc.langs': '<p>WanyuTong uses the DeepL professional translation engine and supports 35 common languages depending on plan and system status:</p><ul><li>English, Japanese, Korean, Indonesian, Thai, Vietnamese, Malay</li><li>French, German, Spanish, Russian, Portuguese, Italian</li><li>Arabic, Hebrew</li><li>Dutch, Polish, Turkish, Swedish, Czech</li><li>Romanian, Hungarian, Ukrainian, Bulgarian</li><li>Danish, Finnish, Greek, Norwegian</li><li>Estonian, Latvian, Lithuanian</li><li>Slovak, Slovenian, Simplified Chinese</li></ul><p>Example: use the Indonesian command to switch; use the supported-languages command in LINE to view the full language list.</p>',
     // VS specific cells
@@ -3302,9 +3302,9 @@ var i18n = {
     'vs.voice.wyt':   '● ✓ All Paid Plans',
     'vs.multi.wyt':   '● ✓ Up to 8 langs',
     'vs.multi.ech':   'Up to 5 langs',
-    'vs.confirm.wyt': '● ✓ (Exclusive)',
-    'vs.vocab.wyt':   '● ✓ (Exclusive)',
-    'vs.dnd.wyt':     '● ✓ (Exclusive)',
+    'vs.confirm.wyt': '● ✓',
+    'vs.vocab.wyt':   '● ✓',
+    'vs.dnd.wyt':     '● ✓',
     'vs.curr.ech':    '✕ USD Only',
     'vs.curr.lig':    'Usage-based',
     // FOOTER
@@ -3333,7 +3333,7 @@ var i18n = {
     'cmp.val.use.goo':      '✕ Requires Another App',
     'cmp.ex.orig.text':  'Thank you for your reply. I look forward to working together.',
     'cmp.ex.wyt.text':   'Uses DeepL translation and adds human-review reminders for safety, contracts, and payment amounts.',
-    'cmp.ex.general.text': 'You need to copy, paste, and switch apps. Confirmation records inside the LINE group are usually not retained.',
+    'cmp.ex.general.text': 'You need to copy, paste, and switch apps. Summaries, reports, and backend records are usually not retained.',
     // VS VALUES
     'vs.val.price.wyt':  '● From NT$99',
     'vs.val.price.ech':  'USD (More Expensive)',
@@ -3351,23 +3351,23 @@ var i18n = {
     'vs.val.curr.lig':   'Usage-based',
     // PRICING PLANS - Legacy hidden labels kept only for DOM safety.
     'pp1.name': 'Free',        'pp1.desc': '',         'pp1.period': '50 free messages/day',
-    'pp1.f1': '50 text translations/day', 'pp1.f2': 'Unlimited free use: Chinese, Japanese, Korean', 'pp1.f3': 'Daily quota: Indonesian, Filipino, Vietnamese',
+    'pp1.f1': '50 text translations/day', 'pp1.f2': 'Unlimited free use: Chinese, English, Japanese, Korean', 'pp1.f3': 'Other languages: 50 messages/day',
     'pp2.name': 'Legacy Plan Disabled', 'pp2.desc': '',    'pp2.period': 'Hidden',
-    'pp2.f1': 'Add the Bot to a LINE group', 'pp2.f2': 'Use the LINE Multilingual Translation Bot', 'pp2.f3': 'Monthly / Half-Year / Premium Annual', 'pp2.f4': 'Payments must use official links',
+    'pp2.f1': 'Add the Bot to a LINE group', 'pp2.f2': 'Use the LINE Multilingual Translation Bot', 'pp2.f3': 'Monthly / Half-Year / Premium', 'pp2.f4': 'Payments must use official links',
     'pp3.name': 'Monthly',     'pp3.desc': '','pp3.period': 'NT$99 / 30 days',
     'pp3.f1': 'Full group translation features', 'pp3.f2': 'Voice, image OCR, summaries, daily reports', 'pp3.f3': 'Full supported language list',
-    'pp4.name': 'Annual',      'pp4.desc': '', 'pp4.period': 'NT$799 / 420 days',
+    'pp4.name': 'Annual',      'pp4.desc': '', 'pp4.period': 'NT$899 / 365 days',
     'pp4.f1': 'Full group translation, voice, and OCR', 'pp4.f2': 'Summaries, reports, search, and exports', 'pp4.f3': 'For stable long-term groups', 'pp4.f4': 'One expiry reminder before expiration',
     // PRICING PLANS - Group
     'pg1.name': 'Free',  'pg1.desc': '',          'pg1.period': '50 free messages/day',
-    'pg1.f1': '50 text translations/day', 'pg1.f2': 'Unlimited free use: Chinese, Japanese, Korean', 'pg1.f3': 'Daily quota: Indonesian, Filipino, Vietnamese', 'pg1.f4': 'Good for initial LINE group registration', 'pg1.f5': 'No setup needed',
+    'pg1.f1': '50 text translations/day', 'pg1.f2': 'Unlimited free use: Chinese, English, Japanese, Korean', 'pg1.f3': 'Other languages: 50 messages/day', 'pg1.f4': 'Good for initial LINE group registration', 'pg1.f5': 'No setup needed',
     'pg2.name': 'Monthly', 'pg2.desc': '',    'pg2.period': '30 days / group',
     'pg2.f1': 'Full group translation features', 'pg2.f2': 'Voice, image OCR, summaries, daily reports', 'pg2.f3': 'Full supported language list',
     'pg3.name': 'Half-Year',       'pg3.desc': '', 'pg3.period': '180 days / group',
     'pg3.f1': 'Equivalent to buy 5 months, get 1 month free', 'pg3.f2': 'Full group translation, voice, and OCR', 'pg3.f3': 'AI summaries up to latest 300 messages', 'pg3.f4': 'Backend search and analytics',
-    'pg4.name': 'Annual',    'pg4.desc': '', 'pg4.period': '420 days / group',
+    'pg4.name': 'Annual',    'pg4.desc': '', 'pg4.period': '365 days / group',
     'pg4.f1': 'Full group translation, voice, and OCR', 'pg4.f2': 'Summaries, reports, search, and exports', 'pg4.f3': 'For stable long-term groups', 'pg4.f4': 'One expiry reminder before expiration',
-    'pg5.name': 'Premium Annual',    'pg5.desc': '', 'pg5.period': 'Lifetime buyout / group',
+    'pg5.name': 'Premium',    'pg5.desc': '', 'pg5.period': 'One-time lifetime service',
     'pg5.f1': 'Dedicated customized bot', 'pg5.f2': 'Taiwanese and Hakka versions planned',
   }
 };
@@ -3388,10 +3388,10 @@ function applyLang(lang) {
   ];
   var groupPlans = [
     { name:'pg1.name', desc:'pg1.desc', period:'pg1.period', features:['pg1.f1','pg1.f2','pg1.f3','pg1.f4','pg1.f5'] },
-    { name:'pg2.name', desc:'pg2.desc', period:'pg2.period', features:['pg2.f1','pg2.f2','pg2.f3'] },
-    { name:'pg3.name', desc:'pg3.desc', period:'pg3.period', features:['pg3.f1','pg3.f2','pg3.f3','pg3.f4'] },
-    { name:'pg4.name', desc:'pg4.desc', period:'pg4.period', features:['pg4.f1','pg4.f2','pg4.f3','pg4.f4'] },
-    { name:'pg5.name', desc:'pg5.desc', period:'pg5.period', features:['pg5.f1','pg5.f2'] },
+    { name:'pg2.name', desc:'pg2.desc', period:'pg2.period', features:['pg2.f1','pg2.f2','pg2.f3','pg2.f4','pg2.f5','pg2.f6'] },
+    { name:'pg3.name', desc:'pg3.desc', period:'pg3.period', features:['pg3.f1','pg3.f2','pg3.f3','pg3.f4','pg3.f5','pg3.f6','pg3.f7'] },
+    { name:'pg4.name', desc:'pg4.desc', period:'pg4.period', features:['pg4.f1','pg4.f2','pg4.f3','pg4.f4','pg4.f5','pg4.f6','pg4.f7'] },
+    { name:'pg5.name', desc:'pg5.desc', period:'pg5.period', features:['pg5.f1','pg5.f2','pg5.f3','pg5.f4','pg5.f5','pg5.f6','pg5.f7'] },
   ];
   function applyPlans(panelId, plans) {
     var cards = document.querySelectorAll('#' + panelId + ' .price-card');
@@ -3843,33 +3843,33 @@ function forcePricingLang(lang) {
     zh: {
       eyebrow: '// Pricing',
       title: '選擇適合你的方案',
-      lead: '免費版每日 50 則文字翻譯；中文、日文、韓文無限免費，印尼文、菲律賓文、越南文每日限制次數。付費方案聚焦 LINE多國翻譯機器人群組使用。',
+      lead: '免費版中文、英文、日文、韓文無限免費；其他語言每日 50 則。付費方案聚焦 LINE多國翻譯機器人群組使用。',
       tabs: ['LINE多國翻譯機器人'],
       refund: '付款與退費：目前方案採付款連結開通或延長，不等同信用卡週期自動續扣；是否啟用自動扣款以綠界付款頁與訂購畫面顯示為準。本服務為數位內容，付款後原則上不退費；僅限付款後 24 小時內、Bot 完全無法回應且非使用者網路、LINE 或操作問題時，可聯繫客服 fishxit 申請審核。付款請以官方 LINE Bot @969wpxno 產生的綠界連結或官網正式入口為準，請勿相信陌生私訊或非官方連結。',
-      badges: { group: '長期最划算', premium: '尊爵買斷' },
-      buttons: { start: '免費開始', join: '免費加入', contact: '聯繫開通' },
+      badges: { group: '長期最划算', premium: '尊爵服務' },
+      buttons: { start: '免費開通', join: '免費開通', contact: '加入開通' },
       group: [
-        { name:'免費版', desc:'', amount:'$0', period:'每日 50 則免費', features:['每日 50 則文字翻譯','無限免費次數：中文、日文、韓文','每日限制次數：印尼文、菲律賓文、越南文','適合初期註冊 LINE 群組','加入即用，無需開通'] },
+        { name:'免費版', desc:'', amount:'$0', period:'每日 50 則免費', features:['每日 50 則文字翻譯','無限免費次數：中文、英文、日文、韓文','其他語言每日 50 則','適合初期註冊 LINE 群組','加入即用，無需開通'] },
         { name:'月費版', desc:'', amount:'NT$99', period:'30 天／每群組', features:['完整群組翻譯功能','語音、圖片 OCR、摘要與每日報表','支援完整語言清單'] },
         { name:'半年版', desc:'', amount:'NT$499', period:'180 天／每群組', features:['等同買 5 個月送 1 個月','完整群組翻譯、語音、OCR','AI 摘要最近 300 筆','後台紀錄搜尋與統計'] },
-        { name:'一年版', desc:'', amount:'NT$799', period:'420 天／每群組', features:['完整群組翻譯、語音、OCR','摘要、報表、搜尋與匯出','適合穩定長期使用的群組','到期前自動提醒一次'] },
-        { name:'尊爵版(年)', desc:'', amount:'NT$2500', period:'永久買斷／每群組', features:['專屬客製化機器人','預計開發台語版、客語版'] }
+        { name:'一年版', desc:'', amount:'NT$899', period:'365 天／每群組', features:['完整群組翻譯、語音、OCR','摘要、報表、搜尋與匯出','適合穩定長期使用的群組','到期前自動提醒一次'] },
+        { name:'尊爵版', desc:'', amount:'NT$2500', period:'一次付費永久服務', features:['專屬客製化機器人','預計開發台語版、客語版'] }
       ]
     },
     en: {
       eyebrow: '// Pricing',
       title: 'Choose the Right Plan',
-      lead: 'The free plan includes 50 text translations per day. Chinese, Japanese, and Korean are unlimited; Indonesian, Filipino, and Vietnamese use the daily quota. Paid plans focus on LINE group usage.',
+      lead: 'The free plan has unlimited Chinese, English, Japanese, and Korean use; other languages include 50 messages per day. Paid plans focus on LINE group usage.',
       tabs: ['Group'],
       refund: 'Payment and Refund Policy: Plans are activated or extended through payment links and do not automatically mean recurring card billing. Any recurring payment setting depends on what is shown on the ECPay payment page and order screen. This is a digital service and payments are generally non-refundable. If the Bot is completely unresponsive within 24 hours of payment and the issue is not caused by the user network, LINE, or operation error, contact support LINE: fishxit with payment time and issue screenshots for review. Use only the official LINE Bot @969wpxno payment link or the official website entry for payment.',
-      badges: { group: 'Best Value', premium: 'Premium Buyout' },
-      buttons: { start: 'Start Free', join: 'Join Free', contact: 'Contact to Activate' },
+      badges: { group: 'Best Value', premium: 'Premium Service' },
+      buttons: { start: 'Activate Free', join: 'Activate Free', contact: 'Activate' },
       group: [
-        { name:'Free', desc:'', amount:'$0', period:'50 free messages/day', features:['50 text translations/day','Unlimited free use: Chinese, Japanese, Korean','Daily quota: Indonesian, Filipino, Vietnamese','Good for initial LINE group registration','No setup needed'] },
+        { name:'Free', desc:'', amount:'$0', period:'50 free messages/day', features:['50 text translations/day','Unlimited free use: Chinese, English, Japanese, Korean','Other languages: 50 messages/day','Good for initial LINE group registration','No setup needed'] },
         { name:'Monthly', desc:'', amount:'NT$99', period:'30 days / group', features:['Full group translation features','Voice, image OCR, summaries, daily reports','Full supported language list'] },
         { name:'Half-Year', desc:'', amount:'NT$499', period:'180 days / group', features:['Equivalent to buy 5 months, get 1 month free','Full group translation, voice, and OCR','AI summaries up to latest 300 messages','Backend search and analytics'] },
-        { name:'Annual', desc:'', amount:'NT$799', period:'420 days / group', features:['Full group translation, voice, and OCR','Summaries, reports, search, and exports','For stable long-term groups','One expiry reminder before expiration'] },
-        { name:'Premium Annual', desc:'', amount:'NT$2500', period:'Lifetime buyout / group', features:['Dedicated customized bot','Taiwanese and Hakka versions planned'] }
+        { name:'Annual', desc:'', amount:'NT$899', period:'365 days / group', features:['Full group translation, voice, and OCR','Summaries, reports, search, and exports','For stable long-term groups','One expiry reminder before expiration'] },
+        { name:'Premium', desc:'', amount:'NT$2500', period:'One-time lifetime service', features:['Dedicated customized bot','Taiwanese and Hakka versions planned'] }
       ]
     }
   };
@@ -3954,9 +3954,9 @@ function forceCompareLang(lang) {
         ['圖片 OCR 翻譯','● ✓（付費版）','✕','● ✓','✕'],
         ['語音翻譯','● ✓ 所有付費版','● ✓','● ✓','✕'],
         ['多語同翻','● ✓ 最多8種','最多5種','✕','● ✓'],
-        ['翻譯確認系統','● ✓（獨有）','✕','✕','✕'],
-        ['行業詞庫','● ✓（獨有）','✕','✕','✕'],
-        ['勿擾模式','● ✓（獨有）','✕','✕','✕'],
+        ['後台搜尋與統計','● ✓','✕','✕','✕'],
+        ['每日報表','● ✓','✕','✕','✕'],
+        ['報表匯出','● ✓','✕','✕','✕'],
         ['台灣在地計價','● NT$（台幣）','✕ 美金','● NT$','按量計費']
       ]
     },
@@ -3977,9 +3977,9 @@ function forceCompareLang(lang) {
         ['Image OCR','● ✓ (Paid Plans)','✕','● ✓','✕'],
         ['Voice Translation','● ✓ All Paid Plans','● ✓','● ✓','✕'],
         ['Multi-language','● ✓ Up to 8 langs','Up to 5 langs','✕','● ✓'],
-        ['Confirmation System','● ✓ (Exclusive)','✕','✕','✕'],
-        ['Industry Glossary','● ✓ (Exclusive)','✕','✕','✕'],
-        ['Do Not Disturb','● ✓ (Exclusive)','✕','✕','✕'],
+        ['Backend Search & Stats','● ✓','✕','✕','✕'],
+        ['Daily Reports','● ✓','✕','✕','✕'],
+        ['Report Export','● ✓','✕','✕','✕'],
         ['Taiwan Local Pricing','● NT$','✕ USD','● NT$','Usage-based']
       ]
     }

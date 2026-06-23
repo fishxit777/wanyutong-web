@@ -282,13 +282,8 @@
     }
 
     var footerInfo = document.querySelector('footer div[data-zh], footer div:first-child');
-    if (footerInfo && /©|萬語通|WanyuTong|LINE|Email/.test(footerInfo.textContent)) {
-      setLocalizedText(
-        footerInfo,
-        '© 2026 萬語通 · 客服表單：https://forms.gle/rKatiHrCmh5wpCov8 · Email: bao58881@gmail.com',
-        '© 2026 WanyuTong · Support form: https://forms.gle/rKatiHrCmh5wpCov8 · Email: bao58881@gmail.com',
-        activeLang
-      );
+    if (footerInfo && /?|???|WanyuTong|LINE|Email/.test(footerInfo.textContent)) {
+      footerInfo.innerHTML = activeLang === 'en' ? '© 2026 WanyuTong · <a class="support-form-link" href="https://forms.gle/rKatiHrCmh5wpCov8" target="_blank" rel="noopener">GOOGLE Support Form</a> · Email: bao58881@gmail.com' : '© 2026 萬語通 · <a class="support-form-link" href="https://forms.gle/rKatiHrCmh5wpCov8" target="_blank" rel="noopener">GOOGLE 客服表單</a> · Email：bao58881@gmail.com';
     }
 
     syncNavLabels(activeLang);

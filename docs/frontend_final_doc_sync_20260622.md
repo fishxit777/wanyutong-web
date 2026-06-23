@@ -4,7 +4,7 @@
 
 - 來源文件：`C:/Users/bao58/OneDrive/Desktop/萬語通優化版.docx`
 - 本次以前述 DOCX 為主，官網、FAQ、條款、部落格與中英文切換同步修正。
-- 年費方案統一採主要方案卡版本：`一年版 NT$899 / 365 天`。
+- 年費方案統一採主要方案卡版本：`一年版 NT$799 / 420 天`。
 
 ## 已同步頁面
 
@@ -28,7 +28,7 @@
 ## 後續待補
 
 - 教學影片：依前次指示暫不製作。
-- Google 客服表單：已於 2026-06-24 補上正式 URL `https://forms.gle/rKatiHrCmh5wpCov8`。
+- GOOGLE 客服表單：已於 2026-06-24 補上正式 URL [GOOGLE 客服表單](https://forms.gle/rKatiHrCmh5wpCov8)。
 - 廣告重置流程：前端尚未加入正式廣告連結或 SDK。
 
 ## 回歸測試重點

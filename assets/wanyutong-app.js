@@ -278,8 +278,8 @@
     if (footerInfo && /©|萬語通|WanyuTong|LINE|Email/.test(footerInfo.textContent)) {
       setLocalizedText(
         footerInfo,
-        '© 2026 萬語通 · LINE: fishxit · Email: bao58881@gmail.com',
-        '© 2026 WanyuTong · LINE: fishxit · Email: bao58881@gmail.com',
+        '© 2026 萬語通 · 客服表單：https://forms.gle/rKatiHrCmh5wpCov8 · Email: bao58881@gmail.com',
+        '© 2026 WanyuTong · Support form: https://forms.gle/rKatiHrCmh5wpCov8 · Email: bao58881@gmail.com',
         activeLang
       );
     }

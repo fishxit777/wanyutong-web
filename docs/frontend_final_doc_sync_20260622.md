@@ -25,10 +25,10 @@
 - `docs/frontend_plan_pricing_sync_20260622.md`
   - 已補上最終版方案資料。
 
-## 尚待補
+## 後續待補
 
 - 教學影片：依前次指示暫不製作。
-- Google 客服表單：文件仍標示待補，未放正式表單網址。
+- Google 客服表單：已於 2026-06-24 補上正式 URL `https://forms.gle/rKatiHrCmh5wpCov8`。
 - 廣告重置流程：前端尚未加入正式廣告連結或 SDK。
 
 ## 回歸測試重點

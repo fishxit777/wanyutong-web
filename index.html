@@ -17,7 +17,7 @@
 <meta property="og:url" content="https://fishxit777.github.io/wanyutong-web/">
 <meta property="og:title" content="萬語通 WanyuTong｜LINE 多國翻譯、AI 摘要與每日報表">
 <meta property="og:description" content="多國翻譯、圖片 OCR、語音、AI 摘要、每日報表、後台搜尋與統計放在同一個 LINE 流程裡，讓跨語言團隊交代清楚、重要內容查得到。">
-<meta property="og:image" content="https://fishxit777.github.io/wanyutong-web/og-image.png">
+<meta property="og:image" content="https://fishxit777.github.io/wanyutong-web/assets/wanyutong-logo.jpg">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:site_name" content="萬語通 WanyuTong">
 
@@ -25,7 +25,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="萬語通 WanyuTong｜LINE 多國翻譯、AI 摘要與每日報表">
 <meta name="twitter:description" content="多國翻譯、圖片 OCR、語音、AI 摘要、每日報表、後台搜尋與統計放在同一個 LINE 流程裡，讓跨語言團隊交代清楚、重要內容查得到。">
-<meta name="twitter:image" content="https://fishxit777.github.io/wanyutong-web/og-image.png">
+<meta name="twitter:image" content="https://fishxit777.github.io/wanyutong-web/assets/wanyutong-logo.jpg">
 
 <!-- JSON-LD 結構化資料 -->
 <script type="application/ld+json">
@@ -376,8 +376,44 @@ nav {
   white-space: nowrap;
   flex-shrink: 0;
 }
+
+.brand-logo {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex: 0 0 42px;
+  border: 2px solid rgba(255,255,255,0.14);
+  box-shadow:
+    0 0 0 1px rgba(255,115,30,0.35),
+    0 0 22px rgba(255,115,30,0.22),
+    0 0 28px rgba(6,199,85,0.14);
+}
+
+.brand-copy {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.32rem;
+  min-width: 0;
+}
+
+.nav-brand-main {
+  color: var(--white);
+  line-height: 1;
+}
+
+.nav-brand-sub {
+  color: rgba(232,237,245,0.76);
+  font-size: 0.82em;
+  line-height: 1;
+}
+
+html.light .nav-brand-sub { color: rgba(26,34,51,0.72); }
+
 @media (max-width: 500px) {
   .nav-brand { font-size: 0.95rem; }
+  .brand-logo { width: 34px; height: 34px; flex-basis: 34px; }
+  .nav-brand-sub { display: none; }
   .lang-toggle { font-size: 0.62rem; }
   .lang-btn { padding: 3px 7px; }
 }
@@ -469,6 +505,72 @@ nav {
   position: relative;
   z-index: 1;
 }
+
+.hero-logo-lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  width: fit-content;
+  max-width: 100%;
+  margin-bottom: 1.25rem;
+  padding: 0.72rem 1.05rem 0.72rem 0.72rem;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
+  background:
+    linear-gradient(135deg, rgba(255,115,30,0.12), rgba(6,199,85,0.08)),
+    rgba(7,11,18,0.72);
+  box-shadow:
+    0 18px 60px rgba(0,0,0,0.28),
+    0 0 48px rgba(255,115,30,0.12);
+  backdrop-filter: blur(18px);
+}
+
+.hero-logo-img {
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex: 0 0 92px;
+  border: 3px solid rgba(255,255,255,0.18);
+  box-shadow:
+    0 0 0 2px rgba(255,115,30,0.45),
+    0 0 42px rgba(255,115,30,0.28),
+    0 0 36px rgba(0,212,255,0.12);
+}
+
+.hero-logo-copy {
+  display: grid;
+  gap: 0.12rem;
+  min-width: 0;
+}
+
+.hero-logo-kicker {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  color: rgba(255,180,120,0.92);
+  letter-spacing: 0.12em;
+}
+
+.hero-logo-copy strong {
+  font-family: 'Syne', sans-serif;
+  color: var(--white);
+  font-size: clamp(1.35rem, 2.6vw, 2.05rem);
+  line-height: 1;
+}
+
+.hero-logo-copy span:last-child {
+  color: rgba(232,237,245,0.74);
+  font-size: 0.92rem;
+  line-height: 1.35;
+}
+
+html.light .hero-logo-lockup {
+  background:
+    linear-gradient(135deg, rgba(255,115,30,0.16), rgba(5,179,74,0.1)),
+    rgba(255,255,255,0.82);
+}
+
+html.light .hero-logo-copy span:last-child { color: rgba(26,34,51,0.68); }
 
 .hero-eyebrow {
   display: inline-flex;
@@ -1259,8 +1361,10 @@ footer a:hover { color:var(--text); }
   .nav-links.open { display:flex; }
   .hamburger { display:flex; flex-shrink:0; }
   .hero-grid { grid-template-columns:1fr; gap:2.5rem; }
+  .hero-logo-lockup { padding: 0.6rem 0.85rem 0.6rem 0.6rem; }
+  .hero-logo-img { width: 74px; height: 74px; flex-basis: 74px; }
   h1 { font-size: 2.45rem; }
-  .hero-mockup { order:-1; justify-content:center; transform:none; }
+  .hero-mockup { order:0; justify-content:center; transform:none; }
   .hero-signal-stack { display:none; }
   #hero3d-canvas { opacity:0.56; }
   #matrix-canvas { width:100%; opacity:0.08; }
@@ -1484,7 +1588,10 @@ footer a:hover { color:var(--text); }
 <div class="scanline2"></div>
 
 <nav>
-  <a href="#hero" class="nav-brand"><span class="nav-dot"></span>萬語通 WanyuTong</a>
+  <a href="#hero" class="nav-brand">
+    <img class="brand-logo" src="assets/wanyutong-logo.jpg" alt="萬語通 Globe Talk AI Translation 標誌">
+    <span class="brand-copy"><span class="nav-brand-main">萬語通</span><span class="nav-brand-sub">WanyuTong</span></span>
+  </a>
   <div style="display:flex;align-items:center;gap:0.5rem;">
     <a href="blog.html" class="nav-blog-pill">📝 部落格</a>
     <a href="faq.html" class="nav-blog-pill" style="border-color:rgba(6,199,85,0.3);color:var(--line);background:rgba(6,199,85,0.06);">❓ 常見問題</a>
@@ -1548,6 +1655,14 @@ footer a:hover { color:var(--text); }
   </div>
   <div class="hero-grid">
     <div class="hero-text">
+        <div class="hero-logo-lockup" aria-label="萬語通 Globe Talk AI Translation">
+          <img class="hero-logo-img" src="assets/wanyutong-logo.jpg" alt="萬語通 Globe Talk AI Translation 標誌">
+          <div class="hero-logo-copy">
+            <span class="hero-logo-kicker">GLOBE TALK AI TRANSLATION</span>
+            <strong id="hero-logo-title">萬語通</strong>
+            <span id="hero-logo-subtitle">LINE多國翻譯機器人</span>
+          </div>
+        </div>
         <div class="hero-eyebrow">萬語通 WanyuTong</div>
         <h1 aria-label="跨語言工作交辦 有翻譯、有確認、有紀錄">跨語言工作交辦<br><span class="hl">有翻譯、有確認、有紀錄</span></h1>
         <p class="hero-desc">把 LINE 群組裡的多國翻譯、語音、圖片 OCR、AI 摘要、每日報表、後台搜尋與統計放在同一個流程。專為工廠、工地、看護、餐飲等多語團隊設計，讓主管交代得清楚，重要內容查得到。</p>
@@ -2672,6 +2787,8 @@ var i18n = {
     'site.title':      '萬語通 WanyuTong｜跨語言工作交辦、確認與紀錄系統',
     // HERO
     'hero.eyebrow':    '萬語通 WanyuTong',
+    'hero.logo.title': '萬語通',
+    'hero.logo.sub':   'LINE多國翻譯機器人',
     'hero.h1a':        '跨語言工作交辦',
     'hero.h1b':        '有翻譯、有確認、有紀錄',
     'hero.desc':       '把 LINE 群組裡的多國翻譯、語音、圖片 OCR、AI 摘要、每日報表、後台搜尋與統計放在同一個流程。專為工廠、工地、看護、餐飲等多語團隊設計，讓主管交代得清楚，重要內容查得到。',
@@ -3028,6 +3145,8 @@ var i18n = {
     'site.title':      'WanyuTong | Cross-Language Work Instructions, Confirmation, and Records',
     // HERO
     'hero.eyebrow':    'WanyuTong',
+    'hero.logo.title': 'WanyuTong',
+    'hero.logo.sub':   'Globe Talk AI Translation',
     'hero.h1a':        'Cross-Language Work Instructions',
     'hero.h1b':        'Translated, Confirmed, Recorded',
     'hero.desc':       'Put LINE group translation, AI summaries, daily reports, and backend search into one workflow. Built for factories, worksites, caregiving, restaurants, and multilingual teams that need messages understood and records searchable.',
@@ -3431,10 +3550,30 @@ function applyLang(lang) {
   // NAV
   var navBrand = document.querySelector('.nav-brand');
   if (navBrand && t['nav.brand']) {
-    var navDot = navBrand.querySelector('.nav-dot');
-    navBrand.innerHTML = '';
-    if (navDot) navBrand.appendChild(navDot);
-    navBrand.appendChild(document.createTextNode(t['nav.brand']));
+    var brandLogo = navBrand.querySelector('.brand-logo');
+    var brandCopy = navBrand.querySelector('.brand-copy');
+    var brandMain = navBrand.querySelector('.nav-brand-main');
+    var brandSub = navBrand.querySelector('.nav-brand-sub');
+    if (!brandLogo) {
+      brandLogo = document.createElement('img');
+      brandLogo.className = 'brand-logo';
+      brandLogo.src = 'assets/wanyutong-logo.jpg';
+      brandLogo.alt = '萬語通 Globe Talk AI Translation 標誌';
+      navBrand.insertBefore(brandLogo, navBrand.firstChild);
+    }
+    if (!brandCopy) {
+      brandCopy = document.createElement('span');
+      brandCopy.className = 'brand-copy';
+      brandMain = document.createElement('span');
+      brandMain.className = 'nav-brand-main';
+      brandSub = document.createElement('span');
+      brandSub.className = 'nav-brand-sub';
+      brandCopy.appendChild(brandMain);
+      brandCopy.appendChild(brandSub);
+      navBrand.appendChild(brandCopy);
+    }
+    if (brandMain) brandMain.textContent = lang === 'en' ? 'WanyuTong' : '萬語通';
+    if (brandSub) brandSub.textContent = lang === 'en' ? '' : 'WanyuTong';
   }
   q('a[href="#features"]', 'nav.features');
   q('a[href="#industries"]', 'nav.industries');
@@ -3449,6 +3588,8 @@ function applyLang(lang) {
 
   // HERO
   q('.hero-eyebrow', 'hero.eyebrow');
+  s('hero-logo-title', 'hero.logo.title');
+  s('hero-logo-subtitle', 'hero.logo.sub');
   var h1 = document.querySelector('#hero h1');
   if (h1) {
     h1.innerHTML = t['hero.h1a'] + '<br><span class="hl">' + t['hero.h1b'] + '</span>';

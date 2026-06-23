@@ -102,9 +102,19 @@ nav {
 
 .nav-brand {
   font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem;
-  color: var(--white); text-decoration: none; display: flex; align-items: center; gap: 0.45rem;
+  color: var(--white); text-decoration: none; display: flex; align-items: center; gap: 0.5rem;
   white-space: nowrap; flex-shrink: 0;
 }
+
+.brand-logo {
+  width: 42px; height: 42px; border-radius: 50%; object-fit: cover; flex: 0 0 42px;
+  border: 2px solid rgba(255,255,255,0.14);
+  box-shadow: 0 0 0 1px rgba(255,115,30,0.35), 0 0 22px rgba(255,115,30,0.22), 0 0 28px rgba(6,199,85,0.14);
+}
+
+.brand-copy { display: inline-flex; align-items: baseline; gap: 0.32rem; min-width: 0; }
+.nav-brand-main { line-height: 1; }
+.nav-brand-sub { color: rgba(232,237,245,0.76); font-size: 0.82em; line-height: 1; }
 
 .nav-dot {
   width: 7px; height: 7px; border-radius: 50%;
@@ -450,6 +460,8 @@ footer a:hover { color: var(--text); }
   .lang-toggle { font-size: 0.62rem; }
   .lang-btn { padding: 3px 7px; }
   .nav-brand { font-size: 0.95rem; }
+  .brand-logo { width: 34px; height: 34px; flex-basis: 34px; }
+  .nav-brand-sub { display: none; }
 }
 
 @keyframes fadeUp {
@@ -584,7 +596,10 @@ html:not(.light) .theme-toggle-knob { transform: translateX(0px); background: va
 <div class="scanline2"></div>
 
 <nav>
-  <a href="index.html" class="nav-brand"><span class="nav-dot"></span>萬語通</a>
+  <a href="index.html" class="nav-brand">
+    <img class="brand-logo" src="assets/wanyutong-logo.jpg" alt="萬語通 Globe Talk AI Translation 標誌">
+    <span class="brand-copy"><span class="nav-brand-main">萬語通</span><span class="nav-brand-sub">WanyuTong</span></span>
+  </a>
   <div class="nav-links-blog" id="blogNavLinks">
     <a href="index.html" id="b-nav-home">官網</a>
     <a href="index.html#features" id="b-nav-feat">為何選我</a>

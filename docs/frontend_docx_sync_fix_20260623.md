@@ -34,4 +34,4 @@
 ## 後續待補
 
 - GOOGLE 客服表單正式 URL 已於 2026-06-24 補上：[GOOGLE 客服表單](https://forms.gle/rKatiHrCmh5wpCov8)。
-- 操作教學影片已於 2026-06-24 補到首頁 `#howto` 區塊與 `join.html` 加入頁，影片檔為 `assets/wanyutong-line-bot-tutorial.mp4`。
+- 操作教學影片已於 2026-06-24 補到首頁「一個 LINE 秘書，三種本領」證明數據列下方與 `join.html` 加入頁，影片檔為 `assets/wanyutong-line-bot-tutorial.mp4`。

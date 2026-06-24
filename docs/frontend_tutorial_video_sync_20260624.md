@@ -8,7 +8,7 @@
 
 ## 官網放置位置
 
-- 首頁：`index.html` 的 `#howto` 區塊，放在 4 步驟與群組指令提示下方。
+- 首頁：`index.html` 的「一個 LINE 秘書，三種本領」區塊，放在 `10 分鐘 / 35 種語言 / 300 筆 / Excel` 證明數據列下方。
 - 加入頁：`join.html` 的 QR Code 加入流程下方。
 - 共用影片檔：`assets/wanyutong-line-bot-tutorial.mp4`
 

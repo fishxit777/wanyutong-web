@@ -1306,6 +1306,10 @@ html.light #ref-reward-table tbody tr:nth-child(even) {
   box-shadow:0 24px 80px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.05);
 }
 
+.story-video-card {
+  margin-top:1.35rem;
+}
+
 .tutorial-video-head {
   display:flex;
   align-items:flex-end;
@@ -1899,6 +1903,19 @@ footer a:hover { color:var(--text); }
       <div class="proof-cell"><div class="proof-num" id="os-proof-3-num">300 筆</div><div class="proof-label" id="os-proof-3-label">付費版 AI 摘要上限</div></div>
       <div class="proof-cell"><div class="proof-num" id="os-proof-4-num">Excel</div><div class="proof-label" id="os-proof-4-label">後台搜尋與統計可匯出</div></div>
     </div>
+    <div class="tutorial-video-card story-video-card">
+      <div class="tutorial-video-head">
+        <div>
+          <div class="tutorial-video-title" id="os-video-title">操作教學影片</div>
+          <div class="tutorial-video-copy" id="os-video-copy">加入 LINE Bot、放進群組、開始翻譯，一支影片看懂。</div>
+        </div>
+        <div class="tutorial-video-label" id="os-video-label">LINE SETUP</div>
+      </div>
+      <video class="tutorial-video" controls preload="metadata" playsinline poster="assets/wanyutong-logo.jpg">
+        <source src="assets/wanyutong-line-bot-tutorial.mp4" type="video/mp4">
+      </video>
+      <div class="tutorial-video-caption" id="os-video-caption">桌機可直接播放；手機版同樣支援直向瀏覽與播放控制。</div>
+    </div>
   </div>
 </section>
 
@@ -2189,19 +2206,6 @@ footer a:hover { color:var(--text); }
       LINE多國翻譯機器人：將 Bot 加入群組後傳
       <code style="background:var(--bg3);border:1px solid var(--border);padding:2px 8px;border-radius:4px;color:var(--line);">@群組說明</code>
       查看完整指令。
-    </div>
-    <div class="tutorial-video-card">
-      <div class="tutorial-video-head">
-        <div>
-          <div class="tutorial-video-title" id="howto-video-title">操作教學影片</div>
-          <div class="tutorial-video-copy" id="howto-video-copy">加入 LINE Bot、放進群組、開始翻譯，一支影片看懂。</div>
-        </div>
-        <div class="tutorial-video-label" id="howto-video-label">LINE SETUP</div>
-      </div>
-      <video class="tutorial-video" controls preload="metadata" playsinline poster="assets/wanyutong-logo.jpg">
-        <source src="assets/wanyutong-line-bot-tutorial.mp4" type="video/mp4">
-      </video>
-      <div class="tutorial-video-caption" id="howto-video-caption">桌機可直接播放；手機版同樣支援直向瀏覽與播放控制。</div>
     </div>
   </div>
 </section>
@@ -3103,10 +3107,10 @@ var i18n = {
     'howto.s4.desc':   '文字、圖片、語音皆可，Bot 自動翻譯回覆。',
     'howto.group':     'LINE多國翻譯機器人：將 Bot 加入群組後傳',
     'howto.group2':    '查看完整指令。',
-    'howto.video.title': '操作教學影片',
-    'howto.video.copy':  '加入 LINE Bot、放進群組、開始翻譯，一支影片看懂。',
-    'howto.video.label': 'LINE SETUP',
-    'howto.video.caption': '桌機可直接播放；手機版同樣支援直向瀏覽與播放控制。',
+    'os.video.title': '操作教學影片',
+    'os.video.copy':  '加入 LINE Bot、放進群組、開始翻譯，一支影片看懂。',
+    'os.video.label': 'LINE SETUP',
+    'os.video.caption': '桌機可直接播放；手機版同樣支援直向瀏覽與播放控制。',
     // TERMS
     'terms.eyebrow':   '// Legal',
     'terms.h2':        '使用條款 · 隱私政策 · 退費規定',
@@ -3465,10 +3469,10 @@ var i18n = {
     'howto.s4.desc':   'Text, images, and voice all work — the Bot auto-translates and replies.',
     'howto.group':     'For groups: Add the Bot to your group, then send',
     'howto.group2':    'to see the full command list.',
-    'howto.video.title': 'Setup Tutorial Video',
-    'howto.video.copy':  'Add the LINE Bot, place it in a group, and start translating in one flow.',
-    'howto.video.label': 'LINE SETUP',
-    'howto.video.caption': 'Playable on desktop and mobile, with the same responsive layout.',
+    'os.video.title': 'Setup Tutorial Video',
+    'os.video.copy':  'Add the LINE Bot, place it in a group, and start translating in one flow.',
+    'os.video.label': 'LINE SETUP',
+    'os.video.caption': 'Playable on desktop and mobile, with the same responsive layout.',
     // TERMS
     'terms.eyebrow':   '// Legal',
     'terms.h2':        'Terms of Service · Privacy Policy · Refund Policy',
@@ -3721,6 +3725,10 @@ function applyLang(lang) {
     q('#os-proof-' + op + '-num', 'os.proof' + op + '.num');
     q('#os-proof-' + op + '-label', 'os.proof' + op + '.label');
   }
+  q('#os-video-title', 'os.video.title');
+  q('#os-video-copy', 'os.video.copy');
+  q('#os-video-label', 'os.video.label');
+  q('#os-video-caption', 'os.video.caption');
 
   // FEATURES
   q('#features .eyebrow', 'feat.eyebrow');
@@ -3879,10 +3887,6 @@ function applyLang(lang) {
   q('#howto .eyebrow', 'howto.eyebrow');
   q('#howto h2', 'howto.h2');
   q('#howto .lead', 'howto.lead');
-  q('#howto-video-title', 'howto.video.title');
-  q('#howto-video-copy', 'howto.video.copy');
-  q('#howto-video-label', 'howto.video.label');
-  q('#howto-video-caption', 'howto.video.caption');
   var steps = document.querySelectorAll('.step-item');
   var sKeys = ['howto.s1','howto.s2','howto.s3','howto.s4'];
   steps.forEach(function(step, i){

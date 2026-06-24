@@ -27,7 +27,7 @@
 
 ## 後續待補
 
-- 教學影片：已於 2026-06-24 補到首頁 `#howto` 區塊與 `join.html` 加入頁，影片檔為 `assets/wanyutong-line-bot-tutorial.mp4`。
+- 教學影片：已於 2026-06-24 補到首頁「一個 LINE 秘書，三種本領」證明數據列下方與 `join.html` 加入頁，影片檔為 `assets/wanyutong-line-bot-tutorial.mp4`。
 - GOOGLE 客服表單：已於 2026-06-24 補上正式 URL [GOOGLE 客服表單](https://forms.gle/rKatiHrCmh5wpCov8)。
 - 廣告重置流程：前端尚未加入正式廣告連結或 SDK。
 

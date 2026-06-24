@@ -1296,6 +1296,60 @@ html.light #ref-reward-table tbody tr:nth-child(even) {
 .step-title { font-family:'Syne',sans-serif; font-weight:700; font-size:0.88rem; color:var(--white); margin-bottom:0.5rem; }
 .step-desc  { font-size:0.78rem; color:var(--muted); line-height:1.65; font-weight:300; }
 
+.tutorial-video-card {
+  margin:2rem auto 0;
+  max-width:920px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  overflow:hidden;
+  background:linear-gradient(135deg, rgba(6,199,85,0.13), rgba(47,215,255,0.08) 52%, rgba(10,15,23,0.9));
+  box-shadow:0 24px 80px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+.tutorial-video-head {
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:1.2rem;
+  padding:1.3rem 1.45rem;
+  text-align:left;
+  border-bottom:1px solid rgba(255,255,255,0.09);
+}
+
+.tutorial-video-title {
+  font-family:'Syne','Noto Sans TC',sans-serif;
+  font-weight:800;
+  color:var(--white);
+  margin-bottom:0.28rem;
+}
+
+.tutorial-video-copy,
+.tutorial-video-caption {
+  color:var(--muted);
+  font-size:0.84rem;
+  line-height:1.7;
+}
+
+.tutorial-video-label {
+  color:var(--line);
+  font:700 0.72rem/1 'DM Mono',monospace;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+
+.tutorial-video {
+  display:block;
+  width:100%;
+  aspect-ratio:16 / 9;
+  background:#05080c;
+}
+
+.tutorial-video-caption {
+  padding:0.9rem 1.45rem 1.1rem;
+  text-align:left;
+}
+
 #terms { background:var(--bg); }
 .terms-wrap { max-width:760px; margin:0 auto; }
 
@@ -1542,6 +1596,12 @@ footer a:hover { color:var(--text); }
   .example-row { grid-template-columns:1fr; }
   .steps-grid { grid-template-columns:repeat(2,1fr); }
   .step-item:nth-child(2) { border-right:none; }
+  .tutorial-video-head { display:block; padding:1rem; }
+  .tutorial-video-label { display:block; margin-top:0.75rem; }
+  .tutorial-video-title { font-size:0.98rem; }
+  .tutorial-video-copy,
+  .tutorial-video-caption { font-size:0.78rem; }
+  .tutorial-video-caption { padding:0.8rem 1rem 1rem; }
   footer { flex-direction:column; text-align:center; }
 }
 
@@ -2129,6 +2189,19 @@ footer a:hover { color:var(--text); }
       LINE多國翻譯機器人：將 Bot 加入群組後傳
       <code style="background:var(--bg3);border:1px solid var(--border);padding:2px 8px;border-radius:4px;color:var(--line);">@群組說明</code>
       查看完整指令。
+    </div>
+    <div class="tutorial-video-card">
+      <div class="tutorial-video-head">
+        <div>
+          <div class="tutorial-video-title" id="howto-video-title">操作教學影片</div>
+          <div class="tutorial-video-copy" id="howto-video-copy">加入 LINE Bot、放進群組、開始翻譯，一支影片看懂。</div>
+        </div>
+        <div class="tutorial-video-label" id="howto-video-label">LINE SETUP</div>
+      </div>
+      <video class="tutorial-video" controls preload="metadata" playsinline poster="assets/wanyutong-logo.jpg">
+        <source src="assets/wanyutong-line-bot-tutorial.mp4" type="video/mp4">
+      </video>
+      <div class="tutorial-video-caption" id="howto-video-caption">桌機可直接播放；手機版同樣支援直向瀏覽與播放控制。</div>
     </div>
   </div>
 </section>
@@ -3030,6 +3103,10 @@ var i18n = {
     'howto.s4.desc':   '文字、圖片、語音皆可，Bot 自動翻譯回覆。',
     'howto.group':     'LINE多國翻譯機器人：將 Bot 加入群組後傳',
     'howto.group2':    '查看完整指令。',
+    'howto.video.title': '操作教學影片',
+    'howto.video.copy':  '加入 LINE Bot、放進群組、開始翻譯，一支影片看懂。',
+    'howto.video.label': 'LINE SETUP',
+    'howto.video.caption': '桌機可直接播放；手機版同樣支援直向瀏覽與播放控制。',
     // TERMS
     'terms.eyebrow':   '// Legal',
     'terms.h2':        '使用條款 · 隱私政策 · 退費規定',
@@ -3388,6 +3465,10 @@ var i18n = {
     'howto.s4.desc':   'Text, images, and voice all work — the Bot auto-translates and replies.',
     'howto.group':     'For groups: Add the Bot to your group, then send',
     'howto.group2':    'to see the full command list.',
+    'howto.video.title': 'Setup Tutorial Video',
+    'howto.video.copy':  'Add the LINE Bot, place it in a group, and start translating in one flow.',
+    'howto.video.label': 'LINE SETUP',
+    'howto.video.caption': 'Playable on desktop and mobile, with the same responsive layout.',
     // TERMS
     'terms.eyebrow':   '// Legal',
     'terms.h2':        'Terms of Service · Privacy Policy · Refund Policy',
@@ -3798,6 +3879,10 @@ function applyLang(lang) {
   q('#howto .eyebrow', 'howto.eyebrow');
   q('#howto h2', 'howto.h2');
   q('#howto .lead', 'howto.lead');
+  q('#howto-video-title', 'howto.video.title');
+  q('#howto-video-copy', 'howto.video.copy');
+  q('#howto-video-label', 'howto.video.label');
+  q('#howto-video-caption', 'howto.video.caption');
   var steps = document.querySelectorAll('.step-item');
   var sKeys = ['howto.s1','howto.s2','howto.s3','howto.s4'];
   steps.forEach(function(step, i){

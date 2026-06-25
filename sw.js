@@ -1,4 +1,4 @@
-const CACHE_NAME = 'wanyutong-pwa-20260624-tutorial-video-1';
+const CACHE_NAME = 'wanyutong-pwa-20260625-activation-video-1';
 const CORE_ASSETS = [
   './',
   './index.html',
@@ -20,6 +20,8 @@ const CORE_ASSETS = [
   './assets/wanyutong-app.js',
   './assets/wanyutong-line-qr.png',
   './assets/wanyutong-line-bot-tutorial.mp4',
+  './assets/wanyutong-activation-flow.mp4',
+  './assets/wanyutong-activation-flow-poster.jpg',
   './assets/icons/wanyutong-icon-180.png',
   './assets/icons/wanyutong-icon-192.png',
   './assets/icons/wanyutong-icon-512.png',

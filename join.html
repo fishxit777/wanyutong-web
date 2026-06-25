@@ -340,6 +340,9 @@ h1 {
     var(--panel);
   box-shadow: 0 28px 80px rgba(0,0,0,0.34), inset 0 1px 0 rgba(255,255,255,0.08);
 }
+.tutorial-panel + .tutorial-panel {
+  margin-top: 18px;
+}
 .tutorial-head {
   display: flex;
   align-items: flex-end;
@@ -510,6 +513,19 @@ h1 {
     </video>
     <div class="tutorial-caption" id="join-video-caption">桌機可直接播放；手機版同樣支援直向瀏覽與播放控制。</div>
   </section>
+  <section class="tutorial-panel" aria-label="萬語通加入開通流程影片">
+    <div class="tutorial-head">
+      <div>
+        <div class="tutorial-title" id="join-activation-video-title">加入開通流程影片</div>
+        <div class="tutorial-copy" id="join-activation-video-copy">選方案、加入官方 LINE、放進群組與完成開通，一支影片看懂。</div>
+      </div>
+      <div class="tutorial-label" id="join-activation-video-label">ACTIVATION FLOW</div>
+    </div>
+    <video class="tutorial-video" controls preload="metadata" playsinline poster="assets/wanyutong-activation-flow-poster.jpg">
+      <source src="assets/wanyutong-activation-flow.mp4" type="video/mp4">
+    </video>
+    <div class="tutorial-caption" id="join-activation-video-caption">掃碼加入後，照影片流程即可完成免費使用或付費開通。</div>
+  </section>
 </div>
 <script>
 var joinCopy = {
@@ -537,6 +553,10 @@ var joinCopy = {
     videoCopy: '加入 LINE Bot、放進群組、開始翻譯，一支影片看懂。',
     videoLabel: 'LINE SETUP',
     videoCaption: '桌機可直接播放；手機版同樣支援直向瀏覽與播放控制。',
+    activationVideoTitle: '加入開通流程影片',
+    activationVideoCopy: '選方案、加入官方 LINE、放進群組與完成開通，一支影片看懂。',
+    activationVideoLabel: 'ACTIVATION FLOW',
+    activationVideoCaption: '掃碼加入後，照影片流程即可完成免費使用或付費開通。',
     zhLabel: '繁中'
   },
   en: {
@@ -563,6 +583,10 @@ var joinCopy = {
     videoCopy: 'Add the LINE Bot, place it in a group, and start translating in one flow.',
     videoLabel: 'LINE SETUP',
     videoCaption: 'Playable on desktop and mobile, with the same responsive layout.',
+    activationVideoTitle: 'Activation Flow Video',
+    activationVideoCopy: 'Pick a plan, add the official LINE account, place the Bot in your group, and activate service.',
+    activationVideoLabel: 'ACTIVATION FLOW',
+    activationVideoCaption: 'After joining by QR code, follow the video to start free use or activate a paid plan.',
     zhLabel: 'ZH'
   }
 };
@@ -590,7 +614,11 @@ function setJoinLang(lang) {
     ['join-video-title', 'videoTitle'],
     ['join-video-copy', 'videoCopy'],
     ['join-video-label', 'videoLabel'],
-    ['join-video-caption', 'videoCaption']
+    ['join-video-caption', 'videoCaption'],
+    ['join-activation-video-title', 'activationVideoTitle'],
+    ['join-activation-video-copy', 'activationVideoCopy'],
+    ['join-activation-video-label', 'activationVideoLabel'],
+    ['join-activation-video-caption', 'activationVideoCaption']
   ];
   pairs.forEach(function(pair) {
     var el = document.getElementById(pair[0]);

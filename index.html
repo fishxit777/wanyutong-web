@@ -1310,6 +1310,10 @@ html.light #ref-reward-table tbody tr:nth-child(even) {
   margin-top:1.35rem;
 }
 
+.pricing-video-card {
+  margin-top:1.6rem;
+}
+
 .tutorial-video-head {
   display:flex;
   align-items:flex-end;
@@ -2184,6 +2188,19 @@ footer a:hover { color:var(--text); }
           <a href="join.html" class="btn-plan" data-btn="contact">加入開通</a>
         </div>
       </div>
+    </div>
+    <div class="tutorial-video-card pricing-video-card">
+      <div class="tutorial-video-head">
+        <div>
+          <div class="tutorial-video-title" id="pricing-video-title">加入開通流程影片</div>
+          <div class="tutorial-video-copy" id="pricing-video-copy">選方案、加入官方 LINE、放進群組與完成開通，一支影片看懂。</div>
+        </div>
+        <div class="tutorial-video-label" id="pricing-video-label">ACTIVATION FLOW</div>
+      </div>
+      <video class="tutorial-video" controls preload="metadata" playsinline poster="assets/wanyutong-activation-flow-poster.jpg">
+        <source src="assets/wanyutong-activation-flow.mp4" type="video/mp4">
+      </video>
+      <div class="tutorial-video-caption" id="pricing-video-caption">收費方案下方可直接觀看；手機與桌機皆可播放。</div>
     </div>
     <div class="refund-note">
       <strong>付款與退費：</strong>目前方案採付款連結開通或延長，不等同信用卡週期自動續扣；是否啟用自動扣款以綠界付款頁與訂購畫面顯示為準。本服務為數位內容，付款後原則上不退費；僅限付款後 24 小時內、Bot 完全無法回應且非使用者網路、LINE 或操作問題時，可透過 <a class="support-form-link" href="https://forms.gle/rKatiHrCmh5wpCov8" target="_blank" rel="noopener">GOOGLE 客服表單</a> 申請審核。付款請以官方 LINE Bot @969wpxno 產生的綠界連結或官網正式入口為準，請勿相信陌生私訊或非官方連結。
@@ -3092,6 +3109,10 @@ var i18n = {
     'price.contact':   '加入開通',
     'price.start':     '免費開通',
     'price.join':      '免費開通',
+    'price.video.title': '加入開通流程影片',
+    'price.video.copy':  '選方案、加入官方 LINE、放進群組與完成開通，一支影片看懂。',
+    'price.video.label': 'ACTIVATION FLOW',
+    'price.video.caption': '收費方案下方可直接觀看；手機與桌機皆可播放。',
     'price.refund':    '付款與退費：目前方案採付款連結開通或延長，不等同信用卡週期自動續扣；是否啟用自動扣款以綠界付款頁與訂購畫面顯示為準。本服務為數位內容，付款後原則上不退費；僅限付款後 24 小時內、Bot 完全無法回應且非使用者網路、LINE 或操作問題時，可透過 <a class="support-form-link" href="https://forms.gle/rKatiHrCmh5wpCov8" target="_blank" rel="noopener">GOOGLE 客服表單</a> 申請審核。付款請以官方 LINE Bot @969wpxno 產生的綠界連結或官網正式入口為準，請勿相信陌生私訊或非官方連結。',
     // HOWTO
     'howto.eyebrow':   '// How It Works',
@@ -3454,6 +3475,10 @@ var i18n = {
     'price.contact':   'Activate',
     'price.start':     'Activate Free',
     'price.join':      'Activate Free',
+    'price.video.title': 'Activation Flow Video',
+    'price.video.copy':  'Pick a plan, add the official LINE account, place the Bot in your group, and activate service.',
+    'price.video.label': 'ACTIVATION FLOW',
+    'price.video.caption': 'Watch directly below the pricing plans. Desktop and mobile playback are both supported.',
     'price.refund':    'Payment and Refund Policy: Plans are activated or extended through payment links and do not automatically mean recurring card billing. Any recurring payment setting depends on what is shown on the ECPay payment page and order screen. This is a digital service and payments are generally non-refundable. If the Bot is completely unresponsive within 24 hours of payment and the issue is not caused by the user network, LINE, or operation error, request review through the <a class="support-form-link" href="https://forms.gle/rKatiHrCmh5wpCov8" target="_blank" rel="noopener">GOOGLE Support Form</a>. Use only the official LINE Bot @969wpxno payment link or the official website entry for payment.',
     // HOWTO
     'howto.eyebrow':   '// How It Works',
@@ -3866,6 +3891,10 @@ function applyLang(lang) {
   q('#pricing .eyebrow', 'price.eyebrow');
   q('#pricing h2', 'price.h2');
   q('#pricing .lead', 'price.lead');
+  q('#pricing-video-title', 'price.video.title');
+  q('#pricing-video-copy', 'price.video.copy');
+  q('#pricing-video-label', 'price.video.label');
+  q('#pricing-video-caption', 'price.video.caption');
   var tabs = document.querySelectorAll('.pricing-tab');
   if (tabs[0]) tabs[0].textContent = t['price.tab.personal'];
   if (tabs[1]) tabs[1].textContent = t['price.tab.group'];

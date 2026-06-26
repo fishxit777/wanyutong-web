@@ -795,3 +795,50 @@ a,
     line-height: 1.2 !important;
   }
 }
+
+/* Unified pricing and metric typography.
+   Use a neutral UI font for prices so NT$ amounts feel like normal SaaS pricing,
+   not decorative display text. */
+:root {
+  --wyt-price-font: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.price-amount,
+.stat-num,
+.proof-num,
+.setup-price-row strong {
+  font-family: var(--wyt-price-font) !important;
+  font-variant-numeric: lining-nums tabular-nums;
+  font-feature-settings: "lnum" 1, "tnum" 1;
+  letter-spacing: 0 !important;
+}
+
+.price-amount {
+  font-size: 1.9rem !important;
+  font-weight: 800 !important;
+  line-height: 1.05 !important;
+  margin: 0.15rem 0 0.38rem !important;
+}
+
+.price-period {
+  font-family: var(--wyt-price-font) !important;
+  font-size: 0.96rem !important;
+  font-weight: 500 !important;
+  line-height: 1.45 !important;
+  letter-spacing: 0 !important;
+}
+
+.stat-num,
+.proof-num {
+  font-weight: 800 !important;
+}
+
+@media (max-width: 680px) {
+  .price-amount {
+    font-size: 1.72rem !important;
+  }
+
+  .price-period {
+    font-size: 0.92rem !important;
+  }
+}

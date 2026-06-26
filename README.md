@@ -7,4 +7,4 @@
 - [官網定位與手機排版修正交接 2026-06-20](docs/frontend_workflow_positioning_20260620.md)
 - [客服表單與方案同步 2026-06-24](docs/frontend_support_form_pricing_sync_20260624.md)
 - [官網教學影片嵌入 2026-06-24](docs/frontend_tutorial_video_sync_20260624.md)
-- [加入開通流程影片嵌入 2026-06-25](docs/frontend_activation_video_sync_20260625.md)
+- [加入開通流程影片嵌入與重製 2026-06-26](docs/frontend_activation_video_sync_20260625.md)

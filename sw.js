@@ -1,4 +1,4 @@
-const CACHE_NAME = 'wanyutong-pwa-20260625-activation-video-1';
+const CACHE_NAME = 'wanyutong-pwa-20260626-activation-video-2';
 const CORE_ASSETS = [
   './',
   './index.html',

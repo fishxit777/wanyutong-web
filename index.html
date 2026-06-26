@@ -933,6 +933,117 @@ h2 {
 .proof-num { color:var(--line); font-family:'DM Mono',monospace; font-weight:800; font-size:1rem; margin-bottom:0.35rem; }
 .proof-label { color:var(--muted); font-size:0.76rem; line-height:1.5; }
 
+.secretary-guide {
+  margin-top:2.2rem;
+}
+
+.secretary-guide-head {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:1rem;
+  align-items:end;
+  margin-bottom:1rem;
+}
+
+.secretary-guide h3 {
+  font-family:'Syne','Noto Sans TC',sans-serif;
+  font-size:clamp(1.55rem,3.2vw,2.25rem);
+  color:var(--white);
+  margin:0.3rem 0 0.55rem;
+  letter-spacing:0;
+}
+
+.secretary-guide-lead {
+  max-width:760px;
+  color:var(--muted);
+  font-size:0.95rem;
+  line-height:1.85;
+}
+
+.secretary-alias {
+  border:1px solid rgba(6,199,85,0.35);
+  border-radius:999px;
+  padding:0.55rem 0.9rem;
+  color:var(--line);
+  background:rgba(6,199,85,0.08);
+  font:800 0.78rem/1.2 'DM Mono','Noto Sans TC',monospace;
+  white-space:nowrap;
+}
+
+.secretary-steps {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:0.85rem;
+}
+
+.secretary-step {
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:1.15rem;
+  min-height:205px;
+  background:linear-gradient(180deg, rgba(255,255,255,0.04), rgba(6,199,85,0.035));
+  display:flex;
+  flex-direction:column;
+  gap:0.75rem;
+}
+
+.secretary-step-kicker {
+  color:var(--cyan);
+  font:800 0.68rem/1 'DM Mono',monospace;
+  letter-spacing:0.12em;
+}
+
+.secretary-step-title {
+  color:var(--white);
+  font-weight:900;
+  font-size:1.02rem;
+  line-height:1.35;
+}
+
+.secretary-command {
+  display:inline-flex;
+  width:max-content;
+  max-width:100%;
+  padding:0.45rem 0.65rem;
+  border-radius:10px;
+  border:1px solid rgba(6,199,85,0.35);
+  background:rgba(6,199,85,0.11);
+  color:var(--line);
+  font:800 0.86rem/1.2 'DM Mono','Noto Sans TC',monospace;
+}
+
+.secretary-step-desc {
+  color:var(--muted);
+  font-size:0.84rem;
+  line-height:1.7;
+}
+
+.secretary-order {
+  margin-top:1rem;
+  display:flex;
+  align-items:center;
+  gap:1rem;
+  border:1px solid rgba(47,215,255,0.2);
+  border-radius:12px;
+  padding:1rem 1.15rem;
+  background:rgba(47,215,255,0.05);
+}
+
+.secretary-order strong {
+  color:var(--white);
+  white-space:nowrap;
+}
+
+.secretary-order span {
+  color:var(--muted);
+  line-height:1.7;
+  font-size:0.9rem;
+}
+
+.secretary-video-card {
+  margin-top:1.2rem;
+}
+
 #industries { background:var(--bg2); }
 
 .industry-shell {
@@ -1356,6 +1467,9 @@ html.light #ref-reward-table tbody tr:nth-child(even) {
 }
 
 @media (max-width: 640px) {
+  .secretary-steps {
+    grid-template-columns:1fr;
+  }
   #ref-reward-table {
     border-radius: 10px !important;
     box-shadow: 0 12px 30px rgba(0,0,0,0.18);
@@ -1626,6 +1740,11 @@ footer a:hover { color:var(--text); }
   .story-head { grid-template-columns:1fr; align-items:start; }
   .story-grid { grid-template-columns:1fr; }
   .story-proof { grid-template-columns:repeat(2,1fr); }
+  .secretary-guide-head { grid-template-columns:1fr; align-items:start; }
+  .secretary-alias { width:max-content; max-width:100%; white-space:normal; }
+  .secretary-steps { grid-template-columns:1fr; }
+  .secretary-order { display:block; }
+  .secretary-order strong { display:block; margin-bottom:0.35rem; }
   .setup-grid { grid-template-columns:1fr; }
   .setup-steps { grid-template-columns:1fr; }
   .ai-fit-grid { grid-template-columns:1fr; }
@@ -1990,6 +2109,59 @@ footer a:hover { color:var(--text); }
         <source src="assets/wanyutong-line-bot-tutorial.mp4" type="video/mp4">
       </video>
       <div class="tutorial-video-caption" id="os-video-caption">桌機可直接播放；手機版同樣支援直向瀏覽與播放控制。</div>
+    </div>
+    <div class="secretary-guide" id="secretary-guide">
+      <div class="secretary-guide-head">
+        <div>
+          <div class="eyebrow" id="secretary-eyebrow">// AI Secretary</div>
+          <h3 id="secretary-title">AI 祕書怎麼用</h3>
+          <p class="secretary-guide-lead" id="secretary-lead">把 AI 祕書當成群組裡的紀錄整理員：先看說明、再確認狀態，臨時要回顧用摘要，每天交接用報表。</p>
+        </div>
+        <div class="secretary-alias" id="secretary-alias">@祕書 / @秘書 都可使用</div>
+      </div>
+      <div class="secretary-steps">
+        <div class="secretary-step">
+          <div class="secretary-step-kicker" id="secretary-step-1-kicker">STEP 01</div>
+          <div class="secretary-step-title" id="secretary-step-1-title">不懂先看說明</div>
+          <div class="secretary-command" id="secretary-step-1-command">@祕書 說明</div>
+          <div class="secretary-step-desc" id="secretary-step-1-desc">列出目前可用指令與用途，新人不用猜要打什麼。</div>
+        </div>
+        <div class="secretary-step">
+          <div class="secretary-step-kicker" id="secretary-step-2-kicker">STEP 02</div>
+          <div class="secretary-step-title" id="secretary-step-2-title">確認功能狀態</div>
+          <div class="secretary-command" id="secretary-step-2-command">@祕書 狀態</div>
+          <div class="secretary-step-desc" id="secretary-step-2-desc">查看群組是否已開通、方案到期日、摘要與報表功能是否可用。</div>
+        </div>
+        <div class="secretary-step">
+          <div class="secretary-step-kicker" id="secretary-step-3-kicker">STEP 03</div>
+          <div class="secretary-step-title" id="secretary-step-3-title">臨時抓重點</div>
+          <div class="secretary-command" id="secretary-step-3-command">@祕書 摘要</div>
+          <div class="secretary-step-desc" id="secretary-step-3-desc">整理最近群組訊息，優先抓待辦、付款、合約、請假與風險內容。</div>
+        </div>
+        <div class="secretary-step">
+          <div class="secretary-step-kicker" id="secretary-step-4-kicker">STEP 04</div>
+          <div class="secretary-step-title" id="secretary-step-4-title">每天交接報表</div>
+          <div class="secretary-command" id="secretary-step-4-command">@祕書 報表</div>
+          <div class="secretary-step-desc" id="secretary-step-4-desc">把當日翻譯、確認、待辦與異常整理成報表，方便主管回看。</div>
+        </div>
+      </div>
+      <div class="secretary-order">
+        <strong id="secretary-order-title">建議順序</strong>
+        <span id="secretary-order-text">新人先用「@祕書 說明」；日常管理先看「@祕書 狀態」；需要回顧才用「@祕書 摘要」；交接或主管回報用「@祕書 報表」。</span>
+      </div>
+      <div class="tutorial-video-card secretary-video-card">
+        <div class="tutorial-video-head">
+          <div>
+            <div class="tutorial-video-title" id="secretary-video-title">AI 祕書指令教學影片</div>
+            <div class="tutorial-video-copy" id="secretary-video-copy">用 4 個指令看狀態、抓重點、產生日報，照著影片做就懂。</div>
+          </div>
+          <div class="tutorial-video-label" id="secretary-video-label">AI SECRETARY</div>
+        </div>
+        <video class="tutorial-video" controls preload="metadata" playsinline poster="assets/wanyutong-secretary-tutorial-poster.jpg">
+          <source src="assets/wanyutong-secretary-tutorial.mp4" type="video/mp4">
+        </video>
+        <div class="tutorial-video-caption" id="secretary-video-caption">放在 AI 祕書流程下方；桌機與手機都可直接播放。</div>
+      </div>
     </div>
   </div>
 </section>
@@ -3202,6 +3374,32 @@ var i18n = {
     'os.video.copy':  '加入 LINE Bot、放進群組、開始翻譯，一支影片看懂。',
     'os.video.label': 'LINE SETUP',
     'os.video.caption': '桌機可直接播放；手機版同樣支援直向瀏覽與播放控制。',
+    'secretary.eyebrow': '// AI Secretary',
+    'secretary.title': 'AI 祕書怎麼用',
+    'secretary.lead': '把 AI 祕書當成群組裡的紀錄整理員：先看說明、再確認狀態，臨時要回顧用摘要，每天交接用報表。',
+    'secretary.alias': '@祕書 / @秘書 都可使用',
+    'secretary.step1.kicker': 'STEP 01',
+    'secretary.step1.title': '不懂先看說明',
+    'secretary.step1.command': '@祕書 說明',
+    'secretary.step1.desc': '列出目前可用指令與用途，新人不用猜要打什麼。',
+    'secretary.step2.kicker': 'STEP 02',
+    'secretary.step2.title': '確認功能狀態',
+    'secretary.step2.command': '@祕書 狀態',
+    'secretary.step2.desc': '查看群組是否已開通、方案到期日、摘要與報表功能是否可用。',
+    'secretary.step3.kicker': 'STEP 03',
+    'secretary.step3.title': '臨時抓重點',
+    'secretary.step3.command': '@祕書 摘要',
+    'secretary.step3.desc': '整理最近群組訊息，優先抓待辦、付款、合約、請假與風險內容。',
+    'secretary.step4.kicker': 'STEP 04',
+    'secretary.step4.title': '每天交接報表',
+    'secretary.step4.command': '@祕書 報表',
+    'secretary.step4.desc': '把當日翻譯、確認、待辦與異常整理成報表，方便主管回看。',
+    'secretary.order.title': '建議順序',
+    'secretary.order.text': '新人先用「@祕書 說明」；日常管理先看「@祕書 狀態」；需要回顧才用「@祕書 摘要」；交接或主管回報用「@祕書 報表」。',
+    'secretary.video.title': 'AI 祕書指令教學影片',
+    'secretary.video.copy': '用 4 個指令看狀態、抓重點、產生日報，照著影片做就懂。',
+    'secretary.video.label': 'AI SECRETARY',
+    'secretary.video.caption': '放在 AI 祕書流程下方；桌機與手機都可直接播放。',
     // TERMS
     'terms.eyebrow':   '// Legal',
     'terms.h2':        '使用條款 · 隱私政策 · 退費規定',
@@ -3567,6 +3765,32 @@ var i18n = {
     'os.video.copy':  'Add the LINE Bot, place it in a group, and start translating in one flow.',
     'os.video.label': 'LINE SETUP',
     'os.video.caption': 'Playable on desktop and mobile, with the same responsive layout.',
+    'secretary.eyebrow': '// AI Secretary',
+    'secretary.title': 'How to Use the AI Secretary',
+    'secretary.lead': 'Treat the AI Secretary as the group record keeper: read the guide, check status, summarize when you need a quick review, and generate reports for daily handoff.',
+    'secretary.alias': '@祕書 and @秘書 both work',
+    'secretary.step1.kicker': 'STEP 01',
+    'secretary.step1.title': 'Start with the guide',
+    'secretary.step1.command': '@祕書 說明',
+    'secretary.step1.desc': 'Shows the available commands and what each one does, so new users do not have to guess.',
+    'secretary.step2.kicker': 'STEP 02',
+    'secretary.step2.title': 'Check feature status',
+    'secretary.step2.command': '@祕書 狀態',
+    'secretary.step2.desc': 'Checks whether the group is active, when the plan expires, and whether summary and report features are available.',
+    'secretary.step3.kicker': 'STEP 03',
+    'secretary.step3.title': 'Grab key points',
+    'secretary.step3.command': '@祕書 摘要',
+    'secretary.step3.desc': 'Summarizes recent group messages with priority on tasks, payments, contracts, leave requests, and risks.',
+    'secretary.step4.kicker': 'STEP 04',
+    'secretary.step4.title': 'Generate daily reports',
+    'secretary.step4.command': '@祕書 報表',
+    'secretary.step4.desc': 'Turns the day’s translations, confirmations, tasks, and exceptions into a report for supervisors.',
+    'secretary.order.title': 'Recommended order',
+    'secretary.order.text': 'New users start with @祕書 說明. Daily managers check @祕書 狀態 first. Use @祕書 摘要 for quick review and @祕書 報表 for handoff or supervisor reporting.',
+    'secretary.video.title': 'AI Secretary Command Tutorial',
+    'secretary.video.copy': 'Four commands are enough to check status, catch key points, and generate daily reports.',
+    'secretary.video.label': 'AI SECRETARY',
+    'secretary.video.caption': 'Placed directly under the AI Secretary workflow; playable on desktop and mobile.',
     // TERMS
     'terms.eyebrow':   '// Legal',
     'terms.h2':        'Terms of Service · Privacy Policy · Refund Policy',
@@ -3822,6 +4046,22 @@ function applyLang(lang) {
   q('#os-video-copy', 'os.video.copy');
   q('#os-video-label', 'os.video.label');
   q('#os-video-caption', 'os.video.caption');
+  q('#secretary-eyebrow', 'secretary.eyebrow');
+  q('#secretary-title', 'secretary.title');
+  q('#secretary-lead', 'secretary.lead');
+  q('#secretary-alias', 'secretary.alias');
+  for (var si = 1; si <= 4; si++) {
+    q('#secretary-step-' + si + '-kicker', 'secretary.step' + si + '.kicker');
+    q('#secretary-step-' + si + '-title', 'secretary.step' + si + '.title');
+    q('#secretary-step-' + si + '-command', 'secretary.step' + si + '.command');
+    q('#secretary-step-' + si + '-desc', 'secretary.step' + si + '.desc');
+  }
+  q('#secretary-order-title', 'secretary.order.title');
+  q('#secretary-order-text', 'secretary.order.text');
+  q('#secretary-video-title', 'secretary.video.title');
+  q('#secretary-video-copy', 'secretary.video.copy');
+  q('#secretary-video-label', 'secretary.video.label');
+  q('#secretary-video-caption', 'secretary.video.caption');
 
   // FEATURES
   q('#features .eyebrow', 'feat.eyebrow');

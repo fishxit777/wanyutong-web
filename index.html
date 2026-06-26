@@ -591,7 +591,7 @@ html.light .hero-logo-copy span:last-child { color: rgba(26,34,51,0.68); }
 h1 {
   font-family: 'Syne', sans-serif;
   font-weight: 800;
-  font-size: 3.8rem;
+  font-size: clamp(3.1rem, 4.4vw, 3.55rem);
   line-height: 1.1;
   letter-spacing: 0;
   margin-bottom: 1.4rem;
@@ -652,72 +652,166 @@ h1 {
 
 .hero-mockup { display:flex; justify-content:flex-end; align-items:center; position:relative; transform:translateX(26px); }
 
-.phone-glow {
-  position:absolute; inset:-34px -18px -34px 20px;
-  background:radial-gradient(ellipse at center, rgba(6,199,85,0.09) 0%, transparent 70%);
+.bot-chat-glow {
+  position:absolute;
+  inset:-42px -22px -42px 34px;
+  background:
+    radial-gradient(circle at 72% 28%, rgba(6,199,85,0.2), transparent 34%),
+    radial-gradient(circle at 22% 78%, rgba(42,214,255,0.12), transparent 38%);
+  filter:blur(2px);
   pointer-events:none;
 }
 
-.phone-frame {
-  width: 228px;
-  background: #0c0c0c;
-  border-radius: 24px;
-  border: 1px solid rgba(255,255,255,0.09);
-  overflow: hidden;
-  box-shadow: 0 0 0 1px rgba(6,199,85,0.12), 0 32px 80px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.05);
-  position: relative;
-  z-index: 1;
+.bot-chat-card {
+  width:min(42vw, 510px);
+  min-width:420px;
+  position:relative;
+  z-index:2;
+  border:1px solid rgba(125,255,156,0.22);
+  border-radius:12px;
+  background:linear-gradient(155deg, rgba(13,21,18,0.96), rgba(10,15,21,0.96));
+  box-shadow:0 34px 90px rgba(0,0,0,0.54), 0 0 0 1px rgba(6,199,85,0.08) inset;
+  padding:1.18rem;
+  overflow:hidden;
 }
 
-.phone-top { background:#06c755; padding:12px 16px 10px; display:flex; align-items:center; gap:10px; }
-.phone-top-icon { width:32px; height:32px; background:rgba(255,255,255,0.15); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1rem; }
-.phone-top-name { font-size:0.85rem; font-weight:600; color:#fff; }
-.phone-top-sub  { font-size:0.68rem; color:rgba(255,255,255,0.75); }
+.bot-chat-card::before {
+  content:"";
+  position:absolute;
+  inset:0 0 auto;
+  height:3px;
+  background:linear-gradient(90deg, var(--line), var(--cyan), rgba(255,126,33,0.92));
+}
 
-.chat-body { padding:11px; background:#181818; min-height:285px; display:flex; flex-direction:column; gap:8px; }
+.bot-chat-header {
+  display:flex;
+  align-items:center;
+  gap:0.85rem;
+  padding-bottom:0.95rem;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
 
-.chat-msg { max-width:82%; padding:8px 12px; border-radius:12px; font-size:0.75rem; line-height:1.5; }
-.chat-msg.user { background:#06c755; color:#fff; align-self:flex-end; border-bottom-right-radius:3px; }
-.chat-msg.bot  { background:#252525; color:#ddd; align-self:flex-start; border-bottom-left-radius:3px; border:1px solid rgba(255,255,255,0.06); }
+.bot-chat-logo {
+  width:68px;
+  height:68px;
+  border-radius:50%;
+  object-fit:cover;
+  border:2px solid rgba(255,126,33,0.92);
+  box-shadow:0 0 0 4px rgba(6,199,85,0.12), 0 10px 28px rgba(0,0,0,0.35);
+  flex-shrink:0;
+}
 
-.chat-label { font-size:0.61rem; color:#555; text-align:center; margin:2px 0; font-family:'DM Mono',monospace; }
+.bot-chat-title { flex:1; min-width:0; }
+.bot-chat-name {
+  font-family:'Syne','Noto Sans TC',sans-serif;
+  font-size:1.38rem;
+  font-weight:800;
+  color:var(--text);
+  line-height:1.1;
+}
+.bot-chat-sub {
+  margin-top:0.22rem;
+  color:#8ea0bd;
+  font-size:0.82rem;
+  letter-spacing:0.02em;
+}
+.bot-chat-official {
+  color:#0b1710;
+  background:var(--line);
+  border-radius:999px;
+  padding:0.34rem 0.68rem;
+  font-size:0.68rem;
+  font-weight:800;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  flex-shrink:0;
+}
 
-.phone-bubble-row { display:flex; align-items:flex-end; gap:6px; }
-.phone-bubble-row.owner { justify-content:flex-end; }
-.phone-avatar {
-  width:25px; height:25px; border-radius:50%;
-  background:#06c755; display:flex; align-items:center; justify-content:center;
-  color:#fff; font-size:0.7rem; flex-shrink:0;
-  box-shadow:0 1px 3px rgba(0,0,0,0.15);
+.bot-chat-thread {
+  display:grid;
+  gap:0.72rem;
+  padding:1rem 0 0.92rem;
 }
-.phone-bubble {
-  padding:7px 10px; border-radius:14px;
-  font-size:0.66rem; line-height:1.48; max-width:78%;
-  box-shadow:0 1px 2px rgba(0,0,0,0.12);
+
+.bot-chat-bubble {
+  border-radius:10px;
+  padding:0.86rem 1rem;
+  max-width:76%;
+  box-shadow:0 10px 26px rgba(0,0,0,0.2);
 }
-.phone-bubble.owner {
-  background:#06c755; color:#fff; border-bottom-right-radius:3px;
+.bot-chat-bubble.manager {
+  justify-self:start;
+  background:#fff;
+  color:#172033;
 }
-.phone-bubble.system {
-  background:#fff; color:#28313d; border-bottom-left-radius:3px;
+.bot-chat-bubble.translation {
+  justify-self:end;
+  background:linear-gradient(135deg, #06c755, #55d86c);
+  color:#06150a;
+  border:1px solid rgba(255,255,255,0.28);
 }
-.phone-bubble.notice {
-  background:#eef9f1; color:#0c5f31; border:1px solid rgba(6,199,85,0.18);
+.bot-chat-speaker {
+  display:block;
+  margin-bottom:0.25rem;
+  font-size:0.68rem;
+  color:rgba(88,98,115,0.88);
+  font-weight:700;
 }
-.phone-meta {
-  font-size:0.52rem; color:#8b95a1; margin-top:2px;
-  font-family:'DM Mono',monospace;
+.bot-chat-bubble.translation .bot-chat-speaker { color:rgba(2,32,10,0.7); }
+.bot-chat-bubble strong {
+  display:block;
+  font-size:1.05rem;
+  line-height:1.35;
 }
-.phone-time { font-size:0.52rem; color:#999; margin-bottom:1px; white-space:nowrap; }
-.phone-check-card {
-  background:#fff; border:1px solid #e5e9ef; border-left:3px solid #06c755;
-  border-radius:8px; padding:6px 8px; color:#2f3a45; font-size:0.61rem; line-height:1.45;
-  box-shadow:0 1px 2px rgba(0,0,0,0.08);
+
+.bot-chat-check-card {
+  background:rgba(255,255,255,0.95);
+  color:#182436;
+  border-radius:10px;
+  border-left:4px solid var(--line);
+  padding:0.88rem 1rem;
+  box-shadow:0 10px 26px rgba(0,0,0,0.2);
 }
-.phone-mini-tags { display:flex; gap:4px; flex-wrap:wrap; margin-top:4px; }
-.phone-mini-tag {
-  background:#f1f5f9; color:#627086; border-radius:999px;
-  padding:1px 6px; font-size:0.52rem; font-family:'DM Mono',monospace;
+.bot-chat-check-card span {
+  display:block;
+  color:#0a7f39;
+  font-size:0.76rem;
+  font-weight:800;
+  margin-bottom:0.2rem;
+}
+.bot-chat-check-card strong {
+  font-size:1rem;
+  line-height:1.4;
+}
+
+.bot-chat-focus {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:0.5rem;
+}
+.bot-chat-focus span {
+  border:1px solid rgba(125,255,156,0.2);
+  background:rgba(6,199,85,0.09);
+  color:#9cffad;
+  border-radius:999px;
+  padding:0.55rem 0.62rem;
+  text-align:center;
+  font-size:0.76rem;
+  font-weight:800;
+  white-space:nowrap;
+}
+.bot-chat-focus span::before {
+  content:"✓ ";
+  color:var(--line);
+}
+
+.bot-chat-foot {
+  margin-top:0.85rem;
+  padding-top:0.8rem;
+  border-top:1px solid rgba(255,255,255,0.08);
+  color:#8da0bd;
+  font-size:0.78rem;
+  line-height:1.5;
 }
 
 #stats { padding: 0 5vw 80px; position:relative; z-index:1; }
@@ -1416,6 +1510,25 @@ footer a { color:var(--muted); text-decoration:none; transition:color 0.2s; }
 footer a:hover { color:var(--text); }
 .footer-links { display:flex; gap:1.5rem; flex-wrap:wrap; }
 
+@media (max-width:1450px) and (min-width:769px) {
+  .nav-blog-pill { display:none; }
+  .nav-links {
+    display:none;
+    flex-direction:column;
+    position:absolute;
+    top:58px;
+    left:0;
+    right:0;
+    background:var(--bg2);
+    border-bottom:1px solid var(--border);
+    padding:1rem 5vw;
+    gap:1rem;
+    z-index:220;
+  }
+  .nav-links.open { display:flex; }
+  .hamburger { display:flex; flex-shrink:0; }
+}
+
 @media (max-width:768px) {
   nav { padding:0 4vw; gap:0.5rem; }
   .nav-blog-pill { display:none; }
@@ -1423,15 +1536,38 @@ footer a:hover { color:var(--text); }
   .nav-links.open { display:flex; }
   .hamburger { display:flex; flex-shrink:0; }
   .hero-grid { grid-template-columns:1fr; gap:2.5rem; }
+  .hero-text { min-width:0; width:100%; }
   .hero-logo-lockup { padding: 0.6rem 0.85rem 0.6rem 0.6rem; }
   .hero-logo-img { width: 74px; height: 74px; flex-basis: 74px; }
-  h1 { font-size: 2.45rem; }
-  .hero-mockup { order:0; justify-content:center; transform:none; }
+  h1 { font-size:clamp(1.86rem, 8.8vw, 2.18rem); max-width:100%; overflow-wrap:anywhere; word-break:break-word; }
+  h1 .hl {
+    display:block;
+    max-width:calc(100vw - 48px);
+    white-space:normal;
+    overflow-wrap:anywhere;
+    word-break:break-all;
+    line-break:anywhere;
+  }
+  .hero-mockup { order:0; justify-content:center; transform:none; overflow:hidden; }
   .hero-signal-stack { display:none; }
   #hero3d-canvas { opacity:0.56; }
   #matrix-canvas { width:100%; opacity:0.08; }
   .cta-glow { display:none; }
-  .phone-frame { width:214px; }
+  .bot-chat-glow { inset:-24px 0 -24px 0; opacity:0.72; }
+  .bot-chat-card {
+    width:calc(100vw - 48px);
+    max-width:380px;
+    min-width:0;
+    padding:0.9rem;
+  }
+  .bot-chat-header { gap:0.65rem; }
+  .bot-chat-logo { width:52px; height:52px; }
+  .bot-chat-name { font-size:1.16rem; }
+  .bot-chat-sub { font-size:0.76rem; }
+  .bot-chat-official { display:none; }
+  .bot-chat-bubble { max-width:100%; }
+  .bot-chat-bubble.translation { justify-self:stretch; }
+  .bot-chat-focus { grid-template-columns:1fr; }
   .compare-wrap { max-width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch; }
   .compare-table { min-width:640px; }
   #compare .compare-wrap { overflow:visible; }
@@ -1743,103 +1879,38 @@ footer a:hover { color:var(--text); }
       </div>
     </div>
     <div class="hero-mockup">
-      <div class="phone-glow"></div>
-      <div class="phone-frame">
-
-        <!-- 狀態列 -->
-        <div style="background:#000;padding:5px 16px 3px;display:flex;justify-content:space-between;align-items:center;">
-          <span style="font-size:0.62rem;color:#fff;font-weight:600;font-family:'DM Mono',monospace;">9:41</span>
-          <div style="display:flex;gap:5px;align-items:center;">
-            <svg width="12" height="9" viewBox="0 0 12 9" fill="white"><rect x="0" y="4" width="2" height="5" rx="0.5"/><rect x="3" y="2.5" width="2" height="6.5" rx="0.5"/><rect x="6" y="1" width="2" height="8" rx="0.5"/><rect x="9" y="0" width="2" height="9" rx="0.5"/></svg>
-            <svg width="13" height="9" viewBox="0 0 13 9" fill="white"><path d="M6.5 1.5C8.8 1.5 10.8 2.5 12.1 4.1L13 3.2C11.4 1.2 9.1 0 6.5 0S1.6 1.2 0 3.2l.9.9C3.2 2.5 5.2 1.5 6.5 1.5z"/><path d="M6.5 4C7.9 4 9.2 4.6 10.1 5.6l.9-.9C9.8 3.5 8.2 2.8 6.5 2.8S3.2 3.5 2 4.7l.9.9C3.8 4.6 5.1 4 6.5 4z"/><circle cx="6.5" cy="7.5" r="1.5"/></svg>
-            <svg width="18" height="9" viewBox="0 0 18 9" fill="white"><rect x="0" y="1" width="14" height="7" rx="1.5" stroke="white" stroke-width="1" fill="none"/><rect x="1.5" y="2.5" width="10" height="4" rx="0.5" fill="white"/><rect x="15" y="3" width="2" height="3" rx="1" fill="white"/></svg>
+      <div class="bot-chat-glow"></div>
+      <div class="bot-chat-card" aria-label="萬語通 LINE Bot 模擬聊天畫面">
+        <div class="bot-chat-header">
+          <img class="bot-chat-logo" src="assets/wanyutong-logo.jpg" alt="萬語通 Bot 標誌">
+          <div class="bot-chat-title">
+            <div class="bot-chat-name" id="bot-card-name">萬語通 BOT</div>
+            <div class="bot-chat-sub" id="bot-card-subtitle">LINE 多國翻譯機器人</div>
+          </div>
+          <div class="bot-chat-official">Official</div>
+        </div>
+        <div class="bot-chat-thread">
+          <div class="bot-chat-bubble manager">
+            <span class="bot-chat-speaker" id="bot-card-manager-label">主管</span>
+            <strong id="bot-card-manager-message">今天 15:00 前<br>完成 A 區清潔</strong>
+          </div>
+          <div class="bot-chat-bubble translation">
+            <span class="bot-chat-speaker" id="bot-card-translation-label">萬語通翻譯</span>
+            <strong id="bot-card-translation-message">Selesaikan area A<br>sebelum 15:00</strong>
+          </div>
+          <div class="bot-chat-check-card">
+            <span id="bot-card-check-title">確認進度</span>
+            <strong id="bot-card-check-desc">已確認 6/8 人，尚未回覆 2 人</strong>
           </div>
         </div>
-
-        <!-- LINE 頂部導覽 -->
-        <div style="background:#06c755;padding:9px 14px;display:flex;align-items:center;gap:10px;position:relative;">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="white" style="opacity:0.9;flex-shrink:0;"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
-          <!-- Bot 頭像 -->
-          <div style="width:34px;height:34px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;box-shadow:0 1px 4px rgba(0,0,0,0.2);">🌐</div>
-          <div style="flex:1;min-width:0;">
-            <div id="phone-bot-name" style="font-size:0.85rem;font-weight:700;color:#fff;line-height:1.2;">萬語通</div>
-            <div style="font-size:0.62rem;color:rgba(255,255,255,0.85);line-height:1.2;">Official Account</div>
-          </div>
-          <div style="display:flex;gap:14px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="white" opacity="0.9"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="white" opacity="0.9"><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
-          </div>
+        <div class="bot-chat-focus">
+          <span id="bot-card-tag-1">翻譯完成</span>
+          <span id="bot-card-tag-2">回覆確認</span>
+          <span id="bot-card-tag-3">紀錄可查</span>
         </div>
-
-        <!-- 聊天背景 -->
-        <div style="background:#f0f2f5;min-height:340px;padding:9px 9px 8px;display:flex;flex-direction:column;gap:6px;position:relative;">
-
-          <div style="text-align:center;margin:1px 0 3px;">
-            <span id="phone-day" style="background:rgba(0,0,0,0.16);color:#fff;font-size:0.56rem;padding:2px 9px;border-radius:10px;font-family:'DM Mono',monospace;">今天</span>
-          </div>
-
-          <div class="phone-bubble-row owner">
-            <span class="phone-time">08:20</span>
-            <div class="phone-bubble owner" id="phone-owner-1">今天 15:00 前<br>完成 A 區清潔，<br>回覆 1 表示收到。</div>
-          </div>
-
-          <div class="phone-bubble-row">
-            <div class="phone-avatar">🌐</div>
-            <div>
-              <div class="phone-bubble system">Selesaikan<br>pembersihan area A<br>sebelum 15:00.<br>Balas 1 jika paham.</div>
-              <div class="phone-meta" id="phone-meta-1">繁中 → 印尼文 · 工作通知 ✓</div>
-            </div>
-          </div>
-
-          <div class="phone-bubble-row">
-            <div class="phone-avatar">ID</div>
-            <div>
-              <div class="phone-bubble system">1</div>
-              <div class="phone-meta" id="phone-received">已收到 · 08:22</div>
-            </div>
-          </div>
-
-          <div class="phone-check-card">
-            <strong id="phone-check-title">確認進度</strong><br>
-            <span id="phone-check-desc">已確認 6 / 8 人，尚未回覆 2 人</span>
-            <div class="phone-mini-tags">
-              <span class="phone-mini-tag" id="phone-tag-1">通知</span>
-              <span class="phone-mini-tag" id="phone-tag-2">回覆追蹤</span>
-            </div>
-          </div>
-
-          <div class="phone-bubble-row">
-            <div class="phone-avatar">VN</div>
-            <div>
-              <div class="phone-bubble system">Em xin nghỉ<br>chiều nay được không?</div>
-              <div class="phone-meta" id="phone-meta-2">越南文 → 繁中</div>
-            </div>
-          </div>
-
-          <div class="phone-bubble-row owner">
-            <span class="phone-time">09:18</span>
-            <div class="phone-bubble owner" id="phone-owner-2">可以，請先交接<br>機台紀錄。</div>
-          </div>
-
-          <div class="phone-bubble-row">
-            <div class="phone-avatar">🌐</div>
-            <div>
-              <div class="phone-bubble notice">Được, vui lòng bàn giao<br>nhật ký máy trước.</div>
-              <div class="phone-meta" id="phone-meta-3">繁中 → 越南文 · 翻譯引擎 ✓</div>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- 輸入列 -->
-        <div style="background:#fff;border-top:1px solid #e0e0e0;padding:7px 10px;display:flex;align-items:center;gap:8px;">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="#aaa"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
-          <div id="phone-input-placeholder" style="flex:1;background:#f5f5f5;border-radius:20px;padding:6px 12px;font-size:0.72rem;color:#bbb;">傳送訊息…</div>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="#aaa"><path d="M12 15c1.66 0 3-1.34 3-3V6c0-1.66-1.34-3-3-3S9 4.34 9 6v6c0 1.66 1.34 3 3 3zm-1-9c0-.55.45-1 1-1s1 .45 1 1v6c0 .55-.45 1-1 1s-1-.45-1-1V6z"/><path d="M17 12c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-2.08c3.39-.49 6-3.39 6-6.92h-2z"/></svg>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="#06c755"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-        </div>
-
+        <div class="bot-chat-foot" id="bot-card-foot">群組紀錄已保存，可搜尋與匯出</div>
       </div>
+
     </div>
   </div>
 </section>
@@ -2884,23 +2955,22 @@ var i18n = {
     'hero.logo.title': '萬語通',
     'hero.logo.sub':   'LINE多國翻譯機器人',
     'hero.h1a':        '跨語言工作交辦',
-    'hero.h1b':        '有翻譯、有確認、有紀錄',
+    'hero.h1b':        '有翻譯、<wbr>有確認、<wbr>有紀錄',
     'hero.desc':       '把 LINE 群組裡的多國翻譯、語音、圖片 OCR、AI 摘要、每日報表、後台搜尋與統計放在同一個流程。專為工廠、工地、看護、餐飲等多語團隊設計，讓主管交代得清楚，重要內容查得到。',
     'hero.btn1':       '免費體驗 LINE 流程',
     'hero.btn2':       '查看方案 →',
-    'phone.bot':       '萬語通',
-    'phone.day':       '今天',
-    'phone.owner1':    '今天 15:00 前<br>完成 A 區清潔，<br>回覆 1 表示收到。',
-    'phone.meta1':     '繁中 → 印尼文 · 工作通知 ✓',
-    'phone.received':  '已收到 · 08:22',
-    'phone.check.title': '確認進度',
-    'phone.check.desc': '已確認 6 / 8 人，尚未回覆 2 人',
-    'phone.tag1':      '通知',
-    'phone.tag2':      '回覆追蹤',
-    'phone.meta2':     '越南文 → 繁中',
-    'phone.owner2':    '可以，請先交接<br>機台紀錄。',
-    'phone.meta3':     '繁中 → 越南文 · 翻譯引擎 ✓',
-    'phone.input':     '傳送訊息…',
+    'botcard.name':    '萬語通 BOT',
+    'botcard.sub':     'LINE 多國翻譯機器人',
+    'botcard.manager': '主管',
+    'botcard.message': '今天 15:00 前<br>完成 A 區清潔',
+    'botcard.translator': '萬語通翻譯',
+    'botcard.translation': 'Selesaikan area A<br>sebelum 15:00',
+    'botcard.check.title': '確認進度',
+    'botcard.check.desc': '已確認 6/8 人，尚未回覆 2 人',
+    'botcard.tag1':    '翻譯完成',
+    'botcard.tag2':    '回覆確認',
+    'botcard.tag3':    '紀錄可查',
+    'botcard.foot':    '群組紀錄已保存，可搜尋與匯出',
     // STATS
     'stat.speed':      '平均翻譯速度',
     'stat.langs':      '支援語言種數',
@@ -3154,11 +3224,11 @@ var i18n = {
   "<p><strong>4. 翻譯結果</strong><br>翻譯、OCR 與語音轉錄結果僅供溝通參考，可能因原文品質、口音、截圖清晰度、專業語境或第三方 AI 服務而產生錯誤；不構成法律、醫療、財務、合約或安全作業指示之專業意見。重要內容請自行複核或交由專業人員確認。</p>",
   "<p><strong>5. 推薦活動狀態</strong><br>個人好友推薦活動已停止受理新綁定與新發獎；既有已發放的翻譯天數不受影響。LINE多國翻譯機器人方案不適用推薦碼活動。若歷史推薦紀錄涉及退款、爭議交易或濫用，本服務仍得依紀錄調整或追回優惠。</p>",
   "<p><strong>6. 服務中斷</strong><br>因 LINE、DeepL、OpenAI、Anthropic、雲端主機、網路、不可抗力或維護造成的延遲或中斷，本服務將盡力恢復，但不承諾永久不中斷，也不負衍生損害賠償責任。</p>",
-  "<p><strong>7. 帳號與付款安全</strong><br>官方 LINE Bot 為 @969wpxno；客服與付款異常請透過 <a class="support-form-link" href="https://forms.gle/rKatiHrCmh5wpCov8" target="_blank" rel="noopener">GOOGLE 客服表單</a> 聯繫。月費版、半年版、一年版與尊爵版請以官方 LINE Bot 產生的綠界連結或官網正式入口為準。付款連結開通或延長不等同信用卡週期自動續扣；是否啟用自動扣款以綠界付款頁與訂購畫面顯示為準。請勿相信陌生私訊、截圖轉傳或非官方連結。使用者應自行保管 LINE 帳號與手機安全，因帳號遭盜用、釣魚或社交工程造成的損失，本服務不負責。</p>",
+  "<p><strong>7. 帳號與付款安全</strong><br>官方 LINE Bot 為 @969wpxno；客服與付款異常請透過 <a class=\"support-form-link\" href=\"https://forms.gle/rKatiHrCmh5wpCov8\" target=\"_blank\" rel=\"noopener\">GOOGLE 客服表單</a> 聯繫。月費版、半年版、一年版與尊爵版請以官方 LINE Bot 產生的綠界連結或官網正式入口為準。付款連結開通或延長不等同信用卡週期自動續扣；是否啟用自動扣款以綠界付款頁與訂購畫面顯示為準。請勿相信陌生私訊、截圖轉傳或非官方連結。使用者應自行保管 LINE 帳號與手機安全，因帳號遭盜用、釣魚或社交工程造成的損失，本服務不負責。</p>",
   "<p><strong>8. 條款修訂</strong><br>本服務保留調整功能、價格與條款之權利；重大變更將盡可能透過網站或 LINE Bot 公告。</p>"
 ].join(""),
-'acc.privacy': "<p><strong>1. 資料收集</strong><br>本服務會收集 LINE User ID、群組 ID、語言設定、翻譯次數、到期狀態、付款與開通紀錄、歷史推薦碼與推薦獎勵紀錄、必要的系統紀錄與錯誤紀錄，用於提供服務、計費、客服、安全稽核與歷史帳務追蹤。</p><p><strong>2. 翻譯內容處理</strong><br>為提供翻譯、OCR 或語音功能，使用者傳送的文字、圖片或語音可能會依功能需求傳送至 LINE、DeepL、OpenAI、Anthropic 或其他必要服務商處理。</p><p><strong>3. 記錄保存</strong><br>系統可能保存近期翻譯紀錄與使用紀錄，以支援歷史查詢、後台搜尋、用量統計、除錯與客服查詢；不會將內容出售給廣告商或公開揭露。若您不希望敏感內容被第三方服務處理，請勿透過本服務傳送。</p><p><strong>4. 第三方服務</strong><br>LINE、DeepL、OpenAI、Anthropic 等服務商各有其隱私政策與資料處理規範，本服務會在功能必要範圍內使用。</p><p><strong>5. 資料刪除</strong><br>如需查詢或刪除個人資料，請透過 <a class="support-form-link" href="https://forms.gle/rKatiHrCmh5wpCov8" target="_blank" rel="noopener">GOOGLE 客服表單</a> 或 Email：bao58881@gmail.com 聯繫。我們會在合理期間內處理；依法或基於帳務、稽核、安全所需保留的紀錄，可能無法立即刪除。</p>",
-    'acc.refund': "<p>⚠️ 本服務為數位內容，<strong>付款後原則上不退費</strong>。目前方案採付款連結開通或延長，不等同信用卡週期自動續扣；是否啟用自動扣款以綠界付款頁與訂購畫面顯示為準。</p><p><strong>唯一例外</strong></p><ul><li>付款後 <strong>24 小時內</strong>，若 Bot 完全無法回應（非使用者網路、LINE 本身或操作問題），可提出申請。</li></ul><p><strong>以下情況不受理退費</strong></p><ul><li>已成功使用任何翻譯功能（即使只用 1 次）</li><li>翻譯品質、語氣或用字不如預期</li><li>個人原因（不想用、忘記使用、操作不熟、買錯方案）</li><li>超過 24 小時後申請</li><li>語音或圖片功能部分異常，但文字翻譯仍可正常使用</li><li>第三方服務、LINE 或網路環境造成的短暫異常</li></ul><p><strong>申請方式</strong></p><ul><li>24 小時內透過 <a class="support-form-link" href="https://forms.gle/rKatiHrCmh5wpCov8" target="_blank" rel="noopener">GOOGLE 客服表單</a> 聯繫，附上付款時間、LINE ID 與問題截圖。</li><li>審核後 5～7 個工作日內處理。</li><li>跨行轉帳或金流手續費由申請人自行負擔。</li></ul><p><strong>安全提醒：</strong>一般付款請以官方 LINE Bot @969wpxno 產生的綠界連結或官網正式入口為準；GOOGLE 客服表單僅處理付款異常、補款、對帳與人工導入，請點選 <a class="support-form-link" href="https://forms.gle/rKatiHrCmh5wpCov8" target="_blank" rel="noopener">GOOGLE 客服表單</a>，請勿相信其他管道。</p>",
+'acc.privacy': "<p><strong>1. 資料收集</strong><br>本服務會收集 LINE User ID、群組 ID、語言設定、翻譯次數、到期狀態、付款與開通紀錄、歷史推薦碼與推薦獎勵紀錄、必要的系統紀錄與錯誤紀錄，用於提供服務、計費、客服、安全稽核與歷史帳務追蹤。</p><p><strong>2. 翻譯內容處理</strong><br>為提供翻譯、OCR 或語音功能，使用者傳送的文字、圖片或語音可能會依功能需求傳送至 LINE、DeepL、OpenAI、Anthropic 或其他必要服務商處理。</p><p><strong>3. 記錄保存</strong><br>系統可能保存近期翻譯紀錄與使用紀錄，以支援歷史查詢、後台搜尋、用量統計、除錯與客服查詢；不會將內容出售給廣告商或公開揭露。若您不希望敏感內容被第三方服務處理，請勿透過本服務傳送。</p><p><strong>4. 第三方服務</strong><br>LINE、DeepL、OpenAI、Anthropic 等服務商各有其隱私政策與資料處理規範，本服務會在功能必要範圍內使用。</p><p><strong>5. 資料刪除</strong><br>如需查詢或刪除個人資料，請透過 <a class=\"support-form-link\" href=\"https://forms.gle/rKatiHrCmh5wpCov8\" target=\"_blank\" rel=\"noopener\">GOOGLE 客服表單</a> 或 Email：bao58881@gmail.com 聯繫。我們會在合理期間內處理；依法或基於帳務、稽核、安全所需保留的紀錄，可能無法立即刪除。</p>",
+    'acc.refund': "<p>⚠️ 本服務為數位內容，<strong>付款後原則上不退費</strong>。目前方案採付款連結開通或延長，不等同信用卡週期自動續扣；是否啟用自動扣款以綠界付款頁與訂購畫面顯示為準。</p><p><strong>唯一例外</strong></p><ul><li>付款後 <strong>24 小時內</strong>，若 Bot 完全無法回應（非使用者網路、LINE 本身或操作問題），可提出申請。</li></ul><p><strong>以下情況不受理退費</strong></p><ul><li>已成功使用任何翻譯功能（即使只用 1 次）</li><li>翻譯品質、語氣或用字不如預期</li><li>個人原因（不想用、忘記使用、操作不熟、買錯方案）</li><li>超過 24 小時後申請</li><li>語音或圖片功能部分異常，但文字翻譯仍可正常使用</li><li>第三方服務、LINE 或網路環境造成的短暫異常</li></ul><p><strong>申請方式</strong></p><ul><li>24 小時內透過 <a class=\"support-form-link\" href=\"https://forms.gle/rKatiHrCmh5wpCov8\" target=\"_blank\" rel=\"noopener\">GOOGLE 客服表單</a> 聯繫，附上付款時間、LINE ID 與問題截圖。</li><li>審核後 5～7 個工作日內處理。</li><li>跨行轉帳或金流手續費由申請人自行負擔。</li></ul><p><strong>安全提醒：</strong>一般付款請以官方 LINE Bot @969wpxno 產生的綠界連結或官網正式入口為準；GOOGLE 客服表單僅處理付款異常、補款、對帳與人工導入，請點選 <a class=\"support-form-link\" href=\"https://forms.gle/rKatiHrCmh5wpCov8\" target=\"_blank\" rel=\"noopener\">GOOGLE 客服表單</a>，請勿相信其他管道。</p>",
     'acc.langs': '<p>萬語通採用 DeepL 專業翻譯引擎，支援 35 種常用語言（依方案與系統狀態調整）：</p><ul><li>英文、日文、韓文、印尼文、泰文、越南文、馬來文</li><li>法文、德文、西班牙文、俄文、葡萄牙文、義大利文</li><li>阿拉伯文、希伯來文</li><li>荷蘭文、波蘭文、土耳其文、瑞典文、捷克文</li><li>羅馬尼亞文、匈牙利文、烏克蘭文、保加利亞文</li><li>丹麥文、芬蘭文、希臘文、挪威文</li><li>愛沙尼亞文、拉脫維亞文、立陶宛文</li><li>斯洛伐克文、斯洛維尼亞文、簡體中文</li></ul><p>指令範例：傳 <strong>@印尼</strong> 切換印尼文；傳 <strong>@越南</strong> 切換越南文；傳 <strong>@支援語言</strong> 查看完整語言清單。</p>',
     // VS specific cells
     'vs.ocr.wyt':     '● ✓（付費版）',
@@ -3254,19 +3324,18 @@ var i18n = {
     'hero.desc':       'Put LINE group translation, AI summaries, daily reports, and backend search into one workflow. Built for factories, worksites, caregiving, restaurants, and multilingual teams that need messages understood and records searchable.',
     'hero.btn1':       'Try the LINE Workflow Free',
     'hero.btn2':       'View Plans →',
-    'phone.bot':       'WanyuTong',
-    'phone.day':       'Today',
-    'phone.owner1':    'Finish cleaning Area A<br>before 15:00.<br>Reply 1 when received.',
-    'phone.meta1':     'ZH → Indonesian · Work Notice ✓',
-    'phone.received':  'Received · 08:22',
-    'phone.check.title': 'Confirmation Progress',
-    'phone.check.desc': 'Confirmed 6 / 8 people, 2 pending replies',
-    'phone.tag1':      'Notice',
-    'phone.tag2':      'Reply Tracking',
-    'phone.meta2':     'Vietnamese → English',
-    'phone.owner2':    'Yes. Please hand over<br>the machine log first.',
-    'phone.meta3':     'English → Vietnamese · Translation Engine ✓',
-    'phone.input':     'Message...',
+    'botcard.name':    'WanyuTong BOT',
+    'botcard.sub':     'LINE multilingual translation bot',
+    'botcard.manager': 'Manager',
+    'botcard.message': 'Finish Area A cleaning<br>before 15:00',
+    'botcard.translator': 'WanyuTong Translation',
+    'botcard.translation': 'Selesaikan area A<br>sebelum 15:00',
+    'botcard.check.title': 'Confirmation Progress',
+    'botcard.check.desc': 'Confirmed 6/8 people, 2 pending replies',
+    'botcard.tag1':    'Translated',
+    'botcard.tag2':    'Confirmed',
+    'botcard.tag3':    'Searchable',
+    'botcard.foot':    'Group records are saved for search and export',
     // STATS
     'stat.speed':      'Avg. Translation Speed',
     'stat.langs':      'Supported Languages',
@@ -3520,11 +3589,11 @@ var i18n = {
   "<p><strong>4. Translation Results</strong><br>Translation, OCR, and speech transcription results are for communication reference only and may contain errors due to source quality, accent, image clarity, technical context, or third-party AI services. They are not legal, medical, financial, contractual, or safety-operation advice. Critical content should be reviewed by the user or a qualified professional.</p>",
   "<p><strong>5. Referral Program Status</strong><br>The personal referral program no longer accepts new bindings or new rewards. Previously granted bonus days remain valid. Group plans are not part of any referral-code program. If historical referral records involve refunds, disputed transactions, or abuse, the Service may still adjust or reverse bonuses based on records.</p>",
   "<p><strong>6. Service Interruption</strong><br>Delays or interruptions may occur due to LINE, DeepL, OpenAI, Anthropic, cloud hosting, network issues, force majeure, or maintenance. We will make reasonable efforts to restore service but do not guarantee uninterrupted operation or liability for consequential losses.</p>",
-  "<p><strong>7. Account and Payment Safety</strong><br>The official LINE Bot is @969wpxno. Support and payment exceptions should be handled through the <a class="support-form-link" href="https://forms.gle/rKatiHrCmh5wpCov8" target="_blank" rel="noopener">GOOGLE Support Form</a>. Monthly, half-year, annual, and premium plans should use the payment link generated by the official LINE Bot or the official website entry. Payment-link activation or extension does not automatically mean recurring card billing; any recurring payment setting depends on what is shown on the ECPay payment page and order screen. Users are responsible for securing their LINE accounts and devices. Losses caused by account theft, phishing, or social engineering are not the responsibility of the Service.</p>",
+  "<p><strong>7. Account and Payment Safety</strong><br>The official LINE Bot is @969wpxno. Support and payment exceptions should be handled through the <a class=\"support-form-link\" href=\"https://forms.gle/rKatiHrCmh5wpCov8\" target=\"_blank\" rel=\"noopener\">GOOGLE Support Form</a>. Monthly, half-year, annual, and premium plans should use the payment link generated by the official LINE Bot or the official website entry. Payment-link activation or extension does not automatically mean recurring card billing; any recurring payment setting depends on what is shown on the ECPay payment page and order screen. Users are responsible for securing their LINE accounts and devices. Losses caused by account theft, phishing, or social engineering are not the responsibility of the Service.</p>",
   "<p><strong>8. Terms Revision</strong><br>We may adjust features, pricing, and terms. Major changes will be announced via the website or LINE Bot where practical.</p>"
 ].join(""),
-'acc.privacy': "<p><strong>1. Data Collection</strong><br>The Service may collect LINE User IDs, group IDs, language settings, translation counts, expiration status, payment and activation records, historical referral codes and referral reward records, required system logs, and error logs for service delivery, billing, support, security auditing, and historical account reconciliation.</p><p><strong>2. Translation Processing</strong><br>To provide translation, OCR, or voice features, text, images, or voice messages may be sent to LINE, DeepL, OpenAI, Anthropic, or other necessary service providers for processing.</p><p><strong>3. Record Retention</strong><br>The system may retain recent translation records and usage records to support history lookup, backend search, usage analytics, debugging, and support. Content is not sold to advertisers or publicly disclosed. Do not send sensitive content if you do not want it processed by third-party services.</p><p><strong>4. Third-party Services</strong><br>LINE, DeepL, OpenAI, Anthropic, and other providers have their own privacy and data-processing policies. The Service uses them only where required for features.</p><p><strong>5. Data Deletion</strong><br>To request access or deletion, use the <a class="support-form-link" href="https://forms.gle/rKatiHrCmh5wpCov8" target="_blank" rel="noopener">GOOGLE Support Form</a> or email bao58881@gmail.com. We will process requests within a reasonable period; records required for accounting, auditing, security, or legal reasons may be retained as needed.</p>",
-    'acc.refund': "<p>⚠️ This is a digital service. <strong>Payments are generally non-refundable.</strong> Plans are activated or extended through payment links and do not automatically mean recurring card billing. Any recurring payment setting depends on what is shown on the ECPay payment page and order screen.</p><p><strong>One Exception</strong></p><ul><li>If the Bot is completely unresponsive within <strong>24 hours</strong> of payment and the issue is not caused by the user's network, LINE, or operation error, you may apply for review.</li></ul><p><strong>Non-refundable situations</strong></p><ul><li>Any translation feature has been successfully used, even once</li><li>Translation quality, tone, or wording did not meet expectations</li><li>Personal reasons, including changed mind, forgot to use, unfamiliar operation, or wrong plan selected</li><li>Application submitted after 24 hours</li><li>Voice or image features are partially abnormal while text translation still works</li><li>Short interruptions caused by third-party services, LINE, or network conditions</li></ul><p><strong>How to Apply</strong></p><ul><li>Use the <a class="support-form-link" href="https://forms.gle/rKatiHrCmh5wpCov8" target="_blank" rel="noopener">GOOGLE Support Form</a> within 24 hours with payment time, LINE ID, and issue screenshots.</li><li>Processing takes 5-7 business days after review.</li><li>Bank transfer or payment processing fees are borne by the applicant.</li></ul><p><strong>Safety Notice:</strong> General payments should use the payment link generated by official LINE Bot @969wpxno or the official website entry. The support form only handles payment exceptions, manual adjustments, reconciliation, and activation issues.</p>",
+'acc.privacy': "<p><strong>1. Data Collection</strong><br>The Service may collect LINE User IDs, group IDs, language settings, translation counts, expiration status, payment and activation records, historical referral codes and referral reward records, required system logs, and error logs for service delivery, billing, support, security auditing, and historical account reconciliation.</p><p><strong>2. Translation Processing</strong><br>To provide translation, OCR, or voice features, text, images, or voice messages may be sent to LINE, DeepL, OpenAI, Anthropic, or other necessary service providers for processing.</p><p><strong>3. Record Retention</strong><br>The system may retain recent translation records and usage records to support history lookup, backend search, usage analytics, debugging, and support. Content is not sold to advertisers or publicly disclosed. Do not send sensitive content if you do not want it processed by third-party services.</p><p><strong>4. Third-party Services</strong><br>LINE, DeepL, OpenAI, Anthropic, and other providers have their own privacy and data-processing policies. The Service uses them only where required for features.</p><p><strong>5. Data Deletion</strong><br>To request access or deletion, use the <a class=\"support-form-link\" href=\"https://forms.gle/rKatiHrCmh5wpCov8\" target=\"_blank\" rel=\"noopener\">GOOGLE Support Form</a> or email bao58881@gmail.com. We will process requests within a reasonable period; records required for accounting, auditing, security, or legal reasons may be retained as needed.</p>",
+    'acc.refund': "<p>⚠️ This is a digital service. <strong>Payments are generally non-refundable.</strong> Plans are activated or extended through payment links and do not automatically mean recurring card billing. Any recurring payment setting depends on what is shown on the ECPay payment page and order screen.</p><p><strong>One Exception</strong></p><ul><li>If the Bot is completely unresponsive within <strong>24 hours</strong> of payment and the issue is not caused by the user's network, LINE, or operation error, you may apply for review.</li></ul><p><strong>Non-refundable situations</strong></p><ul><li>Any translation feature has been successfully used, even once</li><li>Translation quality, tone, or wording did not meet expectations</li><li>Personal reasons, including changed mind, forgot to use, unfamiliar operation, or wrong plan selected</li><li>Application submitted after 24 hours</li><li>Voice or image features are partially abnormal while text translation still works</li><li>Short interruptions caused by third-party services, LINE, or network conditions</li></ul><p><strong>How to Apply</strong></p><ul><li>Use the <a class=\"support-form-link\" href=\"https://forms.gle/rKatiHrCmh5wpCov8\" target=\"_blank\" rel=\"noopener\">GOOGLE Support Form</a> within 24 hours with payment time, LINE ID, and issue screenshots.</li><li>Processing takes 5-7 business days after review.</li><li>Bank transfer or payment processing fees are borne by the applicant.</li></ul><p><strong>Safety Notice:</strong> General payments should use the payment link generated by official LINE Bot @969wpxno or the official website entry. The support form only handles payment exceptions, manual adjustments, reconciliation, and activation issues.</p>",
     'acc.langs': '<p>WanyuTong uses the DeepL professional translation engine and supports 35 common languages depending on plan and system status:</p><ul><li>English, Japanese, Korean, Indonesian, Thai, Vietnamese, Malay</li><li>French, German, Spanish, Russian, Portuguese, Italian</li><li>Arabic, Hebrew</li><li>Dutch, Polish, Turkish, Swedish, Czech</li><li>Romanian, Hungarian, Ukrainian, Bulgarian</li><li>Danish, Finnish, Greek, Norwegian</li><li>Estonian, Latvian, Lithuanian</li><li>Slovak, Slovenian, Simplified Chinese</li></ul><p>Example: use the Indonesian command to switch; use the supported-languages command in LINE to view the full language list.</p>',
     // VS specific cells
     'vs.ocr.wyt':     '● ✓ (Paid Plans)',
@@ -3703,22 +3772,21 @@ function applyLang(lang) {
   var h1 = document.querySelector('#hero h1');
   if (h1) {
     h1.innerHTML = t['hero.h1a'] + '<br><span class="hl">' + t['hero.h1b'] + '</span>';
-    h1.setAttribute('aria-label', t['hero.h1a'] + ' ' + t['hero.h1b']);
+    h1.setAttribute('aria-label', (t['hero.h1a'] + ' ' + t['hero.h1b']).replace(/<[^>]+>/g, ''));
   }
   q('.hero-desc', 'hero.desc');
-  s('phone-bot-name', 'phone.bot');
-  s('phone-day', 'phone.day');
-  h('phone-owner-1', 'phone.owner1');
-  s('phone-meta-1', 'phone.meta1');
-  s('phone-received', 'phone.received');
-  s('phone-check-title', 'phone.check.title');
-  s('phone-check-desc', 'phone.check.desc');
-  s('phone-tag-1', 'phone.tag1');
-  s('phone-tag-2', 'phone.tag2');
-  s('phone-meta-2', 'phone.meta2');
-  h('phone-owner-2', 'phone.owner2');
-  s('phone-meta-3', 'phone.meta3');
-  s('phone-input-placeholder', 'phone.input');
+  s('bot-card-name', 'botcard.name');
+  s('bot-card-subtitle', 'botcard.sub');
+  s('bot-card-manager-label', 'botcard.manager');
+  h('bot-card-manager-message', 'botcard.message');
+  s('bot-card-translation-label', 'botcard.translator');
+  h('bot-card-translation-message', 'botcard.translation');
+  s('bot-card-check-title', 'botcard.check.title');
+  s('bot-card-check-desc', 'botcard.check.desc');
+  s('bot-card-tag-1', 'botcard.tag1');
+  s('bot-card-tag-2', 'botcard.tag2');
+  s('bot-card-tag-3', 'botcard.tag3');
+  s('bot-card-foot', 'botcard.foot');
   var btn1 = document.querySelector('.btn-primary');
   if (btn1) {
     var svgEl1 = btn1.querySelector('svg');

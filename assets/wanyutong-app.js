@@ -303,7 +303,7 @@
     var footerInfo = document.querySelector('footer div[data-zh], footer div:first-child');
     var footerText = footerInfo ? footerInfo.textContent : '';
     if (footerInfo && (footerText.indexOf('客服') !== -1 || footerText.indexOf('表單') !== -1 || footerText.indexOf('WanyuTong') !== -1 || footerText.indexOf('LINE') !== -1 || footerText.indexOf('Email') !== -1)) {
-      footerInfo.innerHTML = activeLang === 'en' ? '© 2026 WanyuTong · <a class="support-form-link" href="https://forms.gle/rKatiHrCmh5wpCov8" target="_blank" rel="noopener">GOOGLE Support Form</a> · Email: bao58881@gmail.com' : '© 2026 萬語通 · <a class="support-form-link" href="https://forms.gle/rKatiHrCmh5wpCov8" target="_blank" rel="noopener">GOOGLE 客服表單</a> · Email：bao58881@gmail.com';
+      footerInfo.innerHTML = activeLang === 'en' ? '© 2026 WanyuTong · <a class="support-form-link" href="https://forms.gle/rKatiHrCmh5wpCov8" target="_blank" rel="noopener">GOOGLE Support Form</a> · Email: wanyutong29@gmail.com' : '© 2026 萬語通 · <a class="support-form-link" href="https://forms.gle/rKatiHrCmh5wpCov8" target="_blank" rel="noopener">GOOGLE 客服表單</a> · Email：wanyutong29@gmail.com';
     }
 
     syncNavLabels(activeLang);

@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>專注 DeepL 專業翻譯，不再混用 Google｜萬語通 WanyuTong</title>
+<meta name="description" content="萬語通回到 DeepL 專業翻譯引擎，並用流程提醒處理高風險內容，不把一般翻譯結果包裝成專業判斷。">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://fishxit777.github.io/wanyutong-web/engine.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="專注 DeepL 專業翻譯，不再混用 Google｜萬語通 WanyuTong">
+<meta property="og:description" content="萬語通回到 DeepL 專業翻譯引擎，並用流程提醒處理高風險內容，不把一般翻譯結果包裝成專業判斷。">
+<meta property="og:image" content="https://fishxit777.github.io/wanyutong-web/assets/wanyutong-logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#080b10;--bg2:#0e1218;--bg3:#141a24;--border:rgba(255,255,255,.09);--border2:rgba(255,255,255,.16);--text:#e8edf5;--muted:#8fa1c2;--line:#06c755;--cyan:#00d4ff;--white:#fff}html.light{--bg:#f1f5f9;--bg2:#fff;--bg3:#e8eef6;--border:rgba(12,20,32,.1);--border2:rgba(12,20,32,.18);--text:#172033;--muted:#53657f;--line:#05b34a;--cyan:#087ea4;--white:#172033}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:'Noto Sans TC',sans-serif}.zh{display:inline}.en{display:none}html[lang="en"] .zh{display:none}html[lang="en"] .en{display:inline}body::before{content:"";position:fixed;inset:0;background-image:linear-gradient(rgba(6,199,85,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(6,199,85,.045) 1px,transparent 1px);background-size:72px 72px;pointer-events:none}.topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:22px;padding:14px clamp(18px,5vw,72px);background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}.brand{display:inline-flex;align-items:center;gap:10px;color:var(--text);text-decoration:none;font-weight:900}.brand-logo{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,.14);box-shadow:0 0 0 1px rgba(255,115,30,.32),0 0 22px rgba(255,115,30,.18)}.brand small{display:block;color:var(--muted);font-weight:700;font-size:.72em}.site-nav{margin-left:auto;display:flex;align-items:center;gap:clamp(12px,1.6vw,24px)}.site-nav a{color:var(--muted);text-decoration:none;font-weight:700}.site-nav a.active,.site-nav a:hover{color:var(--line)}.nav-actions{display:flex;align-items:center;gap:8px}.lang-toggle{display:flex;border:1px solid var(--border2);border-radius:999px;overflow:hidden}.lang-toggle button,.theme-btn{border:0;background:transparent;color:var(--muted);padding:6px 10px;font-weight:800;cursor:pointer}.lang-toggle button.active{background:var(--line);color:#061008}.theme-btn{border:1px solid var(--border2);border-radius:999px}.topic-footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:28px clamp(18px,5vw,72px);display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;color:var(--muted)}.topic-footer a{color:var(--muted);text-decoration:none}.topic-footer a:hover{color:var(--line)}@media(max-width:980px){.topbar{align-items:flex-start;flex-direction:column}.site-nav{margin-left:0;flex-wrap:wrap}.nav-actions{position:absolute;right:18px;top:16px}}@media(max-width:640px){.site-nav{gap:10px}.site-nav a{font-size:15px}.brand-logo{width:38px;height:38px}.brand small{display:none}}
+</style>
+<link rel="stylesheet" href="assets/wanyutong-readable.css">
+</head>
+<body class="topic-page">
+<header class="topbar">
+  <a class="brand" href="index.html"><img class="brand-logo" src="assets/wanyutong-logo.jpg" alt="萬語通標誌"><span><span class="zh">萬語通</span><span class="en">WanyuTong</span><small>LINE Translation Bot</small></span></a>
+  <nav class="site-nav" aria-label="主要導覽">
+    <a href="features.html"><span class="zh">功能</span><span class="en">Features</span></a>
+    <a href="industries.html"><span class="zh">產業</span><span class="en">Use Cases</span></a>
+    <a href="engine.html"><span class="zh">引擎</span><span class="en">Engine</span></a>
+    <a href="compare.html"><span class="zh">比較</span><span class="en">Compare</span></a>
+    <a href="pricing.html"><span class="zh">方案</span><span class="en">Pricing</span></a>
+    <a href="start.html"><span class="zh">開始</span><span class="en">Start</span></a>
+    <a href="blog.html"><span class="zh">部落格</span><span class="en">Blog</span></a>
+    <a href="faq.html">FAQ</a>
+  </nav>
+  <div class="nav-actions">
+    <div class="lang-toggle"><button id="btn-zh" onclick="setLang('zh')">繁中</button><button id="btn-en" onclick="setLang('en')">EN</button></div>
+    <button class="theme-btn" onclick="toggleTheme()" aria-label="切換日夜模式">☾</button>
+  </div>
+</header>
+<main class="topic-main">
+  <section class="topic-hero">
+    <div>
+      <div class="topic-kicker"><span class="zh">// 引擎差異</span><span class="en">// Engine</span></div>
+      <h1><span class="zh">專注 DeepL 專業翻譯，不再混用 Google</span><span class="en">DeepL-Focused Translation Engine</span></h1>
+      <p><span class="zh">萬語通回到 DeepL 專業翻譯引擎，並用流程提醒處理高風險內容，不把一般翻譯結果包裝成專業判斷。</span><span class="en">WanyuTong focuses on DeepL professional translation and uses workflow reminders for high-risk content instead of pretending machine translation is final judgment.</span></p>
+    </div>
+    <aside class="topic-panel">
+      <strong><span class="zh">為什麼這樣比較穩</span><span class="en">Why This Is Safer</span></strong>
+      <p><span class="zh">用戶需要的是穩定、一致、可解釋的翻譯流程；重要合約、工安、金額與醫療內容則應提醒人工確認。</span><span class="en">Users need a stable, consistent, explainable workflow. Contracts, safety, payment, and medical content should be reviewed by people.</span></p>
+    </aside>
+  </section>
+  <section class="topic-grid" aria-label="主題重點">
+      <article class="topic-card">
+        <h2><span class="zh">一致的翻譯策略</span><span class="en">Consistent Strategy</span></h2>
+        <p><span class="zh">避免不同引擎回覆風格忽高忽低，讓群組用戶更容易建立信任。</span><span class="en">Avoids unpredictable style shifts across engines, making group communication easier to trust.</span></p>
+      </article>
+      <article class="topic-card">
+        <h2><span class="zh">35 種常用語言</span><span class="en">35 Common Languages</span></h2>
+        <p><span class="zh">支援外籍員工常用語言，免費版保留中、英、日、韓基本使用。</span><span class="en">Supports common foreign-worker languages, while the free plan keeps Chinese, English, Japanese, and Korean available.</span></p>
+      </article>
+      <article class="topic-card">
+        <h2><span class="zh">重要內容提醒</span><span class="en">High-Risk Reminders</span></h2>
+        <p><span class="zh">工安、合約、金額、醫療與法律內容不應只靠機器翻譯，系統會提示人工複核。</span><span class="en">Safety, contracts, money, medical, and legal content should not rely only on machine translation.</span></p>
+      </article>
+      <article class="topic-card">
+        <h2><span class="zh">語音與 OCR 串接</span><span class="en">Voice and OCR Pipeline</span></h2>
+        <p><span class="zh">語音先轉文字，圖片先辨識文字，再進入翻譯流程，讓結果更可追蹤。</span><span class="en">Voice is transcribed and images are recognized before translation, keeping outputs traceable.</span></p>
+      </article>
+      <article class="topic-card">
+        <h2><span class="zh">不誇大成萬能 AI</span><span class="en">No Overclaiming</span></h2>
+        <p><span class="zh">萬語通定位在工作溝通，不把翻譯包裝成法律、醫療或財務專業建議。</span><span class="en">WanyuTong supports work communication and does not position translation as legal, medical, or financial advice.</span></p>
+      </article>
+      <article class="topic-card">
+        <h2><span class="zh">未來可擴充</span><span class="en">Expandable</span></h2>
+        <p><span class="zh">尊爵版保留客製空間，未來台語與客語可依實際開發進度加入。</span><span class="en">Premium customization leaves room for planned Taiwanese and Hakka support.</span></p>
+      </article>
+  </section>
+  <section class="topic-next">
+    <div>
+      <h2><span class="zh">想知道和競品差在哪？</span><span class="en">Compare with alternatives?</span></h2>
+      <p><span class="zh">競品比較頁會把費用、免費額度、OCR、語音、報表與匯出拆開看。</span><span class="en">The comparison page separates pricing, free quota, OCR, voice, reports, and exports.</span></p>
+    </div>
+    <div class="topic-actions">
+      <a class="topic-button" href="join.html"><span class="zh">加入 LINE</span><span class="en">Add LINE</span></a>
+      <a class="topic-button secondary" href="pricing.html"><span class="zh">查看方案</span><span class="en">View Pricing</span></a>
+    </div>
+  </section>
+</main>
+<footer class="topic-footer">
+  <div>© 2026 <span class="zh">萬語通</span><span class="en">WanyuTong</span> · <a href="https://forms.gle/rKatiHrCmh5wpCov8" target="_blank" rel="noopener"><span class="zh">GOOGLE 客服表單</span><span class="en">GOOGLE Support Form</span></a></div>
+  <div><a href="terms.html"><span class="zh">條款</span><span class="en">Terms</span></a> · <a href="privacy.html"><span class="zh">隱私</span><span class="en">Privacy</span></a> · <a href="contact.html"><span class="zh">聯絡客服</span><span class="en">Contact</span></a></div>
+</footer>
+<script>
+function setLang(lang){var v=lang==='en'?'en':'zh';document.documentElement.lang=v==='en'?'en':'zh-TW';try{localStorage.setItem('wyt-lang',v)}catch(e){}document.getElementById('btn-zh').classList.toggle('active',v==='zh');document.getElementById('btn-en').classList.toggle('active',v==='en')}
+function toggleTheme(){document.documentElement.classList.toggle('light');try{localStorage.setItem('wyt-theme',document.documentElement.classList.contains('light')?'light':'dark')}catch(e){}}
+(function(){try{if(localStorage.getItem('wyt-theme')==='light')document.documentElement.classList.add('light');setLang(localStorage.getItem('wyt-lang')||'zh')}catch(e){setLang('zh')}var current=location.pathname.split('/').pop()||'index.html';document.querySelectorAll('.site-nav a').forEach(function(a){if(a.getAttribute('href')===current)a.classList.add('active')})})();
+</script>
+</body>
+</html>
+

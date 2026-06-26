@@ -202,22 +202,22 @@
   function syncNavLabels(activeLang) {
     var labels = activeLang === 'en'
       ? {
-        '#features': 'Features',
-        '#industries': 'Use Cases',
-        '#compare': 'Engine',
-        '#vs-competitors': 'Compare',
-        '#pricing': 'Pricing',
-        '#howto': 'Start',
-        '#terms': 'Terms'
+        'features.html': 'Features',
+        'industries.html': 'Use Cases',
+        'engine.html': 'Engine',
+        'compare.html': 'Compare',
+        'pricing.html': 'Pricing',
+        'start.html': 'Start',
+        'terms.html': 'Terms'
       }
       : {
-        '#features': '為何選我',
-        '#industries': '適用產業',
-        '#compare': '引擎差異',
-        '#vs-competitors': '競品比較',
-        '#pricing': '收費方案',
-        '#howto': '如何開始',
-        '#terms': '條款'
+        'features.html': '為何選我',
+        'industries.html': '適用產業',
+        'engine.html': '引擎差異',
+        'compare.html': '競品比較',
+        'pricing.html': '收費方案',
+        'start.html': '如何開始',
+        'terms.html': '條款'
       };
 
     Object.keys(labels).forEach(function (href) {
@@ -240,11 +240,30 @@
     if (!footerLinks.length) return;
 
     var labels = activeLang === 'en'
-      ? ['Blog', 'FAQ', 'Pricing', 'Terms', 'Contact']
-      : ['部落格', '常見問題', '收費方案', '使用條款', '聯繫客服'];
+      ? {
+        'index.html': 'Official Site',
+        'features.html': 'Why Us',
+        'pricing.html': 'Pricing',
+        'blog.html': 'Blog',
+        'faq.html': 'FAQ',
+        'terms.html': 'Terms',
+        'privacy.html': 'Privacy',
+        'contact.html': 'Contact'
+      }
+      : {
+        'index.html': '官網',
+        'features.html': '為何選我',
+        'pricing.html': '收費方案',
+        'blog.html': '部落格',
+        'faq.html': '常見問題',
+        'terms.html': '使用條款',
+        'privacy.html': '隱私權政策',
+        'contact.html': '聯絡方式'
+      };
 
-    footerLinks.forEach(function (link, index) {
-      if (labels[index]) link.textContent = labels[index];
+    footerLinks.forEach(function (link) {
+      var href = link.getAttribute('href') || '';
+      if (labels[href]) link.textContent = labels[href];
     });
   }
 

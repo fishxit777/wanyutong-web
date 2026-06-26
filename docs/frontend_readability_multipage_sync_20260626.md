@@ -1,0 +1,89 @@
+# 萬語通官網字級與多分頁調整交接
+
+日期：2026-06-26
+
+## 本次處理重點
+
+- 將官網從「主要內容擠在一頁」改為「首頁入口 + 主題分頁」的架構，降低使用者第一眼誤判為詐騙頁的風險。
+- 新增共用可讀性樣式 `assets/wanyutong-readable.css`，統一首頁、主題頁、部落格、FAQ、加入頁、條款、隱私、聯絡頁的字級、行高、按鈕、表格與手機寬度。
+- 修正手機版橫向溢位，避免部落格、FAQ、首頁卡片、頁腳與按鈕造成左右滑動。
+- 放大小字：標籤、日期、頁腳、FAQ 分段、語言切換、日夜按鈕、示意圖小字、表格註記都設定最低可讀字級。
+- 移除前台會讓客戶誤解的「後台 / backend / 內部管理 / 管理工具」類字眼，改為服務紀錄、紀錄查詢、客服協助等說法。
+
+## 新增主題分頁
+
+- `features.html`：功能說明
+- `industries.html`：適用產業
+- `engine.html`：翻譯引擎
+- `compare.html`：競品比較
+- `pricing.html`：收費方案
+- `start.html`：如何開始
+
+首頁 `index.html` 保留品牌第一眼與重點導覽，並新增「依主題看萬語通」入口卡，讓使用者可以依需求進入主題頁，不需要在一頁式長頁中尋找資訊。
+
+## 同步修改範圍
+
+- `index.html`：主導覽改為獨立頁連結，新增主題入口區，修正中英切換文案。
+- `assets/wanyutong-app.js`：導覽與頁腳文字同步改為依 href 判斷，避免不同頁 footer 數量不同時翻譯錯位。
+- `sitemap.xml`：加入 6 個主題分頁。
+- 所有根目錄 `.html`：載入 `assets/wanyutong-readable.css`。
+- `blog.html`、FAQ、加入頁與文章頁：共用字級與手機排版同步受控。
+
+## 後台與提示字眼同步
+
+對應後端專案 `萬語通/11STARS` 已同步調整：
+
+- `admin.html`
+- `admin_competitors.html`
+- `app.py`
+
+主要方向：管理入口只保留給實際維運，不在客戶面用「後台」描述，改為服務管理入口、服務紀錄、資料檢查、摘要複核等較不突兀的文字。
+
+## 驗證結果
+
+本機靜態伺服器：
+
+```text
+http://127.0.0.1:8765
+```
+
+使用系統 Chrome + Playwright 檢查以下頁面：
+
+```text
+index.html
+features.html
+industries.html
+engine.html
+compare.html
+pricing.html
+start.html
+blog.html
+faq.html
+join.html
+terms.html
+privacy.html
+contact.html
+```
+
+檢查 viewport：
+
+```text
+desktop 1440x1000
+mobile 390x844
+```
+
+結果：
+
+- 橫向溢位：0
+- 可見文字低於 14px：0
+- 首頁英文切換：通過，`html.lang = en`
+- 首頁英文導覽：Pricing 正常顯示
+- 首頁英文主題區：Explore WanyuTong by Topic 正常顯示
+- 舊一頁式錨點搜尋：未發現
+- 客戶面「後台/backend」等字眼搜尋：未發現
+
+## 後續注意
+
+- 若新增頁面，需在 `<head>` 引入 `assets/wanyutong-readable.css`。
+- 若新增導覽項目，需同步更新 `assets/wanyutong-app.js` 的 href 對應翻譯。
+- 若線上 GitHub Pages 還看到舊版，通常是尚未 commit/push 或瀏覽器快取，請加查詢字串測試，例如 `index.html?qa=1`。

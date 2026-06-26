@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>功能不是越多越好，是要真的用得懂｜萬語通 WanyuTong</title>
+<meta name="description" content="萬語通把翻譯、語音、圖片 OCR、AI 摘要、每日報表與紀錄查詢整理成同一套 LINE 工作流程，讓現場不用學新 App。">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://fishxit777.github.io/wanyutong-web/features.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="功能不是越多越好，是要真的用得懂｜萬語通 WanyuTong">
+<meta property="og:description" content="萬語通把翻譯、語音、圖片 OCR、AI 摘要、每日報表與紀錄查詢整理成同一套 LINE 工作流程，讓現場不用學新 App。">
+<meta property="og:image" content="https://fishxit777.github.io/wanyutong-web/assets/wanyutong-logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#080b10;--bg2:#0e1218;--bg3:#141a24;--border:rgba(255,255,255,.09);--border2:rgba(255,255,255,.16);--text:#e8edf5;--muted:#8fa1c2;--line:#06c755;--cyan:#00d4ff;--white:#fff}html.light{--bg:#f1f5f9;--bg2:#fff;--bg3:#e8eef6;--border:rgba(12,20,32,.1);--border2:rgba(12,20,32,.18);--text:#172033;--muted:#53657f;--line:#05b34a;--cyan:#087ea4;--white:#172033}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:'Noto Sans TC',sans-serif}.zh{display:inline}.en{display:none}html[lang="en"] .zh{display:none}html[lang="en"] .en{display:inline}body::before{content:"";position:fixed;inset:0;background-image:linear-gradient(rgba(6,199,85,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(6,199,85,.045) 1px,transparent 1px);background-size:72px 72px;pointer-events:none}.topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:22px;padding:14px clamp(18px,5vw,72px);background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}.brand{display:inline-flex;align-items:center;gap:10px;color:var(--text);text-decoration:none;font-weight:900}.brand-logo{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,.14);box-shadow:0 0 0 1px rgba(255,115,30,.32),0 0 22px rgba(255,115,30,.18)}.brand small{display:block;color:var(--muted);font-weight:700;font-size:.72em}.site-nav{margin-left:auto;display:flex;align-items:center;gap:clamp(12px,1.6vw,24px)}.site-nav a{color:var(--muted);text-decoration:none;font-weight:700}.site-nav a.active,.site-nav a:hover{color:var(--line)}.nav-actions{display:flex;align-items:center;gap:8px}.lang-toggle{display:flex;border:1px solid var(--border2);border-radius:999px;overflow:hidden}.lang-toggle button,.theme-btn{border:0;background:transparent;color:var(--muted);padding:6px 10px;font-weight:800;cursor:pointer}.lang-toggle button.active{background:var(--line);color:#061008}.theme-btn{border:1px solid var(--border2);border-radius:999px}.topic-footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:28px clamp(18px,5vw,72px);display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;color:var(--muted)}.topic-footer a{color:var(--muted);text-decoration:none}.topic-footer a:hover{color:var(--line)}@media(max-width:980px){.topbar{align-items:flex-start;flex-direction:column}.site-nav{margin-left:0;flex-wrap:wrap}.nav-actions{position:absolute;right:18px;top:16px}}@media(max-width:640px){.site-nav{gap:10px}.site-nav a{font-size:15px}.brand-logo{width:38px;height:38px}.brand small{display:none}}
+</style>
+<link rel="stylesheet" href="assets/wanyutong-readable.css">
+</head>
+<body class="topic-page">
+<header class="topbar">
+  <a class="brand" href="index.html"><img class="brand-logo" src="assets/wanyutong-logo.jpg" alt="萬語通標誌"><span><span class="zh">萬語通</span><span class="en">WanyuTong</span><small>LINE Translation Bot</small></span></a>
+  <nav class="site-nav" aria-label="主要導覽">
+    <a href="features.html"><span class="zh">功能</span><span class="en">Features</span></a>
+    <a href="industries.html"><span class="zh">產業</span><span class="en">Use Cases</span></a>
+    <a href="engine.html"><span class="zh">引擎</span><span class="en">Engine</span></a>
+    <a href="compare.html"><span class="zh">比較</span><span class="en">Compare</span></a>
+    <a href="pricing.html"><span class="zh">方案</span><span class="en">Pricing</span></a>
+    <a href="start.html"><span class="zh">開始</span><span class="en">Start</span></a>
+    <a href="blog.html"><span class="zh">部落格</span><span class="en">Blog</span></a>
+    <a href="faq.html">FAQ</a>
+  </nav>
+  <div class="nav-actions">
+    <div class="lang-toggle"><button id="btn-zh" onclick="setLang('zh')">繁中</button><button id="btn-en" onclick="setLang('en')">EN</button></div>
+    <button class="theme-btn" onclick="toggleTheme()" aria-label="切換日夜模式">☾</button>
+  </div>
+</header>
+<main class="topic-main">
+  <section class="topic-hero">
+    <div>
+      <div class="topic-kicker"><span class="zh">// 功能總覽</span><span class="en">// Features</span></div>
+      <h1><span class="zh">功能不是越多越好，是要真的用得懂</span><span class="en">Features That Stay Usable</span></h1>
+      <p><span class="zh">萬語通把翻譯、語音、圖片 OCR、AI 摘要、每日報表與紀錄查詢整理成同一套 LINE 工作流程，讓現場不用學新 App。</span><span class="en">WanyuTong combines translation, voice, image OCR, AI summaries, daily reports, and searchable records inside the LINE workflow your team already uses.</span></p>
+    </div>
+    <aside class="topic-panel">
+      <strong><span class="zh">最重要的差異</span><span class="en">Core Difference</span></strong>
+      <p><span class="zh">不是單次翻譯工具，而是讓主管、外籍員工與客服協助都能沿著同一條流程確認事情。</span><span class="en">It is not a one-off translator. It keeps supervisors, foreign workers, and support follow-up inside one traceable workflow.</span></p>
+    </aside>
+  </section>
+  <section class="topic-grid" aria-label="主題重點">
+      <article class="topic-card">
+        <h2><span class="zh">LINE 群組雙向翻譯</span><span class="en">Group Translation</span></h2>
+        <p><span class="zh">主管用中文交代，員工看到自己的語言。混合國籍群組也能維持同一個工作節奏。</span><span class="en">Supervisors write in Chinese while workers read in their language, keeping mixed-language groups aligned.</span></p>
+      </article>
+      <article class="topic-card">
+        <h2><span class="zh">語音與圖片 OCR</span><span class="en">Voice and OCR</span></h2>
+        <p><span class="zh">語音訊息、公告照片、班表、合約截圖都能轉成可理解文字，減少重新打字。</span><span class="en">Voice messages, notices, schedules, and screenshots become readable text without manual retyping.</span></p>
+      </article>
+      <article class="topic-card">
+        <h2><span class="zh">AI 摘要與每日報表</span><span class="en">AI Summary and Reports</span></h2>
+        <p><span class="zh">把群組重點、待辦、付款、請假、異常整理出來，交接時不用整段往回翻。</span><span class="en">Summaries extract tasks, payments, leave requests, and issues so managers do not scroll through everything.</span></p>
+      </article>
+      <article class="topic-card">
+        <h2><span class="zh">紀錄查詢與匯出</span><span class="en">Search and Export</span></h2>
+        <p><span class="zh">關鍵字可查詢，統計可匯出，適合交接、補款、對帳與主管回報。</span><span class="en">Searchable records and exports support handover, reconciliation, and management reporting.</span></p>
+      </article>
+      <article class="topic-card">
+        <h2><span class="zh">人工複核提醒</span><span class="en">Human Review Reminders</span></h2>
+        <p><span class="zh">遇到工安、金額、合約、醫療等高風險內容時，提醒使用者自行確認。</span><span class="en">High-risk safety, payment, contract, or medical content is flagged for human review.</span></p>
+      </article>
+      <article class="topic-card">
+        <h2><span class="zh">免費先用，滿意再升級</span><span class="en">Start Free</span></h2>
+        <p><span class="zh">免費版可先跑基本文字翻譯；需要完整語言、語音、OCR、摘要與報表再升級。</span><span class="en">Start with basic text translation, then upgrade for full language coverage, voice, OCR, summaries, and reports.</span></p>
+      </article>
+  </section>
+  <section class="topic-next">
+    <div>
+      <h2><span class="zh">想先看實際導入？</span><span class="en">Want the setup flow?</span></h2>
+      <p><span class="zh">下一頁可以看加入 LINE、放入群組、開始翻譯的流程。</span><span class="en">See how to add LINE, place the bot into a group, and start translating.</span></p>
+    </div>
+    <div class="topic-actions">
+      <a class="topic-button" href="join.html"><span class="zh">加入 LINE</span><span class="en">Add LINE</span></a>
+      <a class="topic-button secondary" href="pricing.html"><span class="zh">查看方案</span><span class="en">View Pricing</span></a>
+    </div>
+  </section>
+</main>
+<footer class="topic-footer">
+  <div>© 2026 <span class="zh">萬語通</span><span class="en">WanyuTong</span> · <a href="https://forms.gle/rKatiHrCmh5wpCov8" target="_blank" rel="noopener"><span class="zh">GOOGLE 客服表單</span><span class="en">GOOGLE Support Form</span></a></div>
+  <div><a href="terms.html"><span class="zh">條款</span><span class="en">Terms</span></a> · <a href="privacy.html"><span class="zh">隱私</span><span class="en">Privacy</span></a> · <a href="contact.html"><span class="zh">聯絡客服</span><span class="en">Contact</span></a></div>
+</footer>
+<script>
+function setLang(lang){var v=lang==='en'?'en':'zh';document.documentElement.lang=v==='en'?'en':'zh-TW';try{localStorage.setItem('wyt-lang',v)}catch(e){}document.getElementById('btn-zh').classList.toggle('active',v==='zh');document.getElementById('btn-en').classList.toggle('active',v==='en')}
+function toggleTheme(){document.documentElement.classList.toggle('light');try{localStorage.setItem('wyt-theme',document.documentElement.classList.contains('light')?'light':'dark')}catch(e){}}
+(function(){try{if(localStorage.getItem('wyt-theme')==='light')document.documentElement.classList.add('light');setLang(localStorage.getItem('wyt-lang')||'zh')}catch(e){setLang('zh')}var current=location.pathname.split('/').pop()||'index.html';document.querySelectorAll('.site-nav a').forEach(function(a){if(a.getAttribute('href')===current)a.classList.add('active')})})();
+</script>
+</body>
+</html>
+

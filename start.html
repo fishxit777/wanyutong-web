@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>四步驟開始使用｜萬語通 WanyuTong</title>
+<meta name="description" content="先加入萬語通 LINE 官方帳號，再放進群組，設定語言，開始傳訊息。付款與開通疑問請聯絡客服協助。">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://fishxit777.github.io/wanyutong-web/start.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="四步驟開始使用｜萬語通 WanyuTong">
+<meta property="og:description" content="先加入萬語通 LINE 官方帳號，再放進群組，設定語言，開始傳訊息。付款與開通疑問請聯絡客服協助。">
+<meta property="og:image" content="https://fishxit777.github.io/wanyutong-web/assets/wanyutong-logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#080b10;--bg2:#0e1218;--bg3:#141a24;--border:rgba(255,255,255,.09);--border2:rgba(255,255,255,.16);--text:#e8edf5;--muted:#8fa1c2;--line:#06c755;--cyan:#00d4ff;--white:#fff}html.light{--bg:#f1f5f9;--bg2:#fff;--bg3:#e8eef6;--border:rgba(12,20,32,.1);--border2:rgba(12,20,32,.18);--text:#172033;--muted:#53657f;--line:#05b34a;--cyan:#087ea4;--white:#172033}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:'Noto Sans TC',sans-serif}.zh{display:inline}.en{display:none}html[lang="en"] .zh{display:none}html[lang="en"] .en{display:inline}body::before{content:"";position:fixed;inset:0;background-image:linear-gradient(rgba(6,199,85,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(6,199,85,.045) 1px,transparent 1px);background-size:72px 72px;pointer-events:none}.topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:22px;padding:14px clamp(18px,5vw,72px);background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}.brand{display:inline-flex;align-items:center;gap:10px;color:var(--text);text-decoration:none;font-weight:900}.brand-logo{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,.14);box-shadow:0 0 0 1px rgba(255,115,30,.32),0 0 22px rgba(255,115,30,.18)}.brand small{display:block;color:var(--muted);font-weight:700;font-size:.72em}.site-nav{margin-left:auto;display:flex;align-items:center;gap:clamp(12px,1.6vw,24px)}.site-nav a{color:var(--muted);text-decoration:none;font-weight:700}.site-nav a.active,.site-nav a:hover{color:var(--line)}.nav-actions{display:flex;align-items:center;gap:8px}.lang-toggle{display:flex;border:1px solid var(--border2);border-radius:999px;overflow:hidden}.lang-toggle button,.theme-btn{border:0;background:transparent;color:var(--muted);padding:6px 10px;font-weight:800;cursor:pointer}.lang-toggle button.active{background:var(--line);color:#061008}.theme-btn{border:1px solid var(--border2);border-radius:999px}.topic-footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:28px clamp(18px,5vw,72px);display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;color:var(--muted)}.topic-footer a{color:var(--muted);text-decoration:none}.topic-footer a:hover{color:var(--line)}@media(max-width:980px){.topbar{align-items:flex-start;flex-direction:column}.site-nav{margin-left:0;flex-wrap:wrap}.nav-actions{position:absolute;right:18px;top:16px}}@media(max-width:640px){.site-nav{gap:10px}.site-nav a{font-size:15px}.brand-logo{width:38px;height:38px}.brand small{display:none}}
+</style>
+<link rel="stylesheet" href="assets/wanyutong-readable.css">
+</head>
+<body class="topic-page">
+<header class="topbar">
+  <a class="brand" href="index.html"><img class="brand-logo" src="assets/wanyutong-logo.jpg" alt="萬語通標誌"><span><span class="zh">萬語通</span><span class="en">WanyuTong</span><small>LINE Translation Bot</small></span></a>
+  <nav class="site-nav" aria-label="主要導覽">
+    <a href="features.html"><span class="zh">功能</span><span class="en">Features</span></a>
+    <a href="industries.html"><span class="zh">產業</span><span class="en">Use Cases</span></a>
+    <a href="engine.html"><span class="zh">引擎</span><span class="en">Engine</span></a>
+    <a href="compare.html"><span class="zh">比較</span><span class="en">Compare</span></a>
+    <a href="pricing.html"><span class="zh">方案</span><span class="en">Pricing</span></a>
+    <a href="start.html"><span class="zh">開始</span><span class="en">Start</span></a>
+    <a href="blog.html"><span class="zh">部落格</span><span class="en">Blog</span></a>
+    <a href="faq.html">FAQ</a>
+  </nav>
+  <div class="nav-actions">
+    <div class="lang-toggle"><button id="btn-zh" onclick="setLang('zh')">繁中</button><button id="btn-en" onclick="setLang('en')">EN</button></div>
+    <button class="theme-btn" onclick="toggleTheme()" aria-label="切換日夜模式">☾</button>
+  </div>
+</header>
+<main class="topic-main">
+  <section class="topic-hero">
+    <div>
+      <div class="topic-kicker"><span class="zh">// 如何開始</span><span class="en">// Start</span></div>
+      <h1><span class="zh">四步驟開始使用</span><span class="en">Start in Four Steps</span></h1>
+      <p><span class="zh">先加入萬語通 LINE 官方帳號，再放進群組，設定語言，開始傳訊息。付款與開通疑問請聯絡客服協助。</span><span class="en">Add the WanyuTong LINE account, place it in your group, set languages, and start messaging. Contact support for payment or activation questions.</span></p>
+    </div>
+    <aside class="topic-panel">
+      <strong><span class="zh">最短導入路徑</span><span class="en">Shortest Setup Path</span></strong>
+      <p><span class="zh">不用建立新 App、不用搬群組。把 Bot 加進既有 LINE 群組，就能從文字翻譯開始。</span><span class="en">No new app and no group migration. Add the bot to the existing LINE group and start with text translation.</span></p>
+    </aside>
+  </section>
+  <section class="topic-grid" aria-label="主題重點">
+      <article class="topic-card">
+        <h2><span class="zh">1. 加入萬語通</span><span class="en">1. Add WanyuTong</span></h2>
+        <p><span class="zh">掃 QR Code 或點手機直接加入 LINE，先成為官方帳號好友。</span><span class="en">Scan the QR code or tap the mobile LINE button to add the official account.</span></p>
+      </article>
+      <article class="topic-card">
+        <h2><span class="zh">2. 放進群組</span><span class="en">2. Add to Group</span></h2>
+        <p><span class="zh">把 Bot 邀請進工作群，讓主管與員工在原本群組裡使用。</span><span class="en">Invite the bot into the work group so everyone stays in the original LINE group.</span></p>
+      </article>
+      <article class="topic-card">
+        <h2><span class="zh">3. 設定語言</span><span class="en">3. Set Language</span></h2>
+        <p><span class="zh">用 @語言 查看設定，依群組成員切換印尼、越南、泰文等語言。</span><span class="en">Use language commands to check and switch Indonesian, Vietnamese, Thai, and more.</span></p>
+      </article>
+      <article class="topic-card">
+        <h2><span class="zh">4. 開始傳訊息</span><span class="en">4. Start Messaging</span></h2>
+        <p><span class="zh">文字、圖片、語音都可進入翻譯流程；付費版可再用摘要與報表。</span><span class="en">Text, images, and voice can enter the translation flow; paid plans add summaries and reports.</span></p>
+      </article>
+      <article class="topic-card">
+        <h2><span class="zh">AI 祕書指令</span><span class="en">AI Secretary Commands</span></h2>
+        <p><span class="zh">@祕書 說明、@祕書 狀態、@祕書 摘要、@祕書 報表，照順序使用最清楚。</span><span class="en">Use Help, Status, Summary, and Report commands in order for the clearest workflow.</span></p>
+      </article>
+      <article class="topic-card">
+        <h2><span class="zh">付款與客服</span><span class="en">Payment and Support</span></h2>
+        <p><span class="zh">付款成功後若 5 分鐘仍未開通，請使用 GOOGLE 客服表單，不要相信非官方連結。</span><span class="en">If activation does not complete after payment, use the GOOGLE Support Form and avoid unofficial links.</span></p>
+      </article>
+  </section>
+  <section class="topic-next">
+    <div>
+      <h2><span class="zh">先加入官方 LINE</span><span class="en">Add the official LINE account</span></h2>
+      <p><span class="zh">你可以從加入頁掃碼，或在手機上直接開啟 LINE。</span><span class="en">Use the join page to scan the QR code or open LINE directly on mobile.</span></p>
+    </div>
+    <div class="topic-actions">
+      <a class="topic-button" href="join.html"><span class="zh">加入 LINE</span><span class="en">Add LINE</span></a>
+      <a class="topic-button secondary" href="pricing.html"><span class="zh">查看方案</span><span class="en">View Pricing</span></a>
+    </div>
+  </section>
+</main>
+<footer class="topic-footer">
+  <div>© 2026 <span class="zh">萬語通</span><span class="en">WanyuTong</span> · <a href="https://forms.gle/rKatiHrCmh5wpCov8" target="_blank" rel="noopener"><span class="zh">GOOGLE 客服表單</span><span class="en">GOOGLE Support Form</span></a></div>
+  <div><a href="terms.html"><span class="zh">條款</span><span class="en">Terms</span></a> · <a href="privacy.html"><span class="zh">隱私</span><span class="en">Privacy</span></a> · <a href="contact.html"><span class="zh">聯絡客服</span><span class="en">Contact</span></a></div>
+</footer>
+<script>
+function setLang(lang){var v=lang==='en'?'en':'zh';document.documentElement.lang=v==='en'?'en':'zh-TW';try{localStorage.setItem('wyt-lang',v)}catch(e){}document.getElementById('btn-zh').classList.toggle('active',v==='zh');document.getElementById('btn-en').classList.toggle('active',v==='en')}
+function toggleTheme(){document.documentElement.classList.toggle('light');try{localStorage.setItem('wyt-theme',document.documentElement.classList.contains('light')?'light':'dark')}catch(e){}}
+(function(){try{if(localStorage.getItem('wyt-theme')==='light')document.documentElement.classList.add('light');setLang(localStorage.getItem('wyt-lang')||'zh')}catch(e){setLang('zh')}var current=location.pathname.split('/').pop()||'index.html';document.querySelectorAll('.site-nav a').forEach(function(a){if(a.getAttribute('href')===current)a.classList.add('active')})})();
+</script>
+</body>
+</html>
+

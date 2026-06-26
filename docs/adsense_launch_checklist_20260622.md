@@ -1,131 +1,89 @@
-# 萬語通官網 AdSense 上線清單
+# 萬語通官網 AdSense / 廣告串接交接表
 
-日期：2026-06-22
+更新：2026-06-26
 
-本文件記錄萬語通官網要申請 Google AdSense 的準備狀態、已完成項目，以及需要網站負責人登入帳號後完成的外部步驟。
+## 本次已完成
 
-## 已完成的網站準備
+- 官網前台新增可開關式廣告設定：
+  - `assets/wanyutong-ads-config.js`
+  - `assets/wanyutong-ads.js`
+- 所有根目錄 HTML 頁面已載入廣告設定檔與廣告載入檔。
+- Blog 首頁新增一個內容流廣告位置。
+- 每篇 `blog-*.html` 文章新增一個文章內廣告位置。
+- `ads.txt` 已保留正式發布商 ID 的替換位置。
+- `sw.js` 已更新快取版本並納入廣告設定檔、廣告載入檔、`ads.txt` 與可讀性 CSS。
+- 目前預設為 `enabled: false`，所以正式 ID 未補上前不會載入 Google AdSense，也不會顯示空白廣告框。
 
-- 新增獨立政策頁：
-  - `privacy.html`
-  - `terms.html`
-  - `contact.html`
-- 更新首頁、Blog、FAQ、各篇文章頁的頁尾，讓使用者與 Google 爬蟲能找到政策頁與聯絡方式。
-- 新增 `ads.txt` 範本。
-- 更新 `sitemap.xml`，加入隱私權政策、使用條款、聯絡方式頁面。
-- 更新 `sw.js` 快取版本與核心頁面清單，避免 PWA 舊快取漏掉新頁面。
+## 不會放廣告的位置
 
-## 需要負責人登入完成的 5 步
+為避免影響信任感與轉換率，目前設定排除：
 
-### 1. 購買自有網域
+- 首頁 `index.html`
+- 收費方案頁 `pricing.html`
+- 加入 LINE 流程頁 `join.html`
+- 開始使用頁 `start.html`
 
-建議優先順序：
+目前只預留 Blog 相關頁面：
 
-1. `wanyutong.com`
-2. `wanyutong.tw`
-3. `wanyutong.com.tw`
-
-粗估成本：
-
-- `.com`：約 NT$350-700 / 年
-- `.tw`：約 NT$800-2,000 / 年
-- GitHub Pages 主機：NT$0
-
-注意：目前官網是 `https://fishxit777.github.io/wanyutong-web/`，這是 GitHub Pages 子路徑。AdSense 建帳號時較適合使用自有標準網域，不要使用帶路徑的網址。
-
-### 2. GitHub Pages 綁定自有網域
-
-在 GitHub repo `fishxit777/wanyutong-web`：
-
-1. 進入 `Settings`
-2. 進入 `Pages`
-3. 在 `Custom domain` 輸入正式網域，例如 `www.wanyutong.com`
-4. 儲存
-5. 等 DNS 生效後勾選 `Enforce HTTPS`
-
-DNS 設定範例：
-
-```txt
-Type: CNAME
-Name: www
-Value: fishxit777.github.io
-```
-
-若使用根網域，例如 `wanyutong.com`，請依 GitHub Pages 官方文件設定 A record 或 ALIAS/ANAME。
-
-### 3. 申請 Google AdSense
-
-到 AdSense 後台：
-
-1. 登入 Google 帳號
-2. 新增網站，例如 `wanyutong.com`
-3. 填寫付款資訊與所在地
-4. 選擇網站驗證方式
-5. 取得 AdSense 程式碼或 meta 驗證碼
-
-### 4. 把 AdSense 程式碼放入官網
-
-AdSense 通常會提供類似以下程式碼：
-
-```html
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0000000000000000"
-     crossorigin="anonymous"></script>
-```
-
-要貼到主要 HTML 的 `<head>` 內：
-
-- `index.html`
 - `blog.html`
-- `faq.html`
-- `privacy.html`
-- `terms.html`
-- `contact.html`
-- 所有 `blog-*.html`
+- `blog-*.html`
 
-注意：請不要使用上方 sample ID。一定要使用 AdSense 後台給你的正式 `ca-pub-...`。
+## 正式啟用方式
 
-### 5. 更新 `ads.txt`
+取得 AdSense 發布商 ID 與廣告單元 slot 後，修改：
 
-AdSense 會提供類似以下的一行：
-
-```txt
-google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0
+```js
+// assets/wanyutong-ads-config.js
+window.WANYUTONG_ADS = {
+  enabled: true,
+  publisherId: "ca-pub-正式16碼ID",
+  slots: {
+    blogFeed: "廣告單元slot",
+    articleInline: "廣告單元slot"
+  }
+};
 ```
 
-把 `ads.txt` 內的註解範本替換成正式那一行。
-
-完成後，公開網址應可讀到：
+然後把 `ads.txt` 替換為 AdSense 提供的正式內容，例如：
 
 ```txt
-https://你的網域/ads.txt
+google.com, pub-正式16碼ID, DIRECT, f08c47fec0942fa0
 ```
 
-## 建議廣告放置策略
+注意：
 
-萬語通是服務型官網，首頁主要目標是讓使用者加入 LINE Bot 或聯繫開通。為避免影響成交，建議：
+- `publisherId` 要使用 `ca-pub-...`
+- `ads.txt` 要使用 `pub-...`
+- 不要把範例 ID 上線。
 
-- 首頁：不放或只在頁尾附近放少量自動廣告。
-- Blog 列表：可放 1 個橫幅。
-- Blog 文章：中段 1 個、文末 1 個。
-- FAQ：少量或不放。
-- 價格區、加入 LINE 按鈕附近：不要放第三方廣告。
+## 外部步驟
 
-## 送審前檢查
+這些需要登入 Google / AdSense 後台或有帳號權限，無法只靠本機完成：
 
-- 自有網域可正常開啟。
-- HTTPS 已啟用。
-- `privacy.html`、`terms.html`、`contact.html` 可公開瀏覽。
-- `sitemap.xml` 可公開瀏覽。
-- `ads.txt` 已換成正式發布商 ID。
-- 網站沒有空白頁、測試頁、登入牆或明顯亂碼頁。
-- AdSense 程式碼已放在有內容、一般訪客會瀏覽的頁面。
+- 建立或完成 Google AdSense 帳號。
+- 新增網站並送審。
+- 取得正式 Publisher ID。
+- 建立 Blog 用廣告單元並取得 slot。
+- 確認 AdSense 審核結果。
+- 若使用自有網域，完成網域、DNS、GitHub Pages `CNAME` 與 HTTPS。
 
-## 目前尚未完成原因
+## 法務與體驗原則
 
-以下步驟需要外部帳號登入、付款或 AdSense 後台發布商 ID，因此不能在本機直接完成：
+- 廣告目前只放內容頁，不放首頁 Hero、價格卡、付款/加入 LINE CTA 旁。
+- 隱私權政策已保留 Google AdSense / Cookie 說明。
+- 不把 LINE 訊息內容、翻譯內容、付款資料提供給廣告平台做內容販售。
+- 若未來加入個人化廣告、再行銷或跨站追蹤，需再次確認隱私權政策文字。
 
-- 購買網域
-- GitHub Pages 後台綁定 custom domain
-- Google AdSense 帳號申請與付款資料
-- 取得正式 `ca-pub-...`
-- 送出 AdSense 審查
+## 驗收清單
+
+- `ads.txt` 可由 `https://網域/ads.txt` 讀取。
+- Blog 頁面無正式 ID 時不顯示廣告框。
+- 正式 ID 補上後，Blog 頁面能載入 `pagead2.googlesyndication.com`。
+- 手機版 Blog 不因廣告位置產生橫向捲動。
+- 首頁、收費頁、加入頁不出現第三方廣告。
+
+## 官方參考
+
+- Google AdSense ads.txt 說明：https://support.google.com/adsense/answer/12171612
+- Google AdSense Publisher ID 說明：https://support.google.com/adsense/answer/105516
+- Google AdSense 廣告單元程式碼說明：https://support.google.com/adsense/answer/9274019

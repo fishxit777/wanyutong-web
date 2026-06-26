@@ -1,4 +1,4 @@
-const CACHE_NAME = 'wanyutong-pwa-20260626-secretary-tutorial';
+const CACHE_NAME = 'wanyutong-pwa-20260626-ads-ready';
 const CORE_ASSETS = [
   './',
   './index.html',
@@ -17,7 +17,11 @@ const CORE_ASSETS = [
   './blog-line-group-translation.html',
   './blog-restaurant-foreign-worker-translation.html',
   './manifest.webmanifest',
+  './ads.txt',
   './assets/wanyutong-app.js',
+  './assets/wanyutong-ads-config.js',
+  './assets/wanyutong-ads.js',
+  './assets/wanyutong-readable.css',
   './assets/wanyutong-line-qr.png',
   './assets/wanyutong-line-bot-tutorial.mp4',
   './assets/wanyutong-secretary-tutorial.mp4',

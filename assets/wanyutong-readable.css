@@ -346,6 +346,30 @@ a,
   word-break: normal;
 }
 
+.wyt-ad-slot {
+  width: 100%;
+  min-height: 96px;
+  margin: clamp(26px, 4vw, 48px) auto;
+  border: 1px solid var(--border, rgba(255,255,255,.12));
+  border-radius: 10px;
+  background:
+    linear-gradient(135deg, rgba(6,199,85,.055), rgba(0,212,255,.035)),
+    color-mix(in srgb, var(--bg2, #0e1218) 92%, transparent);
+  overflow: hidden;
+}
+
+.wyt-ad-slot[hidden] {
+  display: none !important;
+}
+
+.wyt-ad-feed {
+  grid-column: 1 / -1;
+}
+
+.wyt-ad-article {
+  max-width: 100%;
+}
+
 .topic-directory {
   position: relative;
   z-index: 2;

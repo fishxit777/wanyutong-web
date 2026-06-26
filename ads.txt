@@ -1,4 +1,7 @@
-# Google AdSense placeholder for WanyuTong.
-# After AdSense gives the publisher ID, replace the next commented sample
-# with the exact line from AdSense:
+# WanyuTong Google AdSense ads.txt
+# Status: waiting for the official AdSense publisher ID.
+#
+# After AdSense provides the publisher ID, replace this file with:
 # google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0
+#
+# Do not publish a fake pub ID. Keep this placeholder until the real ID exists.

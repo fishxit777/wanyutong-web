@@ -36,7 +36,7 @@ body {
   font-size: max(14px, 1em) !important;
   min-width: 0;
   max-width: 100%;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 
 p,
@@ -89,6 +89,9 @@ h1,
   font-size: var(--wyt-readable-h1) !important;
   line-height: 1.08 !important;
   letter-spacing: 0 !important;
+  text-wrap: balance;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 h2,
@@ -97,6 +100,9 @@ section h2,
   font-size: var(--wyt-readable-h2) !important;
   line-height: 1.14 !important;
   letter-spacing: 0 !important;
+  text-wrap: balance;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 h3,
@@ -436,8 +442,8 @@ a,
     --wyt-readable-small: 14.8px;
     --wyt-readable-card: 16.8px;
     --wyt-readable-lead: 17.8px;
-    --wyt-readable-h1: clamp(34px, 12vw, 50px);
-    --wyt-readable-h2: clamp(28px, 8.6vw, 40px);
+    --wyt-readable-h1: clamp(34px, 10.6vw, 44px);
+    --wyt-readable-h2: clamp(28px, 7.6vw, 34px);
     --wyt-readable-h3: clamp(22px, 6vw, 28px);
     --wyt-readable-nav: 16px;
     --wyt-page-pad: 20px;
@@ -522,7 +528,7 @@ a,
   .faq-hero p,
   .article-hero p {
     max-width: 100% !important;
-    overflow-wrap: anywhere !important;
+    overflow-wrap: break-word !important;
   }
 
   .home-next-inner {
@@ -577,6 +583,60 @@ a,
   .lang-btn {
     font-size: 15px !important;
     line-height: 1.2 !important;
+  }
+
+  h1,
+  h1 .hl,
+  h2,
+  section h2,
+  .section-title {
+    word-break: keep-all !important;
+    overflow-wrap: break-word !important;
+    text-wrap: balance;
+  }
+
+  #hero h1 .hl {
+    display: inline;
+    max-width: 100%;
+    white-space: normal;
+    line-break: strict;
+  }
+
+  .story-head {
+    gap: 1.6rem !important;
+  }
+
+  .story-note,
+  .setup-card,
+  .price-card,
+  .accordion-item,
+  .tutorial-video-card {
+    border-radius: 10px !important;
+  }
+
+  .setup-price-row {
+    grid-template-columns: 1fr !important;
+    gap: 0.28rem !important;
+    align-items: start !important;
+  }
+
+  .setup-price-row span:first-child,
+  .setup-price-row strong {
+    text-align: left !important;
+  }
+
+  .setup-price-row strong {
+    font-size: 1rem !important;
+    line-height: 1.45 !important;
+  }
+
+  footer {
+    gap: 0.75rem !important;
+  }
+
+  .footer-links {
+    justify-content: center !important;
+    gap: 0.7rem 1rem !important;
   }
 }
 

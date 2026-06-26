@@ -116,6 +116,12 @@ mobile 390x844
   - `terms.html`：`terms`
   - `contact.html`：`cta`
 - 2026-06-26 追加驗證：上述 9 個頁面 × 桌機/手機 × 繁中/英文，共 36 組 Playwright 檢查通過；首頁不含 `workplace-os`、`pricing`、`terms` 等完整內容區塊，分頁均含指定原始區塊，橫向溢位 0。
+- 2026-06-26 手機版修正：分頁搬入原首頁完整區塊後，手機 390px 寬度下部分大標題斷字不自然、`start.html` 小型價格說明格過度擠壓、部分頁面繁中 footer 會被 i18n 寫成 `undefined`。已調整共用手機 CSS：
+  - 標題改為中文保詞優先，避免單字被切成「三 / 種本領」這類斷法。
+  - 手機 H1/H2 尺寸略收斂，保留原視覺但降低壓迫感。
+  - `setup-price-row` 手機改單欄，價格與用途不再左右硬擠。
+  - footer 手機置中與間距修正，並補上繁中 `footer.copy`。
+- 2026-06-26 手機版追加驗證：`index.html`、`features.html`、`industries.html`、`engine.html`、`compare.html`、`pricing.html`、`start.html`、`terms.html`、`contact.html`、`blog.html`、`faq.html`、`join.html` 共 12 頁 × 桌機/手機 × 繁中/英文，共 48 組 Playwright 檢查通過；橫向溢位 0、`undefined` 0、JS error 0。
 - 2026-06-26 追加驗證：13 個頁面 × 桌機/手機 × 繁中/英文，橫向溢位 0、JS error 0、HTTP 404 0。
 - 舊一頁式錨點搜尋：未發現
 - 客戶面「後台/backend」等字眼搜尋：未發現

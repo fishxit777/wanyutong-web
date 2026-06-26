@@ -106,6 +106,16 @@ mobile 390x844
 - 首頁英文導覽：Pricing 正常顯示
 - 首頁英文主題區：Explore WanyuTong by Topic 正常顯示
 - 2026-06-26 追加驗證：首頁只剩 `hero`、`stats`、`topic-directory`、`home-next` 四個區塊；舊完整內容區塊已從首頁 DOM 移除。
+- 2026-06-26 追加修正：依「整個原封不動轉移到分頁」要求，使用 Git 上一版首頁內容作為來源，將原首頁完整區塊直接搬入對應主題頁，不再使用精簡版或重寫版：
+  - `features.html`：`workplace-os`、`features`
+  - `industries.html`：`industries`、`guides`
+  - `engine.html`：`compare`、`ai-service-fit`
+  - `compare.html`：`vs-competitors`
+  - `pricing.html`：`pricing`
+  - `start.html`：`setup-flow`、`howto`
+  - `terms.html`：`terms`
+  - `contact.html`：`cta`
+- 2026-06-26 追加驗證：上述 9 個頁面 × 桌機/手機 × 繁中/英文，共 36 組 Playwright 檢查通過；首頁不含 `workplace-os`、`pricing`、`terms` 等完整內容區塊，分頁均含指定原始區塊，橫向溢位 0。
 - 2026-06-26 追加驗證：13 個頁面 × 桌機/手機 × 繁中/英文，橫向溢位 0、JS error 0、HTTP 404 0。
 - 舊一頁式錨點搜尋：未發現
 - 客戶面「後台/backend」等字眼搜尋：未發現

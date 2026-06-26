@@ -105,7 +105,7 @@ mobile 390x844
 - 首頁英文切換：通過，`html.lang = en`
 - 首頁英文導覽：Pricing 正常顯示
 - 首頁英文主題區：Explore WanyuTong by Topic 正常顯示
-- 2026-06-26 追加驗證：首頁只剩 `hero`、`stats`、`topic-directory`、`home-next` 四個區塊；舊完整內容區塊已從首頁 DOM 移除。
+- 2026-06-26 追加驗證：首頁只保留 `hero`、`stats`、`topic-directory` 與 footer；底部 `home-next`／「選擇主題」區塊已移除，詳細內容改由上方主題分頁進入。
 - 2026-06-26 追加修正：依「整個原封不動轉移到分頁」要求，使用 Git 上一版首頁內容作為來源，將原首頁完整區塊直接搬入對應主題頁，不再使用精簡版或重寫版：
   - `features.html`：`workplace-os`、`features`
   - `industries.html`：`industries`、`guides`

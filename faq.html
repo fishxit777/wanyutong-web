@@ -273,14 +273,6 @@ footer { background:var(--bg2); border-top:1px solid var(--border); padding:2rem
     </div></div>
   </div>
 
-  <div class="faq-item" data-sec="pricing">
-    <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text" id="fq-referral">推薦活動還能用嗎？</span><span class="faq-icon">+</span></div>
-    <div class="faq-a"><div class="faq-a-inner" id="fa-referral">
-      推薦活動已停止受理新綁定與新發獎，LINE Bot 不再提供新的推薦碼使用流程。<br><br>
-      已經發放的歷史天數不受影響，仍可傳 <strong>@到期</strong> 查看目前到期日。LINE多國翻譯機器人方案不參與推薦碼活動；若歷史推薦紀錄涉及退款、爭議交易或濫用，系統仍會以服務紀錄為準調整。
-    </div></div>
-  </div>
-
   <div class="faq-section-label" data-sec="feature" id="fsl-feature">// 功能說明</div>
 
   <div class="faq-item" data-sec="feature">
@@ -463,7 +455,7 @@ var faqI18n = {
     'fq1':'萬語通 WanyuTong 是什麼？怎麼開始使用？','fq2':'萬語通支援哪些語言？',
     'fq3':'個人免費翻譯和LINE多國翻譯機器人方案有什麼差別？','fq4':'免費版有什麼限制？',
     'fq5':'付費方案有哪些？費用是多少？','fq6':'可以退費嗎？',
-    'fq7':'如何升級或延長方案？','fq-referral':'推薦活動還能用嗎？','fq8':'可以翻譯語音訊息嗎？',
+    'fq7':'如何升級或延長方案？','fq8':'可以翻譯語音訊息嗎？',
     'fq9':'可以翻譯圖片中的文字嗎？（OCR）','fq10':'什麼是 AI 摘要與每日報表？',
     'fq11':'什麼是紀錄查詢與統計？','fq12':'付費版完整功能包含哪些？',
     'fq13':'翻譯引擎是哪家？準確嗎？','fq14':'我的對話內容會被保存或外洩嗎？',
@@ -477,7 +469,6 @@ var faqI18n = {
     'fa5':'<strong>LINE多國翻譯機器人方案</strong><ul><li>免費版：中文、英文、日文、韓文無限免費；其他語言每日 50 則</li><li>月費版：<strong>NT$99</strong>／30 天，小資完整服務</li><li>半年版：<strong>NT$499</strong>／180 天，適合中度／中長期使用者</li><li>一年版：<strong>NT$799</strong>／420 天，適合穩定長期使用的群組</li><li>尊爵版：<strong>NT$2500</strong>／永久買斷／每群組，專屬客製化機器人，預計開發台語版、客語版</li></ul><br>月費版、半年版、一年版、尊爵版可在群組傳送「<strong>@方案</strong>」，Bot 會直接列出各付費方案的綠界付款連結。',
     'fa6':'付款後原則上 <strong>不提供退費</strong>；若發生重複付款、付款成功但未開通，或付款後 <strong>24 小時內</strong> Bot 完全無法回應（非使用者網路、LINE 或操作問題），可透過 <a class="support-form-link" href="https://forms.gle/rKatiHrCmh5wpCov8" target="_blank" rel="noopener">GOOGLE 客服表單</a> 申請退費審查。',
     'fa7':'目前LINE多國翻譯機器人方案付款流程以官方 LINE Bot 產生綠界付款連結為主，付款完成後系統會開通或延長方案；這不等同信用卡週期自動續扣，是否啟用自動扣款以綠界付款頁與訂購畫面顯示為準。<ul><li>把 Bot 加入 LINE 群組後，在群組傳送 <strong>@方案</strong></li><li>Bot 會直接列出月費版、半年版、一年版、尊爵版的付款連結</li><li>點選對應方案連結完成付款後，系統會開通或延長該LINE多國翻譯機器人方案</li><li>若付款成功後 5 分鐘仍未開通，再透過 <a class="support-form-link" href="https://forms.gle/rKatiHrCmh5wpCov8" target="_blank" rel="noopener">GOOGLE 客服表單</a> 聯繫</li></ul>',
-    'fa-referral':'推薦活動已停止受理新綁定與新發獎，LINE Bot 不再提供新的推薦碼使用流程。<br><br>已經發放的歷史天數不受影響，仍可傳 <strong>@到期</strong> 查看目前到期日。LINE多國翻譯機器人方案不參與推薦碼活動；若歷史推薦紀錄涉及退款、爭議交易或濫用，系統仍會以服務紀錄為準調整。',
     'fa8':'可以！<span class="tag-badge tag-cyan">付費版限定</span><br><br>語音訊息透過 <strong>OpenAI Whisper</strong> 引擎轉錄成文字，再由 DeepL 專業翻譯引擎翻譯。支援印尼文、越南文、泰文等多種語言語音輸入。月費版、半年版、一年版與尊爵版包含此功能。',
     'fa9':'可以！<span class="tag-badge tag-cyan">付費版限定</span><br><br>直接在 LINE 傳送圖片，萬語通會協助辨識圖片中的文字（OCR）並提供翻譯參考。適合用於班表、公告、菜單、一般說明或清楚拍攝的文件截圖；合約、公文、藥品說明書、醫療或法律文件僅可作初步理解，請務必人工複核。圖片文字辨識會受清晰度、角度與版面影響。',
     'fa10':'AI 摘要與每日報表會整理群組近期重點、待辦事項、付款線索、工安與交接內容，方便主管快速回顧。重要內容仍建議人工複核，避免把機器摘要當成最終決策。',
@@ -506,7 +497,7 @@ var faqI18n = {
     'fq1':'What is WanyuTong? How do I get started?','fq2':'What languages does WanyuTong support?',
     'fq3':'What is the difference between free personal translation and group plans?','fq4':'What are the limitations of the free plan?',
     'fq5':'What paid plans are available and how much do they cost?','fq6':'Can I get a refund?',
-    'fq7':'How do I upgrade or extend my plan?','fq-referral':'Can I still use the personal referral bonus?','fq8':'Can it translate voice messages?',
+    'fq7':'How do I upgrade or extend my plan?','fq8':'Can it translate voice messages?',
     'fq9':'Can it translate text in images? (OCR)','fq10':'What are AI summaries and daily reports?',
     'fq11':'What are record search and statistics?','fq12':'What features are included in paid plans?',
     'fq13':'Which translation engine is used? Is it accurate?','fq14':'Will my conversations be stored or leaked?',
@@ -520,7 +511,6 @@ var faqI18n = {
     'fa5':'<strong>LINE Multilingual Translation Bot Plans</strong><ul><li>Free: Chinese, English, Japanese, and Korean are unlimited; other languages include 50 messages/day</li><li>Monthly: <strong>NT$99</strong> / 30 days, affordable full service</li><li>Half-Year: <strong>NT$499</strong> / 180 days, for medium or mid-term users</li><li>Annual: <strong>NT$799</strong> / 420 days, for stable long-term groups</li><li>Premium: <strong>NT$2500</strong> / lifetime buyout / per group, with a dedicated customized bot plus planned Taiwanese and Hakka support</li></ul><br>After adding the Bot to a LINE group, send "<strong>@plan</strong>" and the Bot will list direct ECPay links for each paid plan.',
     'fa6':'Payments are generally <strong>non-refundable</strong>. If duplicate payment occurs, payment succeeds but activation fails, or the Bot is completely unresponsive within <strong>24 hours</strong> of payment (not due to user-side network, LINE, or operation issues), you may request a refund review through the <a class="support-form-link" href="https://forms.gle/rKatiHrCmh5wpCov8" target="_blank" rel="noopener">GOOGLE Support Form</a>.',
     'fa7':'Group plan payments are primarily handled through official ECPay payment links generated by the LINE Bot. After payment, the system activates or extends the group plan. This does not automatically mean recurring card billing; any recurring payment setting depends on what is shown on the ECPay payment page and order screen.<ul><li>Add the Bot to a LINE group and send <strong>@plan</strong> inside that group</li><li>The Bot will directly list payment links for Monthly, Half-Year, Annual, and Premium plans</li><li>Tap the matching plan link and complete payment; the system will activate or extend that group plan</li><li>If activation is still missing after 5 minutes, contact us through the <a class="support-form-link" href="https://forms.gle/rKatiHrCmh5wpCov8" target="_blank" rel="noopener">GOOGLE Support Form</a></li></ul>',
-    'fa-referral':'The personal referral program no longer accepts new bindings or new rewards, and the LINE Bot no longer provides a new referral-code flow.<br><br>Previously granted days remain valid. Use the expiry command to check the current expiration date. Group plans are not part of the referral-code program. If historical referral records involve refunds, disputed transactions, or abuse, service records remain the final basis for adjustments.',
     'fa8':'Yes! <span class="tag-badge tag-cyan">Paid Plans Only</span><br><br>Voice messages are transcribed via <strong>OpenAI Whisper</strong> and then translated by the DeepL professional translation engine. Supports Indonesian, Vietnamese, Thai, and more. Included in Monthly, Half-Year, and Premium plans.',
     'fa9':'Yes! <span class="tag-badge tag-cyan">Paid Plans Only</span><br><br>Send an image directly in LINE and WanyuTong will help recognize text (OCR) and provide translation for reference. It is suitable for schedules, notices, menus, general instructions, and clear document screenshots. Contracts, official documents, medication instructions, medical, legal, or financial materials should be treated as preliminary understanding only and reviewed by a qualified person. OCR accuracy depends on image clarity, angle, and layout.',
     'fa10':'AI summaries and daily reports organize recent group highlights, tasks, payment clues, safety issues, and handoff notes so managers can review faster. Critical content should still be reviewed by a person.',

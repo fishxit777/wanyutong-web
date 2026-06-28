@@ -153,7 +153,7 @@
       '.hamburger,.blog-hamburger{width:34px!important;min-width:34px!important;height:34px!important;padding:6px!important;border:0!important;background:transparent!important;align-items:center!important;justify-content:center!important;flex-direction:column!important;gap:4px!important}',
       '.hamburger span,.blog-hamburger span{display:block!important;width:20px!important;height:2px!important;flex:0 0 2px!important;border-radius:2px!important;background:var(--text)!important}',
       '@media(max-width:1450px){.nav-quick-links{display:none!important}.nav-links{gap:.85rem!important}.nav-links a{font-size:.72rem!important;letter-spacing:.035em!important}}',
-      '@media(max-width:1450px){nav{padding:0 4vw!important;gap:.5rem!important}.nav-blog-pill,.nav-quick-links{display:none!important}.nav-links,.nav-links-blog{display:none!important;flex-direction:column!important;position:absolute!important;top:58px!important;left:0!important;right:0!important;background:var(--bg2)!important;border-bottom:1px solid var(--border)!important;padding:1rem 5vw!important;gap:1rem!important;z-index:220!important}.nav-links.open,.nav-links-blog.open{display:flex!important}.hamburger,.blog-hamburger{display:flex!important;flex-shrink:0!important}}',
+      '@media(max-width:1280px){nav{padding:0 4vw!important;gap:.5rem!important}.nav-blog-pill,.nav-quick-links{display:none!important}.nav-links,.nav-links-blog{display:none!important;flex-direction:column!important;position:absolute!important;top:58px!important;left:0!important;right:0!important;background:var(--bg2)!important;border-bottom:1px solid var(--border)!important;padding:1rem 5vw!important;gap:1rem!important;z-index:220!important}.nav-links.open,.nav-links-blog.open{display:flex!important}.hamburger,.blog-hamburger{display:flex!important;flex-shrink:0!important}}',
       '@media(max-width:600px){nav{height:56px!important;min-height:56px!important;padding:0 .7rem!important;gap:.35rem!important}.nav-brand,.brand{min-width:0!important;max-width:calc(100vw - 150px)!important;font-size:clamp(.92rem,5vw,1.05rem)!important;overflow:hidden!important}.brand-logo{width:34px!important;height:34px!important;flex-basis:34px!important}.nav-brand-main,.brand-main,.brand-text{overflow:hidden!important;text-overflow:ellipsis!important;white-space:nowrap!important}.nav-brand-sub{display:none!important}.nav-actions{gap:.25rem!important;margin-left:auto!important;min-width:0!important}.lang-toggle{font-size:.62rem!important;flex:0 0 auto!important}.lang-btn,.lang-toggle button{min-width:auto!important;padding:3px 7px!important;height:24px!important}.theme-toggle{width:34px!important;min-width:34px!important;height:24px!important}.theme-toggle-knob{width:14px!important;height:14px!important}.hamburger,.blog-hamburger{width:32px!important;min-width:32px!important;height:32px!important;padding:6px!important}}',
       '@media(max-width:380px){.nav-brand,.brand{max-width:calc(100vw - 138px)!important}.nav-actions{gap:.18rem!important}.theme-toggle{display:none!important}}',
       '@media(max-width:600px){.hero-grid,.hero-text,.hero-actions,.hero-mockup{min-width:0!important;max-width:100%!important;width:100%!important}.bot-chat-glow{display:none!important}.stats-strip{grid-template-columns:1fr!important}.stat-item{width:auto!important;min-width:0!important}.compare-wrap{width:100%!important;max-width:100%!important;overflow:visible!important}#compare .compare-table,#vs-competitors .compare-table{min-width:0!important;width:100%!important;display:block!important;border:0!important;background:transparent!important}#compare .compare-table thead,#vs-competitors .compare-table thead{display:none!important}#compare .compare-table tbody,#vs-competitors .compare-table tbody{display:grid!important;gap:.75rem!important}#compare .compare-table tr,#vs-competitors .compare-table tr{display:block!important;border:1px solid var(--border)!important;border-radius:10px!important;overflow:hidden!important;background:rgba(12,17,26,.92)!important}#compare .compare-table td,#vs-competitors .compare-table td{display:block!important;width:100%!important;text-align:left!important;padding:.78rem .95rem!important;border-top:1px solid rgba(114,139,176,.14)!important;line-height:1.55!important}#compare .compare-table td:first-child,#vs-competitors .compare-table td:first-child{border-top:0!important;background:rgba(255,255,255,.045)!important;color:var(--white)!important;font-weight:800!important}#compare .compare-table td:not(:first-child)::before,#vs-competitors .compare-table td:not(:first-child)::before{content:attr(data-label);display:block;margin-bottom:.32rem;color:#7f91b0;font-family:"DM Mono",monospace;font-size:.66rem;letter-spacing:.07em;text-transform:uppercase}}'
@@ -267,6 +267,100 @@
     });
   }
 
+  function syncFinalPricing(activeLang) {
+    var pricing = document.getElementById('pricing');
+    if (!pricing) return;
+
+    var zhPlans = [
+      { name: '免費版', amount: '$0', period: '加入即用', features: ['無限免費次數：中文、英文、日文、韓文', '其他語言每日50則', '適合輕度/初期使用者', '加入即用，無需開通'], button: '免費開通' },
+      { name: '月費版', amount: 'NT$99', period: '30 天', features: ['小資輕鬆擁有完整服務', '支援完整語言清單', '支持語音、圖片 OCR 翻譯', '紀錄搜尋與統計', '新增報表製作/匯出功能', '配屬 AI 祕書可匯整 300 筆摘要'], button: '加入開通' },
+      { name: '半年版', amount: 'NT$499', period: '180 天', features: ['經濟實惠的價格', '支援完整語言清單', '支持語音、圖片 OCR 翻譯', '紀錄搜尋與統計', '新增報表製作/匯出功能', '配屬 AI 祕書可匯整 300 筆摘要', '適合中度/中長期使用者'], button: '加入開通' },
+      { name: '一年版', amount: 'NT$799', period: '420 天', features: ['完整群組翻譯、語音、OCR', '摘要、報表、搜尋與匯出', '適合穩定長期使用的群組', '到期前自動提醒一次'], button: '加入開通', badge: '長期最划算' },
+      { name: '尊爵版', amount: 'NT$2500', period: '永久買斷／每群組', features: ['專屬客製化機器人', '預計開發台語版、客語版'], button: '加入開通', badge: '尊爵服務' }
+    ];
+
+    var enPlans = [
+      { name: 'Free', amount: '$0', period: 'Start instantly', features: ['Unlimited free use: Chinese, English, Japanese, Korean', 'Other languages: 50 messages/day', 'For light or early users', 'No setup needed'], button: 'Activate Free' },
+      { name: 'Monthly', amount: 'NT$99', period: '30 days', features: ['Affordable full service', 'Full supported language list', 'Voice and image OCR translation', 'Record search and analytics', 'Report generation and export', 'AI secretary summarizes up to 300 messages'], button: 'Activate' },
+      { name: 'Half-Year', amount: 'NT$499', period: '180 days', features: ['Cost-effective price', 'Full supported language list', 'Voice and image OCR translation', 'Record search and analytics', 'Report generation and export', 'AI secretary summarizes up to 300 messages', 'For medium or mid-term users'], button: 'Activate' },
+      { name: 'Annual', amount: 'NT$799', period: '420 days', features: ['Full group translation, voice, and OCR', 'Summaries, reports, search, and export', 'For stable long-term groups', 'One automatic reminder before expiration'], button: 'Activate', badge: 'Best Value' },
+      { name: 'Premium', amount: 'NT$2500', period: 'Lifetime buyout / per group', features: ['Dedicated custom bot', 'Planned Taiwanese and Hakka versions'], button: 'Activate', badge: 'Premium Service' }
+    ];
+
+    var copy = activeLang === 'en'
+      ? {
+        eyebrow: '// Pricing',
+        title: 'Choose the Right Plan',
+        lead: 'The free plan has unlimited Chinese, English, Japanese, and Korean use; other languages include 50 messages per day. Paid plans focus on LINE group usage.',
+        tab: 'LINE Multilingual Translation Bot',
+        refund: 'Payment and Refund Policy: Plans are activated or extended through payment links and do not automatically mean recurring card billing. Any recurring payment setting depends on what is shown on the ECPay payment page and order screen. This is a digital service and payments are generally non-refundable. If the Bot is completely unresponsive within 24 hours of payment and the issue is not caused by the user network, LINE, or operation error, request review through the <a class="support-form-link" href="https://forms.gle/rKatiHrCmh5wpCov8" target="_blank" rel="noopener">GOOGLE Support Form</a>. Use only the official LINE Bot @969wpxno payment link or the official website entry for payment.',
+        plans: enPlans
+      }
+      : {
+        eyebrow: '// Pricing',
+        title: '選擇適合你的方案',
+        lead: '免費版中文、英文、日文、韓文無限免費；其他語言每日50則。付費方案聚焦 LINE多國翻譯機器人群組使用。',
+        tab: 'LINE多國翻譯機器人',
+        refund: '付款與退費：目前方案採付款連結開通或延長，不等同信用卡週期自動續扣；是否啟用自動扣款以綠界付款頁與訂購畫面顯示為準。本服務為數位內容，付款後原則上不退費；僅限付款後 24 小時內、Bot 完全無法回應且非使用者網路、LINE 或操作問題時，可透過 <a class="support-form-link" href="https://forms.gle/rKatiHrCmh5wpCov8" target="_blank" rel="noopener">GOOGLE 客服表單</a> 申請審核。付款請以官方 LINE Bot @969wpxno 產生的綠界連結或官網正式入口為準，請勿相信陌生私訊或非官方連結。',
+        plans: zhPlans
+      };
+
+    var eyebrow = pricing.querySelector('.eyebrow');
+    var title = pricing.querySelector('h2');
+    var lead = pricing.querySelector('.lead');
+    var tab = pricing.querySelector('.pricing-tab');
+    if (eyebrow) eyebrow.textContent = copy.eyebrow;
+    if (title) title.textContent = copy.title;
+    if (lead) lead.textContent = copy.lead;
+    if (tab) tab.textContent = copy.tab;
+
+    pricing.querySelectorAll('#tab-group .price-card, .pricing-grid .price-card').forEach(function (card, index) {
+      var plan = copy.plans[index];
+      if (!plan) {
+        card.style.display = 'none';
+        return;
+      }
+      card.style.display = '';
+      var name = card.querySelector('.price-plan');
+      var amount = card.querySelector('.price-amount');
+      var period = card.querySelector('.price-period');
+      var button = card.querySelector('.btn-plan');
+      var badge = card.querySelector('.price-badge');
+      var featureList = card.querySelector('.price-features');
+
+      if (name) name.textContent = plan.name;
+      if (amount) amount.textContent = plan.amount;
+      if (period) period.textContent = plan.period;
+      if (button) button.textContent = plan.button;
+      if (plan.badge) {
+        if (!badge) {
+          badge = document.createElement('div');
+          badge.className = 'price-badge';
+          card.insertBefore(badge, card.firstChild);
+        }
+        badge.textContent = plan.badge;
+      } else if (badge) {
+        badge.remove();
+      }
+
+      if (!featureList) {
+        featureList = document.createElement('ul');
+        featureList.className = 'price-features';
+        if (button) card.insertBefore(featureList, button);
+        else card.appendChild(featureList);
+      }
+      featureList.innerHTML = '';
+      plan.features.forEach(function (feature) {
+        var item = document.createElement('li');
+        item.textContent = feature;
+        featureList.appendChild(item);
+      });
+    });
+
+    var refund = pricing.querySelector('.refund-note');
+    if (refund) refund.innerHTML = copy.refund;
+  }
+
   function syncChromeText(lang) {
     var activeLang = lang === 'en' ? 'en' : 'zh';
 
@@ -308,6 +402,7 @@
 
     syncNavLabels(activeLang);
     syncFooterLinks(activeLang);
+    syncFinalPricing(activeLang);
   }
 
   window.wanyuSyncChromeText = syncChromeText;

@@ -2589,6 +2589,9 @@ window.addEventListener('scroll', function() {
 (function(){
   try {
     if (localStorage.getItem("wyt-admin") === "1") return;
+    if (location.protocol === "file:") return;
+    var host = location.hostname;
+    if (["localhost", "127.0.0.1", "::1", ""].indexOf(host) !== -1) return;
     var img = new Image();
     img.src = "https://one1stars-line-bot.onrender.com/track/pixel?p=index&r=" + encodeURIComponent(document.referrer);
   } catch(e) {}

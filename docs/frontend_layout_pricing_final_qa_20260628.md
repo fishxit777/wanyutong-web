@@ -49,6 +49,11 @@ This handoff records the latest public website cleanup for WanyuTong:
 8. Root favicon added.
    - Added `favicon.ico` so special verification pages do not trigger a missing favicon request.
 
+9. Local QA no longer triggers production tracking alerts.
+   - Static pages still keep the production tracking pixel on the live GitHub Pages site.
+   - Localhost, 127.0.0.1, ::1, and file previews now skip the production `/track/pixel` request.
+   - This prevents local layout QA from producing LINE security alerts that look like crawler activity.
+
 ## Verification
 
 Automated browser QA was run with Playwright against the local static server:
@@ -75,6 +80,7 @@ Checks performed:
 - Removed topic-directory wording scan.
 - Logo link check on homepage.
 - Missing resource / 404 scan.
+- Local tracking-pixel suppression check.
 
 Latest result: all automated layout and stale-text checks passed.
 

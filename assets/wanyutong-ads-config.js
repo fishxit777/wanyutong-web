@@ -1,5 +1,5 @@
 window.WANYUTONG_ADS = {
-  enabled: false,
+  enabled: true,
   publisherId: "",
   slots: {
     blogFeed: "",

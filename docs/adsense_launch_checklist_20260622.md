@@ -1,89 +1,126 @@
 # 萬語通官網 AdSense / 廣告串接交接表
+更新日：2026-06-30
 
-更新：2026-06-26
+## 目前決策
 
-## 本次已完成
+網站廣告採「內容廣告」策略，只放在 Blog 與文章內容頁，不放首頁、收費方案、加入 LINE、開始流程、付款或免費額度解鎖頁。
 
-- 官網前台新增可開關式廣告設定：
-  - `assets/wanyutong-ads-config.js`
-  - `assets/wanyutong-ads.js`
-- 所有根目錄 HTML 頁面已載入廣告設定檔與廣告載入檔。
-- Blog 首頁新增一個內容流廣告位置。
-- 每篇 `blog-*.html` 文章新增一個文章內廣告位置。
-- `ads.txt` 已保留正式發布商 ID 的替換位置。
-- `sw.js` 已更新快取版本並納入廣告設定檔、廣告載入檔、`ads.txt` 與可讀性 CSS。
-- 目前預設為 `enabled: false`，所以正式 ID 未補上前不會載入 Google AdSense，也不會顯示空白廣告框。
+LINE Bot 免費版額度用完時，使用「觀看贊助內容解鎖繼續使用」的自家頁面，不要求使用者點擊 Google AdSense 廣告，也不把第三方廣告點擊和翻譯額度直接綁定。
 
-## 不會放廣告的位置
+## 已完成的前台檔案
 
-為避免影響信任感與轉換率，目前設定排除：
+- `assets/wanyutong-ads-config.js`
+  - 廣告總開關與正式 AdSense ID / slot 填寫處。
+  - `mode: "content_ads_only"`，明確限制為內容頁廣告。
+  - `excludedPaths` 已排除 `index.html`、`pricing.html`、`join.html`、`start.html`、`free-unlock`。
+- `assets/wanyutong-ads.js`
+  - 只有 publisher ID 格式正確、slot 是數字、路徑符合 Blog 白名單時才載入 AdSense。
+  - 缺少正式 ID 或 slot 時會隱藏廣告框，不顯示空白區塊。
+  - 提供 `window.wytAds.status()` 方便在瀏覽器 console 檢查狀態。
+- `ads.txt`
+  - 已保留正式 publisher ID 的替換位置。
+- `sw.js`
+  - 已更新快取版本，避免手機或 PWA 繼續拿舊的廣告設定。
 
-- 首頁 `index.html`
-- 收費方案頁 `pricing.html`
-- 加入 LINE 流程頁 `join.html`
-- 開始使用頁 `start.html`
+## 現在不會顯示廣告的原因
 
-目前只預留 Blog 相關頁面：
+正式 AdSense publisher ID 與廣告單元 slot 尚未填入，因此即使頁面已經有廣告框架，也不會載入 Google AdSense。
 
-- `blog.html`
-- `blog-*.html`
+這是故意的，避免使用假 ID、錯誤 ID 或未核准帳號造成審核與收益問題。
 
-## 正式啟用方式
+## 正式上線時只改這兩處
 
-取得 AdSense 發布商 ID 與廣告單元 slot 後，修改：
+1. 修改 `assets/wanyutong-ads-config.js`
 
 ```js
-// assets/wanyutong-ads-config.js
 window.WANYUTONG_ADS = {
   enabled: true,
-  publisherId: "ca-pub-正式16碼ID",
+  mode: "content_ads_only",
+  publisherId: "ca-pub-你的16位數發布商ID",
   slots: {
-    blogFeed: "廣告單元slot",
-    articleInline: "廣告單元slot"
+    blogFeed: "Blog列表廣告slot",
+    articleInline: "文章內廣告slot"
   }
 };
 ```
 
-然後把 `ads.txt` 替換為 AdSense 提供的正式內容，例如：
+2. 修改 `ads.txt`
 
 ```txt
-google.com, pub-正式16碼ID, DIRECT, f08c47fec0942fa0
+google.com, pub-你的16位數發布商ID, DIRECT, f08c47fec0942fa0
 ```
 
 注意：
 
-- `publisherId` 要使用 `ca-pub-...`
-- `ads.txt` 要使用 `pub-...`
-- 不要把範例 ID 上線。
+- `publisherId` 使用 `ca-pub-...`。
+- `ads.txt` 使用 `pub-...`。
+- 兩個數字要一致，不要填測試值或假值。
 
-## 外部步驟
+## 廣告位置
 
-這些需要登入 Google / AdSense 後台或有帳號權限，無法只靠本機完成：
+允許：
 
-- 建立或完成 Google AdSense 帳號。
-- 新增網站並送審。
-- 取得正式 Publisher ID。
+- `blog.html`
+- `blog-*.html`
+
+排除：
+
+- `index.html`
+- `pricing.html`
+- `join.html`
+- `start.html`
+- `free-unlock`
+- 任何付款、加入 LINE、方案 CTA 旁邊的位置
+
+## Bot 免費版解鎖規則
+
+目前 Bot 端使用的是「贊助內容頁」：
+
+- 免費額度用完時，提示使用者可自願觀看贊助內容。
+- 觀看一次可加贈少量翻譯額度。
+- 每日可領取次數有限制。
+- 不要求點擊第三方廣告。
+- 未來若要接正式獎勵廣告平台，必須另依該平台政策設計，不直接套用 AdSense 內容廣告。
+
+## 驗證方式
+
+在瀏覽器 console 執行：
+
+```js
+window.wytAds.status()
+```
+
+未填正式 ID 前應看到：
+
+```js
+{
+  enabled: false,
+  mode: "content_ads_only",
+  hasPublisher: false
+}
+```
+
+填入正式 ID 與 slot 後，在 Blog 頁應看到：
+
+- `enabled: true`
+- `hasPublisher: true`
+- Network 會載入 `pagead2.googlesyndication.com`
+- Blog 頁出現正式廣告
+- 首頁、方案頁、加入頁不出現廣告
+
+## 仍需人工完成
+
+這些需要登入 Google / AdSense 後台：
+
+- 完成 AdSense 帳號與網站審核。
+- 取得 publisher ID。
 - 建立 Blog 用廣告單元並取得 slot。
-- 確認 AdSense 審核結果。
-- 若使用自有網域，完成網域、DNS、GitHub Pages `CNAME` 與 HTTPS。
-
-## 法務與體驗原則
-
-- 廣告目前只放內容頁，不放首頁 Hero、價格卡、付款/加入 LINE CTA 旁。
-- 隱私權政策已保留 Google AdSense / Cookie 說明。
-- 不把 LINE 訊息內容、翻譯內容、付款資料提供給廣告平台做內容販售。
-- 若未來加入個人化廣告、再行銷或跨站追蹤，需再次確認隱私權政策文字。
-
-## 驗收清單
-
-- `ads.txt` 可由 `https://網域/ads.txt` 讀取。
-- Blog 頁面無正式 ID 時不顯示廣告框。
-- 正式 ID 補上後，Blog 頁面能載入 `pagead2.googlesyndication.com`。
-- 手機版 Blog 不因廣告位置產生橫向捲動。
-- 首頁、收費頁、加入頁不出現第三方廣告。
+- 把正式 `ads.txt` 發布後，回 AdSense 檢查是否通過。
+- 觀察審核結果與收益狀態。
 
 ## 官方參考
 
+- Google AdSense Program policies：https://support.google.com/adsense/answer/48182
 - Google AdSense ads.txt 說明：https://support.google.com/adsense/answer/12171612
 - Google AdSense Publisher ID 說明：https://support.google.com/adsense/answer/105516
 - Google AdSense 廣告單元程式碼說明：https://support.google.com/adsense/answer/9274019

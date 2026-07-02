@@ -489,7 +489,7 @@
       if (pageLink) {
         var href = pageLink.getAttribute('href') || '';
         var isSamePageAnchor = href.charAt(0) === '#';
-        var isArticleOrSitePage = /\.html(?:$|[?#])/.test(href) || href === './' || href === '/wanyutong-web/' || href === 'index.html';
+        var isArticleOrSitePage = /\.html(?:$|[?#])/.test(href) || href === './' || href === '/' || href === 'index.html';
 
         if (!isSamePageAnchor && isArticleOrSitePage) {
           markNextPageTop();

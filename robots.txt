@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://fishxit777.github.io/wanyutong-web/sitemap.xml
+Sitemap: https://wanyutong.tw/sitemap.xml

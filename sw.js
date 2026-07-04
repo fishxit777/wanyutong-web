@@ -1,4 +1,4 @@
-const CACHE_NAME = 'wanyutong-pwa-20260630-ads-policy-safe';
+const CACHE_NAME = 'wanyutong-pwa-20260704-adsense-verification';
 const CORE_ASSETS = [
   './',
   './index.html',

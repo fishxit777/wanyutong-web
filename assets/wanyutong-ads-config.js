@@ -1,7 +1,7 @@
 window.WANYUTONG_ADS = {
   enabled: true,
   mode: "content_ads_only",
-  publisherId: "",
+  publisherId: "ca-pub-7533511869819978",
   slots: {
     blogFeed: "",
     articleInline: ""

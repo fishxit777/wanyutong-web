@@ -39,8 +39,22 @@
     return enabledPaths.length === 0 || matchesAny(enabledPaths);
   }
 
+  function hasAdSenseScript() {
+    var scripts = document.querySelectorAll("script[src]");
+    for (var i = 0; i < scripts.length; i += 1) {
+      var src = scripts[i].getAttribute("src") || "";
+      if (
+        src.indexOf("pagead2.googlesyndication.com/pagead/js/adsbygoogle.js") !== -1 &&
+        src.indexOf("client=" + publisherId) !== -1
+      ) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   function loadAdSense() {
-    if (document.querySelector("script[data-wyt-adsense]")) return;
+    if (document.querySelector("script[data-wyt-adsense]") || hasAdSenseScript()) return;
     var script = document.createElement("script");
     script.async = true;
     script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=" + encodeURIComponent(publisherId);

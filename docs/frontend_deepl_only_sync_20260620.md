@@ -17,8 +17,8 @@
 
 ## 對外文案規則
 
-- 中文使用：`DeepL 專業翻譯引擎`、`35 種常用語言`。
-- 英文使用：`DeepL professional translation engine`、`35 common languages`。
+- 中文使用：`DeepL 專業翻譯引擎`、`36 種常用語言`。
+- 英文使用：`DeepL professional translation engine`、`36 common languages`。
 - 不再使用舊備援翻譯、雙引擎、自動路由或浮動加號語言數等舊口徑。
 - 不再把已移除的舊語言項目列為目前翻譯語言賣點。
 

@@ -11,7 +11,7 @@
   - Hero 改為「LINE 多國翻譯／AI 摘要／每日報表」。
   - 功能區改為「不是翻譯 App，是 LINE 工作交辦流程」。
   - 英文版同步改為 LINE group translation、AI summaries、daily reports、backend search and statistics。
-  - 英文語言數修正為 35 languages。
+  - 英文語言數修正為 36 languages。
   - 手機排版修正：AI 客服比較表與推薦獎勵表改為卡片式，不再使用過寬表格；右側裝飾與 CTA glow 不再造成手機/桌機溢出。
 - `faq.html`
   - FAQ meta、結構化資料、首屏說明、第一題中英文同步改為 LINE 多國翻譯、AI 摘要、每日報表與後台搜尋統計工具。

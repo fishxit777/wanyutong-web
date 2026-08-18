@@ -842,7 +842,8 @@ section { padding:90px 5vw; position:relative; z-index:1; }
   color:var(--cyan); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:0.9rem;
 }
 
-h2 {
+h2,
+.section-title {
   font-family:'Syne',sans-serif; font-weight:800;
   font-size:clamp(1.7rem,3.5vw,2.6rem); line-height:1.15;
   color:var(--white); margin-bottom:1rem; letter-spacing:-0.01em;
@@ -1950,7 +1951,7 @@ footer a:hover { color:var(--text); }
 <section id="terms">
   <div class="terms-wrap">
     <div class="eyebrow">// Legal</div>
-    <h2>使用條款 · 隱私政策 · 退費規定</h2>
+    <h1 class="section-title">使用條款 · 隱私政策 · 退費規定</h1>
     <p class="lead">點擊各條目展開詳細內容。</p>
 
     <div class="accordion-item">
@@ -2642,7 +2643,7 @@ var i18n = {
     'os.note':         '導入重點：不用搬離 LINE、不用教員工新 App。把 Bot 加入群組，設定語言與報表，明天就能開始跑翻譯、摘要與每日整理。',
     'os.card1.kicker': 'ABILITY 01',
     'os.card1.title':  '翻得懂',
-    'os.card1.desc':   '台籍主管說中文，印尼、越南、泰國、菲律賓員工各看自己的語言；文字、語音、圖片都能處理。',
+    'os.card1.desc':   '台籍主管說一句話，Bot 會同步翻成群組設定的印尼文、越南文、泰文、菲律賓語等語言；全員在同一群組查看。文字、語音、圖片都能處理。',
     'os.card1.li1':    'LINE 群組雙向翻譯',
     'os.card1.li2':    '語音轉文字再翻譯',
     'os.card1.li3':    '公告、合約、班表圖片 OCR',
@@ -2673,7 +2674,7 @@ var i18n = {
     'feat.1.title':    '36 種語言與 DeepL 專業引擎',
     'feat.1.desc':     '日、英、韓、印尼、泰、越南、菲律賓、阿拉伯、希伯來等 36 種常用語言，以 DeepL 專業翻譯引擎處理。',
     'feat.2.title':    '群組雙向翻譯',
-    'feat.2.desc':     '加入群組即用。台籍主管說中文，印尼、越南、泰國、菲律賓員工各看各的語言，混合國籍群組也能一起溝通。',
+    'feat.2.desc':     '加入群組即用。主管一句話，Bot 同步翻成群組設定的多種語言，全員在同一群組查看；混合國籍團隊不用離開 LINE。',
     'feat.3.title':    '語音訊息翻譯',
     'feat.3.desc':     '直接傳語音，自動轉錄並翻譯成目標語言文字。工地、工廠雙手忙時特別好用。',
     'feat.4.title':    '圖片 OCR 翻譯',
@@ -3049,7 +3050,7 @@ var i18n = {
     'os.note':         'Onboarding point: no new app and no workflow migration. Add the Bot to a LINE group, set languages and reports, then start translation, summaries, and daily records the next day.',
     'os.card1.kicker': 'ABILITY 01',
     'os.card1.title':  'Translate Clearly',
-    'os.card1.desc':   'Taiwanese managers speak Chinese while Indonesian, Vietnamese, Thai, and Filipino workers read their own languages. Text, voice, and images are all supported.',
+    'os.card1.desc':   'A manager sends one message, and the Bot translates it into the languages configured for the group. Everyone views the same multilingual result in LINE. Text, voice, and images are supported.',
     'os.card1.li1':    'Two-way LINE group translation',
     'os.card1.li2':    'Voice transcription and translation',
     'os.card1.li3':    'OCR for notices, contracts, and schedules',
@@ -3080,7 +3081,7 @@ var i18n = {
     'feat.1.title':    '36 Languages Supported',
     'feat.1.desc':     'Japanese, English, Korean, Indonesian, Thai, Vietnamese, Filipino, Arabic, Hebrew and more. Major languages are available by plan and can be switched quickly with commands.',
     'feat.2.title':    'Group Two-Way Translation',
-    'feat.2.desc':     'Add it to a LINE group and use it immediately. Taiwanese managers speak Chinese while Indonesian, Vietnamese, Thai, and Filipino workers read their own languages.',
+    'feat.2.desc':     'Add it to a LINE group and use it immediately. One manager message is translated into the languages configured for the group, and everyone views the same multilingual result in LINE.',
     'feat.3.title':    'Voice Message Translation',
     'feat.3.desc':     'Send a voice message and get automatic transcription and translation. Useful when hands are busy on job sites or factory floors.',
     'feat.4.title':    'Image OCR Translation',
@@ -3746,7 +3747,7 @@ function applyLang(lang) {
 
   // TERMS
   q('#terms .eyebrow', 'terms.eyebrow');
-  q('#terms h2', 'terms.h2');
+  q('#terms h1, #terms h2', 'terms.h2');
   q('#terms .lead', 'terms.lead');
   var accBtns = document.querySelectorAll('.accordion-btn');
   var accKeys = ['terms.tos','terms.privacy','terms.refund','terms.langs'];

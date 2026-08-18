@@ -842,7 +842,8 @@ section { padding:90px 5vw; position:relative; z-index:1; }
   color:var(--cyan); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:0.9rem;
 }
 
-h2 {
+h2,
+.section-title {
   font-family:'Syne',sans-serif; font-weight:800;
   font-size:clamp(1.7rem,3.5vw,2.6rem); line-height:1.15;
   color:var(--white); margin-bottom:1rem; letter-spacing:-0.01em;
@@ -1952,7 +1953,7 @@ footer a:hover { color:var(--text); }
     <div class="story-head">
       <div>
         <div class="eyebrow" id="os-eyebrow">// Workplace OS</div>
-        <h2 id="os-title">一個 LINE 秘書，三種本領</h2>
+        <h1 class="section-title" id="os-title">一個 LINE 秘書，三種本領</h1>
         <p class="lead" id="os-lead">萬語通 WanyuTong 不是泛用 AI 客服，而是放在 LINE 工作群裡的跨語言工作流程。外籍員工看得懂，主管收得到確認，重要紀錄留得住。</p>
       </div>
       <div class="story-note" id="os-note"><strong>導入重點：</strong>不用搬離 LINE、不用教員工新 App。把 Bot 加入群組，設定語言與報表，明天就能開始跑翻譯、摘要與每日整理。</div>
@@ -1962,7 +1963,7 @@ footer a:hover { color:var(--text); }
         <div>
           <div class="story-kicker" id="os-card-1-kicker">ABILITY 01</div>
           <div class="story-card-title" id="os-card-1-title">翻得懂</div>
-          <div class="story-card-desc" id="os-card-1-desc">台籍主管說中文，印尼、越南、泰國、菲律賓員工各看自己的語言；文字、語音、圖片都能處理。</div>
+          <div class="story-card-desc" id="os-card-1-desc">台籍主管說一句話，Bot 會同步翻成群組設定的印尼文、越南文、泰文、菲律賓語等語言；全員在同一群組查看。文字、語音、圖片都能處理。</div>
         </div>
         <ul class="story-list">
           <li id="os-card-1-li-1">LINE 群組雙向翻譯</li>
@@ -2009,10 +2010,10 @@ footer a:hover { color:var(--text); }
         </div>
         <div class="tutorial-video-label" id="os-video-label">LINE SETUP</div>
       </div>
-      <video class="tutorial-video" controls preload="metadata" playsinline poster="assets/wanyutong-logo.jpg">
-        <source src="assets/wanyutong-line-bot-tutorial.mp4" type="video/mp4">
+      <video class="tutorial-video" controls preload="metadata" playsinline poster="assets/wanyutong-line-bot-tutorial-20260819-poster.jpg">
+        <source src="assets/wanyutong-line-bot-tutorial-20260819.mp4" type="video/mp4">
       </video>
-      <div class="tutorial-video-caption" id="os-video-caption">桌機可直接播放；手機版同樣支援直向瀏覽與播放控制。</div>
+      <div class="tutorial-video-caption" id="os-video-caption">含自然語音與繁體中文字幕；桌機與手機都可直接播放。<a href="blog-group-translation-checklist.html">查看群組多語圖文教學</a></div>
     </div>
     <div class="secretary-guide" id="secretary-guide">
       <div class="secretary-guide-head">
@@ -2061,10 +2062,10 @@ footer a:hover { color:var(--text); }
           </div>
           <div class="tutorial-video-label" id="secretary-video-label">AI SECRETARY</div>
         </div>
-        <video class="tutorial-video" controls preload="metadata" playsinline poster="assets/wanyutong-secretary-tutorial-poster.jpg">
-          <source src="assets/wanyutong-secretary-tutorial.mp4" type="video/mp4">
+        <video class="tutorial-video" controls preload="metadata" playsinline poster="assets/wanyutong-secretary-tutorial-20260819-poster.jpg">
+          <source src="assets/wanyutong-secretary-tutorial-20260819.mp4" type="video/mp4">
         </video>
-        <div class="tutorial-video-caption" id="secretary-video-caption">放在 AI 祕書流程下方；桌機與手機都可直接播放。</div>
+        <div class="tutorial-video-caption" id="secretary-video-caption">AI 祕書會整理已記錄的群組內容；影片含自然語音與字幕，桌機與手機都可直接播放。</div>
       </div>
     </div>
   </div>
@@ -2077,7 +2078,7 @@ footer a:hover { color:var(--text); }
     <p class="lead">從文字、語音、圖片 OCR 翻譯，到摘要、每日報表與紀錄查詢，讓跨語言管理更清楚。</p>
     <div class="features-grid">
       <div class="feature-card"><span class="feature-icon">🌏</span><div class="feature-title">36 種語言與 DeepL 專業引擎</div><div class="feature-desc">以 DeepL 專業翻譯引擎處理常用工作語言。印尼、越南、泰文、菲律賓語、英文、日文、韓文與簡繁中文等語言可快速切換。</div></div>
-      <div class="feature-card"><span class="feature-icon">👥</span><div class="feature-title">群組雙向翻譯</div><div class="feature-desc">加入群組即用。台籍主管說中文，印尼、越南、泰國、菲律賓員工各看各的語言，混合國籍群組也能一起溝通。</div></div>
+      <div class="feature-card"><span class="feature-icon">👥</span><div class="feature-title">群組雙向翻譯</div><div class="feature-desc">加入群組即用。主管一句話，Bot 同步翻成群組設定的多種語言，全員在同一群組查看；混合國籍團隊不用離開 LINE。</div></div>
       <div class="feature-card"><span class="feature-icon">🎤</span><div class="feature-title">語音訊息翻譯</div><div class="feature-desc">直接傳語音，自動轉錄並翻譯成目標語言文字。工地、工廠雙手忙時特別好用。</div></div>
       <div class="feature-card"><span class="feature-icon">📷</span><div class="feature-title">圖片 OCR 翻譯</div><div class="feature-desc">傳一張截圖，自動辨識文字並翻譯。班表、公告、合約、工廠警示貼紙，不用重新打字。</div></div>
       <div class="feature-card"><span class="feature-icon">🧭</span><div class="feature-title">人工複核提醒</div><div class="feature-desc">遇到工安、合約、金額、醫療或重要交辦內容時，提醒使用者自行確認，避免把機器翻譯當成最終結論。</div></div>
@@ -2709,7 +2710,7 @@ var i18n = {
     'os.note':         '導入重點：不用搬離 LINE、不用教員工新 App。把 Bot 加入群組，設定語言與報表，明天就能開始跑翻譯、摘要與每日整理。',
     'os.card1.kicker': 'ABILITY 01',
     'os.card1.title':  '翻得懂',
-    'os.card1.desc':   '台籍主管說中文，印尼、越南、泰國、菲律賓員工各看自己的語言；文字、語音、圖片都能處理。',
+    'os.card1.desc':   '台籍主管說一句話，Bot 會同步翻成群組設定的印尼文、越南文、泰文、菲律賓語等語言；全員在同一群組查看。文字、語音、圖片都能處理。',
     'os.card1.li1':    'LINE 群組雙向翻譯',
     'os.card1.li2':    '語音轉文字再翻譯',
     'os.card1.li3':    '公告、合約、班表圖片 OCR',
@@ -2740,7 +2741,7 @@ var i18n = {
     'feat.1.title':    '36 種語言與 DeepL 專業引擎',
     'feat.1.desc':     '日、英、韓、印尼、泰、越南、菲律賓、阿拉伯、希伯來等 36 種常用語言，以 DeepL 專業翻譯引擎處理。',
     'feat.2.title':    '群組雙向翻譯',
-    'feat.2.desc':     '加入群組即用。台籍主管說中文，印尼、越南、泰國、菲律賓員工各看各的語言，混合國籍群組也能一起溝通。',
+    'feat.2.desc':     '加入群組即用。主管一句話，Bot 同步翻成群組設定的多種語言，全員在同一群組查看；混合國籍團隊不用離開 LINE。',
     'feat.3.title':    '語音訊息翻譯',
     'feat.3.desc':     '直接傳語音，自動轉錄並翻譯成目標語言文字。工地、工廠雙手忙時特別好用。',
     'feat.4.title':    '圖片 OCR 翻譯',
@@ -2907,7 +2908,7 @@ var i18n = {
     'price.video.title': '加入開通流程影片',
     'price.video.copy':  '選方案、加入官方 LINE、放進群組與完成開通，一支影片看懂。',
     'price.video.label': 'ACTIVATION FLOW',
-    'price.video.caption': '收費方案下方可直接觀看；手機與桌機皆可播放。',
+    'price.video.caption': '影片依現行方案製作並含自然語音與字幕；手機與桌機皆可播放。',
     'price.refund':    '付款與退費：目前方案採付款連結開通或延長，不等同信用卡週期自動續扣；是否啟用自動扣款以綠界付款頁與訂購畫面顯示為準。本服務為數位內容，付款後原則上不退費；僅限付款後 24 小時內、Bot 完全無法回應且非使用者網路、LINE 或操作問題時，可透過 <a class="support-form-link" href="https://forms.gle/rKatiHrCmh5wpCov8" target="_blank" rel="noopener">GOOGLE 客服表單</a> 申請審核。付款請以官方 LINE Bot @969wpxno 產生的綠界連結或官網正式入口為準，請勿相信陌生私訊或非官方連結。',
     // HOWTO
     'howto.eyebrow':   '// How It Works',
@@ -2926,7 +2927,7 @@ var i18n = {
     'os.video.title': '操作教學影片',
     'os.video.copy':  '加入 LINE Bot、放進群組、開始翻譯，一支影片看懂。',
     'os.video.label': 'LINE SETUP',
-    'os.video.caption': '桌機可直接播放；手機版同樣支援直向瀏覽與播放控制。',
+    'os.video.caption': '含自然語音與繁體中文字幕；桌機與手機都可直接播放。',
     'secretary.eyebrow': '// AI Secretary',
     'secretary.title': 'AI 祕書怎麼用',
     'secretary.lead': '把 AI 祕書當成群組裡的紀錄整理員：先看說明、再確認狀態，臨時要回顧用摘要，每天交接用報表。',
@@ -2952,7 +2953,7 @@ var i18n = {
     'secretary.video.title': 'AI 祕書指令教學影片',
     'secretary.video.copy': '用 4 個指令看狀態、抓重點、產生日報，照著影片做就懂。',
     'secretary.video.label': 'AI SECRETARY',
-    'secretary.video.caption': '放在 AI 祕書流程下方；桌機與手機都可直接播放。',
+    'secretary.video.caption': 'AI 祕書會整理已記錄的群組內容；影片含自然語音與字幕，桌機與手機都可直接播放。',
     // TERMS
     'terms.eyebrow':   '// Legal',
     'terms.h2':        '使用條款 · 隱私政策 · 退費規定',
@@ -3116,7 +3117,7 @@ var i18n = {
     'os.note':         'Onboarding point: no new app and no workflow migration. Add the Bot to a LINE group, set languages and reports, then start translation, summaries, and daily records the next day.',
     'os.card1.kicker': 'ABILITY 01',
     'os.card1.title':  'Translate Clearly',
-    'os.card1.desc':   'Taiwanese managers speak Chinese while Indonesian, Vietnamese, Thai, and Filipino workers read their own languages. Text, voice, and images are all supported.',
+    'os.card1.desc':   'A manager sends one message, and the Bot translates it into the languages configured for the group. Everyone views the same multilingual result in LINE. Text, voice, and images are supported.',
     'os.card1.li1':    'Two-way LINE group translation',
     'os.card1.li2':    'Voice transcription and translation',
     'os.card1.li3':    'OCR for notices, contracts, and schedules',
@@ -3147,7 +3148,7 @@ var i18n = {
     'feat.1.title':    '36 Languages Supported',
     'feat.1.desc':     'Japanese, English, Korean, Indonesian, Thai, Vietnamese, Filipino, Arabic, Hebrew and more. Major languages are available by plan and can be switched quickly with commands.',
     'feat.2.title':    'Group Two-Way Translation',
-    'feat.2.desc':     'Add it to a LINE group and use it immediately. Taiwanese managers speak Chinese while Indonesian, Vietnamese, Thai, and Filipino workers read their own languages.',
+    'feat.2.desc':     'Add it to a LINE group and use it immediately. One manager message is translated into the languages configured for the group, and everyone views the same multilingual result in LINE.',
     'feat.3.title':    'Voice Message Translation',
     'feat.3.desc':     'Send a voice message and get automatic transcription and translation. Useful when hands are busy on job sites or factory floors.',
     'feat.4.title':    'Image OCR Translation',
@@ -3314,7 +3315,7 @@ var i18n = {
     'price.video.title': 'Activation Flow Video',
     'price.video.copy':  'Pick a plan, add the official LINE account, place the Bot in your group, and activate service.',
     'price.video.label': 'ACTIVATION FLOW',
-    'price.video.caption': 'Watch directly below the pricing plans. Desktop and mobile playback are both supported.',
+    'price.video.caption': 'Built from the current plans with natural narration and subtitles; playable on desktop and mobile.',
     'price.refund':    'Payment and Refund Policy: Plans are activated or extended through payment links and do not automatically mean recurring card billing. Any recurring payment setting depends on what is shown on the ECPay payment page and order screen. This is a digital service and payments are generally non-refundable. If the Bot is completely unresponsive within 24 hours of payment and the issue is not caused by the user network, LINE, or operation error, request review through the <a class="support-form-link" href="https://forms.gle/rKatiHrCmh5wpCov8" target="_blank" rel="noopener">GOOGLE Support Form</a>. Use only the official LINE Bot @969wpxno payment link or the official website entry for payment.',
     // HOWTO
     'howto.eyebrow':   '// How It Works',
@@ -3333,7 +3334,7 @@ var i18n = {
     'os.video.title': 'Setup Tutorial Video',
     'os.video.copy':  'Add the LINE Bot, place it in a group, and start translating in one flow.',
     'os.video.label': 'LINE SETUP',
-    'os.video.caption': 'Playable on desktop and mobile, with the same responsive layout.',
+    'os.video.caption': 'Includes natural narration and Traditional Chinese subtitles; playable on desktop and mobile.',
     'secretary.eyebrow': '// AI Secretary',
     'secretary.title': 'How to Use the AI Secretary',
     'secretary.lead': 'Treat the AI Secretary as the group record keeper: read the guide, check status, summarize when you need a quick review, and generate reports for daily handoff.',
@@ -3359,7 +3360,7 @@ var i18n = {
     'secretary.video.title': 'AI Secretary Command Tutorial',
     'secretary.video.copy': 'Four commands are enough to check status, catch key points, and generate daily reports.',
     'secretary.video.label': 'AI SECRETARY',
-    'secretary.video.caption': 'Placed directly under the AI Secretary workflow; playable on desktop and mobile.',
+    'secretary.video.caption': 'The AI Secretary organizes recorded group content. The narrated, subtitled video plays on desktop and mobile.',
     // TERMS
     'terms.eyebrow':   '// Legal',
     'terms.h2':        'Terms of Service · Privacy Policy · Refund Policy',

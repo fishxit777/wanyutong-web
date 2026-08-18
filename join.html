@@ -4,6 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="assets/icons/wanyutong-icon-192.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#5fca6b">
+<link rel="apple-touch-icon" href="assets/icons/wanyutong-icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="萬語通">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<script src="assets/wanyutong-app.js" defer></script>
 <title>加入萬語通 LINE｜體驗跨語言工作交辦流程</title>
 <meta name="description" content="掃描 QR Code 加入萬語通 LINE 官方帳號，免費版可用中文、英文、日文、韓文無限翻譯；完整語音、圖片 OCR、AI 摘要、每日報表與紀錄搜尋統計可升級使用。">
 <meta name="robots" content="index, follow">
@@ -506,6 +513,18 @@ h1 {
       </div>
     </section>
   </main>
+  <section class="tutorial-panel" aria-label="加入後的前三個步驟">
+    <div class="tutorial-head">
+      <div><div class="tutorial-title">加入後先完成三件事</div><div class="tutorial-copy">照順序設定一次，之後就能直接傳送一般文字。</div></div>
+      <div class="tutorial-label">FIRST 3 STEPS</div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:rgba(114,139,176,.18);">
+      <div style="background:#101824;padding:22px;"><strong>1. 查看完整說明</strong><p style="margin:.6rem 0 0;line-height:1.75;opacity:.78;">傳送 <code>@說明</code>，先確認目前可用指令與方案。</p></div>
+      <div style="background:#101824;padding:22px;"><strong>2. 設定翻譯語言</strong><p style="margin:.6rem 0 0;line-height:1.75;opacity:.78;">例如 <code>@語言設定 繁體中文 印尼文</code>，完成雙向翻譯設定。</p></div>
+      <div style="background:#101824;padding:22px;"><strong>3. 群組多語測試</strong><p style="margin:.6rem 0 0;line-height:1.75;opacity:.78;">用 <code>@多語 繁體中文 英文 菲律賓語</code> 設定，再傳一句話測試。</p></div>
+    </div>
+    <div class="tutorial-caption">群組多語模式會把同一句話翻成已設定的多種語言，所有成員在同一群組查看同一份結果。<a href="blog-line-bot-first-setup.html">閱讀完整圖文教學</a></div>
+  </section>
   <section class="tutorial-panel" aria-label="萬語通操作教學影片">
     <div class="tutorial-head">
       <div>
@@ -514,10 +533,10 @@ h1 {
       </div>
       <div class="tutorial-label" id="join-video-label">LINE SETUP</div>
     </div>
-    <video class="tutorial-video" controls preload="metadata" playsinline poster="assets/wanyutong-logo.jpg">
-      <source src="assets/wanyutong-line-bot-tutorial.mp4" type="video/mp4">
+    <video class="tutorial-video" controls preload="metadata" playsinline poster="assets/wanyutong-line-bot-tutorial-20260819-poster.jpg">
+      <source src="assets/wanyutong-line-bot-tutorial-20260819.mp4" type="video/mp4">
     </video>
-    <div class="tutorial-caption" id="join-video-caption">桌機可直接播放；手機版同樣支援直向瀏覽與播放控制。</div>
+    <div class="tutorial-caption" id="join-video-caption">影片含自然語音與繁體中文字幕；桌機與手機皆可播放。</div>
   </section>
   <section class="tutorial-panel" aria-label="萬語通加入開通流程影片">
     <div class="tutorial-head">
@@ -527,10 +546,10 @@ h1 {
       </div>
       <div class="tutorial-label" id="join-activation-video-label">ACTIVATION FLOW</div>
     </div>
-    <video class="tutorial-video" controls preload="metadata" playsinline poster="assets/wanyutong-activation-flow-poster.jpg">
-      <source src="assets/wanyutong-activation-flow.mp4" type="video/mp4">
+    <video class="tutorial-video" controls preload="metadata" playsinline poster="assets/wanyutong-activation-flow-20260819-poster.jpg">
+      <source src="assets/wanyutong-activation-flow-20260819.mp4" type="video/mp4">
     </video>
-    <div class="tutorial-caption" id="join-activation-video-caption">掃碼加入後，照影片流程即可完成免費使用或付費開通。</div>
+    <div class="tutorial-caption" id="join-activation-video-caption">照官網現行方案操作；付款成功後只開通或延長付款的群組。</div>
   </section>
 </div>
 <script>
@@ -558,11 +577,11 @@ var joinCopy = {
     videoTitle: '操作教學影片',
     videoCopy: '加入 LINE Bot、放進群組、開始翻譯，一支影片看懂。',
     videoLabel: 'LINE SETUP',
-    videoCaption: '桌機可直接播放；手機版同樣支援直向瀏覽與播放控制。',
+    videoCaption: '影片含自然語音與繁體中文字幕；桌機與手機皆可播放。',
     activationVideoTitle: '加入開通流程影片',
     activationVideoCopy: '選方案、加入官方 LINE、放進群組與完成開通，一支影片看懂。',
     activationVideoLabel: 'ACTIVATION FLOW',
-    activationVideoCaption: '掃碼加入後，照影片流程即可完成免費使用或付費開通。',
+    activationVideoCaption: '照官網現行方案操作；付款成功後只開通或延長付款的群組。',
     zhLabel: '繁中'
   },
   en: {
@@ -588,11 +607,11 @@ var joinCopy = {
     videoTitle: 'Setup Tutorial Video',
     videoCopy: 'Add the LINE Bot, place it in a group, and start translating in one flow.',
     videoLabel: 'LINE SETUP',
-    videoCaption: 'Playable on desktop and mobile, with the same responsive layout.',
+    videoCaption: 'Includes natural narration and Traditional Chinese subtitles; playable on desktop and mobile.',
     activationVideoTitle: 'Activation Flow Video',
     activationVideoCopy: 'Pick a plan, add the official LINE account, place the Bot in your group, and activate service.',
     activationVideoLabel: 'ACTIVATION FLOW',
-    activationVideoCaption: 'After joining by QR code, follow the video to start free use or activate a paid plan.',
+    activationVideoCaption: 'Follow the current official plans; successful payment activates or extends only the paid group.',
     zhLabel: 'ZH'
   }
 };

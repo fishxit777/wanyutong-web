@@ -1,11 +1,11 @@
 # 萬語通 LINE Bot／官網／PWA／手機版同步交接表
 
-更新日期：2026-08-19
+更新日期：2026-08-26
 維護單位：萬語通團隊
 
 ## 本次目標
 
-讓 LINE Bot 新手推播、群組說明、官網、web-app／PWA、桌機版與手機版使用同一套產品說法、方案價格與操作影片。
+讓 LINE Bot 新手教學、完整說明、官網、後台、web-app／PWA、桌機版與手機版使用同一套正式指令、四語說明、方案價格與操作方式。
 
 ## 正式產品行為
 
@@ -29,18 +29,26 @@
 
 ## LINE Bot 同步
 
-- 新好友加入、Bot 加入群組及 `@新手教學` 都回覆兩則訊息：第一則英文、第二則繁體中文。
-- 兩則訊息均包含雙向翻譯、群組多語、五個正式方案、`@方案`、`@說明`、`@語言`、`@支援語言`、`@客服` 與高風險內容人工複核提醒。
-- 群組說明與群組 `@多語` 回覆明確寫出「全員在同一群組查看同一份結果」。
-- 後端正式提交：`4b91aff`（`Sync LINE onboarding and group multilingual guidance`）。
+- 正式公開指令固定為 `@新手教學` 與 `@說明`，官網與後台不再顯示 `@群組說明`、`@群組指令` 或不存在的 `@開始翻譯`。
+- `@新手教學` 顯示第一次設定、方案與開通流程；`@說明` 顯示個人聊天與群組的完整指令。
+- 新好友加入、Bot 加入群組、`@新手教學` 與 `@說明` 都依序回覆四則訊息：繁體中文、英文、日文、韓文。
+- 四語內容均包含雙向翻譯、群組多語、正式方案、常用指令、客服 Email 與 GOOGLE 表單。
+- 舊的 `@群組說明` 與 `@群組指令` 只在後端保留為相容別名，不在任何公開教學中顯示。
+- 群組 `@多語` 固定說明為「主管一句話，同步翻成群組設定的多種語言，全員在同一群組查看同一份結果」。
+- 四語 LINE 功能正式提交：`a4ef678`（`Localize LINE help and onboarding in four languages`）。
+- 後台同步提交：`e74c8bf`（`Sync admin broadcast guidance with four-language help`）。
+- 2026-08-25 已完成一次既有好友四語導覽群發，13 位可觸達好友成功；本次 2026-08-26 官網與後台同步沒有再次群發。
 
-## 官網與 PWA 同步
+## 官網、後台與 PWA 同步
 
-- 關鍵頁：`index.html`、`features.html`、`pricing.html`、`join.html`、`start.html`、`about.html`。
-- 新增六篇操作指南與關於頁，並更新 Blog、FAQ、比較、產業、聯絡、條款與網站地圖。
-- `about.html` 已接上 `manifest.webmanifest`、iOS 圖示、theme color 與 `assets/wanyutong-app.js`。
-- service worker 快取版本：`wanyutong-pwa-20260819-content-sync-v1`。
-- 桌機與手機共用同一套 HTML、PWA 及影片資產，沒有另外維護會失去同步的手機文案副本。
+- 本次核對頁：`index.html`、`features.html`、`pricing.html`、`start.html`、`compare.html`、`engine.html`、`industries.html`、`contact.html`、`terms.html`、`join.html`、`blog-line-bot-first-setup.html`。
+- `join.html` 新增三步驟操作區與繁中、英文、日文、韓文 Bot 回覆預覽；支援中英頁面切換、日夜切換及手機版。
+- `start.html#howto` 已改用 `@新手教學` 與 `@說明`，中英切換內容一致並連到客服表單。
+- 第一次使用教學文章已更新正式指令、四語說明、完整英文內容、日夜模式、手機版與 PWA 註冊。
+- 後台「群發通知」已加入四語新手導覽範本及正式指令提示，並移除錯誤的 `@開始翻譯` 說法。
+- PWA 新增「新手教學」捷徑，service worker 快取版本為 `wanyutong-pwa-20260825-four-language-help-v1`。
+- 桌機與手機共用同一套 HTML、PWA 與影片資產，沒有另外維護容易失去同步的手機文案副本。
+- 官網正式提交：`463c39a`（`Sync four-language onboarding across website and PWA`）。
 
 ## 影片資產
 
@@ -50,14 +58,18 @@
 
 三支影片均為 1280×720、H.264＋AAC，含自然語音、背景音樂與繁體中文字幕；已同步對應 poster。舊影片中的 NT$899／365 天及不符合現況的多語說法不得再引用。
 
-## 驗證紀錄
+## 2026-08-26 驗證紀錄
 
-- LINE onboarding 單元測試：8／8 通過。
-- `python -m py_compile app.py`：通過。
-- 公開網站 28 個 HTML 頁面稽核：0 錯誤。
-- 內部連結、圖片、影片、JSON-LD、PWA manifest 與資產存在性：通過。
-- 舊價格 NT$899／365 天、舊影片檔名及個別私下顯示語言說法：未檢出。
-- 桌機 1536px 與手機 390px 實際瀏覽：無橫向溢出，主要頁面與影片控制正常。
+- 後端 `python -m py_compile app.py risk_engine.py`：通過。
+- 後端 `python -m pytest -q`：45 項全數通過；9 則為既有 LINE SDK 與 `datetime.utcnow()` 棄用警告。
+- 官網 11 個受影響頁面、39 段 inline JavaScript、重複 ID、PWA manifest 與資產存在性：通過。
+- 公開 HTML／JavaScript 未檢出 `@群組說明`、`@群組指令`、`@group help` 或 `@開始翻譯`。
+- 正式手機版 390 × 844：11 個受影響頁面全數 HTTP 正常、無橫向溢出、PWA manifest 存在、中英文記憶與切換正常。
+- 正式桌機版 1440 × 900：`join.html`、`start.html`、第一次使用教學文章無橫向溢出，中英與日夜狀態一致。
+- `join.html` 的日文、韓文預覽已實際切換驗證，文字與版面正常。
+- 正式後台桌機與手機登入頁無橫向溢出；頁面已包含四語範本、客服表單，未包含 `@開始翻譯`。
+- `https://wanyutong.tw/sw.js` 已回傳新快取版本；`https://one1stars-line-bot.onrender.com/admin` 已回傳新後台版本。
+- 本次未修改方案金額、付款 callback、權限判斷、Render 金流環境變數、翻譯引擎或群組付費功能。
 
 ## 後續修改規則
 
@@ -65,3 +77,5 @@
 2. 群組多語固定描述為同群組共享多語結果，不得寫成每位成員私下只看到自己的語言。
 3. 新影片檔名需帶日期版本，替換後同步更新 HTML、service worker 與 poster。
 4. 上線前必跑 LINE onboarding 測試、網站結構稽核、桌機與手機瀏覽驗收。
+5. 公開教學一律使用 `@新手教學` 與 `@說明`；舊群組指令只可作為後端相容別名，不得再次出現在官網、後台範本或影片。
+6. 中英切換與日夜切換共用 `wyt-lang`、`wyt-theme`；新增頁面時必須接上相同儲存鍵並做 390px 手機驗證。

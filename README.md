@@ -8,3 +8,4 @@
 - [客服表單與方案同步 2026-06-24](docs/frontend_support_form_pricing_sync_20260624.md)
 - [官網教學影片嵌入 2026-06-24](docs/frontend_tutorial_video_sync_20260624.md)
 - [加入開通流程影片嵌入與重製 2026-06-26](docs/frontend_activation_video_sync_20260625.md)
+- [LINE Bot／官網／後台／PWA／手機版同步 2026-08-26](docs/frontend_line_pwa_mobile_sync_20260819.md)

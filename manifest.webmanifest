@@ -34,6 +34,12 @@
   ],
   "shortcuts": [
     {
+      "name": "新手教學",
+      "short_name": "教學",
+      "url": "./start.html#howto",
+      "description": "查看 @新手教學、@說明與第一次設定流程"
+    },
+    {
       "name": "免費體驗",
       "short_name": "體驗",
       "url": "./join.html",

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'wanyutong-pwa-20260819-content-sync-v1';
+const CACHE_NAME = 'wanyutong-pwa-20260825-four-language-help-v1';
 const CORE_ASSETS = [
   './',
   './index.html',

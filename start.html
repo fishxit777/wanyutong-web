@@ -1984,10 +1984,10 @@ footer a:hover { color:var(--text); }
       <div class="step-item"><span class="step-num">STEP 03</span><div class="step-title">切換目標語言</div><div class="step-desc">傳 @印尼 即切換為中文↔印尼文。</div></div>
       <div class="step-item"><span class="step-num">STEP 04</span><div class="step-title">開始傳訊息</div><div class="step-desc">文字、圖片、語音皆可，Bot 自動翻譯回覆。</div></div>
     </div>
-    <div style="margin-top:2rem;font-size:0.78rem;color:var(--muted);font-family:'DM Mono',monospace;">
-      LINE多國翻譯機器人：將 Bot 加入群組後傳
-      <code style="background:var(--bg3);border:1px solid var(--border);padding:2px 8px;border-radius:4px;color:var(--line);">@群組說明</code>
-      查看完整指令。
+    <div id="howto-command-note" style="margin-top:2rem;font-size:0.78rem;color:var(--muted);font-family:'DM Mono',monospace;line-height:1.9;">
+      第一次設定傳 <code style="background:var(--bg3);border:1px solid var(--border);padding:2px 8px;border-radius:4px;color:var(--line);">@新手教學</code>；
+      查看完整指令傳 <code style="background:var(--bg3);border:1px solid var(--border);padding:2px 8px;border-radius:4px;color:var(--line);">@說明</code>。
+      兩個入口都會依序回覆繁體中文、英文、日文與韓文。客服：<a class="support-form-link" href="https://forms.gle/rKatiHrCmh5wpCov8" target="_blank" rel="noopener">GOOGLE 表單</a>。
     </div>
   </div>
 </section>
@@ -2815,6 +2815,7 @@ var i18n = {
     'howto.eyebrow':   '// How It Works',
     'howto.h2':        '4 步驟開始翻譯',
     'howto.lead':      '從加入到開始翻譯，只需要幾分鐘。',
+    'howto.command':   '第一次設定傳 <code style="background:var(--bg3);border:1px solid var(--border);padding:2px 8px;border-radius:4px;color:var(--line);">@新手教學</code>；查看完整指令傳 <code style="background:var(--bg3);border:1px solid var(--border);padding:2px 8px;border-radius:4px;color:var(--line);">@說明</code>。兩個入口都會依序回覆繁體中文、英文、日文與韓文。客服：<a class="support-form-link" href="https://forms.gle/rKatiHrCmh5wpCov8" target="_blank" rel="noopener">GOOGLE 表單</a>。',
     'howto.s1.title':  '加入萬語通',
     'howto.s1.desc':   '點選按鈕，加入 LINE Bot 好友。',
     'howto.s2.title':  '輸入 @語言',
@@ -3222,6 +3223,7 @@ var i18n = {
     'howto.eyebrow':   '// How It Works',
     'howto.h2':        '4 Steps to Start Translating',
     'howto.lead':      'From setup to first translation in just a few minutes.',
+    'howto.command':   'For first-time setup, send <code style="background:var(--bg3);border:1px solid var(--border);padding:2px 8px;border-radius:4px;color:var(--line);">@新手教學</code>. For the full command list, send <code style="background:var(--bg3);border:1px solid var(--border);padding:2px 8px;border-radius:4px;color:var(--line);">@說明</code>. Both return Traditional Chinese, English, Japanese, and Korean messages. Support: <a class="support-form-link" href="https://forms.gle/rKatiHrCmh5wpCov8" target="_blank" rel="noopener">GOOGLE Form</a>.',
     'howto.s1.title':  'Add WanyuTong',
     'howto.s1.desc':   'Click the button to add the LINE Bot as a friend.',
     'howto.s2.title':  'Type @language',
@@ -3703,6 +3705,8 @@ function applyLang(lang) {
   q('#howto .eyebrow', 'howto.eyebrow');
   q('#howto h2', 'howto.h2');
   q('#howto .lead', 'howto.lead');
+  var howtoCommand = document.getElementById('howto-command-note');
+  if (howtoCommand && t['howto.command']) howtoCommand.innerHTML = t['howto.command'];
   var steps = document.querySelectorAll('.step-item');
   var sKeys = ['howto.s1','howto.s2','howto.s3','howto.s4'];
   steps.forEach(function(step, i){
@@ -3787,7 +3791,6 @@ function applyLang(lang) {
       'Thank you for your reply. I look forward to working together.': '感謝您撥冗回覆，期待後續合作愉快。',
       'Unknown': '未知',
       'For groups: Add the Bot to your group, then send': 'LINE多國翻譯機器人：將 Bot 加入群組後傳',
-      '@group help': '@群組說明',
       'to see the full command list.': '查看完整指令。'
     });
   } else if (lang === 'en') {
@@ -3808,7 +3811,6 @@ function applyLang(lang) {
       '感謝您撥冗回覆，期待後續合作愉快。': 'Thank you for your reply. I look forward to working together.',
       '未知': 'Unknown',
       'LINE多國翻譯機器人：將 Bot 加入群組後傳': 'For groups: Add the Bot to your group, then send',
-      '@群組說明': '@group help',
       '查看完整指令。': 'to see the full command list.'
     });
   }

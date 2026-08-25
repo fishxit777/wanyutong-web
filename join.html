@@ -36,6 +36,15 @@
   --muted: #8ea79a;
   --border: rgba(255, 255, 255, 0.12);
 }
+html.light {
+  color-scheme: light;
+  --bg: #eef4f1;
+  --panel: rgba(255, 255, 255, 0.94);
+  --panel2: rgba(15, 80, 53, 0.06);
+  --text: #15231d;
+  --muted: #587064;
+  --border: rgba(16, 74, 50, 0.18);
+}
 * { box-sizing: border-box; }
 html, body { min-height: 100%; }
 body {
@@ -58,6 +67,14 @@ body::before {
   background-size: 74px 74px;
   mask-image: linear-gradient(90deg, rgba(0,0,0,0.2), rgba(0,0,0,0.82), rgba(0,0,0,0.4));
   pointer-events: none;
+}
+html.light body {
+  background: #eef4f1;
+}
+html.light body::before {
+  background-image:
+    linear-gradient(rgba(8, 123, 77, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(8, 123, 77, 0.06) 1px, transparent 1px);
 }
 a { color: inherit; }
 .shell {
@@ -141,6 +158,19 @@ a { color: inherit; }
   background: var(--line);
   color: #031108;
 }
+.theme-toggle {
+  width: 36px;
+  height: 34px;
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 36px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  color: var(--text);
+  background: var(--panel2);
+  cursor: pointer;
+  font-size: 16px;
+}
 .main {
   align-self: center;
   width: min(1160px, 100%);
@@ -186,6 +216,7 @@ h1 {
   line-height: 1.9;
   margin: 0 0 28px;
 }
+html.light .lead { color: #435c50; }
 .actions {
   display: flex;
   flex-wrap: wrap;
@@ -214,6 +245,7 @@ h1 {
   border: 1px solid var(--border);
   background: rgba(255, 255, 255, 0.05);
 }
+html.light .btn-secondary { color: #183b2b; background: rgba(255,255,255,.72); }
 .btn:hover { transform: translateY(-2px); }
 .proof {
   margin-top: 34px;
@@ -265,6 +297,10 @@ h1 {
   backdrop-filter: blur(20px);
   transform: rotateY(-10deg) rotateX(7deg);
 }
+html.light .qr-card {
+  background: rgba(255,255,255,.9);
+  box-shadow: 0 28px 70px rgba(24, 73, 51, .18), inset 0 1px 0 rgba(255,255,255,.9);
+}
 .qr-card::before {
   content: "";
   position: absolute;
@@ -313,6 +349,7 @@ h1 {
   font-size: 15px;
   line-height: 1.7;
 }
+html.light .qr-note { color: #365a48; }
 .node {
   position: absolute;
   min-width: 112px;
@@ -325,6 +362,7 @@ h1 {
   transform-style: preserve-3d;
   animation: nodePulse 5.4s ease-in-out infinite;
 }
+html.light .node { color: #163e2b; background: rgba(255,255,255,.92); }
 .node b {
   display: block;
   font-size: 14px;
@@ -348,9 +386,69 @@ h1 {
     var(--panel);
   box-shadow: 0 28px 80px rgba(0,0,0,0.34), inset 0 1px 0 rgba(255,255,255,0.08);
 }
+html.light .tutorial-panel {
+  background: #ffffff;
+  box-shadow: 0 22px 60px rgba(24, 73, 51, .14), inset 0 1px 0 rgba(255,255,255,.9);
+}
 .tutorial-panel + .tutorial-panel {
   margin-top: 18px;
 }
+.tutorial-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1px;
+  background: rgba(114, 139, 176, .18);
+}
+.tutorial-step {
+  min-width: 0;
+  padding: 22px;
+  background: #101824;
+}
+.tutorial-step p { margin: .6rem 0 0; line-height: 1.75; opacity: .78; }
+html.light .tutorial-step { background: #f8fbf9; }
+.guide-language-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 16px 22px 0;
+}
+.guide-language-tab {
+  min-height: 38px;
+  padding: 0 14px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--muted);
+  background: transparent;
+  cursor: pointer;
+  font-weight: 800;
+}
+.guide-language-tab.active {
+  border-color: var(--line);
+  color: #031108;
+  background: var(--line);
+}
+.guide-preview {
+  padding: 18px 22px 22px;
+}
+.guide-preview h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  letter-spacing: 0;
+}
+.guide-preview > p { margin: 0 0 16px; color: var(--muted); line-height: 1.75; }
+.guide-command-list { margin: 0; border-top: 1px solid var(--border); }
+.guide-command-row {
+  display: grid;
+  grid-template-columns: minmax(118px, .35fr) minmax(0, 1fr);
+  gap: 16px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--border);
+}
+.guide-command-row dt, .guide-command-row dd { margin: 0; }
+.guide-command-row dd { color: var(--muted); line-height: 1.65; }
+.guide-support { margin-top: 16px !important; overflow-wrap: anywhere; }
+.guide-support a { color: var(--mint); font-weight: 800; }
+html.light .guide-support a { color: #087b4d; }
 .tutorial-head {
   display: flex;
   align-items: flex-end;
@@ -450,6 +548,10 @@ h1 {
   .topbar-actions { gap: 8px; }
   .toplink { padding: 7px 10px; font-size: 13px; }
   .lang-btn { min-height: 32px; padding: 0 9px; }
+  .theme-toggle { width: 32px; height: 32px; flex-basis: 32px; }
+  .guide-language-tabs { padding: 14px 16px 0; }
+  .guide-preview { padding: 16px; }
+  .guide-command-row { grid-template-columns: 1fr; gap: 5px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .qr-orbit, .node, .rail::after { animation: none; }
@@ -468,13 +570,14 @@ h1 {
 <body>
 <div class="shell">
   <header class="topbar">
-    <a class="brand" href="index.html"><img class="brand-logo" src="assets/wanyutong-logo.jpg" alt="萬語通 Globe Talk AI Translation 標誌"><span id="join-brand">萬語通</span></a>
+    <a class="brand" href="index.html"><img class="brand-logo" src="assets/wanyutong-logo.jpg" alt="萬語通 Globe Talk AI Translation 標誌"><span class="brand-main" id="join-brand">萬語通</span></a>
     <div class="topbar-actions">
       <a class="toplink" id="join-home-link" href="index.html">回到官網</a>
       <div class="lang-toggle" aria-label="Language switch">
         <button class="lang-btn active" id="join-lang-zh" type="button" onclick="setJoinLang('zh')">繁中</button>
         <button class="lang-btn" id="join-lang-en" type="button" onclick="setJoinLang('en')">EN</button>
       </div>
+      <button class="theme-toggle" id="join-theme-toggle" type="button" onclick="toggleTheme()" title="切換日夜模式" aria-label="切換日夜模式"><span id="join-theme-icon" aria-hidden="true">🌙</span></button>
     </div>
   </header>
 
@@ -515,15 +618,41 @@ h1 {
   </main>
   <section class="tutorial-panel" aria-label="加入後的前三個步驟">
     <div class="tutorial-head">
-      <div><div class="tutorial-title">加入後先完成三件事</div><div class="tutorial-copy">照順序設定一次，之後就能直接傳送一般文字。</div></div>
-      <div class="tutorial-label">FIRST 3 STEPS</div>
+      <div><div class="tutorial-title" id="join-steps-title">加入後先完成三件事</div><div class="tutorial-copy" id="join-steps-copy">照順序設定一次，之後就能直接傳送一般文字。</div></div>
+      <div class="tutorial-label" id="join-steps-label">FIRST 3 STEPS</div>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:rgba(114,139,176,.18);">
-      <div style="background:#101824;padding:22px;"><strong>1. 查看完整說明</strong><p style="margin:.6rem 0 0;line-height:1.75;opacity:.78;">傳送 <code>@說明</code>，先確認目前可用指令與方案。</p></div>
-      <div style="background:#101824;padding:22px;"><strong>2. 設定翻譯語言</strong><p style="margin:.6rem 0 0;line-height:1.75;opacity:.78;">例如 <code>@語言設定 繁體中文 印尼文</code>，完成雙向翻譯設定。</p></div>
-      <div style="background:#101824;padding:22px;"><strong>3. 群組多語測試</strong><p style="margin:.6rem 0 0;line-height:1.75;opacity:.78;">用 <code>@多語 繁體中文 英文 菲律賓語</code> 設定，再傳一句話測試。</p></div>
+    <div class="tutorial-steps">
+      <div class="tutorial-step"><strong id="join-step-1-title">1. 查看新手教學</strong><p id="join-step-1-copy">傳送 <code>@新手教學</code> 查看第一次設定；傳送 <code>@說明</code> 查看完整指令。</p></div>
+      <div class="tutorial-step"><strong id="join-step-2-title">2. 設定翻譯語言</strong><p id="join-step-2-copy">例如 <code>@語言設定 繁體中文 印尼文</code>，完成雙向翻譯設定。</p></div>
+      <div class="tutorial-step"><strong id="join-step-3-title">3. 群組多語測試</strong><p id="join-step-3-copy">用 <code>@多語 繁體中文 英文 菲律賓語</code> 設定，再傳一句話測試。</p></div>
     </div>
-    <div class="tutorial-caption">群組多語模式會把同一句話翻成已設定的多種語言，所有成員在同一群組查看同一份結果。<a href="blog-line-bot-first-setup.html">閱讀完整圖文教學</a></div>
+    <div class="tutorial-caption" id="join-steps-caption">群組多語模式會把同一句話翻成已設定的多種語言，所有成員在同一群組查看同一份結果。<a href="blog-line-bot-first-setup.html">閱讀完整圖文教學</a></div>
+  </section>
+  <section class="tutorial-panel" aria-label="LINE Bot 四語新手與說明回覆預覽">
+    <div class="tutorial-head">
+      <div>
+        <div class="tutorial-title" id="join-guide-title">四語新手與說明回覆</div>
+        <div class="tutorial-copy" id="join-guide-copy">在個人聊天或群組傳送指令，Bot 都會依序回覆繁中、英文、日文與韓文。</div>
+      </div>
+      <div class="tutorial-label" id="join-guide-label">BOT REPLY PREVIEW</div>
+    </div>
+    <div class="guide-language-tabs" role="tablist" aria-label="回覆語言預覽">
+      <button class="guide-language-tab active" type="button" role="tab" aria-selected="true" data-guide-lang="zh" onclick="setGuideLang('zh', true)">繁中</button>
+      <button class="guide-language-tab" type="button" role="tab" aria-selected="false" data-guide-lang="en" onclick="setGuideLang('en', true)">English</button>
+      <button class="guide-language-tab" type="button" role="tab" aria-selected="false" data-guide-lang="ja" onclick="setGuideLang('ja', true)">日本語</button>
+      <button class="guide-language-tab" type="button" role="tab" aria-selected="false" data-guide-lang="ko" onclick="setGuideLang('ko', true)">한국어</button>
+    </div>
+    <div class="guide-preview" role="tabpanel" aria-live="polite">
+      <h3 id="join-guide-heading">【萬語通｜新手使用說明】</h3>
+      <p id="join-guide-intro">開始交辦前，先完成語言設定；設定後直接傳一般文字。</p>
+      <dl class="guide-command-list">
+        <div class="guide-command-row"><dt><code>@新手教學</code></dt><dd id="join-guide-onboarding">查看第一次設定、方案與開通流程。</dd></div>
+        <div class="guide-command-row"><dt><code>@說明</code></dt><dd id="join-guide-help">查看個人聊天或群組的完整指令。</dd></div>
+        <div class="guide-command-row"><dt><code>@語言設定 繁體中文 印尼文</code></dt><dd id="join-guide-language">設定雙向翻譯，之後直接傳一般文字。</dd></div>
+        <div class="guide-command-row"><dt><code>@多語 繁體中文 英文 菲律賓語</code></dt><dd id="join-guide-multi">下一句同步翻成設定語言，全員在同一群組查看同一份結果。</dd></div>
+      </dl>
+      <p class="guide-support"><span id="join-guide-support">客服與問題回報：</span> <a href="mailto:wanyutong29@gmail.com">wanyutong29@gmail.com</a> · <a href="https://forms.gle/rKatiHrCmh5wpCov8" target="_blank" rel="noopener">Google Form</a></p>
+    </div>
   </section>
   <section class="tutorial-panel" aria-label="萬語通操作教學影片">
     <div class="tutorial-head">
@@ -582,6 +711,20 @@ var joinCopy = {
     activationVideoCopy: '選方案、加入官方 LINE、放進群組與完成開通，一支影片看懂。',
     activationVideoLabel: 'ACTIVATION FLOW',
     activationVideoCaption: '照官網現行方案操作；付款成功後只開通或延長付款的群組。',
+    stepsTitle: '加入後先完成三件事',
+    stepsCopy: '照順序設定一次，之後就能直接傳送一般文字。',
+    stepsLabel: 'FIRST 3 STEPS',
+    step1Title: '1. 查看新手教學',
+    step1Copy: '傳送 <code>@新手教學</code> 查看第一次設定；傳送 <code>@說明</code> 查看完整指令。',
+    step2Title: '2. 設定翻譯語言',
+    step2Copy: '例如 <code>@語言設定 繁體中文 印尼文</code>，完成雙向翻譯設定。',
+    step3Title: '3. 群組多語測試',
+    step3Copy: '用 <code>@多語 繁體中文 英文 菲律賓語</code> 設定，再傳一句話測試。',
+    stepsCaption: '群組多語模式會把同一句話翻成已設定的多種語言，所有成員在同一群組查看同一份結果。<a href="blog-line-bot-first-setup.html">閱讀完整圖文教學</a>',
+    guideTitle: '四語新手與說明回覆',
+    guideCopy: '在個人聊天或群組傳送指令，Bot 都會依序回覆繁中、英文、日文與韓文。',
+    guideLabel: 'BOT REPLY PREVIEW',
+    themeLabel: '切換日夜模式',
     zhLabel: '繁中'
   },
   en: {
@@ -612,9 +755,100 @@ var joinCopy = {
     activationVideoCopy: 'Pick a plan, add the official LINE account, place the Bot in your group, and activate service.',
     activationVideoLabel: 'ACTIVATION FLOW',
     activationVideoCaption: 'Follow the current official plans; successful payment activates or extends only the paid group.',
+    stepsTitle: 'Complete These 3 Steps After Joining',
+    stepsCopy: 'Set them once in order, then send regular text directly.',
+    stepsLabel: 'FIRST 3 STEPS',
+    step1Title: '1. Open the Quick Start Guide',
+    step1Copy: 'Send <code>@新手教學</code> for first-time setup, or <code>@說明</code> for the full command list.',
+    step2Title: '2. Set Translation Languages',
+    step2Copy: 'For example, send <code>@語言設定 繁體中文 印尼文</code> to set up two-way translation.',
+    step3Title: '3. Test Group Multilingual Mode',
+    step3Copy: 'Send <code>@多語 繁體中文 英文 菲律賓語</code>, then send one test message.',
+    stepsCaption: 'Group multilingual mode translates one message into every configured language. Everyone in the same group sees the same result. <a href="blog-line-bot-first-setup.html">Read the full illustrated guide</a>',
+    guideTitle: 'Four-Language Quick Start and Help Replies',
+    guideCopy: 'In a personal chat or group, both commands return Traditional Chinese, English, Japanese, and Korean messages in order.',
+    guideLabel: 'BOT REPLY PREVIEW',
+    themeLabel: 'Switch light or dark mode',
     zhLabel: 'ZH'
   }
 };
+var guideCopy = {
+  zh: {
+    heading: '【萬語通｜新手使用說明】',
+    intro: '開始交辦前，先完成語言設定；設定後直接傳一般文字。',
+    onboarding: '查看第一次設定、方案與開通流程。',
+    help: '查看個人聊天或群組的完整指令。',
+    language: '設定雙向翻譯，之後直接傳一般文字。',
+    multi: '下一句同步翻成設定語言，全員在同一群組查看同一份結果。',
+    support: '客服與問題回報：'
+  },
+  en: {
+    heading: '【WanyuTong | Quick Start Guide】',
+    intro: 'Set the languages before sending work instructions. After setup, send regular text directly.',
+    onboarding: 'View first-time setup, plans, and activation steps.',
+    help: 'View the full command list for personal chats or groups.',
+    language: 'Set two-way translation, then send regular text directly.',
+    multi: 'The next message is translated into every selected language. Everyone in the same group sees the same result.',
+    support: 'Customer support and issue report:'
+  },
+  ja: {
+    heading: '【萬語通｜初めての方へ】',
+    intro: '業務連絡を始める前に言語を設定してください。設定後は通常の文章をそのまま送信できます。',
+    onboarding: '初回設定、プラン、利用開始の流れを確認します。',
+    help: '個人チャットまたはグループの全コマンドを確認します。',
+    language: '双方向翻訳を設定し、その後は通常の文章を送信します。',
+    multi: '次の文章を設定した全言語へ同時翻訳し、同じグループの全員が同じ結果を確認します。',
+    support: 'カスタマーサポート・問題報告：'
+  },
+  ko: {
+    heading: '【WanyuTong | 초보자 사용 안내】',
+    intro: '업무 지시를 보내기 전에 언어를 설정하세요. 설정 후에는 일반 문장을 바로 보내면 됩니다.',
+    onboarding: '첫 설정, 요금제 및 활성화 절차를 확인합니다.',
+    help: '개인 채팅 또는 그룹의 전체 명령어를 확인합니다.',
+    language: '양방향 번역을 설정한 다음 일반 문장을 바로 보냅니다.',
+    multi: '다음 메시지를 설정한 모든 언어로 번역하며 같은 그룹의 모든 사람이 동일한 결과를 확인합니다.',
+    support: '고객 지원 및 문제 신고:'
+  }
+};
+var joinGuideUserSelected = false;
+
+function setGuideLang(lang, userSelected) {
+  var copy = guideCopy[lang] || guideCopy.zh;
+  if (userSelected) joinGuideUserSelected = true;
+  var fields = {
+    'join-guide-heading': 'heading',
+    'join-guide-intro': 'intro',
+    'join-guide-onboarding': 'onboarding',
+    'join-guide-help': 'help',
+    'join-guide-language': 'language',
+    'join-guide-multi': 'multi',
+    'join-guide-support': 'support'
+  };
+  Object.keys(fields).forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) el.textContent = copy[fields[id]];
+  });
+  document.querySelectorAll('[data-guide-lang]').forEach(function(button) {
+    var active = button.getAttribute('data-guide-lang') === lang;
+    button.classList.toggle('active', active);
+    button.setAttribute('aria-selected', active ? 'true' : 'false');
+  });
+}
+
+function setJoinTheme(theme) {
+  var isLight = theme === 'light';
+  document.documentElement.classList.toggle('light', isLight);
+  var icon = document.getElementById('join-theme-icon');
+  if (icon) icon.textContent = isLight ? '☀️' : '🌙';
+  var color = document.querySelector('meta[name="theme-color"]');
+  if (color) color.setAttribute('content', isLight ? '#eef4f1' : '#5fca6b');
+  try { localStorage.setItem('wyt-theme', isLight ? 'light' : 'dark'); } catch (e) {}
+}
+
+function toggleTheme() {
+  setJoinTheme(document.documentElement.classList.contains('light') ? 'dark' : 'light');
+}
+
 function setJoinLang(lang) {
   var copy = joinCopy[lang] || joinCopy.zh;
   document.documentElement.lang = lang === 'en' ? 'en' : 'zh-TW';
@@ -643,7 +877,16 @@ function setJoinLang(lang) {
     ['join-activation-video-title', 'activationVideoTitle'],
     ['join-activation-video-copy', 'activationVideoCopy'],
     ['join-activation-video-label', 'activationVideoLabel'],
-    ['join-activation-video-caption', 'activationVideoCaption']
+    ['join-activation-video-caption', 'activationVideoCaption'],
+    ['join-steps-title', 'stepsTitle'],
+    ['join-steps-copy', 'stepsCopy'],
+    ['join-steps-label', 'stepsLabel'],
+    ['join-step-1-title', 'step1Title'],
+    ['join-step-2-title', 'step2Title'],
+    ['join-step-3-title', 'step3Title'],
+    ['join-guide-title', 'guideTitle'],
+    ['join-guide-copy', 'guideCopy'],
+    ['join-guide-label', 'guideLabel']
   ];
   pairs.forEach(function(pair) {
     var el = document.getElementById(pair[0]);
@@ -651,6 +894,17 @@ function setJoinLang(lang) {
   });
   var headline = document.getElementById('join-title');
   if (headline) headline.innerHTML = copy.headline;
+  ['join-step-1-copy', 'join-step-2-copy', 'join-step-3-copy', 'join-steps-caption'].forEach(function(id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    var key = {
+      'join-step-1-copy': 'step1Copy',
+      'join-step-2-copy': 'step2Copy',
+      'join-step-3-copy': 'step3Copy',
+      'join-steps-caption': 'stepsCaption'
+    }[id];
+    el.innerHTML = copy[key];
+  });
   var qr = document.getElementById('join-qr');
   if (qr) qr.alt = copy.qrAlt;
   var zh = document.getElementById('join-lang-zh');
@@ -660,11 +914,20 @@ function setJoinLang(lang) {
     zh.classList.toggle('active', lang !== 'en');
   }
   if (en) en.classList.toggle('active', lang === 'en');
+  var themeButton = document.getElementById('join-theme-toggle');
+  if (themeButton) {
+    themeButton.title = copy.themeLabel;
+    themeButton.setAttribute('aria-label', copy.themeLabel);
+  }
+  if (!joinGuideUserSelected) setGuideLang(lang === 'en' ? 'en' : 'zh', false);
   try { localStorage.setItem('wyt-lang', lang === 'en' ? 'en' : 'zh'); } catch (e) {}
 }
 (function() {
   var lang = 'zh';
+  var theme = 'dark';
   try { lang = localStorage.getItem('wyt-lang') === 'en' ? 'en' : 'zh'; } catch (e) {}
+  try { theme = localStorage.getItem('wyt-theme') === 'light' ? 'light' : 'dark'; } catch (e) {}
+  setJoinTheme(theme);
   setJoinLang(lang);
 })();
 </script>

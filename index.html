@@ -40,15 +40,12 @@
   "url": "https://wanyutong.tw/",
   "description": "萬語通 WanyuTong 把 LINE 群組裡的多國翻譯、圖片 OCR、語音、AI 摘要、每日報表、紀錄搜尋與統計放在同一個流程，協助跨語言團隊交代清楚、重要內容查得到。",
   "offers": {
-    "@type": "Offer",
-    "price": "199",
+    "@type": "AggregateOffer",
+    "lowPrice": "0",
+    "highPrice": "2500",
     "priceCurrency": "TWD",
-    "priceValidUntil": "2027-12-31"
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5",
-    "reviewCount": "1"
+    "offerCount": "5",
+    "url": "https://wanyutong.tw/pricing.html"
   },
   "inLanguage": ["zh-TW", "id", "vi", "th", "en", "ja", "ko"],
   "featureList": "群組雙向翻譯, 語音翻譯, 圖片 OCR翻譯, 群組重點摘要, 群組每日報表, 群組紀錄搜尋, 紀錄搜尋統計, 報表匯出, 人工複核提醒",
@@ -1893,6 +1890,7 @@ footer a:hover { color:var(--text); }
 .hero-text > *:nth-child(4) { animation-delay:0.46s; }
 .hero-mockup { animation:fadeUp 0.8s 0.3s ease both; }
 </style>
+<link rel="stylesheet" href="assets/wanyutong-home-content.css">
 
   <link rel="manifest" href="manifest.webmanifest">
   <meta name="theme-color" content="#5fca6b">
@@ -2049,6 +2047,71 @@ footer a:hover { color:var(--text); }
   </div>
 </section>
 
+<main class="home-content" id="main-content">
+  <section class="home-content-band" aria-labelledby="workflow-title">
+    <div class="home-content-inner">
+      <p class="home-content-kicker" data-zh="// 實際工作流程" data-en="// REAL WORKFLOW">// 實際工作流程</p>
+      <h2 id="workflow-title" data-zh="萬語通解決的不是翻一句話，而是交辦有沒有被理解" data-en="WanyuTong is not just a sentence translator. It helps teams verify whether work instructions were understood.">萬語通解決的不是翻一句話，而是交辦有沒有被理解</h2>
+      <p class="home-content-lead" data-zh="跨語言工作最常出錯的地方，不一定是整句翻錯，而是時間、數量、否定詞、機台代號或回覆狀態被忽略。萬語通把主管原文、翻譯結果、員工回覆與後續紀錄留在同一個 LINE 流程，讓團隊能逐項確認，而不是只看翻譯是否通順。" data-en="Cross-language work often fails because a time, quantity, negative word, machine code, or reply status is missed. WanyuTong keeps the manager's original message, translations, employee replies, and follow-up records in the same LINE workflow so teams can verify each item instead of judging only whether a sentence sounds natural.">跨語言工作最常出錯的地方，不一定是整句翻錯，而是時間、數量、否定詞、機台代號或回覆狀態被忽略。萬語通把主管原文、翻譯結果、員工回覆與後續紀錄留在同一個 LINE 流程，讓團隊能逐項確認，而不是只看翻譯是否通順。</p>
+      <div class="workflow-grid">
+        <article class="workflow-step"><span class="workflow-num">01 / WRITE</span><h3 data-zh="主管先把原文寫清楚" data-en="Write a clear source message">主管先把原文寫清楚</h3><p data-zh="一則通知只處理一件事，時間、地點、數量、禁止事項與回覆要求分開寫，避免「那個」「晚一點」等只有現場人員才懂的說法。" data-en="Keep one task per notice. Separate time, location, quantity, prohibitions, and reply requirements instead of using vague phrases that only insiders understand.">一則通知只處理一件事，時間、地點、數量、禁止事項與回覆要求分開寫，避免「那個」「晚一點」等只有現場人員才懂的說法。</p></article>
+        <article class="workflow-step"><span class="workflow-num">02 / TRANSLATE</span><h3 data-zh="Bot 依群組設定輸出翻譯" data-en="Translate using the group settings">Bot 依群組設定輸出翻譯</h3><p data-zh="雙向模式適合繁體中文與一種外語；多語模式適合三種以上語言。主管一句話可同步翻成群組設定的多種語言。" data-en="Two-way mode fits Traditional Chinese plus one language. Multilingual mode fits three or more languages and translates one manager message into the languages configured for the group.">雙向模式適合繁體中文與一種外語；多語模式適合三種以上語言。主管一句話可同步翻成群組設定的多種語言。</p></article>
+        <article class="workflow-step"><span class="workflow-num">03 / CONFIRM</span><h3 data-zh="用回覆與紀錄確認結果" data-en="Confirm with replies and records">用回覆與紀錄確認結果</h3><p data-zh="員工用熟悉語言回覆，主管查看翻回的繁體中文。重要工作可要求重述時間、數量與禁止事項，再用摘要、報表或搜尋回查。" data-en="Employees reply in a familiar language and managers read the Traditional Chinese translation. For critical work, ask people to restate the time, quantity, and prohibited action, then use summaries, reports, or search for follow-up.">員工用熟悉語言回覆，主管查看翻回的繁體中文。重要工作可要求重述時間、數量與禁止事項，再用摘要、報表或搜尋回查。</p></article>
+      </div>
+      <div class="truth-note"><strong data-zh="群組顯示方式要說清楚" data-en="How group messages are actually displayed">群組顯示方式要說清楚</strong><span data-zh="LINE 不提供同一則群組訊息依成員顯示不同內容。多語模式會在同一群組輸出設定的各語言，所有成員都能看到相同結果；員工閱讀自己熟悉的語言段落。" data-en="LINE does not show a different version of one group message to each member. Multilingual mode posts the configured languages in the same group, so everyone sees the same result and reads the language section they understand.">LINE 不提供同一則群組訊息依成員顯示不同內容。多語模式會在同一群組輸出設定的各語言，所有成員都能看到相同結果；員工閱讀自己熟悉的語言段落。</span></div>
+    </div>
+  </section>
+
+  <section class="home-content-band" aria-labelledby="evidence-title">
+    <div class="home-content-inner">
+      <p class="home-content-kicker" data-zh="// 核對原則" data-en="// VERIFICATION">// 核對原則</p>
+      <h2 id="evidence-title" data-zh="哪些內容可以交給工具，哪些一定要人工確認" data-en="Know what the tool can assist with and what still requires human review">哪些內容可以交給工具，哪些一定要人工確認</h2>
+      <p class="home-content-lead" data-zh="文字翻譯、語音辨識、圖片 OCR 與摘要都會受到上下文、口音、影像品質與專有名詞影響。萬語通協助理解、整理與留存，不取代主管、專業翻譯、醫療、法律或工安責任人的最終判斷。" data-en="Translation, speech recognition, image OCR, and summaries are affected by context, accents, image quality, and specialized terms. WanyuTong helps people understand, organize, and retain information; it does not replace the final judgment of managers, professional translators, medical staff, legal professionals, or safety officers.">文字翻譯、語音辨識、圖片 OCR 與摘要都會受到上下文、口音、影像品質與專有名詞影響。萬語通協助理解、整理與留存，不取代主管、專業翻譯、醫療、法律或工安責任人的最終判斷。</p>
+      <div class="evidence-grid">
+        <article class="evidence-item"><h3 data-zh="適合協助處理" data-en="Good uses for assistance">適合協助處理</h3><p data-zh="日常集合通知、排班提醒、一般工作交辦、圖片中可辨識的公告文字、群組回覆整理、關鍵字搜尋與日常報表。正式使用前仍應先用低風險句子測試。" data-en="Routine meeting notices, schedule reminders, general work instructions, readable text in images, reply organization, keyword search, and daily reports. Test with low-risk messages before production use.">日常集合通知、排班提醒、一般工作交辦、圖片中可辨識的公告文字、群組回覆整理、關鍵字搜尋與日常報表。正式使用前仍應先用低風險句子測試。</p></article>
+        <article class="evidence-item"><h3 data-zh="必須人工再確認" data-en="Human review is required">必須人工再確認</h3><p data-zh="工安停機與疏散、藥名與劑量、合約與法律義務、薪資與匯款、個人資料，以及任何錯誤後果可能造成受傷、損失或權利變動的內容。" data-en="Safety shutdowns and evacuation, medication names and doses, contracts and legal obligations, salary and transfers, personal data, and any message where an error could cause injury, loss, or a change in rights.">工安停機與疏散、藥名與劑量、合約與法律義務、薪資與匯款、個人資料，以及任何錯誤後果可能造成受傷、損失或權利變動的內容。</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-content-band" aria-labelledby="guides-title">
+    <div class="home-content-inner">
+      <p class="home-content-kicker" data-zh="// 原創操作指南" data-en="// PRACTICAL GUIDES">// 原創操作指南</p>
+      <h2 id="guides-title" data-zh="先讀實際操作，再決定是否適合你的團隊" data-en="Review the practical workflow before deciding whether it fits your team">先讀實際操作，再決定是否適合你的團隊</h2>
+      <p class="home-content-lead" data-zh="以下指南依萬語通目前公開功能、實際教學畫面與工作風險整理。每篇都會標示適用範圍、操作限制與需要人工覆核的情況，不以虛構客戶成果代替證據。" data-en="These guides are based on WanyuTong's current public features, tutorial screens, and workplace risks. Each guide states its scope, limitations, and human-review requirements instead of relying on invented customer outcomes.">以下指南依萬語通目前公開功能、實際教學畫面與工作風險整理。每篇都會標示適用範圍、操作限制與需要人工覆核的情況，不以虛構客戶成果代替證據。</p>
+      <div class="guide-grid">
+        <a class="guide-link" href="blog-line-bot-first-setup.html"><strong data-zh="第一次使用完整流程" data-en="First-time setup workflow">第一次使用完整流程</strong><span data-zh="加入 Bot、查看說明、設定語言、個人測試與群組測試。" data-en="Add the Bot, read the help, set languages, and complete personal and group tests.">加入 Bot、查看說明、設定語言、個人測試與群組測試。</span></a>
+        <a class="guide-link" href="blog-language-settings.html"><strong data-zh="雙向翻譯與多語設定" data-en="Two-way and multilingual settings">雙向翻譯與多語設定</strong><span data-zh="了解 36 種語言、菲律賓語、多語顯示方式與群組限制。" data-en="Review 36 languages, Filipino, multilingual display behavior, and group limits.">了解 36 種語言、菲律賓語、多語顯示方式與群組限制。</span></a>
+        <a class="guide-link" href="blog-group-translation-checklist.html"><strong data-zh="多國籍群組上線檢查" data-en="Multilingual group launch checklist">多國籍群組上線檢查</strong><span data-zh="從測試通知、固定回覆到正式公告格式逐項確認。" data-en="Verify test notices, fixed replies, and the production announcement format.">從測試通知、固定回覆到正式公告格式逐項確認。</span></a>
+        <a class="guide-link" href="blog-image-ocr-checklist.html"><strong data-zh="圖片 OCR 拍攝與核對" data-en="Image OCR capture and review">圖片 OCR 拍攝與核對</strong><span data-zh="班表、公告與 SOP 怎麼拍，哪些數字與警告一定要再看。" data-en="How to capture schedules, notices, and SOPs, and which numbers and warnings need review.">班表、公告與 SOP 怎麼拍，哪些數字與警告一定要再看。</span></a>
+        <a class="guide-link" href="blog-translation-quality-checklist.html"><strong data-zh="七類翻譯品質檢查" data-en="Seven translation quality checks">七類翻譯品質檢查</strong><span data-zh="時間、數量、單位、人名、地點、否定詞與責任對象。" data-en="Check time, quantity, units, names, locations, negative words, and responsible people.">時間、數量、單位、人名、地點、否定詞與責任對象。</span></a>
+        <a class="guide-link" href="blog-foreign-worker-communication.html"><strong data-zh="外籍員工五類溝通問題" data-en="Five foreign-worker communication problems">外籍員工五類溝通問題</strong><span data-zh="從口頭誤會、未回覆到圖片公告與後續追蹤。" data-en="From verbal misunderstandings and missing replies to image notices and follow-up.">從口頭誤會、未回覆到圖片公告與後續追蹤。</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-content-band" aria-labelledby="editorial-title">
+    <div class="home-content-inner editorial-row">
+      <div>
+        <p class="home-content-kicker" data-zh="// 內容透明度" data-en="// CONTENT TRANSPARENCY">// 內容透明度</p>
+        <h2 id="editorial-title" data-zh="萬語通如何測試、更新與修正官網內容" data-en="How WanyuTong tests, updates, and corrects website content">萬語通如何測試、更新與修正官網內容</h2>
+        <ul class="editorial-list">
+          <li data-zh="產品操作文章以目前 Bot 回覆、官網方案與可重現的教學流程核對，不把規劃中的功能寫成已上線。" data-en="Product articles are checked against current Bot replies, public plans, and reproducible tutorial workflows. Planned features are not presented as released.">產品操作文章以目前 Bot 回覆、官網方案與可重現的教學流程核對，不把規劃中的功能寫成已上線。</li>
+          <li data-zh="圖片使用去識別化教學畫面或明確標示的操作示範，不公開私人群組、付款或客戶資料。" data-en="Images use redacted tutorial screens or clearly labeled demonstrations. Private groups, payments, and customer data are not published.">圖片使用去識別化教學畫面或明確標示的操作示範，不公開私人群組、付款或客戶資料。</li>
+          <li data-zh="涉及工安、醫療、法律與個資時，會註明資料來源、使用限制及人工覆核責任。" data-en="Safety, medical, legal, and personal-data topics state their sources, usage limits, and human-review requirements.">涉及工安、醫療、法律與個資時，會註明資料來源、使用限制及人工覆核責任。</li>
+          <li data-zh="功能、價格或指令更新後，同步檢查首頁、方案、FAQ、教學文章與網站地圖。" data-en="When features, prices, or commands change, the homepage, pricing, FAQ, guides, and sitemap are checked together.">功能、價格或指令更新後，同步檢查首頁、方案、FAQ、教學文章與網站地圖。</li>
+        </ul>
+      </div>
+      <aside class="editorial-meta" aria-label="內容維護資訊">
+        <p data-zh="內容維護：萬語通團隊" data-en="Maintained by: WanyuTong Team">內容維護：萬語通團隊</p>
+        <p data-zh="本頁核對：2026-08-27" data-en="Page reviewed: 2026-08-27">本頁核對：2026-08-27</p>
+        <p data-zh="發現錯誤可透過官方客服表單回報，我們會重新測試並更新日期。" data-en="Report an error through the official support form. We will retest the workflow and update the review date.">發現錯誤可透過官方客服表單回報，我們會重新測試並更新日期。</p>
+        <a href="editorial.html" data-zh="查看完整編輯與測試原則 →" data-en="Read the full editorial and testing policy →">查看完整編輯與測試原則 →</a>
+      </aside>
+    </div>
+  </section>
+</main>
+
 <footer>
   <div>© 2026 <span data-zh="萬語通" data-en="WanyuTong">萬語通</span> · <a class="support-form-link" href="https://forms.gle/rKatiHrCmh5wpCov8" target="_blank" rel="noopener"><span data-zh="GOOGLE 客服表單" data-en="GOOGLE Support Form">GOOGLE 客服表單</span></a> · Email: wanyutong29@gmail.com</div>
   <div class="footer-links">
@@ -2058,6 +2121,7 @@ footer a:hover { color:var(--text); }
     <a href="faq.html">常見問題</a>
     <a href="terms.html">使用條款</a>
     <a href="privacy.html">隱私權政策</a>
+    <a href="editorial.html" data-zh="編輯原則" data-en="Editorial Policy">編輯原則</a>
     <a href="contact.html">聯絡方式</a>
   </div>
 </footer>
@@ -2955,6 +3019,7 @@ var i18n = {
     'footer.pricing':  '收費方案',
     'footer.terms':    '使用條款',
     'footer.privacy':  '隱私權政策',
+    'footer.editorial':'編輯原則',
     'footer.contact':  '聯絡方式',
     'footer.copy':     '© 2026 萬語通 · <a class="support-form-link" href="https://forms.gle/rKatiHrCmh5wpCov8" target="_blank" rel="noopener">GOOGLE 客服表單</a> · Email：wanyutong29@gmail.com',
     // COMPARE VALUES
@@ -3364,6 +3429,7 @@ var i18n = {
     'footer.pricing':  'Pricing',
     'footer.terms':    'Terms',
     'footer.privacy':  'Privacy',
+    'footer.editorial':'Editorial Policy',
     'footer.contact':  'Contact',
     // COMPARE VALUES
     'cmp.val.engine.wyt':   '● DeepL Professional Translation Engine',
@@ -3429,6 +3495,9 @@ function applyLang(lang) {
   function h(id, key) { var el = document.getElementById(id); if (el && t[key]) el.innerHTML = t[key]; }
   function q(sel, key) { var el = document.querySelector(sel); if (el && t[key]) el.textContent = t[key]; }
   function qa(sel, key) { document.querySelectorAll(sel).forEach(function(el){ if(t[key]) el.textContent = t[key]; }); }
+  document.querySelectorAll('.home-content [data-zh][data-en]').forEach(function(el){
+    el.textContent = el.getAttribute(lang === 'en' ? 'data-en' : 'data-zh');
+  });
   var personalPlans = [
     { name:'pp1.name', desc:'pp1.desc', period:'pp1.period', features:['pp1.f1','pp1.f2','pp1.f3'] },
     { name:'pp2.name', desc:'pp2.desc', period:'pp2.period', features:['pp2.f1','pp2.f2','pp2.f3','pp2.f4'] },
@@ -3796,7 +3865,7 @@ function applyLang(lang) {
   var footerCopy = document.querySelector('footer div:first-child');
   if (footerCopy) footerCopy.innerHTML = t['footer.copy'];
   var footerLinks = document.querySelectorAll('.footer-links a');
-  var fLinkKeys = ['footer.features','footer.pricing','footer.blog','footer.faq','footer.terms','footer.privacy','footer.contact'];
+  var fLinkKeys = ['footer.features','footer.pricing','footer.blog','footer.faq','footer.terms','footer.privacy','footer.editorial','footer.contact'];
   footerLinks.forEach(function(el,i){ if(t[fLinkKeys[i]]) el.textContent = t[fLinkKeys[i]]; });
 
   // STAT SPEED NUM

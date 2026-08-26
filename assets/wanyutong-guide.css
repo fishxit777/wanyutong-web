@@ -223,6 +223,22 @@ html.dark .guide-body code {
 html.dark .note { background: #0d2828; }
 html.dark .warning { background: #2a2111; }
 .note strong, .warning strong { display: block; margin-bottom: 4px; }
+.article-verification {
+  margin: 32px 0 46px;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--green);
+  border-radius: 8px;
+  background: var(--soft);
+}
+.article-verification h2 { margin-bottom: 12px; font-size: 1.35rem; }
+.article-verification p { margin-bottom: 12px; }
+.article-verification ul { margin-bottom: 12px; }
+.article-verification .verification-meta {
+  color: var(--muted);
+  font-size: .9rem;
+}
+.article-verification a { font-weight: 800; }
 .step-list { counter-reset: steps; padding: 0; list-style: none; }
 .step-list > li {
   position: relative;
@@ -306,19 +322,20 @@ html.dark .warning { background: #2a2111; }
   .nav a:not(.nav-action) { display: none; }
   .hero-inner { grid-template-columns: 1fr; padding: 38px 0; gap: 28px; }
   h1 { font-size: 2.05rem; }
-  .article-layout { grid-template-columns: 1fr; gap: 24px; padding-top: 34px; }
+  .article-layout { grid-template-columns: minmax(0, 1fr); gap: 24px; padding-top: 34px; }
+  .toc, .guide-body { min-width: 0; }
   .toc { position: static; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
   .toc a { display: inline-block; margin-right: 16px; border: 0; }
 }
 
 @media (max-width: 600px) {
   body { font-size: 16px; }
-  .header-inner, .hero-inner, .article-layout, .footer-inner, .wyt-ad-slot { width: min(100% - 28px, var(--max)); }
+  .header-inner, .hero-inner, .article-layout, .footer-inner, .wyt-ad-slot { width: min(calc(100% - 28px), var(--max)); }
   h1 { font-size: 1.75rem; }
   h2 { font-size: 1.4rem; }
   .hero-lead { font-size: 1rem; }
   .related-links { grid-template-columns: 1fr; }
-  .check-table { display: block; overflow-x: auto; }
+  .check-table { display: block; width: 100%; max-width: 100%; overflow-x: auto; }
   .article-cta { padding: 22px 18px; }
   .article-ui-header .header-inner { gap: 10px; }
   .article-ui-header .brand span { display: none; }

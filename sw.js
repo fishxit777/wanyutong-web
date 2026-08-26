@@ -1,4 +1,4 @@
-const CACHE_NAME = 'wanyutong-pwa-20260825-four-language-help-v1';
+const CACHE_NAME = 'wanyutong-pwa-20260827-digital-card-v1';
 const CORE_ASSETS = [
   './',
   './index.html',
@@ -14,6 +14,7 @@ const CORE_ASSETS = [
   './privacy.html',
   './terms.html',
   './contact.html',
+  './card.html',
   './join.html',
   './blog-caregiver-line-translation.html',
   './blog-construction-line-translation.html',
@@ -36,6 +37,8 @@ const CORE_ASSETS = [
   './assets/wanyutong-ads.js',
   './assets/wanyutong-readable.css',
   './assets/wanyutong-guide.css',
+  './assets/wanyutong-card.css',
+  './assets/wanyutong-card.js',
   './assets/wanyutong-line-qr.png',
   './assets/wanyutong-line-bot-tutorial-20260819.mp4',
   './assets/wanyutong-line-bot-tutorial-20260819-poster.jpg',

@@ -248,7 +248,8 @@
         'faq.html': 'FAQ',
         'terms.html': 'Terms',
         'privacy.html': 'Privacy',
-        'contact.html': 'Contact'
+        'contact.html': 'Contact',
+        'card.html': 'Digital Card'
       }
       : {
         'index.html': '官網',
@@ -258,7 +259,8 @@
         'faq.html': '常見問題',
         'terms.html': '使用條款',
         'privacy.html': '隱私權政策',
-        'contact.html': '聯絡方式'
+        'contact.html': '聯絡方式',
+        'card.html': '數位名片'
       };
 
     footerLinks.forEach(function (link) {

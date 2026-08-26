@@ -56,6 +56,12 @@
       "short_name": "FAQ",
       "url": "./faq.html",
       "description": "查看方案、功能與使用說明"
+    },
+    {
+      "name": "萬語通數位名片",
+      "short_name": "名片",
+      "url": "./card.html",
+      "description": "查看並分享萬語通官方聯絡名片"
     }
   ]
 }

@@ -43,8 +43,10 @@ Checked 31 HTML files, 5 pillar pages, and 5 quarantine pages
 ## 部署與觀察
 
 - 部署分支：`codex/adsense-content-recovery`
-- 正式分支／提交：`main` / `fcac114`（GitHub Pages 推送後生效）
+- 正式分支／內容提交：`main` / `955d815`
 - 正式網址：<https://wanyutong.tw/>
+- 2026-08-31 已以正式網域驗證首頁、知識庫、工具比較、引擎頁、三篇支柱文章、方案頁、隔離頁與 sitemap，共 10 個檢查全部通過。
+- 已建立 Codex heartbeat `adsense`，每日 10:00 喚醒；2026-09-07 前只等待抓取期，之後唯讀檢查公開索引與可用的 AdSense 狀態。
 - 本輪不執行第六次 AdSense 重新提交。
 - 建議至少等待核心頁重新抓取並觀察搜尋摘要，再由管理員確認是否送審。
 

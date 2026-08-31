@@ -651,6 +651,25 @@ a,
   margin: 0 0 22px;
 }
 
+/* English hero copy must wrap at spaces, never through a word. */
+html[lang="en"] #hero h1,
+html[lang="en"] #hero h1 .hl {
+  font-size: clamp(38px, 3.4vw, 48px) !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  hyphens: none !important;
+}
+
+@media (max-width: 768px) {
+  html[lang="en"] #hero h1,
+  html[lang="en"] #hero h1 .hl {
+    font-size: clamp(27px, 7.7vw, 33px) !important;
+    line-height: 1.14 !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+  }
+}
+
 .topic-hero p {
   max-width: 62ch;
   color: var(--muted, #8fa1c2);

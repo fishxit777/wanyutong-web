@@ -43,7 +43,7 @@ Checked 31 HTML files, 5 pillar pages, and 5 quarantine pages
 ## 部署與觀察
 
 - 部署分支：`codex/adsense-content-recovery`
-- 正式分支／提交：部署完成後補記
+- 正式分支／提交：`main` / `fcac114`（GitHub Pages 推送後生效）
 - 正式網址：<https://wanyutong.tw/>
 - 本輪不執行第六次 AdSense 重新提交。
 - 建議至少等待核心頁重新抓取並觀察搜尋摘要，再由管理員確認是否送審。

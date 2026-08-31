@@ -47,8 +47,9 @@ Checked 31 HTML files, 5 pillar pages, and 5 quarantine pages
 - 正式網址：<https://wanyutong.tw/>
 - 2026-08-31 已以正式網域驗證首頁、知識庫、工具比較、引擎頁、三篇支柱文章、方案頁、隔離頁與 sitemap，共 10 個檢查全部通過。
 - 已建立 Codex heartbeat `adsense`，自 2026-09-07 起每週一 10:00 唯讀檢查公開索引與可用的 AdSense 狀態。
-- 本輪不執行第六次 AdSense 重新提交。
-- 建議至少等待核心頁重新抓取並觀察搜尋摘要，再由管理員確認是否送審。
+- 2026-09-01 經管理員明確確認後，已勾選 AdSense 計畫政策聲明並正式要求第六次網站複查。
+- AdSense 送出後的權威狀態為「正在接受審查」與「已要求審查」；在核准前仍不能放送廣告。
+- 正式首頁已載入 `ca-pub-7533511869819978` 程式碼，`https://wanyutong.tw/ads.txt` 亦回傳正確 publisher 紀錄；後台當下顯示的「找不到」仍是 2026-08-31 舊抓取時間，等待 Google 更新。
 
 ## 範圍界線
 

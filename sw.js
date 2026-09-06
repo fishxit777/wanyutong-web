@@ -1,4 +1,5 @@
-const CACHE_NAME = 'wanyutong-pwa-20260827-digital-card-v1';
+const CACHE_PREFIX = 'wanyutong-pwa-';
+const CACHE_NAME = CACHE_PREFIX + '20260906-public-assets-v1';
 const CORE_ASSETS = [
   './',
   './index.html',
@@ -65,10 +66,60 @@ const CORE_ASSETS = [
   './assets/guides/secretary-status.jpg'
 ];
 
+// This public-site worker must never become a cache for accounts, API data,
+// payment URLs, query-string credentials, or another application's responses.
+const PUBLIC_ASSET_URLS = new Set(CORE_ASSETS.map((path) => new URL(path, self.location.href).href));
+
+function isPublicAssetRequest(request) {
+  return request.method === 'GET' &&
+    PUBLIC_ASSET_URLS.has(request.url) &&
+    !request.headers.has('authorization') &&
+    !request.headers.has('range') &&
+    !/(?:^|,)\s*no-store\b/i.test(request.headers.get('cache-control') || '') &&
+    request.cache !== 'no-store';
+}
+
+function isPublicAssetResponse(response, request) {
+  if (!response || response.status !== 200 || response.redirected) return false;
+  if (response.type !== 'basic' && response.type !== 'default') return false;
+  if (response.url && response.url !== request.url) return false;
+  // Cache Storage does not enforce HTTP Cache-Control on our behalf.
+  const cacheControl = response.headers.get('cache-control') || '';
+  const vary = response.headers.get('vary') || '';
+  return !/(?:^|,)\s*(?:private|no-store)\b/i.test(cacheControl) &&
+    !/(?:^|,)\s*(?:\*|cookie|authorization)\s*(?:,|$)/i.test(vary);
+}
+
+async function fetchPublicAsset(request, event) {
+  const response = await fetch(request);
+  const copy = isPublicAssetResponse(response, request) ? response.clone() : null;
+  // A full disk or disabled storage must not turn a successful network fetch
+  // into an apparent site outage. Keep writes alive until they have settled.
+  event.waitUntil(caches.open(CACHE_NAME).then((cache) => (
+    copy ? cache.put(request, copy) : cache.delete(request)
+  )).catch(() => {}));
+  return response;
+}
+
+async function matchPublicAsset(request) {
+  try {
+    const cache = await caches.open(CACHE_NAME);
+    const response = await cache.match(request);
+    return isPublicAssetResponse(response, request) ? response : undefined;
+  } catch (error) {
+    return undefined;
+  }
+}
+
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then((cache) => cache.addAll(CORE_ASSETS))
+      .then((cache) => Promise.all(Array.from(PUBLIC_ASSET_URLS, async (url) => {
+        const request = new Request(url, { credentials: 'omit', cache: 'reload', redirect: 'error' });
+        const response = await fetch(request);
+        if (!isPublicAssetResponse(response, request)) throw new Error('Public asset is not cacheable');
+        await cache.put(request, response);
+      })))
       .then(() => self.skipWaiting())
   );
 });
@@ -76,17 +127,14 @@ self.addEventListener('install', (event) => {
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys()
-      .then((keys) => Promise.all(keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key))))
+      .then((keys) => Promise.all(keys.filter((key) => key.startsWith(CACHE_PREFIX) && key !== CACHE_NAME).map((key) => caches.delete(key))))
       .then(() => self.clients.claim())
   );
 });
 
 self.addEventListener('fetch', (event) => {
   const request = event.request;
-  if (request.method !== 'GET') return;
-
-  const url = new URL(request.url);
-  if (url.origin !== self.location.origin) return;
+  if (!isPublicAssetRequest(request)) return;
 
   const accept = request.headers.get('accept') || '';
   const destination = request.destination || '';
@@ -99,29 +147,23 @@ self.addEventListener('fetch', (event) => {
 
   if (shouldRefreshFirst) {
     event.respondWith(
-      fetch(request)
-        .then((response) => {
-          if (response && response.ok) {
-            const copy = response.clone();
-            caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
-          }
-          return response;
-        })
-        .catch(() => caches.match(request).then((cached) => cached || caches.match('./index.html')))
+      fetchPublicAsset(request, event).catch(async () => {
+        const cached = await matchPublicAsset(request);
+        if (cached) return cached;
+        if (request.mode === 'navigate') {
+          const home = await matchPublicAsset(new Request(new URL('./index.html', self.location.href)));
+          if (home) return home;
+        }
+        return Response.error();
+      })
     );
     return;
   }
 
   event.respondWith(
-    caches.match(request).then((cached) => {
+    matchPublicAsset(request).then((cached) => {
       if (cached) return cached;
-      return fetch(request).then((response) => {
-        if (response && response.ok) {
-          const copy = response.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
-        }
-        return response;
-      });
+      return fetchPublicAsset(request, event);
     })
   );
 });

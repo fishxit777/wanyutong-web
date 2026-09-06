@@ -1947,6 +1947,9 @@ footer a:hover { color:var(--text); }
     <div class="eyebrow">// Pricing</div>
     <h1 class="section-title">選擇適合你的方案</h1>
     <p class="lead">免費版中文、英文、日文、韓文無限免費；其他語言每日50則。付費方案聚焦 LINE多國翻譯機器人群組使用。</p>
+    <div id="service-status-note" class="known-limit" style="padding:18px;border:1px solid #8a722b;border-radius:12px;line-height:1.8;margin:18px 0 24px">
+      <strong>付款前請先了解平台限制（2026-09-07 更新）</strong><br>不限次數是產品用量規則，不是全天不中斷或第三方無限額度保證。免費主機休眠後，首次操作可能等待約 30–90 秒；實際時間依平台而定。日報、到期提醒及管理通知可能延後，限定日期報表可能略過。免費／預付額度用完時，翻譯、語音、圖片或 AI 功能可能暫停，不會因此自動加值。上述是黃色平台營運事件，不是遭駭證據。先用免費版測試當下狀態；有疑問請先聯絡客服，勿重複付款。<br>若發現重複付款或付款成功未開通，可聯絡客服人工查核交易與開通狀態。受理查核不保證退款，也不變更既有退費條件或付款方式；詳見 <a href="terms.html">使用條款</a>。
+    </div>
     <div class="pricing-tabs">
       <button class="pricing-tab active" onclick="switchTab('group')">LINE多國翻譯機器人</button>
     </div>
@@ -2818,6 +2821,7 @@ var i18n = {
     'price.eyebrow':   '// Pricing',
     'price.h2':        '選擇適合你的方案',
     'price.lead':      '免費版中文、英文、日文、韓文無限免費；其他語言每日50則。付費方案聚焦 LINE多國翻譯機器人群組使用。',
+    'service.status': '<strong>付款前請先了解平台限制（2026-09-07 更新）</strong><br>不限次數是產品用量規則，不是全天不中斷或第三方無限額度保證。免費主機休眠後，首次操作可能等待約 30–90 秒；實際時間依平台而定。日報、到期提醒及管理通知可能延後，限定日期報表可能略過。免費／預付額度用完時，翻譯、語音、圖片或 AI 功能可能暫停，不會因此自動加值。上述是黃色平台營運事件，不是遭駭證據。先用免費版測試當下狀態；有疑問請先聯絡客服，勿重複付款。<br>若發現重複付款或付款成功未開通，可聯絡客服人工查核交易與開通狀態。受理查核不保證退款，也不變更既有退費條件或付款方式；詳見 <a href="terms.html">使用條款</a>。',
     'price.tab.personal': 'LINE多國翻譯機器人',
     'price.tab.group': 'LINE多國翻譯機器人',
     'price.badge.popular': '最受歡迎',
@@ -3225,6 +3229,7 @@ var i18n = {
     'price.eyebrow':   '// Pricing',
     'price.h2':        'Choose the Right Plan',
     'price.lead':      'The free plan offers unlimited Chinese, English, Japanese, and Korean use; other languages include 50 messages per day. Paid plans focus on LINE group usage.',
+    'service.status': '<strong>Read platform limitations before paying (updated 2026-09-07)</strong><br>Unlimited is a product usage rule, not a promise of continuous availability or unlimited provider quotas. After free-host sleep, the first request may take about 30–90 seconds; actual timing varies. Reports, expiry reminders and admin notifications may be delayed, and date-limited reports may be skipped. Translation, voice, image or AI features may pause when free or prepaid quotas run out, without an automatic top-up. These are yellow platform operations events, not evidence of hacking. Test the current service with the free plan and contact support before paying if uncertain; do not pay twice.<br>Duplicate payments or missing activation can be submitted for manual verification of transaction and activation status. Accepting a case does not guarantee a refund or change existing eligibility or payment methods. See the <a href="terms.html">Terms</a>.',
     'price.tab.personal': 'Group',
     'price.tab.group': 'Group',
     'price.badge.popular': 'Most Popular',
@@ -3697,6 +3702,7 @@ function applyLang(lang) {
   q('#pricing .eyebrow', 'price.eyebrow');
   q('#pricing h1, #pricing h2', 'price.h2');
   q('#pricing .lead', 'price.lead');
+  h('service-status-note', 'service.status');
   q('#pricing-video-title', 'price.video.title');
   q('#pricing-video-copy', 'price.video.copy');
   q('#pricing-video-label', 'price.video.label');

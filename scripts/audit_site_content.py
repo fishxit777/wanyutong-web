@@ -7,6 +7,8 @@ import html
 import json
 import re
 import sys
+from datetime import date, datetime, timedelta, timezone
+from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
@@ -27,6 +29,28 @@ PILLARS = {
     "blog-free-paid-plans.html": "付款",
 }
 SKIP_STRUCTURE = {"google3ba367f41a0000ba.html"}
+
+
+class PageLinks(HTMLParser):
+    """Inspect actual anchors and robots directives, not strings inside scripts."""
+
+    def __init__(self, text: str):
+        super().__init__(convert_charrefs=True)
+        self.anchors: list[str] = []
+        self.references: list[str] = []
+        self.indexable = True
+        self.feed(text)
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        values = dict(attrs)
+        if values.get("href"):
+            self.references.append(values["href"] or "")
+        if tag == "a" and values.get("href"):
+            self.anchors.append(values["href"] or "")
+        if tag == "meta" and (values.get("name") or "").lower() in {"robots", "googlebot"}:
+            directives = re.split(r"[\s,]+", (values.get("content") or "").lower())
+            if "noindex" in directives or "none" in directives:
+                self.indexable = False
 
 
 def fail(errors: list[str], message: str) -> None:
@@ -61,14 +85,26 @@ def audit_structure(errors: list[str], html_files: list[Path]) -> None:
 def audit_internal_links(errors: list[str], html_files: list[Path]) -> None:
     for path in html_files:
         text = path.read_text(encoding="utf-8")
-        for raw_href in re.findall(r'href=["\']([^"\']+)', text, flags=re.IGNORECASE):
+        page = PageLinks(text)
+        for raw_href in page.references:
             href = unquote(raw_href.strip())
-            if not href or href.startswith(("#", "http://", "https://", "mailto:", "tel:", "javascript:")):
+            if not href or href.startswith("#"):
                 continue
-            target_path = urlsplit(href).path
+            try:
+                parsed = urlsplit(href)
+                if parsed.scheme and parsed.scheme not in {"http", "https"}:
+                    continue
+                if parsed.netloc and (parsed.hostname != "wanyutong.tw" or parsed.port not in {None, 80, 443}):
+                    continue
+            except ValueError:
+                fail(errors, f"{path.name}: malformed internal link")
+                continue
+            target_path = parsed.path
             if not target_path:
                 continue
-            target = (path.parent / target_path).resolve()
+            target = ((ROOT / target_path.lstrip("/")) if target_path.startswith("/") else (path.parent / target_path)).resolve()
+            if target.is_dir():
+                target /= "index.html"
             try:
                 target.relative_to(ROOT)
             except ValueError:
@@ -76,6 +112,8 @@ def audit_internal_links(errors: list[str], html_files: list[Path]) -> None:
                 continue
             if not target.exists():
                 fail(errors, f"{path.name}: broken internal link: {raw_href}")
+            elif page.indexable and raw_href in page.anchors and target.name in QUARANTINED:
+                fail(errors, f"{path.name}: indexable page links to quarantined content: {target.name}")
 
 
 def audit_local_assets(errors: list[str], html_files: list[Path]) -> None:
@@ -128,12 +166,23 @@ def audit_quarantine(errors: list[str]) -> None:
             fail(errors, f"{name}: missing visible maintenance explanation")
 
 
+def has_valid_review_date(text: str, *, today: date | None = None) -> bool:
+    verification = re.search(r'<section\b[^>]*class=["\'][^"\']*article-verification[^"\']*["\'][^>]*>(.*?)</section>', text, re.I | re.S)
+    review_match = re.search(r"\b(\d{4}-\d{2}-\d{2})\b", verification.group(1)) if verification else None
+    try:
+        review_date = date.fromisoformat(review_match.group(1)) if review_match else None
+        site_today = today or datetime.now(timezone(timedelta(hours=8))).date()
+        return review_date is not None and review_date <= site_today
+    except ValueError:
+        return False
+
+
 def audit_pillars(errors: list[str]) -> None:
     for name, required_source in PILLARS.items():
         text = (ROOT / name).read_text(encoding="utf-8")
         checks = {
             "Article structured data": '"@type":"Article"' in text.replace(" ", "") or '"@type": "Article"' in text,
-            "2026-08-31 review date": "2026-08-31" in text,
+            "valid nonfuture verification date": has_valid_review_date(text),
             "verification section": "article-verification" in text,
             "known limitation": "已知限制" in text,
             "editorial policy link": "editorial.html" in text,

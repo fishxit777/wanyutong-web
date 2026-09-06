@@ -1,5 +1,5 @@
 const CACHE_PREFIX = 'wanyutong-pwa-';
-const CACHE_NAME = CACHE_PREFIX + '20260906-public-assets-v1';
+const CACHE_NAME = CACHE_PREFIX + '20260907-adsense-readiness-v1';
 const CORE_ASSETS = [
   './',
   './index.html',

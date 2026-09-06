@@ -8,7 +8,10 @@ import test from 'node:test';
 const root = new URL('../', import.meta.url);
 const workerSource = readFileSync(new URL('sw.js', root), 'utf8');
 const origin = 'https://site.example';
-const currentCache = 'wanyutong-pwa-20260906-public-assets-v1';
+const cachePrefix = workerSource.match(/const CACHE_PREFIX = ['"](wanyutong-pwa-)['"];/)?.[1];
+const cacheVersion = workerSource.match(/const CACHE_NAME = CACHE_PREFIX \+ ['"]([^'"]+)['"];/)?.[1];
+assert.ok(cachePrefix && cacheVersion, 'Worker must declare a versioned WanyuTong public cache');
+const currentCache = cachePrefix + cacheVersion;
 const keyFor = (request) => typeof request === 'string' ? new URL(request, origin).href : request.url;
 
 function makeHarness() {

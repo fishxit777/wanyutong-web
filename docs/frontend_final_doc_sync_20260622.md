@@ -2,7 +2,7 @@
 
 ## 依據
 
-- 來源文件：`C:/Users/bao58/OneDrive/Desktop/萬語通優化版.docx`
+- 來源文件：專案外部的原始 DOCX（僅本機保存，不公開本機路徑）
 - 本次以前述 DOCX 為主，官網、FAQ、條款、部落格與中英文切換同步修正。
 - 年費方案統一採主要方案卡版本：`一年版 NT$799 / 420 天`。
 
@@ -27,7 +27,7 @@
 
 ## 後續待補
 
-- 教學影片：已於 2026-06-24 補到首頁「一個 LINE 秘書，三種本領」證明數據列下方與 `join.html` 加入頁，影片檔為 `assets/wanyutong-line-bot-tutorial.mp4`。
+- 教學影片：已於 2026-06-24 首次補到首頁與加入頁；現役素材、字幕及快取規則請見 [2026-09-14 三支教學影片重製交接](frontend_tutorial_video_refresh_20260914.md)。
 - GOOGLE 客服表單：已於 2026-06-24 補上正式 URL [GOOGLE 客服表單](https://forms.gle/rKatiHrCmh5wpCov8)。
 - 廣告重置流程：前端尚未加入正式廣告連結或 SDK。
 

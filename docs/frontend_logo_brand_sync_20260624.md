@@ -3,7 +3,7 @@
 ## 本次更新
 
 - 新增官網共用 LOGO 資產：`assets/wanyutong-logo.jpg`
-- LOGO 來源：`C:\Users\bao58\Downloads\圖片\萬語通LOGO.jpg`
+- LOGO 來源：專案外部的本機品牌原始圖檔（不公開本機路徑）
 - 首頁第一屏新增大型品牌 LOGO 區塊，文字為「萬語通 / LINE多國翻譯機器人」，英文版為「WanyuTong / Globe Talk AI Translation」。
 - 導覽列品牌改為「LOGO 圖片 + 萬語通 / WanyuTong」。
 - 同步頁面：`index.html`、`blog.html`、所有 `blog-*.html`、`faq.html`、`join.html`、`contact.html`、`privacy.html`、`terms.html`。

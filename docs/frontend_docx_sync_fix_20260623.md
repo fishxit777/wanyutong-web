@@ -2,7 +2,7 @@
 
 ## 依據
 
-- 來源文件：`C:/Users/bao58/OneDrive/Desktop/萬語通優化版.docx`
+- 來源文件：專案外部的原始 DOCX（僅本機保存，不公開本機路徑）
 - 本次修正原因：GitHub Pages 官網仍顯示舊方案、舊比較表、舊推薦/客服資訊。
 
 ## 已同步頁面
@@ -34,4 +34,4 @@
 ## 後續待補
 
 - GOOGLE 客服表單正式 URL 已於 2026-06-24 補上：[GOOGLE 客服表單](https://forms.gle/rKatiHrCmh5wpCov8)。
-- 操作教學影片已於 2026-06-24 補到首頁「一個 LINE 秘書，三種本領」證明數據列下方與 `join.html` 加入頁，影片檔為 `assets/wanyutong-line-bot-tutorial.mp4`。
+- 操作教學影片已於 2026-06-24 首次補到首頁與加入頁；現役素材、字幕及快取規則請見 [2026-09-14 三支教學影片重製交接](frontend_tutorial_video_refresh_20260914.md)。

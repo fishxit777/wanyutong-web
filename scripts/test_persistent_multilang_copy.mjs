@@ -47,7 +47,8 @@ test('join guidance does not describe @多語 as a one-shot command', () => {
   ];
   for (const term of terms) assert.ok(!html.includes(term), term);
   assert.ok(html.includes('持續翻成設定語言'));
-  assert.ok(html.includes('Later regular messages keep translating'));
+  assert.ok(html.includes('Persistent multilingual mode supports up to 8 languages at once'));
+  assert.ok(html.includes('keeps translating later regular messages'));
 });
 
 test('FAQ language copy documents the validated bilingual mode switch', () => {
@@ -104,5 +105,5 @@ test('setup and mode articles explain successful switching and validation failur
 });
 
 test('service worker uses a fresh cache for the public guidance release', () => {
-  assert.match(read('sw.js'), /20260913-bilingual-mode-switch-v1/);
+  assert.match(read('sw.js'), /20260914-tutorial-video-refresh-v1/);
 });

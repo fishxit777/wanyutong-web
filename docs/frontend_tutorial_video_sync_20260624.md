@@ -1,31 +1,15 @@
-# 萬語通官網教學影片嵌入紀錄 2026-06-24
+# 萬語通官網操作影片歷史紀錄（2026-06-24）
 
-## 依據
+> 歷史文件：本輪素材與嵌入方式已由 [2026-09-14 三支教學影片重製交接](frontend_tutorial_video_refresh_20260914.md) 取代。舊素材不再是現役版本，不得作為目前指令、方案或畫質的依據。
 
-- 來源文件：`C:\Users\bao58\OneDrive\Desktop\萬語通優化版.docx`
-- 文件指定：底下放操作教學影片，主打方便、簡單、快速理解。
-- 影片來源：`C:\Users\bao58\Downloads\影片\wanyutong_3d_three_workers_line_sync_v9_latest.mp4`
+## 當時完成事項
 
-## 官網放置位置
+- 首次在官網與加入頁嵌入 LINE 操作教學影片。
+- 加入瀏覽器原生控制、行動裝置行內播放與 metadata 預載。
+- 建立繁中與英文的影片標題及說明切換。
 
-- 首頁：`index.html` 的「一個 LINE 秘書，三種本領」區塊，放在 `10 分鐘 / 36 種語言 / 300 筆 / Excel` 證明數據列下方。
-- 加入頁：`join.html` 的 QR Code 加入流程下方。
-- 共用影片檔：`assets/wanyutong-line-bot-tutorial.mp4`
+## 現行維護入口
 
-## 顯示規則
-
-- 桌機與手機版都使用同一支本機 MP4，不外連。
-- 支援瀏覽器原生播放控制、`playsinline`、`preload="metadata"`。
-- 繁中標題：`操作教學影片`
-- 英文標題：`Setup Tutorial Video`
-- 切換語言時，首頁與加入頁文案同步切換。
-
-## 快取與部署
-
-- `sw.js` 已更新快取版本為 `wanyutong-pwa-20260624-tutorial-video-1`。
-- `CORE_ASSETS` 已加入 `./assets/wanyutong-line-bot-tutorial.mp4`。
-
-## 後續維護
-
-- 若未來更換影片，維持同一檔名可減少 HTML 修改；若內容大改，請同步更新本文件與 `sw.js` 快取版本。
-- 若影片檔變大，需留意 GitHub Pages 載入速度與手機流量。
+- 現役檔名、字幕、1080p 規格、頁面位置與快取規則統一記錄在新版交接文件。
+- 更換影片時必須同步 HTML、poster、WebVTT、service worker 與自動測試。
+- 舊版來源路徑與固定檔名僅屬歷史紀錄，已自本文件移除，避免被誤認為可部署資產。

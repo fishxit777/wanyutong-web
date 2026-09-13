@@ -2,6 +2,7 @@
 
 ## 交接文件
 
+- [三支教學影片重製交接 2026-09-14](docs/frontend_tutorial_video_refresh_20260914.md)
 - [AdSense 內容品質重整交接 2026-08-31](docs/adsense_content_recovery_20260831.md)
 - [官網 DeepL 單引擎文案同步 2026-06-20](docs/frontend_deepl_only_sync_20260620.md)
 - [前台排版與 PWA 檢查交接 2026-06-20](docs/frontend_responsive_pwa_qa_20260620.md)

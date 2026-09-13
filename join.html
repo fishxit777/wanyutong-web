@@ -621,7 +621,7 @@ html.light .guide-support a { color: #087b4d; }
     <div class="tutorial-steps">
       <div class="tutorial-step"><strong id="join-step-1-title">1. 查看新手教學</strong><p id="join-step-1-copy">傳送 <code>@新手教學</code> 查看第一次設定；傳送 <code>@說明</code> 查看完整指令。</p></div>
       <div class="tutorial-step"><strong id="join-step-2-title">2. 設定翻譯語言</strong><p id="join-step-2-copy">例如 <code>@語言設定 繁體中文 印尼文</code>；成功後切換新雙語並自動關閉持續多語，輸入無效時原模式不變。</p></div>
-      <div class="tutorial-step"><strong id="join-step-3-title">3. 設定持續多語</strong><p id="join-step-3-copy">用 <code>@多語 繁體中文 英文 菲律賓語</code> 設定；後續一般訊息會持續翻成所選語言。傳 <code>@多語 關閉</code> 回到原雙語，或用有效的 <code>@語言設定</code> 切換新雙語。</p></div>
+      <div class="tutorial-step"><strong id="join-step-3-title">3. 設定持續多語</strong><p id="join-step-3-copy">持續多語最多同時 8 種；用 <code>@多語 繁體中文 英文 菲律賓語</code> 設定後，後續一般訊息會持續翻成所選語言。傳 <code>@多語 關閉</code> 回到原雙語，或用有效的 <code>@語言設定</code> 切換新雙語。</p></div>
     </div>
     <div class="tutorial-caption" id="join-steps-caption">持續多語會套用到目前對話的後續一般訊息；群組中的所有成員會看到同一份結果。<a href="blog-line-bot-first-setup.html">閱讀完整圖文教學</a></div>
   </section>
@@ -646,7 +646,7 @@ html.light .guide-support a { color: #087b4d; }
         <div class="guide-command-row"><dt><code>@新手教學</code></dt><dd id="join-guide-onboarding">查看第一次設定、方案與開通流程。</dd></div>
         <div class="guide-command-row"><dt><code>@說明</code></dt><dd id="join-guide-help">查看個人聊天或群組的完整指令。</dd></div>
         <div class="guide-command-row"><dt><code>@語言設定 繁體中文 印尼文</code></dt><dd id="join-guide-language">設定成功會切換雙語並自動關閉持續多語；輸入無效時維持原模式。</dd></div>
-        <div class="guide-command-row"><dt><code>@多語 繁體中文 英文 菲律賓語</code></dt><dd id="join-guide-multi">持續翻成設定語言；傳 <code>@多語 關閉</code> 回到原雙語，或用有效的 <code>@語言設定</code> 切換新雙語。</dd></div>
+        <div class="guide-command-row"><dt><code>@多語 繁體中文 英文 菲律賓語</code></dt><dd id="join-guide-multi">持續多語最多同時 8 種，後續一般訊息會持續翻成設定語言；傳 <code>@多語 關閉</code> 回到原雙語，或用有效的 <code>@語言設定</code> 切換新雙語。</dd></div>
       </dl>
       <p class="guide-support"><span id="join-guide-support">客服與問題回報：</span> <a href="mailto:wanyutong29@gmail.com">wanyutong29@gmail.com</a> · <a href="https://forms.gle/rKatiHrCmh5wpCov8" target="_blank" rel="noopener">Google Form</a></p>
     </div>
@@ -655,27 +655,29 @@ html.light .guide-support a { color: #087b4d; }
     <div class="tutorial-head">
       <div>
         <div class="tutorial-title" id="join-video-title">操作教學影片</div>
-        <div class="tutorial-copy" id="join-video-copy">加入 LINE Bot、放進群組、開始翻譯，一支影片看懂。</div>
+        <div class="tutorial-copy" id="join-video-copy">設定雙語；持續多語最多同時 8 種，並示範兩種回到雙語的方法。</div>
       </div>
       <div class="tutorial-label" id="join-video-label">LINE SETUP</div>
     </div>
-    <video class="tutorial-video" controls preload="metadata" playsinline poster="assets/wanyutong-line-bot-tutorial-20260819-poster.jpg">
-      <source src="assets/wanyutong-line-bot-tutorial-20260819.mp4" type="video/mp4">
+    <video class="tutorial-video" controls preload="metadata" playsinline poster="assets/wanyutong-line-bot-tutorial-20260914-poster.jpg">
+      <source src="assets/wanyutong-line-bot-tutorial-20260914.mp4" type="video/mp4">
+      <track kind="captions" src="assets/wanyutong-line-bot-tutorial-20260914.vtt" srclang="zh-Hant" label="繁體中文字幕">
     </video>
-    <div class="tutorial-caption" id="join-video-caption">影片含自然語音與繁體中文字幕；桌機與手機皆可播放。</div>
+    <div class="tutorial-caption" id="join-video-caption">依現行指令重製，含自然語音、燒錄字幕與可切換的繁中字幕軌。</div>
   </section>
   <section class="tutorial-panel" aria-label="萬語通加入開通流程影片">
     <div class="tutorial-head">
       <div>
         <div class="tutorial-title" id="join-activation-video-title">加入開通流程影片</div>
-        <div class="tutorial-copy" id="join-activation-video-copy">選方案、加入官方 LINE、放進群組與完成開通，一支影片看懂。</div>
+        <div class="tutorial-copy" id="join-activation-video-copy">比較免費與付費方案，再用群組內的官方連結開通指定群組。</div>
       </div>
       <div class="tutorial-label" id="join-activation-video-label">ACTIVATION FLOW</div>
     </div>
-    <video class="tutorial-video" controls preload="metadata" playsinline poster="assets/wanyutong-activation-flow-20260819-poster.jpg">
-      <source src="assets/wanyutong-activation-flow-20260819.mp4" type="video/mp4">
+    <video class="tutorial-video" controls preload="metadata" playsinline poster="assets/wanyutong-activation-flow-20260914-poster.jpg">
+      <source src="assets/wanyutong-activation-flow-20260914.mp4" type="video/mp4">
+      <track kind="captions" src="assets/wanyutong-activation-flow-20260914.vtt" srclang="zh-Hant" label="繁體中文字幕">
     </video>
-    <div class="tutorial-caption" id="join-activation-video-caption">照官網現行方案操作；付款成功後只開通或延長付款的群組。</div>
+    <div class="tutorial-caption" id="join-activation-video-caption">付款金額、期間與是否續扣以送出前的正式訂購畫面為準；成功後只開通或延長付款群組。</div>
   </section>
 </div>
 <script>
@@ -701,13 +703,13 @@ var joinCopy = {
     qrNote: '桌機請用手機 LINE 掃描；手機請點「直接加入 LINE」。',
     qrAlt: '萬語通 LINE 官方帳號 QR Code',
     videoTitle: '操作教學影片',
-    videoCopy: '加入 LINE Bot、放進群組、開始翻譯，一支影片看懂。',
+    videoCopy: '設定雙語或持續多語最多同時 8 種，並示範兩種回到雙語的方法。',
     videoLabel: 'LINE SETUP',
-    videoCaption: '影片含自然語音與繁體中文字幕；桌機與手機皆可播放。',
+    videoCaption: '依現行指令重製，含自然語音、燒錄字幕與可切換的繁中字幕軌。',
     activationVideoTitle: '加入開通流程影片',
-    activationVideoCopy: '選方案、加入官方 LINE、放進群組與完成開通，一支影片看懂。',
+    activationVideoCopy: '比較免費與付費方案，再用群組內的官方連結開通指定群組。',
     activationVideoLabel: 'ACTIVATION FLOW',
-    activationVideoCaption: '照官網現行方案操作；付款成功後只開通或延長付款的群組。',
+    activationVideoCaption: '付款金額、期間與是否續扣以送出前的正式訂購畫面為準；成功後只開通或延長付款群組。',
     stepsTitle: '加入後先完成三件事',
     stepsCopy: '照順序設定一次，之後就能直接傳送一般文字。',
     stepsLabel: 'FIRST 3 STEPS',
@@ -716,7 +718,7 @@ var joinCopy = {
     step2Title: '2. 設定翻譯語言',
     step2Copy: '例如 <code>@語言設定 繁體中文 印尼文</code>；成功後切換新雙語並自動關閉持續多語，輸入無效時原模式不變。',
     step3Title: '3. 設定持續多語',
-    step3Copy: '用 <code>@多語 繁體中文 英文 菲律賓語</code> 設定；後續一般訊息會持續翻成所選語言。傳 <code>@多語 關閉</code> 回到原雙語，或用有效的 <code>@語言設定</code> 切換新雙語。',
+    step3Copy: '持續多語最多同時 8 種；用 <code>@多語 繁體中文 英文 菲律賓語</code> 設定後，後續一般訊息會持續翻成所選語言。傳 <code>@多語 關閉</code> 回到原雙語，或用有效的 <code>@語言設定</code> 切換新雙語。',
     stepsCaption: '持續多語會套用到目前對話的後續一般訊息；群組中的所有成員會看到同一份結果。<a href="blog-line-bot-first-setup.html">閱讀完整圖文教學</a>',
     guideTitle: '四語新手與說明回覆',
     guideCopy: '在個人聊天或群組傳送指令，Bot 都會依序回覆繁中、英文、日文與韓文。',
@@ -745,13 +747,13 @@ var joinCopy = {
     qrNote: 'On desktop, scan with LINE on your phone. On mobile, tap "Join LINE on Mobile."',
     qrAlt: 'WanyuTong LINE official account QR Code',
     videoTitle: 'Setup Tutorial Video',
-    videoCopy: 'Add the LINE Bot, place it in a group, and start translating in one flow.',
+    videoCopy: 'Set a two-way pair or persistent multilingual mode with up to 8 languages, then see both ways to return to two-way translation.',
     videoLabel: 'LINE SETUP',
-    videoCaption: 'Includes natural narration and Traditional Chinese subtitles; playable on desktop and mobile.',
+    videoCaption: 'Rebuilt for the current commands with natural narration, burned-in subtitles, and an optional Traditional Chinese caption track.',
     activationVideoTitle: 'Activation Flow Video',
-    activationVideoCopy: 'Pick a plan, add the official LINE account, place the Bot in your group, and activate service.',
+    activationVideoCopy: 'Compare the free and paid plans, then activate the intended group through its official in-group link.',
     activationVideoLabel: 'ACTIVATION FLOW',
-    activationVideoCaption: 'Follow the current official plans; successful payment activates or extends only the paid group.',
+    activationVideoCaption: 'The final amount, term, and renewal setting are governed by the official order screen shown before submission; payment activates or extends only that group.',
     stepsTitle: 'Complete These 3 Steps After Joining',
     stepsCopy: 'Set them once in order, then send regular text directly.',
     stepsLabel: 'FIRST 3 STEPS',
@@ -760,7 +762,7 @@ var joinCopy = {
     step2Title: '2. Set Translation Languages',
     step2Copy: 'For example, send <code>@語言設定 繁體中文 印尼文</code>. Success switches to the new two-way pair and automatically closes continuous multi-language mode; invalid input keeps the current mode.',
     step3Title: '3. Set Persistent Multilingual Translation',
-    step3Copy: 'Send <code>@多語 繁體中文 英文 菲律賓語</code>. Later regular messages keep translating into the selected languages. Send <code>@多語 關閉</code> to return to the previous pair, or use a valid <code>@語言設定</code> to switch to a new pair.',
+    step3Copy: 'Persistent multilingual mode supports up to 8 languages at once. Send <code>@多語 繁體中文 英文 菲律賓語</code>; later regular messages keep translating into the selected languages. Send <code>@多語 關閉</code> to return to the previous pair, or use a valid <code>@語言設定</code> to switch to a new pair.',
     stepsCaption: 'Persistent multilingual translation applies to later regular messages in the current conversation. Everyone in the same group sees the same result. <a href="blog-line-bot-first-setup.html">Read the full illustrated guide</a>',
     guideTitle: 'Four-Language Quick Start and Help Replies',
     guideCopy: 'In a personal chat or group, both commands return Traditional Chinese, English, Japanese, and Korean messages in order.',
@@ -776,7 +778,7 @@ var guideCopy = {
     onboarding: '查看第一次設定、方案與開通流程。',
     help: '查看個人聊天或群組的完整指令。',
     language: '設定成功會切換雙語並自動關閉持續多語；輸入無效時維持原模式。',
-    multi: '持續翻成設定語言；傳 @多語 關閉 回到原雙語，或用有效的 @語言設定 切換新雙語。',
+    multi: '持續多語最多同時 8 種，後續一般訊息會持續翻成設定語言；傳 @多語 關閉 回到原雙語，或用有效的 @語言設定 切換新雙語。',
     support: '客服與問題回報：'
   },
   en: {
@@ -785,7 +787,7 @@ var guideCopy = {
     onboarding: 'View first-time setup, plans, and activation steps.',
     help: 'View the full command list for personal chats or groups.',
     language: 'A valid setting switches to two-way translation and automatically closes continuous multi-language mode. Invalid input keeps the current mode.',
-    multi: 'Later regular messages keep translating into every selected language. Send @多語 關閉 to return to the previous pair, or use a valid @語言設定 to switch to a new pair.',
+    multi: 'Persistent multilingual mode supports up to 8 languages at once and keeps translating later regular messages. Send @多語 關閉 to return to the previous pair, or use a valid @語言設定 to switch to a new pair.',
     support: 'Customer support and issue report:'
   },
   ja: {
@@ -794,7 +796,7 @@ var guideCopy = {
     onboarding: '初回設定、プラン、利用開始の流れを確認します。',
     help: '個人チャットまたはグループの全コマンドを確認します。',
     language: '有効な設定は双方向翻訳へ切り替え、継続多言語モードを自動終了します。無効な入力では現在のモードを維持します。',
-    multi: '以後の通常メッセージを設定した全言語へ継続翻訳します。@多語 關閉 で以前の双方向翻訳に戻すか、有効な @語言設定 で新しい双方向翻訳へ切り替えられます。',
+    multi: '継続多言語は同時に最大8言語まで設定でき、以後の通常メッセージを継続翻訳します。@多語 關閉 で以前の双方向翻訳に戻すか、有効な @語言設定 で新しい双方向翻訳へ切り替えられます。',
     support: 'カスタマーサポート・問題報告：'
   },
   ko: {
@@ -803,7 +805,7 @@ var guideCopy = {
     onboarding: '첫 설정, 요금제 및 활성화 절차를 확인합니다.',
     help: '개인 채팅 또는 그룹의 전체 명령어를 확인합니다.',
     language: '유효한 설정은 양방향 번역으로 전환하고 지속 다국어 모드를 자동 종료합니다. 잘못된 입력은 현재 모드를 유지합니다.',
-    multi: '이후의 일반 메시지를 설정한 모든 언어로 계속 번역합니다. @多語 關閉 으로 이전 양방향 번역으로 돌아가거나 유효한 @語言設定 으로 새 양방향 번역을 설정할 수 있습니다.',
+    multi: '지속 다국어 모드는 동시에 최대 8개 언어까지 설정하며 이후의 일반 메시지를 계속 번역합니다. @多語 關閉 으로 이전 양방향 번역으로 돌아가거나 유효한 @語言設定 으로 새 양방향 번역을 설정할 수 있습니다.',
     support: '고객 지원 및 문제 신고:'
   }
 };

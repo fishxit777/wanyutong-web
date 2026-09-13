@@ -1,5 +1,5 @@
 const CACHE_PREFIX = 'wanyutong-pwa-';
-const CACHE_NAME = CACHE_PREFIX + '20260913-bilingual-mode-switch-v1';
+const CACHE_NAME = CACHE_PREFIX + '20260914-tutorial-video-refresh-v1';
 const CORE_ASSETS = [
   './',
   './index.html',
@@ -41,12 +41,12 @@ const CORE_ASSETS = [
   './assets/wanyutong-card.css',
   './assets/wanyutong-card.js',
   './assets/wanyutong-line-qr.png',
-  './assets/wanyutong-line-bot-tutorial-20260819.mp4',
-  './assets/wanyutong-line-bot-tutorial-20260819-poster.jpg',
-  './assets/wanyutong-secretary-tutorial-20260819.mp4',
-  './assets/wanyutong-secretary-tutorial-20260819-poster.jpg',
-  './assets/wanyutong-activation-flow-20260819.mp4',
-  './assets/wanyutong-activation-flow-20260819-poster.jpg',
+  './assets/wanyutong-line-bot-tutorial-20260914-poster.jpg',
+  './assets/wanyutong-line-bot-tutorial-20260914.vtt',
+  './assets/wanyutong-secretary-tutorial-20260914-poster.jpg',
+  './assets/wanyutong-secretary-tutorial-20260914.vtt',
+  './assets/wanyutong-activation-flow-20260914-poster.jpg',
+  './assets/wanyutong-activation-flow-20260914.vtt',
   './assets/icons/wanyutong-icon-180.png',
   './assets/icons/wanyutong-icon-192.png',
   './assets/icons/wanyutong-icon-512.png',
@@ -66,9 +66,20 @@ const CORE_ASSETS = [
   './assets/guides/secretary-status.jpg'
 ];
 
+// 1080p videos are deliberately omitted from install-time precaching. They are
+// allowlisted for runtime caching so a PWA install never depends on downloading
+// all three large media files at once.
+const RUNTIME_MEDIA_ASSETS = [
+  './assets/wanyutong-line-bot-tutorial-20260914.mp4',
+  './assets/wanyutong-secretary-tutorial-20260914.mp4',
+  './assets/wanyutong-activation-flow-20260914.mp4'
+];
+
 // This public-site worker must never become a cache for accounts, API data,
 // payment URLs, query-string credentials, or another application's responses.
-const PUBLIC_ASSET_URLS = new Set(CORE_ASSETS.map((path) => new URL(path, self.location.href).href));
+const PUBLIC_ASSET_URLS = new Set(
+  CORE_ASSETS.concat(RUNTIME_MEDIA_ASSETS).map((path) => new URL(path, self.location.href).href)
+);
 
 function isPublicAssetRequest(request) {
   return request.method === 'GET' &&
@@ -114,7 +125,8 @@ async function matchPublicAsset(request) {
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then((cache) => Promise.all(Array.from(PUBLIC_ASSET_URLS, async (url) => {
+      .then((cache) => Promise.all(CORE_ASSETS.map(async (path) => {
+        const url = new URL(path, self.location.href).href;
         const request = new Request(url, { credentials: 'omit', cache: 'reload', redirect: 'error' });
         const response = await fetch(request);
         if (!isPublicAssetResponse(response, request)) throw new Error('Public asset is not cacheable');

@@ -75,11 +75,19 @@ test('PWA install caches only existing public files without cookies', async () =
   const h = makeHarness();
   await h.lifecycle('install');
   assert.ok(h.calls.length > 40);
+  const versionedCaptions = new Set([
+    '/assets/wanyutong-line-bot-tutorial-20260914.vtt',
+    '/assets/wanyutong-secretary-tutorial-20260914.vtt',
+    '/assets/wanyutong-activation-flow-20260914.vtt',
+  ]);
   for (const request of h.calls) {
     assert.equal(request.credentials, 'omit');
     assert.equal(request.redirect, 'error');
     const url = new URL(request.url);
-    assert.equal(url.search, '');
+    if (url.search) {
+      assert.ok(versionedCaptions.has(url.pathname), `unexpected versioned asset: ${url.pathname}`);
+      assert.equal(url.search, '?v=public-status-v2');
+    }
     assert.ok(existsSync(fileURLToPath(new URL('.' + url.pathname, root))));
   }
 });

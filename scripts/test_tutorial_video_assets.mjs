@@ -10,6 +10,7 @@ const media = {
   secretary: 'wanyutong-secretary-tutorial-20260914',
   activation: 'wanyutong-activation-flow-20260914',
 };
+const mediaRevision = '?v=public-status-v2';
 
 const placements = [
   ['features.html', media.line],
@@ -23,9 +24,9 @@ test('current pages embed the versioned MP4, poster, and optional caption track'
   for (const [page, stem] of placements) {
     const html = read(page);
     assert.ok(html.includes(`poster="assets/${stem}-poster.jpg"`), `${page}: ${stem} poster`);
-    assert.ok(html.includes(`<source src="assets/${stem}.mp4" type="video/mp4">`), `${page}: ${stem} source`);
+    assert.ok(html.includes(`<source src="assets/${stem}.mp4${mediaRevision}" type="video/mp4">`), `${page}: ${stem} source`);
     assert.ok(
-      html.includes(`<track kind="captions" src="assets/${stem}.vtt" srclang="zh-Hant" label="繁體中文字幕">`),
+      html.includes(`<track kind="captions" src="assets/${stem}.vtt${mediaRevision}" srclang="zh-Hant" label="繁體中文字幕">`),
       `${page}: ${stem} captions`,
     );
   }
@@ -52,14 +53,14 @@ test('service worker precaches lightweight media metadata but loads 1080p MP4 at
   const worker = read('sw.js');
   const core = worker.match(/const CORE_ASSETS = \[([\s\S]*?)\n\];/)?.[1] || '';
   const runtime = worker.match(/const RUNTIME_MEDIA_ASSETS = \[([\s\S]*?)\n\];/)?.[1] || '';
-  assert.match(worker, /20260914-tutorial-video-refresh-v1/);
+  assert.match(worker, /20260914-public-status-copy-v2/);
 
   for (const stem of Object.values(media)) {
-    const mp4 = `./assets/${stem}.mp4`;
+    const mp4 = `./assets/${stem}.mp4${mediaRevision}`;
     assert.ok(!core.includes(mp4), `${mp4} must not block PWA installation`);
     assert.ok(runtime.includes(mp4), `${mp4} must remain runtime allowlisted`);
     assert.ok(core.includes(`./assets/${stem}-poster.jpg`), `${stem} poster`);
-    assert.ok(core.includes(`./assets/${stem}.vtt`), `${stem} VTT`);
+    assert.ok(core.includes(`./assets/${stem}.vtt${mediaRevision}`), `${stem} VTT`);
   }
   assert.match(worker, /CORE_ASSETS\.concat\(RUNTIME_MEDIA_ASSETS\)/);
   assert.match(worker, /Promise\.all\(CORE_ASSETS\.map/);

@@ -19,15 +19,19 @@ REQUIRED_CAPTION_TERMS = {
         "支援語言",
         "持續多語最多可以同時設定八種",
         "自動關閉多語",
-        "黃色營運事件",
-        "不等同遭到駭客入侵",
+        "短暫延遲或暫時無法使用",
+        "官方客服",
+        "查核確認涉及資安事件",
+        "萬語通系統管理員",
     ),
     "wanyutong-secretary-tutorial-20260914": (
         "祕書與小老鼠秘書兩種寫法都可以",
         "最近三百筆",
         "自動回覆預設關閉",
-        "黃色營運事件",
-        "不等同遭到駭客入侵",
+        "短暫延遲或暫時無法使用",
+        "官方客服",
+        "查核確認涉及資安事件",
+        "萬語通系統管理員",
     ),
     "wanyutong-activation-flow-20260914": (
         "月費版九十九元",
@@ -35,7 +39,10 @@ REQUIRED_CAPTION_TERMS = {
         "一年版七百九十九元",
         "尊爵版兩千五百元",
         "不要再次付款",
-        "黃色營運事件",
+        "短暫延遲或暫時無法使用",
+        "官方客服",
+        "查核確認涉及資安事件",
+        "萬語通系統管理員",
     ),
 }
 
@@ -94,6 +101,18 @@ def main() -> None:
     builder = (ROOT / "scripts" / "build_tutorial_videos.py").read_text(encoding="utf-8")
     assert "@語言設定 A B" not in builder, "tutorial visual must use a copyable command"
     assert "@語言設定 繁體中文 英文" in builder, "tutorial visual needs a valid bilingual example"
+    for required in ("服務狀況與安全處理", "官方客服", "資安事件", "萬語通系統管理員"):
+        assert required in builder, f"tutorial source missing public service-status wording: {required}"
+    for stale in (
+        "免費主機冷啟動",
+        "四二九",
+        "429",
+        "黃色營運事件",
+        "不等同遭到駭客入侵",
+        "通常與流量或平台服務狀況有關",
+        "系統會持續監控",
+    ):
+        assert stale not in builder, f"tutorial source still exposes internal wording: {stale}"
 
     for stem in STEMS:
         video_path = ASSETS / f"{stem}.mp4"
@@ -131,7 +150,17 @@ def main() -> None:
         assert captions.startswith("WEBVTT\n"), f"{stem}: invalid WebVTT header"
         for required in REQUIRED_CAPTION_TERMS[stem]:
             assert required in captions, f"{stem}: missing caption fact {required}"
-        for stale in ("@群組多語", "NT$899", "365 天"):
+        for stale in (
+            "@群組多語",
+            "NT$899",
+            "365 天",
+            "免費主機冷啟動",
+            "四二九",
+            "黃色營運事件",
+            "不等同遭到駭客入侵",
+            "通常與流量或平台服務狀況有關",
+            "系統會持續監控",
+        ):
             assert stale not in captions, f"{stem}: stale caption {stale}"
 
         poster = one_stream(probe(poster_path), "video")

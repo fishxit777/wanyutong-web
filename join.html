@@ -620,8 +620,8 @@ html.light .guide-support a { color: #087b4d; }
     </div>
     <div class="tutorial-steps">
       <div class="tutorial-step"><strong id="join-step-1-title">1. 查看新手教學</strong><p id="join-step-1-copy">傳送 <code>@新手教學</code> 查看第一次設定；傳送 <code>@說明</code> 查看完整指令。</p></div>
-      <div class="tutorial-step"><strong id="join-step-2-title">2. 設定翻譯語言</strong><p id="join-step-2-copy">例如 <code>@語言設定 繁體中文 印尼文</code>，完成雙向翻譯設定。</p></div>
-      <div class="tutorial-step"><strong id="join-step-3-title">3. 設定持續多語</strong><p id="join-step-3-copy">用 <code>@多語 繁體中文 英文 菲律賓語</code> 設定；後續一般訊息會持續翻成所選語言，直到重新設定或傳送 <code>@多語 關閉</code>。</p></div>
+      <div class="tutorial-step"><strong id="join-step-2-title">2. 設定翻譯語言</strong><p id="join-step-2-copy">例如 <code>@語言設定 繁體中文 印尼文</code>；成功後切換新雙語並自動關閉持續多語，輸入無效時原模式不變。</p></div>
+      <div class="tutorial-step"><strong id="join-step-3-title">3. 設定持續多語</strong><p id="join-step-3-copy">用 <code>@多語 繁體中文 英文 菲律賓語</code> 設定；後續一般訊息會持續翻成所選語言。傳 <code>@多語 關閉</code> 回到原雙語，或用有效的 <code>@語言設定</code> 切換新雙語。</p></div>
     </div>
     <div class="tutorial-caption" id="join-steps-caption">持續多語會套用到目前對話的後續一般訊息；群組中的所有成員會看到同一份結果。<a href="blog-line-bot-first-setup.html">閱讀完整圖文教學</a></div>
   </section>
@@ -645,8 +645,8 @@ html.light .guide-support a { color: #087b4d; }
       <dl class="guide-command-list">
         <div class="guide-command-row"><dt><code>@新手教學</code></dt><dd id="join-guide-onboarding">查看第一次設定、方案與開通流程。</dd></div>
         <div class="guide-command-row"><dt><code>@說明</code></dt><dd id="join-guide-help">查看個人聊天或群組的完整指令。</dd></div>
-        <div class="guide-command-row"><dt><code>@語言設定 繁體中文 印尼文</code></dt><dd id="join-guide-language">設定雙向翻譯，之後直接傳一般文字。</dd></div>
-        <div class="guide-command-row"><dt><code>@多語 繁體中文 英文 菲律賓語</code></dt><dd id="join-guide-multi">持續翻成設定語言；傳 <code>@多語 關閉</code> 回到雙向翻譯。</dd></div>
+        <div class="guide-command-row"><dt><code>@語言設定 繁體中文 印尼文</code></dt><dd id="join-guide-language">設定成功會切換雙語並自動關閉持續多語；輸入無效時維持原模式。</dd></div>
+        <div class="guide-command-row"><dt><code>@多語 繁體中文 英文 菲律賓語</code></dt><dd id="join-guide-multi">持續翻成設定語言；傳 <code>@多語 關閉</code> 回到原雙語，或用有效的 <code>@語言設定</code> 切換新雙語。</dd></div>
       </dl>
       <p class="guide-support"><span id="join-guide-support">客服與問題回報：</span> <a href="mailto:wanyutong29@gmail.com">wanyutong29@gmail.com</a> · <a href="https://forms.gle/rKatiHrCmh5wpCov8" target="_blank" rel="noopener">Google Form</a></p>
     </div>
@@ -714,9 +714,9 @@ var joinCopy = {
     step1Title: '1. 查看新手教學',
     step1Copy: '傳送 <code>@新手教學</code> 查看第一次設定；傳送 <code>@說明</code> 查看完整指令。',
     step2Title: '2. 設定翻譯語言',
-    step2Copy: '例如 <code>@語言設定 繁體中文 印尼文</code>，完成雙向翻譯設定。',
+    step2Copy: '例如 <code>@語言設定 繁體中文 印尼文</code>；成功後切換新雙語並自動關閉持續多語，輸入無效時原模式不變。',
     step3Title: '3. 設定持續多語',
-    step3Copy: '用 <code>@多語 繁體中文 英文 菲律賓語</code> 設定；後續一般訊息會持續翻成所選語言，直到重新設定或傳送 <code>@多語 關閉</code>。',
+    step3Copy: '用 <code>@多語 繁體中文 英文 菲律賓語</code> 設定；後續一般訊息會持續翻成所選語言。傳 <code>@多語 關閉</code> 回到原雙語，或用有效的 <code>@語言設定</code> 切換新雙語。',
     stepsCaption: '持續多語會套用到目前對話的後續一般訊息；群組中的所有成員會看到同一份結果。<a href="blog-line-bot-first-setup.html">閱讀完整圖文教學</a>',
     guideTitle: '四語新手與說明回覆',
     guideCopy: '在個人聊天或群組傳送指令，Bot 都會依序回覆繁中、英文、日文與韓文。',
@@ -758,9 +758,9 @@ var joinCopy = {
     step1Title: '1. Open the Quick Start Guide',
     step1Copy: 'Send <code>@新手教學</code> for first-time setup, or <code>@說明</code> for the full command list.',
     step2Title: '2. Set Translation Languages',
-    step2Copy: 'For example, send <code>@語言設定 繁體中文 印尼文</code> to set up two-way translation.',
+    step2Copy: 'For example, send <code>@語言設定 繁體中文 印尼文</code>. Success switches to the new two-way pair and automatically closes continuous multi-language mode; invalid input keeps the current mode.',
     step3Title: '3. Set Persistent Multilingual Translation',
-    step3Copy: 'Send <code>@多語 繁體中文 英文 菲律賓語</code>. Later regular messages keep translating into the selected languages until you change the setting or send <code>@多語 關閉</code>.',
+    step3Copy: 'Send <code>@多語 繁體中文 英文 菲律賓語</code>. Later regular messages keep translating into the selected languages. Send <code>@多語 關閉</code> to return to the previous pair, or use a valid <code>@語言設定</code> to switch to a new pair.',
     stepsCaption: 'Persistent multilingual translation applies to later regular messages in the current conversation. Everyone in the same group sees the same result. <a href="blog-line-bot-first-setup.html">Read the full illustrated guide</a>',
     guideTitle: 'Four-Language Quick Start and Help Replies',
     guideCopy: 'In a personal chat or group, both commands return Traditional Chinese, English, Japanese, and Korean messages in order.',
@@ -775,8 +775,8 @@ var guideCopy = {
     intro: '開始交辦前，先完成語言設定；設定後直接傳一般文字。',
     onboarding: '查看第一次設定、方案與開通流程。',
     help: '查看個人聊天或群組的完整指令。',
-    language: '設定雙向翻譯，之後直接傳一般文字。',
-    multi: '持續翻成設定語言；傳 @多語 關閉 回到雙向翻譯。',
+    language: '設定成功會切換雙語並自動關閉持續多語；輸入無效時維持原模式。',
+    multi: '持續翻成設定語言；傳 @多語 關閉 回到原雙語，或用有效的 @語言設定 切換新雙語。',
     support: '客服與問題回報：'
   },
   en: {
@@ -784,8 +784,8 @@ var guideCopy = {
     intro: 'Set the languages before sending work instructions. After setup, send regular text directly.',
     onboarding: 'View first-time setup, plans, and activation steps.',
     help: 'View the full command list for personal chats or groups.',
-    language: 'Set two-way translation, then send regular text directly.',
-    multi: 'Later regular messages keep translating into every selected language. Send @多語 關閉 to return to two-way translation.',
+    language: 'A valid setting switches to two-way translation and automatically closes continuous multi-language mode. Invalid input keeps the current mode.',
+    multi: 'Later regular messages keep translating into every selected language. Send @多語 關閉 to return to the previous pair, or use a valid @語言設定 to switch to a new pair.',
     support: 'Customer support and issue report:'
   },
   ja: {
@@ -793,8 +793,8 @@ var guideCopy = {
     intro: '業務連絡を始める前に言語を設定してください。設定後は通常の文章をそのまま送信できます。',
     onboarding: '初回設定、プラン、利用開始の流れを確認します。',
     help: '個人チャットまたはグループの全コマンドを確認します。',
-    language: '双方向翻訳を設定し、その後は通常の文章を送信します。',
-    multi: '以後の通常メッセージを設定した全言語へ継続翻訳します。@多語 關閉 で双方向翻訳に戻せます。',
+    language: '有効な設定は双方向翻訳へ切り替え、継続多言語モードを自動終了します。無効な入力では現在のモードを維持します。',
+    multi: '以後の通常メッセージを設定した全言語へ継続翻訳します。@多語 關閉 で以前の双方向翻訳に戻すか、有効な @語言設定 で新しい双方向翻訳へ切り替えられます。',
     support: 'カスタマーサポート・問題報告：'
   },
   ko: {
@@ -802,8 +802,8 @@ var guideCopy = {
     intro: '업무 지시를 보내기 전에 언어를 설정하세요. 설정 후에는 일반 문장을 바로 보내면 됩니다.',
     onboarding: '첫 설정, 요금제 및 활성화 절차를 확인합니다.',
     help: '개인 채팅 또는 그룹의 전체 명령어를 확인합니다.',
-    language: '양방향 번역을 설정한 다음 일반 문장을 바로 보냅니다.',
-    multi: '이후의 일반 메시지를 설정한 모든 언어로 계속 번역합니다. @多語 關閉 으로 양방향 번역으로 돌아갈 수 있습니다.',
+    language: '유효한 설정은 양방향 번역으로 전환하고 지속 다국어 모드를 자동 종료합니다. 잘못된 입력은 현재 모드를 유지합니다.',
+    multi: '이후의 일반 메시지를 설정한 모든 언어로 계속 번역합니다. @多語 關閉 으로 이전 양방향 번역으로 돌아가거나 유효한 @語言設定 으로 새 양방향 번역을 설정할 수 있습니다.',
     support: '고객 지원 및 문제 신고:'
   }
 };

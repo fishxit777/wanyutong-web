@@ -22,8 +22,8 @@
 
     <section id="modes"><h2>先分清楚雙向翻譯與多語模式</h2>
       <h3>雙向翻譯</h3><p>適合繁體中文與一種外語，例如繁體中文與印尼文。主管輸入中文，Bot 翻成印尼文；員工輸入印尼文，Bot 翻回繁體中文。訊息仍留在同一個 LINE 對話中。</p>
-      <h3>多語模式</h3><p>適合群組內同時有繁體中文、英文、菲律賓語等多種語言。主管輸入一句話後，Bot 會把同一內容翻成群組已設定的多種語言。</p>
-      <div class="warning"><strong>LINE 群組的可見範圍</strong>LINE Bot 在群組中發出的訊息，全體成員都看得到。LINE 不提供「同一則群組訊息，依成員顯示不同語言」的介面，因此多語模式會把各語言結果公開顯示在同一群組，而不是替每個人隱藏其他語言。</div>
+      <h3>多語模式</h3><p>適合群組內同時有繁體中文、英文、菲律賓語等多種語言。主管輸入一句話後，第一個指定目標會先成為可複製主語言；其他語言以按鈕逐一查看。</p>
+      <div class="warning"><strong>LINE 群組的可見範圍</strong>LINE Bot 在群組中發出的訊息，全體成員都看得到。點選其他語言後，該語言翻譯也會公開顯示在同一群組，而不是只讓點選者私下查看。動態翻譯快取 24 小時，按鈕不會重新翻譯或再扣額度；LINE 訊息無法收回或摺疊。</div>
     </section>
 
     <section id="commands"><h2>常用語言指令</h2><table class="check-table"><thead><tr><th>目的</th><th>指令範例</th><th>說明</th></tr></thead><tbody>
@@ -39,7 +39,7 @@
 
     <section id="multi"><h2>多語群組怎麼避免訊息太多？</h2><ol>
       <li>只設定實際在班或常用的語言，不要一次開啟全部語言。</li><li>公告先寫短句，一則訊息只交代一件事。</li><li>時間、地點、數量放在固定位置，避免長段落中被忽略。</li><li>要回到原本雙語可傳 <code>@多語 關閉</code>；要直接改成另一組雙語，可傳有效的 <code>@語言設定 語言A 語言B</code>，成功後自動關閉持續多語。</li><li>請員工用固定格式回覆，例如「收到＋姓名」或「不清楚＋問題」。</li>
-    </ol><p>若群組有十種語言，多語翻譯必然會增加訊息量。這不是翻譯錯誤，而是 LINE 所有群組訊息皆向全體成員顯示的結果。需要每位成員只看個人語言時，應改用個人對話、個人化網頁或獨立 App。</p></section>
+    </ol><p>多語模式不會一開始把所有翻譯全部鋪開：先顯示可複製主語言，需要哪一種其他語言再按哪個按鈕。群組中同一則原始訊息的同一語言最多公開一次；需要每位成員只看個人語言時，仍應改用個人對話、個人化網頁或獨立 App。</p></section>
 
     <section id="languages"><h2>萬語通支援的 36 種常用語言</h2><p>目前網站列出的語言如下；實際可用狀態與方案仍以 Bot 的 <code>@支援語言</code> 回覆為準。</p>
       <p>繁體中文、簡體中文、英文、日文、韓文、印尼文、泰文、越南文、菲律賓語、馬來文、法文、德文、西班牙文、俄文、葡萄牙文、義大利文、阿拉伯文、希伯來文、荷蘭文、波蘭文、土耳其文、瑞典文、捷克文、羅馬尼亞文、匈牙利文、烏克蘭文、保加利亞文、丹麥文、芬蘭文、希臘文、挪威文、愛沙尼亞文、拉脫維亞文、立陶宛文、斯洛伐克文、斯洛維尼亞文。</p>
@@ -49,7 +49,7 @@
     <section id="verify"><h2>設定完成後一定要核對三件事</h2><ul><li>傳送 <code>@語言</code>，確認畫面列出的語言與預期一致。</li><li>用包含時間與數量的短句測試，例如「明天八點，請帶兩副手套」。</li><li>請一名員工用自己的語言回覆，確認主管能看懂翻回的繁體中文。</li></ul></section>
     <section id="method" class="article-verification"><h2>這篇教學如何核對</h2><dl><div><dt>核對日期</dt><dd>2026-09-13</dd></div><div><dt>實際流程</dt><dd>重新核對 <code>@語言</code>、<code>@支援語言</code>、雙語切換與 <code>@多語</code> 的公開 Bot 回覆。</dd></div><div><dt>介面名稱</dt><dd>使用者畫面統一顯示「菲律賓語」；36 種語言以 Bot 當下清單為準。</dd></div><div><dt>已知限制</dt><dd>同一 LINE 群組的 Bot 訊息會向全體成員顯示，不宣稱可依成員隱藏其他語言。</dd></div></dl><p>本文不使用虛構客戶成果或無法重現的準確率。完整規則請見<a href="editorial.html">內容編輯與測試原則</a>。</p></section>
     <section><h2>延伸閱讀</h2><div class="related-links"><a href="blog-line-bot-first-setup.html">第一次使用完整流程</a><a href="blog-group-translation-checklist.html">多國籍群組上線前檢查</a><a href="blog-translation-quality-checklist.html">翻譯品質人工核對清單</a><a href="blog.html">回到萬語通知識庫</a></div></section>
-    <div class="article-cta"><h2>先用兩種語言完成測試</h2><p>先把一組雙向翻譯跑順，再依實際群組成員增加語言。免費版中文、英文、日文、韓文不限次數；其他支援語言每日 50 則。</p><a href="join.html">加入萬語通 LINE</a></div>
+    <div class="article-cta"><h2>先用兩種語言完成測試</h2><p>先把一組雙向翻譯跑順，再依實際群組成員增加語言。免費版在原文與所有指定目標都屬中英日韓時不計每日額度；原文或任一指定目標超出四語時，每則原始訊息計 1 則，每日 50 則。</p><a href="join.html">加入萬語通 LINE</a></div>
   </article></div>
 </main>
 <footer class="site-footer"><div class="footer-inner"><div>© 2026 萬語通團隊 · Email: wanyutong29@gmail.com</div><div class="footer-links"><a href="editorial.html">編輯原則</a><a href="privacy.html">隱私權政策</a><a href="terms.html">使用條款</a><a href="contact.html">聯絡方式</a></div></div></footer>

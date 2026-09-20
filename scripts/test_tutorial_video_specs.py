@@ -9,17 +9,24 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / "assets"
 STEMS = (
-    "wanyutong-line-bot-tutorial-20260914",
+    "wanyutong-line-bot-tutorial-20260920",
     "wanyutong-secretary-tutorial-20260914",
-    "wanyutong-activation-flow-20260914",
+    "wanyutong-activation-flow-20260920",
 )
 
 REQUIRED_CAPTION_TERMS = {
-    "wanyutong-line-bot-tutorial-20260914": (
+    "wanyutong-line-bot-tutorial-20260920": (
         "支援語言",
-        "持續多語最多可以同時設定八種",
+        "最多同時設定八種",
+        "第一個指定目標",
+        "二十四小時快取",
+        "不會重新翻譯",
+        "不會再次扣額度",
+        "原文或任一指定目標超出四語",
+        "每則原始訊息計一則",
+        "四十九斜線五十",
         "自動關閉多語",
-        "短暫延遲或暫時無法使用",
+        "若遇短暫延遲",
         "官方客服",
         "查核確認涉及資安事件",
         "萬語通系統管理員",
@@ -33,7 +40,12 @@ REQUIRED_CAPTION_TERMS = {
         "查核確認涉及資安事件",
         "萬語通系統管理員",
     ),
-    "wanyutong-activation-flow-20260914": (
+    "wanyutong-activation-flow-20260920": (
+        "原文或任一指定目標超出四語",
+        "每則原始訊息計一則",
+        "四十九斜線五十",
+        "個人按使用者計算",
+        "群組由全群組共用",
         "月費版九十九元",
         "半年版四百九十九元",
         "一年版七百九十九元",
@@ -48,7 +60,14 @@ REQUIRED_CAPTION_TERMS = {
 
 
 def run(command: list[str]) -> subprocess.CompletedProcess[str]:
-    return subprocess.run(command, check=True, capture_output=True, text=True)
+    return subprocess.run(
+        command,
+        check=True,
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+        errors="replace",
+    )
 
 
 def probe(path: Path) -> dict:
@@ -101,6 +120,16 @@ def main() -> None:
     builder = (ROOT / "scripts" / "build_tutorial_videos.py").read_text(encoding="utf-8")
     assert "@語言設定 A B" not in builder, "tutorial visual must use a copyable command"
     assert "@語言設定 繁體中文 英文" in builder, "tutorial visual needs a valid bilingual example"
+    for required in (
+        "第一個指定目標",
+        "24 小時內不重翻、不再扣額度",
+        "原文或任一指定目標超出四語",
+        "每則原始訊息計一則",
+        "每日五十則",
+        "個人按使用者計算",
+        "群組由全群組共用",
+    ):
+        assert required in builder, f"tutorial source missing current quota/picker wording: {required}"
     for required in ("服務狀況與安全處理", "官方客服", "資安事件", "萬語通系統管理員"):
         assert required in builder, f"tutorial source missing public service-status wording: {required}"
     for stale in (

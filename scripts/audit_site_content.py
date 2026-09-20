@@ -201,7 +201,13 @@ def audit_banned_claims(errors: list[str], html_files: list[Path]) -> None:
         "unsupported 0.3-second claim": ("0.3秒", "'0.3s'", '"0.3s"'),
         "legacy repeated CTA": ("先把最常誤會的句子翻清楚",),
         "misleading mock Official badge": ('class="bot-chat-official">Official<',),
-        "outdated limited-language quota": ("每天 50 次免費翻譯（限英／日／韓）", "每日 50 次免費翻譯（限英／日／韓）"),
+        "outdated limited-language quota": (
+            "每天 50 次免費翻譯（限英／日／韓）",
+            "每日 50 次免費翻譯（限英／日／韓）",
+            "中文、英文、日文、韓文無限免費；其他語言每日50則",
+            "中文、英文、日文、韓文翻譯不限次數；其他支援語言每日 50 則",
+            "The free plan has unlimited Chinese, English, Japanese, and Korean use; other languages include 50 messages per day.",
+        ),
         "stale named competitor labels": (
             "'vs.col.echonora': 'Echonora'",
             "'vs.col.t2go':     'T2GO'",

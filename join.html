@@ -582,7 +582,7 @@ html.light .guide-support a { color: #087b4d; }
     <section>
       <div class="eyebrow" id="join-eyebrow">LINE Official Account</div>
       <h1 id="join-title">掃碼加入<br><span class="grad">讓交辦有翻譯、有確認、有紀錄</span></h1>
-      <p class="lead" id="join-lead">加入萬語通 LINE 官方帳號後，免費版可用中文、英文、日文、韓文無限翻譯；其他語言每日50則。需要完整語言、語音、圖片 OCR、AI 摘要與每日報表時，再升級LINE多國翻譯機器人方案。</p>
+      <p class="lead" id="join-lead">加入萬語通 LINE 官方帳號後，免費版會同時判斷原文與所有指定目標：全在中英日韓內不計每日額度；偵測原文或任一指定目標超出四語時，每則原始訊息計 1 則，每日 50 則。需要完整語言、語音、圖片 OCR、AI 摘要與每日報表時，再升級 LINE 多國翻譯機器人方案。</p>
       <div class="actions">
         <a class="btn btn-primary" id="join-primary" href="https://line.me/R/ti/p/@969wpxno">手機直接加入 LINE</a>
         <a class="btn btn-secondary" id="join-secondary" href="faq.html">先看常見問題</a>
@@ -623,13 +623,13 @@ html.light .guide-support a { color: #087b4d; }
       <div class="tutorial-step"><strong id="join-step-2-title">2. 設定翻譯語言</strong><p id="join-step-2-copy">例如 <code>@語言設定 繁體中文 印尼文</code>；成功後切換新雙語並自動關閉持續多語，輸入無效時原模式不變。</p></div>
       <div class="tutorial-step"><strong id="join-step-3-title">3. 設定持續多語</strong><p id="join-step-3-copy">持續多語最多同時 8 種；用 <code>@多語 繁體中文 英文 菲律賓語</code> 設定後，後續一般訊息會持續翻成所選語言。傳 <code>@多語 關閉</code> 回到原雙語，或用有效的 <code>@語言設定</code> 切換新雙語。</p></div>
     </div>
-    <div class="tutorial-caption" id="join-steps-caption">持續多語會套用到目前對話的後續一般訊息；群組中的所有成員會看到同一份結果。<a href="blog-line-bot-first-setup.html">閱讀完整圖文教學</a></div>
+    <div class="tutorial-caption" id="join-steps-caption">持續多語會套用到目前對話的後續一般訊息；第一個指定目標先成為可複製主語言，其他語言以按鈕逐一查看。動態結果快取 24 小時，按鈕不會重新翻譯或再扣額度；群組點選後全員可見，LINE 訊息無法收回或摺疊。<a href="blog-line-bot-first-setup.html">閱讀完整圖文教學</a></div>
   </section>
-  <section class="tutorial-panel" aria-label="LINE Bot 四語新手與說明回覆預覽">
+  <section class="tutorial-panel" aria-label="LINE Bot 主內容與語言按鈕預覽">
     <div class="tutorial-head">
       <div>
-        <div class="tutorial-title" id="join-guide-title">四語新手與說明回覆</div>
-        <div class="tutorial-copy" id="join-guide-copy">在個人聊天或群組傳送指令，Bot 都會依序回覆繁中、英文、日文與韓文。</div>
+        <div class="tutorial-title" id="join-guide-title">繁中主內容與語言按鈕</div>
+        <div class="tutorial-copy" id="join-guide-copy">在個人聊天或群組傳送指令，Bot 先回覆可複製的繁中主內容，再提供英文、日文、韓文按鈕；固定教學內容不扣每日翻譯額度。</div>
       </div>
       <div class="tutorial-label" id="join-guide-label">BOT REPLY PREVIEW</div>
     </div>
@@ -655,13 +655,13 @@ html.light .guide-support a { color: #087b4d; }
     <div class="tutorial-head">
       <div>
         <div class="tutorial-title" id="join-video-title">操作教學影片</div>
-        <div class="tutorial-copy" id="join-video-copy">設定雙語；持續多語最多同時 8 種，並示範兩種回到雙語的方法。</div>
+        <div class="tutorial-copy" id="join-video-copy">設定雙語與持續多語，示範可複製主語言、逐語按鈕、24 小時快取及精確免費額度規則。</div>
       </div>
       <div class="tutorial-label" id="join-video-label">LINE SETUP</div>
     </div>
-    <video class="tutorial-video" controls preload="metadata" playsinline poster="assets/wanyutong-line-bot-tutorial-20260914-poster.jpg">
-      <source src="assets/wanyutong-line-bot-tutorial-20260914.mp4?v=public-status-v2" type="video/mp4">
-      <track kind="captions" src="assets/wanyutong-line-bot-tutorial-20260914.vtt?v=public-status-v2" srclang="zh-Hant" label="繁體中文字幕">
+    <video class="tutorial-video" controls preload="metadata" playsinline poster="assets/wanyutong-line-bot-tutorial-20260920-poster.jpg">
+      <source src="assets/wanyutong-line-bot-tutorial-20260920.mp4?v=quota-picker-v1" type="video/mp4">
+      <track kind="captions" src="assets/wanyutong-line-bot-tutorial-20260920.vtt?v=quota-picker-v1" srclang="zh-Hant" label="繁體中文字幕">
     </video>
     <div class="tutorial-caption" id="join-video-caption">依現行指令重製，含自然語音、燒錄字幕與可切換的繁中字幕軌。</div>
   </section>
@@ -673,9 +673,9 @@ html.light .guide-support a { color: #087b4d; }
       </div>
       <div class="tutorial-label" id="join-activation-video-label">ACTIVATION FLOW</div>
     </div>
-    <video class="tutorial-video" controls preload="metadata" playsinline poster="assets/wanyutong-activation-flow-20260914-poster.jpg">
-      <source src="assets/wanyutong-activation-flow-20260914.mp4?v=public-status-v2" type="video/mp4">
-      <track kind="captions" src="assets/wanyutong-activation-flow-20260914.vtt?v=public-status-v2" srclang="zh-Hant" label="繁體中文字幕">
+    <video class="tutorial-video" controls preload="metadata" playsinline poster="assets/wanyutong-activation-flow-20260920-poster.jpg">
+      <source src="assets/wanyutong-activation-flow-20260920.mp4?v=quota-picker-v1" type="video/mp4">
+      <track kind="captions" src="assets/wanyutong-activation-flow-20260920.vtt?v=quota-picker-v1" srclang="zh-Hant" label="繁體中文字幕">
     </video>
     <div class="tutorial-caption" id="join-activation-video-caption">付款金額、期間與是否續扣以送出前的正式訂購畫面為準；成功後只開通或延長付款群組。</div>
   </section>
@@ -688,7 +688,7 @@ var joinCopy = {
     home: '回到官網',
     eyebrow: 'LINE Official Account',
     headline: '掃碼加入<br><span class="grad">讓交辦有翻譯、有確認、有紀錄</span>',
-    lead: '加入萬語通 LINE 官方帳號後，免費版可用中文、英文、日文、韓文無限翻譯；其他語言每日50則。需要完整語言、語音、圖片 OCR、AI 摘要與每日報表時，再升級LINE多國翻譯機器人方案。',
+    lead: '加入萬語通 LINE 官方帳號後，免費版會同時判斷原文與所有指定目標：全在中英日韓內不計每日額度；偵測原文或任一指定目標超出四語時，每則原始訊息計 1 則，每日 50 則。需要完整語言、語音、圖片 OCR、AI 摘要與每日報表時，再升級 LINE 多國翻譯機器人方案。',
     primary: '手機直接加入 LINE',
     secondary: '先看常見問題',
     proof1Title: '翻譯工作通知',
@@ -703,7 +703,7 @@ var joinCopy = {
     qrNote: '桌機請用手機 LINE 掃描；手機請點「直接加入 LINE」。',
     qrAlt: '萬語通 LINE 官方帳號 QR Code',
     videoTitle: '操作教學影片',
-    videoCopy: '設定雙語或持續多語最多同時 8 種，並示範兩種回到雙語的方法。',
+    videoCopy: '設定雙語與持續多語，示範可複製主語言、逐語按鈕、24 小時快取及精確免費額度規則。',
     videoLabel: 'LINE SETUP',
     videoCaption: '依現行指令重製，含自然語音、燒錄字幕與可切換的繁中字幕軌。',
     activationVideoTitle: '加入開通流程影片',
@@ -719,9 +719,9 @@ var joinCopy = {
     step2Copy: '例如 <code>@語言設定 繁體中文 印尼文</code>；成功後切換新雙語並自動關閉持續多語，輸入無效時原模式不變。',
     step3Title: '3. 設定持續多語',
     step3Copy: '持續多語最多同時 8 種；用 <code>@多語 繁體中文 英文 菲律賓語</code> 設定後，後續一般訊息會持續翻成所選語言。傳 <code>@多語 關閉</code> 回到原雙語，或用有效的 <code>@語言設定</code> 切換新雙語。',
-    stepsCaption: '持續多語會套用到目前對話的後續一般訊息；群組中的所有成員會看到同一份結果。<a href="blog-line-bot-first-setup.html">閱讀完整圖文教學</a>',
-    guideTitle: '四語新手與說明回覆',
-    guideCopy: '在個人聊天或群組傳送指令，Bot 都會依序回覆繁中、英文、日文與韓文。',
+    stepsCaption: '持續多語會套用到目前對話的後續一般訊息；第一個指定目標先成為可複製主語言，其他語言以按鈕逐一查看。動態結果快取 24 小時，按鈕不會重新翻譯或再扣額度；群組點選後全員可見，LINE 訊息無法收回或摺疊。<a href="blog-line-bot-first-setup.html">閱讀完整圖文教學</a>',
+    guideTitle: '繁中主內容與語言按鈕',
+    guideCopy: '在個人聊天或群組傳送指令，Bot 先回覆可複製的繁中主內容，再提供英文、日文、韓文按鈕；固定教學內容不扣每日翻譯額度。',
     guideLabel: 'BOT REPLY PREVIEW',
     themeLabel: '切換日夜模式',
     zhLabel: '繁中'
@@ -732,7 +732,7 @@ var joinCopy = {
     home: 'Back to Website',
     eyebrow: 'LINE Official Account',
     headline: 'Scan to Join<br><span class="grad">Translate, Confirm, and Keep Records</span>',
-    lead: 'Add the WanyuTong LINE official account. The free plan includes unlimited Chinese, English, Japanese, and Korean translation, plus 50 messages/day for other languages. Upgrade the LINE multilingual translation bot plan for full languages, voice, image OCR, AI summaries, and daily reports.',
+    lead: 'Add the WanyuTong LINE official account. The free plan does not use the daily quota when the source and all configured targets are Chinese, English, Japanese, or Korean. If the detected source or any configured target is outside those four, one original message uses one of 50 daily credits. Upgrade for voice, image OCR, AI summaries, and daily reports.',
     primary: 'Join LINE on Mobile',
     secondary: 'Read FAQ First',
     proof1Title: 'Translate Work Notices',
@@ -747,7 +747,7 @@ var joinCopy = {
     qrNote: 'On desktop, scan with LINE on your phone. On mobile, tap "Join LINE on Mobile."',
     qrAlt: 'WanyuTong LINE official account QR Code',
     videoTitle: 'Setup Tutorial Video',
-    videoCopy: 'Set a two-way pair or persistent multilingual mode with up to 8 languages, then see both ways to return to two-way translation.',
+    videoCopy: 'Set a two-way pair or persistent multilingual mode, then see copyable primary text, per-language buttons, the 24-hour cache, and the exact free-quota rule.',
     videoLabel: 'LINE SETUP',
     videoCaption: 'Rebuilt for the current commands with natural narration, burned-in subtitles, and an optional Traditional Chinese caption track.',
     activationVideoTitle: 'Activation Flow Video',
@@ -763,9 +763,9 @@ var joinCopy = {
     step2Copy: 'For example, send <code>@語言設定 繁體中文 印尼文</code>. Success switches to the new two-way pair and automatically closes continuous multi-language mode; invalid input keeps the current mode.',
     step3Title: '3. Set Persistent Multilingual Translation',
     step3Copy: 'Persistent multilingual mode supports up to 8 languages at once. Send <code>@多語 繁體中文 英文 菲律賓語</code>; later regular messages keep translating into the selected languages. Send <code>@多語 關閉</code> to return to the previous pair, or use a valid <code>@語言設定</code> to switch to a new pair.',
-    stepsCaption: 'Persistent multilingual translation applies to later regular messages in the current conversation. Everyone in the same group sees the same result. <a href="blog-line-bot-first-setup.html">Read the full illustrated guide</a>',
-    guideTitle: 'Four-Language Quick Start and Help Replies',
-    guideCopy: 'In a personal chat or group, both commands return Traditional Chinese, English, Japanese, and Korean messages in order.',
+    stepsCaption: 'Persistent multilingual translation applies to later regular messages. The first configured target is copyable primary text; other languages are opened one at a time with buttons from a 24-hour cache, without retranslating or charging again. A group tap is public, and LINE messages cannot be collapsed or recalled. <a href="blog-line-bot-first-setup.html">Read the full illustrated guide</a>',
+    guideTitle: 'Traditional Chinese Primary Content and Language Buttons',
+    guideCopy: 'In a personal chat or group, both commands show copyable Traditional Chinese primary content with English, Japanese, and Korean buttons. Approved static help does not use the daily translation quota.',
     guideLabel: 'BOT REPLY PREVIEW',
     themeLabel: 'Switch light or dark mode',
     zhLabel: 'ZH'

@@ -6,11 +6,11 @@ const root = new URL('../', import.meta.url);
 const read = (name) => readFileSync(new URL(name, root), 'utf8');
 
 const media = {
-  line: 'wanyutong-line-bot-tutorial-20260914',
+  line: 'wanyutong-line-bot-tutorial-20260920',
   secretary: 'wanyutong-secretary-tutorial-20260914',
-  activation: 'wanyutong-activation-flow-20260914',
+  activation: 'wanyutong-activation-flow-20260920',
 };
-const mediaRevision = '?v=public-status-v2';
+const mediaRevision = '?v=quota-picker-v1';
 
 const placements = [
   ['features.html', media.line],
@@ -53,7 +53,7 @@ test('service worker precaches lightweight media metadata but loads 1080p MP4 at
   const worker = read('sw.js');
   const core = worker.match(/const CORE_ASSETS = \[([\s\S]*?)\n\];/)?.[1] || '';
   const runtime = worker.match(/const RUNTIME_MEDIA_ASSETS = \[([\s\S]*?)\n\];/)?.[1] || '';
-  assert.match(worker, /20260914-public-status-copy-v2/);
+  assert.match(worker, /20260920-quota-picker-v1/);
 
   for (const stem of Object.values(media)) {
     const mp4 = `./assets/${stem}.mp4${mediaRevision}`;
@@ -70,6 +70,8 @@ test('active pages and worker do not reference superseded tutorial assets', () =
   for (const file of ['features.html', 'join.html', 'pricing.html', 'sw.js']) {
     const source = read(file);
     assert.ok(!source.includes('20260819'), `${file}: dated legacy asset`);
+    assert.ok(!source.includes('wanyutong-line-bot-tutorial-20260914'), `${file}: legacy LINE Bot tutorial`);
+    assert.ok(!source.includes('wanyutong-activation-flow-20260914'), `${file}: legacy activation tutorial`);
     assert.doesNotMatch(
       source,
       /assets\/wanyutong-(?:line-bot-tutorial|secretary-tutorial|activation-flow)\.(?:mp4|jpg|vtt)/,
@@ -87,14 +89,33 @@ test('superseded tutorial binaries have been removed from the release tree', () 
     'assets/wanyutong-line-bot-tutorial-20260819-poster.jpg',
     'assets/wanyutong-line-bot-tutorial-20260819.mp4',
     'assets/wanyutong-line-bot-tutorial.mp4',
+    'assets/wanyutong-line-bot-tutorial-20260914-poster.jpg',
+    'assets/wanyutong-line-bot-tutorial-20260914.mp4',
+    'assets/wanyutong-line-bot-tutorial-20260914.vtt',
     'assets/wanyutong-secretary-tutorial-20260819-poster.jpg',
     'assets/wanyutong-secretary-tutorial-20260819.mp4',
     'assets/wanyutong-secretary-tutorial-poster.jpg',
     'assets/wanyutong-secretary-tutorial.mp4',
+    'assets/wanyutong-activation-flow-20260914-poster.jpg',
+    'assets/wanyutong-activation-flow-20260914.mp4',
+    'assets/wanyutong-activation-flow-20260914.vtt',
   ];
   for (const path of legacy) {
     assert.ok(!existsSync(new URL(path, root)), `${path} should stay deleted`);
   }
+});
+
+test('current LINE Bot captions explain exact quota and cached language buttons', () => {
+  const captions = read(`assets/${media.line}.vtt`);
+  for (const term of [
+    '第一個指定目標',
+    '二十四小時快取',
+    '不會重新翻譯',
+    '不會再次扣額度',
+    '原文或任一指定目標超出四語',
+    '每則原始訊息計一則',
+    '四十九斜線五十',
+  ]) assert.ok(captions.includes(term), term);
 });
 
 test('language coverage copy distinguishes total support from simultaneous selection', () => {

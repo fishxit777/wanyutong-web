@@ -15,21 +15,23 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont
 W, H, FPS = 1920, 1080, 30
 BG, PANEL, TEXT, MUTED, GREEN, CYAN = "#080b10", "#111822", "#f4f7fb", "#adbac8", "#06c755", "#00d4ff"
 VOICE = "zh-TW-HsiaoChenNeural"
+RELEASE_DATE = "20260920"
+DISPLAY_DATE = "2026-09-20"
 
 VIDEOS = {
     "line-bot-tutorial": {
         "eyebrow": "LINE 群組翻譯｜最新版",
         "title": "一句話，讓多國團隊同步理解",
-        "narration": """萬語通把多國溝通留在同一個 LINE 群組。第一次使用，傳送小老鼠新手教學，或小老鼠說明，查看正確指令；小老鼠語言可查看目前設定，小老鼠支援語言可查看即時清單。要使用雙語模式，傳送小老鼠語言設定，空格，繁體中文，空格，印尼文。設定後直接傳一般訊息，系統會持續雙向翻譯。要同時顯示多種語言，傳送小老鼠多語，空格，繁體中文，空格，英文，空格，菲律賓語。萬語通總共支援三十六種語言；持續多語最多可以同時設定八種。多語設定會持續套用後續一般訊息，而且群組所有成員看到同一份結果。離開多語有兩種方式。傳送小老鼠多語，空格，關閉，回到原本雙語；或直接送出一組有效的小老鼠語言設定，改成新的雙語並自動關閉多語。格式或語言無效時，原設定不會被意外改掉。免費版的中文、英文、日文與韓文不限次數，其他語言每日五十則；付費方案再依方案提供語音、圖片文字辨識與摘要等功能。翻譯或摘要可能有誤，高風險內容仍請人工複核。若遇短暫延遲或暫時無法使用，請稍候再試；若問題持續，請透過官方客服反映。若查核確認涉及資安事件，將通知萬語通系統管理員處理。現在就在群組傳送小老鼠說明。""",
+        "narration": """萬語通把多國溝通留在同一個 LINE 群組。第一次使用，傳送小老鼠新手教學，或小老鼠說明，查看正確指令；小老鼠語言可查看目前設定，小老鼠支援語言可查看即時清單。要使用雙語模式，傳送小老鼠語言設定，空格，繁體中文，空格，印尼文。要設定持續多語，傳送小老鼠多語，空格，繁體中文，空格，英文，空格，菲律賓語；最多同時設定八種。翻譯完成後，第一個指定目標先以一般文字顯示，可以直接複製。其他語言放在直式按鈕中，想看哪一種再點哪一種。按鈕只讀取二十四小時快取，不會重新翻譯，也不會再次扣額度。群組點選後，該語言會公開顯示給所有成員；同一語言每則原始訊息最多公開一次。LINE 已送出的訊息不能收回或摺疊。免費版會同時判斷原文與所有指定目標。原文與所有目標都在中文、英文、日文、韓文內，不計每日額度；中文包含繁體與簡體，英文包含區域變體。偵測原文或任一指定目標超出四語時，每則原始訊息計一則，每日五十則；同一則訊息指定多個其他語言，仍只計一則。Bot 會顯示今天剩餘，例如四十九斜線五十；個人按使用者計算，群組由全群組共用。離開多語可傳送小老鼠多語，空格，關閉；也可以直接設定一組有效的新雙語，系統會自動關閉多語模式。翻譯可能有誤，高風險內容仍請人工複核。若遇短暫延遲，請稍候再試；若問題持續，請透過官方客服反映。若查核確認涉及資安事件，將通知萬語通系統管理員處理。""",
         "slides": [
-            ("一句話，多國同步", "不換 App｜不拆群組｜同一份結果", ["所有成員看見相同翻譯", "適合工廠、照護、餐飲與跨國團隊"]),
+            ("主語言先顯示", "第一個指定目標＝可複製的一般文字", ["其他語言以直式按鈕逐一查看", "需要哪一種，再點哪一種"]),
             ("第一次使用", "先確認最新指令與目前設定", ["@新手教學｜@說明｜@語言", "@支援語言：查看即時清單"]),
-            ("雙語持續翻譯", "設定一次，後續一般訊息直接翻譯", ["@語言設定 繁體中文 印尼文", "有效設定會自動關閉多語模式"]),
-            ("多語持續翻譯", "總支援 36 種；持續多語最多同時 8 種", ["@多語 繁體中文 英文 菲律賓語", "全群組共用同一份多語結果"]),
+            ("雙語與持續多語", "總支援 36 種；持續多語最多同時 8 種", ["@語言設定 繁體中文 印尼文", "@多語 繁體中文 英文 菲律賓語"]),
+            ("按鈕只讀快取", "24 小時內不重翻、不再扣額度", ["群組點選後全員可見", "同一語言每則原始訊息最多公開一次"]),
+            ("免費額度精確判定", "原文與所有目標都在四語內：不計額度", ["原文或任一目標超出四語：每則計 1 則", "每日 50 則｜顯示今日剩餘 49/50"]),
             ("兩種離開方式", "少一步，也不容易卡在舊模式", ["@多語 關閉 → 回原雙語", "有效 @語言設定 → 新雙語並自動關閉"]),
-            ("免費也能開始", "中文／英文／日文／韓文不限次數", ["其他語言每日 50 則", "付費方案另有語音、圖片 OCR、摘要等功能"]),
             ("服務狀況與安全處理", "短暫延遲請稍候再試；持續發生請聯絡官方客服", ["查核後再判斷是否涉及資安事件", "確認資安事件時通知萬語通系統管理員"]),
-            ("現在就試一次", "在群組傳送 @說明", ["依 Bot 回覆操作", "重要內容請人工確認"]),
+            ("現在就試一次", "在群組傳送 @說明", ["繁中主內容＋英文／日文／韓文按鈕", "固定教學內容不扣每日翻譯額度"]),
         ],
     },
     "secretary-tutorial": {
@@ -50,10 +52,10 @@ VIDEOS = {
     "activation-flow": {
         "eyebrow": "方案與開通｜安全流程",
         "title": "付款，只開通你指定的群組",
-        "narration": """萬語通免費版零元，中文、英文、日文與韓文不限次數，其他語言每日五十則。需要完整付費功能時，目前方案是月費版九十九元，三十天；半年版四百九十九元，一百八十天；一年版七百九十九元，四百二十天；尊爵版兩千五百元，每群組永久買斷。開通只有三步。先加入萬語通 LINE 官方帳號，再把 Bot 加進要使用的群組。接著在那個群組傳送小老鼠方案，只使用 Bot 回覆的官方付款連結。完成正式付款後，系統依付款回呼，只開通或延長該群組。不要使用陌生人私訊或轉傳的付款網址。開通後，可依方案使用完整語言、語音、圖片文字辨識、AI 秘書摘要、日報、紀錄查詢、統計、報表與匯出。付款金額、使用期間與是否續扣，以送出前的正式訂購畫面為準。若付款成功超過五分鐘仍未開通，請在群組傳送小老鼠客服查核，不要再次付款。翻譯或摘要可能有誤，高風險內容仍請人工複核。若遇短暫延遲或暫時無法使用，請稍候再試；若問題持續，請透過官方客服反映。若查核確認涉及資安事件，將通知萬語通系統管理員處理。""",
+        "narration": """萬語通免費版零元。原文與所有指定目標都在中文、英文、日文、韓文內，不計每日額度；中文包含繁體與簡體，英文包含區域變體。偵測原文或任一指定目標超出四語時，每則原始訊息計一則，每日五十則；同一則訊息指定多個其他語言，仍只計一則。Bot 會顯示今天剩餘，例如四十九斜線五十；個人按使用者計算，群組由全群組共用。需要完整付費功能時，目前方案是月費版九十九元，三十天；半年版四百九十九元，一百八十天；一年版七百九十九元，四百二十天；尊爵版兩千五百元，每群組永久買斷。開通只有三步。先加入萬語通 LINE 官方帳號，再把 Bot 加進要使用的群組。接著在那個群組傳送小老鼠方案，只使用 Bot 回覆的官方付款連結。完成正式付款後，系統依付款回呼，只開通或延長該群組。不要使用陌生人私訊或轉傳的付款網址。開通後，可依方案使用完整語言、語音、圖片文字辨識、AI 秘書摘要、日報、紀錄查詢、統計、報表與匯出。付款金額、使用期間與是否續扣，以送出前的正式訂購畫面為準。若付款成功超過五分鐘仍未開通，請在群組傳送小老鼠客服查核，不要再次付款。翻譯或摘要可能有誤，高風險內容仍請人工複核。若遇短暫延遲或暫時無法使用，請稍候再試；若問題持續，請透過官方客服反映。若查核確認涉及資安事件，將通知萬語通系統管理員處理。""",
         "slides": [
             ("只開通指定群組", "方案、付款與群組綁定", ["不跨群組自動開通", "先確認群組，再進入官方付款頁"]),
-            ("免費版 NT$0", "加入即可開始", ["中／英／日／韓不限次數", "其他語言每日 50 則"]),
+            ("免費版額度", "原文與所有目標都在四語內：不計每日額度", ["原文或任一目標超出四語：每則計 1 則", "每日 50 則｜顯示今日剩餘 49/50"]),
             ("現行付費方案", "每個群組分開計算", ["月費 NT$99／30 天｜半年 NT$499／180 天", "一年 NT$799／420 天｜尊爵 NT$2500／永久"]),
             ("第一步：指定群組", "加入官方帳號，把 Bot 放進要使用的群組", ["第二步：在該群組傳送 @方案", "只使用 Bot 回覆的官方連結"]),
             ("第三步：完成正式付款", "付款回呼只開通或延長該群組", ["不信任陌生私訊或轉傳網址", "金額、期間、續扣以訂購畫面為準"]),
@@ -74,6 +76,14 @@ def fnt(size: int, bold=False):
     return ImageFont.truetype(str(p), size)
 
 
+def script_fnt(text: str, size: int, bold=False):
+    """Use a Hangul-capable face where Microsoft JhengHei has no glyphs."""
+    if re.search(r"[\uac00-\ud7af]", str(text or "")):
+        p = Path(r"C:\Windows\Fonts\malgunbd.ttf" if bold else r"C:\Windows\Fonts\malgun.ttf")
+        return ImageFont.truetype(str(p), size)
+    return fnt(size, bold)
+
+
 def wrap(draw, text, face, width):
     out, cur = [], ""
     for c in text:
@@ -89,7 +99,26 @@ def draw_visual(d: ImageDraw.ImageDraw, title: str, sub: str, x=1190, y=315):
     """Draw a deliberately fictional UI vignette; never uses production/customer data."""
     d.rounded_rectangle((x, y, 1755, 825), radius=30, fill="#0a1119", outline="#304457", width=3)
     d.text((x + 36, y + 26), "示意畫面", font=fnt(24, True), fill="#7890a3")
-    if "方案" in title or "付款" in title or "免費" in title or "開通" in title or "指定群組" in title:
+    if "額度" in title:
+        d.rounded_rectangle((x+38,y+98,x+527,y+206),radius=18,fill="#112b1d",outline=GREEN,width=2)
+        d.text((x+65,y+123),"今日剩餘",font=fnt(27,True),fill="#d8ffe5")
+        d.text((x+330,y+118),"49/50",font=fnt(36,True),fill=CYAN)
+        d.rounded_rectangle((x+38,y+246,x+527,y+428),radius=18,fill="#14202c",outline="#304457",width=2)
+        d.text((x+62,y+270),"原文＋所有指定目標",font=fnt(26,True),fill=TEXT)
+        d.text((x+62,y+318),"任一超出中英日韓",font=fnt(25),fill=MUTED)
+        d.text((x+62,y+369),"每則原始訊息計 1 則",font=fnt(27,True),fill="#bff4cf")
+    elif "主語言" in title or "按鈕" in title:
+        d.rounded_rectangle((x+38,y+92,x+527,y+203),radius=18,fill="#13241c",outline=GREEN,width=2)
+        d.text((x+62,y+112),"主語言｜繁體中文",font=fnt(24,True),fill="#bff4cf")
+        d.text((x+62,y+157),"可直接選取、複製文字",font=fnt(25),fill=TEXT)
+        cy=y+242
+        for label in ("English", "日本語", "한국어"):
+            d.rounded_rectangle((x+38,cy,x+527,cy+60),radius=16,fill="#102431",outline=CYAN,width=2)
+            d.text((x+64,cy+14),label,font=script_fnt(label,24,True),fill="#d8f7ff")
+            d.text((x+430,cy+14),"查看",font=fnt(22,True),fill=CYAN)
+            cy += 72
+        d.text((x+112,y+474),"24 小時快取｜不重翻、不再扣",font=fnt(22,True),fill=MUTED)
+    elif "方案" in title or "付款" in title or "免費" in title or "開通" in title or "指定群組" in title:
         if "現行付費方案" in title:
             cards=[("免費版","NT$0｜加入即用"),("月費版","NT$99｜30 天"),("半年版","NT$499｜180 天"),("一年版","NT$799｜420 天"),("尊爵版","NT$2500｜永久")]
             cy=y+78
@@ -170,7 +199,7 @@ def slide_image(path: Path, spec: dict, index: int, slide: tuple[str, str, list[
             d.text((220, y), line, font=fnt(30, True), fill="#e9f7ef"); y += 46
         y += 25
     draw_visual(d, title, sub)
-    d.text((160, 962), "依 2026-09-14 官網與正式功能重製｜重要資訊請人工確認", font=fnt(23), fill="#718091")
+    d.text((160, 962), f"依 {DISPLAY_DATE} 官網與正式功能重製｜重要資訊請人工確認", font=fnt(23), fill="#718091")
     im.save(path, quality=96)
 
 
@@ -184,9 +213,10 @@ def escape_filter_path(p: Path):
     return str(p).replace("\\", "/").replace(":", r"\:").replace("'", r"\'")
 
 
-def build_one(key: str, spec: dict, repo: Path, work: Path):
+def build_one(key: str, spec: dict, repo: Path, work: Path, output: Path, release_date: str):
     folder = work / key; folder.mkdir(parents=True, exist_ok=True)
-    assets = repo / "assets"; logo = assets / "wanyutong-logo.jpg"
+    source_assets = repo / "assets"; logo = source_assets / "wanyutong-logo.jpg"
+    output.mkdir(parents=True, exist_ok=True)
     slides = []
     for i, s in enumerate(spec["slides"]):
         p = folder / f"slide-{i+1:02d}.png"; slide_image(p, spec, i, s, logo); slides.append(p)
@@ -215,39 +245,45 @@ def build_one(key: str, spec: dict, repo: Path, work: Path):
         out=f"[v{i}]"; fc.append(f"{last}[{i}:v]xfade=transition=fade:duration={overlap}:offset={offset:.3f}{out}"); last=out; offset += segdur-overlap
     visual = folder / "visual.mp4"
     run(["ffmpeg","-y","-hide_banner","-loglevel","error",*inputs,"-filter_complex",";".join(fc),"-map",last,"-t",f"{total:.3f}","-an","-c:v","libx264","-preset","veryfast","-crf","19","-pix_fmt","yuv420p",str(visual)])
-    vtt = assets / f"wanyutong-{key}-20260914.vtt"; srt_to_vtt(srt, vtt)
-    out = assets / f"wanyutong-{key}-20260914.mp4"; temp_out = assets / f"wanyutong-{key}-20260914.tmp.mp4"
+    vtt = output / f"wanyutong-{key}-{release_date}.vtt"; srt_to_vtt(srt, vtt)
+    out = output / f"wanyutong-{key}-{release_date}.mp4"; temp_out = output / f"wanyutong-{key}-{release_date}.tmp.mp4"
     sub = escape_filter_path(srt)
     final_crf = "28" if key == "line-bot-tutorial" else "26"
     filt = f"[0:v]subtitles='{sub}':force_style='FontName=Microsoft JhengHei,FontSize=15,PrimaryColour=&H00FFFFFF,OutlineColour=&HAA000000,BorderStyle=3,Outline=1,Shadow=0,MarginV=34,Alignment=2'[v];[1:a]aresample=48000,loudnorm=I=-16:TP=-1.5:LRA=8[a]"
     run(["ffmpeg","-y","-hide_banner","-loglevel","error","-i",str(visual),"-i",str(mp3),"-filter_complex",filt,"-map","[v]","-map","[a]","-map_metadata","-1","-t",f"{total:.3f}","-r",str(FPS),"-c:v","libx264","-profile:v","high","-level","4.2","-preset","medium","-crf",final_crf,"-pix_fmt","yuv420p","-colorspace","bt709","-color_primaries","bt709","-color_trc","bt709","-bsf:v","h264_metadata=video_full_range_flag=0:colour_primaries=1:transfer_characteristics=1:matrix_coefficients=1","-c:a","aac","-b:a","128k","-ar","48000","-movflags","+faststart",str(temp_out)])
     os.replace(temp_out, out)
-    poster = assets / f"wanyutong-{key}-20260914-poster.jpg"
+    poster = output / f"wanyutong-{key}-{release_date}-poster.jpg"
     Image.open(slides[0]).save(poster, quality=88, optimize=True)
     return out
 
 
-def build_guides(repo: Path):
-    guides = repo / "assets" / "guides"; guides.mkdir(parents=True, exist_ok=True)
+def build_guides(repo: Path, output: Path):
+    guides = output / "guides"; guides.mkdir(parents=True, exist_ok=True)
     guide_specs = {
         "line-bot-add.jpg": ("把 Bot 加入工作群組", "主管建立群組後，加入萬語通官方 Bot", ["不需要移轉成員資料", "先傳送 @新手教學"]),
         "language-setting.jpg": ("設定雙語模式", "@語言設定 繁體中文 印尼文", ["有效設定會持續翻譯", "也會自動關閉多語模式"]),
-        "group-confirmation.jpg": ("全群組共用設定", "主管、員工 A、員工 B 看見同一份結果", ["不是每人私下不同畫面", "設定不會被其他成員意外消耗"]),
-        "multilingual-reply.jpg": ("持續多語翻譯", "總支援 36 種；最多同時 8 種", ["@多語 繁體中文 英文 菲律賓語", "直到關閉或改成有效雙語設定"]),
+        "group-confirmation.jpg": ("群組按需查看語言", "第一個目標先顯示；其他語言用按鈕查看", ["點選後全群組可見", "同一語言每則原始訊息最多公開一次"]),
+        "multilingual-reply.jpg": ("持續多語翻譯", "第一個目標可複製；其他語言逐一按鈕查看", ["24 小時快取，不會重新翻譯", "按鈕查看不會再次扣額度"]),
         "plan-and-activation.jpg": ("方案與開通", "在要開通的群組傳送 @方案", ["只用 Bot 回覆的官方連結", "付款後只開通或延長該群組"]),
         "secretary-status.jpg": ("AI 祕書狀態", "@祕書 狀態", ["確認紀錄、摘要、日報與自動回覆", "高風險內容仍由主管人工確認"]),
     }
-    mock = {"eyebrow": "萬語通圖解｜2026-09-14", "slides": [None]}
+    mock = {"eyebrow": f"萬語通圖解｜{DISPLAY_DATE}", "slides": [None]}
     for name, slide in guide_specs.items():
         slide_image(guides / name, mock, 0, slide, repo / "assets" / "wanyutong-logo.jpg")
 
 
 def main():
     global FPS
-    ap=argparse.ArgumentParser(); ap.add_argument("--repo-root", type=Path, required=True); ap.add_argument("--work-dir", type=Path, required=True); ap.add_argument("--only", choices=list(VIDEOS)); ap.add_argument("--fps", type=int, choices=(30, 60), default=30)
+    ap=argparse.ArgumentParser(); ap.add_argument("--repo-root", type=Path, required=True); ap.add_argument("--work-dir", type=Path, required=True); ap.add_argument("--output-dir", type=Path); ap.add_argument("--release-date", default=RELEASE_DATE); ap.add_argument("--only", action="append", choices=list(VIDEOS)); ap.add_argument("--fps", type=int, choices=(30, 60), default=30)
     a=ap.parse_args(); FPS = a.fps
     missing = [name for name in ("ffmpeg", "ffprobe") if not shutil.which(name)]
-    required = [a.repo_root / "assets" / "wanyutong-logo.jpg", Path(r"C:\Windows\Fonts\msjh.ttc"), Path(r"C:\Windows\Fonts\msjhbd.ttc")]
+    required = [
+        a.repo_root / "assets" / "wanyutong-logo.jpg",
+        Path(r"C:\Windows\Fonts\msjh.ttc"),
+        Path(r"C:\Windows\Fonts\msjhbd.ttc"),
+        Path(r"C:\Windows\Fonts\malgun.ttf"),
+        Path(r"C:\Windows\Fonts\malgunbd.ttf"),
+    ]
     missing += [str(p) for p in required if not p.is_file()]
     if missing:
         raise SystemExit("缺少影片產製必要元件：" + "、".join(missing))
@@ -256,10 +292,12 @@ def main():
     except ImportError as exc:
         raise SystemExit("缺少 edge-tts：請先安裝後再重跑。") from exc
     a.work_dir.mkdir(parents=True, exist_ok=True)
-    build_guides(a.repo_root.resolve())
+    repo = a.repo_root.resolve()
+    output = a.output_dir.resolve() if a.output_dir else repo / "assets"
+    build_guides(repo, output)
     built=[]
     for k,s in VIDEOS.items():
-        if not a.only or a.only==k: built.append(build_one(k,s,a.repo_root.resolve(),a.work_dir.resolve()))
+        if not a.only or k in a.only: built.append(build_one(k,s,repo,a.work_dir.resolve(),output,a.release_date))
     for p in built:
         probe=run(["ffprobe","-v","error","-show_entries","stream=codec_type,codec_name,width,height,r_frame_rate,pix_fmt,sample_rate:format=duration,size","-of","json",str(p)],True)
         print(p.name, probe.stdout)

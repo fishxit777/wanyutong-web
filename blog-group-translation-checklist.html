@@ -16,7 +16,7 @@
 <div class="wyt-ad-slot wyt-ad-article" data-wyt-ad="articleInline" aria-label="廣告" hidden></div>
 <div class="article-layout"><nav class="toc" aria-label="文章目錄"><strong>本文目錄</strong><a href="#reality">先確認顯示方式</a><a href="#setup">上線六步驟</a><a href="#message">公告怎麼寫</a><a href="#reply">回覆格式</a><a href="#checklist">檢查表</a><a href="#method">核對依據</a></nav><article class="guide-body">
   <p>以繁體中文、英文、菲律賓語三種語言為例，先設定持續多語後，這個群組後續的一般訊息都會套用該設定，直到重新設定或切回雙語。Bot 會在同一群組輸出各語言結果，員工可直接用自己的語言回覆，主管再看翻回的繁體中文。</p>
-  <section id="reality"><h2>先確認 LINE 群組真正能顯示什麼</h2><p>LINE 群組內沒有「依成員身分顯示不同 Bot 訊息」的功能。Bot 在群組發出的翻譯，全群組成員都看得到。因此「主管一句話同步多語」可以做到，但「每位員工在同一群組只看自己的語言」做不到。</p><div class="note"><strong>可行做法</strong>用 <code>@多語 繁體中文 英文 菲律賓語</code> 設定需要的語言；此設定會持續套用到目前群組的後續一般訊息。傳 <code>@多語 關閉</code> 可回到原本雙語；傳有效的 <code>@語言設定 語言A 語言B</code> 則會設定新雙語並自動關閉持續多語。格式或語言驗證失敗時原模式不變。所有人看得到相同內容，員工只需要閱讀自己熟悉的語言段落。</div></section>
+  <section id="reality"><h2>先確認 LINE 群組真正能顯示什麼</h2><p>LINE 群組內沒有「依成員身分顯示不同 Bot 訊息」的功能。第一個指定目標會先成為可複製主語言；其他語言以按鈕逐一查看，點選後仍向全群組公開。每位員工在同一群組只私下看到自己的語言，仍然做不到。</p><div class="note"><strong>可行做法</strong>用 <code>@多語 繁體中文 英文 菲律賓語</code> 設定需要的語言；此設定會持續套用到目前群組的後續一般訊息。傳 <code>@多語 關閉</code> 可回到原本雙語；傳有效的 <code>@語言設定 語言A 語言B</code> 則會設定新雙語並自動關閉持續多語。格式或語言驗證失敗時原模式不變。動態翻譯快取 24 小時，按鈕不會重新翻譯或再扣額度；同一語言每則原始訊息最多公開一次，LINE 訊息無法收回或摺疊。</div></section>
   <section id="setup"><h2>群組上線的六個步驟</h2><ol class="step-list">
     <li><h3>先列出實際使用語言</h3><p>只算目前群組內會使用的語言，不把未來可能需要的語言全部加進去。</p></li>
     <li><h3>指定一名群組管理者</h3><p>由一人負責語言設定、測試與重要通知格式，避免多人同時切換模式。</p></li>

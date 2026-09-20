@@ -50,7 +50,7 @@ class ContentAlignmentTests(unittest.TestCase):
     def test_unlimited_does_not_promise_unlimited_infrastructure(self):
         for name in ("pricing.html", "blog-free-paid-plans.html"):
             with self.subTest(page=name):
-                self.assertIn("不限次數是產品用量規則", self.read(name))
+                self.assertIn("不計入每日 50 則額度", self.read(name))
 
     def test_risk_detection_is_limited_to_available_text(self):
         text = self.read("terms.html")

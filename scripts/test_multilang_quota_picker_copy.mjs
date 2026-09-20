@@ -93,3 +93,16 @@ test('help and onboarding copy describes one primary reply plus language buttons
     assert.ok(!html.includes('return Traditional Chinese, English, Japanese, and Korean messages in order'), page);
   }
 });
+
+test('FAQ documents the non-language group gate in Chinese and English', () => {
+  const faq = read('faq.html');
+  for (const phrase of [
+    '群組中的純網址',
+    '文字加網址時只翻譯文字',
+    'Pure links',
+    'does not repost the link',
+  ]) {
+    assert.ok(faq.includes(phrase), phrase);
+  }
+  assert.ok(!faq.includes('Send any message'));
+});

@@ -43,7 +43,10 @@ class ContentAlignmentTests(unittest.TestCase):
                 text = self.read(name)
                 self.assertIn("30–90 秒", text)
                 self.assertIn("免費／預付額度", text)
-                self.assertIn("2026-09-07", text)
+                review_dates = re.findall(r"\b\d{4}-\d{2}-\d{2}\b", text)
+                self.assertTrue(review_dates, "Missing dated operations disclosure")
+                for value in review_dates:
+                    self.assertLessEqual(date.fromisoformat(value), date.today())
         for name in ("faq.html", "pricing.html", "terms.html"):
             self.assertIn("30–90 seconds", self.read(name), name)
 
@@ -120,6 +123,39 @@ class ContentAlignmentTests(unittest.TestCase):
                     errors: list[str] = []
                     audit.audit_internal_links(errors, [page])
                     self.assertEqual([], errors)
+
+    def test_indexable_pages_cannot_link_to_merged_redirect_variants(self):
+        target = next(iter(audit.MERGED))
+        with tempfile.TemporaryDirectory(prefix="wyt-merged-test-") as temp:
+            root = Path(temp)
+            (root / target).write_text("<p>redirect</p>", encoding="utf-8")
+            page = root / "index.html"
+            with patch.object(audit, "ROOT", root):
+                for href in (target, target + "#old", "/" + target, "https://wanyutong.tw/" + target + "?ref=old"):
+                    with self.subTest(variant=href):
+                        page.write_text(f'<a href="{href}">old guide</a>', encoding="utf-8")
+                        errors: list[str] = []
+                        audit.audit_internal_links(errors, [page])
+                        self.assertTrue(any("merged redirect" in e for e in errors))
+
+    def test_merged_page_audit_accepts_only_fixed_canonical_noads_redirect(self):
+        target, destination = next(iter(audit.MERGED.items()))
+        with tempfile.TemporaryDirectory(prefix="wyt-merged-test-") as temp:
+            root = Path(temp)
+            (root / "blog.html").write_text("", encoding="utf-8")
+            (root / "sitemap.xml").write_text("", encoding="utf-8")
+            page = root / target
+            page.write_text(self.read(target), encoding="utf-8")
+            with patch.object(audit, "ROOT", root):
+                errors: list[str] = []
+                audit.audit_merged_pages(errors)
+                self.assertEqual([], errors)
+                text = page.read_text(encoding="utf-8")
+                for bad in (text.replace("noindex,follow", "index,follow"), text + '<script src="assets/wanyutong-ads.js"></script>', text.replace("0;url=" + destination, "0;url=https://example.invalid/")):
+                    page.write_text(bad, encoding="utf-8")
+                    errors = []
+                    audit.audit_merged_pages(errors)
+                    self.assertTrue(errors, "Unsafe redirect should fail audit")
 
     def test_review_date_is_a_real_date_not_an_august_literal(self):
         text = self.read("scripts/audit_site_content.py")

@@ -1,2 +1,6 @@
 include:
   - sitemap.xml
+exclude:
+  - docs
+  - scripts
+  - README.md

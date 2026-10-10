@@ -14,7 +14,6 @@ window.WANYUTONG_ADS = {
     "blog-foreign-worker-communication.html",
     "blog-free-paid-plans.html",
     "blog-group-translation-checklist.html",
-    "blog-image-ocr-checklist.html",
     "blog-image-ocr-translation.html",
     "blog-language-settings.html",
     "blog-line-bot-first-setup.html",
@@ -22,6 +21,7 @@ window.WANYUTONG_ADS = {
     "blog-translation-quality-checklist.html"
   ],
   excludedPaths: [
+    "blog-image-ocr-checklist.html",
     "index.html",
     "pricing.html",
     "join.html",

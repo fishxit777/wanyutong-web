@@ -2,7 +2,7 @@
   "use strict";
 
   // A second inclusion must reuse the first controller, not enqueue more ads.
-  if (window.wytAds && window.wytAds.version === "20260907-reviewed-content-v1") return;
+  if (window.wytAds && window.wytAds.version === "20261010-reviewed-content-v1") return;
 
   var cfg = window.WANYUTONG_ADS || {};
   var publisherId = String(cfg.publisherId || "").trim();
@@ -13,7 +13,6 @@
     "blog-foreign-worker-communication.html",
     "blog-free-paid-plans.html",
     "blog-group-translation-checklist.html",
-    "blog-image-ocr-checklist.html",
     "blog-image-ocr-translation.html",
     "blog-language-settings.html",
     "blog-line-bot-first-setup.html",
@@ -127,7 +126,7 @@
   }
 
   window.wytAds = {
-    version: "20260907-reviewed-content-v1",
+    version: "20261010-reviewed-content-v1",
     status: function () {
       return { enabled: canLoadAds(), mode: mode, path: pageName(), hasPublisher: hasPublisher };
     },

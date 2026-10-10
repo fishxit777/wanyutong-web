@@ -1,1 +1,6 @@
 _本機作業區_不要上傳/
+.pytest_cache/
+scripts/__pycache__/
+docs/handoff-20261010.md
+docs/cleanup-20261010.md
+docs/plans/2026-10-10-adsense-content-truth-implementation.md

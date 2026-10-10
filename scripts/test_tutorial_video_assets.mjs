@@ -53,7 +53,7 @@ test('service worker precaches lightweight media metadata but loads 1080p MP4 at
   const worker = read('sw.js');
   const core = worker.match(/const CORE_ASSETS = \[([\s\S]*?)\n\];/)?.[1] || '';
   const runtime = worker.match(/const RUNTIME_MEDIA_ASSETS = \[([\s\S]*?)\n\];/)?.[1] || '';
-  assert.match(worker, /20260920-quota-picker-v1/);
+  assert.match(worker, /20261010-content-truth-v1/);
 
   for (const stem of Object.values(media)) {
     const mp4 = `./assets/${stem}.mp4${mediaRevision}`;

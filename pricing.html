@@ -1315,6 +1315,7 @@ html.light .fit-table td:nth-child(3) { color:#047a37; background:rgba(5,179,74,
 .price-features { list-style:none; margin-bottom:1.8rem; display:flex; flex-direction:column; gap:0.55rem; }
 .price-features li { font-size:0.83rem; display:flex; align-items:flex-start; gap:0.55rem; color:var(--muted); font-weight:300; }
 .price-features li::before { content:'—'; color:var(--line); flex-shrink:0; font-family:'Noto Sans TC','Microsoft JhengHei','PingFang TC','Segoe UI',system-ui,sans-serif; }
+#pricing .price-features li:empty { display:none; }
 
 .btn-plan {
   display:block; width:100%; text-align:center; padding:0.72em 1em; border-radius:4px;
@@ -1899,7 +1900,7 @@ footer a:hover { color:var(--text); }
   <meta name="apple-mobile-web-app-title" content="萬語通">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link rel="apple-touch-icon" href="assets/icons/wanyutong-icon-180.png">
-  <script src="assets/wanyutong-app.js" defer></script>
+  <script src="assets/wanyutong-app.js?v=content-truth-20261010" defer></script>
 
 <link rel="stylesheet" href="assets/wanyutong-readable.css">
 </head>
@@ -1942,10 +1943,10 @@ footer a:hover { color:var(--text); }
   </div>
 </nav>
 
-<section id="pricing">
+<section id="pricing" data-pricing-renderer="page">
   <div style="max-width:960px;margin:0 auto;">
     <div class="eyebrow">// Pricing</div>
-    <h1 class="section-title">選擇適合你的方案</h1>
+    <h1 class="section-title" id="pricing-title">選擇適合你的方案</h1>
     <p class="lead">免費版：原文與所有指定目標都在中／英／日／韓時不計每日額度；原文或任一指定目標超出四語時，每則原始訊息計 1 則，每日 50 則。付費方案聚焦 LINE 多國翻譯機器人群組使用。</p>
     <div id="service-status-note" class="known-limit" style="padding:18px;border:1px solid #8a722b;border-radius:12px;line-height:1.8;margin:18px 0 24px">
       <strong>付款前請先了解平台限制（2026-09-20 更新）</strong><br>符合四語條件時不計入每日 50 則額度，是產品用量規則，不是全天不中斷或第三方無限額度保證。免費主機休眠後，首次操作可能等待約 30–90 秒；實際時間依平台而定。日報、到期提醒及管理通知可能延後，限定日期報表可能略過。免費／預付額度用完時，翻譯、語音、圖片或 AI 功能可能暫停，不會因此自動加值。上述是黃色平台營運事件，不是遭駭證據。先用免費版測試當下狀態；有疑問請先聯絡客服，勿重複付款。<br>若發現重複付款或付款成功未開通，可聯絡客服人工查核交易與開通狀態。受理查核不保證退款，也不變更既有退費條件或付款方式；詳見 <a href="terms.html">使用條款</a>。
@@ -1984,10 +1985,18 @@ footer a:hover { color:var(--text); }
           <div class="price-badge">尊爵服務</div>
           <div class="price-plan">尊爵版</div>
           <div class="price-amount">NT$2500</div><div class="price-period">永久買斷／每群組</div>
-          <ul class="price-features"><li>專屬客製化機器人</li><li>預計開發台語版、客語版</li></ul>
+          <ul class="price-features"><li>完整群組翻譯，依支援語言清單</li><li>語音、圖片 OCR 翻譯</li><li>AI 摘要：最近最多 300 筆</li><li>每日報表、紀錄搜尋與匯出</li><li>永久買斷指定一個群組</li><li>客製需求與交付範圍須付款前確認</li><li>未上線計畫不列為現有功能</li></ul>
           <a href="join.html" class="btn-plan" data-btn="contact">加入開通</a>
         </div>
       </div>
+    </div>
+    <div id="premium-scope-note" class="known-limit" style="padding:18px;border:1px solid #3b6c54;border-radius:12px;line-height:1.8;margin:24px 0">
+      <h2 style="font-size:1.2rem;margin:0 0 12px">尊爵版：購買範圍與開通流程</h2>
+      <p><strong>目前包含：</strong>NT$2,500 永久買斷／每群組，提供該群組的現有付費功能：完整支援語言清單、文字翻譯、語音、圖片 OCR、最近最多 300 筆 AI 摘要、每日報表、紀錄搜尋與匯出。購買不會同時開通其他群組，也不會把個人私訊升級為付費版。</p>
+      <p><strong>客製需求：</strong>如需特殊設定、獨立品牌 Bot、群組移轉或新功能開發，請在付款前透過客服確認是否提供、具體範圍與交付方式；本頁的 NT$2,500 不能直接理解為不限次工程開發、原始碼移轉或所有群組授權。</p><p><strong>既有訂單：</strong>本次說明不追溯縮減既有訂單的權益；原購買時已承諾或另行確認的交付內容，仍依原約定處理。</p>
+      <p><strong>尚未上線：</strong>台語、客語版本屬開發構想，目前不列入可用語言或本次購買交付，也沒有在本頁承諾上線日期。是否支援某語言，請先在 LINE 傳送 <code>@支援語言</code> 核對。</p>
+      <p><strong>付款與交付：</strong>先把官方 Bot 加入要開通的群組，在該群傳送 <code>@方案</code>，核對群組與方案後使用對應綠界連結付款。收到且驗證成功付款通知後，系統開通該群組；僅建立訂單、顯示付款成功頁或回到 LINE，不等於已確認開通。請以群組開通通知及 <code>@群組狀態</code> 回覆核對；通知未收到不一定代表交易失敗，勿重複付款，請聯絡客服查核。</p>
+      <p style="font-size:.85rem;opacity:.8">內容與程式核對：2026-10-10。本輪核對方案設定與開通邏輯，未執行真實付款；永久買斷是方案期間，不是永久不中斷或第三方無限額度保證。既有退款與公平使用規範仍依 <a href="terms.html">使用條款</a>。</p>
     </div>
     <div class="tutorial-video-card pricing-video-card">
       <div class="tutorial-video-head">
@@ -2976,7 +2985,7 @@ var i18n = {
     'pg4.name': '一年版',   'pg4.desc': '', 'pg4.period': '420 天',
     'pg4.f1': '完整群組翻譯、語音、OCR', 'pg4.f2': '摘要、報表、搜尋與匯出', 'pg4.f3': '適合穩定長期使用的群組', 'pg4.f4': '到期前自動提醒一次', 'pg4.f5': '', 'pg4.f6': '', 'pg4.f7': '',
     'pg5.name': '尊爵版',   'pg5.desc': '', 'pg5.period': '永久買斷／每群組',
-    'pg5.f1': '專屬客製化機器人', 'pg5.f2': '預計開發台語版、客語版', 'pg5.f3': '', 'pg5.f4': '', 'pg5.f5': '', 'pg5.f6': '', 'pg5.f7': '',
+    'pg5.f1': '完整群組翻譯，依支援語言清單', 'pg5.f2': '語音、圖片 OCR 翻譯', 'pg5.f3': 'AI 摘要：最近最多 300 筆', 'pg5.f4': '每日報表、紀錄搜尋與匯出', 'pg5.f5': '永久買斷指定一個群組', 'pg5.f6': '客製需求與交付範圍須付款前確認', 'pg5.f7': '未上線計畫不列為現有功能',
   },
   en: {
     // NAV
@@ -3385,7 +3394,7 @@ var i18n = {
     'pg4.name': 'Annual',    'pg4.desc': '', 'pg4.period': '420 days',
     'pg4.f1': 'Full group translation, voice, and OCR', 'pg4.f2': 'Summaries, reports, search, and export', 'pg4.f3': 'For stable long-term groups', 'pg4.f4': 'One expiry reminder before the end', 'pg4.f5': '', 'pg4.f6': '', 'pg4.f7': '',
     'pg5.name': 'Premium',    'pg5.desc': '', 'pg5.period': 'Lifetime buyout / per group',
-    'pg5.f1': 'Dedicated custom bot', 'pg5.f2': 'Planned Taiwanese and Hakka versions', 'pg5.f3': '', 'pg5.f4': '', 'pg5.f5': '', 'pg5.f6': '', 'pg5.f7': '',
+    'pg5.f1': 'Group translation for supported languages', 'pg5.f2': 'Voice and image OCR translation', 'pg5.f3': 'AI summaries: up to 300 recent records', 'pg5.f4': 'Daily reports, record search and export', 'pg5.f5': 'Lifetime buyout for one specified group', 'pg5.f6': 'Confirm custom scope before payment', 'pg5.f7': 'Unreleased plans are not current features',
   }
 };
 
@@ -3701,7 +3710,7 @@ function applyLang(lang) {
 
   // PRICING
   q('#pricing .eyebrow', 'price.eyebrow');
-  q('#pricing h1, #pricing h2', 'price.h2');
+  q('#pricing-title', 'price.h2');
   q('#pricing .lead', 'price.lead');
   h('service-status-note', 'service.status');
   q('#pricing-video-title', 'price.video.title');
@@ -3924,7 +3933,7 @@ function forcePricingLang(lang) {
         { name:'月費版', desc:'', amount:'NT$99', period:'30 天', features:['小資輕鬆擁有完整服務','支援完整語言清單','支持語音、圖片 OCR 翻譯','紀錄搜尋與統計','新增報表製作/匯出功能','配屬 AI 祕書可匯整 300 筆摘要'] },
         { name:'半年版', desc:'', amount:'NT$499', period:'180 天', features:['經濟實惠的價格','支援完整語言清單','支持語音、圖片 OCR 翻譯','紀錄搜尋與統計','新增報表製作/匯出功能','配屬 AI 祕書可匯整 300 筆摘要','適合中度/中長期使用者'] },
         { name:'一年版', desc:'', amount:'NT$799', period:'420 天', features:['完整群組翻譯、語音、OCR','摘要、報表、搜尋與匯出','適合穩定長期使用的群組','到期前自動提醒一次','','','',''] },
-        { name:'尊爵版', desc:'', amount:'NT$2500', period:'永久買斷／每群組', features:['專屬客製化機器人','預計開發台語版、客語版','','','','',''] }
+        { name:'尊爵版', desc:'', amount:'NT$2500', period:'永久買斷／每群組', features:['完整群組翻譯，依支援語言清單','語音、圖片 OCR 翻譯','AI 摘要：最近最多 300 筆','每日報表、紀錄搜尋與匯出','永久買斷指定一個群組','客製需求與交付範圍須付款前確認','未上線計畫不列為現有功能'] }
       ]
     },
     en: {
@@ -3940,7 +3949,7 @@ function forcePricingLang(lang) {
         { name:'Monthly', desc:'', amount:'NT$99', period:'30 days', features:['Affordable full service','Full supported language list','Voice and image OCR translation','Record search and analytics','Report generation and export','AI secretary summarizes up to 300 messages'] },
         { name:'Half-Year', desc:'', amount:'NT$499', period:'180 days', features:['Cost-effective price','Full supported language list','Voice and image OCR translation','Record search and analytics','Report generation and export','AI secretary summarizes up to 300 messages','For medium or mid-term users'] },
         { name:'Annual', desc:'', amount:'NT$799', period:'420 days', features:['Full group translation, voice, and OCR','Summaries, reports, search, and export','For stable long-term groups','One expiry reminder before the end','','','',''] },
-        { name:'Premium', desc:'', amount:'NT$2500', period:'Lifetime buyout / per group', features:['Dedicated custom bot','Planned Taiwanese and Hakka versions','','','','',''] }
+        { name:'Premium', desc:'', amount:'NT$2500', period:'Lifetime buyout / per group', features:['Group translation for supported languages','Voice and image OCR translation','AI summaries: up to 300 recent records','Daily reports, record search and export','Lifetime buyout for one specified group','Confirm custom scope before payment','Unreleased plans are not current features'] }
       ]
     }
   };
@@ -4001,8 +4010,15 @@ function forcePricingLang(lang) {
     });
   }
   text('#pricing .eyebrow', t.eyebrow);
-  text('#pricing h1, #pricing h2', t.title);
+  text('#pricing-title', t.title);
   text('#pricing .lead', t.lead);
+  var premiumScope = document.getElementById('premium-scope-note');
+  if (premiumScope) {
+    if (!premiumScope.dataset.zhCopy) premiumScope.dataset.zhCopy = premiumScope.innerHTML;
+    premiumScope.innerHTML = lang === 'en'
+      ? '<h2 style="font-size:1.2rem;margin:0 0 12px">Premium: purchase scope and activation</h2><p><strong>Included now:</strong> NT$2,500 lifetime buyout per group, covering that group\'s current paid features: the supported language list, text translation, voice, image OCR, AI summaries of up to 300 recent records, daily reports, record search and export. A purchase does not activate other groups or upgrade personal direct messages.</p><p><strong>Custom requests:</strong> Before payment, ask support whether special settings, a separately branded Bot, group migration or new development are offered, and confirm the scope and delivery. NT$2,500 on this page must not be interpreted as unlimited engineering, source-code transfer or a license for every group.</p><p><strong>Existing orders:</strong> This clarification does not retroactively reduce rights under existing orders. Deliverables promised at purchase or confirmed separately remain governed by the original agreement.</p><p><strong>Not released:</strong> Taiwanese and Hakka versions are development ideas, not currently supported languages or deliverables of this purchase. No launch date is promised here. Send <code>@支援語言</code> in LINE to check language support before buying.</p><p><strong>Payment and delivery:</strong> Add the official Bot to the intended group, send <code>@方案</code> there, confirm the group and plan, and pay through its matching ECPay link. The system activates that group after receiving and validating a successful payment notification. Creating an order, seeing a payment success page or returning to LINE alone does not confirm activation. Check the group activation notice and <code>@群組狀態</code> response. A missing notice does not necessarily mean the transaction failed; do not pay again. Ask support to reconcile it.</p><p style="font-size:.85rem;opacity:.8">Content and code checked: 2026-10-10. This review checked plan configuration and activation logic; it did not perform a real payment. Lifetime describes the plan term, not uninterrupted operation or unlimited third-party capacity. Existing refund and fair-use rules remain in the <a href="terms.html">Terms</a>.</p>'
+      : premiumScope.dataset.zhCopy;
+  }
   var tabs = document.querySelectorAll('.pricing-tab');
   if (tabs[0]) tabs[0].textContent = t.tabs[0];
   if (tabs[1]) tabs[1].textContent = t.tabs[1];
@@ -4145,6 +4161,9 @@ function setLang(lang) {
     if (window.wanyuGoTop) window.wanyuGoTop(true);
   }
 }
+
+// This page owns its plan copy. Shared chrome synchronization delegates here.
+window.wanyuPagePricingRenderer = forcePricingLang;
 
 // 初始化：讀取儲存的語言
 (function(){

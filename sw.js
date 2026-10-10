@@ -1,5 +1,5 @@
 const CACHE_PREFIX = 'wanyutong-pwa-';
-const CACHE_NAME = CACHE_PREFIX + '20260920-quota-picker-v1';
+const CACHE_NAME = CACHE_PREFIX + '20261010-content-truth-v1';
 const CORE_ASSETS = [
   './',
   './index.html',
@@ -29,11 +29,11 @@ const CORE_ASSETS = [
   './blog-language-settings.html',
   './blog-free-paid-plans.html',
   './blog-group-translation-checklist.html',
-  './blog-image-ocr-checklist.html',
   './blog-translation-quality-checklist.html',
   './manifest.webmanifest',
   './ads.txt',
   './assets/wanyutong-app.js',
+  './assets/wanyutong-app.js?v=content-truth-20261010',
   './assets/wanyutong-ads-config.js',
   './assets/wanyutong-ads.js',
   './assets/wanyutong-readable.css',

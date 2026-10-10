@@ -105,5 +105,5 @@ test('setup and mode articles explain successful switching and validation failur
 });
 
 test('service worker uses a fresh cache for the public guidance release', () => {
-  assert.match(read('sw.js'), /20260920-quota-picker-v1/);
+  assert.match(read('sw.js'), /20261010-content-truth-v1/);
 });

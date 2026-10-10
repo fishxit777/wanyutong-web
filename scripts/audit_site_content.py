@@ -21,6 +21,7 @@ QUARANTINED = {
     "blog-foreign-worker-safety-law.html",
     "blog-restaurant-foreign-worker-translation.html",
 }
+MERGED = {"blog-image-ocr-checklist.html": "blog-image-ocr-translation.html#checklist"}
 PILLARS = {
     "blog-line-group-translation.html": "developers.line.biz",
     "blog-image-ocr-translation.html": "developers.line.biz",
@@ -114,6 +115,8 @@ def audit_internal_links(errors: list[str], html_files: list[Path]) -> None:
                 fail(errors, f"{path.name}: broken internal link: {raw_href}")
             elif page.indexable and raw_href in page.anchors and target.name in QUARANTINED:
                 fail(errors, f"{path.name}: indexable page links to quarantined content: {target.name}")
+            elif page.indexable and raw_href in page.anchors and target.name in MERGED:
+                fail(errors, f"{path.name}: indexable page links to merged redirect: {target.name}")
 
 
 def audit_local_assets(errors: list[str], html_files: list[Path]) -> None:
@@ -164,6 +167,26 @@ def audit_quarantine(errors: list[str]) -> None:
             fail(errors, f"sitemap.xml: quarantined page is still listed: {name}")
         if "內容重新整理中" not in text:
             fail(errors, f"{name}: missing visible maintenance explanation")
+
+
+def audit_merged_pages(errors: list[str]) -> None:
+    blog_index = (ROOT / "blog.html").read_text(encoding="utf-8")
+    sitemap = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
+    for name, destination in MERGED.items():
+        text = (ROOT / name).read_text(encoding="utf-8")
+        if PageLinks(text).indexable:
+            fail(errors, f"{name}: merged redirect must be noindex")
+        if any(fragment in text for fragment in ("pagead2.googlesyndication.com", "wanyutong-ads", "data-wyt-ad")):
+            fail(errors, f"{name}: merged redirect must not load ads")
+        if name in blog_index or name in sitemap:
+            fail(errors, f"{name}: merged redirect must not be listed as an article")
+        canonical = "https://wanyutong.tw/" + destination.split("#", 1)[0]
+        if not re.search(r'<link\b(?=[^>]*rel=["\']canonical["\'])(?=[^>]*href=["\']' + re.escape(canonical) + r'["\'])[^>]*>', text, re.I):
+            fail(errors, f"{name}: canonical must point to the merged article")
+        if destination not in PageLinks(text).anchors:
+            fail(errors, f"{name}: merged redirect needs a fallback link")
+        if not re.search(r'<meta\b(?=[^>]*http-equiv=["\']refresh["\'])(?=[^>]*content=["\']0;\s*url=' + re.escape(destination) + r'["\'])[^>]*>', text, re.I):
+            fail(errors, f"{name}: merged redirect needs a fixed immediate destination")
 
 
 def has_valid_review_date(text: str, *, today: date | None = None) -> bool:
@@ -249,6 +272,7 @@ def main() -> int:
     audit_local_assets(errors, html_files)
     audit_json_ld(errors, html_files)
     audit_quarantine(errors)
+    audit_merged_pages(errors)
     audit_pillars(errors)
     audit_banned_claims(errors, html_files)
 
@@ -259,7 +283,7 @@ def main() -> int:
         return 1
 
     print(
-        "PASS: content structure, internal links, quarantine rules, pillar evidence, "
+        "PASS: content structure, internal links, quarantine/merged rules, pillar evidence, "
         "and banned-claim checks all passed"
     )
     print(f"Checked {len(html_files)} HTML files, {len(PILLARS)} pillar pages, and {len(QUARANTINED)} quarantine pages")

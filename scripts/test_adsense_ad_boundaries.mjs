@@ -80,7 +80,7 @@ test('deployed configuration leaves all three release gates closed', () => {
   const cfg = context.window.WANYUTONG_ADS;
   for (const name of ['enabled', 'approvalConfirmed', 'consentReady']) assert.equal(cfg[name], false, name);
   assert.equal(cfg.mode, 'content_ads_only');
-  assert.equal(cfg.enabledPaths.length, 9);
+  assert.equal(cfg.enabledPaths.length, 8);
   assert.ok(cfg.enabledPaths.every((path) => /^blog-[a-z-]+\.html$/.test(path)));
   assert.ok(Object.values(cfg.slots).every((value) => value === ''));
 });
@@ -98,7 +98,7 @@ for (const path of [
   '/admin', '/payment', '/free-unlock', '/blog-new-unreviewed.html',
   '/blog-factory-line-translation.html', '/blog-caregiver-line-translation.html',
   '/blog-construction-line-translation.html', '/blog-foreign-worker-safety-law.html',
-  '/blog-restaurant-foreign-worker-translation.html',
+  '/blog-restaurant-foreign-worker-translation.html', '/blog-image-ocr-checklist.html',
   '/folder/' + article, '/' + article + '-extra', '/' + article + '/',
   '/BLOG-line-group-translation.html', '/blog%2Dline-group-translation.html',
   '/' + article + '?source=synthetic', '/' + article + '#synthetic'
@@ -130,7 +130,7 @@ for (const value of ['', ' ', 'abc', '<synthetic>', '123;456', '1'.repeat(21), n
 }
 test('prototype slot keys are not accepted', () => assertNoAds(harness({ slotKey: 'toString' })));
 
-test('each of the nine reviewed articles can pass only with explicitly opened gates and a valid slot', () => {
+test('each of the eight reviewed articles can pass only with explicitly opened gates and a valid slot', () => {
   const cfgContext = { window: {} };
   vm.runInNewContext(configSource, cfgContext);
   for (const path of cfgContext.window.WANYUTONG_ADS.enabledPaths) {

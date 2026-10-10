@@ -75,21 +75,32 @@ test('PWA install caches only existing public files without cookies', async () =
   const h = makeHarness();
   await h.lifecycle('install');
   assert.ok(h.calls.length > 40);
-  const versionedCaptions = new Set([
-    '/assets/wanyutong-line-bot-tutorial-20260920.vtt',
-    '/assets/wanyutong-secretary-tutorial-20260914.vtt',
-    '/assets/wanyutong-activation-flow-20260920.vtt',
+  const versionedAssets = new Map([
+    ['/assets/wanyutong-line-bot-tutorial-20260920.vtt', '?v=quota-picker-v1'],
+    ['/assets/wanyutong-secretary-tutorial-20260914.vtt', '?v=quota-picker-v1'],
+    ['/assets/wanyutong-activation-flow-20260920.vtt', '?v=quota-picker-v1'],
+    ['/assets/wanyutong-app.js', '?v=content-truth-20261010'],
   ]);
   for (const request of h.calls) {
     assert.equal(request.credentials, 'omit');
     assert.equal(request.redirect, 'error');
     const url = new URL(request.url);
     if (url.search) {
-      assert.ok(versionedCaptions.has(url.pathname), `unexpected versioned asset: ${url.pathname}`);
-      assert.equal(url.search, '?v=quota-picker-v1');
+      assert.ok(versionedAssets.has(url.pathname), `unexpected versioned asset: ${url.pathname}`);
+      assert.equal(url.search, versionedAssets.get(url.pathname));
     }
     assert.ok(existsSync(fileURLToPath(new URL('.' + url.pathname, root))));
   }
+});
+
+test('pricing script revision is available offline without permitting arbitrary queries', async () => {
+  const h = makeHarness();
+  await h.lifecycle('install');
+  h.setNetwork(async () => { throw new Error('offline'); });
+  const result = await h.dispatch('/assets/wanyutong-app.js?v=content-truth-20261010', { destination: 'script' });
+  assert.equal(result.intercepted, true);
+  assert.equal(await result.response.text(), 'public');
+  assert.equal((await h.dispatch('/assets/wanyutong-app.js?v=unknown', { destination: 'script' })).intercepted, false);
 });
 
 test('activation removes old WanyuTong caches and preserves other applications', async () => {

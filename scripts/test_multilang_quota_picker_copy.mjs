@@ -31,7 +31,7 @@ test('active quota copy explains source-or-target one-message accounting', () =>
     '每則原始訊息計 1 則',
     '每日 50 則',
     '中文含繁體與簡體',
-    '今日剩餘 49/50 則',
+    '剩餘 5、3、1、0 則',
     '群組由全群組共用',
   ]) {
     assert.ok(combined.includes(phrase), phrase);

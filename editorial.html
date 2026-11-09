@@ -13,7 +13,7 @@
   <meta property="og:title" content="萬語通內容編輯與測試原則">
   <meta property="og:description" content="了解萬語通如何核對產品操作、引用資料、標示限制並修正公開內容。">
   <meta property="og:url" content="https://wanyutong.tw/editorial.html">
-  <meta property="og:image" content="https://wanyutong.tw/assets/guides/group-confirmation.jpg">
+  <meta property="og:image" content="https://wanyutong.tw/assets/guides/group-confirmation.jpg?v=content-sync-20261110">
   <link rel="icon" type="image/png" href="assets/icons/wanyutong-icon-192.png">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="stylesheet" href="assets/wanyutong-guide.css">
@@ -24,12 +24,14 @@
     "@type": "Article",
     "headline": "萬語通內容編輯與測試原則",
     "datePublished": "2026-08-27",
-    "dateModified": "2026-10-10",
+    "dateModified": "2026-11-10",
     "author": {"@type": "Organization", "name": "萬語通團隊"},
     "publisher": {"@type": "Organization", "name": "萬語通", "logo": {"@type": "ImageObject", "url": "https://wanyutong.tw/assets/wanyutong-logo.jpg"}},
     "mainEntityOfPage": "https://wanyutong.tw/editorial.html"
   }
   </script>
+  <meta name="referrer" content="origin">
+  <script src="assets/wanyutong-analytics.js?v=20261110-v2" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#editorial">跳到主要內容</a>
@@ -40,8 +42,8 @@
 
 <main id="editorial">
   <header class="article-hero"><div class="hero-inner">
-    <div><p class="eyebrow">內容透明度</p><h1>萬語通內容編輯與測試原則</h1><p class="hero-lead">本頁說明官網的產品操作、工作指南與方案資料如何產生、核對、更新與修正。目標是讓讀者分得清楚：哪些是實際產品流程、哪些是一般工作建議，以及哪些內容一定要由人再次確認。</p><div class="meta"><span>發布：2026-08-27</span><span>文件更新：2026-10-10</span><span>維護：萬語通團隊</span></div></div>
-    <figure class="hero-figure"><img src="assets/guides/group-confirmation.jpg" alt="群組按需查看語言的重製資訊圖，含示意聊天，不是 LINE 截圖" width="1280" height="720"><figcaption>這張是 2026-09-20 重製資訊圖，不是 LINE 實機截圖或影片擷取。圖解可說明流程，不能充當產品實測或客戶成果證據。</figcaption></figure>
+    <div><p class="eyebrow">內容透明度</p><h1>萬語通內容編輯與測試原則</h1><p class="hero-lead">本頁說明官網的產品操作、工作指南與方案資料如何產生、核對、更新與修正。目標是讓讀者分得清楚：哪些是實際產品流程、哪些是一般工作建議，以及哪些內容一定要由人再次確認。</p><div class="meta"><span>發布：2026-08-27</span><span>文件更新：2026-11-10</span><span>維護：萬語通團隊</span></div></div>
+    <figure class="hero-figure"><img src="assets/guides/group-confirmation.jpg?v=content-sync-20261110" alt="群組按需查看語言的重製資訊圖，含示意聊天，不是 LINE 截圖" width="1280" height="720"><figcaption>這張是 2026-11-10 更新資訊圖，不是 LINE 實機截圖或影片擷取。圖解可說明流程，不能充當產品實測或客戶成果證據。</figcaption></figure>
   </div></header>
 
   <div class="article-layout">
@@ -69,13 +71,13 @@
       </ol></section>
 
       <section id="sources"><h2>外部資料與引用原則</h2><p>產品功能以萬語通實際流程為主要證據。涉及第三方平台或專業領域時，優先連結原始或官方來源，例如：</p><ul>
-        <li><a href="https://developers.line.biz/en/docs/messaging-api/group-chats/" target="_blank" rel="noopener">LINE Developers：群組與多人聊天室 Messaging API</a></li>
+        <li><a href="https://developers.line.biz/en/docs/messaging-api/rich-menus-overview/" target="_blank" rel="noopener">LINE Developers：Rich menu（手機私訊與群組限制）</a></li><li><a href="https://developers.line.biz/en/docs/messaging-api/group-chats/" target="_blank" rel="noopener">LINE Developers：群組與多人聊天室 Messaging API</a></li>
         <li><a href="https://developers.deepl.com/docs/getting-started/supported-languages" target="_blank" rel="noopener">DeepL Developers：支援語言</a></li>
         <li><a href="https://www.osha.gov.tw/" target="_blank" rel="noopener">勞動部職業安全衛生署</a></li>
         <li><a href="https://law.moj.gov.tw/" target="_blank" rel="noopener">全國法規資料庫</a></li>
       </ul><p>若資料可能隨版本、政策或方案改變，文章會附上核對日期，並提醒讀者以服務當下畫面或主管機關最新公告為準。</p></section>
 
-      <section id="corrections"><h2>發現錯誤後怎麼修正</h2><ul><li>先核對原始證據；必要時重現問題，不直接依單一截圖猜測原因。</li><li>同步檢查首頁、功能、收費、FAQ、開始使用、相關文章與結構化資料。</li><li>實質修正後更新文件修改日期與 sitemap；實機日期另列，不只換日期假裝完成實測。</li><li>重大功能變更若尚未部署完成，不提前把規劃內容寫成可用功能；高度重複的文章合併，舊入口保留導向。</li></ul><p>2026-10-10 的內容修正包含：將舊圖說中的「實際畫面／教學影片」改為可核對的資訊圖描述，分開文件更新與歷史測試日期，並合併 OCR 操作與拍攝核對內容。這是內容維護，不代表 Google 已核准網站廣告。讀者回報仍會先核對，確認有誤再更新。</p></section>
+      <section id="corrections"><h2>發現錯誤後怎麼修正</h2><ul><li>先核對原始證據；必要時重現問題，不直接依單一截圖猜測原因。</li><li>同步檢查首頁、功能、收費、FAQ、開始使用、相關文章與結構化資料。</li><li>實質修正後更新文件修改日期與 sitemap；實機日期另列，不只換日期假裝完成實測。</li><li>重大功能變更若尚未部署完成，不提前把規劃內容寫成可用功能；高度重複的文章合併，舊入口保留導向。</li></ul><p>2026-11-10 同步核對常用選單、群組 @選單、語言選擇卡、TAG 與翻譯提醒；撤下自動確認人數與摘要 300 筆的未實現宣稱，並說明觀看內容換額度已停用。手機文案、影片畫面、旁白與字幕一併更新。本次依程式及部署交接核對，不代表新增客戶群實測或所有語言準確率驗證。</p></section>
 
       <section id="ads"><h2>內容與廣告分開</h2><p>萬語通產品服務與官網內容型廣告分開。網站廣告不影響 LINE Bot 的免費額度、付費開通、翻譯排序或客服處理。廣告只規劃放在內容完整的知識庫與文章頁，不放在加入、付款、登入、隱私或純導覽畫面。</p><p>廣告平台可能依隱私權政策使用 Cookie 或裝置資訊；網站如何處理資料，請參考<a href="privacy.html">隱私權政策</a>。</p></section>
 
@@ -98,9 +100,9 @@ var articleEnglishCopy = {
   '.article-hero h1': `WanyuTong Editorial and Testing Policy`,
   '.hero-lead': `This page explains how product instructions, workplace guides, and plan information are created, checked, updated, and corrected. It separates actual product workflows from general guidance and content that still requires human confirmation.`,
   '.meta span:nth-child(1)': `Published: 2026-08-27`,
-  '.meta span:nth-child(2)': `Document updated: 2026-10-10`,
+  '.meta span:nth-child(2)': `Document updated: 2026-11-10`,
   '.meta span:nth-child(3)': `Maintained by: WanyuTong Team`,
-  '.hero-figure figcaption': `A workflow diagram recreated on 2026-09-20, not a LINE device screenshot or a video capture. Diagrams explain a workflow; they are not evidence of product testing or customer results.`,
+  '.hero-figure figcaption': `A workflow diagram updated on 2026-11-10, not a LINE device screenshot or a video capture. Diagrams explain a workflow; they are not evidence of product testing or customer results.`,
   '.toc strong': `Contents`,
   '.toc a[href="#ownership"]': `Content ownership`,
   '.toc a[href="#evidence"]': `Evidence levels`,
@@ -119,11 +121,11 @@ var articleEnglishCopy = {
   '#testing .step-list': `<li><h3>Confirm the entry point and version</h3><p>Start from the official WanyuTong LINE entry point and verify that the public Bot is being tested, rather than an old screenshot, test branch, or another service.</p></li><li><h3>Use low-risk test messages</h3><p>Begin with a general meeting notice, then test time, quantity, negation, location, and codes separately. Test content excludes real customers, credit cards, identity numbers, medical records, and private group data.</p></li><li><h3>Check both translation directions</h3><p>Test the supervisor's source message into the target language, then test whether an employee reply in the target language returns understandable Traditional Chinese.</p></li><li><h3>Record limits and human responsibility</h3><p>If accents, image quality, terminology, or context can change the result, the article must say so. Safety, medical, legal, and payment information must be marked for human review.</p></li>`,
   '#sources h2': `External sources and citations`,
   '#sources p:nth-of-type(1)': `Actual WanyuTong workflows are the primary evidence for product features. When an article concerns a third-party platform or professional field, it links to original or official sources first, including:`,
-  '#sources ul': `<li><a href="https://developers.line.biz/en/docs/messaging-api/group-chats/" target="_blank" rel="noopener">LINE Developers: Messaging API for group chats</a></li><li><a href="https://developers.deepl.com/docs/getting-started/supported-languages" target="_blank" rel="noopener">DeepL Developers: Supported languages</a></li><li><a href="https://www.osha.gov.tw/" target="_blank" rel="noopener">Taiwan Occupational Safety and Health Administration</a></li><li><a href="https://law.moj.gov.tw/ENG/" target="_blank" rel="noopener">Laws & Regulations Database of Taiwan</a></li>`,
+  '#sources ul': `<li><a href="https://developers.line.biz/en/docs/messaging-api/rich-menus-overview/" target="_blank" rel="noopener">LINE Developers：Rich menu（手機私訊與群組限制）</a></li><li><a href="https://developers.line.biz/en/docs/messaging-api/group-chats/" target="_blank" rel="noopener">LINE Developers: Messaging API for group chats</a></li><li><a href="https://developers.deepl.com/docs/getting-started/supported-languages" target="_blank" rel="noopener">DeepL Developers: Supported languages</a></li><li><a href="https://www.osha.gov.tw/" target="_blank" rel="noopener">Taiwan Occupational Safety and Health Administration</a></li><li><a href="https://law.moj.gov.tw/ENG/" target="_blank" rel="noopener">Laws & Regulations Database of Taiwan</a></li>`,
   '#sources p:nth-of-type(2)': `When information may change with a version, policy, or plan, the article includes a review date and asks readers to follow the latest service screen or competent authority notice.`,
   '#corrections h2': `How published errors are corrected`,
   '#corrections ul': `<li>Check the original evidence and reproduce the issue when needed; do not infer a cause from one screenshot.</li><li>Check the homepage, features, pricing, FAQ, getting-started guide, related articles, and structured data together.</li><li>After a substantive correction, update the document date and sitemap. Keep device-test dates separate; changing a date does not establish a test.</li><li>Do not describe a planned feature as released. Merge highly repetitive articles and preserve an onward link from the old entry.</li>`,
-  '#corrections p': `The 2026-10-10 corrections replace unsupported “actual screen/tutorial video” captions with accurate diagram descriptions, distinguish document updates from historical testing, and merge OCR operation and photography checks. These are content changes, not Google advertising approval. Reader reports are still checked before confirmed errors are corrected.`,
+  '#corrections p': `The 2026-11-10 review aligns common menus, group @選單, language pickers, mentions, and translation reminders. Unsupported automatic acknowledgement counts and 300-record summary claims were removed, and content-for-credit claims were marked disabled. Mobile copy, video scenes, narration, and captions were updated together. This is a code and deployment-record review, not a new customer-group test or an accuracy certification for every language.`,
   '#ads h2': `Content and advertising are separate`,
   '#ads p:nth-of-type(1)': `WanyuTong product service and website content advertising are separate. Website ads do not affect free LINE Bot quotas, paid activation, translation order, or customer support. Ad placements are planned only for complete knowledge-base and article pages, not join, payment, login, privacy, or navigation-only screens.`,
   '#ads p:nth-of-type(2)': `Advertising platforms may use cookies or device information under their privacy policies. See the <a href="privacy.html">Privacy Policy</a> for how this website handles data.`,

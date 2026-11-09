@@ -52,7 +52,9 @@ class PrivacyDisclosureTests(unittest.TestCase):
 
     def test_scope_of_analytics_minimization(self):
         for term in ("頁面與來源欄位", "來源網域", "不保存來源網址的路徑或查詢參數",
-                     "自有流量紀錄仍包含瀏覽器資訊、來源 IP 與時間", "不代表完全不收集 IP"):
+                     "舊版自有流量紀錄包含瀏覽器資訊、來源 IP 與時間",
+                     "新版頁面瀏覽與 LINE 點擊事件不保存 IP、瀏覽器資訊或訪客識別碼",
+                     "這不代表主機與安全防護完全不處理 IP"):
             self.assertTrue(term in self.text, "missing analytics scope distinction")
         self.assertFalse("自有瀏覽統計以公開頁名與來源網域為限" in self.text,
                          "must not imply that own analytics excludes technical records")

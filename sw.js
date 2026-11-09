@@ -1,5 +1,5 @@
 const CACHE_PREFIX = 'wanyutong-pwa-';
-const CACHE_NAME = CACHE_PREFIX + '20261010-content-truth-v1';
+const CACHE_NAME = CACHE_PREFIX + '20261110-content-sync-v3';
 const CORE_ASSETS = [
   './',
   './index.html',
@@ -32,8 +32,9 @@ const CORE_ASSETS = [
   './blog-translation-quality-checklist.html',
   './manifest.webmanifest',
   './ads.txt',
+  './assets/wanyutong-analytics.js?v=20261110-v2',
   './assets/wanyutong-app.js',
-  './assets/wanyutong-app.js?v=content-truth-20261010',
+  './assets/wanyutong-app.js?v=content-sync-20261110',
   './assets/wanyutong-ads-config.js',
   './assets/wanyutong-ads.js',
   './assets/wanyutong-readable.css',
@@ -41,12 +42,12 @@ const CORE_ASSETS = [
   './assets/wanyutong-card.css',
   './assets/wanyutong-card.js',
   './assets/wanyutong-line-qr.png',
-  './assets/wanyutong-line-bot-tutorial-20260920-poster.jpg',
-  './assets/wanyutong-line-bot-tutorial-20260920.vtt?v=quota-picker-v1',
-  './assets/wanyutong-secretary-tutorial-20260914-poster.jpg',
-  './assets/wanyutong-secretary-tutorial-20260914.vtt?v=quota-picker-v1',
-  './assets/wanyutong-activation-flow-20260920-poster.jpg',
-  './assets/wanyutong-activation-flow-20260920.vtt?v=quota-picker-v1',
+  './assets/wanyutong-line-bot-tutorial-20261110-poster.jpg',
+  './assets/wanyutong-line-bot-tutorial-20261110.vtt?v=content-sync-20261110',
+  './assets/wanyutong-secretary-tutorial-20261110-poster.jpg',
+  './assets/wanyutong-secretary-tutorial-20261110.vtt?v=content-sync-20261110',
+  './assets/wanyutong-activation-flow-20261110-poster.jpg',
+  './assets/wanyutong-activation-flow-20261110.vtt?v=content-sync-20261110',
   './assets/icons/wanyutong-icon-180.png',
   './assets/icons/wanyutong-icon-192.png',
   './assets/icons/wanyutong-icon-512.png',
@@ -58,21 +59,21 @@ const CORE_ASSETS = [
   './assets/blog/image-ocr-translation.jpg',
   './assets/blog/line-group-translation.jpg',
   './assets/blog/restaurant-foreign-worker.jpg',
-  './assets/guides/line-bot-add.jpg',
-  './assets/guides/language-setting.jpg',
-  './assets/guides/multilingual-reply.jpg',
-  './assets/guides/group-confirmation.jpg',
-  './assets/guides/plan-and-activation.jpg',
-  './assets/guides/secretary-status.jpg'
+  './assets/guides/line-bot-add.jpg?v=content-sync-20261110',
+  './assets/guides/language-setting.jpg?v=content-sync-20261110',
+  './assets/guides/multilingual-reply.jpg?v=content-sync-20261110',
+  './assets/guides/group-confirmation.jpg?v=content-sync-20261110',
+  './assets/guides/plan-and-activation.jpg?v=content-sync-20261110',
+  './assets/guides/secretary-status.jpg?v=content-sync-20261110'
 ];
 
 // 1080p videos are deliberately omitted from install-time precaching. They are
 // allowlisted for runtime caching so a PWA install never depends on downloading
 // all three large media files at once.
 const RUNTIME_MEDIA_ASSETS = [
-  './assets/wanyutong-line-bot-tutorial-20260920.mp4?v=quota-picker-v1',
-  './assets/wanyutong-secretary-tutorial-20260914.mp4?v=quota-picker-v1',
-  './assets/wanyutong-activation-flow-20260920.mp4?v=quota-picker-v1'
+  './assets/wanyutong-line-bot-tutorial-20261110.mp4?v=content-sync-20261110',
+  './assets/wanyutong-secretary-tutorial-20261110.mp4?v=content-sync-20261110',
+  './assets/wanyutong-activation-flow-20261110.mp4?v=content-sync-20261110'
 ];
 
 // This public-site worker must never become a cache for accounts, API data,

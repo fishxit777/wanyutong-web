@@ -1,16 +1,20 @@
 import assert from 'node:assert/strict';
 import { existsSync, readFileSync } from 'node:fs';
 import test from 'node:test';
+import { resolve, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const root = new URL('../', import.meta.url);
+const mediaRoot = process.env.WYT_MEDIA_DIR ? resolve(process.env.WYT_MEDIA_DIR) : fileURLToPath(new URL('assets/', root));
 const read = (name) => readFileSync(new URL(name, root), 'utf8');
+const readMedia = (name) => readFileSync(join(mediaRoot, name), 'utf8');
 
 const media = {
-  line: 'wanyutong-line-bot-tutorial-20260920',
-  secretary: 'wanyutong-secretary-tutorial-20260914',
-  activation: 'wanyutong-activation-flow-20260920',
+  line: 'wanyutong-line-bot-tutorial-20261110',
+  secretary: 'wanyutong-secretary-tutorial-20261110',
+  activation: 'wanyutong-activation-flow-20261110',
 };
-const mediaRevision = '?v=quota-picker-v1';
+const mediaRevision = '?v=content-sync-20261110';
 
 const placements = [
   ['features.html', media.line],
@@ -43,9 +47,9 @@ test('all current tutorial media files exist and WebVTT files are valid', () => 
   for (const stem of Object.values(media)) {
     for (const suffix of ['.mp4', '-poster.jpg', '.vtt']) {
       const path = `assets/${stem}${suffix}`;
-      assert.ok(existsSync(new URL(path, root)), path);
+      assert.ok(existsSync(join(mediaRoot, `${stem}${suffix}`)), path);
     }
-    assert.match(read(`assets/${stem}.vtt`), /^WEBVTT(?:\r?\n|$)/, `${stem}.vtt`);
+    assert.match(readMedia(`${stem}.vtt`), /^WEBVTT(?:\r?\n|$)/, `${stem}.vtt`);
   }
 });
 
@@ -53,7 +57,7 @@ test('service worker precaches lightweight media metadata but loads 1080p MP4 at
   const worker = read('sw.js');
   const core = worker.match(/const CORE_ASSETS = \[([\s\S]*?)\n\];/)?.[1] || '';
   const runtime = worker.match(/const RUNTIME_MEDIA_ASSETS = \[([\s\S]*?)\n\];/)?.[1] || '';
-  assert.match(worker, /20261010-content-truth-v1/);
+  assert.match(worker, /20261110-content-sync-v3/);
 
   for (const stem of Object.values(media)) {
     const mp4 = `./assets/${stem}.mp4${mediaRevision}`;
@@ -106,7 +110,7 @@ test('superseded tutorial binaries have been removed from the release tree', () 
 });
 
 test('current LINE Bot captions explain exact quota and cached language buttons', () => {
-  const captions = read(`assets/${media.line}.vtt`);
+  const captions = readMedia(`${media.line}.vtt`).replace(/\s/g, '');
   for (const term of [
     '第一個指定目標',
     '二十四小時快取',
@@ -114,7 +118,10 @@ test('current LINE Bot captions explain exact quota and cached language buttons'
     '不會再次扣額度',
     '原文或任一指定目標超出四語',
     '每則原始訊息計一則',
-    '四十九斜線五十',
+    '只在剩五、三、一、零則時提醒',
+    'LINE平台目前不支援群組固定底部圖文選單',
+    '小老鼠選單',
+    '提醒不等於已證實翻錯',
   ]) assert.ok(captions.includes(term), term);
 });
 
@@ -125,5 +132,21 @@ test('language coverage copy distinguishes total support from simultaneous selec
     assert.ok(html.includes('持續多語最多同時 8 種'), `${page}: simultaneous limit`);
     assert.ok(html.includes('36 common languages in total'), `${page}: English total support`);
     assert.ok(html.includes('Persistent multilingual mode supports up to 8 at once'), `${page}: English simultaneous limit`);
+  }
+});
+
+
+test('all videos and diagrams use the new facts rather than obsolete benefit claims', () => {
+  for (const stem of Object.values(media)) {
+    const text = readMedia(`${stem}.vtt`).replace(/\s/g, '');
+    for (const stale of ['四十九斜線五十','最近三百筆','已確認六人','觀看廣告','贊助內容']) {
+      assert.ok(!text.includes(stale), `${stem}: ${stale}`);
+    }
+  }
+  const secretary = readMedia(`${media.secretary}.vtt`).replace(/\s/g, '');
+  assert.ok(secretary.includes('依回覆標示的實際整理筆數核對'));
+  assert.ok(secretary.includes('誰已讀、誰已理解'));
+  for (const name of ['line-bot-add','language-setting','group-confirmation','multilingual-reply','plan-and-activation','secretary-status']) {
+    assert.ok(existsSync(join(mediaRoot, 'guides', `${name}.jpg`)), name);
   }
 });

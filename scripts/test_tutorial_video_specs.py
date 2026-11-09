@@ -1,62 +1,21 @@
 from __future__ import annotations
 
 import json
+import os
 import re
 import subprocess
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-ASSETS = ROOT / "assets"
+ASSETS = Path(os.environ.get("WYT_MEDIA_DIR", str(ROOT / "assets")))
 STEMS = (
-    "wanyutong-line-bot-tutorial-20260920",
-    "wanyutong-secretary-tutorial-20260914",
-    "wanyutong-activation-flow-20260920",
+    "wanyutong-line-bot-tutorial-20261110",
+    "wanyutong-secretary-tutorial-20261110",
+    "wanyutong-activation-flow-20261110",
 )
 
-REQUIRED_CAPTION_TERMS = {
-    "wanyutong-line-bot-tutorial-20260920": (
-        "支援語言",
-        "最多同時設定八種",
-        "第一個指定目標",
-        "二十四小時快取",
-        "不會重新翻譯",
-        "不會再次扣額度",
-        "原文或任一指定目標超出四語",
-        "每則原始訊息計一則",
-        "四十九斜線五十",
-        "自動關閉多語",
-        "若遇短暫延遲",
-        "官方客服",
-        "查核確認涉及資安事件",
-        "萬語通系統管理員",
-    ),
-    "wanyutong-secretary-tutorial-20260914": (
-        "祕書與小老鼠秘書兩種寫法都可以",
-        "最近三百筆",
-        "自動回覆預設關閉",
-        "短暫延遲或暫時無法使用",
-        "官方客服",
-        "查核確認涉及資安事件",
-        "萬語通系統管理員",
-    ),
-    "wanyutong-activation-flow-20260920": (
-        "原文或任一指定目標超出四語",
-        "每則原始訊息計一則",
-        "四十九斜線五十",
-        "個人按使用者計算",
-        "群組由全群組共用",
-        "月費版九十九元",
-        "半年版四百九十九元",
-        "一年版七百九十九元",
-        "尊爵版兩千五百元",
-        "不要再次付款",
-        "短暫延遲或暫時無法使用",
-        "官方客服",
-        "查核確認涉及資安事件",
-        "萬語通系統管理員",
-    ),
-}
+REQUIRED_CAPTION_TERMS = {'wanyutong-line-bot-tutorial-20261110': ('群組固定底部圖文選單', '小老鼠選單', '最多同時設定八種', '第一個指定目標', '二十四小時快取', '不會重新翻譯', '不會再次扣額度', '原文或任一指定目標超出四語', '每則原始訊息計一則', '只在剩五、三、一、零則時提醒', '標記萬語通機器人仍不回覆', '提醒不等於已證實翻錯', '自動關閉多語', '小老鼠客服'), 'wanyutong-secretary-tutorial-20261110': ('祕書與小老鼠秘書兩種寫法都可以', '依回覆標示的實際整理筆數核對', '自動回覆預設關閉', '誰已讀、誰已理解', '小老鼠客服'), 'wanyutong-activation-flow-20261110': ('原文或任一指定目標超出四語', '每則原始訊息計一則', '個人按使用者計算', '群組由全群組共用', '月費版九十九元', '半年版四百九十九元', '一年版七百九十九元', '尊爵版兩千五百元', '不要再次付款', '小老鼠選單')}
 
 
 def run(command: list[str]) -> subprocess.CompletedProcess[str]:
@@ -119,7 +78,7 @@ def one_stream(data: dict, kind: str) -> dict:
 def main() -> None:
     builder = (ROOT / "scripts" / "build_tutorial_videos.py").read_text(encoding="utf-8")
     assert "@語言設定 A B" not in builder, "tutorial visual must use a copyable command"
-    assert "@語言設定 繁體中文 英文" in builder, "tutorial visual needs a valid bilingual example"
+    assert "@語言設定" in builder and "@多語" in builder, "tutorial visual needs current language selectors"
     for required in (
         "第一個指定目標",
         "24 小時內不重翻、不再扣額度",
@@ -130,8 +89,8 @@ def main() -> None:
         "群組由全群組共用",
     ):
         assert required in builder, f"tutorial source missing current quota/picker wording: {required}"
-    for required in ("服務狀況與安全處理", "官方客服", "資安事件", "萬語通系統管理員"):
-        assert required in builder, f"tutorial source missing public service-status wording: {required}"
+    for required in ("固定底部圖文選單", "@選單", "示意畫面，非實機錄影", "Microsoft Yating"):
+        assert required in builder, f"tutorial source missing current feature or renderer fact: {required}"
     for stale in (
         "免費主機冷啟動",
         "四二九",
@@ -167,7 +126,7 @@ def main() -> None:
         assert video.get("color_transfer") == "bt709", f"{stem}: color transfer"
         assert audio["codec_name"] == "aac", f"{stem}: audio codec"
         assert audio["sample_rate"] == "48000", f"{stem}: sample rate"
-        assert 45 <= duration <= 150, f"{stem}: unexpected duration {duration:.2f}s"
+        assert 45 <= duration <= 200, f"{stem}: unexpected duration {duration:.2f}s"
         assert size <= 10 * 1024 * 1024, f"{stem}: exceeds 10 MiB"
 
         raw = video_path.read_bytes()
@@ -177,8 +136,20 @@ def main() -> None:
 
         captions = captions_path.read_text(encoding="utf-8")
         assert captions.startswith("WEBVTT\n"), f"{stem}: invalid WebVTT header"
+        caption_text = re.sub(r"\s", "", captions)
+        timings = re.findall(r"(\d{2}:\d{2}:\d{2}\.\d{3}) --> (\d{2}:\d{2}:\d{2}\.\d{3})", captions)
+        previous_end = 0.0
+        for begin, end in timings:
+            def seconds(value):
+                h,m,s = value.split(":")
+                return int(h)*3600+int(m)*60+float(s)
+            begin_s,end_s = seconds(begin),seconds(end)
+            assert 0 <= begin_s < end_s <= duration + 0.1, f"{stem}: invalid cue bounds"
+            assert begin_s >= previous_end - .001, f"{stem}: overlapping cues"
+            previous_end = end_s
+        assert timings and duration-previous_end < 2, f"{stem}: missing tail captions"
         for required in REQUIRED_CAPTION_TERMS[stem]:
-            assert required in captions, f"{stem}: missing caption fact {required}"
+            assert required in caption_text, f"{stem}: missing caption fact {required}"
         for stale in (
             "@群組多語",
             "NT$899",
@@ -189,8 +160,10 @@ def main() -> None:
             "不等同遭到駭客入侵",
             "通常與流量或平台服務狀況有關",
             "系統會持續監控",
+            "四十九斜線五十",
+            "最近三百筆",
         ):
-            assert stale not in captions, f"{stem}: stale caption {stale}"
+            assert stale not in caption_text, f"{stem}: stale caption {stale}"
 
         poster = one_stream(probe(poster_path), "video")
         assert (poster["width"], poster["height"]) == (1920, 1080), f"{stem}: poster size"

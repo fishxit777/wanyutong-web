@@ -10,7 +10,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-UPDATE = "2026-10-10"
+UPDATE = "2026-11-10"
 MERGED = "blog-image-ocr-checklist.html"
 DESTINATION = "blog-image-ocr-translation.html"
 GUIDES = (
@@ -106,7 +106,7 @@ class ContentRefreshTests(unittest.TestCase):
         for name in GUIDES + ("blog.html", "editorial.html", "pricing.html", "faq.html", "terms.html"):
             self.assertEqual(UPDATE, urls["https://wanyutong.tw/" + name], name)
         worker = self.read("sw.js")
-        self.assertIn("20261010-content-truth-v1", worker)
+        self.assertIn("20261110-content-sync-v3", worker)
         self.assertNotIn("'./" + MERGED + "'", worker)
         self.assertIn("'./" + DESTINATION + "'", worker)
 

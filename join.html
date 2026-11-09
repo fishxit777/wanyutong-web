@@ -10,13 +10,13 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="萬語通">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<script src="assets/wanyutong-app.js" defer></script>
-<title>加入萬語通 LINE｜體驗跨語言工作交辦流程</title>
+<script src="assets/wanyutong-app.js?v=content-sync-20261110" defer></script>
+<title>加入萬語通 LINE｜體驗跨語言工作溝通流程</title>
 <meta name="description" content="掃描 QR Code 加入萬語通 LINE 官方帳號，免費版可用中文、英文、日文、韓文無限翻譯；完整語音、圖片 OCR、AI 摘要、每日報表與紀錄搜尋統計可升級使用。">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://wanyutong.tw/join.html">
 <meta property="og:type" content="website">
-<meta property="og:title" content="加入萬語通 LINE｜體驗跨語言工作交辦流程">
+<meta property="og:title" content="加入萬語通 LINE｜體驗跨語言工作溝通流程">
 <meta property="og:description" content="加入萬語通，免費版可用中文、英文、日文、韓文無限翻譯；完整語音、圖片 OCR、AI 摘要、每日報表與紀錄搜尋統計可升級使用。">
 <meta property="og:url" content="https://wanyutong.tw/join.html">
 <meta property="og:image" content="https://wanyutong.tw/assets/wanyutong-line-qr.png">
@@ -563,6 +563,8 @@ html.light .guide-support a { color: #087b4d; }
 </style>
 
 <link rel="stylesheet" href="assets/wanyutong-readable.css">
+  <meta name="referrer" content="origin">
+  <script src="assets/wanyutong-analytics.js?v=20261110-v2" defer></script>
 </head>
 <body>
 <div class="shell">
@@ -581,15 +583,15 @@ html.light .guide-support a { color: #087b4d; }
   <main class="main">
     <section>
       <div class="eyebrow" id="join-eyebrow">LINE Official Account</div>
-      <h1 id="join-title">掃碼加入<br><span class="grad">讓交辦有翻譯、有確認、有紀錄</span></h1>
-      <p class="lead" id="join-lead">加入萬語通 LINE 官方帳號後，免費版會同時判斷原文與所有指定目標：全在中英日韓內不計每日額度；偵測原文或任一指定目標超出四語時，每則原始訊息計 1 則，每日 50 則。需要完整語言、語音、圖片 OCR、AI 摘要與每日報表時，再升級 LINE 多國翻譯機器人方案。</p>
+      <h1 id="join-title">掃碼加入<br><span class="grad">讓交辦有翻譯、有摘要、有紀錄</span></h1>
+      <p class="lead" id="join-lead">加入萬語通 LINE 官方帳號後，免費版會同時判斷原文與所有指定目標：全在中英日韓內不計每日額度；偵測原文或任一指定目標超出四語時，每則原始訊息計 1 則，每日 50 則。需要更高使用額度，以及群組語音、圖片 OCR、AI 摘要與每日報表時，再升級付費群組方案。</p>
       <div class="actions">
         <a class="btn btn-primary" id="join-primary" href="https://line.me/R/ti/p/@969wpxno">手機直接加入 LINE</a>
         <a class="btn btn-secondary" id="join-secondary" href="faq.html">先看常見問題</a>
       </div>
       <div class="proof">
         <div class="proof-card"><strong id="join-proof-1-title">翻譯工作通知</strong><span id="join-proof-1-copy">中文、印尼文、越南文、泰文等多語支援</span></div>
-        <div class="proof-card"><strong id="join-proof-2-title">確認與摘要</strong><span id="join-proof-2-copy">追蹤誰已收到，整理付款、合約、請假與待辦</span></div>
+        <div class="proof-card"><strong id="join-proof-2-title">回顧與摘要</strong><span id="join-proof-2-copy">整理已記錄的付款、合約、請假與待辦，重要事項由主管核對</span></div>
         <div class="proof-card"><strong id="join-proof-3-title">紀錄與報表</strong><span id="join-proof-3-copy">幫雇主留下可搜尋、可追蹤的管理紀錄</span></div>
       </div>
     </section>
@@ -598,7 +600,7 @@ html.light .guide-support a { color: #087b4d; }
       <div class="qr-orbit">
         <div class="rail"></div>
         <div class="node node-1"><b id="join-node-1">翻譯</b><small>ZH · ID · VI · TH</small></div>
-        <div class="node node-2"><b id="join-node-2">確認</b><small>PAYMENT · LEAVE</small></div>
+        <div class="node node-2"><b id="join-node-2">摘要</b><small>PAYMENT · LEAVE</small></div>
         <div class="node node-3"><b id="join-node-3">紀錄</b><small>GROUP LOG</small></div>
         <div class="qr-card">
           <div class="qr-top">
@@ -619,11 +621,11 @@ html.light .guide-support a { color: #087b4d; }
       <div class="tutorial-label" id="join-steps-label">FIRST 3 STEPS</div>
     </div>
     <div class="tutorial-steps">
-      <div class="tutorial-step"><strong id="join-step-1-title">1. 查看新手教學</strong><p id="join-step-1-copy">傳送 <code>@新手教學</code> 查看第一次設定；傳送 <code>@說明</code> 查看完整指令。</p></div>
-      <div class="tutorial-step"><strong id="join-step-2-title">2. 設定翻譯語言</strong><p id="join-step-2-copy">例如 <code>@語言設定 繁體中文 印尼文</code>；成功後切換新雙語並自動關閉持續多語，輸入無效時原模式不變。</p></div>
-      <div class="tutorial-step"><strong id="join-step-3-title">3. 設定持續多語</strong><p id="join-step-3-copy">持續多語最多同時 8 種；用 <code>@多語 繁體中文 英文 菲律賓語</code> 設定後，後續一般訊息會持續翻成所選語言。傳 <code>@多語 關閉</code> 回到原雙語，或用有效的 <code>@語言設定</code> 切換新雙語。</p></div>
+      <div class="tutorial-step"><strong id="join-step-1-title">1. 開啟常用功能</strong><p id="join-step-1-copy">手機私訊可直接點底部選單；LINE 平台不支援群組固定底部圖文選單，請在群組傳純文字 @選單，開啟同一組常用功能卡。</p></div>
+      <div class="tutorial-step"><strong id="join-step-2-title">2. 設定翻譯語言</strong><p id="join-step-2-copy">選「語言設定」或傳 @語言設定，直接點選雙語；選「持續多語」或傳 @多語，可用快捷組合或自選最多 8 種，第一項為主語言。原有帶語言名稱的完整指令仍可用。</p></div>
+      <div class="tutorial-step"><strong id="join-step-3-title">3. 先傳一句一般文字</strong><p id="join-step-3-copy">例如「明天早上八點集合」。核對時間與語言後，再請對方回覆；語音、OCR、摘要與報表需付費群組依功能啟用。</p></div>
     </div>
-    <div class="tutorial-caption" id="join-steps-caption">持續多語會套用到目前對話的後續一般訊息；第一個指定目標先成為可複製主語言，其他語言以按鈕逐一查看。動態結果快取 24 小時，按鈕不會重新翻譯或再扣額度；群組點選後全員可見，LINE 訊息無法收回或摺疊。<a href="blog-line-bot-first-setup.html">閱讀完整圖文教學</a></div>
+    <div class="tutorial-caption" id="join-steps-caption">群組選語卡只限開啟者操作，有效 15 分鐘；同群開新卡後舊卡失效。卡片、設定結果與展開的譯文都會全群可見。指令直接打字，不用從成員清單標記萬語通。 持續多語會把後續一般訊息持續翻成設定語言；傳 @多語 關閉 回原雙語。第一個指定目標先成為可複製主語言，其他語言以按鈕逐一查看。24 小時快取不會重新翻譯或再扣額度。<a href="blog-line-bot-first-setup.html">閱讀完整圖文教學</a></div>
   </section>
   <section class="tutorial-panel" aria-label="LINE Bot 主內容與語言按鈕預覽">
     <div class="tutorial-head">
@@ -641,12 +643,12 @@ html.light .guide-support a { color: #087b4d; }
     </div>
     <div class="guide-preview" role="tabpanel" aria-live="polite">
       <h3 id="join-guide-heading">【萬語通｜新手使用說明】</h3>
-      <p id="join-guide-intro">開始交辦前，先完成語言設定；設定後直接傳一般文字。</p>
+      <p id="join-guide-intro">手機私訊可直接點底部選單；LINE 平台不支援群組固定底部圖文選單，請在群組傳純文字 @選單，開啟同一組常用功能卡。</p>
       <dl class="guide-command-list">
         <div class="guide-command-row"><dt><code>@新手教學</code></dt><dd id="join-guide-onboarding">查看第一次設定、方案與開通流程。</dd></div>
         <div class="guide-command-row"><dt><code>@說明</code></dt><dd id="join-guide-help">查看個人聊天或群組的完整指令。</dd></div>
-        <div class="guide-command-row"><dt><code>@語言設定 繁體中文 印尼文</code></dt><dd id="join-guide-language">設定成功會切換雙語並自動關閉持續多語；輸入無效時維持原模式。</dd></div>
-        <div class="guide-command-row"><dt><code>@多語 繁體中文 英文 菲律賓語</code></dt><dd id="join-guide-multi">持續多語最多同時 8 種，後續一般訊息會持續翻成設定語言；傳 <code>@多語 關閉</code> 回到原雙語，或用有效的 <code>@語言設定</code> 切換新雙語。</dd></div>
+        <div class="guide-command-row"><dt><code>@語言設定</code></dt><dd id="join-guide-language">傳 @語言設定 開啟雙語選擇卡，也可使用帶語言名稱的完整指令。成功套用後會關閉持續多語。</dd></div>
+        <div class="guide-command-row"><dt><code>@多語</code></dt><dd id="join-guide-multi">傳 @多語 開啟選擇卡，最多 8 種、第一項主語言。群組卡只限開啟者操作，有效 15 分鐘；卡與回覆全群可見。</dd></div>
       </dl>
       <p class="guide-support"><span id="join-guide-support">客服與問題回報：</span> <a href="mailto:wanyutong29@gmail.com">wanyutong29@gmail.com</a> · <a href="https://forms.gle/rKatiHrCmh5wpCov8" target="_blank" rel="noopener">Google Form</a></p>
     </div>
@@ -659,11 +661,11 @@ html.light .guide-support a { color: #087b4d; }
       </div>
       <div class="tutorial-label" id="join-video-label">LINE SETUP</div>
     </div>
-    <video class="tutorial-video" controls preload="metadata" playsinline poster="assets/wanyutong-line-bot-tutorial-20260920-poster.jpg">
-      <source src="assets/wanyutong-line-bot-tutorial-20260920.mp4?v=quota-picker-v1" type="video/mp4">
-      <track kind="captions" src="assets/wanyutong-line-bot-tutorial-20260920.vtt?v=quota-picker-v1" srclang="zh-Hant" label="繁體中文字幕">
+    <video class="tutorial-video" controls preload="metadata" playsinline poster="assets/wanyutong-line-bot-tutorial-20261110-poster.jpg">
+      <source src="assets/wanyutong-line-bot-tutorial-20261110.mp4?v=content-sync-20261110" type="video/mp4">
+      <track kind="captions" src="assets/wanyutong-line-bot-tutorial-20261110.vtt?v=content-sync-20261110" srclang="zh-Hant" label="繁體中文字幕">
     </video>
-    <div class="tutorial-caption" id="join-video-caption">依現行指令重製，含自然語音、燒錄字幕與可切換的繁中字幕軌。</div>
+    <div class="tutorial-caption" id="join-video-caption">依現行指令重製，含繁中旁白、燒錄字幕與可切換的繁中字幕軌。</div>
   </section>
   <section class="tutorial-panel" aria-label="萬語通加入開通流程影片">
     <div class="tutorial-head">
@@ -673,9 +675,9 @@ html.light .guide-support a { color: #087b4d; }
       </div>
       <div class="tutorial-label" id="join-activation-video-label">ACTIVATION FLOW</div>
     </div>
-    <video class="tutorial-video" controls preload="metadata" playsinline poster="assets/wanyutong-activation-flow-20260920-poster.jpg">
-      <source src="assets/wanyutong-activation-flow-20260920.mp4?v=quota-picker-v1" type="video/mp4">
-      <track kind="captions" src="assets/wanyutong-activation-flow-20260920.vtt?v=quota-picker-v1" srclang="zh-Hant" label="繁體中文字幕">
+    <video class="tutorial-video" controls preload="metadata" playsinline poster="assets/wanyutong-activation-flow-20261110-poster.jpg">
+      <source src="assets/wanyutong-activation-flow-20261110.mp4?v=content-sync-20261110" type="video/mp4">
+      <track kind="captions" src="assets/wanyutong-activation-flow-20261110.vtt?v=content-sync-20261110" srclang="zh-Hant" label="繁體中文字幕">
     </video>
     <div class="tutorial-caption" id="join-activation-video-caption">付款金額、期間與是否續扣以送出前的正式訂購畫面為準；成功後只開通或延長付款群組。</div>
   </section>
@@ -683,29 +685,29 @@ html.light .guide-support a { color: #087b4d; }
 <script>
 var joinCopy = {
   zh: {
-    title: '加入萬語通 LINE｜體驗跨語言工作交辦流程',
+    title: '加入萬語通 LINE｜體驗跨語言工作溝通流程',
     brand: '萬語通',
     home: '回到官網',
     eyebrow: 'LINE Official Account',
-    headline: '掃碼加入<br><span class="grad">讓交辦有翻譯、有確認、有紀錄</span>',
-    lead: '加入萬語通 LINE 官方帳號後，免費版會同時判斷原文與所有指定目標：全在中英日韓內不計每日額度；偵測原文或任一指定目標超出四語時，每則原始訊息計 1 則，每日 50 則。需要完整語言、語音、圖片 OCR、AI 摘要與每日報表時，再升級 LINE 多國翻譯機器人方案。',
+    headline: '掃碼加入<br><span class="grad">讓交辦有翻譯、有摘要、有紀錄</span>',
+    lead: '加入萬語通 LINE 官方帳號後，免費版會同時判斷原文與所有指定目標：全在中英日韓內不計每日額度；偵測原文或任一指定目標超出四語時，每則原始訊息計 1 則，每日 50 則。需要更高使用額度，以及群組語音、圖片 OCR、AI 摘要與每日報表時，再升級付費群組方案。',
     primary: '手機直接加入 LINE',
     secondary: '先看常見問題',
     proof1Title: '翻譯工作通知',
     proof1Copy: '中文、印尼文、越南文、泰文等多語支援',
-    proof2Title: '確認與摘要',
-    proof2Copy: '追蹤誰已收到，整理付款、合約、請假與待辦',
+    proof2Title: '回顧與摘要',
+    proof2Copy: '整理已記錄的付款、合約、請假與待辦，重要事項由主管核對',
     proof3Title: '紀錄與報表',
     proof3Copy: '幫雇主留下可搜尋、可追蹤的管理紀錄',
     node1: '翻譯',
-    node2: '確認',
+    node2: '摘要',
     node3: '紀錄',
     qrNote: '桌機請用手機 LINE 掃描；手機請點「直接加入 LINE」。',
     qrAlt: '萬語通 LINE 官方帳號 QR Code',
     videoTitle: '操作教學影片',
     videoCopy: '設定雙語與持續多語，示範可複製主語言、逐語按鈕、24 小時快取及精確免費額度規則。',
     videoLabel: 'LINE SETUP',
-    videoCaption: '依現行指令重製，含自然語音、燒錄字幕與可切換的繁中字幕軌。',
+    videoCaption: '依現行指令重製，含繁中旁白、燒錄字幕與可切換的繁中字幕軌。',
     activationVideoTitle: '加入開通流程影片',
     activationVideoCopy: '比較免費與付費方案，再用群組內的官方連結開通指定群組。',
     activationVideoLabel: 'ACTIVATION FLOW',
@@ -713,13 +715,13 @@ var joinCopy = {
     stepsTitle: '加入後先完成三件事',
     stepsCopy: '照順序設定一次，之後就能直接傳送一般文字。',
     stepsLabel: 'FIRST 3 STEPS',
-    step1Title: '1. 查看新手教學',
-    step1Copy: '傳送 <code>@新手教學</code> 查看第一次設定；傳送 <code>@說明</code> 查看完整指令。',
+    step1Title: '1. 開啟常用功能',
+    step1Copy: '手機私訊可直接點底部選單；LINE 平台不支援群組固定底部圖文選單，請在群組傳純文字 @選單，開啟同一組常用功能卡。',
     step2Title: '2. 設定翻譯語言',
-    step2Copy: '例如 <code>@語言設定 繁體中文 印尼文</code>；成功後切換新雙語並自動關閉持續多語，輸入無效時原模式不變。',
-    step3Title: '3. 設定持續多語',
-    step3Copy: '持續多語最多同時 8 種；用 <code>@多語 繁體中文 英文 菲律賓語</code> 設定後，後續一般訊息會持續翻成所選語言。傳 <code>@多語 關閉</code> 回到原雙語，或用有效的 <code>@語言設定</code> 切換新雙語。',
-    stepsCaption: '持續多語會套用到目前對話的後續一般訊息；第一個指定目標先成為可複製主語言，其他語言以按鈕逐一查看。動態結果快取 24 小時，按鈕不會重新翻譯或再扣額度；群組點選後全員可見，LINE 訊息無法收回或摺疊。<a href="blog-line-bot-first-setup.html">閱讀完整圖文教學</a>',
+    step2Copy: '選「語言設定」或傳 @語言設定，直接點選雙語；選「持續多語」或傳 @多語，可用快捷組合或自選最多 8 種，第一項為主語言。原有帶語言名稱的完整指令仍可用。',
+    step3Title: '3. 先傳一句一般文字',
+    step3Copy: '例如「明天早上八點集合」。核對時間與語言後，再請對方回覆；語音、OCR、摘要與報表需付費群組依功能啟用。',
+    stepsCaption: '群組選語卡只限開啟者操作，有效 15 分鐘；同群開新卡後舊卡失效。卡片、設定結果與展開的譯文都會全群可見。指令直接打字，不用從成員清單標記萬語通。 持續多語會把後續一般訊息持續翻成設定語言；傳 @多語 關閉 回原雙語。第一個指定目標先成為可複製主語言，其他語言以按鈕逐一查看。24 小時快取不會重新翻譯或再扣額度。<a href="blog-line-bot-first-setup.html">閱讀完整圖文教學</a>',
     guideTitle: '繁中主內容與語言按鈕',
     guideCopy: '在個人聊天或群組傳送指令，Bot 先回覆可複製的繁中主內容，再提供英文、日文、韓文按鈕；固定教學內容不扣每日翻譯額度。',
     guideLabel: 'BOT REPLY PREVIEW',
@@ -731,25 +733,25 @@ var joinCopy = {
     brand: 'WanyuTong',
     home: 'Back to Website',
     eyebrow: 'LINE Official Account',
-    headline: 'Scan to Join<br><span class="grad">Translate, Confirm, and Keep Records</span>',
-    lead: 'Add the WanyuTong LINE official account. The free plan does not use the daily quota when the source and all configured targets are Chinese, English, Japanese, or Korean. If the detected source or any configured target is outside those four, one original message uses one of 50 daily credits. Upgrade for voice, image OCR, AI summaries, and daily reports.',
+    headline: 'Scan to Join<br><span class="grad">Translate, Summarize, and Keep Records</span>',
+    lead: 'Add the WanyuTong LINE official account. The free plan does not use the daily quota when the source and all configured targets are Chinese, English, Japanese, or Korean. If the detected source or any configured target is outside those four, one original message uses one of 50 daily credits. Upgrade to a paid group plan for higher usage allowances, voice, image OCR, AI summaries, and daily reports.',
     primary: 'Join LINE on Mobile',
     secondary: 'Read FAQ First',
     proof1Title: 'Translate Work Notices',
     proof1Copy: 'Supports Chinese, Indonesian, Vietnamese, Thai, and more',
-    proof2Title: 'Confirm and Summarize',
-    proof2Copy: 'Track who has received it, and organize payments, contracts, leave, and tasks',
+    proof2Title: 'Review and Summarize',
+    proof2Copy: 'Summarize recorded payments, contracts, leave, and tasks for a manager to review',
     proof3Title: 'Records and Reports',
     proof3Copy: 'Keeps searchable and traceable management records for employers',
     node1: 'Translation',
-    node2: 'Confirm',
+    node2: 'Summary',
     node3: 'Records',
     qrNote: 'On desktop, scan with LINE on your phone. On mobile, tap "Join LINE on Mobile."',
     qrAlt: 'WanyuTong LINE official account QR Code',
     videoTitle: 'Setup Tutorial Video',
     videoCopy: 'Set a two-way pair or persistent multilingual mode, then see copyable primary text, per-language buttons, the 24-hour cache, and the exact free-quota rule.',
     videoLabel: 'LINE SETUP',
-    videoCaption: 'Rebuilt for the current commands with natural narration, burned-in subtitles, and an optional Traditional Chinese caption track.',
+    videoCaption: 'Rebuilt for the current commands with Traditional Chinese narration, burned-in subtitles, and an optional Traditional Chinese caption track.',
     activationVideoTitle: 'Activation Flow Video',
     activationVideoCopy: 'Compare the free and paid plans, then activate the intended group through its official in-group link.',
     activationVideoLabel: 'ACTIVATION FLOW',
@@ -757,13 +759,13 @@ var joinCopy = {
     stepsTitle: 'Complete These 3 Steps After Joining',
     stepsCopy: 'Set them once in order, then send regular text directly.',
     stepsLabel: 'FIRST 3 STEPS',
-    step1Title: '1. Open the Quick Start Guide',
-    step1Copy: 'Send <code>@新手教學</code> for first-time setup, or <code>@說明</code> for the full command list.',
+    step1Title: '1. Open common functions',
+    step1Copy: 'On a phone, use the bottom menu in a one-to-one chat. LINE does not support a fixed rich menu in group chats; send plain-text @選單 in the group to open the same common-function card.',
     step2Title: '2. Set Translation Languages',
-    step2Copy: 'For example, send <code>@語言設定 繁體中文 印尼文</code>. Success switches to the new two-way pair and automatically closes continuous multi-language mode; invalid input keeps the current mode.',
-    step3Title: '3. Set Persistent Multilingual Translation',
-    step3Copy: 'Persistent multilingual mode supports up to 8 languages at once. Send <code>@多語 繁體中文 英文 菲律賓語</code>; later regular messages keep translating into the selected languages. Send <code>@多語 關閉</code> to return to the previous pair, or use a valid <code>@語言設定</code> to switch to a new pair.',
-    stepsCaption: 'Persistent multilingual translation applies to later regular messages. The first configured target is copyable primary text; other languages are opened one at a time with buttons from a 24-hour cache, without retranslating or charging again. A group tap is public, and LINE messages cannot be collapsed or recalled. <a href="blog-line-bot-first-setup.html">Read the full illustrated guide</a>',
+    step2Copy: 'Tap Language Settings or send @語言設定 to choose a pair. Tap Persistent Multilingual or send @多語 to use a preset or choose up to 8 languages; the first is the primary language. Commands that include language names still work.',
+    step3Title: '3. Send a short text message',
+    step3Copy: 'Try a simple message such as “Meet at eight tomorrow morning.” Check its time and language, then ask for a reply. Voice, OCR, summaries, and reports require an active paid group with the relevant feature enabled.',
+    stepsCaption: 'A group language card can only be used by its opener for 15 minutes; a new card in the same group replaces the old one. Cards, setting results, and expanded translations are visible to the whole group. Type commands as text without mentioning the Bot. Persistent multilingual mode supports up to 8 languages at once and keeps translating later regular messages. Send @多語 關閉 to restore the previous pair. The first target is copyable primary text. Other languages open with buttons from a 24-hour cache without translating or charging again. <a href="blog-line-bot-first-setup.html">Read the setup guide</a>',
     guideTitle: 'Traditional Chinese Primary Content and Language Buttons',
     guideCopy: 'In a personal chat or group, both commands show copyable Traditional Chinese primary content with English, Japanese, and Korean buttons. Approved static help does not use the daily translation quota.',
     guideLabel: 'BOT REPLY PREVIEW',
@@ -774,38 +776,38 @@ var joinCopy = {
 var guideCopy = {
   zh: {
     heading: '【萬語通｜新手使用說明】',
-    intro: '開始交辦前，先完成語言設定；設定後直接傳一般文字。',
+    intro: '手機私訊可直接點底部選單；LINE 平台不支援群組固定底部圖文選單，請在群組傳純文字 @選單，開啟同一組常用功能卡。',
     onboarding: '查看第一次設定、方案與開通流程。',
     help: '查看個人聊天或群組的完整指令。',
-    language: '設定成功會切換雙語並自動關閉持續多語；輸入無效時維持原模式。',
-    multi: '持續多語最多同時 8 種，後續一般訊息會持續翻成設定語言；傳 @多語 關閉 回到原雙語，或用有效的 @語言設定 切換新雙語。',
+    language: '傳 @語言設定 開啟雙語選擇卡，也可使用帶語言名稱的完整指令。成功套用後會關閉持續多語。',
+    multi: '傳 @多語 開啟選擇卡，最多 8 種、第一項主語言。群組卡只限開啟者操作，有效 15 分鐘；卡與回覆全群可見。',
     support: '客服與問題回報：'
   },
   en: {
     heading: '【WanyuTong | Quick Start Guide】',
-    intro: 'Set the languages before sending work instructions. After setup, send regular text directly.',
+    intro: 'On a phone, use the bottom menu in a one-to-one chat. LINE does not support a fixed rich menu in group chats; send plain-text @選單 in the group to open the same common-function card.',
     onboarding: 'View first-time setup, plans, and activation steps.',
     help: 'View the full command list for personal chats or groups.',
-    language: 'A valid setting switches to two-way translation and automatically closes continuous multi-language mode. Invalid input keeps the current mode.',
-    multi: 'Persistent multilingual mode supports up to 8 languages at once and keeps translating later regular messages. Send @多語 關閉 to return to the previous pair, or use a valid @語言設定 to switch to a new pair.',
+    language: 'Send @語言設定 to open the language-pair picker, or keep using a full command with language names. Applying a pair turns off persistent multilingual mode.',
+    multi: 'Send @多語 for a picker with up to 8 languages; the first is primary. Group cards are usable by their opener for 15 minutes, and cards and replies are visible to everyone.',
     support: 'Customer support and issue report:'
   },
   ja: {
     heading: '【萬語通｜初めての方へ】',
-    intro: '業務連絡を始める前に言語を設定してください。設定後は通常の文章をそのまま送信できます。',
+    intro: 'スマートフォンの個人トークでは画面下のメニューを使えます。LINE のグループでは固定リッチメニューに対応していないため、文字で @選單 と送信して機能カードを開いてください。',
     onboarding: '初回設定、プラン、利用開始の流れを確認します。',
     help: '個人チャットまたはグループの全コマンドを確認します。',
-    language: '有効な設定は双方向翻訳へ切り替え、継続多言語モードを自動終了します。無効な入力では現在のモードを維持します。',
-    multi: '継続多言語は同時に最大8言語まで設定でき、以後の通常メッセージを継続翻訳します。@多語 關閉 で以前の双方向翻訳に戻すか、有効な @語言設定 で新しい双方向翻訳へ切り替えられます。',
+    language: '@語言設定 で2言語の選択カードを開けます。言語名を含む従来のコマンドも使えます。設定すると継続多言語モードは終了します。',
+    multi: '@多語 で最大8言語を選択し、最初の言語が主言語になります。グループの選択カードは開いた本人のみ15分間操作でき、カードと返信は全員に表示されます。',
     support: 'カスタマーサポート・問題報告：'
   },
   ko: {
     heading: '【WanyuTong | 초보자 사용 안내】',
-    intro: '업무 지시를 보내기 전에 언어를 설정하세요. 설정 후에는 일반 문장을 바로 보내면 됩니다.',
+    intro: '스마트폰의 일대일 채팅에서는 하단 메뉴를 사용하세요. LINE 그룹에서는 고정 리치 메뉴를 지원하지 않으므로 @選單 을 일반 텍스트로 보내 기능 카드를 여세요.',
     onboarding: '첫 설정, 요금제 및 활성화 절차를 확인합니다.',
     help: '개인 채팅 또는 그룹의 전체 명령어를 확인합니다.',
-    language: '유효한 설정은 양방향 번역으로 전환하고 지속 다국어 모드를 자동 종료합니다. 잘못된 입력은 현재 모드를 유지합니다.',
-    multi: '지속 다국어 모드는 동시에 최대 8개 언어까지 설정하며 이후의 일반 메시지를 계속 번역합니다. @多語 關閉 으로 이전 양방향 번역으로 돌아가거나 유효한 @語言設定 으로 새 양방향 번역을 설정할 수 있습니다.',
+    language: '@語言設定 으로 두 언어 선택 카드를 엽니다. 언어 이름을 포함한 기존 명령도 사용할 수 있습니다. 적용하면 지속 다국어 모드가 꺼집니다.',
+    multi: '@多語 로 최대 8개 언어를 선택하며 첫 번째가 기본 언어입니다. 그룹 선택 카드는 연 사람만 15분 동안 사용할 수 있고 카드와 응답은 그룹 전체에 보입니다.',
     support: '고객 지원 및 문제 신고:'
   }
 };

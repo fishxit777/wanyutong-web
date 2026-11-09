@@ -76,10 +76,17 @@ test('PWA install caches only existing public files without cookies', async () =
   await h.lifecycle('install');
   assert.ok(h.calls.length > 40);
   const versionedAssets = new Map([
-    ['/assets/wanyutong-line-bot-tutorial-20260920.vtt', '?v=quota-picker-v1'],
-    ['/assets/wanyutong-secretary-tutorial-20260914.vtt', '?v=quota-picker-v1'],
-    ['/assets/wanyutong-activation-flow-20260920.vtt', '?v=quota-picker-v1'],
-    ['/assets/wanyutong-app.js', '?v=content-truth-20261010'],
+    ['/assets/wanyutong-line-bot-tutorial-20261110.vtt', '?v=content-sync-20261110'],
+    ['/assets/wanyutong-secretary-tutorial-20261110.vtt', '?v=content-sync-20261110'],
+    ['/assets/wanyutong-activation-flow-20261110.vtt', '?v=content-sync-20261110'],
+    ['/assets/guides/line-bot-add.jpg', '?v=content-sync-20261110'],
+    ['/assets/guides/language-setting.jpg', '?v=content-sync-20261110'],
+    ['/assets/guides/multilingual-reply.jpg', '?v=content-sync-20261110'],
+    ['/assets/guides/group-confirmation.jpg', '?v=content-sync-20261110'],
+    ['/assets/guides/plan-and-activation.jpg', '?v=content-sync-20261110'],
+    ['/assets/guides/secretary-status.jpg', '?v=content-sync-20261110'],
+    ['/assets/wanyutong-app.js', '?v=content-sync-20261110'],
+    ['/assets/wanyutong-analytics.js', '?v=20261110-v2'],
   ]);
   for (const request of h.calls) {
     assert.equal(request.credentials, 'omit');
@@ -97,7 +104,7 @@ test('pricing script revision is available offline without permitting arbitrary 
   const h = makeHarness();
   await h.lifecycle('install');
   h.setNetwork(async () => { throw new Error('offline'); });
-  const result = await h.dispatch('/assets/wanyutong-app.js?v=content-truth-20261010', { destination: 'script' });
+  const result = await h.dispatch('/assets/wanyutong-app.js?v=content-sync-20261110', { destination: 'script' });
   assert.equal(result.intercepted, true);
   assert.equal(await result.response.text(), 'public');
   assert.equal((await h.dispatch('/assets/wanyutong-app.js?v=unknown', { destination: 'script' })).intercepted, false);
@@ -197,27 +204,15 @@ test('all inline and standalone JavaScript parses without executing page code', 
   }
 });
 
-test('tracking pixels transmit only HTTP(S) origins and suppress the Referer header', () => {
+test('legacy pixels are removed and tracked pages bound request referrers to origins', () => {
   let pages = 0;
   for (const name of readdirSync(root).filter((name) => name.endsWith('.html'))) {
     const html = readFileSync(new URL(name, root), 'utf8');
-    const block = [...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/gi)].map((match) => match[1]).find((source) => source.includes('/track/pixel'));
-    if (!block) continue;
+    assert.ok(!html.includes('/track/pixel'), name);
+    if (!html.includes('wanyutong-analytics.js')) continue;
     pages += 1;
-    for (const [referrer, expected] of [['https://source.example/private/synthetic?token=synthetic#fragment', 'https://source.example'], ['', ''], ['invalid', ''], ['file:///synthetic-private-path', '']]) {
-      const images = [];
-      vm.runInNewContext(block, {
-        URL, encodeURIComponent,
-        document: { referrer },
-        location: new URL(origin),
-        localStorage: { getItem() { return null; } },
-        Image: function () { images.push(this); }
-      });
-      assert.equal(images.length, 1, name);
-      assert.equal(new URL(images[0].src).searchParams.get('r'), expected, name);
-      assert.equal(images[0].referrerPolicy, 'no-referrer', name);
-      assert.ok(!images[0].src.includes('synthetic'), name);
-    }
+    assert.match(html, /<meta name="referrer" content="origin">/, name);
+    assert.equal((html.match(/src="assets\/wanyutong-analytics\.js\?v=20261110-v2"/g) || []).length, 1, name);
   }
-  assert.equal(pages, 9);
+  assert.equal(pages, 24);
 });

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-<title>萬語通 WanyuTong｜LINE 多國翻譯、AI 摘要與每日報表</title>
+<title>萬語通 WanyuTong｜跨語言工作溝通、摘要與紀錄</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="assets/icons/wanyutong-icon-192.png">
@@ -16,7 +16,7 @@
 <!-- Open Graph (LINE / FB 分享預覽) -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://wanyutong.tw/">
-<meta property="og:title" content="萬語通 WanyuTong｜LINE 多國翻譯、AI 摘要與每日報表">
+<meta property="og:title" content="萬語通 WanyuTong｜跨語言工作溝通、摘要與紀錄">
 <meta property="og:description" content="多國翻譯、圖片 OCR、語音、AI 摘要、每日報表、紀錄搜尋與統計放在同一個 LINE 流程裡，讓跨語言團隊交代清楚、重要內容查得到。">
 <meta property="og:image" content="https://wanyutong.tw/assets/wanyutong-logo.jpg">
 <meta property="og:locale" content="zh_TW">
@@ -24,7 +24,7 @@
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="萬語通 WanyuTong｜LINE 多國翻譯、AI 摘要與每日報表">
+<meta name="twitter:title" content="萬語通 WanyuTong｜跨語言工作溝通、摘要與紀錄">
 <meta name="twitter:description" content="多國翻譯、圖片 OCR、語音、AI 摘要、每日報表、紀錄搜尋與統計放在同一個 LINE 流程裡，讓跨語言團隊交代清楚、重要內容查得到。">
 <meta name="twitter:image" content="https://wanyutong.tw/assets/wanyutong-logo.jpg">
 
@@ -1910,11 +1910,13 @@ footer a:hover { color:var(--text); }
   <meta name="apple-mobile-web-app-title" content="萬語通">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link rel="apple-touch-icon" href="assets/icons/wanyutong-icon-180.png">
-  <script src="assets/wanyutong-app.js" defer></script>
+  <script src="assets/wanyutong-app.js?v=content-sync-20261110" defer></script>
 <meta name="google-adsense-account" content="ca-pub-7533511869819978">
 <script src="assets/wanyutong-ads-config.js" defer></script>
 <script src="assets/wanyutong-ads.js" defer></script>
 <link rel="stylesheet" href="assets/wanyutong-readable.css?v=20260831">
+  <meta name="referrer" content="origin">
+  <script src="assets/wanyutong-analytics.js?v=20261110-v2" defer></script>
 </head>
 <body class="at-hero">
 
@@ -2001,7 +2003,7 @@ footer a:hover { color:var(--text); }
           </div>
         </div>
         <div class="hero-eyebrow">萬語通 WanyuTong</div>
-        <h1 aria-label="跨語言工作交辦 有翻譯、有確認、有紀錄">跨語言工作交辦<br><span class="hl">有翻譯、有確認、有紀錄</span></h1>
+        <h1 aria-label="跨語言工作溝通 有翻譯、有摘要、有紀錄">跨語言工作溝通<br><span class="hl">有翻譯、有摘要、有紀錄</span></h1>
         <p class="hero-desc">把 LINE 群組裡的多國翻譯、語音、圖片 OCR、AI 摘要、每日報表、紀錄搜尋與統計放在同一個流程。專為工廠、工地、看護、餐飲等多語團隊設計，讓主管交代得清楚，重要內容查得到。</p>
       <div class="hero-actions">
         <a href="join.html" class="btn-primary">
@@ -2032,8 +2034,8 @@ footer a:hover { color:var(--text); }
             <strong id="bot-card-translation-message">Selesaikan area A<br>sebelum 15:00</strong>
           </div>
           <div class="bot-chat-check-card">
-            <span id="bot-card-check-title">確認進度</span>
-            <strong id="bot-card-check-desc">已確認 6/8 人，尚未回覆 2 人</strong>
+            <span id="bot-card-check-title">人工回覆確認</span>
+            <strong id="bot-card-check-desc">員工主動回覆後，主管對照譯文確認</strong>
           </div>
         </div>
         <div class="bot-chat-focus">
@@ -2041,7 +2043,7 @@ footer a:hover { color:var(--text); }
           <span id="bot-card-tag-2">回覆確認</span>
           <span id="bot-card-tag-3">紀錄可查</span>
         </div>
-        <div class="bot-chat-foot" id="bot-card-foot">群組紀錄已保存，可搜尋與匯出</div>
+        <div class="bot-chat-foot" id="bot-card-foot">付費群組開啟紀錄後，可依功能搜尋與匯出</div>
       </div>
 
     </div>
@@ -2058,7 +2060,8 @@ footer a:hover { color:var(--text); }
 </section>
 
 <main class="home-content" id="main-content">
-  <section class="home-content-band" aria-labelledby="workflow-title">
+  <section class="home-content-band" id="current-menu"><div class="home-content-inner"><h2 data-zh="常用功能，私訊與群組怎麼開" data-en="Open common functions in a private chat or a group">常用功能，私訊與群組怎麼開</h2><p data-zh="手機私訊可直接點底部選單；LINE 平台不支援群組固定底部圖文選單，請在群組傳純文字 @選單，開啟同一組常用功能卡。" data-en="On a phone, use the bottom menu in a one-to-one chat. LINE does not support a fixed rich menu in group chats; send plain-text @選單 in the group to open the same common-function card.">手機私訊可直接點底部選單；LINE 平台不支援群組固定底部圖文選單，請在群組傳純文字 @選單，開啟同一組常用功能卡。</p><p data-zh="選「語言設定」或傳 @語言設定，直接點選雙語；選「持續多語」或傳 @多語，可用快捷組合或自選最多 8 種，第一項為主語言。原有帶語言名稱的完整指令仍可用。" data-en="Tap Language Settings or send @語言設定 to choose a pair. Tap Persistent Multilingual or send @多語 to use a preset or choose up to 8 languages; the first is the primary language. Commands that include language names still work.">選「語言設定」或傳 @語言設定，直接點選雙語；選「持續多語」或傳 @多語，可用快捷組合或自選最多 8 種，第一項為主語言。原有帶語言名稱的完整指令仍可用。</p><p data-zh="目前不提供自動確認回條、逐人已讀或未回覆名單。請成員主動回覆，主管再人工核對；下方工作流程與示意聊天不代表自動追蹤人數。" data-en="Automatic acknowledgement receipts, individual read status, and pending-member lists are not currently provided. Ask members to reply and review their replies manually; the workflow and illustrative chat do not show automatic attendance tracking.">目前不提供自動確認回條、逐人已讀或未回覆名單。請成員主動回覆，主管再人工核對；下方工作流程與示意聊天不代表自動追蹤人數。</p></div></section>
+<section class="home-content-band" aria-labelledby="workflow-title">
     <div class="home-content-inner">
       <p class="home-content-kicker" data-zh="// 實際工作流程" data-en="// REAL WORKFLOW">// 實際工作流程</p>
       <h2 id="workflow-title" data-zh="萬語通解決的不是翻一句話，而是交辦有沒有被理解" data-en="WanyuTong is not just a sentence translator. It helps teams verify whether work instructions were understood.">萬語通解決的不是翻一句話，而是交辦有沒有被理解</h2>
@@ -2068,7 +2071,7 @@ footer a:hover { color:var(--text); }
         <article class="workflow-step"><span class="workflow-num">02 / TRANSLATE</span><h3 data-zh="Bot 依群組設定輸出翻譯" data-en="Translate using the group settings">Bot 依群組設定輸出翻譯</h3><p data-zh="雙向模式適合繁體中文與一種外語；多語模式適合三種以上語言。主管一句話可同步翻成群組設定的多種語言。" data-en="Two-way mode fits Traditional Chinese plus one language. Multilingual mode fits three or more languages and translates one manager message into the languages configured for the group.">雙向模式適合繁體中文與一種外語；多語模式適合三種以上語言。主管一句話可同步翻成群組設定的多種語言。</p></article>
         <article class="workflow-step"><span class="workflow-num">03 / CONFIRM</span><h3 data-zh="用回覆與紀錄確認結果" data-en="Confirm with replies and records">用回覆與紀錄確認結果</h3><p data-zh="員工用熟悉語言回覆，主管查看翻回的繁體中文。重要工作可要求重述時間、數量與禁止事項，再用摘要、報表或搜尋回查。" data-en="Employees reply in a familiar language and managers read the Traditional Chinese translation. For critical work, ask people to restate the time, quantity, and prohibited action, then use summaries, reports, or search for follow-up.">員工用熟悉語言回覆，主管查看翻回的繁體中文。重要工作可要求重述時間、數量與禁止事項，再用摘要、報表或搜尋回查。</p></article>
       </div>
-      <div class="truth-note"><strong data-zh="群組顯示方式要說清楚" data-en="How group messages are actually displayed">群組顯示方式要說清楚</strong><span data-zh="LINE 不提供同一則群組訊息依成員顯示不同內容。多語模式會在同一群組輸出設定的各語言，所有成員都能看到相同結果；員工閱讀自己熟悉的語言段落。" data-en="LINE does not show a different version of one group message to each member. Multilingual mode posts the configured languages in the same group, so everyone sees the same result and reads the language section they understand.">LINE 不提供同一則群組訊息依成員顯示不同內容。多語模式會在同一群組輸出設定的各語言，所有成員都能看到相同結果；員工閱讀自己熟悉的語言段落。</span></div>
+      <div class="truth-note"><strong data-zh="群組顯示與操作方式" data-en="How group messages are actually displayed">群組顯示與操作方式</strong><span data-zh="LINE 不提供同一則群組訊息依成員顯示不同內容。多語模式先顯示第一個指定目標的可複製主語言，其他語言按需點選；展開結果仍對全群可見，並非每位成員各自私下閱讀。" data-en="LINE does not show a different version of one group message to each member. Multilingual mode shows copyable primary text first. Other languages open on demand with buttons, and opened results remain visible to the entire group.">LINE 不提供同一則群組訊息依成員顯示不同內容。多語模式先顯示第一個指定目標的可複製主語言，其他語言按需點選；展開結果仍對全群可見，並非每位成員各自私下閱讀。</span></div>
     </div>
   </section>
 
@@ -2114,7 +2117,7 @@ footer a:hover { color:var(--text); }
       </div>
       <aside class="editorial-meta" aria-label="內容維護資訊">
         <p data-zh="內容維護：萬語通團隊" data-en="Maintained by: WanyuTong Team">內容維護：萬語通團隊</p>
-        <p data-zh="本頁核對：2026-08-27" data-en="Page reviewed: 2026-08-27">本頁核對：2026-08-27</p>
+        <p data-zh="本頁內容核對：2026-11-10" data-en="Content reviewed: 2026-11-10">本頁內容核對：2026-11-10</p>
         <p data-zh="發現錯誤可透過官方客服表單回報，我們會重新測試並更新日期。" data-en="Report an error through the official support form. We will retest the workflow and update the review date.">發現錯誤可透過官方客服表單回報，我們會重新測試並更新日期。</p>
         <a href="editorial.html" data-zh="查看完整編輯與測試原則 →" data-en="Read the full editorial and testing policy →">查看完整編輯與測試原則 →</a>
       </aside>
@@ -2662,24 +2665,7 @@ window.addEventListener('scroll', function() {
 });
 </script>
 
-<script>
-(function(){
-  try {
-    if (localStorage.getItem("wyt-admin") === "1") return;
-    if (location.protocol === "file:") return;
-    var host = location.hostname;
-    if (["localhost", "127.0.0.1", "::1", ""].indexOf(host) !== -1) return;
-    var img = new Image();
-    var referrerOrigin = "";
-    try {
-      var referrerUrl = new URL(document.referrer);
-      if (referrerUrl.protocol === "https:" || referrerUrl.protocol === "http:") referrerOrigin = referrerUrl.origin;
-    } catch (e) {}
-    img.referrerPolicy = "no-referrer";
-    img.src = "https://one1stars-line-bot.onrender.com/track/pixel?p=index&r=" + encodeURIComponent(referrerOrigin);
-  } catch(e) {}
-})();
-</script>
+
 <script>
 // ═══════════════════════════════════════
 // 萬語通官網 i18n 語言包
@@ -2698,13 +2684,13 @@ var i18n = {
     'nav.blog':        '📝 部落格',
     'nav.faq':         '❓ 常見問題',
     'nav.brand':       '萬語通 WanyuTong',
-    'site.title':      '萬語通 WanyuTong｜跨語言工作交辦、確認與紀錄系統',
+    'site.title':      '萬語通 WanyuTong｜跨語言工作溝通、摘要與紀錄',
     // HERO
     'hero.eyebrow':    '萬語通 WanyuTong',
     'hero.logo.title': '萬語通',
     'hero.logo.sub':   'LINE多國翻譯機器人',
-    'hero.h1a':        '跨語言工作交辦',
-    'hero.h1b':        '有翻譯、<wbr>有確認、<wbr>有紀錄',
+    'hero.h1a':        '跨語言工作溝通',
+    'hero.h1b':        '有翻譯、<wbr>有摘要、<wbr>有紀錄',
     'hero.desc':       '把 LINE 群組裡的多國翻譯、語音、圖片 OCR、AI 摘要、每日報表、紀錄搜尋與統計放在同一個流程。專為工廠、工地、看護、餐飲等多語團隊設計，讓主管交代得清楚，重要內容查得到。',
     'hero.btn1':       '免費體驗 LINE 流程',
     'hero.btn2':       '查看方案 →',
@@ -2714,12 +2700,12 @@ var i18n = {
     'botcard.message': '今天 15:00 前<br>完成 A 區清潔',
     'botcard.translator': '萬語通翻譯',
     'botcard.translation': 'Selesaikan area A<br>sebelum 15:00',
-    'botcard.check.title': '確認進度',
-    'botcard.check.desc': '已確認 6/8 人，尚未回覆 2 人',
+    'botcard.check.title': '人工回覆確認',
+    'botcard.check.desc': '員工主動回覆後，主管對照譯文確認',
     'botcard.tag1':    '翻譯完成',
     'botcard.tag2':    '回覆確認',
     'botcard.tag3':    '紀錄可查',
-    'botcard.foot':    '群組紀錄已保存，可搜尋與匯出',
+    'botcard.foot':    '付費群組開啟紀錄後，可依功能搜尋與匯出',
     // STATS
     'stat.speed':      '回覆速度說明',
     'stat.langs':      '支援語言種數',
@@ -2746,7 +2732,7 @@ var i18n = {
     'os.eyebrow':      '// Workplace OS',
     'os.title':        '一個 LINE 秘書，三種本領',
     'os.lead':         '萬語通 WanyuTong 不是泛用 AI 客服，而是放在 LINE 工作群裡的跨語言工作流程。外籍員工看得懂，主管收得到確認，重要紀錄留得住。',
-    'os.note':         '導入重點：不用搬離 LINE、不用教員工新 App。把 Bot 加入群組，設定語言與報表，明天就能開始跑翻譯、摘要與每日整理。',
+    'os.note':         '導入重點：不用搬離 LINE、不用教員工新 App。把 Bot 加入群組，設定語言與報表，先測試文字翻譯；摘要與報表須付費群組開通並啟用紀錄。',
     'os.card1.kicker': 'ABILITY 01',
     'os.card1.title':  '翻得懂',
     'os.card1.desc':   '台籍主管說一句話，Bot 會同步翻成群組設定的印尼文、越南文、泰文、菲律賓語等語言；全員在同一群組查看。文字、語音、圖片都能處理。',
@@ -2769,14 +2755,14 @@ var i18n = {
     'os.proof1.label': '加入群組即可開始導入',
     'os.proof2.num':   '36 種語言',
     'os.proof2.label': '支援常見外籍員工語言',
-    'os.proof3.num':   '300 筆',
-    'os.proof3.label': '付費版 AI 摘要上限',
+    'os.proof3.num':   '近期紀錄',
+    'os.proof3.label': '摘要依實際整理筆數',
     'os.proof4.num':   'Excel',
     'os.proof4.label': '紀錄搜尋與統計可匯出',
     // FEATURES
     'feat.eyebrow':    '// Features',
     'feat.h2':         '不是翻譯 App，是 LINE 工作交辦流程',
-    'feat.lead':       '從發出指令、翻成對方語言、確認收到，到摘要、報表與紀錄查詢，讓跨語言管理有閉環。',
+    'feat.lead':       '從文字翻譯、成員主動回覆，到摘要、報表與紀錄查詢，協助主管人工核對工作內容。',
     'feat.1.title':    '36 種語言與 DeepL 專業引擎',
     'feat.1.desc':     '日、英、韓、印尼、泰、越南、菲律賓、阿拉伯、希伯來等 36 種常用語言，以 DeepL 專業翻譯引擎處理。',
     'feat.2.title':    '群組雙向翻譯',
@@ -2955,12 +2941,12 @@ var i18n = {
     'howto.lead':      '從加入到開始翻譯，只需要幾分鐘。',
     'howto.s1.title':  '加入萬語通',
     'howto.s1.desc':   '點選按鈕，加入 LINE Bot 好友。',
-    'howto.s2.title':  '輸入 @語言',
-    'howto.s2.desc':   '傳送 @語言 查看目前翻譯設定。',
-    'howto.s3.title':  '切換目標語言',
-    'howto.s3.desc':   '傳 @語言設定 繁體中文 印尼文；驗證成功後切換雙語並自動關閉持續多語。',
+    'howto.s2.title':  '打開常用功能',
+    'howto.s2.desc':   '手機私訊可直接點底部選單；LINE 平台不支援群組固定底部圖文選單，請在群組傳純文字 @選單，開啟同一組常用功能卡。',
+    'howto.s3.title':  '點選翻譯語言',
+    'howto.s3.desc':   '選「語言設定」或傳 @語言設定，直接點選雙語；選「持續多語」或傳 @多語，可用快捷組合或自選最多 8 種，第一項為主語言。原有帶語言名稱的完整指令仍可用。',
     'howto.s4.title':  '開始傳訊息',
-    'howto.s4.desc':   '文字、圖片、語音皆可，Bot 自動翻譯回覆。',
+    'howto.s4.desc':   '先傳一般文字測試；語音、圖片 OCR 需已開通的付費群組。',
     'howto.group':     'LINE多國翻譯機器人：將 Bot 加入群組後傳',
     'howto.group2':    '查看完整指令。',
     'os.video.title': '操作教學影片',
@@ -2986,7 +2972,7 @@ var i18n = {
     'secretary.step4.kicker': 'STEP 04',
     'secretary.step4.title': '每天交接報表',
     'secretary.step4.command': '@祕書 報表',
-    'secretary.step4.desc': '把當日翻譯、確認、待辦與異常整理成報表，方便主管回看。',
+    'secretary.step4.desc': '把已記錄的群組對話、待辦與異常整理成報表，重要結論仍需回看原文。',
     'secretary.order.title': '建議順序',
     'secretary.order.text': '新人先用「@祕書 說明」；日常管理先看「@祕書 狀態」；需要回顧才用「@祕書 摘要」；交接或主管回報用「@祕書 報表」。',
     'secretary.video.title': 'AI 祕書指令教學影片',
@@ -3003,7 +2989,7 @@ var i18n = {
     'terms.langs':     '支援語言清單',
     // CTA
     'cta.h2':          '現在就開始翻譯',
-    'cta.p':           '免費開通：原文與所有指定目標都在中／英／日／韓時不計每日額度；原文或任一指定目標超出四語時，每則原始訊息計 1 則，每日 50 則。需要完整語言、語音、OCR、摘要與報表時，再升級 LINE 多國翻譯機器人方案。',
+    'cta.p':           '免費開通：原文與所有指定目標都在中／英／日／韓時不計每日額度；原文或任一指定目標超出四語時，每則原始訊息計 1 則，每日 50 則。需要高用量翻譯、語音、OCR、摘要與報表時，再升級 LINE 多國翻譯機器人方案。',
     'cta.btn':         '加入 LINE Bot 開始翻譯',
     // STATS NUM
     'stat.speed.num': '先測再用',
@@ -3025,9 +3011,9 @@ var i18n = {
     'vs.voice.wyt':   '● ✓ 所有付費版',
     'vs.multi.wyt':   '● ✓ 36 種常用工作語言',
     'vs.multi.ech':   '請查看該服務官網',
-    'vs.confirm.wyt': '● ✓（獨有）',
-    'vs.vocab.wyt':   '● ✓（獨有）',
-    'vs.dnd.wyt':     '● ✓（獨有）',
+    'vs.confirm.wyt': '● ✓',
+    'vs.vocab.wyt':   '● ✓',
+    'vs.dnd.wyt':     '● ✓',
     'vs.curr.ech':    '請查看該服務官網',
     'vs.curr.lig':    '請查看該服務官網',
     'footer.features': '為何選我',
@@ -3086,9 +3072,9 @@ var i18n = {
     'pg1.name': '免費版', 'pg1.desc': '',          'pg1.period': '加入即用',
     'pg1.f1': '原文與所有目標皆在中／英／日／韓內：不計每日額度', 'pg1.f2': '原文或任一目標超出四語：每則計 1 則，每日 50 則', 'pg1.f3': '適合輕度/初期使用者', 'pg1.f4': '加入即用，無需開通', 'pg1.f5': '',
     'pg2.name': '月費版',  'pg2.desc': '',        'pg2.period': '30 天',
-    'pg2.f1': '小資輕鬆擁有完整服務', 'pg2.f2': '支援完整語言清單', 'pg2.f3': '支持語音、圖片 OCR 翻譯', 'pg2.f4': '紀錄搜尋與統計', 'pg2.f5': '新增報表製作/匯出功能', 'pg2.f6': '配屬 AI 祕書可匯整 300 筆摘要',
+    'pg2.f1': '小資輕鬆擁有完整服務', 'pg2.f2': '支援完整語言清單', 'pg2.f3': '支持語音、圖片 OCR 翻譯', 'pg2.f4': '紀錄搜尋與統計', 'pg2.f5': '新增報表製作/匯出功能', 'pg2.f6': 'AI 祕書整理近期紀錄，標示實際筆數',
     'pg3.name': '半年版',   'pg3.desc': '',  'pg3.period': '180 天',
-    'pg3.f1': '經濟實惠的價格', 'pg3.f2': '支援完整語言清單', 'pg3.f3': '支持語音、圖片 OCR 翻譯', 'pg3.f4': '紀錄搜尋與統計', 'pg3.f5': '新增報表製作/匯出功能', 'pg3.f6': '配屬 AI 祕書可匯整 300 筆摘要', 'pg3.f7': '適合中度/中長期使用者',
+    'pg3.f1': '經濟實惠的價格', 'pg3.f2': '支援完整語言清單', 'pg3.f3': '支持語音、圖片 OCR 翻譯', 'pg3.f4': '紀錄搜尋與統計', 'pg3.f5': '新增報表製作/匯出功能', 'pg3.f6': 'AI 祕書整理近期紀錄，標示實際筆數', 'pg3.f7': '適合中度/中長期使用者',
     'pg4.name': '一年版',   'pg4.desc': '', 'pg4.period': '420 天',
     'pg4.f1': '完整群組翻譯、語音、OCR', 'pg4.f2': '摘要、報表、搜尋與匯出', 'pg4.f3': '適合穩定長期使用的群組', 'pg4.f4': '到期前自動提醒一次', 'pg4.f5': '', 'pg4.f6': '', 'pg4.f7': '',
     'pg5.name': '尊爵版',   'pg5.desc': '', 'pg5.period': '永久買斷／每群組',
@@ -3107,13 +3093,13 @@ var i18n = {
     'nav.blog':        '📝 Blog',
     'nav.faq':         '❓ FAQ',
     'nav.brand':       'WanyuTong',
-    'site.title':      'WanyuTong | Cross-Language Work Instructions, Confirmation, and Records',
+    'site.title':      'WanyuTong | Cross-Language Communication, Summaries and Records',
     // HERO
     'hero.eyebrow':    'WanyuTong',
     'hero.logo.title': 'WanyuTong',
     'hero.logo.sub':   'Globe Talk AI Translation',
-    'hero.h1a':        'Cross-Language Work Instructions',
-    'hero.h1b':        'Translated, Confirmed, Recorded',
+    'hero.h1a':        'Cross-Language Work Communication',
+    'hero.h1b':        'Translated, Summarized, Recorded',
     'hero.desc':       'Put LINE group translation, AI summaries, daily reports, and record search into one workflow. Built for factories, worksites, caregiving, restaurants, and multilingual teams that need messages understood and records searchable.',
     'hero.btn1':       'Try the LINE Workflow Free',
     'hero.btn2':       'View Plans →',
@@ -3123,12 +3109,12 @@ var i18n = {
     'botcard.message': 'Finish Area A cleaning<br>before 15:00',
     'botcard.translator': 'WanyuTong Translation',
     'botcard.translation': 'Selesaikan area A<br>sebelum 15:00',
-    'botcard.check.title': 'Confirmation Progress',
-    'botcard.check.desc': 'Confirmed 6/8 people, 2 pending replies',
+    'botcard.check.title': 'Review the Reply',
+    'botcard.check.desc': 'Review an employee’s own reply alongside the translation',
     'botcard.tag1':    'Translated',
     'botcard.tag2':    'Confirmed',
     'botcard.tag3':    'Searchable',
-    'botcard.foot':    'Group records are saved for search and export',
+    'botcard.foot':    'Paid groups can search and export when recording is enabled',
     // STATS
     'stat.speed':      'Response Speed Note',
     'stat.langs':      'Supported Languages',
@@ -3154,8 +3140,8 @@ var i18n = {
     // WORKPLACE OS
     'os.eyebrow':      '// Workplace OS',
     'os.title':        'One LINE Assistant, Three Jobs',
-    'os.lead':         'WanyuTong is not a generic AI support bot. It is a multilingual workflow inside LINE work groups: workers understand instructions, managers receive confirmations, and important records stay searchable.',
-    'os.note':         'Onboarding point: no new app and no workflow migration. Add the Bot to a LINE group, set languages and reports, then start translation, summaries, and daily records the next day.',
+    'os.lead':         'WanyuTong is not a generic AI support bot. It is a multilingual workflow inside LINE work groups: workers understand instructions, managers review members’ own replies, and important records stay searchable.',
+    'os.note':         'Onboarding point: no new app and no workflow migration. Add the Bot to a LINE group, set languages and reports, then test text translation; summaries and reports require an active paid group with recording enabled.',
     'os.card1.kicker': 'ABILITY 01',
     'os.card1.title':  'Translate Clearly',
     'os.card1.desc':   'A manager sends one message, and the Bot translates it into the languages configured for the group. Everyone views the same multilingual result in LINE. Text, voice, and images are supported.',
@@ -3163,11 +3149,11 @@ var i18n = {
     'os.card1.li2':    'Voice transcription and translation',
     'os.card1.li3':    'OCR for notices, contracts, and schedules',
     'os.card2.kicker': 'ABILITY 02',
-    'os.card2.title':  'Confirm Better',
+    'os.card2.title':  'Review Better',
     'os.card2.desc':   'Beyond translating messages, WanyuTong helps managers spot tasks, payment amounts, risks, and items that still need human confirmation.',
     'os.card2.li1':    'AI summaries of group chats',
     'os.card2.li2':    'Search payments, contracts, leave, and keywords',
-    'os.card2.li3':    'Translation confirmation and review reminders',
+    'os.card2.li3':    'Translation review reminders',
     'os.card3.kicker': 'ABILITY 03',
     'os.card3.title':  'Keep Records',
     'os.card3.desc':   'Busy LINE groups lose context quickly. WanyuTong turns important events into searchable and exportable records for handoff and management.',
@@ -3178,14 +3164,14 @@ var i18n = {
     'os.proof1.label': 'Add to a group and start onboarding',
     'os.proof2.num':   '36 langs',
     'os.proof2.label': 'Common foreign-worker languages supported',
-    'os.proof3.num':   '300 msgs',
-    'os.proof3.label': 'Paid-plan AI summary range',
+    'os.proof3.num':   'Recent records',
+    'os.proof3.label': 'Check the actual summary record count',
     'os.proof4.num':   'Excel',
     'os.proof4.label': 'Export search and analytics from service records',
     // FEATURES
     'feat.eyebrow':    '// Features',
     'feat.h2':         'Not a Translation App. A LINE Work Instruction Workflow.',
-    'feat.lead':       'Send instructions, translate them, confirm receipt, summarize the group, and search records later — all inside the LINE group your team already uses.',
+    'feat.lead':       'Translate text, ask members to reply, then review summaries, reports and records. Managers check replies manually in the existing LINE group.',
     'feat.1.title':    '36 Languages Supported',
     'feat.1.desc':     'Japanese, English, Korean, Indonesian, Thai, Vietnamese, Filipino, Arabic, Hebrew and more. Major languages are available by plan and can be switched quickly with commands.',
     'feat.2.title':    'Group Two-Way Translation',
@@ -3194,8 +3180,8 @@ var i18n = {
     'feat.3.desc':     'Send a voice message and get automatic transcription and translation. Useful when hands are busy on job sites or factory floors.',
     'feat.4.title':    'Image OCR Translation',
     'feat.4.desc':     'Send a screenshot or photo and translate the text. Schedules, notices, contracts, and warning labels can be handled without retyping.',
-    'feat.5.title':    'Receipt Confirmation',
-    'feat.5.desc':     'After sending instructions, track who has replied and who is still pending. Important notices can use fixed reply formats so managers have a traceable record.',
+    'feat.5.title':    'Human Review Reminders',
+    'feat.5.desc':     'Automatic checks may show a review reminder with the DeepL translation. Important quantities, dates, negation, safety, contracts, and payments still need human review.',
     'feat.6.title':    'Group Key Summaries',
     'feat.6.desc':     'Summarize recent group chats into highlights, tasks, deadlines, payment clues, and items that still need confirmation.',
     'feat.7.title':    'Group Daily Reports',
@@ -3205,11 +3191,11 @@ var i18n = {
     'feat.9.title':    'Industry Terms and Quiet Hours',
     'feat.9.desc':     'Keep workplace terms intact and reduce non-work-hour interruptions, so the Bot behaves like an operational tool instead of a chat toy.',
     'feat.10.title':   'Try Free, Pay When Satisfied',
-    'feat.10.desc':    'The free plan does not use the daily quota when the source and all configured targets are Chinese, English, Japanese, or Korean. If the detected source or any configured target is outside those four, one original message uses one of 50 daily credits. Upgrade when you need full language coverage and group features.',
+    'feat.10.desc':    'The free plan does not use the daily quota when the source and all configured targets are Chinese, English, Japanese, or Korean. If the detected source or any configured target is outside those four, one original message uses one of 50 daily credits. Upgrade when you need higher usage allowances and paid group features.',
     // INDUSTRIES
     'industry.eyebrow':'// Industries & Search Intent',
     'industry.title':  'Start with workplaces that need cross-language management most',
-    'industry.lead':   'WanyuTong focuses on Taiwanese employers already managing people through LINE. It does not add another app; it connects AI translation, confirmation, summaries, reports, and search to the group they already use.',
+    'industry.lead':   'WanyuTong focuses on Taiwanese employers already managing people through LINE. It does not add another app; it connects AI translation, summaries, reports, and search to the group they already use.',
     'industry.1.title':'Factories and Manufacturing',
     'industry.1.desc': 'Safety notices, machine issues, overtime, quality rules, and deadlines need messages that are truly understood.',
     'industry.2.title':'Construction and Field Teams',
@@ -3364,12 +3350,12 @@ var i18n = {
     'howto.lead':      'From setup to first translation in just a few minutes.',
     'howto.s1.title':  'Add WanyuTong',
     'howto.s1.desc':   'Click the button to add the LINE Bot as a friend.',
-    'howto.s2.title':  'Type @language',
-    'howto.s2.desc':   'Send @language to check your current translation settings.',
-    'howto.s3.title':  'Switch Target Language',
-    'howto.s3.desc':   'Send @語言設定 繁體中文 印尼文; after validation, it switches to two-way translation and automatically closes persistent multilingual mode.',
+    'howto.s2.title':  'Open Common Functions',
+    'howto.s2.desc':   'On a phone, use the bottom menu in a one-to-one chat. LINE does not support a fixed rich menu in group chats; send plain-text @選單 in the group to open the same common-function card.',
+    'howto.s3.title':  'Choose Translation Languages',
+    'howto.s3.desc':   'Tap Language Settings or send @語言設定 to choose a pair. Tap Persistent Multilingual or send @多語 to use a preset or choose up to 8 languages; the first is the primary language. Commands that include language names still work.',
     'howto.s4.title':  'Start Messaging',
-    'howto.s4.desc':   'Text, images, and voice all work — the Bot auto-translates and replies.',
+    'howto.s4.desc':   'Test with plain text first. Voice and image OCR require an active paid group.',
     'howto.group':     'For groups: Add the Bot to your group, then send',
     'howto.group2':    'to see the full command list.',
     'os.video.title': 'Setup Tutorial Video',
@@ -3395,7 +3381,7 @@ var i18n = {
     'secretary.step4.kicker': 'STEP 04',
     'secretary.step4.title': 'Generate daily reports',
     'secretary.step4.command': '@祕書 報表',
-    'secretary.step4.desc': 'Turns the day’s translations, confirmations, tasks, and exceptions into a report for supervisors.',
+    'secretary.step4.desc': 'Organizes recorded group messages, tasks, and exceptions into a report; verify important conclusions against the source.',
     'secretary.order.title': 'Recommended order',
     'secretary.order.text': 'New users start with @祕書 說明. Daily managers check @祕書 狀態 first. Use @祕書 摘要 for quick review and @祕書 報表 for handoff or supervisor reporting.',
     'secretary.video.title': 'AI Secretary Command Tutorial',
@@ -3412,7 +3398,7 @@ var i18n = {
     'terms.langs':     'Supported Languages',
     // CTA
     'cta.h2':          'Start Translating Now',
-    'cta.p':           'Activate free: source and all configured targets within Chinese, English, Japanese, and Korean do not use the daily quota. If the detected source or any configured target is outside those four, one original message uses one of 50 daily credits. Upgrade when you need full language coverage, voice, OCR, summaries, and reports.',
+    'cta.p':           'Activate free: source and all configured targets within Chinese, English, Japanese, and Korean do not use the daily quota. If the detected source or any configured target is outside those four, one original message uses one of 50 daily credits. Upgrade when you need higher usage allowances and paid group features such as voice, OCR, summaries and reports.',
     'cta.btn':         'Add LINE Bot & Start',
     // STATS NUM
     'stat.speed.num': 'Test first',
@@ -3496,13 +3482,13 @@ var i18n = {
     'pg1.name': 'Free',  'pg1.desc': '',          'pg1.period': 'Start instantly',
     'pg1.f1': 'Source and all configured targets within ZH/EN/JA/KO: no daily credit used', 'pg1.f2': 'If the detected source or any configured target is outside those four, one original message uses one of 50 daily credits', 'pg1.f3': 'For light or early users', 'pg1.f4': 'No setup needed', 'pg1.f5': '',
     'pg2.name': 'Monthly', 'pg2.desc': '',    'pg2.period': '30 days',
-    'pg2.f1': 'Affordable full service', 'pg2.f2': 'Full supported language list', 'pg2.f3': 'Voice and image OCR translation', 'pg2.f4': 'Record search and analytics', 'pg2.f5': 'Report generation and export', 'pg2.f6': 'AI secretary summarizes up to 300 messages',
+    'pg2.f1': 'Affordable full service', 'pg2.f2': 'Full supported language list', 'pg2.f3': 'Voice and image OCR translation', 'pg2.f4': 'Record search and analytics', 'pg2.f5': 'Report generation and export', 'pg2.f6': 'AI secretary summarizes recent records with the actual record count',
     'pg3.name': 'Half-Year',       'pg3.desc': '', 'pg3.period': '180 days',
-    'pg3.f1': 'Cost-effective price', 'pg3.f2': 'Full supported language list', 'pg3.f3': 'Voice and image OCR translation', 'pg3.f4': 'Record search and analytics', 'pg3.f5': 'Report generation and export', 'pg3.f6': 'AI secretary summarizes up to 300 messages', 'pg3.f7': 'For medium or mid-term users',
+    'pg3.f1': 'Cost-effective price', 'pg3.f2': 'Full supported language list', 'pg3.f3': 'Voice and image OCR translation', 'pg3.f4': 'Record search and analytics', 'pg3.f5': 'Report generation and export', 'pg3.f6': 'AI secretary summarizes recent records with the actual record count', 'pg3.f7': 'For medium or mid-term users',
     'pg4.name': 'Annual',    'pg4.desc': '', 'pg4.period': '420 days',
     'pg4.f1': 'Full group translation, voice, and OCR', 'pg4.f2': 'Summaries, reports, search, and export', 'pg4.f3': 'For stable long-term groups', 'pg4.f4': 'One expiry reminder before the end', 'pg4.f5': '', 'pg4.f6': '', 'pg4.f7': '',
     'pg5.name': 'Premium',    'pg5.desc': '', 'pg5.period': 'Lifetime buyout / per group',
-    'pg5.f1': 'Dedicated custom bot', 'pg5.f2': 'Planned Taiwanese and Hakka versions', 'pg5.f3': '', 'pg5.f4': '', 'pg5.f5': '', 'pg5.f6': '', 'pg5.f7': '',
+    'pg5.f1': 'Current paid group features', 'pg5.f2': 'Custom scope must be agreed before payment', 'pg5.f3': '', 'pg5.f4': '', 'pg5.f5': '', 'pg5.f6': '', 'pg5.f7': '',
   }
 };
 
@@ -4040,8 +4026,8 @@ function forcePricingLang(lang) {
       buttons: { start: '免費開通', join: '免費開通', contact: '加入開通' },
       group: [
         { name:'免費版', desc:'', amount:'$0', period:'加入即用', features:['原文與所有目標皆在中／英／日／韓內：不計每日額度','原文或任一目標超出四語：每則計 1 則，每日 50 則','適合輕度/初期使用者','加入即用，無需開通'] },
-        { name:'月費版', desc:'', amount:'NT$99', period:'30 天', features:['小資輕鬆擁有完整服務','支援完整語言清單','支持語音、圖片 OCR 翻譯','紀錄搜尋與統計','新增報表製作/匯出功能','配屬 AI 祕書可匯整 300 筆摘要'] },
-        { name:'半年版', desc:'', amount:'NT$499', period:'180 天', features:['經濟實惠的價格','支援完整語言清單','支持語音、圖片 OCR 翻譯','紀錄搜尋與統計','新增報表製作/匯出功能','配屬 AI 祕書可匯整 300 筆摘要','適合中度/中長期使用者'] },
+        { name:'月費版', desc:'', amount:'NT$99', period:'30 天', features:['小資輕鬆擁有完整服務','支援完整語言清單','支持語音、圖片 OCR 翻譯','紀錄搜尋與統計','新增報表製作/匯出功能','AI 祕書整理近期紀錄，標示實際筆數'] },
+        { name:'半年版', desc:'', amount:'NT$499', period:'180 天', features:['經濟實惠的價格','支援完整語言清單','支持語音、圖片 OCR 翻譯','紀錄搜尋與統計','新增報表製作/匯出功能','AI 祕書整理近期紀錄，標示實際筆數','適合中度/中長期使用者'] },
         { name:'一年版', desc:'', amount:'NT$799', period:'420 天', features:['完整群組翻譯、語音、OCR','摘要、報表、搜尋與匯出','適合穩定長期使用的群組','到期前自動提醒一次','','','',''] },
         { name:'尊爵版', desc:'', amount:'NT$2500', period:'永久買斷／每群組', features:['專屬客製化機器人','預計開發台語版、客語版','','','','',''] }
       ]
@@ -4056,10 +4042,10 @@ function forcePricingLang(lang) {
       buttons: { start: 'Activate Free', join: 'Activate Free', contact: 'Activate' },
       group: [
         { name:'Free', desc:'', amount:'$0', period:'Start instantly', features:['Source and all configured targets within ZH/EN/JA/KO: no daily credit used','If the detected source or any configured target is outside those four, one original message uses one of 50 daily credits','For light or early users','No setup needed'] },
-        { name:'Monthly', desc:'', amount:'NT$99', period:'30 days', features:['Affordable full service','Full supported language list','Voice and image OCR translation','Record search and analytics','Report generation and export','AI secretary summarizes up to 300 messages'] },
-        { name:'Half-Year', desc:'', amount:'NT$499', period:'180 days', features:['Cost-effective price','Full supported language list','Voice and image OCR translation','Record search and analytics','Report generation and export','AI secretary summarizes up to 300 messages','For medium or mid-term users'] },
+        { name:'Monthly', desc:'', amount:'NT$99', period:'30 days', features:['Affordable full service','Full supported language list','Voice and image OCR translation','Record search and analytics','Report generation and export','AI secretary summarizes recent records with the actual record count'] },
+        { name:'Half-Year', desc:'', amount:'NT$499', period:'180 days', features:['Cost-effective price','Full supported language list','Voice and image OCR translation','Record search and analytics','Report generation and export','AI secretary summarizes recent records with the actual record count','For medium or mid-term users'] },
         { name:'Annual', desc:'', amount:'NT$799', period:'420 days', features:['Full group translation, voice, and OCR','Summaries, reports, search, and export','For stable long-term groups','One expiry reminder before the end','','','',''] },
-        { name:'Premium', desc:'', amount:'NT$2500', period:'Lifetime buyout / per group', features:['Dedicated custom bot','Planned Taiwanese and Hakka versions','','','','',''] }
+        { name:'Premium', desc:'', amount:'NT$2500', period:'Lifetime buyout / per group', features:['Current paid group features','Custom scope must be agreed before payment','','','','',''] }
       ]
     }
   };

@@ -107,7 +107,8 @@ function assertFinal({ cards, scope, title }, lang) {
   const features = premium.parts['.price-features'].children.map((item) => item.textContent);
   assert.equal(features.length, 7);
   assert.equal(premium.parts['.price-amount'].textContent, 'NT$2500');
-  assert.ok(features.some((value) => value.includes('300')));
+  assert.ok(features.some((value) => /近期已記錄|recent recorded/.test(value)));
+  assert.ok(features.every((value) => !value.includes('300')));
   assert.ok(features.some((value) => /客製需求|Confirm custom scope/.test(value)));
   assert.ok(features.every((value) => !/專屬客製化機器人|預計開發台語版、客語版|Dedicated custom bot|Planned Taiwanese and Hakka versions/.test(value)));
   const heading = strip(scope.innerHTML.match(/<h2[^>]*>([\s\S]*?)<\/h2>/)[1]);
@@ -141,7 +142,7 @@ test('page uses a precise title selector and registers before deferred initializ
   const registration = pricingSource.indexOf('window.wanyuPagePricingRenderer = forcePricingLang;');
   const initialization = pricingSource.indexOf('// 初始化：讀取儲存的語言');
   assert.ok(registration > 0 && registration < initialization);
-  assert.match(pricingSource, /<script src="assets\/wanyutong-app\.js\?v=content-truth-20261010" defer><\/script>/);
+  assert.match(pricingSource, /<script src="assets\/wanyutong-app\.js\?v=content-sync-20261110" defer><\/script>/);
 });
 
 test('shared controller delegates only opt-in pages and retains non-opt-in fallback', () => {

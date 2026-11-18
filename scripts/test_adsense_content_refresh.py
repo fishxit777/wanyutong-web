@@ -19,6 +19,11 @@ GUIDES = (
     "blog-foreign-worker-communication.html", "blog-translation-quality-checklist.html",
     "blog-image-ocr-translation.html", "blog-free-paid-plans.html",
 )
+SCENARIO_GUIDES = (
+    "blog-factory-line-translation.html", "blog-construction-line-translation.html",
+    "blog-caregiver-line-translation.html", "blog-restaurant-foreign-worker-translation.html",
+    "blog-foreign-worker-safety-law.html",
+)
 
 
 class VisibleContent(HTMLParser):
@@ -104,10 +109,14 @@ class ContentRefreshTests(unittest.TestCase):
         ns = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
         urls = {node.find("s:loc", ns).text: node.find("s:lastmod", ns).text for node in sitemap}
         self.assertNotIn("https://wanyutong.tw/" + MERGED, urls)
-        for name in GUIDES + ("blog.html", "editorial.html", "pricing.html", "faq.html", "terms.html"):
+        for name in GUIDES + ("editorial.html", "terms.html"):
             self.assertEqual(UPDATE, urls["https://wanyutong.tw/" + name], name)
+        for name in SCENARIO_GUIDES + ("blog.html", "join.html"):
+            self.assertEqual("2026-11-19", urls["https://wanyutong.tw/" + name], name)
+        for name in ("pricing.html", "faq.html"):
+            self.assertEqual("2026-11-18", urls["https://wanyutong.tw/" + name], name)
         worker = self.read("sw.js")
-        self.assertIn("20261118-group-payment-scope-v1", worker)
+        self.assertIn("20261119-work-scenario-guides-v1", worker)
         self.assertNotIn("'./" + MERGED + "'", worker)
         self.assertIn("'./" + DESTINATION + "'", worker)
 
@@ -124,11 +133,19 @@ class ContentRefreshTests(unittest.TestCase):
                 self.assertNotIn("已完成真實付款測試", source)
         self.assertNotIn("<li>預計開發台語版、客語版</li>", self.read("pricing.html"))
 
-    def test_knowledge_hub_has_eight_unique_guides(self):
+    def test_knowledge_hub_lists_core_and_completed_scenario_guides(self):
         source = self.read("blog.html")
-        self.assertEqual(8, len(re.findall(r'<a class="knowledge-card"', source)))
+        cards = re.findall(r'<a class="knowledge-card" href="([^"]+)"', source)
+        self.assertCountEqual(cards, GUIDES + SCENARIO_GUIDES)
         self.assertIn("核心指南：8 篇", source)
+        self.assertIn("情境指南：5 篇", source)
         self.assertNotIn(MERGED, source)
+        for name in SCENARIO_GUIDES:
+            guide = self.read(name)
+            with self.subTest(guide=name):
+                self.assertIn('content="index,follow"', guide)
+                self.assertNotIn("內容重新整理中", guide)
+                self.assertNotRegex(guide, r"wanyutong-ads|googlesyndication|data-wyt-ad")
 
 
 if __name__ == "__main__":

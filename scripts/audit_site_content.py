@@ -14,13 +14,7 @@ from urllib.parse import unquote, urlsplit
 
 
 ROOT = Path(__file__).resolve().parents[1]
-QUARANTINED = {
-    "blog-caregiver-line-translation.html",
-    "blog-construction-line-translation.html",
-    "blog-factory-line-translation.html",
-    "blog-foreign-worker-safety-law.html",
-    "blog-restaurant-foreign-worker-translation.html",
-}
+QUARANTINED: set[str] = set()
 MERGED = {"blog-image-ocr-checklist.html": "blog-image-ocr-translation.html#checklist"}
 PILLARS = {
     "blog-line-group-translation.html": "developers.line.biz",

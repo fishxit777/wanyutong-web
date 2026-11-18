@@ -5,7 +5,7 @@
 ## 正式入口
 
 - [官網](https://wanyutong.tw/)
-- [八篇核心指南](https://wanyutong.tw/blog.html)
+- [操作與工作情境指南](https://wanyutong.tw/blog.html)
 - [完整 OCR 操作與核對表](https://wanyutong.tw/blog-image-ocr-translation.html)
 - [方案與購買範圍](https://wanyutong.tw/pricing.html)
 

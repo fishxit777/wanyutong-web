@@ -86,7 +86,7 @@ class ContentAlignmentTests(unittest.TestCase):
         self.assertEqual([], errors)
 
     def test_quarantine_link_variants_are_rejected(self):
-        target = sorted(audit.QUARANTINED)[0]
+        target = "blog-maintenance-example.html"
         variants = (
             target,
             target + "#section",
@@ -99,7 +99,7 @@ class ContentAlignmentTests(unittest.TestCase):
             root = Path(temp)
             (root / target).write_text("<p>maintenance</p>", encoding="utf-8")
             page = root / "index.html"
-            with patch.object(audit, "ROOT", root):
+            with patch.object(audit, "ROOT", root), patch.object(audit, "QUARANTINED", {target}):
                 for href in variants:
                     with self.subTest(variant=href):
                         page.write_text(f'<a href="{href}">guide</a>', encoding="utf-8")
@@ -108,12 +108,12 @@ class ContentAlignmentTests(unittest.TestCase):
                         self.assertTrue(any("quarantined" in e for e in errors))
 
     def test_noindex_page_and_external_links_do_not_false_positive(self):
-        target = sorted(audit.QUARANTINED)[0]
+        target = "blog-maintenance-example.html"
         with tempfile.TemporaryDirectory(prefix="wyt-content-test-") as temp:
             root = Path(temp)
             (root / target).write_text("<p>maintenance</p>", encoding="utf-8")
             page = root / "index.html"
-            with patch.object(audit, "ROOT", root):
+            with patch.object(audit, "ROOT", root), patch.object(audit, "QUARANTINED", {target}):
                 for content in (
                     f'<meta content="noindex,follow" name="robots"><a href="{target}">old guide</a>',
                     f'<a href="https://example.org/{target}">external</a>',

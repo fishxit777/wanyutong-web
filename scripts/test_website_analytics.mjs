@@ -63,11 +63,25 @@ function harness(options = {}) {
   };
 }
 
-test('every indexable public document loads one tracker with its own canonical page label', async () => {
+test('public site keeps the existing tracker coverage when publishing the scenario guides', async () => {
+  const untrackedGuides = new Set([
+    'blog-caregiver-line-translation.html',
+    'blog-construction-line-translation.html',
+    'blog-factory-line-translation.html',
+    'blog-foreign-worker-safety-law.html',
+    'blog-restaurant-foreign-worker-translation.html'
+  ]);
   let tracked = 0;
+  let untracked = 0;
   for (const name of readdirSync(root).filter(name => name.endsWith('.html'))) {
     const html = readFileSync(new URL(name, root), 'utf8');
-    const trackable = /<head\b/i.test(html) && !/<meta\b[^>]*name=["']robots["'][^>]*content=["'][^"']*noindex/i.test(html);
+    const indexable = /<head\b/i.test(html) && !/<meta\b[^>]*name=["']robots["'][^>]*content=["'][^"']*noindex/i.test(html);
+    if (untrackedGuides.has(name)) {
+      assert.ok(indexable, name);
+      assert.equal(harness({ url: 'https://wanyutong.tw/' + name }).beacons.length, 0, name);
+      untracked++;
+    }
+    const trackable = indexable && !untrackedGuides.has(name);
     assert.equal((html.match(/src="assets\/wanyutong-analytics\.js\?v=20261110-v2"/g) || []).length, trackable ? 1 : 0, name);
     assert.ok(!html.includes('/track/pixel'), name);
     if (!trackable) continue;
@@ -80,6 +94,7 @@ test('every indexable public document loads one tracker with its own canonical p
     assert.match(payload.event_id, /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i);
   }
   assert.equal(tracked, 24);
+  assert.equal(untracked, untrackedGuides.size);
 });
 
 test('root, index.html and allowed GitHub Pages root normalize to index', async () => {
@@ -189,7 +204,7 @@ test('UUID fallback is valid and a missing crypto implementation fails without b
 
 test('service worker versions the new script and never adds the tracking API to its cache', () => {
   const sw = readFileSync(new URL('sw.js', root), 'utf8');
-  assert.match(sw, /20261118-group-payment-scope-v1/);
+  assert.match(sw, /20261119-work-scenario-guides-v1/);
   assert.ok(sw.includes("'./assets/wanyutong-analytics.js?v=20261110-v2'"));
   assert.ok(!sw.includes(endpoint));
   assert.match(sw, /request.method === 'GET'/);

@@ -1,5 +1,5 @@
 const CACHE_PREFIX = 'wanyutong-pwa-';
-const CACHE_NAME = CACHE_PREFIX + '20261118-group-payment-scope-v1';
+const CACHE_NAME = CACHE_PREFIX + '20261119-work-scenario-guides-v1';
 const CORE_ASSETS = [
   './',
   './index.html',

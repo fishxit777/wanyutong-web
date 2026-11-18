@@ -1,5 +1,5 @@
 const CACHE_PREFIX = 'wanyutong-pwa-';
-const CACHE_NAME = CACHE_PREFIX + '20261110-content-sync-v3';
+const CACHE_NAME = CACHE_PREFIX + '20261118-group-payment-scope-v1';
 const CORE_ASSETS = [
   './',
   './index.html',
@@ -35,6 +35,7 @@ const CORE_ASSETS = [
   './assets/wanyutong-analytics.js?v=20261110-v2',
   './assets/wanyutong-app.js',
   './assets/wanyutong-app.js?v=content-sync-20261110',
+  './assets/wanyutong-app.js?v=group-scope-20261118',
   './assets/wanyutong-ads-config.js',
   './assets/wanyutong-ads.js',
   './assets/wanyutong-readable.css',

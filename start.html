@@ -1899,7 +1899,7 @@ footer a:hover { color:var(--text); }
   <meta name="apple-mobile-web-app-title" content="萬語通">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link rel="apple-touch-icon" href="assets/icons/wanyutong-icon-180.png">
-  <script src="assets/wanyutong-app.js?v=content-sync-20261110" defer></script>
+  <script src="assets/wanyutong-app.js?v=group-scope-20261118" defer></script>
 
 <link rel="stylesheet" href="assets/wanyutong-readable.css">
   <meta name="referrer" content="origin">
@@ -1953,10 +1953,10 @@ footer a:hover { color:var(--text); }
     <div class="setup-grid">
       <div class="setup-summary">
         <h3 id="setup-summary-title">先用 LINE多國翻譯機器人，把一個群組跑順</h3>
-        <p id="setup-summary-desc">付費模式為免費版、月費版、半年版、一年版與尊爵版；單一群組可先從 NT$99 月費版開始，需要長期使用再改一年版或尊爵版。</p>
+        <p id="setup-summary-desc">免費文字翻譯可先試用。付費方案以群組為單位，月費 NT$99／30 天／每群組；私訊可看方案介紹，要購買請在想升級的群組輸入 @方案，使用該群組的付款連結。只開通該群組，不會升級私訊或其他群組。</p>
         <div class="setup-price">
-          <div class="setup-price-row"><span id="setup-price-1-label">單一 LINE 群</span><strong id="setup-price-1-value">月費版 NT$99／30 天</strong></div>
-          <div class="setup-price-row"><span id="setup-price-2-label">穩定長期使用</span><strong id="setup-price-2-value">一年版 NT$799／尊爵版 NT$2500</strong></div>
+          <div class="setup-price-row"><span id="setup-price-1-label">單一 LINE 群</span><strong id="setup-price-1-value">月費版 NT$99／30 天／每群組</strong></div>
+          <div class="setup-price-row"><span id="setup-price-2-label">穩定長期使用</span><strong id="setup-price-2-value">一年版 NT$799／尊爵版 NT$2500，皆為每群組</strong></div>
           <div class="setup-price-row"><span id="setup-price-3-label">完整功能</span><strong id="setup-price-3-value">翻譯、語音、OCR、摘要、報表與紀錄查詢</strong></div>
         </div>
       </div>
@@ -2572,7 +2572,7 @@ var i18n = {
     // STATS
     'stat.speed':      '回覆速度說明',
     'stat.langs':      '支援語言種數',
-    'stat.price':      '月費入門價格',
+    'stat.price':      '每群組／30 天',
     'stat.service':    '雲端服務',
     'stat.service.num': '雲端',
     // TOPIC DIRECTORY
@@ -2700,11 +2700,11 @@ var i18n = {
     'setup.title':     '把「導入」說得很簡單',
     'setup.lead':      '客戶不想研究系統，他只想知道明天能不能少一點誤會。萬語通的導入說法要直接：先把一個 LINE 群管好，再視群組數與報表需求升級。',
     'setup.summary.title': '先用 LINE多國翻譯機器人，把一個群組跑順',
-    'setup.summary.desc':  '付費模式為免費版、月費版、半年版、一年版與尊爵版；單一群組可先從 NT$99 月費版開始，需要長期使用再改一年版或尊爵版。',
+    'setup.summary.desc':  '免費文字翻譯可先試用。付費方案以群組為單位，月費 NT$99／30 天／每群組；私訊可看方案介紹，要購買請在想升級的群組輸入 @方案，使用該群組的付款連結。只開通該群組，不會升級私訊或其他群組。',
     'setup.price1.label': '單一 LINE 群',
-    'setup.price1.value': '月費版 NT$99／30 天',
+    'setup.price1.value': '月費版 NT$99／30 天／每群組',
     'setup.price2.label': '穩定長期使用',
-    'setup.price2.value': '一年版 NT$799／尊爵版 NT$2500',
+    'setup.price2.value': '一年版 NT$799／尊爵版 NT$2500，皆為每群組',
     'setup.price3.label': '完整功能',
     'setup.price3.value': '翻譯、語音、OCR、摘要、報表與紀錄查詢',
     'setup.step1.num': 'STEP 01',
@@ -2785,7 +2785,7 @@ var i18n = {
     // PRICING
     'price.eyebrow':   '// Pricing',
     'price.h2':        '選擇適合你的方案',
-    'price.lead':      '免費版：原文與所有指定目標都在中／英／日／韓時不計每日額度；原文或任一指定目標超出四語時，每則原始訊息計 1 則，每日 50 則。付費方案聚焦 LINE 多國翻譯機器人群組使用。',
+    'price.lead':      '免費版：原文與所有指定目標都在中／英／日／韓時不計每日額度；原文或任一指定目標超出四語時，每則原始訊息計 1 則，每日 50 則。付費方案只適用指定 LINE 群組，請在要升級的群組輸入 @方案 取得付款連結。私訊可看方案介紹，付款不會升級私訊或其他群組。',
     'price.tab.personal': 'LINE多國翻譯機器人',
     'price.tab.group': 'LINE多國翻譯機器人',
     'price.badge.popular': '最受歡迎',
@@ -2926,18 +2926,18 @@ var i18n = {
     'pp1.f1': '原文與所有目標皆在中／英／日／韓內：不計每日額度', 'pp1.f2': '原文或任一目標超出四語：每則計 1 則，每日 50 則', 'pp1.f3': '適合輕度/初期使用者',
     'pp2.name': '舊方案已停用',  'pp2.desc': '', 'pp2.period': '不再顯示',
     'pp2.f1': '請將 Bot 加入 LINE 群組', 'pp2.f2': '使用 LINE多國翻譯機器人', 'pp2.f3': '月費版／半年版／一年版／尊爵版', 'pp2.f4': '付款以官方連結為準',
-    'pp3.name': '月費版', 'pp3.desc': '', 'pp3.period': 'NT$99／30 天',
+    'pp3.name': '月費版', 'pp3.desc': '', 'pp3.period': 'NT$99／30 天／每群組',
     'pp3.f1': '完整群組翻譯功能', 'pp3.f2': '語音、圖片 OCR、摘要與每日報表', 'pp3.f3': '支援完整語言清單',
-    'pp4.name': '一年版', 'pp4.desc': '', 'pp4.period': 'NT$799／420 天',
+    'pp4.name': '一年版', 'pp4.desc': '', 'pp4.period': 'NT$799／420 天／每群組',
     'pp4.f1': '完整群組翻譯、語音、OCR', 'pp4.f2': '摘要、報表、搜尋與匯出', 'pp4.f3': '適合穩定長期使用的群組', 'pp4.f4': '到期前自動提醒一次',
     // PRICING PLANS - Group
     'pg1.name': '免費版', 'pg1.desc': '',          'pg1.period': '加入即用',
     'pg1.f1': '原文與所有目標皆在中／英／日／韓內：不計每日額度', 'pg1.f2': '原文或任一目標超出四語：每則計 1 則，每日 50 則', 'pg1.f3': '適合輕度/初期使用者', 'pg1.f4': '加入即用，無需開通', 'pg1.f5': '',
-    'pg2.name': '月費版',  'pg2.desc': '',        'pg2.period': '30 天',
+    'pg2.name': '月費版',  'pg2.desc': '',        'pg2.period': '30 天／每群組',
     'pg2.f1': '小資輕鬆擁有完整服務', 'pg2.f2': '支援完整語言清單', 'pg2.f3': '支持語音、圖片 OCR 翻譯', 'pg2.f4': '紀錄搜尋與統計', 'pg2.f5': '新增報表製作/匯出功能', 'pg2.f6': 'AI 祕書整理近期紀錄，標示實際筆數',
-    'pg3.name': '半年版',   'pg3.desc': '',  'pg3.period': '180 天',
+    'pg3.name': '半年版',   'pg3.desc': '',  'pg3.period': '180 天／每群組',
     'pg3.f1': '經濟實惠的價格', 'pg3.f2': '支援完整語言清單', 'pg3.f3': '支持語音、圖片 OCR 翻譯', 'pg3.f4': '紀錄搜尋與統計', 'pg3.f5': '新增報表製作/匯出功能', 'pg3.f6': 'AI 祕書整理近期紀錄，標示實際筆數', 'pg3.f7': '適合中度/中長期使用者',
-    'pg4.name': '一年版',   'pg4.desc': '', 'pg4.period': '420 天',
+    'pg4.name': '一年版',   'pg4.desc': '', 'pg4.period': '420 天／每群組',
     'pg4.f1': '完整群組翻譯、語音、OCR', 'pg4.f2': '摘要、報表、搜尋與匯出', 'pg4.f3': '適合穩定長期使用的群組', 'pg4.f4': '到期前自動提醒一次', 'pg4.f5': '', 'pg4.f6': '', 'pg4.f7': '',
     'pg5.name': '尊爵版',   'pg5.desc': '', 'pg5.period': '永久買斷／每群組',
     'pg5.f1': '專屬客製化機器人', 'pg5.f2': '預計開發台語版、客語版', 'pg5.f3': '', 'pg5.f4': '', 'pg5.f5': '', 'pg5.f6': '', 'pg5.f7': '',
@@ -2980,7 +2980,7 @@ var i18n = {
     // STATS
     'stat.speed':      'Response Speed Note',
     'stat.langs':      'Supported Languages',
-    'stat.price':      'Starting Price',
+    'stat.price':      'Per group / 30 days',
     'stat.service':    'Cloud Hosted',
     'stat.service.num': 'Cloud',
     // TOPIC DIRECTORY
@@ -3108,11 +3108,11 @@ var i18n = {
     'setup.title':     'Make Onboarding Easy to Understand',
     'setup.lead':      'Customers do not want to study a system. They want fewer misunderstandings tomorrow. Start with one LINE group, then upgrade when group count, reporting, or exports require it.',
     'setup.summary.title': 'Start with the LINE Multilingual Translation Bot and make one group work first',
-    'setup.summary.desc':  'Plans are Free, Monthly, Half-Year, Annual, and Premium. A single LINE group can start from the NT$99 monthly plan and move to Annual or Premium later.',
+    'setup.summary.desc':  'Try free text translation first. Paid plans are sold per group, starting at NT$99 / 30 days / per group. Private chats show plan information. To buy, send @方案 in the group you want to upgrade and use its payment link. Payment activates only that group, not private chats or other groups.',
     'setup.price1.label': 'Single LINE group',
-    'setup.price1.value': 'Monthly NT$99 / 30 days',
+    'setup.price1.value': 'Monthly NT$99 / 30 days / per group',
     'setup.price2.label': 'Long-term use',
-    'setup.price2.value': 'Annual NT$799 / 420 days / Premium NT$2500',
+    'setup.price2.value': 'Annual NT$799 / 420 days; Premium NT$2500, both per group',
     'setup.price3.label': 'Full features',
     'setup.price3.value': 'Translation, voice, OCR, summaries, reports, and record search',
     'setup.step1.num': 'STEP 01',
@@ -3193,7 +3193,7 @@ var i18n = {
     // PRICING
     'price.eyebrow':   '// Pricing',
     'price.h2':        'Choose the Right Plan',
-    'price.lead':      'The free plan does not use the daily quota when the source and all configured targets are Chinese, English, Japanese, or Korean. If the detected source or any configured target is outside those four, one original message uses one of 50 daily credits. Paid plans focus on LINE group usage.',
+    'price.lead':      'The free plan does not use the daily quota when the source and all configured targets are Chinese, English, Japanese, or Korean. If the detected source or any configured target is outside those four, one original message uses one of 50 daily credits. Paid plans apply to one specified LINE group. Send @方案 in the group you want to upgrade for its payment link. Private chats show plan information; payment does not upgrade private chats or other groups.',
     'price.tab.personal': 'Group',
     'price.tab.group': 'Group',
     'price.badge.popular': 'Most Popular',
@@ -3335,18 +3335,18 @@ var i18n = {
     'pp1.f1': 'Source and all configured targets within ZH/EN/JA/KO: no daily credit used', 'pp1.f2': 'If the detected source or any configured target is outside those four, one original message uses one of 50 daily credits', 'pp1.f3': 'For light or early users',
     'pp2.name': 'Legacy Plan Disabled', 'pp2.desc': '',    'pp2.period': 'Hidden',
     'pp2.f1': 'Add the Bot to a LINE group', 'pp2.f2': 'Use the LINE Multilingual Translation Bot', 'pp2.f3': 'Monthly / Half-Year / Annual / Premium', 'pp2.f4': 'Payments must use official links',
-    'pp3.name': 'Monthly',     'pp3.desc': '','pp3.period': 'NT$99 / 30 days',
+    'pp3.name': 'Monthly',     'pp3.desc': '','pp3.period': 'NT$99 / 30 days / per group',
     'pp3.f1': 'Full group translation features', 'pp3.f2': 'Voice, image OCR, summaries, daily reports', 'pp3.f3': 'Full supported language list',
-    'pp4.name': 'Annual',      'pp4.desc': '', 'pp4.period': 'NT$799 / 420 days',
+    'pp4.name': 'Annual',      'pp4.desc': '', 'pp4.period': 'NT$799 / 420 days / per group',
     'pp4.f1': 'Full group translation, voice, and OCR', 'pp4.f2': 'Full supported language list', 'pp4.f3': 'Voice and image OCR translation', 'pp4.f4': 'Record search and analytics',
     // PRICING PLANS - Group
     'pg1.name': 'Free',  'pg1.desc': '',          'pg1.period': 'Start instantly',
     'pg1.f1': 'Source and all configured targets within ZH/EN/JA/KO: no daily credit used', 'pg1.f2': 'If the detected source or any configured target is outside those four, one original message uses one of 50 daily credits', 'pg1.f3': 'For light or early users', 'pg1.f4': 'No setup needed', 'pg1.f5': '',
-    'pg2.name': 'Monthly', 'pg2.desc': '',    'pg2.period': '30 days',
+    'pg2.name': 'Monthly', 'pg2.desc': '',    'pg2.period': '30 days / per group',
     'pg2.f1': 'Affordable full service', 'pg2.f2': 'Full supported language list', 'pg2.f3': 'Voice and image OCR translation', 'pg2.f4': 'Record search and analytics', 'pg2.f5': 'Report generation and export', 'pg2.f6': 'AI secretary summarizes recent records with the actual record count',
-    'pg3.name': 'Half-Year',       'pg3.desc': '', 'pg3.period': '180 days',
+    'pg3.name': 'Half-Year',       'pg3.desc': '', 'pg3.period': '180 days / per group',
     'pg3.f1': 'Cost-effective price', 'pg3.f2': 'Full supported language list', 'pg3.f3': 'Voice and image OCR translation', 'pg3.f4': 'Record search and analytics', 'pg3.f5': 'Report generation and export', 'pg3.f6': 'AI secretary summarizes recent records with the actual record count', 'pg3.f7': 'For medium or mid-term users',
-    'pg4.name': 'Annual',    'pg4.desc': '', 'pg4.period': '420 days',
+    'pg4.name': 'Annual',    'pg4.desc': '', 'pg4.period': '420 days / per group',
     'pg4.f1': 'Full group translation, voice, and OCR', 'pg4.f2': 'Summaries, reports, search, and export', 'pg4.f3': 'For stable long-term groups', 'pg4.f4': 'One expiry reminder before the end', 'pg4.f5': '', 'pg4.f6': '', 'pg4.f7': '',
     'pg5.name': 'Premium',    'pg5.desc': '', 'pg5.period': 'Lifetime buyout / per group',
     'pg5.f1': 'Current paid group features', 'pg5.f2': 'Custom scope must be agreed before payment', 'pg5.f3': '', 'pg5.f4': '', 'pg5.f5': '', 'pg5.f6': '', 'pg5.f7': '',
@@ -3879,32 +3879,32 @@ function forcePricingLang(lang) {
     zh: {
       eyebrow: '// Pricing',
       title: '選擇適合你的方案',
-      lead: '免費版：原文與所有指定目標都在中／英／日／韓時不計每日額度；原文或任一指定目標超出四語時，每則原始訊息計 1 則，每日 50 則。付費方案聚焦 LINE 多國翻譯機器人群組使用。',
+      lead: '免費版：原文與所有指定目標都在中／英／日／韓時不計每日額度；原文或任一指定目標超出四語時，每則原始訊息計 1 則，每日 50 則。付費方案只適用指定 LINE 群組，請在要升級的群組輸入 @方案 取得付款連結。私訊可看方案介紹，付款不會升級私訊或其他群組。',
       tabs: ['LINE多國翻譯機器人'],
       refund: '付款與退費：目前方案採付款連結開通或延長，不等同信用卡週期自動續扣；是否啟用自動扣款以綠界付款頁與訂購畫面顯示為準。本服務為數位內容，付款後原則上不退費；僅限付款後 24 小時內、Bot 完全無法回應且非使用者網路、LINE 或操作問題時，可透過 <a class="support-form-link" href="https://forms.gle/rKatiHrCmh5wpCov8" target="_blank" rel="noopener">GOOGLE 客服表單</a> 申請審核。付款請以官方 LINE Bot @969wpxno 產生的綠界連結或官網正式入口為準，請勿相信陌生私訊或非官方連結。',
       badges: { group: '長期最划算', premium: '尊爵服務' },
       buttons: { start: '免費開通', join: '免費開通', contact: '加入開通' },
       group: [
         { name:'免費版', desc:'', amount:'$0', period:'加入即用', features:['原文與所有目標皆在中／英／日／韓內：不計每日額度','原文或任一目標超出四語：每則計 1 則，每日 50 則','適合輕度/初期使用者','加入即用，無需開通'] },
-        { name:'月費版', desc:'', amount:'NT$99', period:'30 天', features:['小資輕鬆擁有完整服務','支援完整語言清單','支持語音、圖片 OCR 翻譯','紀錄搜尋與統計','新增報表製作/匯出功能','AI 祕書整理近期紀錄，標示實際筆數'] },
-        { name:'半年版', desc:'', amount:'NT$499', period:'180 天', features:['經濟實惠的價格','支援完整語言清單','支持語音、圖片 OCR 翻譯','紀錄搜尋與統計','新增報表製作/匯出功能','AI 祕書整理近期紀錄，標示實際筆數','適合中度/中長期使用者'] },
-        { name:'一年版', desc:'', amount:'NT$799', period:'420 天', features:['完整群組翻譯、語音、OCR','摘要、報表、搜尋與匯出','適合穩定長期使用的群組','到期前自動提醒一次','','','',''] },
+        { name:'月費版', desc:'', amount:'NT$99', period:'30 天／每群組', features:['小資輕鬆擁有完整服務','支援完整語言清單','支持語音、圖片 OCR 翻譯','紀錄搜尋與統計','新增報表製作/匯出功能','AI 祕書整理近期紀錄，標示實際筆數'] },
+        { name:'半年版', desc:'', amount:'NT$499', period:'180 天／每群組', features:['經濟實惠的價格','支援完整語言清單','支持語音、圖片 OCR 翻譯','紀錄搜尋與統計','新增報表製作/匯出功能','AI 祕書整理近期紀錄，標示實際筆數','適合中度/中長期使用者'] },
+        { name:'一年版', desc:'', amount:'NT$799', period:'420 天／每群組', features:['完整群組翻譯、語音、OCR','摘要、報表、搜尋與匯出','適合穩定長期使用的群組','到期前自動提醒一次','','','',''] },
         { name:'尊爵版', desc:'', amount:'NT$2500', period:'永久買斷／每群組', features:['專屬客製化機器人','預計開發台語版、客語版','','','','',''] }
       ]
     },
     en: {
       eyebrow: '// Pricing',
       title: 'Choose the Right Plan',
-      lead: 'The free plan does not use the daily quota when the source and all configured targets are Chinese, English, Japanese, or Korean. If the detected source or any configured target is outside those four, one original message uses one of 50 daily credits. Paid plans focus on LINE group usage.',
+      lead: 'The free plan does not use the daily quota when the source and all configured targets are Chinese, English, Japanese, or Korean. If the detected source or any configured target is outside those four, one original message uses one of 50 daily credits. Paid plans apply to one specified LINE group. Send @方案 in the group you want to upgrade for its payment link. Private chats show plan information; payment does not upgrade private chats or other groups.',
       tabs: ['Group'],
       refund: 'Payment and Refund Policy: Plans are activated or extended through payment links and do not automatically mean recurring card billing. Any recurring payment setting depends on what is shown on the ECPay payment page and order screen. This is a digital service and payments are generally non-refundable. If the Bot is completely unresponsive within 24 hours of payment and the issue is not caused by the user network, LINE, or operation error, request review through the <a class="support-form-link" href="https://forms.gle/rKatiHrCmh5wpCov8" target="_blank" rel="noopener">GOOGLE Support Form</a>. Use only the official LINE Bot @969wpxno payment link or the official website entry for payment.',
       badges: { group: 'Best Value', premium: 'Premium Service' },
       buttons: { start: 'Activate Free', join: 'Activate Free', contact: 'Activate' },
       group: [
         { name:'Free', desc:'', amount:'$0', period:'Start instantly', features:['Source and all configured targets within ZH/EN/JA/KO: no daily credit used','If the detected source or any configured target is outside those four, one original message uses one of 50 daily credits','For light or early users','No setup needed'] },
-        { name:'Monthly', desc:'', amount:'NT$99', period:'30 days', features:['Affordable full service','Full supported language list','Voice and image OCR translation','Record search and analytics','Report generation and export','AI secretary summarizes recent records with the actual record count'] },
-        { name:'Half-Year', desc:'', amount:'NT$499', period:'180 days', features:['Cost-effective price','Full supported language list','Voice and image OCR translation','Record search and analytics','Report generation and export','AI secretary summarizes recent records with the actual record count','For medium or mid-term users'] },
-        { name:'Annual', desc:'', amount:'NT$799', period:'420 days', features:['Full group translation, voice, and OCR','Summaries, reports, search, and export','For stable long-term groups','One expiry reminder before the end','','','',''] },
+        { name:'Monthly', desc:'', amount:'NT$99', period:'30 days / per group', features:['Affordable full service','Full supported language list','Voice and image OCR translation','Record search and analytics','Report generation and export','AI secretary summarizes recent records with the actual record count'] },
+        { name:'Half-Year', desc:'', amount:'NT$499', period:'180 days / per group', features:['Cost-effective price','Full supported language list','Voice and image OCR translation','Record search and analytics','Report generation and export','AI secretary summarizes recent records with the actual record count','For medium or mid-term users'] },
+        { name:'Annual', desc:'', amount:'NT$799', period:'420 days / per group', features:['Full group translation, voice, and OCR','Summaries, reports, search, and export','For stable long-term groups','One expiry reminder before the end','','','',''] },
         { name:'Premium', desc:'', amount:'NT$2500', period:'Lifetime buyout / per group', features:['Current paid group features','Custom scope must be agreed before payment','','','','',''] }
       ]
     }

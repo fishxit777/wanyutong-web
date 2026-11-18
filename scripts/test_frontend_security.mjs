@@ -85,7 +85,7 @@ test('PWA install caches only existing public files without cookies', async () =
     ['/assets/guides/group-confirmation.jpg', '?v=content-sync-20261110'],
     ['/assets/guides/plan-and-activation.jpg', '?v=content-sync-20261110'],
     ['/assets/guides/secretary-status.jpg', '?v=content-sync-20261110'],
-    ['/assets/wanyutong-app.js', '?v=content-sync-20261110'],
+    ['/assets/wanyutong-app.js', ['?v=content-sync-20261110', '?v=group-scope-20261118']],
     ['/assets/wanyutong-analytics.js', '?v=20261110-v2'],
   ]);
   for (const request of h.calls) {
@@ -94,7 +94,7 @@ test('PWA install caches only existing public files without cookies', async () =
     const url = new URL(request.url);
     if (url.search) {
       assert.ok(versionedAssets.has(url.pathname), `unexpected versioned asset: ${url.pathname}`);
-      assert.equal(url.search, versionedAssets.get(url.pathname));
+      assert.ok([].concat(versionedAssets.get(url.pathname)).includes(url.search));
     }
     assert.ok(existsSync(fileURLToPath(new URL('.' + url.pathname, root))));
   }
@@ -104,9 +104,11 @@ test('pricing script revision is available offline without permitting arbitrary 
   const h = makeHarness();
   await h.lifecycle('install');
   h.setNetwork(async () => { throw new Error('offline'); });
-  const result = await h.dispatch('/assets/wanyutong-app.js?v=content-sync-20261110', { destination: 'script' });
-  assert.equal(result.intercepted, true);
-  assert.equal(await result.response.text(), 'public');
+  for (const revision of ['content-sync-20261110', 'group-scope-20261118']) {
+    const result = await h.dispatch('/assets/wanyutong-app.js?v=' + revision, { destination: 'script' });
+    assert.equal(result.intercepted, true);
+    assert.equal(await result.response.text(), 'public');
+  }
   assert.equal((await h.dispatch('/assets/wanyutong-app.js?v=unknown', { destination: 'script' })).intercepted, false);
 });
 

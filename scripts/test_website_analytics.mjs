@@ -189,7 +189,7 @@ test('UUID fallback is valid and a missing crypto implementation fails without b
 
 test('service worker versions the new script and never adds the tracking API to its cache', () => {
   const sw = readFileSync(new URL('sw.js', root), 'utf8');
-  assert.match(sw, /20261110-content-sync-v3/);
+  assert.match(sw, /20261118-group-payment-scope-v1/);
   assert.ok(sw.includes("'./assets/wanyutong-analytics.js?v=20261110-v2'"));
   assert.ok(!sw.includes(endpoint));
   assert.match(sw, /request.method === 'GET'/);

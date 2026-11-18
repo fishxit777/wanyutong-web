@@ -55,6 +55,7 @@ function harness(order) {
   assert.equal(cards.length, 5, 'fixture derives all five actual static cards');
   const initialScope = pricingSource.match(/<div id="premium-scope-note"[^>]*>([\s\S]*?)<\/div>/)[1];
   const scope = { innerHTML: initialScope, dataset: {} };
+  const purchaseScope = { innerHTML: pricingSource.match(/<div id="group-purchase-scope"[^>]*>([\s\S]*?)<\/div>/)[1], dataset: {} };
   const title = node(strip(pricingSource.match(/<h1[^>]*id="pricing-title"[^>]*>([\s\S]*?)<\/h1>/)[1]));
   const eyebrow = node('// Pricing');
   const lead = node('');
@@ -69,7 +70,7 @@ function harness(order) {
     querySelectorAll(selector) { return order === 'legacy' && selector === '#tab-group .price-card, .pricing-grid .price-card' ? cards : []; },
   };
   const document = {
-    getElementById(id) { return id === 'pricing' ? section : id === 'premium-scope-note' ? scope : null; },
+    getElementById(id) { return id === 'pricing' ? section : id === 'premium-scope-note' ? scope : id === 'group-purchase-scope' ? purchaseScope : null; },
     querySelector(selector) {
       if (selector === '#pricing-title') return title;
       if (selector === '#pricing .eyebrow') return eyebrow;
@@ -99,10 +100,13 @@ function harness(order) {
     assert.equal(cards[4].parts['.price-features'].children.length, 7);
     registerPage();
   }
-  return { context, cards, scope, title };
+  return { context, cards, scope, purchaseScope, title };
 }
 
-function assertFinal({ cards, scope, title }, lang) {
+function assertFinal({ cards, scope, purchaseScope, title }, lang) {
+  assert.match(purchaseScope.innerHTML, /@方案/);
+  assert.ok(purchaseScope.innerHTML.includes(lang === 'en' ? 'not your private chat or other groups' : '不會升級個人私訊或其他群組'));
+  assert.ok(purchaseScope.innerHTML.includes(lang === 'en' ? 'forwarded from another group' : '從其他群組轉貼'));
   const premium = cards[4];
   const features = premium.parts['.price-features'].children.map((item) => item.textContent);
   assert.equal(features.length, 7);
@@ -116,7 +120,7 @@ function assertFinal({ cards, scope, title }, lang) {
   assert.equal(title.textContent, lang === 'en' ? 'Choose the Right Plan' : '選擇適合你的方案');
   assert.ok(scope.innerHTML.includes(lang === 'en' ? existingOrderEn : existingOrderZh));
   assert.deepEqual(cards.slice(1, 4).map((card) => card.parts['.price-amount'].textContent), ['NT$99', 'NT$499', 'NT$799']);
-  assert.deepEqual(cards.slice(1, 4).map((card) => card.parts['.price-period'].textContent), lang === 'en' ? ['30 days', '180 days', '420 days'] : ['30 天', '180 天', '420 天']);
+  assert.deepEqual(cards.slice(1, 4).map((card) => card.parts['.price-period'].textContent), lang === 'en' ? ['30 days / per group', '180 days / per group', '420 days / per group'] : ['30 天／每群組', '180 天／每群組', '420 天／每群組']);
 }
 
 for (const order of ['page-first', 'shared-first']) {
@@ -142,7 +146,7 @@ test('page uses a precise title selector and registers before deferred initializ
   const registration = pricingSource.indexOf('window.wanyuPagePricingRenderer = forcePricingLang;');
   const initialization = pricingSource.indexOf('// 初始化：讀取儲存的語言');
   assert.ok(registration > 0 && registration < initialization);
-  assert.match(pricingSource, /<script src="assets\/wanyutong-app\.js\?v=content-sync-20261110" defer><\/script>/);
+  assert.match(pricingSource, /<script src="assets\/wanyutong-app\.js\?v=group-scope-20261118" defer><\/script>/);
 });
 
 test('shared controller delegates only opt-in pages and retains non-opt-in fallback', () => {
@@ -158,7 +162,7 @@ test('shared fallback still renders standard plans on pages without ownership op
   for (const lang of ['zh', 'en']) {
     state.context.syncFinalPricing(lang);
     assert.deepEqual(state.cards.slice(1, 4).map((card) => card.parts['.price-amount'].textContent), ['NT$99', 'NT$499', 'NT$799']);
-    assert.deepEqual(state.cards.slice(1, 4).map((card) => card.parts['.price-period'].textContent), lang === 'en' ? ['30 days', '180 days', '420 days'] : ['30 天', '180 天', '420 天']);
+    assert.deepEqual(state.cards.slice(1, 4).map((card) => card.parts['.price-period'].textContent), lang === 'en' ? ['30 days / per group', '180 days / per group', '420 days / per group'] : ['30 天／每群組', '180 天／每群組', '420 天／每群組']);
     assert.equal(state.title.textContent, lang === 'en' ? 'Choose the Right Plan' : '選擇適合你的方案');
     assert.equal(state.cards[4].parts['.price-features'].children.length, 7);
     assert.ok(state.cards[4].parts['.price-features'].children.every((item) => !/專屬客製化機器人|預計開發台語版、客語版|Dedicated custom bot|Planned Taiwanese and Hakka versions/.test(item.textContent)));

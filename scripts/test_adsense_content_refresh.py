@@ -80,7 +80,8 @@ class ContentRefreshTests(unittest.TestCase):
                 blocks = re.findall(r'<script[^>]+type=["\']application/ld\+json["\'][^>]*>(.*?)</script>', source, re.S)
                 articles = [json.loads(block) for block in blocks if json.loads(block).get("@type") == "Article"]
                 self.assertEqual(1, len(articles))
-                self.assertEqual(UPDATE, articles[0]["dateModified"])
+                expected_update = "2026-11-18" if name == "blog-free-paid-plans.html" else UPDATE
+                self.assertEqual(expected_update, articles[0]["dateModified"])
 
     def test_ocr_checklist_is_consolidated_and_has_no_ads(self):
         source = self.read(MERGED)
@@ -106,7 +107,7 @@ class ContentRefreshTests(unittest.TestCase):
         for name in GUIDES + ("blog.html", "editorial.html", "pricing.html", "faq.html", "terms.html"):
             self.assertEqual(UPDATE, urls["https://wanyutong.tw/" + name], name)
         worker = self.read("sw.js")
-        self.assertIn("20261110-content-sync-v3", worker)
+        self.assertIn("20261118-group-payment-scope-v1", worker)
         self.assertNotIn("'./" + MERGED + "'", worker)
         self.assertIn("'./" + DESTINATION + "'", worker)
 

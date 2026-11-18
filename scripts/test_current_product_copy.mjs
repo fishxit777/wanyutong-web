@@ -20,6 +20,33 @@ test('every inline script remains parseable and structured data is valid JSON', 
   }
 });
 
+test('each structured FAQ answer matches its visible question by title, not array position', () => {
+  const source = read('faq.html');
+  const entities = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ' };
+  const plain = (value) => value.replace(/<[^>]*>/g, ' ')
+    .replace(/&(#x[0-9a-f]+|#\d+|amp|lt|gt|quot|apos|nbsp);/gi, (_, key) => {
+      if (key[0] === '#') return String.fromCodePoint(key[1].toLowerCase() === 'x'
+        ? parseInt(key.slice(2), 16) : parseInt(key.slice(1), 10));
+      return entities[key.toLowerCase()];
+    }).replace(/\s+/g, ' ').trim();
+  const answers = new Map([...source.matchAll(/<div[^>]*id="fa(\d+)"[^>]*>([\s\S]*?)<\/div>/g)]
+    .map((match) => [match[1], plain(match[2])]));
+  const byTitle = new Map([...source.matchAll(/<span[^>]*id="fq(\d+)"[^>]*>([\s\S]*?)<\/span>/g)]
+    .map((match) => [plain(match[2]), answers.get(match[1])]));
+  const schema = [...source.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)]
+    .map((match) => JSON.parse(match[1])).find((value) => value['@type'] === 'FAQPage');
+  assert.ok(schema && schema.mainEntity.length > 0);
+  // The schema deliberately selects only some FAQs; its positions cannot be
+  // used as visible fa1/fa2/... identifiers.
+  assert.ok(schema.mainEntity.length < byTitle.size);
+  for (const item of schema.mainEntity) {
+    const title = plain(item.name);
+    assert.ok(byTitle.has(title), `Structured FAQ has no visible question: ${title}`);
+    assert.equal(plain(item.acceptedAnswer.text), byTitle.get(title), `Answer mismatch: ${title}`);
+  }
+  assert.equal(schema.dateModified, '2026-11-18');
+});
+
 test('retired acknowledgement and exaggerated translation promises cannot return in static or localized copy', () => {
   const retired = [
     /已確認\s*6\s*\/\s*8/,

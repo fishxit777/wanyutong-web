@@ -218,3 +218,25 @@ test('legacy pixels are removed and tracked pages bound request referrers to ori
   }
   assert.equal(pages, 24);
 });
+
+test('external executable scripts use reviewed versions and browser integrity enforcement', () => {
+  // Verified against the npm three@0.160.1 package (registry SHA-512) and CDN
+  // bytes on 2026-11-19. This test is offline; updating a pin requires review.
+  const reviewed = new Map([[
+    'https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.min.js',
+    'sha384-qOkzR5Ke/XkQxuGVJ9hpFEpDlcoLtWwVYhnJf06cLIZa2vaIptSqaubivErzmD5O',
+  ]]);
+  let count = 0;
+  for (const name of readdirSync(root).filter((name) => name.endsWith('.html'))) {
+    const html = readFileSync(new URL(name, root), 'utf8');
+    for (const match of html.matchAll(/<script\b([^>]*)>/gi)) {
+      const attrs = Object.fromEntries(Array.from(match[1].matchAll(/([\w-]+)\s*=\s*["']([^"']*)["']/g), (attr) => [attr[1].toLowerCase(), attr[2]]));
+      if (!attrs.src || !/^(?:https?:)?\/\//i.test(attrs.src)) continue;
+      assert.ok(reviewed.has(attrs.src), `${name}: unreviewed external executable script`);
+      assert.equal(attrs.integrity, reviewed.get(attrs.src), `${name}: missing or changed integrity pin`);
+      assert.equal(attrs.crossorigin, 'anonymous', `${name}: cross-origin integrity requires CORS`);
+      count += 1;
+    }
+  }
+  assert.equal(count, 8, 'All eight Three.js pages must retain the reviewed integrity pin');
+});

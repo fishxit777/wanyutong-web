@@ -2011,6 +2011,7 @@ footer a:hover { color:var(--text); }
           免費體驗 LINE 流程
         </a>
         <a href="pricing.html" class="btn-secondary">查看方案 →</a>
+        <a href="announcements.html" class="btn-secondary" id="hero-announcements">最新公告</a>
       </div>
     </div>
     <div class="hero-mockup">
@@ -2695,6 +2696,7 @@ var i18n = {
     'hero.desc':       '把 LINE 群組裡的多國翻譯、語音、圖片 OCR、AI 摘要、每日報表、紀錄搜尋與統計放在同一個流程。專為工廠、工地、看護、餐飲等多語團隊設計，讓主管交代得清楚，重要內容查得到。',
     'hero.btn1':       '免費體驗 LINE 流程',
     'hero.btn2':       '查看方案 →',
+    'hero.announcements': '最新公告',
     'botcard.name':    '萬語通 BOT',
     'botcard.sub':     'LINE 多國翻譯機器人',
     'botcard.manager': '主管',
@@ -3104,6 +3106,7 @@ var i18n = {
     'hero.desc':       'Put LINE group translation, AI summaries, daily reports, and record search into one workflow. Built for factories, worksites, caregiving, restaurants, and multilingual teams that need messages understood and records searchable.',
     'hero.btn1':       'Try the LINE Workflow Free',
     'hero.btn2':       'View Plans →',
+    'hero.announcements': 'Latest Announcements',
     'botcard.name':    'WanyuTong BOT',
     'botcard.sub':     'LINE multilingual translation bot',
     'botcard.manager': 'Manager',
@@ -3620,7 +3623,8 @@ function applyLang(lang) {
     if (svgEl1) btn1.appendChild(svgEl1);
     btn1.appendChild(document.createTextNode(' ' + t['hero.btn1']));
   }
-  q('.btn-secondary', 'hero.btn2');
+  q('.hero-actions a[href="pricing.html"]', 'hero.btn2');
+  s('hero-announcements', 'hero.announcements');
 
   // STATS
   var statLabels = document.querySelectorAll('.stat-label');

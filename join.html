@@ -621,7 +621,7 @@ html.light .guide-support a { color: #087b4d; }
       <div class="tutorial-label" id="join-steps-label">FIRST 3 STEPS</div>
     </div>
     <div class="tutorial-steps">
-      <div class="tutorial-step"><strong id="join-step-1-title">1. 開啟常用功能</strong><p id="join-step-1-copy">手機私訊可直接點底部選單；LINE 平台不支援群組固定底部圖文選單，請在群組傳純文字 @選單，開啟同一組常用功能卡。</p></div>
+      <div class="tutorial-step"><strong id="join-step-1-title">1. 開啟常用功能</strong><p id="join-step-1-copy">手機私訊可直接點底部選單；LINE 平台不支援群組固定底部圖文選單，請在群組傳純文字 @選單，開啟同一組常用功能卡。</p><p><a id="join-pin-reminder-link" href="announcements.html#group-pin-reminder">群組置頂提醒</a></p></div>
       <div class="tutorial-step"><strong id="join-step-2-title">2. 設定翻譯語言</strong><p id="join-step-2-copy">選「語言設定」或傳 @語言設定，直接點選雙語；選「持續多語」或傳 @多語，可用快捷組合或自選最多 8 種，第一項為主語言。原有帶語言名稱的完整指令仍可用。</p></div>
       <div class="tutorial-step"><strong id="join-step-3-title">3. 先傳一句一般文字</strong><p id="join-step-3-copy">例如「明天早上八點集合」。核對時間與語言後，再請對方回覆；語音、OCR、摘要與報表需付費群組依功能啟用。</p></div>
     </div>
@@ -716,6 +716,7 @@ var joinCopy = {
     stepsCopy: '照順序設定一次，之後就能直接傳送一般文字。',
     stepsLabel: 'FIRST 3 STEPS',
     step1Title: '1. 開啟常用功能',
+    pinReminderLink: '群組置頂提醒',
     step1Copy: '手機私訊可直接點底部選單；LINE 平台不支援群組固定底部圖文選單，請在群組傳純文字 @選單，開啟同一組常用功能卡。',
     step2Title: '2. 設定翻譯語言',
     step2Copy: '選「語言設定」或傳 @語言設定，直接點選雙語；選「持續多語」或傳 @多語，可用快捷組合或自選最多 8 種，第一項為主語言。原有帶語言名稱的完整指令仍可用。',
@@ -760,6 +761,7 @@ var joinCopy = {
     stepsCopy: 'Set them once in order, then send regular text directly.',
     stepsLabel: 'FIRST 3 STEPS',
     step1Title: '1. Open common functions',
+    pinReminderLink: 'Group pin reminders',
     step1Copy: 'On a phone, use the bottom menu in a one-to-one chat. LINE does not support a fixed rich menu in group chats; send plain-text @選單 in the group to open the same common-function card.',
     step2Title: '2. Set Translation Languages',
     step2Copy: 'Tap Language Settings or send @語言設定 to choose a pair. Tap Persistent Multilingual or send @多語 to use a preset or choose up to 8 languages; the first is the primary language. Commands that include language names still work.',
@@ -883,6 +885,7 @@ function setJoinLang(lang) {
     ['join-steps-copy', 'stepsCopy'],
     ['join-steps-label', 'stepsLabel'],
     ['join-step-1-title', 'step1Title'],
+    ['join-pin-reminder-link', 'pinReminderLink'],
     ['join-step-2-title', 'step2Title'],
     ['join-step-3-title', 'step3Title'],
     ['join-guide-title', 'guideTitle'],

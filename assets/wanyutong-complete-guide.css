@@ -230,3 +230,46 @@ html.light .complete-guide-spec {
     font-size: 15px !important;
   }
 }
+
+/* Keep the selectable guide subtitles readable even in the in-page mobile player. */
+.complete-guide-panel video[data-guide-captions]::cue {
+  background-color: rgba(5, 13, 21, .9);
+  color: #fff;
+  font-family: system-ui, sans-serif;
+  font-size: clamp(14px, 2.15vw, 24px);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+@media (max-width: 768px) {
+  #complete-guide[data-selectable-captions] {
+    padding-inline: .6rem;
+  }
+
+  [data-selectable-captions] .complete-guide-panel {
+    padding: .75rem;
+    gap: .8rem;
+  }
+
+  [data-selectable-captions] .complete-guide-info {
+    display: contents;
+  }
+
+  [data-selectable-captions] h1 {
+    margin: 0;
+    order: 0;
+  }
+
+  [data-selectable-captions] .complete-guide-spec {
+    margin: 0;
+    order: 1;
+  }
+
+  [data-selectable-captions] video {
+    order: 2;
+  }
+
+  [data-selectable-captions] .complete-guide-description {
+    order: 3;
+  }
+}

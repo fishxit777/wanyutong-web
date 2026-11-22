@@ -428,6 +428,10 @@ def render_page(source: Path, filename: str, locale: str, pages: set[str],
         if translated:
             node.set(translated)
     rewrite_links(soup, locale, pages)
+    for track in soup.select('#complete-guide video[data-guide-captions] track[kind="subtitles"]'):
+        track.attrs.pop('default', None)
+        if track.get('srclang') == LOCALES[locale][0]:
+            track['default'] = ''
     rewrite_structured_data(structures, locale, pages)
     add_language_control(soup, filename, locale)
     add_locale_metadata(soup, filename, locale, assets)

@@ -471,7 +471,9 @@ def build(root: Path, output: Path, maps: Path, locales: list[str], include_root
     for name in ('assets/wanyutong-locales.css', 'assets/wanyutong-locale-menu.js'):
         path = root / name
         if path.is_file():
-            checksum = hashlib.sha384(path.read_bytes()).digest()
+            # GitHub Pages serves these text assets with LF endings.
+            contents = path.read_bytes().replace(b"\r\n", b"\n")
+            checksum = hashlib.sha384(contents).digest()
             assets['/' + name] = 'sha384-' + base64.b64encode(checksum).decode('ascii')
     rendered = {}
     for locale in dict.fromkeys(locales):

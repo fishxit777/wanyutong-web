@@ -40,6 +40,7 @@
     .notice dt { font-weight: 700; }
     .notice dd { margin: 0 0 12px; }
     .notice dd:last-child { margin-bottom: 0; }
+    .notice dl[id] { scroll-margin-top: 96px; }
   </style>
 <style>
     .notices { max-width: 624px; padding-top: 24px; padding-bottom: 30px; }
@@ -80,9 +81,24 @@
 <!-- 公告只在本檔維護。核准的新公告放在 notice-list 第一個 details，沿用
        日期、影響對象、改了什麼與用戶要做什麼。新公告加 open，移除上一則的 open。
        不需操作寫「無須操作」。日期採實際上線年月日。 -->
-<details class="notice" id="group-pin-reminder" open="">
+<details class="notice" id="website-languages-and-appearance" open>
+    <summary><time datetime="2026-11-22">2026년 11월 22일</time><span class="change-title">공식 웹사이트 6개 언어 및 줄 스위치 출시</span></summary>
+    <dl>
+      <dt>대상</dt><dd>WanyuTong 공식 웹사이트 방문자</dd>
+      <dt>업데이트 내용</dt><dd>콘텐츠 페이지 30개를 繁體中文, 简体中文, English, 日本語, 한국어, Bahasa Indonesia로 볼 수 있습니다. 화면 모드를 바꿀 수 있는 페이지에는 줄 스위치가 적용됩니다.</dd>
+      <dt>사용 방법</dt>
+      <dd>
+        <ul>
+          <li><strong>휴대폰</strong><br>화면 상단에서 현재 언어(‘EN’처럼 약어로 표시될 수 있음)를 눌러 원하는 언어를 선택합니다. 줄을 누르거나 아래로 당긴 뒤 ‘불 켜기 (밝게)’ 또는 ‘불 끄기 (어둡게)’를 선택합니다.</li>
+          <li><strong>컴퓨터</strong><br>화면 상단의 언어 메뉴를 열어 원하는 언어를 선택합니다. 줄을 클릭하거나 마우스로 아래로 끌어내린 뒤 ‘불 켜기 (밝게)’ 또는 ‘불 끄기 (어둡게)’를 선택합니다.</li>
+        </ul>
+        <p>같은 브라우저에서는 다른 페이지로 이동하거나 새로고침해도 화면 모드가 유지됩니다. 현재 설정을 그대로 쓰려면 별도 조치가 필요하지 않습니다.</p>
+      </dd>
+    </dl>
+  </details>
+<details class="notice">
 <summary><time datetime="2026-11-21">2026년 11월 21일</time><span class="change-title">LINE 그룹 메뉴에 공지 고정 알림 추가</span></summary>
-<dl>
+<dl id="group-pin-reminder">
 <dt>대상 사용자</dt><dd>LINE 그룹의 모바일 또는 컴퓨터 버전에서 WanyuTong 멤버 사용</dd>
 <dt>변경 사항</dt><dd>그룹의 자주 쓰는 기능 카드에는 「恢復置頂提醒」(공지 고정 알림 다시 켜기)과 「已置頂，關閉提醒」(고정 완료, 알림 끄기)이 나란히 표시됩니다. 알림을 켜면 카드 아래에 복사할 수 있는 공지 문구가 나타납니다. 두 버튼은 WanyuTong의 알림만 전환하며 그룹 공지는 구성원이 LINE에서 직접 설정합니다. 그룹과 1대1 채팅 모두 「常用功能」 카드의 「最新公告」 또는 같은 이름의 일곱 번째 바로가기로 이 페이지를 열 수 있습니다. 기존 일곱 개 바로가기와 휴대전화 개인 채팅 하단의 리치 메뉴는 그대로입니다.</dd>
 <dt>필요한 조치</dt>

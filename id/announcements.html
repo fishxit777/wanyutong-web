@@ -40,6 +40,7 @@
     .notice dt { font-weight: 700; }
     .notice dd { margin: 0 0 12px; }
     .notice dd:last-child { margin-bottom: 0; }
+    .notice dl[id] { scroll-margin-top: 96px; }
   </style>
 <style>
     .notices { max-width: 624px; padding-top: 24px; padding-bottom: 30px; }
@@ -80,9 +81,24 @@
 <!-- 公告只在本檔維護。核准的新公告放在 notice-list 第一個 details，沿用
        日期、影響對象、改了什麼與用戶要做什麼。新公告加 open，移除上一則的 open。
        不需操作寫「無須操作」。日期採實際上線年月日。 -->
-<details class="notice" id="group-pin-reminder" open="">
+<details class="notice" id="website-languages-and-appearance" open>
+    <summary><time datetime="2026-11-22">22 November 2026</time><span class="change-title">Situs resmi hadir dalam enam bahasa dengan sakelar tali</span></summary>
+    <dl>
+      <dt>Siapa yang terdampak</dt><dd>Semua pengunjung situs resmi WanyuTong</dd>
+      <dt>Yang berubah</dt><dd>Seluruh 30 halaman konten tersedia dalam 繁體中文, 简体中文, English, 日本語, 한국어, dan Bahasa Indonesia. Halaman yang menyediakan pengaturan tampilan kini menggunakan sakelar berbentuk tali.</dd>
+      <dt>Cara menggunakan</dt>
+      <dd>
+        <ul>
+          <li><strong>Ponsel</strong><br>Ketuk bahasa yang aktif di bagian atas halaman, yang bisa ditampilkan dengan singkatan seperti “ID”, lalu pilih bahasa. Ketuk atau tarik tali ke bawah, lalu pilih “Nyalakan lampu” untuk mode terang atau “Matikan lampu” untuk mode gelap.</li>
+          <li><strong>Komputer</strong><br>Buka menu bahasa di bagian atas halaman dan pilih bahasa. Klik atau seret tali ke bawah dengan mouse, lalu pilih “Nyalakan lampu” atau “Matikan lampu”.</li>
+        </ul>
+        <p>Peramban yang sama mengingat pilihan mode terang atau gelap saat Anda berpindah halaman atau memuat ulang. Tidak perlu melakukan apa pun jika ingin memakai pengaturan saat ini.</p>
+      </dd>
+    </dl>
+  </details>
+<details class="notice">
 <summary><time datetime="2026-11-21">21 November 2026</time><span class="change-title">Pengingat penyematan ditambahkan ke menu grup LINE</span></summary>
-<dl>
+<dl id="group-pin-reminder">
 <dt>Pengguna yang terdampak</dt><dd>Gunakan anggota WanyuTong dalam versi seluler atau komputer dari grup LINE</dd>
 <dt>Perubahan</dt><dd>Kartu fitur yang sering digunakan dalam grup menampilkan 「恢復置頂提醒」 (Aktifkan kembali pengingat penyematan) dan 「已置頂，關閉提醒」 (Sudah disematkan, nonaktifkan pengingat) berdampingan. Saat pengingat aktif, teks yang bisa disalin tampil di bawah kartu. Kedua tombol hanya mengatur pengingat WanyuTong. Anggota tetap harus menetapkan pengumuman grup secara manual di LINE. Di grup maupun percakapan satu lawan satu, halaman ini dapat dibuka melalui 「最新公告」 di kartu 「常用功能」 atau pintasan ketujuh yang berlabel sama. Tujuh pintasan yang ada dan menu kaya di bawah percakapan pribadi di ponsel tetap sama.</dd>
 <dt>Tindakan yang diperlukan</dt>

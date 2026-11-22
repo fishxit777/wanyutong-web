@@ -40,6 +40,7 @@
     .notice dt { font-weight: 700; }
     .notice dd { margin: 0 0 12px; }
     .notice dd:last-child { margin-bottom: 0; }
+    .notice dl[id] { scroll-margin-top: 96px; }
   </style>
 <style>
     .notices { max-width: 624px; padding-top: 24px; padding-bottom: 30px; }
@@ -80,9 +81,24 @@
 <!-- 公告只在本檔維護。核准的新公告放在 notice-list 第一個 details，沿用
        日期、影響對象、改了什麼與用戶要做什麼。新公告加 open，移除上一則的 open。
        不需操作寫「無須操作」。日期採實際上線年月日。 -->
-<details class="notice" id="group-pin-reminder" open="">
+<details class="notice" id="website-languages-and-appearance" open>
+    <summary><time datetime="2026-11-22">2026年11月22日</time><span class="change-title">公式サイトが6言語に対応、ひもでライト・ダークを切り替え</span></summary>
+    <dl>
+      <dt>対象</dt><dd>WanyuTong公式サイトをご利用の方</dd>
+      <dt>更新内容</dt><dd>全30ページを繁體中文、简体中文、English、日本語、한국어、Bahasa Indonesiaでご覧いただけます。表示モードを切り替えられるページでは、ひも型のスイッチを使います。</dd>
+      <dt>操作方法</dt>
+      <dd>
+        <ul>
+          <li><strong>スマートフォン</strong><br>ページ上部の現在の言語（「EN」などの略称の場合があります）をタップし、使いたい言語を選びます。ひもをタップするか下に引き、「点灯（ライト）」または「消灯（ダーク）」を選びます。</li>
+          <li><strong>パソコン</strong><br>ページ上部の言語メニューを開き、使いたい言語を選びます。ひもをクリックするか下にドラッグし、「点灯（ライト）」または「消灯（ダーク）」を選びます。</li>
+        </ul>
+        <p>同じブラウザーでは、ページ移動や再読み込み後も表示モードが保持されます。現在の設定のまま使う場合は、操作は不要です。</p>
+      </dd>
+    </dl>
+  </details>
+<details class="notice">
 <summary><time datetime="2026-11-21">2026年11月21日</time><span class="change-title">LINEグループのメニューに固定表示のリマインダーを追加</span></summary>
-<dl>
+<dl id="group-pin-reminder">
 <dt>対象となる方</dt><dd>モバイルまたはコンピュータのバージョン LINE グループ使用 WanyuTong メンバー</dd>
 <dt>変更内容</dt><dd>グループの便利な機能カードには「恢復置頂提醒」（リマインダーを再表示）と「已置頂，關閉提醒」（固定済み・リマインダーを非表示）が並びます。リマインダーを有効にすると、コピーできる文面がカードの下に表示されます。2つのボタンはWanyuTongのリマインダーのみを切り替えます。お知らせはグループのメンバーがLINEで手動設定します。グループと1対1のチャットでは、「常用功能」カード内の「最新公告」または同名の7番目のショートカットからこのページを開けます。従来の7つのショートカットと、スマートフォンの個別チャット画面下のリッチメニューに変更はありません。</dd>
 <dt>必要な操作</dt>

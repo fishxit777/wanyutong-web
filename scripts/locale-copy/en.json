@@ -2240,5 +2240,17 @@
   "；第一個指定目標為可複製主語言，其他語言以按鈕逐一查看。": "; The first specified target is the reproducible main language, and the other languages are viewed one by one by buttons.",
   "；要直接改成另一組雙語，可傳有效的": "; To be directly changed to another set of bilinguals, it can be passed on effectively",
   "；需要查看目前設定時，傳送": "; Need to check the current settings, transmit",
-  "📝 部落格": "📝 Blog"
+  "📝 部落格": "📝 Blog",
+  "2026 年 11 月 22 日": "November 22, 2026",
+  "官網上線六種語言與拉繩明暗開關": "Six website languages and a pull-cord appearance switch",
+  "適用對象": "Who this affects",
+  "所有萬語通官網訪客": "All visitors to the WanyuTong website",
+  "本次更新": "What changed",
+  "官網 30 個內容頁面提供繁體中文、简体中文、English、日本語、한국어、Bahasa Indonesia。有明暗設定的頁面改用拉繩開關。": "All 30 content pages are available in 繁體中文, 简体中文, English, 日本語, 한국어, and Bahasa Indonesia. Pages with an appearance control now use a pull cord.",
+  "操作方式": "How to use it",
+  "手機": "Phone",
+  "點頁首顯示的目前語言（例如「繁中」或「EN」），再選想用的語言。點拉繩或往下拉，選「開燈（亮色）」或「關燈（暗色）」。": "Tap the current language at the top of the page, which may appear as an abbreviation such as “EN”, then choose a language. Tap or pull down the cord and choose “Lights on” for light mode or “Lights off” for dark mode.",
+  "電腦": "Desktop",
+  "點頁首的語言下拉選單，選想用的語言。點拉繩或用滑鼠往下拖，再選「開燈（亮色）」或「關燈（暗色）」。": "Open the language dropdown at the top of the page and choose a language. Click or drag the cord down, then choose “Lights on” or “Lights off”.",
+  "同一個瀏覽器會記住明暗選擇，換頁或重新整理後仍會保留。維持目前設定則無須操作。": "Your browser remembers your light or dark setting when you change pages or reload. No action is needed if you want to keep your current settings."
 }

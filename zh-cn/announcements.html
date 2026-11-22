@@ -40,6 +40,7 @@
     .notice dt { font-weight: 700; }
     .notice dd { margin: 0 0 12px; }
     .notice dd:last-child { margin-bottom: 0; }
+    .notice dl[id] { scroll-margin-top: 96px; }
   </style>
 <style>
     .notices { max-width: 624px; padding-top: 24px; padding-bottom: 30px; }
@@ -80,9 +81,24 @@
 <!-- 公告只在本檔維護。核准的新公告放在 notice-list 第一個 details，沿用
        日期、影響對象、改了什麼與用戶要做什麼。新公告加 open，移除上一則的 open。
        不需操作寫「無須操作」。日期採實際上線年月日。 -->
-<details class="notice" id="group-pin-reminder" open="">
+<details class="notice" id="website-languages-and-appearance" open>
+    <summary><time datetime="2026-11-22">2026 年 11 月 22 日</time><span class="change-title">官网上线六种语言与拉绳式明暗开关</span></summary>
+    <dl>
+      <dt>适用对象</dt><dd>所有万语通官网访客</dd>
+      <dt>本次更新</dt><dd>官网 30 个内容页面提供繁體中文、简体中文、English、日本語、한국어、Bahasa Indonesia。可切换明暗的页面改用拉绳式开关。</dd>
+      <dt>操作方式</dt>
+      <dd>
+        <ul>
+          <li><strong>手机</strong><br>点顶部显示的当前语言（例如「简中」或「EN」），再选想用的语言。点一下拉绳或向下拉，再选「开灯（亮色）」或「关灯（暗色）」。</li>
+          <li><strong>电脑</strong><br>打开顶部的语言下拉菜单并选择语言。点击拉绳或用鼠标向下拖动，再选「开灯（亮色）」或「关灯（暗色）」。</li>
+        </ul>
+        <p>同一个浏览器会记住明暗偏好，切换页面或刷新后仍会保留。保持当前设置无需操作。</p>
+      </dd>
+    </dl>
+  </details>
+<details class="notice">
 <summary><time datetime="2026-11-21">2026 年 11 月 21 日</time><span class="change-title">LINE 群组选单新增置顶提醒</span></summary>
-<dl>
+<dl id="group-pin-reminder">
 <dt>影响对象</dt><dd>在手机或电脑版 LINE 群组使用万语通的成员</dd>
 <dt>改了什么</dt><dd>群组常用功能卡会并排显示「恢复置顶提醒」和「已置顶，关闭提醒」。开启提醒后，可复制的置顶文案会显示在卡片下方。这两颗按钮只切换万语通的提醒，群组公告由成员在 LINE 手动设定。群组与一对一私讯都可从「常用功能」卡片内的「最新公告」或第七颗同名快捷开启此页。原有七颗快捷与手机私讯底部图文选单维持原样。</dd>
 <dt>用户要做什么</dt>

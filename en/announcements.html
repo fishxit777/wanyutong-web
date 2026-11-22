@@ -40,6 +40,7 @@
     .notice dt { font-weight: 700; }
     .notice dd { margin: 0 0 12px; }
     .notice dd:last-child { margin-bottom: 0; }
+    .notice dl[id] { scroll-margin-top: 96px; }
   </style>
 <style>
     .notices { max-width: 624px; padding-top: 24px; padding-bottom: 30px; }
@@ -80,9 +81,24 @@
 <!-- 公告只在本檔維護。核准的新公告放在 notice-list 第一個 details，沿用
        日期、影響對象、改了什麼與用戶要做什麼。新公告加 open，移除上一則的 open。
        不需操作寫「無須操作」。日期採實際上線年月日。 -->
-<details class="notice" id="group-pin-reminder" open="">
+<details class="notice" id="website-languages-and-appearance" open>
+    <summary><time datetime="2026-11-22">November 22, 2026</time><span class="change-title">Six website languages and a pull-cord appearance switch</span></summary>
+    <dl>
+      <dt>Who this affects</dt><dd>All visitors to the WanyuTong website</dd>
+      <dt>What changed</dt><dd>All 30 content pages are available in 繁體中文, 简体中文, English, 日本語, 한국어, and Bahasa Indonesia. Pages with an appearance control now use a pull cord.</dd>
+      <dt>How to use it</dt>
+      <dd>
+        <ul>
+          <li><strong>Phone</strong><br>Tap the current language at the top of the page, which may appear as an abbreviation such as “EN”, then choose a language. Tap or pull down the cord and choose “Lights on” for light mode or “Lights off” for dark mode.</li>
+          <li><strong>Desktop</strong><br>Open the language dropdown at the top of the page and choose a language. Click or drag the cord down, then choose “Lights on” or “Lights off”.</li>
+        </ul>
+        <p>Your browser remembers your light or dark setting when you change pages or reload. No action is needed if you want to keep your current settings.</p>
+      </dd>
+    </dl>
+  </details>
+<details class="notice">
 <summary><time datetime="2026-11-21">2026 Age 11 Month 21 Japanese</time><span class="change-title">LINE group menu add a new top reminder</span></summary>
-<dl>
+<dl id="group-pin-reminder">
 <dt>Influencer</dt><dd>Use WanyuTong members in the mobile or computer version of the LINE group</dd>
 <dt>What changed</dt><dd>The group commonly used function cards will display "Resume to the top reminder" and "Top, turn off reminders" side by side. After the reminder is turned on, the copyable top copy will be displayed under the card. These two buttons only switch the WanyuTong reminder, and the group announcement is manually set by the members in LINE. Both groups and one-to-one private messages can be opened quickly from the "Latest Announcement" in the "Common Features" card or the seventh card of the same name. The original seven fast and mobile phone private message at the bottom of the picture and text menu are maintained as they are.</dd>
 <dt>what the user wants to do</dt>

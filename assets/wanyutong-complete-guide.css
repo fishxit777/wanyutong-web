@@ -1,0 +1,232 @@
+/* Shared complete-guide entry and the player on the getting-started page. */
+.complete-guide-en {
+  display: none;
+}
+
+html[lang="en"] .complete-guide-en {
+  display: inline;
+}
+
+html[lang="en"] .complete-guide-zh {
+  display: none;
+}
+
+.complete-guide-entry {
+  --entry-ink: #effcf5;
+  --entry-meta: #a7c8b9;
+  --entry-accent: #86e4ad;
+  --entry-border: #36634f;
+  --entry-bg: #10241e;
+  --entry-hover: #19372b;
+  display: grid;
+  grid-template-columns: 6rem minmax(0, 1fr) auto;
+  align-items: center;
+  gap: .72rem;
+  width: min(100%, 27rem);
+  padding: .55rem .75rem .55rem .55rem;
+  border: 1px solid var(--entry-border);
+  border-radius: .85rem;
+  color: var(--entry-ink);
+  background: var(--entry-bg);
+  text-align: left;
+  text-decoration: none;
+}
+
+html.light .complete-guide-entry,
+html:not(.dark) .complete-guide-entry--article {
+  --entry-ink: #18372a;
+  --entry-meta: #435f53;
+  --entry-accent: #166943;
+  --entry-border: #9ecab0;
+  --entry-bg: #eff8f2;
+  --entry-hover: #e1f2e7;
+}
+
+.complete-guide-entry:hover {
+  border-color: var(--entry-accent);
+  color: var(--entry-ink);
+  background: var(--entry-hover);
+}
+
+.complete-guide-entry:focus-visible {
+  outline: 2px solid var(--entry-accent);
+  outline-offset: 4px;
+}
+
+.complete-guide-entry--home {
+  margin: 0 0 1.1rem;
+}
+
+.complete-guide-entry--join {
+  margin: 0 1.25rem 1rem;
+  max-width: calc(100% - 2.5rem);
+}
+
+.complete-guide-entry--article {
+  margin-top: 1.25rem;
+}
+
+.complete-guide-thumb {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: .5rem;
+  background: #15282d;
+}
+
+.complete-guide-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 26% 50%;
+}
+
+.complete-guide-thumb::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgb(3 16 12 / 22%), transparent);
+}
+
+.complete-guide-entry-title,
+.complete-guide-entry-meta {
+  display: block;
+  overflow-wrap: anywhere;
+}
+
+.complete-guide-entry-title {
+  color: var(--entry-ink);
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.complete-guide-entry-meta {
+  margin-top: .19rem;
+  color: var(--entry-meta);
+  font-size: .81rem;
+  line-height: 1.45;
+}
+
+.complete-guide-entry-arrow {
+  color: var(--entry-accent);
+  font: 700 1.1rem/1 system-ui, sans-serif;
+}
+
+#complete-guide {
+  padding: clamp(5.6rem, 9vw, 8rem) 5vw clamp(1.7rem, 3vw, 3rem);
+}
+
+.complete-guide-panel {
+  display: grid;
+  grid-template-columns: minmax(0, .82fr) minmax(0, 1.55fr);
+  align-items: center;
+  gap: clamp(1.2rem, 3.4vw, 3.2rem);
+  max-width: 1180px;
+  margin-inline: auto;
+  padding: clamp(1.2rem, 3.2vw, 3.1rem);
+  border: 1px solid #345b48;
+  border-radius: 1.25rem;
+  background: radial-gradient(ellipse at 3% 5%, #173d32, #10201e 63%);
+  color: #eff8f2;
+}
+
+.complete-guide-info {
+  min-width: 0;
+}
+
+.complete-guide-panel h1 {
+  margin: 0 0 .75rem;
+  color: #f5fcf7;
+  --wyt-readable-h1: clamp(1.9rem, 3.1vw, 2.75rem);
+  font-weight: 850;
+  line-height: 1.2 !important;
+}
+
+.complete-guide-title-part {
+  display: block;
+}
+
+.complete-guide-description {
+  margin: 0;
+  color: #c8ddd2;
+  font-size: .98rem;
+  line-height: 1.72;
+}
+
+.complete-guide-spec {
+  margin: .9rem 0 0;
+  color: #a8e9c1;
+  font-size: .86rem;
+  font-weight: 650;
+  line-height: 1.55;
+}
+
+.complete-guide-panel video {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border: 1px solid #40675a;
+  border-radius: .8rem;
+  background: #0c1b20;
+}
+
+html.light .complete-guide-panel {
+  border-color: #afd0bb;
+  background: radial-gradient(ellipse at 3% 5%, #e7f6ee, #f6fbf7 68%);
+}
+
+html.light .complete-guide-panel h1 {
+  color: #19372a;
+}
+
+html.light .complete-guide-description {
+  color: #36564a;
+}
+
+html.light .complete-guide-spec {
+  color: #17673e;
+}
+
+@media (max-width: 768px) {
+  .complete-guide-panel h1 {
+    --wyt-readable-h1: clamp(1.4rem, 7.2vw, 2.1rem);
+  }
+
+  .complete-guide-title-part {
+    display: inline;
+  }
+
+  .complete-guide-panel {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  #complete-guide {
+    padding: 5.4rem 5vw 0;
+  }
+
+  .complete-guide-entry--join {
+    margin: 0 1rem .9rem;
+    max-width: calc(100% - 2rem);
+  }
+}
+
+@media (max-width: 390px) {
+  .complete-guide-entry {
+    grid-template-columns: 4.8rem minmax(0, 1fr) auto;
+    gap: .55rem;
+  }
+
+  .complete-guide-entry--join {
+    grid-template-columns: 3.65rem minmax(0, 1fr) auto;
+  }
+
+  .complete-guide-entry--join .complete-guide-entry-title {
+    font-size: 15px !important;
+  }
+}

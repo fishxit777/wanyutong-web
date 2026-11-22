@@ -8,10 +8,64 @@
   var saveButton = document.getElementById('save-button');
   var shareButton = document.getElementById('share-button');
   var status = document.getElementById('action-status');
-  var currentLang = 'zh';
+  var staticLocale = root.getAttribute('data-wyt-static-locale');
+  var currentLang = staticLocale || 'zh';
+  // Only transient card actions use this copy. The page itself is localized at build time.
+  var cardMessages = {
+    'zh-Hans': {
+      'Back of WanyuTong digital card': '万语通数字名片背面',
+      'Front of WanyuTong digital card': '万语通数字名片正面',
+      'Switch light or dark mode': '切换日夜模式',
+      'Showing the back of the card': '已翻到名片背面',
+      'Showing the front of the card': '已翻到名片正面',
+      'WanyuTong contact file created': '已创建万语通联系人文件',
+      'Card link copied': '名片链接已复制',
+      'WanyuTong Digital Card': '万语通数字名片',
+      'WanyuTong | LINE multilingual translation and work management': '万语通｜LINE 多语言翻译与工作管理',
+      'Card shared': '名片已分享'
+    },
+    ja: {
+      'Back of WanyuTong digital card': 'WanyuTong のデジタル名刺の裏面',
+      'Front of WanyuTong digital card': 'WanyuTong のデジタル名刺の表面',
+      'Switch light or dark mode': 'ライトモードとダークモードを切り替える',
+      'Showing the back of the card': '名刺の裏面を表示しました',
+      'Showing the front of the card': '名刺の表面を表示しました',
+      'WanyuTong contact file created': 'WanyuTong の連絡先ファイルを作成しました',
+      'Card link copied': '名刺のリンクをコピーしました',
+      'WanyuTong Digital Card': 'WanyuTong デジタル名刺',
+      'WanyuTong | LINE multilingual translation and work management': 'WanyuTong｜LINE の多言語翻訳と業務管理',
+      'Card shared': '名刺を共有しました'
+    },
+    ko: {
+      'Back of WanyuTong digital card': 'WanyuTong 디지털 명함 뒷면',
+      'Front of WanyuTong digital card': 'WanyuTong 디지털 명함 앞면',
+      'Switch light or dark mode': '라이트 모드와 다크 모드 전환',
+      'Showing the back of the card': '명함 뒷면을 표시했습니다',
+      'Showing the front of the card': '명함 앞면을 표시했습니다',
+      'WanyuTong contact file created': 'WanyuTong 연락처 파일을 만들었습니다',
+      'Card link copied': '명함 링크를 복사했습니다',
+      'WanyuTong Digital Card': 'WanyuTong 디지털 명함',
+      'WanyuTong | LINE multilingual translation and work management': 'WanyuTong | LINE 다국어 번역 및 업무 관리',
+      'Card shared': '명함을 공유했습니다'
+    },
+    id: {
+      'Back of WanyuTong digital card': 'Bagian belakang kartu nama digital WanyuTong',
+      'Front of WanyuTong digital card': 'Bagian depan kartu nama digital WanyuTong',
+      'Switch light or dark mode': 'Beralih antara mode terang dan gelap',
+      'Showing the back of the card': 'Bagian belakang kartu ditampilkan',
+      'Showing the front of the card': 'Bagian depan kartu ditampilkan',
+      'WanyuTong contact file created': 'File kontak WanyuTong telah dibuat',
+      'Card link copied': 'Tautan kartu telah disalin',
+      'WanyuTong Digital Card': 'Kartu Nama Digital WanyuTong',
+      'WanyuTong | LINE multilingual translation and work management': 'WanyuTong | Penerjemahan multibahasa dan pengelolaan pekerjaan di LINE',
+      'Card shared': 'Kartu nama telah dibagikan'
+    }
+  };
 
   function textFor(zh, en) {
-    return currentLang === 'en' ? en : zh;
+    if (currentLang === 'zh') return zh;
+    var messages = cardMessages[currentLang];
+    return messages && messages[en] ? messages[en] : en;
   }
 
   function announce(zh, en) {
@@ -23,6 +77,7 @@
   }
 
   function setLanguage(lang) {
+    if (staticLocale) return;
     currentLang = lang === 'en' ? 'en' : 'zh';
     root.lang = currentLang === 'en' ? 'en' : 'zh-Hant';
     document.querySelectorAll('[data-zh][data-en]').forEach(function (element) {
@@ -119,7 +174,9 @@
   }
 
   function shareCard() {
-    var url = 'https://wanyutong.tw/card.html';
+    var localePaths = { en: 'en/', ja: 'ja/', ko: 'ko/', id: 'id/', 'zh-Hans': 'zh-cn/' };
+    var localizedFolder = localePaths[staticLocale] || '';
+    var url = 'https://wanyutong.tw/' + localizedFolder + 'card.html';
     var data = {
       title: textFor('萬語通數位名片', 'WanyuTong Digital Card'),
       text: textFor('萬語通｜LINE 多國翻譯與工作管理', 'WanyuTong | LINE multilingual translation and work management'),
@@ -157,11 +214,12 @@
     savedTheme = localStorage.getItem('wyt-theme') === 'light' ? 'light' : 'dark';
   } catch (error) {}
   setTheme(savedTheme);
-  setLanguage(savedLang);
+  if (staticLocale) updateCardLabel();
+  else setLanguage(savedLang);
 
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', function () {
-      navigator.serviceWorker.register('./sw.js').catch(function () {});
+      navigator.serviceWorker.register(staticLocale ? '/sw.js' : './sw.js').catch(function () {});
     });
   }
 })();

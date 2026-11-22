@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html data-wyt-static-locale="zh" lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +10,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="萬語通">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<script src="assets/wanyutong-app.js?v=content-sync-20261110" defer></script>
+<script src="assets/wanyutong-app.js?v=20261122-static-site-locales-v2" defer></script>
 <title>加入萬語通 LINE｜體驗跨語言工作溝通流程</title>
 <meta name="description" content="加入萬語通 LINE。免費版的原文與全部指定目標皆在中英日韓時不計每日額度；任一超出時，每則原訊計 1 則，每日 50 則。語音、圖片 OCR、摘要與報表需開通指定群組付費方案。">
 <meta name="robots" content="index, follow">
@@ -564,16 +564,16 @@ html.light .guide-support a { color: #087b4d; }
 
 <link rel="stylesheet" href="assets/wanyutong-readable.css">
   <meta name="referrer" content="origin">
-  <script src="assets/wanyutong-analytics.js?v=20261110-v2" defer></script>
+  <script src="assets/wanyutong-analytics.js?v=20261122-static-site-locales-v2" defer></script>
   <link rel="stylesheet" href="assets/wanyutong-complete-guide.css">
-</head>
+<link href="https://wanyutong.tw/join.html" hreflang="zh-Hant" rel="alternate"/><link href="https://wanyutong.tw/zh-cn/join.html" hreflang="zh-Hans" rel="alternate"/><link href="https://wanyutong.tw/en/join.html" hreflang="en" rel="alternate"/><link href="https://wanyutong.tw/ja/join.html" hreflang="ja" rel="alternate"/><link href="https://wanyutong.tw/ko/join.html" hreflang="ko" rel="alternate"/><link href="https://wanyutong.tw/id/join.html" hreflang="id" rel="alternate"/><link href="https://wanyutong.tw/join.html" hreflang="x-default" rel="alternate"/><link crossorigin="anonymous" href="/assets/wanyutong-locales.css" integrity="sha384-cIx49eMrb3Om6X7ymf2/rdfid9IQAGlV8SSqZLCMvj7PFMqgvDJ40Xgcph58QmJn" rel="stylesheet"/><script crossorigin="anonymous" defer="" integrity="sha384-V4DoDhAHZf/3QkpiLy9FxEY13dMMgM4XAtrcg/jZvJVQxDVRQ1y8j0WpN0m4ZWMT" src="/assets/wanyutong-locale-menu.js"></script></head>
 <body>
 <div class="shell">
   <header class="topbar">
     <a class="brand" href="index.html"><img class="brand-logo" src="assets/wanyutong-logo.jpg" alt="萬語通 Globe Talk AI Translation 標誌"><span class="brand-main" id="join-brand">萬語通</span></a>
     <div class="topbar-actions">
       <a class="toplink" id="join-home-link" href="index.html">回到官網</a>
-      <div class="lang-toggle" aria-label="Language switch">
+      <details class="wyt-language"><summary aria-label="語言: 繁體中文" data-compact="繁中"><span>繁體中文</span></summary><div aria-label="語言" class="wyt-language-options"><a aria-current="page" href="/join.html" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a><a href="/zh-cn/join.html" hreflang="zh-Hans" lang="zh-Hans">简体中文</a><a href="/en/join.html" hreflang="en" lang="en">English</a><a href="/ja/join.html" hreflang="ja" lang="ja">日本語</a><a href="/ko/join.html" hreflang="ko" lang="ko">한국어</a><a href="/id/join.html" hreflang="id" lang="id">Bahasa Indonesia</a></div></details><div class="lang-toggle" aria-label="Language switch" hidden="" data-wyt-legacy-language="">
         <button class="lang-btn active" id="join-lang-zh" type="button" onclick="setJoinLang('zh')">繁中</button>
         <button class="lang-btn" id="join-lang-en" type="button" onclick="setJoinLang('en')">EN</button>
       </div>
@@ -862,6 +862,7 @@ function toggleTheme() {
 }
 
 function setJoinLang(lang) {
+  if (document.documentElement.hasAttribute('data-wyt-static-locale')) return;
   var copy = joinCopy[lang] || joinCopy.zh;
   document.documentElement.lang = lang === 'en' ? 'en' : 'zh-TW';
   document.title = copy.title;
@@ -941,7 +942,13 @@ function setJoinLang(lang) {
   try { lang = localStorage.getItem('wyt-lang') === 'en' ? 'en' : 'zh'; } catch (e) {}
   try { theme = localStorage.getItem('wyt-theme') === 'light' ? 'light' : 'dark'; } catch (e) {}
   setJoinTheme(theme);
-  setJoinLang(lang);
+  var staticLocale = document.documentElement.getAttribute('data-wyt-static-locale');
+  if (staticLocale) {
+    // This section previews the Bot's four supported fixed-reply languages.
+    setGuideLang(guideCopy[staticLocale] ? staticLocale : 'zh', false);
+  } else {
+    setJoinLang(lang);
+  }
 })();
 </script>
 </body>

@@ -42,6 +42,7 @@
   }
 
   function goTop(force) {
+    if (document.documentElement.hasAttribute('data-wyt-static-locale') && window.location.hash) return;
     if (!force && hasAnchor()) return;
     if (!force && userScrollIntent) return;
     var root = document.documentElement;
@@ -113,6 +114,8 @@
   window.wanyuGoTop = goTopSoon;
 
   function getCurrentLang() {
+    var staticLocale = document.documentElement.getAttribute('data-wyt-static-locale');
+    if (staticLocale) return staticLocale;
     try {
       var stored = window.localStorage.getItem('wyt-lang');
       if (stored === 'en' || stored === 'zh') return stored;
@@ -183,7 +186,7 @@
     }
 
     if (!document.querySelector('.nav-actions')) {
-      var langToggle = document.querySelector('.lang-toggle');
+      var langToggle = document.querySelector('.wyt-language') || document.querySelector('.lang-toggle');
       if (langToggle && langToggle.parentNode) {
         var actions = document.createElement('div');
         actions.className = 'nav-actions';
@@ -375,6 +378,9 @@
     var activeLang = lang === 'en' ? 'en' : 'zh';
 
     ensureLanguageLayoutStyle();
+    // Localized folders already include the reviewed page copy and navigation.
+    var staticLocale = document.documentElement.getAttribute('data-wyt-static-locale');
+    if (staticLocale && staticLocale !== 'zh') return;
     ensureNavStructure();
 
     var simpleBrand = document.querySelector('.brand');
@@ -508,7 +514,8 @@
     }, true);
 
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('./sw.js').catch(function () {});
+      var staticLocale = document.documentElement.getAttribute('data-wyt-static-locale');
+      navigator.serviceWorker.register(staticLocale ? '/sw.js' : './sw.js').catch(function () {});
     }
   });
 })();

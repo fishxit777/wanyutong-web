@@ -1,5 +1,5 @@
 const CACHE_PREFIX = 'wanyutong-pwa-';
-const CACHE_NAME = CACHE_PREFIX + '20261119-work-scenario-guides-v1';
+const CACHE_NAME = CACHE_PREFIX + '20261122-static-site-locales-v2';
 const CORE_ASSETS = [
   './',
   './index.html',
@@ -33,15 +33,20 @@ const CORE_ASSETS = [
   './manifest.webmanifest',
   './ads.txt',
   './assets/wanyutong-analytics.js?v=20261110-v2',
+  './assets/wanyutong-analytics.js?v=20261122-static-site-locales-v2',
   './assets/wanyutong-app.js',
   './assets/wanyutong-app.js?v=content-sync-20261110',
   './assets/wanyutong-app.js?v=group-scope-20261118',
+  './assets/wanyutong-app.js?v=20261122-static-site-locales-v2',
   './assets/wanyutong-ads-config.js',
   './assets/wanyutong-ads.js',
   './assets/wanyutong-readable.css',
+  './assets/wanyutong-locales.css',
+  './assets/wanyutong-locale-menu.js',
   './assets/wanyutong-guide.css',
   './assets/wanyutong-card.css',
   './assets/wanyutong-card.js',
+  './assets/wanyutong-card.js?v=20261122-static-site-locales-v2',
   './assets/wanyutong-line-qr.png',
   './assets/wanyutong-line-bot-tutorial-20261110-poster.jpg',
   './assets/wanyutong-line-bot-tutorial-20261110.vtt?v=content-sync-20261110',

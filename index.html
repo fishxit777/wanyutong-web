@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html data-wyt-static-locale="zh" lang="zh-Hant">
 <head>
 <title>萬語通 WanyuTong｜跨語言工作溝通、摘要與紀錄</title>
 <meta charset="UTF-8">
@@ -1910,15 +1910,15 @@ footer a:hover { color:var(--text); }
   <meta name="apple-mobile-web-app-title" content="萬語通">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link rel="apple-touch-icon" href="assets/icons/wanyutong-icon-180.png">
-  <script src="assets/wanyutong-app.js?v=group-scope-20261118" defer></script>
+  <script src="assets/wanyutong-app.js?v=20261122-static-site-locales-v2" defer></script>
 <meta name="google-adsense-account" content="ca-pub-7533511869819978">
 <script src="assets/wanyutong-ads-config.js" defer></script>
 <script src="assets/wanyutong-ads.js" defer></script>
 <link rel="stylesheet" href="assets/wanyutong-readable.css?v=20260831">
   <meta name="referrer" content="origin">
-  <script src="assets/wanyutong-analytics.js?v=20261110-v2" defer></script>
+  <script src="assets/wanyutong-analytics.js?v=20261122-static-site-locales-v2" defer></script>
   <link rel="stylesheet" href="assets/wanyutong-complete-guide.css">
-</head>
+<link href="https://wanyutong.tw/" hreflang="zh-Hant" rel="alternate"/><link href="https://wanyutong.tw/zh-cn/" hreflang="zh-Hans" rel="alternate"/><link href="https://wanyutong.tw/en/" hreflang="en" rel="alternate"/><link href="https://wanyutong.tw/ja/" hreflang="ja" rel="alternate"/><link href="https://wanyutong.tw/ko/" hreflang="ko" rel="alternate"/><link href="https://wanyutong.tw/id/" hreflang="id" rel="alternate"/><link href="https://wanyutong.tw/" hreflang="x-default" rel="alternate"/><link crossorigin="anonymous" href="/assets/wanyutong-locales.css" integrity="sha384-cIx49eMrb3Om6X7ymf2/rdfid9IQAGlV8SSqZLCMvj7PFMqgvDJ40Xgcph58QmJn" rel="stylesheet"/><script crossorigin="anonymous" defer="" integrity="sha384-V4DoDhAHZf/3QkpiLy9FxEY13dMMgM4XAtrcg/jZvJVQxDVRQ1y8j0WpN0m4ZWMT" src="/assets/wanyutong-locale-menu.js"></script></head>
 <body class="at-hero">
 
 <!-- 粒子 canvas -->
@@ -1947,7 +1947,7 @@ footer a:hover { color:var(--text); }
     <li><a href="join.html" class="nav-cta">免費體驗</a></li>
   </ul>
   <div style="display:flex;align-items:center;gap:0.8rem;">
-    <div class="lang-toggle">
+    <details class="wyt-language"><summary aria-label="語言: 繁體中文" data-compact="繁中"><span>繁體中文</span></summary><div aria-label="語言" class="wyt-language-options"><a aria-current="page" href="/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a><a href="/zh-cn/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a><a href="/en/" hreflang="en" lang="en">English</a><a href="/ja/" hreflang="ja" lang="ja">日本語</a><a href="/ko/" hreflang="ko" lang="ko">한국어</a><a href="/id/" hreflang="id" lang="id">Bahasa Indonesia</a></div></details><div class="lang-toggle" hidden="" data-wyt-legacy-language="">
       <button class="lang-btn active" onclick="setLang('zh')" id="btn-zh">繁中</button>
       <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
     </div>
@@ -3556,6 +3556,7 @@ function applyLang(lang) {
     var nodes = [];
     while (walker.nextNode()) nodes.push(walker.currentNode);
     nodes.forEach(function(node) {
+      if (node.parentElement && node.parentElement.closest('.wyt-language')) return;
       var text = node.nodeValue;
       Object.keys(map).forEach(function(from) {
         if (text.indexOf(from) !== -1) text = text.split(from).join(map[from]);
@@ -3912,7 +3913,9 @@ function applyLang(lang) {
   });
 
   // 更新 html lang 屬性
-  document.documentElement.lang = lang === 'zh' ? 'zh-TW' : 'en';
+  if (!document.documentElement.hasAttribute('data-wyt-static-locale')) {
+    document.documentElement.lang = lang === 'zh' ? 'zh-TW' : 'en';
+  }
 
   if (lang === 'zh') {
     replaceVisibleText({
@@ -4254,6 +4257,7 @@ function forceIndustrySearchLang(lang) {
 }
 
 function setLang(lang) {
+  if (document.documentElement.hasAttribute('data-wyt-static-locale')) return;
   try { localStorage.setItem('wyt-lang', lang); } catch(e) {}
   try {
     applyLang(lang);
@@ -4267,8 +4271,10 @@ function setLang(lang) {
 
 // 初始化：讀取儲存的語言
 (function(){
+  var staticLocale = document.documentElement.getAttribute('data-wyt-static-locale');
+  if (staticLocale && staticLocale !== 'zh') return;
   try {
-    var saved = localStorage.getItem('wyt-lang') || 'zh';
+    var saved = staticLocale || localStorage.getItem('wyt-lang') || 'zh';
     if (saved === 'en') setLang('en');
     else {
       applyLang('zh');

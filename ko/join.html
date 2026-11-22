@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html data-wyt-static-locale="ko" lang="ko" style="scroll-behavior: auto; overflow-anchor: none;"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="/assets/icons/wanyutong-icon-192.png" rel="icon" type="image/png"/>
+<link href="/manifest.webmanifest" rel="manifest"/>
+<meta content="#5fca6b" name="theme-color"/>
+<link href="/assets/icons/wanyutong-icon-180.png" rel="apple-touch-icon"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="萬語通" name="apple-mobile-web-app-title"/>
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+<script defer="" src="/assets/wanyutong-app.js?v=20261122-static-site-locales-v2"></script>
+<title>LINE에 WanyuTong 추가｜다국어 업무 소통 체험</title>
+<meta content="WanyuTong LINE에 가입하십시오. 중국, 영국, 일본, 한국이 모두 포함되지 않은 경우 원본 텍스트와 무료 버전의 모든 지정된 대상은 일일 할당량에 포함되지 않습니다. 하나를 초과하면 원래 뉴스 각각이 1와 매일 50를 계산합니다. 음성, 사진 OCR, 요약 및 보고서는 지정된 그룹 지불 계획을 열어야 합니다." name="description"/>
+<meta content="index, follow" name="robots"/>
+
+<meta content="website" property="og:type"/>
+<meta content="LINE에 WanyuTong 추가｜다국어 업무 소통 체험" property="og:title"/>
+<meta content="WanyuTong LINE에 가입하십시오. 중국, 영국, 일본, 한국이 모두 포함되지 않은 경우 원본 텍스트와 무료 버전의 모든 지정된 대상은 일일 할당량에 포함되지 않습니다. 하나를 초과하면 원래 뉴스 각각이 1와 매일 50를 계산합니다. 음성, 사진 OCR, 요약 및 보고서는 지정된 그룹 지불 계획을 열어야 합니다." property="og:description"/>
+<meta content="https://wanyutong.tw/ko/join.html" property="og:url"/>
+<meta content="https://wanyutong.tw/assets/wanyutong-line-qr.png" property="og:image"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&amp;family=DM+Mono:wght@400;500&amp;family=Noto+Sans+TC:wght@300;400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg: #07100d;
+  --panel: rgba(10, 20, 24, 0.82);
+  --panel2: rgba(255, 255, 255, 0.07);
+  --line: #06c755;
+  --mint: #79f2a6;
+  --cyan: #2fd7ff;
+  --gold: #f2c14e;
+  --text: #effbf4;
+  --muted: #8ea79a;
+  --border: rgba(255, 255, 255, 0.12);
+}
+html.light {
+  color-scheme: light;
+  --bg: #eef4f1;
+  --panel: rgba(255, 255, 255, 0.94);
+  --panel2: rgba(15, 80, 53, 0.06);
+  --text: #15231d;
+  --muted: #587064;
+  --border: rgba(16, 74, 50, 0.18);
+}
+* { box-sizing: border-box; }
+html, body { min-height: 100%; }
+body {
+  margin: 0;
+  font-family: "Noto Sans TC", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 72% 22%, rgba(6, 199, 85, 0.22), transparent 28%),
+    radial-gradient(circle at 18% 76%, rgba(47, 215, 255, 0.16), transparent 34%),
+    linear-gradient(135deg, #06100d 0%, #07141a 58%, #05080c 100%);
+  overflow-x: hidden;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(121, 242, 166, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(121, 242, 166, 0.07) 1px, transparent 1px);
+  background-size: 74px 74px;
+  mask-image: linear-gradient(90deg, rgba(0,0,0,0.2), rgba(0,0,0,0.82), rgba(0,0,0,0.4));
+  pointer-events: none;
+}
+html.light body {
+  background: #eef4f1;
+}
+html.light body::before {
+  background-image:
+    linear-gradient(rgba(8, 123, 77, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(8, 123, 77, 0.06) 1px, transparent 1px);
+}
+a { color: inherit; }
+.shell {
+  min-height: 100vh;
+  position: relative;
+  padding: 28px clamp(18px, 5vw, 72px);
+  display: grid;
+  grid-template-rows: auto 1fr;
+  z-index: 1;
+}
+.topbar {
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  font-family: "Syne", sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+.brand-logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex: 0 0 44px;
+  border: 2px solid rgba(255,255,255,0.16);
+  box-shadow: 0 0 0 1px rgba(255,115,30,0.35), 0 0 24px rgba(255,115,30,0.22), 0 0 28px rgba(6,199,85,0.14);
+}
+.brand-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--line);
+  box-shadow: 0 0 18px var(--line);
+}
+.toplink {
+  text-decoration: none;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 700;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.04);
+}
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  overflow: hidden;
+  font-family: "DM Mono", monospace;
+  font-size: 12px;
+}
+.lang-btn {
+  min-height: 34px;
+  padding: 0 10px;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-weight: 800;
+}
+.lang-btn.active {
+  background: var(--line);
+  color: #031108;
+}
+.theme-toggle {
+  width: 36px;
+  height: 34px;
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 36px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  color: var(--text);
+  background: var(--panel2);
+  cursor: pointer;
+  font-size: 16px;
+}
+.main {
+  align-self: center;
+  width: min(1160px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(330px, 0.72fr);
+  align-items: center;
+  gap: clamp(28px, 6vw, 74px);
+  padding: 54px 0 40px;
+}
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(6, 199, 85, 0.42);
+  color: var(--mint);
+  background: rgba(6, 199, 85, 0.09);
+  border-radius: 999px;
+  padding: 7px 12px;
+  font: 700 12px/1 "DM Mono", monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+h1 {
+  margin: 24px 0 18px;
+  max-width: 620px;
+  font-family: "Syne", "Noto Sans TC", sans-serif;
+  font-size: clamp(44px, 7vw, 82px);
+  line-height: 0.98;
+  letter-spacing: 0;
+}
+.grad {
+  display: block;
+  background: linear-gradient(135deg, var(--line), #9effc5 48%, var(--cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.lead {
+  max-width: 560px;
+  color: #a9bdb4;
+  font-size: clamp(16px, 2vw, 20px);
+  line-height: 1.9;
+  margin: 0 0 28px;
+}
+html.light .lead { color: #435c50; }
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+.btn {
+  min-height: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  text-decoration: none;
+  border-radius: 8px;
+  padding: 0 20px;
+  font-weight: 800;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+.btn-primary {
+  background: var(--line);
+  color: #031108;
+  box-shadow: 0 16px 46px rgba(6, 199, 85, 0.32);
+}
+.btn-secondary {
+  color: #d8e9df;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.05);
+}
+html.light .btn-secondary { color: #183b2b; background: rgba(255,255,255,.72); }
+.btn:hover { transform: translateY(-2px); }
+.proof {
+  margin-top: 34px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  max-width: 590px;
+}
+.proof-card {
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.045);
+  border-radius: 8px;
+  padding: 13px 14px;
+}
+.proof-card strong {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+.proof-card span {
+  color: var(--muted);
+  font-size: 12px;
+}
+.qr-stage {
+  perspective: 1100px;
+  display: grid;
+  place-items: center;
+  min-height: 520px;
+}
+.qr-orbit {
+  position: relative;
+  width: min(420px, 100%);
+  aspect-ratio: 1 / 1.18;
+  transform-style: preserve-3d;
+  animation: stageFloat 7s ease-in-out infinite;
+}
+.qr-card {
+  position: absolute;
+  inset: 44px 34px 60px;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 22px;
+  padding: 24px;
+  background:
+    linear-gradient(160deg, rgba(255,255,255,0.13), rgba(255,255,255,0.04)),
+    rgba(8, 16, 20, 0.78);
+  box-shadow:
+    0 34px 90px rgba(0,0,0,0.46),
+    inset 0 1px 0 rgba(255,255,255,0.16);
+  backdrop-filter: blur(20px);
+  transform: rotateY(-10deg) rotateX(7deg);
+}
+html.light .qr-card {
+  background: rgba(255,255,255,.9);
+  box-shadow: 0 28px 70px rgba(24, 73, 51, .18), inset 0 1px 0 rgba(255,255,255,.9);
+}
+.qr-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(6,199,85,0.65), transparent 36%, rgba(47,215,255,0.42));
+  opacity: 0.42;
+  z-index: -1;
+}
+.qr-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.qr-top span:first-child {
+  font-family: "DM Mono", monospace;
+  color: var(--mint);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.status-pill {
+  color: #05120a;
+  background: var(--line);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 5px 9px;
+}
+.qr-box {
+  background: #fff;
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: inset 0 0 0 1px rgba(3,17,8,0.1);
+}
+.qr-box img {
+  display: block;
+  width: 100%;
+  image-rendering: pixelated;
+}
+.qr-note {
+  margin: 18px 0 0;
+  color: #d7e8df;
+  font-size: 15px;
+  line-height: 1.7;
+}
+html.light .qr-note { color: #365a48; }
+.node {
+  position: absolute;
+  min-width: 112px;
+  border: 1px solid rgba(121,242,166,0.22);
+  background: rgba(8, 18, 22, 0.72);
+  border-radius: 14px;
+  padding: 10px 12px;
+  color: #dfffea;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.28);
+  transform-style: preserve-3d;
+  animation: nodePulse 5.4s ease-in-out infinite;
+}
+html.light .node { color: #163e2b; background: rgba(255,255,255,.92); }
+.node b {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+.node small {
+  color: var(--muted);
+  font: 700 11px/1.2 "DM Mono", monospace;
+}
+.node-1 { left: -8px; top: 68px; transform: translateZ(84px) rotateY(16deg); }
+.node-2 { right: -8px; top: 122px; transform: translateZ(72px) rotateY(-16deg); animation-delay: -1.2s; }
+.node-3 { left: 36px; bottom: 18px; transform: translateZ(62px) rotateY(10deg); animation-delay: -2.4s; }
+.tutorial-panel {
+  width: min(920px, 100%);
+  margin: 0 auto 28px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, rgba(6,199,85,0.14), rgba(47,215,255,0.08) 52%, rgba(8,16,20,0.86)),
+    var(--panel);
+  box-shadow: 0 28px 80px rgba(0,0,0,0.34), inset 0 1px 0 rgba(255,255,255,0.08);
+}
+html.light .tutorial-panel {
+  background: #ffffff;
+  box-shadow: 0 22px 60px rgba(24, 73, 51, .14), inset 0 1px 0 rgba(255,255,255,.9);
+}
+.tutorial-panel + .tutorial-panel {
+  margin-top: 18px;
+}
+.tutorial-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1px;
+  background: rgba(114, 139, 176, .18);
+}
+.tutorial-step {
+  min-width: 0;
+  padding: 22px;
+  background: #101824;
+}
+.tutorial-step p { margin: .6rem 0 0; line-height: 1.75; opacity: .78; }
+html.light .tutorial-step { background: #f8fbf9; }
+.guide-language-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 16px 22px 0;
+}
+.guide-language-tab {
+  min-height: 38px;
+  padding: 0 14px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--muted);
+  background: transparent;
+  cursor: pointer;
+  font-weight: 800;
+}
+.guide-language-tab.active {
+  border-color: var(--line);
+  color: #031108;
+  background: var(--line);
+}
+.guide-preview {
+  padding: 18px 22px 22px;
+}
+.guide-preview h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  letter-spacing: 0;
+}
+.guide-preview > p { margin: 0 0 16px; color: var(--muted); line-height: 1.75; }
+.guide-command-list { margin: 0; border-top: 1px solid var(--border); }
+.guide-command-row {
+  display: grid;
+  grid-template-columns: minmax(118px, .35fr) minmax(0, 1fr);
+  gap: 16px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--border);
+}
+.guide-command-row dt, .guide-command-row dd { margin: 0; }
+.guide-command-row dd { color: var(--muted); line-height: 1.65; }
+.guide-support { margin-top: 16px !important; overflow-wrap: anywhere; }
+.guide-support a { color: var(--mint); font-weight: 800; }
+html.light .guide-support a { color: #087b4d; }
+.tutorial-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 18px 22px;
+  border-bottom: 1px solid rgba(255,255,255,0.09);
+}
+.tutorial-title {
+  font-family: "Syne", "Noto Sans TC", sans-serif;
+  font-weight: 800;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+.tutorial-copy,
+.tutorial-caption {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.75;
+}
+.tutorial-label {
+  color: var(--line);
+  font: 800 12px/1 "DM Mono", monospace;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.tutorial-video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #05080c;
+}
+.tutorial-caption {
+  padding: 14px 22px 18px;
+}
+.rail {
+  position: absolute;
+  height: 1px;
+  width: 64%;
+  left: 18%;
+  top: 49%;
+  background: linear-gradient(90deg, transparent, rgba(6,199,85,0.78), rgba(47,215,255,0.55), transparent);
+  transform: rotate(-18deg) translateZ(-18px);
+  opacity: 0.72;
+}
+.rail::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--line);
+  box-shadow: 0 0 20px var(--line);
+  left: 0;
+  top: -4px;
+  animation: packet 2.6s linear infinite;
+}
+@keyframes packet {
+  from { transform: translateX(0); opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  to { transform: translateX(260px); opacity: 0; }
+}
+@keyframes stageFloat {
+  0%, 100% { transform: translateY(0) rotateZ(0deg); }
+  50% { transform: translateY(-12px) rotateZ(0.6deg); }
+}
+@keyframes nodePulse {
+  0%, 100% { opacity: 0.82; }
+  50% { opacity: 1; }
+}
+@media (max-width: 860px) {
+  .shell { padding: 20px 18px; }
+  .main {
+    grid-template-columns: 1fr;
+    padding: 34px 0 24px;
+  }
+  .lead { font-size: 16px; }
+  .proof { grid-template-columns: 1fr; }
+  .qr-stage { min-height: 470px; }
+  .qr-orbit { width: min(360px, 100%); }
+  .qr-card { inset: 34px 20px 58px; transform: rotateY(-5deg) rotateX(5deg); }
+  .node { min-width: 96px; padding: 8px 10px; }
+  .node-1 { left: 0; }
+  .node-2 { right: 0; }
+  .tutorial-head { display: block; padding: 16px; }
+  .tutorial-label { display: block; margin-top: 10px; }
+  .tutorial-title { font-size: 18px; }
+  .tutorial-copy,
+  .tutorial-caption { font-size: 13px; }
+  .tutorial-caption { padding: 12px 16px 16px; }
+}
+@media (max-width: 520px) {
+  .topbar { height: auto; align-items: flex-start; }
+  .brand { min-width: 0; font-size: 20px; }
+  .topbar-actions { gap: 8px; }
+  .toplink { padding: 7px 10px; font-size: 13px; }
+  .lang-btn { min-height: 32px; padding: 0 9px; }
+  .theme-toggle { width: 32px; height: 32px; flex-basis: 32px; }
+  .guide-language-tabs { padding: 14px 16px 0; }
+  .guide-preview { padding: 16px; }
+  .guide-command-row { grid-template-columns: 1fr; gap: 5px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .qr-orbit, .node, .rail::after { animation: none; }
+}
+@media (max-width: 560px) {
+  .brand { font-size: 20px; gap: 8px; }
+  .brand-logo { width: 38px; height: 38px; flex-basis: 38px; }
+}
+</style>
+<link href="/assets/wanyutong-readable.css" rel="stylesheet"/>
+<meta content="origin" name="referrer"/>
+<script defer="" src="/assets/wanyutong-analytics.js?v=20261122-static-site-locales-v2"></script>
+<link href="/assets/wanyutong-complete-guide.css" rel="stylesheet"/>
+<style id="wyt-language-layout-fix">nav{justify-content:flex-start!important;gap:clamp(.55rem,1vw,1.25rem)!important;padding:0 clamp(1rem,3vw,3rem)!important}
+.nav-brand,.brand{display:inline-flex!important;align-items:center!important;flex:0 0 auto!important;white-space:nowrap!important;letter-spacing:.02em!important;gap:.5rem!important;text-decoration:none!important}
+.brand-logo{width:42px!important;height:42px!important;border-radius:50%!important;object-fit:cover!important;flex:0 0 42px!important;border:2px solid rgba(255,255,255,.14)!important;box-shadow:0 0 0 1px rgba(255,115,30,.35),0 0 22px rgba(255,115,30,.22),0 0 28px rgba(6,199,85,.14)!important}
+.brand-copy,.brand-text{display:inline-flex!important;align-items:baseline!important;gap:.32rem!important;min-width:0!important}
+.brand-main,.nav-brand-main{line-height:1!important}
+.nav-brand-sub:empty{display:none!important}
+.nav-quick-links{display:flex;align-items:center;gap:.55rem;flex:0 0 auto}
+.nav-links{flex:1 1 auto!important;min-width:0!important;justify-content:center!important;gap:clamp(.75rem,1.25vw,1.55rem)!important;margin:0!important;padding:0!important}
+.nav-links a{white-space:nowrap!important;display:inline-flex!important;align-items:center!important;letter-spacing:.045em!important}
+.nav-cta{flex:0 0 auto!important;white-space:nowrap!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;padding:.38em .9em!important;letter-spacing:.04em!important;line-height:1.1!important}
+.nav-actions{display:flex!important;align-items:center!important;gap:.45rem!important;flex:0 0 auto!important;margin-left:auto!important}
+.hamburger,.blog-hamburger{width:34px!important;min-width:34px!important;height:34px!important;padding:6px!important;border:0!important;background:transparent!important;align-items:center!important;justify-content:center!important;flex-direction:column!important;gap:4px!important}
+.hamburger span,.blog-hamburger span{display:block!important;width:20px!important;height:2px!important;flex:0 0 2px!important;border-radius:2px!important;background:var(--text)!important}
+@media(max-width:1450px){.nav-quick-links{display:none!important}.nav-links{gap:.85rem!important}.nav-links a{font-size:.72rem!important;letter-spacing:.035em!important}}
+@media(max-width:1280px){nav{padding:0 4vw!important;gap:.5rem!important}.nav-blog-pill,.nav-quick-links{display:none!important}.nav-links,.nav-links-blog{display:none!important;flex-direction:column!important;position:absolute!important;top:58px!important;left:0!important;right:0!important;background:var(--bg2)!important;border-bottom:1px solid var(--border)!important;padding:1rem 5vw!important;gap:1rem!important;z-index:220!important}.nav-links.open,.nav-links-blog.open{display:flex!important}.hamburger,.blog-hamburger{display:flex!important;flex-shrink:0!important}}
+@media(max-width:600px){nav{height:56px!important;min-height:56px!important;padding:0 .7rem!important;gap:.35rem!important}.nav-brand,.brand{min-width:0!important;max-width:calc(100vw - 150px)!important;font-size:clamp(.92rem,5vw,1.05rem)!important;overflow:hidden!important}.brand-logo{width:34px!important;height:34px!important;flex-basis:34px!important}.nav-brand-main,.brand-main,.brand-text{overflow:hidden!important;text-overflow:ellipsis!important;white-space:nowrap!important}.nav-brand-sub{display:none!important}.nav-actions{gap:.25rem!important;margin-left:auto!important;min-width:0!important}.lang-toggle{font-size:.62rem!important;flex:0 0 auto!important}.lang-btn,.lang-toggle button{min-width:auto!important;padding:3px 7px!important;height:24px!important}.theme-toggle{width:34px!important;min-width:34px!important;height:24px!important}.theme-toggle-knob{width:14px!important;height:14px!important}.hamburger,.blog-hamburger{width:32px!important;min-width:32px!important;height:32px!important;padding:6px!important}}
+@media(max-width:380px){.nav-brand,.brand{max-width:calc(100vw - 138px)!important}.nav-actions{gap:.18rem!important}.theme-toggle{display:none!important}}
+@media(max-width:600px){.hero-grid,.hero-text,.hero-actions,.hero-mockup{min-width:0!important;max-width:100%!important;width:100%!important}.bot-chat-glow{display:none!important}.stats-strip{grid-template-columns:1fr!important}.stat-item{width:auto!important;min-width:0!important}.compare-wrap{width:100%!important;max-width:100%!important;overflow:visible!important}#compare .compare-table,#vs-competitors .compare-table{min-width:0!important;width:100%!important;display:block!important;border:0!important;background:transparent!important}#compare .compare-table thead,#vs-competitors .compare-table thead{display:none!important}#compare .compare-table tbody,#vs-competitors .compare-table tbody{display:grid!important;gap:.75rem!important}#compare .compare-table tr,#vs-competitors .compare-table tr{display:block!important;border:1px solid var(--border)!important;border-radius:10px!important;overflow:hidden!important;background:rgba(12,17,26,.92)!important}#compare .compare-table td,#vs-competitors .compare-table td{display:block!important;width:100%!important;text-align:left!important;padding:.78rem .95rem!important;border-top:1px solid rgba(114,139,176,.14)!important;line-height:1.55!important}#compare .compare-table td:first-child,#vs-competitors .compare-table td:first-child{border-top:0!important;background:rgba(255,255,255,.045)!important;color:var(--white)!important;font-weight:800!important}#compare .compare-table td:not(:first-child)::before,#vs-competitors .compare-table td:not(:first-child)::before{content:attr(data-label);display:block;margin-bottom:.32rem;color:#7f91b0;font-family:"DM Mono",monospace;font-size:.66rem;letter-spacing:.07em;text-transform:uppercase}}</style><link href="https://wanyutong.tw/ko/join.html" rel="canonical"/><link href="https://wanyutong.tw/join.html" hreflang="zh-Hant" rel="alternate"/><link href="https://wanyutong.tw/zh-cn/join.html" hreflang="zh-Hans" rel="alternate"/><link href="https://wanyutong.tw/en/join.html" hreflang="en" rel="alternate"/><link href="https://wanyutong.tw/ja/join.html" hreflang="ja" rel="alternate"/><link href="https://wanyutong.tw/ko/join.html" hreflang="ko" rel="alternate"/><link href="https://wanyutong.tw/id/join.html" hreflang="id" rel="alternate"/><link href="https://wanyutong.tw/join.html" hreflang="x-default" rel="alternate"/><link crossorigin="anonymous" href="/assets/wanyutong-locales.css" integrity="sha384-cIx49eMrb3Om6X7ymf2/rdfid9IQAGlV8SSqZLCMvj7PFMqgvDJ40Xgcph58QmJn" rel="stylesheet"/><script crossorigin="anonymous" defer="" integrity="sha384-V4DoDhAHZf/3QkpiLy9FxEY13dMMgM4XAtrcg/jZvJVQxDVRQ1y8j0WpN0m4ZWMT" src="/assets/wanyutong-locale-menu.js"></script></head>
+<body style="scroll-behavior: auto; overflow-anchor: none;">
+<div class="shell">
+<header class="topbar">
+<a class="brand" data-en="WanyuTong" data-zh="萬語通" href="/ko/"><img alt="WanyuTong Globe Talk AI Translation 로고" class="brand-logo" src="/assets/wanyutong-logo.jpg"/><span class="brand-main" id="join-brand">萬語通</span></a>
+<div class="topbar-actions">
+<a class="toplink" href="/ko/" id="join-home-link">공식 웹사이트로 돌아갑니다</a>
+<div aria-label="Language switch" class="lang-toggle" data-wyt-legacy-language="" hidden="">
+<button class="lang-btn active" id="join-lang-zh" onclick="setJoinLang('zh')" type="button">繁中</button>
+<button class="lang-btn" id="join-lang-en" onclick="setJoinLang('en')" type="button">EN</button>
+</div><details class="wyt-language"><summary aria-label="언어: 한국어" data-compact="한국어"><span>한국어</span></summary><div aria-label="언어" class="wyt-language-options"><a href="/join.html" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a><a href="/zh-cn/join.html" hreflang="zh-Hans" lang="zh-Hans">简体中文</a><a href="/en/join.html" hreflang="en" lang="en">English</a><a href="/ja/join.html" hreflang="ja" lang="ja">日本語</a><a aria-current="page" href="/ko/join.html" hreflang="ko" lang="ko">한국어</a><a href="/id/join.html" hreflang="id" lang="id">Bahasa Indonesia</a></div></details>
+<button aria-label="밝은 화면과 어두운 화면 전환" class="theme-toggle" id="join-theme-toggle" onclick="toggleTheme()" title="밝은 화면과 어두운 화면 전환" type="button"><span aria-hidden="true" id="join-theme-icon">🌙</span></button>
+</div>
+</header>
+<main class="main">
+<section>
+<div class="eyebrow" id="join-eyebrow">LINE 공식 계정</div>
+<h1 id="join-title">QR 코드를 스캔해 추가하기<br/><span class="grad">업무 지시를 번역하고 요약해 기록으로 남기세요</span></h1>
+<p class="lead" id="join-lead">WanyuTong LINE 가입 공식 계정 이후 무료 버전은 원본 텍스트와 모든 지정된 대상을 동시에 판단합니다. 일일 할당량은 중국어, 영어, 일본 및 한국에서 계산되지 않습니다. 원래 텍스트 또는 지정된 대상이 4개의 언어를 초과하면 각 원본 메시지가 1입니다. 그러면 매일 50가 됩니다. 더 높은 사용 할당량과 그룹 음성, 사진 OCR, AI 요약 및 일일 보고서가 필요한 경우 유료 그룹 요금제를 업그레이드하십시오. 유료 요금제는 "그룹"에 있습니다. 개인 메시지에서 계획 소개를 볼 수 있습니다. 구매하려면 업그레이드하려는 LINE 그룹에 @方案를 입력하고 이 그룹에서 생성한 결제 링크를 사용하십시오. 결제 후 이 그룹만 열리고 개인 비공개 메시지 또는 기타 그룹이 업그레이드되지 않습니다.</p>
+<div class="actions">
+<a class="btn btn-primary" href="https://line.me/R/ti/p/@969wpxno" id="join-primary">LINE에서 추가</a>
+<a class="btn btn-secondary" href="/ko/faq.html" id="join-secondary">자주 묻는 질문 보기</a>
+</div>
+<div class="proof">
+<div class="proof-card"><strong id="join-proof-1-title">번역 작업 공지</strong><span id="join-proof-1-copy">중국어, 인도네시아어, 베트남어, 태국어 및 기타 다국어 지원</span></div>
+<div class="proof-card"><strong id="join-proof-2-title">검토 및 요약</strong><span id="join-proof-2-copy">기록된 지불, 계약, 휴가 및 할 일을 구성하고 중요한 사항은 감독관이 확인합니다.</span></div>
+<div class="proof-card"><strong id="join-proof-3-title">기록 및 보고서</strong><span id="join-proof-3-copy">고용주가 검색 가능하고 추적 가능한 관리 기록을 남길 수 있도록 돕습니다.</span></div>
+</div>
+</section>
+<section aria-label="WanyuTong LINE QR 코드" class="qr-stage">
+<div class="qr-orbit">
+<div class="rail"></div>
+<div class="node node-1"><b id="join-node-1">해독</b><small>ZH · ID · VI · TH</small></div>
+<div class="node node-2"><b id="join-node-2">추상</b><small>결제 · 나가기</small></div>
+<div class="node node-3"><b id="join-node-3">문서</b><small>그룹 기록</small></div>
+<div class="qr-card">
+<div class="qr-top">
+<span>@969wpxno</span>
+<span class="status-pill">萬語通</span>
+</div>
+<div class="qr-box">
+<img alt="WanyuTong LINE 공식 계정 QR 코드" id="join-qr" src="/assets/wanyutong-line-qr.png"/>
+</div>
+<p class="qr-note" id="join-qr-note">PC에서 보고 있다면 휴대전화의 LINE으로 QR 코드를 스캔하세요. 휴대전화에서 보고 있다면 「LINE에서 추가」를 누르세요.</p>
+</div>
+</div>
+</section>
+</main>
+<section aria-label="추가한 후 첫 3단계" class="tutorial-panel" id="beginner-tutorial">
+<div class="tutorial-head">
+<div><div class="tutorial-title" id="join-steps-title">추가한 후 먼저 다음 세 가지를 진행하세요.</div><div class="tutorial-copy" id="join-steps-copy">순서를 한 번 설정하면 일반 텍스트를 직접 전송할 수 있습니다.</div></div>
+<div class="tutorial-label" id="join-steps-label">첫 3단계</div>
+</div>
+<a class="complete-guide-entry complete-guide-entry--join" href="/ko/start.html">
+<span aria-hidden="true" class="complete-guide-thumb"><img alt="" height="720" src="/assets/wanyutong-complete-guide-20261122-poster.jpg" width="1280"/></span>
+<span>
+<strong class="complete-guide-entry-title"><span class="complete-guide-zh">WanyuTong 처음 사용하기 전체 가이드</span><span class="complete-guide-en">WanyuTong 처음 사용하기 전체 가이드</span></strong>
+<span class="complete-guide-entry-meta"><span class="complete-guide-zh">영상 보기 · 6:45</span><span class="complete-guide-en">영상 보기 · 6:45</span></span>
+</span>
+<span aria-hidden="true" class="complete-guide-entry-arrow">→</span>
+</a>
+<div class="tutorial-steps">
+<div class="tutorial-step"><strong id="join-step-1-title">1 . 공통 기능을 활성화합니다</strong><p id="join-step-1-copy">휴대전화의 개인 채팅에서는 하단 메뉴를 바로 누를 수 있습니다. LINE 그룹에는 고정 하단 리치 메뉴가 지원되지 않으므로 그룹에 @選單 을 일반 텍스트로 보내 같은 기능 카드를 여세요.</p><p><a href="/ko/announcements.html#group-pin-reminder" id="join-pin-reminder-link">그룹 공지 고정 알림</a></p></div>
+<div class="tutorial-step"><strong id="join-step-2-title">2 . 번역 언어를 설정합니다</strong><p id="join-step-2-copy">「語言設定」(언어 설정)을 선택하거나 @語言設定 을 보내 두 언어를 선택하세요. 「持續多語」(지속 다국어 모드)를 선택하거나 @多語 를 보내면 미리 설정된 조합을 사용하거나 최대 8개 언어를 직접 고를 수 있습니다. 첫 번째 언어가 기본 언어입니다. 언어 이름을 포함한 기존 전체 명령어도 계속 사용할 수 있습니다.</p></div>
+<div class="tutorial-step"><strong id="join-step-3-title">3 . 먼저 일반 텍스트를 전달합니다</strong><p id="join-step-3-copy">예를 들어, "내일 아침 8시에 간다". 시간과 언어를 확인한 후 상대방에게 회신을 요청하십시오. 음성, OCR, 요약 및 보고서는 기능에 따라 유료 그룹을 활성화하려면 지불해야 합니다.</p></div>
+</div>
+<div class="tutorial-caption" id="join-steps-caption">그룹 선택 카드는 오프너의 작업에만 해당되며 15 분 동안 유효합니다. 동일한 그룹에서 새 카드를 연 후 이전 카드가 유효하지 않습니다. 카드, 설정 결과 및 확장된 번역이 전체 그룹에 표시됩니다. 멤버 목록에서 WanyuTong에 태그를 지정하지 않고 직접 입력하는 명령. 연속 다국어는 계속해서 일반 메시지를 설정된 언어로 번역합니다. @多語를 통과하여 원래 이중 언어를 닫습니다. 첫 번째로 지정된 대상은 재현 가능한 주 언어가 되며 다른 언어는 버튼별로 하나씩 표시됩니다. 24 시간 캐시는 다시 번역되거나 공제되지 않습니다.<a href="/ko/blog-line-bot-first-setup.html">전체 이미지 안내 읽기</a></div>
+</section>
+<section aria-label="LINE Bot 기본 콘텐츠 및 언어 버튼 미리보기" class="tutorial-panel">
+<div class="tutorial-head">
+<div>
+<div class="tutorial-title" id="join-guide-title">중국어 번체 콘텐츠 및 언어 버튼</div>
+<div class="tutorial-copy" id="join-guide-copy">개인 채팅 또는 그룹 전송 지침에서 봇은 먼저 복사할 수 있는 복제 가능한 기본 콘텐츠에 응답한 다음 영어, 일본어 및 한국어 버튼을 제공합니다. 고정 교육 내용은 일일 번역 할당량에서 공제되지 않습니다.</div>
+</div>
+<div class="tutorial-label" id="join-guide-label">봇 답변 미리보기</div>
+</div>
+<div aria-label="응답 언어 미리보기" class="guide-language-tabs" role="tablist">
+<button aria-selected="true" class="guide-language-tab active" data-guide-lang="zh" onclick="setGuideLang('zh', true)" role="tab" type="button">繁中</button>
+<button aria-selected="false" class="guide-language-tab" data-guide-lang="en" onclick="setGuideLang('en', true)" role="tab" type="button">English</button>
+<button aria-selected="false" class="guide-language-tab" data-guide-lang="ja" onclick="setGuideLang('ja', true)" role="tab" type="button">일본어</button>
+<button aria-selected="false" class="guide-language-tab" data-guide-lang="ko" onclick="setGuideLang('ko', true)" role="tab" type="button">한국어</button>
+</div>
+<div aria-live="polite" class="guide-preview" role="tabpanel">
+<h3 id="join-guide-heading">【WanyuTong｜처음 사용하기】</h3>
+<p id="join-guide-intro">휴대전화의 개인 채팅에서는 하단 메뉴를 바로 누를 수 있습니다. LINE 그룹에는 고정 하단 리치 메뉴가 지원되지 않으므로 그룹에 @選單 을 일반 텍스트로 보내 같은 기능 카드를 여세요.</p>
+<dl class="guide-command-list">
+<div class="guide-command-row"><dt><code>@新手教學</code></dt><dd id="join-guide-onboarding">첫 번째 설정, 계획 및 열기 프로세스를 확인하십시오.</dd></div>
+<div class="guide-command-row"><dt><code>@說明</code></dt><dd id="join-guide-help">개인 채팅 또는 그룹의 전체 지침을 봅니다.</dd></div>
+<div class="guide-command-row"><dt><code>@語言設定</code></dt><dd id="join-guide-language">@語言設定 을 보내면 두 언어를 선택하는 카드가 열립니다. 언어 이름이 포함된 전체 명령어도 사용할 수 있습니다. 설정이 적용되면 지속 다국어 모드가 꺼집니다.</dd></div>
+<div class="guide-command-row"><dt><code>@多語</code></dt><dd id="join-guide-multi">@多語가 선택 카드를 열고 가장 8가 첫 번째 항목의 주요 언어라는 소문이 있습니다. 그룹 카드는 오프너에서만 사용할 수 있으며 15 분 동안 유효합니다. 카드와 회신은 전체 그룹에서 볼 수 있습니다.</dd></div>
+</dl>
+<p class="guide-support"><span id="join-guide-support">고객 서비스 및 문제 반환:</span> <a href="mailto:wanyutong29@gmail.com">wanyutong29@gmail.com</a> · <a href="https://forms.gle/rKatiHrCmh5wpCov8" rel="noopener" target="_blank">Google Form</a></p>
+</div>
+</section>
+<section aria-label="WanyuTong 운영 교육 비디오" class="tutorial-panel">
+<div class="tutorial-head">
+<div>
+<div class="tutorial-title" id="join-video-title">사용법 영상</div>
+<div class="tutorial-copy" id="join-video-copy">이중 언어 및 연속 다국어를 사용하여 데모는 기본 언어, 단어-언어 버튼, 24 시간 캐시 및 정확한 무료 할당량 규칙을 복사할 수 있습니다.</div>
+</div>
+<div class="tutorial-label" id="join-video-label">LINE 설정</div>
+</div>
+<video class="tutorial-video" controls="" playsinline="" poster="/assets/wanyutong-line-bot-tutorial-20261110-poster.jpg" preload="metadata">
+<source src="/assets/wanyutong-line-bot-tutorial-20261110.mp4?v=content-sync-20261110" type="video/mp4"/>
+<track kind="captions" label="繁體中文字幕" src="/assets/wanyutong-line-bot-tutorial-20261110.vtt?v=content-sync-20261110" srclang="zh-Hant"/>
+</video>
+<div class="tutorial-caption" id="join-video-caption">현재 명령 리메이크에 따르면 중국어 번체 내레이션, 굽기 자막 및 전환 가능한 중국어 번체 자막 트랙을 포함합니다.</div>
+</section>
+<section aria-label="WanyuTong 오프닝 프로세스 비디오에 참여하십시오" class="tutorial-panel">
+<div class="tutorial-head">
+<div>
+<div class="tutorial-title" id="join-activation-video-title">오프닝 프로세스 비디오에 참여하십시오</div>
+<div class="tutorial-copy" id="join-activation-video-copy">무료와 유료 요금제를 비교한 다음, 해당 그룹의 공식 링크로 지정 그룹을 활성화하세요.</div>
+</div>
+<div class="tutorial-label" id="join-activation-video-label">이용 시작 절차</div>
+</div>
+<video class="tutorial-video" controls="" playsinline="" poster="/assets/wanyutong-activation-flow-20261110-poster.jpg" preload="metadata">
+<source src="/assets/wanyutong-activation-flow-20261110.mp4?v=content-sync-20261110" type="video/mp4"/>
+<track kind="captions" label="繁體中文字幕" src="/assets/wanyutong-activation-flow-20261110.vtt?v=content-sync-20261110" srclang="zh-Hant"/>
+</video>
+<div class="tutorial-caption" id="join-activation-video-caption">지불 금액, 기간 및 공제 갱신 여부는 발송 전에 공식 주문 화면의 적용을 받습니다. 결제 그룹만 성공 후 열리거나 연장됩니다.</div>
+</section>
+</div>
+<script>
+var joinCopy = {
+  zh: {
+    title: '加入萬語通 LINE｜體驗跨語言工作溝通流程',
+    brand: '萬語通',
+    home: '回到官網',
+    eyebrow: 'LINE Official Account',
+    headline: '掃碼加入<br><span class="grad">讓交辦有翻譯、有摘要、有紀錄</span>',
+    lead: '加入萬語通 LINE 官方帳號後，免費版會同時判斷原文與所有指定目標：全在中英日韓內不計每日額度；偵測原文或任一指定目標超出四語時，每則原始訊息計 1 則，每日 50 則。需要更高使用額度，以及群組語音、圖片 OCR、AI 摘要與每日報表時，再升級付費群組方案。付費方案以「群組」為單位。私訊可查看方案介紹；要購買，請在想升級的 LINE 群組輸入 @方案，使用該群組產生的付款連結。付款後只開通該群組，不會升級個人私訊或其他群組。',
+    primary: '手機直接加入 LINE',
+    secondary: '先看常見問題',
+    proof1Title: '翻譯工作通知',
+    proof1Copy: '中文、印尼文、越南文、泰文等多語支援',
+    proof2Title: '回顧與摘要',
+    proof2Copy: '整理已記錄的付款、合約、請假與待辦，重要事項由主管核對',
+    proof3Title: '紀錄與報表',
+    proof3Copy: '幫雇主留下可搜尋、可追蹤的管理紀錄',
+    node1: '翻譯',
+    node2: '摘要',
+    node3: '紀錄',
+    qrNote: '桌機請用手機 LINE 掃描；手機請點「直接加入 LINE」。',
+    qrAlt: '萬語通 LINE 官方帳號 QR Code',
+    videoTitle: '操作教學影片',
+    videoCopy: '設定雙語與持續多語，示範可複製主語言、逐語按鈕、24 小時快取及精確免費額度規則。',
+    videoLabel: 'LINE SETUP',
+    videoCaption: '依現行指令重製，含繁中旁白、燒錄字幕與可切換的繁中字幕軌。',
+    activationVideoTitle: '加入開通流程影片',
+    activationVideoCopy: '比較免費與付費方案，再用群組內的官方連結開通指定群組。',
+    activationVideoLabel: 'ACTIVATION FLOW',
+    activationVideoCaption: '付款金額、期間與是否續扣以送出前的正式訂購畫面為準；成功後只開通或延長付款群組。',
+    stepsTitle: '加入後先完成三件事',
+    stepsCopy: '照順序設定一次，之後就能直接傳送一般文字。',
+    stepsLabel: 'FIRST 3 STEPS',
+    step1Title: '1. 開啟常用功能',
+    pinReminderLink: '群組置頂提醒',
+    step1Copy: '手機私訊可直接點底部選單；LINE 平台不支援群組固定底部圖文選單，請在群組傳純文字 @選單，開啟同一組常用功能卡。',
+    step2Title: '2. 設定翻譯語言',
+    step2Copy: '選「語言設定」或傳 @語言設定，直接點選雙語；選「持續多語」或傳 @多語，可用快捷組合或自選最多 8 種，第一項為主語言。原有帶語言名稱的完整指令仍可用。',
+    step3Title: '3. 先傳一句一般文字',
+    step3Copy: '例如「明天早上八點集合」。核對時間與語言後，再請對方回覆；語音、OCR、摘要與報表需付費群組依功能啟用。',
+    stepsCaption: '群組選語卡只限開啟者操作，有效 15 分鐘；同群開新卡後舊卡失效。卡片、設定結果與展開的譯文都會全群可見。指令直接打字，不用從成員清單標記萬語通。 持續多語會把後續一般訊息持續翻成設定語言；傳 @多語 關閉 回原雙語。第一個指定目標先成為可複製主語言，其他語言以按鈕逐一查看。24 小時快取不會重新翻譯或再扣額度。<a href="blog-line-bot-first-setup.html">閱讀完整圖文教學</a>',
+    guideTitle: '繁中主內容與語言按鈕',
+    guideCopy: '在個人聊天或群組傳送指令，Bot 先回覆可複製的繁中主內容，再提供英文、日文、韓文按鈕；固定教學內容不扣每日翻譯額度。',
+    guideLabel: 'BOT REPLY PREVIEW',
+    themeLabel: '切換日夜模式',
+    zhLabel: '繁中'
+  },
+  en: {
+    title: 'Join WanyuTong LINE | Try Cross-Language Workflows',
+    brand: 'WanyuTong',
+    home: 'Back to Website',
+    eyebrow: 'LINE Official Account',
+    headline: 'Scan to Join<br><span class="grad">Translate, Summarize, and Keep Records</span>',
+    lead: 'Add the WanyuTong LINE official account. The free plan does not use the daily quota when the source and all configured targets are Chinese, English, Japanese, or Korean. If the detected source or any configured target is outside those four, one original message uses one of 50 daily credits. Upgrade to a paid group plan for higher usage allowances, voice, image OCR, AI summaries, and daily reports. Paid plans are sold per group. Private chats show plan information. To purchase, send @方案 in the LINE group you want to upgrade and use the payment link generated for that group. Payment activates only that group, not your private chat or other groups.',
+    primary: 'Join LINE on Mobile',
+    secondary: 'Read FAQ First',
+    proof1Title: 'Translate Work Notices',
+    proof1Copy: 'Supports Chinese, Indonesian, Vietnamese, Thai, and more',
+    proof2Title: 'Review and Summarize',
+    proof2Copy: 'Summarize recorded payments, contracts, leave, and tasks for a manager to review',
+    proof3Title: 'Records and Reports',
+    proof3Copy: 'Keeps searchable and traceable management records for employers',
+    node1: 'Translation',
+    node2: 'Summary',
+    node3: 'Records',
+    qrNote: 'On desktop, scan with LINE on your phone. On mobile, tap "Join LINE on Mobile."',
+    qrAlt: 'WanyuTong LINE official account QR Code',
+    videoTitle: 'Setup Tutorial Video',
+    videoCopy: 'Set a two-way pair or persistent multilingual mode, then see copyable primary text, per-language buttons, the 24-hour cache, and the exact free-quota rule.',
+    videoLabel: 'LINE SETUP',
+    videoCaption: 'Rebuilt for the current commands with Traditional Chinese narration, burned-in subtitles, and an optional Traditional Chinese caption track.',
+    activationVideoTitle: 'Activation Flow Video',
+    activationVideoCopy: 'Compare the free and paid plans, then activate the intended group through its official in-group link.',
+    activationVideoLabel: 'ACTIVATION FLOW',
+    activationVideoCaption: 'The final amount, term, and renewal setting are governed by the official order screen shown before submission; payment activates or extends only that group.',
+    stepsTitle: 'Complete These 3 Steps After Joining',
+    stepsCopy: 'Set them once in order, then send regular text directly.',
+    stepsLabel: 'FIRST 3 STEPS',
+    step1Title: '1. Open common functions',
+    pinReminderLink: 'Group pin reminders',
+    step1Copy: 'On a phone, use the bottom menu in a one-to-one chat. LINE does not support a fixed rich menu in group chats; send plain-text @選單 in the group to open the same common-function card.',
+    step2Title: '2. Set Translation Languages',
+    step2Copy: 'Tap Language Settings or send @語言設定 to choose a pair. Tap Persistent Multilingual or send @多語 to use a preset or choose up to 8 languages; the first is the primary language. Commands that include language names still work.',
+    step3Title: '3. Send a short text message',
+    step3Copy: 'Try a simple message such as “Meet at eight tomorrow morning.” Check its time and language, then ask for a reply. Voice, OCR, summaries, and reports require an active paid group with the relevant feature enabled.',
+    stepsCaption: 'A group language card can only be used by its opener for 15 minutes; a new card in the same group replaces the old one. Cards, setting results, and expanded translations are visible to the whole group. Type commands as text without mentioning the Bot. Persistent multilingual mode supports up to 8 languages at once and keeps translating later regular messages. Send @多語 關閉 to restore the previous pair. The first target is copyable primary text. Other languages open with buttons from a 24-hour cache without translating or charging again. <a href="blog-line-bot-first-setup.html">Read the setup guide</a>',
+    guideTitle: 'Traditional Chinese Primary Content and Language Buttons',
+    guideCopy: 'In a personal chat or group, both commands show copyable Traditional Chinese primary content with English, Japanese, and Korean buttons. Approved static help does not use the daily translation quota.',
+    guideLabel: 'BOT REPLY PREVIEW',
+    themeLabel: 'Switch light or dark mode',
+    zhLabel: 'ZH'
+  }
+};
+var guideCopy = {
+  zh: {
+    heading: '【萬語通｜新手使用說明】',
+    intro: '手機私訊可直接點底部選單；LINE 平台不支援群組固定底部圖文選單，請在群組傳純文字 @選單，開啟同一組常用功能卡。',
+    onboarding: '查看第一次設定、方案與開通流程。',
+    help: '查看個人聊天或群組的完整指令。',
+    language: '傳 @語言設定 開啟雙語選擇卡，也可使用帶語言名稱的完整指令。成功套用後會關閉持續多語。',
+    multi: '傳 @多語 開啟選擇卡，最多 8 種、第一項主語言。群組卡只限開啟者操作，有效 15 分鐘；卡與回覆全群可見。',
+    support: '客服與問題回報：'
+  },
+  en: {
+    heading: '【WanyuTong | Quick Start Guide】',
+    intro: 'On a phone, use the bottom menu in a one-to-one chat. LINE does not support a fixed rich menu in group chats; send plain-text @選單 in the group to open the same common-function card.',
+    onboarding: 'View first-time setup, plans, and activation steps.',
+    help: 'View the full command list for personal chats or groups.',
+    language: 'Send @語言設定 to open the language-pair picker, or keep using a full command with language names. Applying a pair turns off persistent multilingual mode.',
+    multi: 'Send @多語 for a picker with up to 8 languages; the first is primary. Group cards are usable by their opener for 15 minutes, and cards and replies are visible to everyone.',
+    support: 'Customer support and issue report:'
+  },
+  ja: {
+    heading: '【萬語通｜初めての方へ】',
+    intro: 'スマートフォンの個人トークでは画面下のメニューを使えます。LINE のグループでは固定リッチメニューに対応していないため、文字で @選單 と送信して機能カードを開いてください。',
+    onboarding: '初回設定、プラン、利用開始の流れを確認します。',
+    help: '個人チャットまたはグループの全コマンドを確認します。',
+    language: '@語言設定 で2言語の選択カードを開けます。言語名を含む従来のコマンドも使えます。設定すると継続多言語モードは終了します。',
+    multi: '@多語 で最大8言語を選択し、最初の言語が主言語になります。グループの選択カードは開いた本人のみ15分間操作でき、カードと返信は全員に表示されます。',
+    support: 'カスタマーサポート・問題報告：'
+  },
+  ko: {
+    heading: '【WanyuTong | 초보자 사용 안내】',
+    intro: '스마트폰의 일대일 채팅에서는 하단 메뉴를 사용하세요. LINE 그룹에서는 고정 리치 메뉴를 지원하지 않으므로 @選單 을 일반 텍스트로 보내 기능 카드를 여세요.',
+    onboarding: '첫 설정, 요금제 및 활성화 절차를 확인합니다.',
+    help: '개인 채팅 또는 그룹의 전체 명령어를 확인합니다.',
+    language: '@語言設定 으로 두 언어 선택 카드를 엽니다. 언어 이름을 포함한 기존 명령도 사용할 수 있습니다. 적용하면 지속 다국어 모드가 꺼집니다.',
+    multi: '@多語 로 최대 8개 언어를 선택하며 첫 번째가 기본 언어입니다. 그룹 선택 카드는 연 사람만 15분 동안 사용할 수 있고 카드와 응답은 그룹 전체에 보입니다.',
+    support: '고객 지원 및 문제 신고:'
+  }
+};
+var joinGuideUserSelected = false;
+
+function setGuideLang(lang, userSelected) {
+  var copy = guideCopy[lang] || guideCopy.zh;
+  if (userSelected) joinGuideUserSelected = true;
+  var fields = {
+    'join-guide-heading': 'heading',
+    'join-guide-intro': 'intro',
+    'join-guide-onboarding': 'onboarding',
+    'join-guide-help': 'help',
+    'join-guide-language': 'language',
+    'join-guide-multi': 'multi',
+    'join-guide-support': 'support'
+  };
+  Object.keys(fields).forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) el.textContent = copy[fields[id]];
+  });
+  document.querySelectorAll('[data-guide-lang]').forEach(function(button) {
+    var active = button.getAttribute('data-guide-lang') === lang;
+    button.classList.toggle('active', active);
+    button.setAttribute('aria-selected', active ? 'true' : 'false');
+  });
+}
+
+function setJoinTheme(theme) {
+  var isLight = theme === 'light';
+  document.documentElement.classList.toggle('light', isLight);
+  var icon = document.getElementById('join-theme-icon');
+  if (icon) icon.textContent = isLight ? '☀️' : '🌙';
+  var color = document.querySelector('meta[name="theme-color"]');
+  if (color) color.setAttribute('content', isLight ? '#eef4f1' : '#5fca6b');
+  try { localStorage.setItem('wyt-theme', isLight ? 'light' : 'dark'); } catch (e) {}
+}
+
+function toggleTheme() {
+  setJoinTheme(document.documentElement.classList.contains('light') ? 'dark' : 'light');
+}
+
+function setJoinLang(lang) {
+  if (document.documentElement.hasAttribute('data-wyt-static-locale')) return;
+  var copy = joinCopy[lang] || joinCopy.zh;
+  document.documentElement.lang = lang === 'en' ? 'en' : 'zh-TW';
+  document.title = copy.title;
+  var pairs = [
+    ['join-brand', 'brand'],
+    ['join-home-link', 'home'],
+    ['join-eyebrow', 'eyebrow'],
+    ['join-lead', 'lead'],
+    ['join-primary', 'primary'],
+    ['join-secondary', 'secondary'],
+    ['join-proof-1-title', 'proof1Title'],
+    ['join-proof-1-copy', 'proof1Copy'],
+    ['join-proof-2-title', 'proof2Title'],
+    ['join-proof-2-copy', 'proof2Copy'],
+    ['join-proof-3-title', 'proof3Title'],
+    ['join-proof-3-copy', 'proof3Copy'],
+    ['join-node-1', 'node1'],
+    ['join-node-2', 'node2'],
+    ['join-node-3', 'node3'],
+    ['join-qr-note', 'qrNote'],
+    ['join-video-title', 'videoTitle'],
+    ['join-video-copy', 'videoCopy'],
+    ['join-video-label', 'videoLabel'],
+    ['join-video-caption', 'videoCaption'],
+    ['join-activation-video-title', 'activationVideoTitle'],
+    ['join-activation-video-copy', 'activationVideoCopy'],
+    ['join-activation-video-label', 'activationVideoLabel'],
+    ['join-activation-video-caption', 'activationVideoCaption'],
+    ['join-steps-title', 'stepsTitle'],
+    ['join-steps-copy', 'stepsCopy'],
+    ['join-steps-label', 'stepsLabel'],
+    ['join-step-1-title', 'step1Title'],
+    ['join-pin-reminder-link', 'pinReminderLink'],
+    ['join-step-2-title', 'step2Title'],
+    ['join-step-3-title', 'step3Title'],
+    ['join-guide-title', 'guideTitle'],
+    ['join-guide-copy', 'guideCopy'],
+    ['join-guide-label', 'guideLabel']
+  ];
+  pairs.forEach(function(pair) {
+    var el = document.getElementById(pair[0]);
+    if (el) el.textContent = copy[pair[1]];
+  });
+  var headline = document.getElementById('join-title');
+  if (headline) headline.innerHTML = copy.headline;
+  ['join-step-1-copy', 'join-step-2-copy', 'join-step-3-copy', 'join-steps-caption'].forEach(function(id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    var key = {
+      'join-step-1-copy': 'step1Copy',
+      'join-step-2-copy': 'step2Copy',
+      'join-step-3-copy': 'step3Copy',
+      'join-steps-caption': 'stepsCaption'
+    }[id];
+    el.innerHTML = copy[key];
+  });
+  var qr = document.getElementById('join-qr');
+  if (qr) qr.alt = copy.qrAlt;
+  var zh = document.getElementById('join-lang-zh');
+  var en = document.getElementById('join-lang-en');
+  if (zh) {
+    zh.textContent = copy.zhLabel;
+    zh.classList.toggle('active', lang !== 'en');
+  }
+  if (en) en.classList.toggle('active', lang === 'en');
+  var themeButton = document.getElementById('join-theme-toggle');
+  if (themeButton) {
+    themeButton.title = copy.themeLabel;
+    themeButton.setAttribute('aria-label', copy.themeLabel);
+  }
+  if (!joinGuideUserSelected) setGuideLang(lang === 'en' ? 'en' : 'zh', false);
+  try { localStorage.setItem('wyt-lang', lang === 'en' ? 'en' : 'zh'); } catch (e) {}
+}
+(function() {
+  var lang = 'zh';
+  var theme = 'dark';
+  try { lang = localStorage.getItem('wyt-lang') === 'en' ? 'en' : 'zh'; } catch (e) {}
+  try { theme = localStorage.getItem('wyt-theme') === 'light' ? 'light' : 'dark'; } catch (e) {}
+  setJoinTheme(theme);
+  var staticLocale = document.documentElement.getAttribute('data-wyt-static-locale');
+  if (staticLocale) {
+    // This section previews the Bot's four supported fixed-reply languages.
+    setGuideLang(guideCopy[staticLocale] ? staticLocale : 'zh', false);
+  } else {
+    setJoinLang(lang);
+  }
+})();
+</script>
+</body></html>

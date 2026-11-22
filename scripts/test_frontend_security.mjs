@@ -85,8 +85,9 @@ test('PWA install caches only existing public files without cookies', async () =
     ['/assets/guides/group-confirmation.jpg', '?v=content-sync-20261110'],
     ['/assets/guides/plan-and-activation.jpg', '?v=content-sync-20261110'],
     ['/assets/guides/secretary-status.jpg', '?v=content-sync-20261110'],
-    ['/assets/wanyutong-app.js', ['?v=content-sync-20261110', '?v=group-scope-20261118']],
-    ['/assets/wanyutong-analytics.js', '?v=20261110-v2'],
+    ['/assets/wanyutong-app.js', ['?v=content-sync-20261110', '?v=group-scope-20261118', '?v=20261122-static-site-locales-v2']],
+    ['/assets/wanyutong-analytics.js', ['?v=20261110-v2', '?v=20261122-static-site-locales-v2']],
+    ['/assets/wanyutong-card.js', '?v=20261122-static-site-locales-v2'],
   ]);
   for (const request of h.calls) {
     assert.equal(request.credentials, 'omit');
@@ -110,6 +111,11 @@ test('pricing script revision is available offline without permitting arbitrary 
     assert.equal(await result.response.text(), 'public');
   }
   assert.equal((await h.dispatch('/assets/wanyutong-app.js?v=unknown', { destination: 'script' })).intercepted, false);
+  for (const script of ['wanyutong-app.js', 'wanyutong-card.js', 'wanyutong-analytics.js']) {
+    const result = await h.dispatch('/assets/' + script + '?v=20261122-static-site-locales-v2', { destination: 'script' });
+    assert.equal(result.intercepted, true, script);
+    assert.equal(await result.response.text(), 'public', script);
+  }
 });
 
 test('activation removes old WanyuTong caches and preserves other applications', async () => {
@@ -214,7 +220,7 @@ test('legacy pixels are removed and tracked pages bound request referrers to ori
     if (!html.includes('wanyutong-analytics.js')) continue;
     pages += 1;
     assert.match(html, /<meta name="referrer" content="origin">/, name);
-    assert.equal((html.match(/src="assets\/wanyutong-analytics\.js\?v=20261110-v2"/g) || []).length, 1, name);
+    assert.equal((html.match(/src="assets\/wanyutong-analytics\.js\?v=20261122-static-site-locales-v2"/g) || []).length, 1, name);
   }
   assert.equal(pages, 24);
 });

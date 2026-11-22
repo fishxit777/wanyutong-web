@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html class="dark" data-wyt-static-locale="ja" lang="ja"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="#08130f" name="theme-color"/>
+<title>コンテンツの編集とテストの原則 | WanyuTong WanyuTong</title>
+<meta content="WanyuTong 公式 Web サイトの記事のテスト、編集、データ ソース、エラー訂正、広告の分離、および手動レビューの原則。" name="description"/>
+<meta content="萬語通團隊" name="author"/>
+<meta content="index,follow" name="robots"/>
+
+<meta content="article" property="og:type"/>
+<meta content="WanyuTong コンテンツの編集とテストの原則" property="og:title"/>
+<meta content="WanyuTong が製品の操作、参照、制限の署名、および公開コンテンツの修正方法を確認する方法を学びます。" property="og:description"/>
+<meta content="https://wanyutong.tw/ja/editorial.html" property="og:url"/>
+<meta content="https://wanyutong.tw/assets/guides/group-confirmation.jpg?v=content-sync-20261110" property="og:image"/>
+<link href="/assets/icons/wanyutong-icon-192.png" rel="icon" type="image/png"/>
+<link href="/manifest.webmanifest" rel="manifest"/>
+<link href="/assets/wanyutong-guide.css" rel="stylesheet"/>
+<script>(function(){var theme='dark';try{theme=localStorage.getItem('wyt-theme')==='light'?'light':'dark';}catch(e){}document.documentElement.classList.add(theme);}());</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "WanyuTong コンテンツの編集とテストの原則", "datePublished": "2026-08-27", "dateModified": "2026-11-10", "author": {"@type": "Organization", "name": "WanyuTong チーム"}, "publisher": {"@type": "Organization", "name": "萬語通", "logo": {"@type": "ImageObject", "url": "https://wanyutong.tw/assets/wanyutong-logo.jpg"}}, "mainEntityOfPage": "https://wanyutong.tw/ja/editorial.html"}</script>
+<meta content="origin" name="referrer"/>
+<script defer="" src="/assets/wanyutong-analytics.js?v=20261122-static-site-locales-v2"></script>
+<link href="https://wanyutong.tw/ja/editorial.html" rel="canonical"/><link href="https://wanyutong.tw/editorial.html" hreflang="zh-Hant" rel="alternate"/><link href="https://wanyutong.tw/zh-cn/editorial.html" hreflang="zh-Hans" rel="alternate"/><link href="https://wanyutong.tw/en/editorial.html" hreflang="en" rel="alternate"/><link href="https://wanyutong.tw/ja/editorial.html" hreflang="ja" rel="alternate"/><link href="https://wanyutong.tw/ko/editorial.html" hreflang="ko" rel="alternate"/><link href="https://wanyutong.tw/id/editorial.html" hreflang="id" rel="alternate"/><link href="https://wanyutong.tw/editorial.html" hreflang="x-default" rel="alternate"/><link crossorigin="anonymous" href="/assets/wanyutong-locales.css" integrity="sha384-cIx49eMrb3Om6X7ymf2/rdfid9IQAGlV8SSqZLCMvj7PFMqgvDJ40Xgcph58QmJn" rel="stylesheet"/><script crossorigin="anonymous" defer="" integrity="sha384-V4DoDhAHZf/3QkpiLy9FxEY13dMMgM4XAtrcg/jZvJVQxDVRQ1y8j0WpN0m4ZWMT" src="/assets/wanyutong-locale-menu.js"></script></head>
+<body>
+<a class="skip-link" href="#editorial">メイン コンテンツにスキップします</a>
+<header class="site-header article-ui-header"><div class="header-inner">
+<a class="brand" href="/ja/"><img alt="WanyuTong ロゴ" height="40" src="/assets/wanyutong-logo.jpg" width="40"/><span>WanyuTong</span></a>
+<nav aria-label="メインナビゲーション" class="nav"><a href="/ja/features.html">関数</a><a href="/ja/pricing.html">料金</a><a href="/ja/blog.html">知識ベース</a><a href="/ja/about.html">私たちについて</a><span class="article-controls"><span aria-label="語言切換" class="article-lang-switch" data-wyt-legacy-language="" hidden="" role="group"><button class="active" id="article-lang-zh" onclick="setArticleLang('zh')" type="button">繁中</button><button id="article-lang-en" onclick="setArticleLang('en')" type="button">EN</button></span><details class="wyt-language"><summary aria-label="言語: 日本語" data-compact="日本語"><span>日本語</span></summary><div aria-label="言語" class="wyt-language-options"><a href="/editorial.html" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a><a href="/zh-cn/editorial.html" hreflang="zh-Hans" lang="zh-Hans">简体中文</a><a href="/en/editorial.html" hreflang="en" lang="en">English</a><a aria-current="page" href="/ja/editorial.html" hreflang="ja" lang="ja">日本語</a><a href="/ko/editorial.html" hreflang="ko" lang="ko">한국어</a><a href="/id/editorial.html" hreflang="id" lang="id">Bahasa Indonesia</a></div></details><button aria-label="明るい表示と暗い表示を切り替える" class="article-theme-switch" id="article-theme-switch" onclick="toggleArticleTheme()" title="明るい表示と暗い表示を切り替える" type="button">☾</button></span><a class="nav-action" href="/ja/join.html">無料で試す</a></nav>
+</div></header>
+<main id="editorial">
+<header class="article-hero"><div class="hero-inner">
+<div><p class="eyebrow">コンテンツの透明性</p><h1>WanyuTong コンテンツの編集とテストの原則</h1><p class="hero-lead">このページでは、公式 Web サイトで製品操作、作業ガイド、および計画データを生成、検証、更新、および修正する方法について説明します。 目標は、読者に明確にすることです。これは、実際の製品プロセスであり、一般的な仕事の提案であり、どのコンテンツを個人が再確認する必要がありますか。</p><div class="meta"><span>投稿者: 2026 - 08 - 27</span><span>ファイルの更新: 2026 - 11 - 10</span><span>メンテナンス: WanyuTong チーム</span></div></div>
+<figure class="hero-figure"><img alt="グループは、LINE スクリーンショットではなく、表示チャットを使用して、必要に応じて言語のリメイク情報マップを表示します。" height="720" src="/assets/guides/group-confirmation.jpg?v=content-sync-20261110" width="1280"/><figcaption>これは、2026 - 11 - 10 の更新情報マップであり、LINE の実際のマシンのスクリーンショットまたはビデオ キャプチャではありません。 この図は、プロセスを説明でき、製品の測定や顧客の成果の証拠として機能することはできません。</figcaption></figure>
+</div></header>
+<div class="article-layout">
+<nav aria-label="ページ ディレクトリ" class="toc"><strong>このページのディレクトリ</strong><a href="#ownership">コンテンツ責任</a><a href="#evidence">証拠の採点</a><a href="#testing">製品テスト</a><a href="#sources">ソース</a><a href="#corrections">修正プロセス</a><a href="#ads">広告の分離</a></nav>
+<article class="guide-body">
+<p>WanyuTong オフィシャル Web サイトには、製品の紹介、オペレーション ティーチング、および言語間の作業管理の提案も含まれています。 3 つのコンテンツの証拠要件は異なります。画像は回路図であり、ドキュメントの更新日は実機のテスト日と一致せず、プログラム チェックは現時点で利用可能な公式サービスと同じではありません。 この記事は、ソース、適用範囲、歴史的テスト、および既知の制限を示し、推測を証明された関数として記述しないでください。また、架空のケースや和解のない評価に説得力を加えません。</p>
+<section id="ownership"><h2>パブリック コンテンツの責任者</h2><p>Web サイトのコンテンツは、WanyuTong チームによって管理されています。 記事の製品名、指示、計画、言語量、および機能範囲は、公式 Web サイトの計画ページ、現在の返信、および LINE Bot の実際の再現可能なプロセスと一致する必要があります。</p><p>パブリック シグネチャは「WanyuTong チーム」を使用しており、個人名は開示していません。 エラーを報告する必要がある場合は、使用できます<a href="/ja/contact.html">公式連絡先ページ</a>またはカスタマー サービス フォームを添付し、ページ URL、間違った段落、再現可能な画面を添付してください。</p></section>
+<section id="evidence"><h2>事実、デモンストレーション、提案をどのように区別するか</h2><table class="check-table"><thead><tr><th>コンテンツ タイプ</th><th>使用できる証拠</th><th>記事にマークを付ける方法</th></tr></thead><tbody>
+<tr><td>製品機能が開始されました</td><td>実際のボットの返信、匿名化された画面、および再現可能な操作フロー</td><td>テスト日、計画、および制限を述べてください</td></tr>
+<tr><td>プログラムと価格</td><td>公式ウェブサイトの支払いエントリーと正式なプランのページ</td><td>支払いページに実際の金額を通知します</td></tr>
+<tr><td>実際の機械操作のデモンストレーション</td><td>保存されたテスト グループの返信または匿名化された実機のスクリーンショット</td><td>実際のマシン、テストの日付、バージョン、およびテスト範囲を指定し、実際の顧客の場合のふりをしないでください。</td></tr>
+<tr><td>情報マップ/シチュエーション マップを処理します</td><td>説明書、リメイク イラストや状況写真</td><td>「スキーマ/インフォグラフィック」と制作日を示します。 スクリーンショット、ビデオ キャプチャ、または測定結果はありません</td></tr>
+<tr><td>プログラムとファイルのチェック</td><td>既存のプログラム、展開記録、公式ファイル</td><td>検証方法と記録日を述べてください。 今日の合格テストに合格したとは言えません</td></tr>
+<tr><td>一般的な仕事のアドバイス</td><td>プロセス、政府または公式の情報、リスク管理の原則を確認します</td><td>法律、医療、または産業安全の専門家の意見が宣言されていません</td></tr>
+<tr><td>計画の機能</td><td>社内開発計画</td><td>「計画」のみを書くか、現在の関数にまったく含まれていません</td></tr>
+</tbody></table></section>
+<section id="testing"><h2>製品の操作用品のテスト方法</h2><p>以下は、実際のマシン テストを実装するための標準であり、各ファイルの変更が再テストされたという意味ではありません。 新しい実際のマシン レコードがない場合、記事はメソッド/ドキュメントの検証方法のみを記述し、過去の証拠の日付を保持します。</p><ol class="step-list">
+<li><h3>エントリとバージョンを確認します</h3><p>WanyuTong 公式 LINE 入口から、テストは、古いスクリーンショット、テスト ブランチ、またはその他のサービスではなく、現在公開されているボットであることが確認されています。</p></li>
+<li><h3>低リスクのテスト文を使用してください</h3><p>最初に一般収集通知をテストし、次に時間、数量、否定語、場所、コード名をそれぞれ測定します。 テスト コンテンツには、実際の顧客、クレジット カード、ID カード、医療記録、または個人グループの情報は含まれていません。</p></li>
+<li><h3>転送と逆のプロセスを確認してください</h3><p>テスト スーパーバイザの元のテキストは、ターゲット言語に翻訳され、ターゲット言語で返信した後、従業員が繁体字中国語に戻ることができるかどうかもテストされます。</p></li>
+<li><h3>制限と労働責任を記録します</h3><p>結果がアクセント、画質、固有名詞、または文脈の影響を受ける可能性がある場合は、記事で説明する必要があります。 作業の安全性、医療、法律上の内容、および金額の内容は、手動のレビューで別々にマークする必要があります。</p></li>
+</ol></section>
+<section id="sources"><h2>外部データと参照原則</h2><p>製品の機能は、主に WanyuTong の実際のプロセスによって証明されます。 サードパーティのプラットフォームまたは専門分野に関わる場合は、次のようなオリジナルまたは公式の情報源を優先します。</p><ul>
+<li><a href="https://developers.line.biz/en/docs/messaging-api/rich-menus-overview/" rel="noopener" target="_blank">LINE 開発者: リッチ メニュー (携帯電話のプライベート メッセージとグループの制限)</a></li><li><a href="https://developers.line.biz/en/docs/messaging-api/group-chats/" rel="noopener" target="_blank">LINE 開発者: グループおよびマルチプレイヤー メッセージング API</a></li>
+<li><a href="https://developers.deepl.com/docs/getting-started/supported-languages" rel="noopener" target="_blank">DeepL 開発者: サポート言語</a></li>
+<li><a href="https://www.osha.gov.tw/" rel="noopener" target="_blank">労働省労働安全衛生局</a></li>
+<li><a href="https://law.moj.gov.tw/" rel="noopener" target="_blank">国家規制データベース</a></li>
+</ul><p>データがバージョン、ポリシー、または計画によって変更される可能性がある場合、記事はチェック日を添付し、現在の画面または所轄官庁の最新のアナウンスを提供するよう読者に通知します。</p></section>
+<section id="corrections"><h2>エラーを見つけた後に修正する方法</h2><ul><li>最初に元の証拠を確認してください。 必要に応じて、問題を再現し、1 つのスクリーンショットに従って原因を直接推測しないでください。</li><li>ホームページ、機能、料金、FAQ、開始用途、関連記事、構造化データを同期的に確認してください。</li><li>実質的な修正後、ファイルの変更日とサイトマップを更新します。 日付を変更して実際の測定を完了するふりをするだけでなく、実際の機械の日付もリストされています。</li><li>主な機能の変更が展開されていない場合、計画内容は事前に利用可能な関数として書き込まれません。 非常に繰り返される記事はマージされ、古いエントリは予約されます。</li></ul><p>2026 - 11 - 10 共通メニュー、グループ @選單、言語選択カード、翻訳付きのタグ リマインダー。 自動確認の数と 300 ペンの概要の未実現請求を削除し、閲覧コンテンツ交換のクォータが非アクティブ化されていることを示します。 携帯電話のコピー、ビデオ画面、ナレーション、字幕が一緒に更新されます。 プログラムと展開のハンドオーバーによるこの検証は、新しい顧客グループの実際の測定値またはすべての言語の正確さの検証を表すものではありません。</p></section>
+<section id="ads"><h2>コンテンツと広告は分離されています</h2><p>WanyuTong 製品とサービスは、公式 Web サイトのコンテンツ ベースの広告とは別のものです。 Web サイトの広告は、LINE Bot の無料割り当て、有料アクティベーション、翻訳ソート、または顧客サービスの処理には影響しません。 広告は、ナレッジ ベースと記事のページにのみ計画され、掲載されます。完全なコンテンツが含まれており、参加、支払い、ログイン、プライバシー、または純粋なガイド画面ではありません。</p><p>広告プラットフォームは、プライバシー ポリシーに従って Cookie またはデバイス情報を使用する場合があります。 Web サイトで情報を処理する方法については、参照してください。<a href="/ja/privacy.html">プライバシーポリシー</a>。</p></section>
+<section><h2>関連ページ</h2><div class="related-links"><a href="/ja/about.html">WanyuTong と製品範囲について</a><a href="/ja/blog-line-bot-first-setup.html">最初の使用と自己受理プロセス</a><a href="/ja/blog-translation-quality-checklist.html">翻訳品質マニュアル チェック</a><a href="/ja/contact.html">連絡先とエラーが返されます</a></div></section>
+</article>
+</div>
+</main>
+<footer class="site-footer"><div class="footer-inner"><div>© 2026 WanyuTong チームのメール: wanyutong29@gmail.com</div><div class="footer-links"><a href="/ja/about.html">私たちについて</a><a href="/ja/blog.html">知識ベース</a><a href="/ja/privacy.html">プライバシーポリシー</a><a href="/ja/terms.html">利用規約</a><a href="/ja/contact.html">お問い合わせ</a></div></div></footer>
+<script>
+var articleEnglishCopy = {
+  '.skip-link': `Skip to main content`,
+  '.site-header .nav a[href="features.html"]': `Features`,
+  '.site-header .nav a[href="pricing.html"]': `Pricing`,
+  '.site-header .nav a[href="blog.html"]': `Knowledge Base`,
+  '.site-header .nav a[href="about.html"]': `About`,
+  '.site-header .nav a[href="join.html"]': `Free Trial`,
+  '.eyebrow': `Content transparency`,
+  '.article-hero h1': `WanyuTong Editorial and Testing Policy`,
+  '.hero-lead': `This page explains how product instructions, workplace guides, and plan information are created, checked, updated, and corrected. It separates actual product workflows from general guidance and content that still requires human confirmation.`,
+  '.meta span:nth-child(1)': `Published: 2026-08-27`,
+  '.meta span:nth-child(2)': `Document updated: 2026-11-10`,
+  '.meta span:nth-child(3)': `Maintained by: WanyuTong Team`,
+  '.hero-figure figcaption': `A workflow diagram updated on 2026-11-10, not a LINE device screenshot or a video capture. Diagrams explain a workflow; they are not evidence of product testing or customer results.`,
+  '.toc strong': `Contents`,
+  '.toc a[href="#ownership"]': `Content ownership`,
+  '.toc a[href="#evidence"]': `Evidence levels`,
+  '.toc a[href="#testing"]': `Product testing`,
+  '.toc a[href="#sources"]': `Sources`,
+  '.toc a[href="#corrections"]': `Corrections`,
+  '.toc a[href="#ads"]': `Advertising separation`,
+  '.guide-body > p:first-of-type': `The WanyuTong website includes product information, operating guides, and multilingual workplace guidance. Each requires different evidence. Illustrations are labeled as illustrations; document updates are not device-test dates, and code review does not prove that production is available today. Articles identify sources, scope, historical tests, and limitations. Assumptions, invented cases, and unverifiable ratings are not presented as established facts.`,
+  '#ownership h2': `Who is responsible for published content`,
+  '#ownership p:nth-of-type(1)': `Website content is maintained by the WanyuTong Team. Product names, commands, plans, language counts, and feature scope should match the pricing page, current LINE Bot replies, and reproducible workflows.`,
+  '#ownership p:nth-of-type(2)': `Public content uses the byline “WanyuTong Team” and does not publish private names. To report an error, use the <a href="contact.html">official contact page</a> and include the page URL, incorrect section, and a reproducible screen.`,
+  '#evidence h2': `How we distinguish facts, demonstrations, and guidance`,
+  '#evidence .check-table': `<thead><tr><th>Content type</th><th>Accepted evidence</th><th>How it is labeled</th></tr></thead><tbody><tr><td>Released product feature</td><td>Actual Bot replies, de-identified screens, and reproducible workflows</td><td>State the test date, applicable plan, and limitations</td></tr><tr><td>Plans and prices</td><td>Official pricing page and payment entry point</td><td>Actual amount remains subject to the payment page</td></tr><tr><td>Device demonstration</td><td>Saved test-group replies or de-identified device screenshots</td><td>State the device test date, version, and scope; do not imply a customer case</td></tr><tr><td>Workflow diagram or contextual image</td><td>Teaching scripts, recreated diagrams, or contextual photos</td><td>Label as illustration/diagram and date its creation; never call it a screenshot, video capture, or test result</td></tr><tr><td>Code and document review</td><td>Existing code, deployment records, and official documents</td><td>State the review method and record date; do not imply a device test today</td></tr><tr><td>General workplace guidance</td><td>Verifiable workflows, official sources, and risk-management principles</td><td>Do not present it as legal, medical, or safety advice</td></tr><tr><td>Planned feature</td><td>Internal development planning</td><td>Label it as planned or exclude it from current features</td></tr></tbody>`,
+  '#testing h2': `How product workflow articles are tested`,
+  '#testing > p': `These are the standards for a device test, not a claim that every document update includes retesting. Without a new device record, an article describes the code/document review and retains historical evidence dates separately.`,
+  '#testing .step-list': `<li><h3>Confirm the entry point and version</h3><p>Start from the official WanyuTong LINE entry point and verify that the public Bot is being tested, rather than an old screenshot, test branch, or another service.</p></li><li><h3>Use low-risk test messages</h3><p>Begin with a general meeting notice, then test time, quantity, negation, location, and codes separately. Test content excludes real customers, credit cards, identity numbers, medical records, and private group data.</p></li><li><h3>Check both translation directions</h3><p>Test the supervisor's source message into the target language, then test whether an employee reply in the target language returns understandable Traditional Chinese.</p></li><li><h3>Record limits and human responsibility</h3><p>If accents, image quality, terminology, or context can change the result, the article must say so. Safety, medical, legal, and payment information must be marked for human review.</p></li>`,
+  '#sources h2': `External sources and citations`,
+  '#sources p:nth-of-type(1)': `Actual WanyuTong workflows are the primary evidence for product features. When an article concerns a third-party platform or professional field, it links to original or official sources first, including:`,
+  '#sources ul': `<li><a href="https://developers.line.biz/en/docs/messaging-api/rich-menus-overview/" target="_blank" rel="noopener">LINE Developers：Rich menu（手機私訊與群組限制）</a></li><li><a href="https://developers.line.biz/en/docs/messaging-api/group-chats/" target="_blank" rel="noopener">LINE Developers: Messaging API for group chats</a></li><li><a href="https://developers.deepl.com/docs/getting-started/supported-languages" target="_blank" rel="noopener">DeepL Developers: Supported languages</a></li><li><a href="https://www.osha.gov.tw/" target="_blank" rel="noopener">Taiwan Occupational Safety and Health Administration</a></li><li><a href="https://law.moj.gov.tw/ENG/" target="_blank" rel="noopener">Laws & Regulations Database of Taiwan</a></li>`,
+  '#sources p:nth-of-type(2)': `When information may change with a version, policy, or plan, the article includes a review date and asks readers to follow the latest service screen or competent authority notice.`,
+  '#corrections h2': `How published errors are corrected`,
+  '#corrections ul': `<li>Check the original evidence and reproduce the issue when needed; do not infer a cause from one screenshot.</li><li>Check the homepage, features, pricing, FAQ, getting-started guide, related articles, and structured data together.</li><li>After a substantive correction, update the document date and sitemap. Keep device-test dates separate; changing a date does not establish a test.</li><li>Do not describe a planned feature as released. Merge highly repetitive articles and preserve an onward link from the old entry.</li>`,
+  '#corrections p': `The 2026-11-10 review aligns common menus, group @選單, language pickers, mentions, and translation reminders. Unsupported automatic acknowledgement counts and 300-record summary claims were removed, and content-for-credit claims were marked disabled. Mobile copy, video scenes, narration, and captions were updated together. This is a code and deployment-record review, not a new customer-group test or an accuracy certification for every language.`,
+  '#ads h2': `Content and advertising are separate`,
+  '#ads p:nth-of-type(1)': `WanyuTong product service and website content advertising are separate. Website ads do not affect free LINE Bot quotas, paid activation, translation order, or customer support. Ad placements are planned only for complete knowledge-base and article pages, not join, payment, login, privacy, or navigation-only screens.`,
+  '#ads p:nth-of-type(2)': `Advertising platforms may use cookies or device information under their privacy policies. See the <a href="privacy.html">Privacy Policy</a> for how this website handles data.`,
+  '.guide-body > section:last-of-type h2': `Related pages`,
+  '.related-links a:nth-child(1)': `About WanyuTong and product scope`,
+  '.related-links a:nth-child(2)': `First-time setup and self-validation workflow`,
+  '.related-links a:nth-child(3)': `Human translation quality review`,
+  '.related-links a:nth-child(4)': `Contact and error reports`,
+  '.site-footer a[href="about.html"]': `About`,
+  '.site-footer a[href="blog.html"]': `Knowledge Base`,
+  '.site-footer a[href="privacy.html"]': `Privacy Policy`,
+  '.site-footer a[href="terms.html"]': `Terms`,
+  '.site-footer a[href="contact.html"]': `Contact`,
+  '.site-footer .footer-inner > div:first-child': `© 2026 WanyuTong Team · Email: wanyutong29@gmail.com`
+};
+var articleOriginalCopy = {};
+Object.keys(articleEnglishCopy).forEach(function(selector){var element=document.querySelector(selector);if(element)articleOriginalCopy[selector]=element.innerHTML;});
+function updateArticleThemeButton(){var button=document.getElementById('article-theme-switch');if(!button)return;var isLight=document.documentElement.classList.contains('light');var isEnglish=document.documentElement.lang==='en';button.textContent=isLight?'☀':'☾';if(document.documentElement.hasAttribute('data-wyt-static-locale'))return;button.setAttribute('aria-label',isEnglish?'Switch light or dark mode':'切換日夜模式');button.setAttribute('title',isEnglish?'Switch light or dark mode':'切換日夜模式');}
+function setArticleLang(lang){if(document.documentElement.hasAttribute('data-wyt-static-locale'))return;var isEnglish=lang==='en';Object.keys(articleEnglishCopy).forEach(function(selector){var element=document.querySelector(selector);if(element)element.innerHTML=isEnglish?articleEnglishCopy[selector]:articleOriginalCopy[selector];});document.documentElement.lang=isEnglish?'en':'zh-Hant';document.title=isEnglish?'WanyuTong Editorial and Testing Policy':'內容編輯與測試原則｜萬語通 WanyuTong';document.getElementById('article-lang-zh').classList.toggle('active',!isEnglish);document.getElementById('article-lang-en').classList.toggle('active',isEnglish);try{localStorage.setItem('wyt-lang',isEnglish?'en':'zh');}catch(e){}updateArticleThemeButton();}
+function setArticleTheme(theme){var isLight=theme==='light';document.documentElement.classList.toggle('light',isLight);document.documentElement.classList.toggle('dark',!isLight);try{localStorage.setItem('wyt-theme',isLight?'light':'dark');}catch(e){}updateArticleThemeButton();}
+function toggleArticleTheme(){setArticleTheme(document.documentElement.classList.contains('light')?'dark':'light');}
+(function(){var lang='zh';var theme=document.documentElement.classList.contains('light')?'light':'dark';try{lang=localStorage.getItem('wyt-lang')==='en'?'en':'zh';}catch(e){}setArticleTheme(theme);setArticleLang(lang);}());
+</script>
+</body></html>

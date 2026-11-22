@@ -82,7 +82,7 @@ test('public site keeps the existing tracker coverage when publishing the scenar
       untracked++;
     }
     const trackable = indexable && !untrackedGuides.has(name);
-    assert.equal((html.match(/src="assets\/wanyutong-analytics\.js\?v=20261110-v2"/g) || []).length, trackable ? 1 : 0, name);
+    assert.equal((html.match(/src="assets\/wanyutong-analytics\.js\?v=20261122-static-site-locales-v2"/g) || []).length, trackable ? 1 : 0, name);
     assert.ok(!html.includes('/track/pixel'), name);
     if (!trackable) continue;
     tracked++;
@@ -101,6 +101,20 @@ test('root, index.html and allowed GitHub Pages root normalize to index', async 
   for (const url of ['https://wanyutong.tw/', 'https://www.wanyutong.tw/index.html', 'https://fishxit777.github.io/wanyutong-web/', 'https://fishxit777.github.io/wanyutong-web/index.html']) {
     const h = harness({ url });
     assert.equal((await h.payloads())[0].page, 'index');
+  }
+});
+
+test('localized routes reuse the same public page analytics keys', async () => {
+  for (const locale of ['zh-cn', 'en', 'ja', 'ko', 'id']) {
+    const origin = 'https://wanyutong.tw/' + locale + '/';
+    for (const [file, page] of [['', 'index'], ['start.html', 'start'], ['pricing.html', 'pricing']]) {
+      const h = harness({ url: origin + file + '?about=private#section' });
+      const [payload] = await h.payloads();
+      assert.equal(payload.page, page);
+      assert.ok(!JSON.stringify(payload).includes('about=private'));
+    }
+    assert.equal(harness({ url: origin + 'private.html' }).beacons.length, 0);
+    assert.equal(harness({ url: origin + 'nested/pricing.html' }).beacons.length, 0);
   }
 });
 
@@ -204,8 +218,8 @@ test('UUID fallback is valid and a missing crypto implementation fails without b
 
 test('service worker versions the new script and never adds the tracking API to its cache', () => {
   const sw = readFileSync(new URL('sw.js', root), 'utf8');
-  assert.match(sw, /20261119-work-scenario-guides-v1/);
-  assert.ok(sw.includes("'./assets/wanyutong-analytics.js?v=20261110-v2'"));
+  assert.match(sw, /20261122-static-site-locales-v2/);
+  assert.ok(sw.includes("'./assets/wanyutong-analytics.js?v=20261122-static-site-locales-v2'"));
   assert.ok(!sw.includes(endpoint));
   assert.match(sw, /request.method === 'GET'/);
 });

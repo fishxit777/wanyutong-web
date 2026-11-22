@@ -146,7 +146,7 @@ test('page uses a precise title selector and registers before deferred initializ
   const registration = pricingSource.indexOf('window.wanyuPagePricingRenderer = forcePricingLang;');
   const initialization = pricingSource.indexOf('// 初始化：讀取儲存的語言');
   assert.ok(registration > 0 && registration < initialization);
-  assert.match(pricingSource, /<script src="assets\/wanyutong-app\.js\?v=group-scope-20261118" defer><\/script>/);
+  assert.match(pricingSource, /<script src="assets\/wanyutong-app\.js\?v=20261122-static-site-locales-v2" defer><\/script>/);
 });
 
 test('shared controller delegates only opt-in pages and retains non-opt-in fallback', () => {

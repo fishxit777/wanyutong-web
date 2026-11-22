@@ -116,7 +116,7 @@ class ContentRefreshTests(unittest.TestCase):
         for name in ("pricing.html", "faq.html"):
             self.assertEqual("2026-11-18", urls["https://wanyutong.tw/" + name], name)
         worker = self.read("sw.js")
-        self.assertIn("20261119-work-scenario-guides-v1", worker)
+        self.assertIn("20261122-static-site-locales-v2", worker)
         self.assertNotIn("'./" + MERGED + "'", worker)
         self.assertIn("'./" + DESTINATION + "'", worker)
 

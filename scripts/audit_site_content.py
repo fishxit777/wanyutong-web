@@ -121,7 +121,7 @@ def audit_local_assets(errors: list[str], html_files: list[Path]) -> None:
             if not src or src.startswith(("http://", "https://", "data:")):
                 continue
             target_path = urlsplit(src).path
-            target = (path.parent / target_path).resolve()
+            target = ((ROOT / target_path.lstrip("/")) if target_path.startswith("/") else (path.parent / target_path)).resolve()
             try:
                 target.relative_to(ROOT)
             except ValueError:

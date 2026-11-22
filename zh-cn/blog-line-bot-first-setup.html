@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html class="dark" data-wyt-static-locale="zh-Hans" lang="zh-Hans"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="#08130f" name="theme-color"/>
+<title>万语通第一次使用教学｜加入 LINE Bot、设定语言与群组测试</title>
+<meta content="从加入万语通 LINE 官方帐号、查看说明、设定翻译语言，到把 Bot 加入工作群组并完成第一轮测试的完整操作教学。" name="description"/>
+
+<meta content="article" property="og:type"/>
+<meta content="万语通第一次使用教学：加入 LINE Bot、设定语言与群组测试" property="og:title"/>
+<meta content="不靠猜测，依序完成加入、设定、测试与确认。" property="og:description"/>
+<meta content="https://wanyutong.tw/zh-cn/blog-line-bot-first-setup.html" property="og:url"/>
+<meta content="https://wanyutong.tw/assets/guides/line-bot-add.jpg?v=content-sync-20261110" property="og:image"/>
+<link href="/manifest.webmanifest" rel="manifest"/>
+<script>(function(){var theme='dark';try{theme=localStorage.getItem('wyt-theme')==='light'?'light':'dark';}catch(e){}document.documentElement.classList.add(theme);}());</script>
+<link href="/assets/wanyutong-guide.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "万语通第一次使用教学：加入 LINE Bot、设定语言与群组测试", "datePublished": "2026-08-19", "dateModified": "2026-11-10", "author": {"@type": "Organization", "name": "万语通团队"}, "publisher": {"@type": "Organization", "name": "萬語通", "logo": {"@type": "ImageObject", "url": "https://wanyutong.tw/assets/wanyutong-logo.jpg"}}, "image": "https://wanyutong.tw/assets/guides/line-bot-add.jpg?v=content-sync-20261110", "mainEntityOfPage": "https://wanyutong.tw/zh-cn/blog-line-bot-first-setup.html"}</script>
+<meta content="ca-pub-7533511869819978" name="google-adsense-account"/>
+<script defer="" src="/assets/wanyutong-ads-config.js"></script>
+<script defer="" src="/assets/wanyutong-ads.js"></script>
+<meta content="origin" name="referrer"/>
+<script defer="" src="/assets/wanyutong-analytics.js?v=20261122-static-site-locales-v2"></script>
+<link href="/assets/wanyutong-complete-guide.css" rel="stylesheet"/>
+<link href="https://wanyutong.tw/zh-cn/blog-line-bot-first-setup.html" rel="canonical"/><link href="https://wanyutong.tw/blog-line-bot-first-setup.html" hreflang="zh-Hant" rel="alternate"/><link href="https://wanyutong.tw/zh-cn/blog-line-bot-first-setup.html" hreflang="zh-Hans" rel="alternate"/><link href="https://wanyutong.tw/en/blog-line-bot-first-setup.html" hreflang="en" rel="alternate"/><link href="https://wanyutong.tw/ja/blog-line-bot-first-setup.html" hreflang="ja" rel="alternate"/><link href="https://wanyutong.tw/ko/blog-line-bot-first-setup.html" hreflang="ko" rel="alternate"/><link href="https://wanyutong.tw/id/blog-line-bot-first-setup.html" hreflang="id" rel="alternate"/><link href="https://wanyutong.tw/blog-line-bot-first-setup.html" hreflang="x-default" rel="alternate"/><link crossorigin="anonymous" href="/assets/wanyutong-locales.css" integrity="sha384-cIx49eMrb3Om6X7ymf2/rdfid9IQAGlV8SSqZLCMvj7PFMqgvDJ40Xgcph58QmJn" rel="stylesheet"/><script crossorigin="anonymous" defer="" integrity="sha384-V4DoDhAHZf/3QkpiLy9FxEY13dMMgM4XAtrcg/jZvJVQxDVRQ1y8j0WpN0m4ZWMT" src="/assets/wanyutong-locale-menu.js"></script></head>
+<body>
+<a class="skip-link" href="#article">跳到文章内容</a>
+<header class="site-header article-ui-header"><div class="header-inner">
+<a class="brand" href="/zh-cn/"><img alt="万语通标志" height="40" src="/assets/wanyutong-logo.jpg" width="40"/><span>万语通 WanyuTong</span></a>
+<nav aria-label="主要导览" class="nav"><a href="/zh-cn/features.html">功能</a><a href="/zh-cn/pricing.html">价格与方案</a><a href="/zh-cn/blog.html">知识库</a><a href="/zh-cn/faq.html">常见问题</a><span class="article-controls"><span aria-label="語言切換" class="article-lang-switch" data-wyt-legacy-language="" hidden="" role="group"><button aria-pressed="true" class="active" id="article-lang-zh" onclick="setArticleLang('zh')" type="button">繁中</button><button aria-pressed="false" id="article-lang-en" onclick="setArticleLang('en')" type="button">EN</button></span><details class="wyt-language"><summary aria-label="语言: 简体中文" data-compact="简中"><span>简体中文</span></summary><div aria-label="语言" class="wyt-language-options"><a href="/blog-line-bot-first-setup.html" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a><a aria-current="page" href="/zh-cn/blog-line-bot-first-setup.html" hreflang="zh-Hans" lang="zh-Hans">简体中文</a><a href="/en/blog-line-bot-first-setup.html" hreflang="en" lang="en">English</a><a href="/ja/blog-line-bot-first-setup.html" hreflang="ja" lang="ja">日本語</a><a href="/ko/blog-line-bot-first-setup.html" hreflang="ko" lang="ko">한국어</a><a href="/id/blog-line-bot-first-setup.html" hreflang="id" lang="id">Bahasa Indonesia</a></div></details><button aria-label="切换日夜模式" class="article-theme-switch" id="article-theme-switch" onclick="toggleArticleTheme()" title="切换日夜模式" type="button">☾</button></span><a class="nav-action" href="/zh-cn/join.html">免费体验</a></nav>
+</div></header>
+<main id="article">
+<header class="article-hero"><div class="hero-inner">
+<div><p class="eyebrow">新手操作指南</p><h1>第一次使用万语通：从加入 LINE Bot 到完成群组测试</h1><p class="hero-lead">这份流程给第一次接触万语通的主管与群组管理者。照顺序做完加入、查看说明、设定语言、加入群组与测试，就能确认 Bot 是否已准备好。</p><div class="meta"><span>文件更新：2026-11-10</span><span>阅读时间：约 8 分钟</span><span>适用：个人聊天与 LINE 群组</span></div>
+<a class="complete-guide-entry complete-guide-entry--article" href="/zh-cn/start.html">
+<span aria-hidden="true" class="complete-guide-thumb"><img alt="" height="720" src="/assets/wanyutong-complete-guide-20261122-poster.jpg" width="1280"/></span>
+<span>
+<strong class="complete-guide-entry-title"><span class="complete-guide-zh">万语通完整上手指南</span><span class="complete-guide-en">WanyuTong complete getting-started guide</span></strong>
+<span class="complete-guide-entry-meta"><span class="complete-guide-zh">看影片 · 6:45 · 繁中字幕</span><span class="complete-guide-en">Watch · 6:45 · Chinese captions</span></span>
+</span>
+<span aria-hidden="true" class="complete-guide-entry-arrow">→</span>
+</a>
+</div>
+<figure class="hero-figure"><img alt="把万语通 Bot 加入工作群组的资讯图，含示意聊天与新手教学指令" height="720" src="/assets/guides/line-bot-add.jpg?v=content-sync-20261110" width="1280"/><figcaption>2026-11-10 更新的流程资讯图，图中聊天为示意画面，不是 LINE 实机截图或影片撷取，也不作为功能测试证据。先加好友，再依下列步骤加入群组。</figcaption></figure>
+</div></header>
+<div aria-hidden="true" aria-label="广告" class="wyt-ad-slot wyt-ad-article" data-wyt-ad="articleInline" data-wyt-ad-state="disabled" hidden=""></div>
+<div class="article-layout">
+<nav aria-label="文章目录" class="toc"><strong>本文目录</strong><a href="#prepare">开始前准备</a><a href="#steps">五个操作步骤</a><a href="#test">测试句怎么选</a><a href="#check">完成检查</a><a href="#method">核对方法</a><a href="#faq">常见问题</a></nav>
+<article class="guide-body">
+<p>第一次设定最常见的问题，不是功能故障，而是少做了某一步：只有加入好友却没有查看说明、设定语言后没有测试，或把 Bot 放进群组后直接用重要讯息试验。比较稳定的做法，是先用不涉及姓名、金额与工安的简短句子完成测试。</p>
+<section id="prepare"><h2>开始前先准备三件事</h2>
+<ul><li>确认加入的是万语通官方 LINE 帐号，LINE ID 为 <code>@969wpxno</code>。</li><li>先决定群组主要需要哪些语言，例如繁体中文、印尼文、越南文或菲律宾语。</li><li>准备两句测试文字：一句日常通知、一句简单回复。正式工安、医疗或付款内容留到测试通过后再使用。</li></ul>
+<div class="warning"><strong>安全提醒</strong>翻译可以降低误会，但涉及工安、医疗、法律、薪资与金额时，仍应由知道情境的人再次确认。</div>
+</section>
+<section id="steps"><h2>五个步骤完成第一次设定</h2><ol class="step-list">
+<li><h3>加入万语通 LINE 官方帐号</h3><p>用手机开启加入页，按「手机直接加入 LINE」；桌机使用者可扫描页面上的 QR Code。</p><p><a href="/zh-cn/join.html">前往万语通加入页</a></p></li>
+<li><h3>先开启常用功能</h3><p>手机私讯可直接点底部选单；LINE 平台不支援群组固定底部图文选单，请在群组传纯文字 @選單，开启同一组常用功能卡。 点「新手教学」或传 <code>@新手教學</code> 看首次设定，<code>@說明</code> 看完整指令。两个入口都先显示可复制的繁中主内容，再提供英文、日文、韩文按钮逐一查看；这些固定教学内容不扣每日翻译额度。需要看完整语言清单时，传送 <code>@支援語言</code>。</p></li>
+<li><h3>查看或设定翻译语言</h3><p>选「语言设定」或传 @語言設定，直接点选双语；选「持续多语」或传 @多語，可用快捷组合或自选最多 8 种，第一项为主语言。原有带语言名称的完整指令仍可用。 验证成功后会切换为新双语并自动关闭持续多语；输入无效时原模式不变。用 <code>@語言</code> 核对目前设定。</p></li>
+<li><h3>先在个人对话测试</h3><p>输入「明天早上八点集合」这类简短句子，确认 Bot 有正常回复。再用目标语言输入一句回复，确认能翻回繁体中文。</p></li>
+<li><h3>把 Bot 加入工作群组</h3><p>完成个人测试后再加入群组，传纯文字 <code>@選單</code> 开功能卡。群组选语卡只限开启者操作，有效 15 分钟；同群开新卡后旧卡失效。卡片、设定结果与展开的译文都会全群可见。指令直接打字，不用从成员清单标记万语通。 先测一般文字，不以正式工安或付款内容做首次测试。</p></li>
+</ol></section>
+<figure class="proof-image"><img alt="双语设定资讯图，列出 @語言設定 繁體中文 印尼文 与模式切换规则" height="720" src="/assets/guides/language-setting.jpg?v=content-sync-20261110" width="1280"/><figcaption>2026-11-10 的双语设定示意图，不是实机回复截图。繁体中文与简体中文是不同设定选项；请以 Bot 当下回复核对设定是否成功。</figcaption></figure>
+<section id="test"><h2>第一轮测试要测什么？</h2>
+<table class="check-table"><thead><tr><th>测试项目</th><th>建议输入</th><th>要确认的结果</th></tr></thead><tbody>
+<tr><td>中文翻到目标语言</td><td>明天早上八点集合</td><td>语言正确、时间没有被改动</td></tr>
+<tr><td>目标语言翻回中文</td><td>请员工用自己的语言回复「收到」</td><td>主管能看懂回复内容</td></tr>
+<tr><td>人名与代号</td><td>A 线、B 机台、员工暱称</td><td>专有名词是否需要人工补充</td></tr>
+<tr><td>群组流程</td><td>测试通知后请一人回复</td><td>群组中讯息顺序清楚、没有漏回</td></tr>
+</tbody></table>
+<p>不要只测一句「你好」。工作现场真正容易出错的是时间、数量、机台名称、地点与否定句。第一次设定就把这些元素各测一次，之后较容易建立固定的公告格式。</p>
+</section>
+<section id="check"><h2>完成设定后的检查清单</h2><ul>
+<li>知道用 <code>@語言</code> 查看目前设定。</li><li>至少完成一次双向文字翻译。</li><li>群组中的主管与一名员工都实际测试过。</li><li>知道重要内容仍需要人工确认。</li><li>需要 OCR、语音、摘要或报表时，已查看<a href="/zh-cn/blog-free-paid-plans.html">免费版与付费版差异</a>。</li>
+</ul></section>
+<section class="article-verification" id="method"><p id="current-review">2026-11-10 补充：已按现行常用选单与选语卡规则更新；未新增正式客户群测试。</p><h2>这篇教学如何核对</h2><p>2026-10-10 的先前文件核对：核对加入页、既有 Bot 程式及 2026-09-20 部署交接中的指令、双语切换、固定说明与多语显示规则；本次没有发送新的 LINE 测试讯息。</p><ul><li>图片来源：万语通团队重制的 2026-11-10 流程资讯图，图中的聊天与人物代号都是示意，不是客户或实机纪录。</li><li>历史实机依据：2026-09-20 部署交接记录 <code>@說明</code> 在正式 LINE 环境成功显示繁中主内容与英／日／韩按钮；不将该纪录当作今天的全功能实测。</li><li>本文测试句与检查表：供读者在自己的个人与群组环境验收，不是翻译准确率、付款成功或工安／医疗成效证明。</li></ul><p class="known-limit"><strong>已知限制：</strong>指令、方案与第三方平台行为可能更新；群组 Bot 讯息会显示给群组成员。平台规则可查阅 <a href="https://developers.line.biz/en/docs/messaging-api/group-chats/" rel="noopener" target="_blank">LINE Developers 群组说明</a>。</p><p class="verification-meta">内容维护：万语通团队。功能与指令若有变更，以 Bot 当下回复为准。<a href="/zh-cn/editorial.html">查看完整编辑与测试原则</a>。</p></section>
+<section class="faq" id="faq"><h2>常见问题</h2>
+<details><summary>加入好友后为什么没有自动翻译？</summary><p>先传送 <code>@說明</code> 与 <code>@語言</code>，确认目前模式与语言设定，再输入一般文字测试。若仍没有回复，请保留画面并透过官方客服表单询问。</p></details>
+<details><summary>可以一开始就用工安或付款讯息测试吗？</summary><p>不建议。先用没有风险的日常句子确认流程；涉及安全、医疗、法律或金额的内容，必须人工再确认。</p></details>
+<details><summary>指令一定要完全照本文输入吗？</summary><p>本文整理常用流程，但 Bot 会持续更新。若画面回复的指令格式与本文不同，请以 Bot 当下的 <code>@說明</code> 为准。</p></details>
+</section>
+<section><h2>延伸阅读</h2><div class="related-links"><a href="/zh-cn/blog-language-settings.html">语言设定与 36 种支援语言</a><a href="/zh-cn/blog-group-translation-checklist.html">多国籍 LINE 群组上线前检查</a><a href="/zh-cn/blog-translation-quality-checklist.html">时间、数量与否定句的翻译核对</a><a href="/zh-cn/blog.html">回到万语通知识库</a></div></section>
+<div class="article-cta"><h2>先用免费版完成第一轮测试</h2><p>原文与所有指定目标都属中英日韩时不计每日额度（繁体中文、简体中文同属中文家族，但设定与显示仍分开）；侦测原文或任一指定目标超出四语时，每则原始讯息计 1 则，每日 50 则。个人按使用者计算，群组由全群组共用。群组一般聊天的纯网址、符号、emoji 等非语言内容不自动翻译、不扣这项额度；含网址的正常文字仍可翻译。图片／语音另依明确启用的付费功能处理，不代表所有图片或语音操作免费。需要语音、图片 OCR、摘要、报表与纪录功能时，再依需求升级。</p><a href="/zh-cn/join.html">加入万语通 LINE</a></div>
+</article>
+</div>
+</main>
+<footer class="site-footer"><div class="footer-inner"><div>© 2026 万语通团队 · Email: wanyutong29@gmail.com</div><div class="footer-links"><a href="/zh-cn/editorial.html">编辑原则</a><a href="/zh-cn/privacy.html">隐私权政策</a><a href="/zh-cn/terms.html">使用条款</a><a href="/zh-cn/contact.html">联络方式</a></div></div></footer>
+<script>
+var articleEnglishCopy = {
+  "#current-review": `2026-11-10 update: checked against the current common menu and language-picker rules. No new customer-group test was sent.`,
+  '.skip-link': `Skip to article`,
+  '.site-header .nav a[href="features.html"]': `Features`,
+  '.site-header .nav a[href="pricing.html"]': `Pricing`,
+  '.site-header .nav a[href="blog.html"]': `Knowledge Base`,
+  '.site-header .nav a[href="faq.html"]': `FAQ`,
+  '.site-header .nav a[href="join.html"]': `Free Trial`,
+  '.eyebrow': `Quick Start Guide`,
+  '.article-hero h1': `First-time WanyuTong setup: From adding the LINE Bot to completing a group test`,
+  '.hero-lead': `This guide is for managers and group administrators using WanyuTong for the first time. Follow the steps to add the Bot, read the guide, set languages, add it to a group, and complete a safe test.`,
+  '.meta span:nth-child(1)': `Document updated: 2026-11-10`,
+  '.meta span:nth-child(2)': `Reading time: about 8 minutes`,
+  '.meta span:nth-child(3)': `For: personal chats and LINE groups`,
+  '.hero-figure figcaption': `A workflow diagram updated on 2026-11-10. The chat is illustrative, not a LINE device screenshot or a video capture, and is not evidence of a product test. Add the Bot as a friend before following the group-setup steps below.`,
+  '.toc strong': `Contents`,
+  '.toc a[href="#prepare"]': `Before you start`,
+  '.toc a[href="#steps"]': `Five setup steps`,
+  '.toc a[href="#test"]': `Choose test messages`,
+  '.toc a[href="#check"]': `Completion checklist`,
+  '.toc a[href="#method"]': `How this guide was verified`,
+  '.toc a[href="#faq"]': `FAQ`,
+  '.guide-body > p:first-of-type': `The most common first-time problem is a missed step, not a broken feature: adding the Bot without reading the guide, setting languages without testing, or using an important message as the first group test. Start with short text that contains no names, payment amounts, or safety instructions.`,
+  '#prepare h2': `Prepare three things before you begin`,
+  '#prepare ul li:nth-child(1)': `Confirm that you added the official WanyuTong LINE account. The LINE ID is <code>@969wpxno</code>.`,
+  '#prepare ul li:nth-child(2)': `Decide which languages the group actually needs, such as Traditional Chinese, Indonesian, Vietnamese, or Filipino.`,
+  '#prepare ul li:nth-child(3)': `Prepare two test messages: one routine notice and one simple reply. Use safety, medical, or payment content only after the test passes.`,
+  '#prepare .warning': `<strong>Safety reminder</strong>Translation can reduce misunderstandings, but safety, medical, legal, salary, and payment information must still be checked by someone who understands the context.`,
+  '#steps h2': `Complete the first setup in five steps`,
+  '#steps .step-list > li:nth-child(1) h3': `Add the official WanyuTong LINE account`,
+  '#steps .step-list > li:nth-child(1) p:nth-of-type(1)': `On a phone, open the join page and tap "Join LINE on Mobile." On desktop, scan the QR Code with LINE on your phone.`,
+  '#steps .step-list > li:nth-child(1) p:nth-of-type(2)': `<a href="join.html">Open the WanyuTong join page</a>`,
+  '#steps .step-list > li:nth-child(2) h3': `Open common functions`,
+  '#steps .step-list > li:nth-child(2) p': `On a phone, use the bottom menu in a one-to-one chat. LINE does not support a fixed rich menu in group chats; send plain-text @選單 in the group to open the same common-function card. Tap Getting Started or send <code>@新手教學</code> for the setup guide; send <code>@說明</code> for full help. Traditional Chinese is shown first with English, Japanese, and Korean buttons. Static help does not use the translation quota.`,
+  '#steps .step-list > li:nth-child(3) h3': `Check or set translation languages`,
+  '#steps .step-list > li:nth-child(3) p': `Tap Language Settings or send @語言設定 to choose a pair. Tap Persistent Multilingual or send @多語 to use a preset or choose up to 8 languages; the first is the primary language. Commands that include language names still work. Applying a valid pair turns off persistent multilingual mode; invalid input leaves the mode unchanged. Use <code>@語言</code> to review the current setting.`,
+  '#steps .step-list > li:nth-child(4) h3': `Test in a personal chat first`,
+  '#steps .step-list > li:nth-child(4) p': `Send a short message such as "Meet at 8:00 tomorrow" and confirm that the Bot replies. Then send one reply in the target language and confirm that it translates back into Traditional Chinese.`,
+  '#steps .step-list > li:nth-child(5) h3': `Add the Bot to the work group`,
+  '#steps .step-list > li:nth-child(5) p': `After testing in a private chat, add the Bot to the group and send plain-text <code>@選單</code>. A group language card can only be used by its opener for 15 minutes; a new card in the same group replaces the old one. Cards, setting results, and expanded translations are visible to the whole group. Type commands as text without mentioning the Bot. Test simple text before using important instructions.`,
+  '.proof-image figcaption': `A two-way setup diagram updated on 2026-11-10, not a device screenshot. Traditional Chinese and Simplified Chinese remain separate settings. Check the current Bot reply to confirm successful setup.`,
+  '#test h2': `What should the first test include?`,
+  '#test .check-table thead th:nth-child(1)': `Test`,
+  '#test .check-table thead th:nth-child(2)': `Suggested input`,
+  '#test .check-table thead th:nth-child(3)': `Expected result`,
+  '#test .check-table tbody tr:nth-child(1) td:nth-child(1)': `Chinese to target language`,
+  '#test .check-table tbody tr:nth-child(1) td:nth-child(2)': `Meet at 8:00 tomorrow`,
+  '#test .check-table tbody tr:nth-child(1) td:nth-child(3)': `Correct language and unchanged time`,
+  '#test .check-table tbody tr:nth-child(2) td:nth-child(1)': `Target language to Chinese`,
+  '#test .check-table tbody tr:nth-child(2) td:nth-child(2)': `Ask an employee to reply "Received" in their language`,
+  '#test .check-table tbody tr:nth-child(2) td:nth-child(3)': `The manager can understand the reply`,
+  '#test .check-table tbody tr:nth-child(3) td:nth-child(1)': `Names and codes`,
+  '#test .check-table tbody tr:nth-child(3) td:nth-child(2)': `Line A, Machine B, or an employee nickname`,
+  '#test .check-table tbody tr:nth-child(3) td:nth-child(3)': `Identify terms that need human clarification`,
+  '#test .check-table tbody tr:nth-child(4) td:nth-child(1)': `Group workflow`,
+  '#test .check-table tbody tr:nth-child(4) td:nth-child(2)': `Ask one person to reply to a test notice`,
+  '#test .check-table tbody tr:nth-child(4) td:nth-child(3)': `Clear message order with no missing reply`,
+  '#test > p:last-child': `Do not test only with "Hello." Workplace errors usually involve times, quantities, machine names, locations, and negative statements. Test each type once and then create a consistent notice format.`,
+  '#check h2': `Checklist after setup`,
+  '#check ul li:nth-child(1)': `You know how to use <code>@語言</code> to check the current setting.`,
+  '#check ul li:nth-child(2)': `You completed at least one two-way text translation.`,
+  '#check ul li:nth-child(3)': `A manager and at least one employee tested the group.`,
+  '#check ul li:nth-child(4)': `You know that important content still requires human confirmation.`,
+  '#check ul li:nth-child(5)': `For OCR, voice, summaries, or reports, review the <a href="blog-free-paid-plans.html">free and paid plan differences</a>.`,
+  '#method h2': `How this guide was verified`,
+  '#method > p:nth-of-type(2)': `The earlier 2026-10-10 document review checked the join page, existing Bot code, and the 2026-09-20 deployment handoff for commands, mode switching, static help, and multilingual display. No new LINE test messages were sent in this review.`,
+  '#method ul li:nth-child(1)': `Image source: workflow diagrams updated by the WanyuTong Team on 2026-11-10. Chats and person codes are illustrative, not customer or device records.`,
+  '#method ul li:nth-child(2)': `Historical device evidence: the 2026-09-20 deployment handoff records successful production <code>@說明</code> replies with Traditional Chinese content and English/Japanese/Korean buttons. This is not a full feature test performed today.`,
+  '#method ul li:nth-child(3)': `The sample messages and checklist are for readers to validate their own personal and group environment, not evidence of translation accuracy, payment success, or safety/medical outcomes.`,
+  '#method .known-limit': `<strong>Known limits:</strong> Commands, plans, and third-party platform behavior can change. Bot messages in a group are visible to group members. See <a href="https://developers.line.biz/en/docs/messaging-api/group-chats/" target="_blank" rel="noopener">LINE Developers group chat documentation</a>.`,
+  '#method .verification-meta': `Maintained by the WanyuTong Team. If commands change, follow the latest Bot reply. <a href="editorial.html">Read the full editorial and testing policy</a>.`,
+  '#faq h2': `Frequently asked questions`,
+  '#faq details:nth-of-type(1) summary': `Why does translation not start immediately after adding the Bot?`,
+  '#faq details:nth-of-type(1) p': `Send <code>@說明</code> and <code>@語言</code> first, confirm the current mode and languages, and then send a regular test message. If it still does not reply, keep a screenshot and contact support through the official form.`,
+  '#faq details:nth-of-type(2) summary': `Can I test with a safety or payment message first?`,
+  '#faq details:nth-of-type(2) p': `No. Start with a low-risk routine message. Safety, medical, legal, and payment information must be checked by a person.`,
+  '#faq details:nth-of-type(3) summary': `Must I type every command exactly as shown here?`,
+  '#faq details:nth-of-type(3) p': `This article lists the common workflow, but the Bot continues to improve. If a format differs, follow the latest <code>@說明</code> reply from the Bot.`,
+  '.guide-body > section:last-of-type h2': `Related guides`,
+  '.related-links a:nth-child(1)': `Language settings and 36 supported languages`,
+  '.related-links a:nth-child(2)': `Checklist before launching a multilingual LINE group`,
+  '.related-links a:nth-child(3)': `Check time, quantity, and negative statements`,
+  '.related-links a:nth-child(4)': `Back to the WanyuTong knowledge base`,
+  '.article-cta h2': `Complete the first test on the free plan`,
+  '.article-cta p': `The free plan does not use the daily quota when the source and all configured targets are Chinese, English, Japanese, or Korean. Traditional and Simplified Chinese belong to the same free family but remain separate settings and labels. If the detected source or any configured target is outside those four, one original message uses one of 50 daily credits. Personal usage is per user; a group shares one group quota. Pure URLs, symbols, and emoji in ordinary group chat are not automatically translated or charged against this quota; meaningful text with a URL can still be translated. Image and voice processing follow explicitly enabled paid features, not a blanket free exemption. Upgrade only when you need voice, image OCR, summaries, reports, or record tools.`,
+  '.article-cta a': `Add WanyuTong on LINE`,
+  '.site-footer .footer-inner > div:first-child': `© 2026 WanyuTong Team · Email: wanyutong29@gmail.com`,
+  '.site-footer a[href="editorial.html"]': `Editorial Policy`,
+  '.site-footer a[href="privacy.html"]': `Privacy Policy`,
+  '.site-footer a[href="terms.html"]': `Terms of Service`,
+  '.site-footer a[href="contact.html"]': `Contact`
+};
+var articleOriginalCopy = {};
+Object.keys(articleEnglishCopy).forEach(function(selector) {
+  var element = document.querySelector(selector);
+  if (element) articleOriginalCopy[selector] = element.innerHTML;
+});
+
+function updateArticleThemeButton() {
+  var button = document.getElementById('article-theme-switch');
+  if (!button) return;
+  var isLight = document.documentElement.classList.contains('light');
+  var isEnglish = document.documentElement.lang === 'en';
+  button.textContent = isLight ? '☀' : '☾';
+  if (document.documentElement.hasAttribute('data-wyt-static-locale')) return;
+  button.setAttribute('aria-label', isEnglish ? 'Switch light or dark mode' : '切換日夜模式');
+  button.setAttribute('title', isEnglish ? 'Switch light or dark mode' : '切換日夜模式');
+}
+
+function setArticleLang(lang) {
+  if (document.documentElement.hasAttribute('data-wyt-static-locale')) return;
+  var isEnglish = lang === 'en';
+  Object.keys(articleEnglishCopy).forEach(function(selector) {
+    var element = document.querySelector(selector);
+    if (!element) return;
+    element.innerHTML = isEnglish ? articleEnglishCopy[selector] : articleOriginalCopy[selector];
+  });
+  document.documentElement.lang = isEnglish ? 'en' : 'zh-Hant';
+  document.title = isEnglish
+    ? 'First-time WanyuTong Setup | LINE Bot, Languages, and Group Test'
+    : '萬語通第一次使用教學｜加入 LINE Bot、設定語言與群組測試';
+  var description = document.querySelector('meta[name="description"]');
+  if (description) description.setAttribute('content', isEnglish
+    ? 'A complete first-time WanyuTong setup guide: add the LINE Bot, read the four-language help, set translation languages, and complete a safe group test.'
+    : '從加入萬語通 LINE 官方帳號、查看說明、設定翻譯語言，到把 Bot 加入工作群組並完成第一輪測試的完整操作教學。');
+  document.getElementById('article-lang-zh').classList.toggle('active', !isEnglish);
+  document.getElementById('article-lang-en').classList.toggle('active', isEnglish);
+  document.getElementById('article-lang-zh').setAttribute('aria-pressed', isEnglish ? 'false' : 'true');
+  document.getElementById('article-lang-en').setAttribute('aria-pressed', isEnglish ? 'true' : 'false');
+  var langGroup = document.querySelector('.article-lang-switch');
+  if (langGroup) langGroup.setAttribute('aria-label', isEnglish ? 'Language switch' : '語言切換');
+  var primaryNav = document.querySelector('.site-header .nav');
+  if (primaryNav) primaryNav.setAttribute('aria-label', isEnglish ? 'Primary navigation' : '主要導覽');
+  var toc = document.querySelector('.toc');
+  if (toc) toc.setAttribute('aria-label', isEnglish ? 'Article contents' : '文章目錄');
+  try { localStorage.setItem('wyt-lang', isEnglish ? 'en' : 'zh'); } catch (e) {}
+  updateArticleThemeButton();
+}
+
+function setArticleTheme(theme) {
+  var isLight = theme === 'light';
+  document.documentElement.classList.toggle('light', isLight);
+  document.documentElement.classList.toggle('dark', !isLight);
+  var themeColor = document.querySelector('meta[name="theme-color"]');
+  if (themeColor) themeColor.setAttribute('content', isLight ? '#ffffff' : '#08130f');
+  try { localStorage.setItem('wyt-theme', isLight ? 'light' : 'dark'); } catch (e) {}
+  updateArticleThemeButton();
+}
+
+function toggleArticleTheme() {
+  setArticleTheme(document.documentElement.classList.contains('light') ? 'dark' : 'light');
+}
+
+(function initializeArticleUi() {
+  var lang = 'zh';
+  var theme = document.documentElement.classList.contains('light') ? 'light' : 'dark';
+  try { lang = localStorage.getItem('wyt-lang') === 'en' ? 'en' : 'zh'; } catch (e) {}
+  setArticleTheme(theme);
+  setArticleLang(lang);
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register(document.documentElement.hasAttribute('data-wyt-static-locale') ? '/sw.js' : 'sw.js').catch(function() {});
+    });
+  }
+}());
+</script>
+</body></html>

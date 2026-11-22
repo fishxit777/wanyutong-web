@@ -36,6 +36,7 @@
     } else if (location.hostname !== 'wanyutong.tw' && location.hostname !== 'www.wanyutong.tw') {
       return null;
     }
+    path = path.replace(/^\/(?:zh-cn|en|ja|ko|id)(?=\/)/, '');
     if (path === '/' || path === '/index.html') return 'index';
     if (!/^\/[a-z0-9-]+\.html$/.test(path)) return null;
     var page = path.slice(1, -5);

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-Hant">
+<html data-wyt-static-locale="zh" lang="zh-Hant">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -31,13 +31,13 @@
   }
   </script>
   <meta name="referrer" content="origin">
-  <script src="assets/wanyutong-analytics.js?v=20261110-v2" defer></script>
-</head>
+  <script src="assets/wanyutong-analytics.js?v=20261122-static-site-locales-v2" defer></script>
+<link href="https://wanyutong.tw/editorial.html" hreflang="zh-Hant" rel="alternate"/><link href="https://wanyutong.tw/zh-cn/editorial.html" hreflang="zh-Hans" rel="alternate"/><link href="https://wanyutong.tw/en/editorial.html" hreflang="en" rel="alternate"/><link href="https://wanyutong.tw/ja/editorial.html" hreflang="ja" rel="alternate"/><link href="https://wanyutong.tw/ko/editorial.html" hreflang="ko" rel="alternate"/><link href="https://wanyutong.tw/id/editorial.html" hreflang="id" rel="alternate"/><link href="https://wanyutong.tw/editorial.html" hreflang="x-default" rel="alternate"/><link crossorigin="anonymous" href="/assets/wanyutong-locales.css" integrity="sha384-cIx49eMrb3Om6X7ymf2/rdfid9IQAGlV8SSqZLCMvj7PFMqgvDJ40Xgcph58QmJn" rel="stylesheet"/><script crossorigin="anonymous" defer="" integrity="sha384-V4DoDhAHZf/3QkpiLy9FxEY13dMMgM4XAtrcg/jZvJVQxDVRQ1y8j0WpN0m4ZWMT" src="/assets/wanyutong-locale-menu.js"></script></head>
 <body>
 <a class="skip-link" href="#editorial">跳到主要內容</a>
 <header class="site-header article-ui-header"><div class="header-inner">
   <a class="brand" href="index.html"><img src="assets/wanyutong-logo.jpg" alt="萬語通標誌" width="40" height="40"><span>萬語通 WanyuTong</span></a>
-  <nav class="nav" aria-label="主要導覽"><a href="features.html">功能</a><a href="pricing.html">收費方案</a><a href="blog.html">知識庫</a><a href="about.html">關於我們</a><span class="article-controls"><span class="article-lang-switch" role="group" aria-label="語言切換"><button id="article-lang-zh" class="active" type="button" onclick="setArticleLang('zh')">繁中</button><button id="article-lang-en" type="button" onclick="setArticleLang('en')">EN</button></span><button class="article-theme-switch" id="article-theme-switch" type="button" onclick="toggleArticleTheme()" aria-label="切換日夜模式" title="切換日夜模式">月</button></span><a class="nav-action" href="join.html">免費體驗</a></nav>
+  <nav class="nav" aria-label="主要導覽"><a href="features.html">功能</a><a href="pricing.html">收費方案</a><a href="blog.html">知識庫</a><a href="about.html">關於我們</a><span class="article-controls"><details class="wyt-language"><summary aria-label="語言: 繁體中文" data-compact="繁中"><span>繁體中文</span></summary><div aria-label="語言" class="wyt-language-options"><a aria-current="page" href="/editorial.html" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a><a href="/zh-cn/editorial.html" hreflang="zh-Hans" lang="zh-Hans">简体中文</a><a href="/en/editorial.html" hreflang="en" lang="en">English</a><a href="/ja/editorial.html" hreflang="ja" lang="ja">日本語</a><a href="/ko/editorial.html" hreflang="ko" lang="ko">한국어</a><a href="/id/editorial.html" hreflang="id" lang="id">Bahasa Indonesia</a></div></details><span class="article-lang-switch" role="group" aria-label="語言切換" hidden="" data-wyt-legacy-language=""><button id="article-lang-zh" class="active" type="button" onclick="setArticleLang('zh')">繁中</button><button id="article-lang-en" type="button" onclick="setArticleLang('en')">EN</button></span><button class="article-theme-switch" id="article-theme-switch" type="button" onclick="toggleArticleTheme()" aria-label="切換日夜模式" title="切換日夜模式">月</button></span><a class="nav-action" href="join.html">免費體驗</a></nav>
 </div></header>
 
 <main id="editorial">
@@ -143,8 +143,8 @@ var articleEnglishCopy = {
 };
 var articleOriginalCopy = {};
 Object.keys(articleEnglishCopy).forEach(function(selector){var element=document.querySelector(selector);if(element)articleOriginalCopy[selector]=element.innerHTML;});
-function updateArticleThemeButton(){var button=document.getElementById('article-theme-switch');if(!button)return;var isLight=document.documentElement.classList.contains('light');var isEnglish=document.documentElement.lang==='en';button.textContent=isLight?'☀':'☾';button.setAttribute('aria-label',isEnglish?'Switch light or dark mode':'切換日夜模式');button.setAttribute('title',isEnglish?'Switch light or dark mode':'切換日夜模式');}
-function setArticleLang(lang){var isEnglish=lang==='en';Object.keys(articleEnglishCopy).forEach(function(selector){var element=document.querySelector(selector);if(element)element.innerHTML=isEnglish?articleEnglishCopy[selector]:articleOriginalCopy[selector];});document.documentElement.lang=isEnglish?'en':'zh-Hant';document.title=isEnglish?'WanyuTong Editorial and Testing Policy':'內容編輯與測試原則｜萬語通 WanyuTong';document.getElementById('article-lang-zh').classList.toggle('active',!isEnglish);document.getElementById('article-lang-en').classList.toggle('active',isEnglish);try{localStorage.setItem('wyt-lang',isEnglish?'en':'zh');}catch(e){}updateArticleThemeButton();}
+function updateArticleThemeButton(){var button=document.getElementById('article-theme-switch');if(!button)return;var isLight=document.documentElement.classList.contains('light');var isEnglish=document.documentElement.lang==='en';button.textContent=isLight?'☀':'☾';if(document.documentElement.hasAttribute('data-wyt-static-locale'))return;button.setAttribute('aria-label',isEnglish?'Switch light or dark mode':'切換日夜模式');button.setAttribute('title',isEnglish?'Switch light or dark mode':'切換日夜模式');}
+function setArticleLang(lang){if(document.documentElement.hasAttribute('data-wyt-static-locale'))return;var isEnglish=lang==='en';Object.keys(articleEnglishCopy).forEach(function(selector){var element=document.querySelector(selector);if(element)element.innerHTML=isEnglish?articleEnglishCopy[selector]:articleOriginalCopy[selector];});document.documentElement.lang=isEnglish?'en':'zh-Hant';document.title=isEnglish?'WanyuTong Editorial and Testing Policy':'內容編輯與測試原則｜萬語通 WanyuTong';document.getElementById('article-lang-zh').classList.toggle('active',!isEnglish);document.getElementById('article-lang-en').classList.toggle('active',isEnglish);try{localStorage.setItem('wyt-lang',isEnglish?'en':'zh');}catch(e){}updateArticleThemeButton();}
 function setArticleTheme(theme){var isLight=theme==='light';document.documentElement.classList.toggle('light',isLight);document.documentElement.classList.toggle('dark',!isLight);try{localStorage.setItem('wyt-theme',isLight?'light':'dark');}catch(e){}updateArticleThemeButton();}
 function toggleArticleTheme(){setArticleTheme(document.documentElement.classList.contains('light')?'dark':'light');}
 (function(){var lang='zh';var theme=document.documentElement.classList.contains('light')?'light':'dark';try{lang=localStorage.getItem('wyt-lang')==='en'?'en':'zh';}catch(e){}setArticleTheme(theme);setArticleLang(lang);}());

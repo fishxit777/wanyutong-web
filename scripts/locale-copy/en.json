@@ -2265,8 +2265,8 @@
   "觀看完整上手指南": "Watch the complete guide",
   "依公告日期整理。可直接查閱，無須登入。": "Announcements are listed by date. No sign-in is required.",
   "2026 年 11 月 26 日": "November 26, 2026",
-  "LINE 群組譯文卡已部署，示範群試用": "LINE group translation cards are live in the demo group",
-  "萬語通示範群組成員。": "Members of the WanyuTong demo group.",
-  "功能按群組啟用，目前僅於示範群開放試用。其他群組的翻譯照常。": "Translation cards are enabled per group. The trial is currently available only in the demo group. Translation in other groups continues as usual.",
-  "在譯文卡點「換我的顏色」，選擇 20 種底色之一或無填色。儲存後，新顏色從你在該群的下一則譯文開始生效。若看到加好友邀請，可點「先不用，回群組」。": "Tap “換我的顏色” (Change my color) on a translation card and choose one of 20 background colors or no fill. Once saved, your color will appear on your next translation in that group. If you see an invitation to add WanyuTong, you can skip it and return to the group."
+  "LINE 群組譯文卡開放所有萬語通群組": "LINE translation cards are now available in all WanyuTong groups",
+  "所有使用萬語通翻譯的 LINE 群組。": "All LINE groups that use WanyuTong translation.",
+  "既有與新加入的群組預設開啟譯文卡。萬語通管理員可逐群關閉。符合卡片顯示條件的文字譯文會標示發言者並套用底色。較長的譯文及需要保留原格式的回覆會照原方式顯示。": "Translation cards are on by default in existing and newly joined groups. WanyuTong administrators can turn them off for individual groups. Eligible text translations appear in colored cards with the sender’s name. Longer translations and replies that require their original format continue to appear as before.",
+  "在譯文卡點「換我的顏色」，可選 20 種底色或無填色。儲存後，新色從你在該群的下一則譯文生效。首次儲存後若看到加好友邀請，可點「先不用，回群組」。尚未加萬語通好友的帳號，換色流程仍待實機驗證。": "Tap “換我的顏色” (Change my color) on a translation card and choose one of 20 background colors or no fill. Your choice takes effect on your next translation in that group. If you see an invitation to add WanyuTong after your first save, you can skip it and return to the group. The color-change flow for LINE accounts that have yet to add WanyuTong as a friend is pending testing on a real device."
 }
